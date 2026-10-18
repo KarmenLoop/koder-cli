@@ -1,0 +1,20 @@
+{
+  "name": "koder-cli",
+  "version": "0.2.0",
+  "description": "Koder CLI: terminal coding agent with MoA and chat gateways, built on the Koder kernel",
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "bin": {
+    "koder": "bin/koder.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test --test-timeout=60000 test/*.test.mjs",
+    "bench": "node scripts/bench-startup.mjs",
+    "bundle-kernel": "node scripts/bundle-kernel.mjs",
+    "pack": "node scripts/pack.mjs"
+  }
+}
