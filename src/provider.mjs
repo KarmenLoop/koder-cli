@@ -1,3 +1,4 @@
+import { effectiveLimits } from "./model-limits.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { cliHome } from "./config.mjs";
@@ -46,8 +47,7 @@ export function normalizeRecord(raw, env = process.env) {
     auth,
     apiKey,
   };
-  if (Number.isFinite(Number(raw.contextWindow)) && Number(raw.contextWindow) > 0) record.contextWindow = Number(raw.contextWindow);
-  if (Number.isFinite(Number(raw.maxOutput)) && Number(raw.maxOutput) > 0) record.maxOutput = Number(raw.maxOutput);
+  Object.assign(record, effectiveLimits(raw));
   for (const key of PASS) if (raw[key] !== undefined) record[key] = raw[key];
   return record;
 }

@@ -3,7 +3,7 @@ import path from "node:path";
 
 // ACP client: drives an external agent (e.g. `hermes acp`) over stdio and maps
 // its updates and permission requests onto Koder's turn events and approvals.
-export function createAcpClient({ command, args = [], env = process.env, cwd, version = "0.3.0", onUpdate = () => {}, onPermission, log = () => {} }) {
+export function createAcpClient({ command, args = [], env = process.env, cwd, version = "0.3.1", onUpdate = () => {}, onPermission, log = () => {} }) {
   const child = spawn(command, args, { cwd, env, stdio: ["pipe", "pipe", "pipe"] });
   const pending = new Map();
   let nextId = 1;

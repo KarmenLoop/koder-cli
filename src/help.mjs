@@ -294,7 +294,7 @@ export const COMMANDS = [
   {
     name: "model", aliases: ["模型"], group: "setup",
     summary: L("配置模型（复用 Koder 的 31 个预设）", "Configure the model (31 Koder presets)"),
-    usage: "koder model show [名称] | test [名称] | presets | set | add <名称> | list | use <名称> | remove <名称> | clear",
+    usage: "koder model show [名称] | test [名称] | context [名称] | presets | set | add <名称> | list | use <名称> | remove <名称> | clear",
     flags: [
       ["--preset <id>", L("用 Koder 预设，例如 deepseek、kimi、qwen、claude、chatgpt、local", "Koder preset such as deepseek, kimi, qwen, claude, chatgpt, local")],
       ["--base-url <地址>", L("兼容接口地址", "Compatible API base URL")],
@@ -302,7 +302,8 @@ export const COMMANDS = [
       ["--protocol openai|anthropic", L("接口协议", "API protocol")],
       ["--key-env <变量名>", L("从环境变量读密钥（推荐，配置里只存变量名）", "Read the key from an env var (recommended; only the name is saved)")],
       ["--key-stdin", L("从标准输入读密钥", "Read the key from stdin")],
-      ["--context-window <tokens>", L("上下文窗口", "Context window")],
+      ["--context-window <tokens>", L("服务商实际支持的上下文窗口", "The actual model context window")],
+      ["--max-output <tokens>", L("每次输出上限，也计入上下文窗口", "Output ceiling, counted within the context window")],
     ],
     detail: L(
       "配置保存在 ~/.koder-cli/provider.json，权限 600。直接粘贴的密钥是明文保存的，推荐改用 --key-env。CI 里可以只设 KODER_MODEL、KODER_BASE_URL、KODER_API_KEY 环境变量。",
@@ -311,6 +312,7 @@ export const COMMANDS = [
     examples: [
       ["koder model set --preset deepseek --key-env DEEPSEEK_API_KEY", L("用 DeepSeek", "Use DeepSeek")],
       ["koder model set --preset local --model qwen3:8b", L("用本机 Ollama", "Use local Ollama")],
+      ["koder model context --context-window 1048576 --max-output 8192", L("仅调整窗口与输出，保留当前模型和密钥", "Change limits while keeping the current model and credentials")],
     ],
   },
   {

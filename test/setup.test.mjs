@@ -303,3 +303,15 @@ test("editor --os and engine install on Windows", async () => {
   assert.equal(hermes.code, 1);
   assert.match(hermes.err + hermes.out, /WSL/);
 });
+
+test('context settings edit active model limits without re-entering the API key',async()=>{
+  const term=terminal(),home=tmp(),file=path.join(home,'provider.json');
+  fs.writeFileSync(file,JSON.stringify({model:'fixture',baseUrl:'https://example.invalid/v1',apiKey:'fixture-context-secret',contextWindow:8192,maxOutput:1024}));
+  const running=cli(['setup'],{home,io:{stdin:term.input,stdout:term.output,noTerminal:false}});
+  try {
+    await term.until(/KODER CLI/);term.click('上下文与输出');await term.until(/contextWindow \(tokens\)/);
+    term.send('\x15128000\r');await term.until(/maxOutput \(tokens\)/);term.send('\x158192\r');
+    await term.until(/上下文配置已保存/);term.send(' ');await term.until(/128000 \/ 8192 tokens/);term.send('\x1b');
+    const result=await running;assert.equal(result.code,0,result.err);const stored=JSON.parse(fs.readFileSync(file));assert.equal(stored.contextWindow,128000);assert.equal(stored.maxOutput,8192);assert.equal(stored.apiKey,'fixture-context-secret');assert.doesNotMatch(term.output.text,/fixture-context-secret/);
+  } finally {term.send('\x03');}
+});

@@ -8,7 +8,7 @@ import { createT } from "./i18n.mjs";
 import { resolveProvider } from "./provider.mjs";
 import { detectTheme, setTheme } from "./theme.mjs";
 
-export const VERSION = "0.3.0";
+export const VERSION = "0.3.1";
 
 const LOADERS = {
   chat: () => import("./commands/chat.mjs"),

@@ -96,6 +96,21 @@ function show(ctx, found) {
 export async function run(ctx) {
   const [action = "show", target] = ctx.positionals;
   const out = (line) => ctx.stdout.write(`${line}\n`);
+  if (action === "context" || action === "limits") {
+    if (!target && ctx.findProvider()?.source === "env") throw new Error("Context is controlled by KODER_CONTEXT_WINDOW and KODER_MAX_OUTPUT in the current environment.");
+    const name = target ? checkName(target) : activeModelName(ctx.env);
+    const found = loadModel(name, ctx.env);
+    if (ctx.opts.contextWindow !== undefined || ctx.opts.maxOutput !== undefined) {
+      const raw = JSON.parse(fs.readFileSync(found.source, "utf8"));
+      raw.contextWindow = ctx.opts.contextWindow ?? found.record.contextWindow;
+      raw.maxOutput = ctx.opts.maxOutput ?? Math.min(found.record.maxOutput, Math.floor(raw.contextWindow / 4));
+      saveModel(name, raw, ctx.env);
+      ctx._record = undefined;
+    }
+    const { record } = loadModel(name, ctx.env);
+    out(`${name}: contextWindow=${record.contextWindow}; maxOutput=${record.maxOutput}`);
+    return 0;
+  }
   if (action === "test" || action === "check") {
     const { printModelCheck } = await import("../model-check.mjs");
     const found = target ? loadModel(checkName(target), ctx.env) : ctx.requireProvider();

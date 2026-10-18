@@ -113,7 +113,7 @@ test("usage errors exit 2 with a translated message", async () => {
   assert.equal(flag.code, 2);
   assert.match(flag.err, /Unknown option: --bogus/);
   const version = await cli(["--version"]);
-  assert.equal(version.out.trim(), "koder 0.3.0");
+  assert.equal(version.out.trim(), "koder 0.3.1");
 });
 
 test("model set saves mode 600 and never prints the key", async () => {
@@ -152,7 +152,7 @@ test("who made the tool is answered from the official site, with no model and no
   assert.match(asked.out, /https:\/\/karmenloop\.com\/updates\.html/);
   assert.doesNotMatch(asked.out, /还没有配置模型/);
   const version = await cli(["version"]);
-  assert.match(version.out, /^koder 0\.3\.0\n/);
+  assert.match(version.out, /^koder 0\.3\.1\n/);
   assert.match(version.out, /https:\/\/karmenloop\.com\/updates\.html/);
   const about = await cli(["--lang", "en", "about"]);
   assert.match(about.out, /written by KARMEN LOOP/);

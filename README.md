@@ -1,6 +1,6 @@
 # Koder CLI
 
-Current release: 0.3.0
+Current release: 0.3.1
 
 KARMEN / Koder is our product. We wrote KARMEN and Koder ourselves. The kernel is called KARMEN LOOP. On your computer it works in a loop: perceive, decide, act. Koder works in the folder you name. KARMEN BOT is the personal assistant in the same family. This page is the terminal product: install it, set a model, and use it. The desktop app is a separate installer on the website.
 
@@ -272,7 +272,11 @@ koder ask "Use no saved history for this request" --no-memory
 
 Use `--session <name>` for independent tasks in the same directory. `/new` in chat starts fresh; it also works before the first prompt. Chat-app history is partitioned by platform, bot/account, chat and sender; it resumes after the gateway restarts, and `/new` resets only that context. A reset archives the preceding conversation; it does not undo completed file operations. Pending approvals, execution queues and partial tool calls are never restored as executable work. Missing tool receipts are explicitly unknown and require a current-state check.
 
-Older turns are retained in local history. When the model window fills, Koder sends recent complete turns plus bounded, chronological extracts of the original task and relevant older context. These are extracts rather than a second model-generated summary. Tool calls and results stay paired. The request's output allowance is adjusted to the actual remaining input/tool budget; an indivisible oversized turn fails with a clear context-budget error. Set `contextWindow` and `maxOutput` to the actual limits of your configured model.
+Older turns are retained in local history. When the model window fills, Koder sends recent complete turns plus bounded, chronological extracts of the original task and relevant older context. These are extracts rather than a second model-generated summary. Tool calls and results stay paired. Large tool results are projected as excerpts; completed tool groups can become bounded receipt summaries so a long task can continue within one user turn. Full messages remain in local history. Input, tools, carry-over and output share the same window. Use the actual limits of your model and endpoint; an input or tool schema larger than that physical window still needs a larger supported model. MiniMax-M3 defaults to its published 1M window when limits are omitted.
+
+Change limits without re-entering credentials: `koder model context --context-window 1048576 --max-output 32768`. In an open chat use `/model context` with the same flags; saved model and limit changes also reload before the next turn. The setup menu includes **Context and output**. The output ceiling is part of the window, not extra space.
+
+Run `/connect weixin` inside a chat (or `koder connect weixin` in your shell) to start binding directly, independently of any model request. Scan and confirm using WeChat on your phone. A local context failure is reported separately from network, authentication, rate-limit and invalid-response failures.
 
 ```bash
 koder memory show

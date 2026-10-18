@@ -42,6 +42,7 @@ const COPY = {
       editor: ["编辑器", "给 Zed、Neovim、Emacs 生成接入配置，一键复制到剪贴板，再粘进编辑器的配置文件。"],
       learn: ["互动教程", (shell) => `17 课，按 ${shell} 的写法来讲，在练习场里边学边动手，不花一分钱。`],
       doctor: ["体检", "检查 Node.js、Git、模型、颜色和启动速度。哪里不对劲，先来这里看看。"],
+      context: ["上下文与输出", "设置当前模型实际支持的上下文窗口和每次输出上限，保留现有密钥。"],
       done: ["完成", "所有设置都已经保存好了。之后在终端里输入 koder 就能开始干活。"],
     },
     zh: "中文", en: "English",
@@ -134,6 +135,7 @@ const COPY = {
       editor: ["Editors", "Generate the Zed, Neovim or Emacs config, copy it in one go, paste it into the editor's settings."],
       learn: ["Tutorial", (shell) => `17 lessons written for ${shell}, hands-on in a practice project, free of charge.`],
       doctor: ["Check-up", "Checks Node.js, Git, the model, colours and startup time. Start here when something feels off."],
+      context: ["Context and output", "Set the active model context window and output limit, keeping its saved credentials."],
       done: ["Done", "Everything is saved. Type koder in a terminal to get to work."],
     },
     zh: "中文", en: "English",
@@ -264,6 +266,7 @@ async function menuItems(ctx, c, shell) {
     editor: { value: c.editors },
     learn: { value: tutorial.done ? c.learnDone : tutorial.lesson > 1 ? c.learnAt(tutorial.lesson) : c.learnNew },
     doctor: { value: "" },
+    context: { value: (() => { try { const r=ctx.findProvider()?.record; return r ? `${r.contextWindow} / ${r.maxOutput} tokens` : c.noModel; } catch { return c.noModel; } })() },
     done: { value: "" },
   };
   return Object.entries(c.items).map(([id, [label, hint]]) => ({ id, label, hint: pick(hint, shellName(shell, ctx.lang)), ...values[id] }));
@@ -408,6 +411,23 @@ async function chooseModel(ctx, screen, c, shell) {
   return null;
 }
 
+async function chooseContext(ctx, screen, c) {
+  const found=ctx.findProvider();
+  if(!found) return notice(screen,{title:c.modelTitle,lines:[c.noModel],footer:c.anyKey});
+  const en=ctx.lang==='en',record=found.record;
+  const title=en?'Context and output':'上下文与输出';
+  const contextWindow=await prompt(screen,{title,label:'contextWindow (tokens)',initial:String(record.contextWindow),header:[en?'Use the actual limit for this model and endpoint.':'请填写当前型号与接口实际支持的窗口；输出上限也占用这个窗口。'],footer:c.inputFooter,validate:v=>Number.isSafeInteger(Number(v))&&Number(v)>=2048&&Number(v)<=16777216?'':(en?'Enter an integer between 2048 and 16777216':'请输入 2048 至 16777216 之间的整数')});
+  if(contextWindow==null)return null;
+  const maxOutput=await prompt(screen,{title,label:'maxOutput (tokens)',initial:String(Math.min(record.maxOutput,Math.floor(Number(contextWindow)/4))),header:[en?'This is an output ceiling, not additional input context.':'这是每次输出的上限，并非额外输入空间。较小的输出预留能留出更多历史容量。'],footer:c.inputFooter,validate:v=>Number.isSafeInteger(Number(v))&&Number(v)>=256&&Number(v)<Number(contextWindow)?'':(en?'Output must be at least 256 and below the window':'输出至少 256，且必须小于上下文窗口')});
+  if(maxOutput==null)return null;
+  screen.stop();
+  let code;
+  try { code=await ctx.dispatch(['model','context','--context-window',contextWindow,'--max-output',maxOutput],{noStdin:true}); }
+  finally { screen.start(); }
+  ctx._record=undefined;
+  return notice(screen,{title,lines:[code===0?(en?'Context limits saved.':'上下文配置已保存。'):(en?'Context limits were not saved; check the command error.':'上下文未保存，请检查命令错误。')],footer:c.anyKey});
+}
+
 async function chooseEngine(ctx, screen, c, shell) {
   const current = ctx.config.engine || "koder";
   const hermes = { ...HERMES_ENGINE, ...(ctx.config.engines?.hermes || {}) };
@@ -495,7 +515,7 @@ export async function run(ctx) {
   }
   const shell = detectShell({ env: ctx.env, platform: ctx.io.platform || process.platform });
   const screen = createScreen({ input: ctx.stdin, output: ctx.stdout, depth: ctx.depth, ascii: useAscii(ctx) });
-  const handlers = { lang: chooseLang, theme: chooseTheme, glyphs: chooseGlyphs, anim: chooseAnim, model: chooseModel, engine: chooseEngine, gateway: chooseGateway, editor: chooseEditor };
+  const handlers = { lang: chooseLang, theme: chooseTheme, glyphs: chooseGlyphs, anim: chooseAnim, model: chooseModel, context: chooseContext, engine: chooseEngine, gateway: chooseGateway, editor: chooseEditor };
   let index = null;
   screen.start();
   try {

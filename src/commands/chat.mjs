@@ -13,8 +13,8 @@ import { flags as bannerFlags, showBanner } from "./banner.mjs";
 
 export const flags = { ...bannerFlags };
 
-const SLASH = ["/help", "/about", "/setup", "/learn", "/lang", "/mode", "/yes", "/moa", "/engine", "/new", "/memory", "/review", "/fix", "/test", "/scan", "/flow", "/model", "/gateway", "/doctor", "/editor", "/banner", "/exit", "/quit"];
-const FORWARD = new Set(["review", "fix", "test", "scan", "flow", "model", "doctor", "editor", "gateway", "memory"]);
+const SLASH = ["/help", "/about", "/setup", "/learn", "/lang", "/mode", "/yes", "/moa", "/engine", "/new", "/memory", "/review", "/fix", "/test", "/scan", "/flow", "/model", "/connect", "/gateway", "/doctor", "/editor", "/banner", "/exit", "/quit"];
+const FORWARD = new Set(["review", "fix", "test", "scan", "flow", "model", "doctor", "editor", "gateway", "connect", "memory"]);
 
 function words(text) {
   const out = [];
@@ -81,6 +81,7 @@ export async function run(ctx) {
   const turnCtx = Object.create(ctx);
   turnCtx.io = { ...ctx.io, prompter };
   let session = null;
+  let sessionModel = null;
   let busy = false;
   let yes = Boolean(ctx.opts.yes);
   let mode = ctx.opts.mode || "standard";
@@ -163,7 +164,12 @@ export async function run(ctx) {
     } else if (FORWARD.has(name)) {
       busy = true;
       try {
-        await ctx.dispatch([name, ...args, "-w", session?.workspace || ctx.workspace(), ...(name === "memory" && ctx.opts.session ? ["--session", ctx.opts.session] : []), ...(yes ? ["--yes"] : [])], { prompter, noStdin: true });
+        const code = await ctx.dispatch([name, ...args, "-w", session?.workspace || ctx.workspace(), ...(name === "memory" && ctx.opts.session ? ["--session", ctx.opts.session] : []), ...(yes ? ["--yes"] : [])], { prompter, noStdin: true });
+        if (code === 0 && name === "model" && ["use", "set", "add", "remove", "clear", "context", "limits"].includes(args[0])) {
+          reload(ctx);
+          delete turnCtx._record;
+          session = null;
+        }
       } finally {
         busy = false;
       }
@@ -187,6 +193,15 @@ export async function run(ctx) {
       continue;
     }
     try {
+      // Another terminal may have changed the active model or its limits. A
+      // cached harness must not keep the old window/endpoint indefinitely.
+      reload(ctx);
+      delete turnCtx._record;
+      const external = (turnCtx.opts.engine || ctx.config.engine || 'koder') !== 'koder';
+      const found = external ? null : ctx.findProvider();
+      const nextModel = JSON.stringify(external ? {engine:turnCtx.opts.engine || ctx.config.engine} : found?.record || null);
+      if (session && nextModel !== sessionModel) session = null;
+      sessionModel = nextModel;
       session ??= await createSession(turnCtx, { mode, moa });
       busy = true;
       await session.turn(text, { mode, decide: yes ? yesDecision : pickDecider(turnCtx) });

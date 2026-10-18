@@ -128,23 +128,28 @@ export async function createSession(ctx, { workspace = ctx.workspace(), mode, in
   }
   const persistent = memory ? createMemory({ workspace, env: ctx.env, scope: memoryScope, name: memoryName, secrets: modelSecrets }) : null;
   let memoryData = persistent?.read() || { notes: [], interrupted: false };
-  let thread, lease = false, activeTurn = false, startedFresh = false, contextFailure = null, priorInterrupted = false, contextNotified = false, turnSilent = quiet;
+  let thread, lease = false, activeTurn = false, startedFresh = false, contextFailure = null, modelFailure = null, priorInterrupted = false, contextNotified = false, turnSilent = quiet;
   const helpers = await importKernel("fusion/tokens.mjs", ctx.env);
   const nativeRecord = providerOverride ? null : record;
   const { createProvider } = await importKernel("harness/providers.mjs", ctx.env);
+  const { publicModelError } = await importKernel("harness/provider-errors.mjs", ctx.env);
   const originalProvider = providerOverride;
   const profile = { contextWindow: record?.contextWindow || originalProvider?.contextWindow || 8192, maxOutput: record?.maxOutput || originalProvider?.maxOutput || 4096 };
   providerOverride = { ...(originalProvider || {model: record.model}), async complete(options) {
     try {
       const projection = projectContext({ system: options.messages.find(m => m.role === "system") || { role: "system", content: "" }, history: thread.messages, tools: options.tools, profile, notes: memoryData.notes, interrupted: priorInterrupted, query: [...thread.messages].reverse().find(m => m.role === "user")?.content || "", helpers });
       thread.usage = { ...thread.usage, estimated: projection.estimated, dropped: projection.dropped, budget: projection.inputBudget, window: profile.contextWindow, output: projection.outputBudget, ratio: 1 };
-      if (projection.dropped && !contextNotified && !turnSilent) {
+      if ((projection.dropped || projection.compacted) && !contextNotified && !turnSilent) {
         contextNotified = true;
-        ctx.stderr.write(ctx.lang === "en" ? "Earlier context compacted; full history remains in local memory.\n" : "较早上下文已压缩，完整历史仍保存在本机记忆中。\n");
+        ctx.stderr.write(ctx.lang === "en" ? "Context and large tool results compacted; full history remains in local memory.\n" : "上下文和过长工具结果已压缩，完整历史仍保存在本机记忆中。\n");
       }
       const provider = nativeRecord ? createProvider({ provider: { ...nativeRecord, id: "cli", contextWindow: profile.contextWindow, maxOutput: projection.outputBudget }, fetchImpl: withModelEndpoint(diag.fetch, nativeRecord) }) : originalProvider;
       return await provider.complete({ ...options, messages: projection.messages, maxOutput: projection.outputBudget });
-    } catch (error) { if (error.code === "CONTEXT_BUDGET_EXCEEDED") contextFailure = error; throw error; }
+    } catch (error) {
+      if (error.code === "CONTEXT_BUDGET_EXCEEDED") contextFailure = error;
+      else modelFailure = error;
+      throw error;
+    }
   } };
   const harness = await openAgent({ workspace, record, providerOverride, fetchImpl: diag.fetch, env: ctx.env });
   const { unifiedDiff } = await importKernel("harness/diff.mjs", ctx.env);
@@ -192,6 +197,14 @@ export async function createSession(ctx, { workspace = ctx.workspace(), mode, in
     async turn(text, { decide = pickDecider(ctx), mode: turnMode, interaction: turnInteraction, silent = quiet, onEvent } = {}) {
       const json = ctx.opts.json && !silent;
       const handle = (event) => {
+        if (contextFailure && event.type === "message" && event.message?.code === "API_UNREACHABLE") {
+          event.message.code = "CONTEXT_BUDGET_EXCEEDED";
+          event.message.content = ctx.lang === "en" ? "The configured model context window is too small for this input." : "当前输入超过所配置的模型窗口。";
+        } else if (modelFailure && !diag.state.last && event.type === "message" && event.message?.code === "API_UNREACHABLE") {
+          const safe = publicModelError(modelFailure);
+          event.message.code = safe.code;
+          event.message.content = safe.message;
+        }
         onEvent?.(event);
         if (json) {
           const value = jsonEvent(event);
@@ -203,6 +216,7 @@ export async function createSession(ctx, { workspace = ctx.workspace(), mode, in
       if (activeTurn) throw new Error("此会话正在执行，请等待本轮结束。");
       activeTurn = true;
       contextFailure = null;
+      modelFailure = null;
       contextNotified = false;
       turnSilent = silent;
       diag.state.last = null;
@@ -220,7 +234,11 @@ export async function createSession(ctx, { workspace = ctx.workspace(), mode, in
         startedFresh = true;
         const outcome = await runPrompt({ harness, watch, thread, text, mode: turnMode, interaction: turnInteraction, decide, onEvent: handle });
         printer.close();
-        const code = exitCode(outcome);
+        const code = contextFailure || modelFailure ? 2 : exitCode(outcome);
+        if (modelFailure && !diag.state.last) {
+          const safe = publicModelError(modelFailure);
+          ctx.stderr.write(`${safe.code}: ${safe.message}\n`);
+        }
         if (contextFailure) ctx.stderr.write(`${contextFailure.code}: ${contextFailure.message}\n`);
         if (unreachable(outcome.thread) && diag.state.last) {
           const detail = diag.state.last.status ? `HTTP ${diag.state.last.status}` : diag.state.last.error;

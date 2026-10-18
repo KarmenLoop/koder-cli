@@ -63,7 +63,7 @@ test("pack builds a tarball whose manifest checksum matches, with the kernel bun
     assert.ok(listing.includes(entry), entry);
   }
   assert.ok(!listing.includes("koder-cli/test/"));
-  assert.equal(manifest.version, "0.3.0");
+  assert.equal(manifest.version, "0.3.1");
 });
 
 test("one-line install with an existing Node: launcher works, bundled kernel runs a real turn, uninstall cleans up", async () => {
@@ -74,12 +74,12 @@ test("one-line install with an existing Node: launcher works, bundled kernel run
     const home = tmp("koder-install-home-");
     const result = await install(`${server.url}/install`, home);
     assert.equal(result.status, 0, result.stderr + result.stdout);
-    assert.match(result.stdout, /Koder CLI 0\.3\.0 安装完成/);
+    assert.match(result.stdout, /Koder CLI 0\.3\.1 安装完成/);
     const launcher = path.join(home, ".local", "bin", "koder");
     assert.match(fs.readFileSync(launcher, "utf8"), new RegExp(process.execPath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
     const koder = (...args) => run(launcher, args, { HOME: home, PATH: "/usr/bin:/bin", NO_COLOR: "1" });
     const versionOut = (await koder("version")).stdout;
-    assert.match(versionOut, /^koder 0\.3\.0\n/);
+    assert.match(versionOut, /^koder 0\.3\.1\n/);
     assert.match(versionOut, /https:\/\/karmenloop\.com\/updates\.html/);
     assert.ok((await koder("model", "presets")).stdout.split("\n").filter(Boolean).length >= 30);
     fs.writeFileSync(path.join(home, ".koder-cli", "provider.json"), JSON.stringify({ model: "m", baseUrl: model.url, auth: "none" }));
@@ -87,10 +87,10 @@ test("one-line install with an existing Node: launcher works, bundled kernel run
     assert.equal(ask.status, 0, ask.stderr);
     assert.match(ask.stdout, /安装版回复/);
     const info = JSON.parse(fs.readFileSync(path.join(home, ".koder-cli", "install.json"), "utf8"));
-    assert.equal(info.version, "0.3.0");
+    assert.equal(info.version, "0.3.1");
     assert.equal(info.updates, "https://karmenloop.com/updates.html");
     assert.equal(info.site, "https://karmenloop.com");
-    assert.equal(fs.realpathSync(path.join(home, ".koder-cli", "current")), fs.realpathSync(path.join(home, ".koder-cli", "versions", "0.3.0")));
+    assert.equal(fs.realpathSync(path.join(home, ".koder-cli", "current")), fs.realpathSync(path.join(home, ".koder-cli", "versions", "0.3.1")));
     const again = await install(`${server.url}/install`, home);
     assert.equal(again.status, 0, "re-install over an existing version");
     const removed = await koder("uninstall");
@@ -116,7 +116,7 @@ test("a tampered package is refused before anything is installed", async () => {
     assert.notEqual(result.status, 0);
     assert.match(result.stderr, /安装包校验失败/);
     assert.equal(fs.existsSync(path.join(home, ".local", "bin", "koder")), false);
-    assert.equal(fs.existsSync(path.join(home, ".koder-cli", "versions", "0.3.0")), false);
+    assert.equal(fs.existsSync(path.join(home, ".koder-cli", "versions", "0.3.1")), false);
   } finally {
     await server.close();
   }
@@ -144,7 +144,7 @@ test("without Node.js the installer downloads, verifies and uses its own runtime
     const launcher = fs.readFileSync(path.join(home, ".local", "bin", "koder"), "utf8");
     assert.match(launcher, new RegExp(`${home.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/\\.koder-cli/runtime/${name}/bin/node`));
     const version = await run(path.join(home, ".local", "bin", "koder"), ["version"], { HOME: home, PATH: "/usr/bin:/bin" });
-    assert.match(version.stdout, /^koder 0\.3\.0\n/);
+    assert.match(version.stdout, /^koder 0\.3\.1\n/);
     assert.match(version.stdout, /https:\/\/karmenloop\.com\/updates\.html/);
     fs.writeFileSync(path.join(mirror, "dist", "v99.0.0", "SHASUMS256.txt"), `${"0".repeat(64)}  ${name}.tar.gz\n`);
     const tampered = await install(`${server.url}/install`, tmp(), ["--force-node"], { KODER_NODE_DIST: `${server.url}/dist`, KODER_NODE_VERSION: "99.0.0" });
