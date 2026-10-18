@@ -28,12 +28,12 @@ test("bundled kernel runs a full turn without the koder-desktop tree", async () 
   }
   const kernelLicense = fs.readFileSync(path.join(out, "LICENSE"), "utf8");
   assert.match(kernelLicense, /保留所有权利/);
-  assert.match(kernelLicense, /不适用 Koder CLI 的\s*GNU GPL v3\.0/);
+  assert.match(kernelLicense, /不适用 Koder CLI 的\s*MIT 许可证/);
   assert.match(kernelLicense, /All rights reserved/);
   const root = path.dirname(script).replace(/scripts$/, "");
-  assert.match(fs.readFileSync(path.join(root, "LICENSE"), "utf8"), /GNU GENERAL PUBLIC LICENSE/);
-  assert.match(fs.readFileSync(path.join(root, "LICENSE"), "utf8"), /Version 3, 29 June 2007/);
-  assert.equal(JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8")).license, "GPL-3.0-only");
+  assert.match(fs.readFileSync(path.join(root, "LICENSE"), "utf8"), /MIT License/);
+  assert.match(fs.readFileSync(path.join(root, "LICENSE"), "utf8"), /Copyright \(c\) 2026 KARMEN \/ Koder/);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8")).license, "MIT");
   const notices = fs.readFileSync(path.join(root, "THIRD_PARTY_NOTICES.md"), "utf8");
   assert.doesNotMatch(notices, /distributed here under GPL|keeps that option open/);
   assert.match(notices, /proprietary/);

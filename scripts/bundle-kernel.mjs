@@ -15,7 +15,7 @@ const KERNEL_LICENSE = `Koder 内核（kernel/ 目录）
 版权所有 © KARMEN / Koder。保留所有权利。
 
 本目录中的 Koder 内核不是 Koder CLI 的开源部分，不适用 Koder CLI 的
-GNU GPL v3.0。你只能把它作为 Koder CLI 的组成部分，在自己的设备上运行。
+MIT 许可证。你只能把它作为 Koder CLI 的组成部分，在自己的设备上运行。
 未经书面许可，不得：
 1. 复制、修改、改编或翻译本目录中的文件，或据此制作衍生作品；
 2. 单独分发、出租、出借、转授权或公开本目录中的文件；
@@ -29,7 +29,7 @@ Koder kernel (the kernel/ directory)
 Copyright © KARMEN / Koder. All rights reserved.
 
 The Koder kernel in this directory is not part of the open-source Koder CLI and
-is not covered by its GNU GPL v3.0. You may run it only as part of Koder
+is not covered by its MIT License. You may run it only as part of Koder
 CLI on your own devices. Without written permission you may not:
 1. copy, modify, adapt or translate the files in this directory, or make
    derivative works of them;
