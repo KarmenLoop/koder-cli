@@ -114,7 +114,7 @@ The menu rows are: Language, Model, Colours, Banner style, Banner animation, Eng
 
 Until a model is saved, the Model row says it is not set. Start there after the language.
 
-**Language.** Enter on Language. Choose English or 中文. It applies at once.
+**Language.** Enter on Language. Choose English or Chinese. It applies at once.
 
 The same choice from a shell, if you are not inside the menu:
 
