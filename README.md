@@ -1,33 +1,67 @@
 # Koder CLI
 
-Koder 在你自己的电脑上办事。这条命令行是终端里的那一版：一句话交代任务，也能放进脚本、管道和 CI。改文件和运行命令之前，都会先停下来等你确认。
+Koder 在你自己的电脑上办事。CLI 是终端里的 Koder：输入一件事，它在当前项目里读代码、提出修改、运行命令。每一次改文件、每一次运行命令，都先停下来等你确认。
 
 官网：<https://karmenloop.com>  
-CLI 页面：<https://karmenloop.com/cli.html>  
+产品页：<https://karmenloop.com/cli.html>  
 更新：<https://karmenloop.com/updates.html>  
-下载页：<https://karmenloop.com/download.html>  
+下载：<https://karmenloop.com/download.html>  
 邮箱：<info@karmenloop.com>
 
-电脑版 IDE 和窗口里的终端在电脑安装包里。CLI 和 TUI 不在那个安装包里，各是一条命令，贴进终端就会安装，不需要邀请码。SDK 还没有发布；在那之前可以用 `koder run --json` 和 `koder acp` 接到别的程序里。
+Koder 还有电脑版和占满一屏的 TUI。电脑版在官网下载页。TUI 的命令是 `koder-tui`，和 CLI 共用模型和语言。本仓库是 CLI 的源码。
 
-## 下载与安装
+内核叫 KARMEN LOOP。它不公开，不在本仓库里，也不随这份源码许可证开放。版权所有 © KARMEN / Koder，保留所有权利，不提供二次开发。官网安装包运行时使用这份内核；下载安装包不是取得内核源码。
 
-安装脚本放在官网，装好以后会自己校验安装包。想先看脚本再运行，直接打开这些地址：
+## 产品里有什么
 
-- macOS、Linux、WSL：<https://karmenloop.com/install/koder-cli.sh>
-- Windows PowerShell：<https://karmenloop.com/install/koder-cli.ps1>
-- Windows 命令提示符用的启动脚本：<https://karmenloop.com/install/koder-cli.cmd>
+- 对话：直接输入 `koder`，在项目目录里交代任务。
+- 一次性任务：`koder run` 改文件、跑命令；`koder ask` 只读，不改文件、不跑命令。
+- 质量：`koder review` 审查改动，`koder fix` 按检查结果反复修，`koder test` 沿用现有测试的写法补测试。
+- 编排：`koder flow` 用 JSON 把多步串起来；`koder ci init` 写入 GitHub Actions，在 PR 上审查和评论。
+- 接入：飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp。编辑器通过 `koder acp` 和 `koder editor` 接入。
+- 设置：`koder setup` 用方向键或鼠标选择语言、模型、配色、开屏、引擎和聊天软件。
+- 教程：`koder learn` 是 17 课，按 PowerShell、CMD、macOS、Linux 分别写命令，进度会记住。
 
-macOS 11 及以上（Apple 芯片或 Intel）、Ubuntu 18.04 及以上、Debian、Fedora、Alpine、树莓派和 WSL：
+模型由你自己接入，并和那家服务商结算。Koder 这一版不含模型。
+
+## 画面
+
+第一次输入 `koder`，打开设置。模型还没配时，这一项标着还没配置。方向键或鼠标可以选择。
+
+![第一次打开 Koder 的设置菜单](docs/screenshots/cli-start-dark.jpg)
+
+`koder run` 要改文件时，先列出差异。红色是删掉的行，绿色是新加的行。输入 y 才写入，其他键不写入。
+
+![确认一处修改](docs/screenshots/cli-diff-dark.jpg)
+
+`koder help review` 列出这个命令的用法、选项和例子。其他命令同样用 `koder help 命令名` 查看。
+
+![review 的帮助](docs/screenshots/cli-review-dark.jpg)
+
+`koder-tui` 占满一屏：顶栏是版本、工作区、模型和模式，中间是对话，底下是输入框。
+
+![Koder TUI 打开后的界面](docs/screenshots/tui-home-dark.jpg)
+
+TUI 里要改文件时弹出差异窗口。y 接受，n 或 Esc 拒绝。
+
+![TUI 里确认修改](docs/screenshots/tui-diff-dark.jpg)
+
+上面两张修改画面拍的时候，回复来自本机按脚本准备的测试接口，不是一家已接入的模型服务。界面本身是 Koder CLI 0.2.0 和 Koder TUI 0.1.0 的真实画面。
+
+## 安装
+
+按系统复制一行，粘贴进终端，回车。不需要邀请码，也不需要管理员。装完输入 `koder`。
+
+脚本原文：
+
+- <https://karmenloop.com/install/koder-cli.sh>
+- <https://karmenloop.com/install/koder-cli.ps1>
+- <https://karmenloop.com/install/koder-cli.cmd>
+
+macOS 11 及以上、Linux、WSL：
 
 ```bash
 curl -fsSL https://karmenloop.com/install/koder-cli.sh | bash
-```
-
-同时安装 Hermes 引擎（Windows 上 Hermes 需要 WSL，安装脚本不会在 Windows 本机直接装它）：
-
-```bash
-curl -fsSL https://karmenloop.com/install/koder-cli.sh | bash -s -- --with-hermes
 ```
 
 Windows 10 / 11 的 PowerShell：
@@ -42,9 +76,15 @@ Windows 10 / 11 的命令提示符：
 powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://karmenloop.com/install/koder-cli.ps1 | iex"
 ```
 
-Mac 和 Linux 装到 `~/.koder-cli`，Windows 装到 `%LOCALAPPDATA%\koder-cli`，都不需要管理员权限。本机没有 Node.js 22 时，安装脚本会下载 Node.js 官方构建并对照 SHA-256。装完运行 `koder setup`，方向键或鼠标就能把语言和模型配好。
+Mac 和 Linux 装在 `~/.koder-cli`，启动命令在 `~/.local/bin`。Windows 装在 `%LOCALAPPDATA%\koder-cli`。电脑上已有 Node.js 22 或更高就直接用；没有的话，安装程序从 nodejs.org 下载 Node.js 22，先核对 SHA-256 再解压。Koder 的安装包同样先核对 SHA-256，不一致就停下。
 
-已经装好的，用下面两条查看官网和更新页，或直接更新：
+Windows XP、7、8 不能安装。Node.js 22 需要 Windows 10。
+
+装好后的终端画面：
+
+![安装完成](docs/screenshots/cli-install-dark.jpg)
+
+已经装好时，查看版本和官网，或更新：
 
 ```bash
 koder version
@@ -52,29 +92,151 @@ koder about
 koder update
 ```
 
-Windows XP、7、8 不能运行：Node.js 22 需要 Windows 10，XP 也不支持模型接口要求的 TLS 1.2。
-
-## 装好之后
+TUI 另装。装好后输入 `koder-tui`。
 
 ```bash
-koder                          # 进入对话
-koder setup                    # 设置：语言、模型、配色、引擎、聊天软件
-koder learn                    # 按你的系统讲的互动教程
-koder review                   # 审查当前改动
-koder run "把 README 的安装说明补上"
-koder ask "登录是从哪个文件开始的"
-koder gateway setup feishu     # 接入飞书
-koder lang en                  # 切换英文
+curl -fsSL https://karmenloop.com/install/koder-tui.sh | bash
 ```
 
-教程按 PowerShell、CMD、macOS、Linux 分成四套。环境变量、管道、退出码、复制粘贴和安装命令都按那一套来写。第一课会说明识别到的是哪一套。
+```powershell
+irm https://karmenloop.com/install/koder-tui.ps1 | iex
+```
 
-模型由你自己接入。密钥建议放进环境变量，配置里只记变量名。直接把密钥粘进「环境变量名」那一栏时，程序会把它当成密钥保存。
+脚本原文：<https://karmenloop.com/install/koder-tui.sh> · <https://karmenloop.com/install/koder-tui.ps1> · <https://karmenloop.com/install/koder-tui.cmd>
+
+## 使用教程
+
+### 1. 打开设置，接上模型
+
+安装结束会进入设置。方向键或鼠标选择语言、模型和配色，改完即保存。
+
+```bash
+koder setup
+koder lang en
+```
+
+以 DeepSeek 为例。先把密钥放进环境变量，再让 Koder 读取这个变量。配置文件里只记变量名。
+
+macOS、Linux：
+
+```bash
+export DEEPSEEK_API_KEY="你的密钥"
+koder model set --preset deepseek --key-env DEEPSEEK_API_KEY
+```
+
+Windows PowerShell：
+
+```powershell
+$env:DEEPSEEK_API_KEY = "你的密钥"
+koder model set --preset deepseek --key-env DEEPSEEK_API_KEY
+```
+
+本机 Ollama：
+
+```bash
+koder model set --preset local --model qwen3:8b
+```
+
+`koder model presets` 列出全部预设。配置在 `~/.koder-cli/provider.json`，权限 600。用 `--key-env` 时文件里是变量名；直接粘贴的密钥按明文保存。配好后运行：
+
+```bash
+koder doctor
+```
+
+### 2. 进入项目，开始对话
+
+```bash
+cd 你的项目文件夹
+koder
+```
+
+直接输入要做的事，回车。Koder 只在这个文件夹里读写文件。
+
+对话里：`/help` 看命令，`/setup` 打开设置，`/about` 看官网和更新页，`/lang en` 切英文，`/exit` 或 Ctrl+D 退出。
+
+### 3. 确认修改
+
+不进对话，也可以一句话交代：
+
+```bash
+koder run "npm test 没过，修一下 cart.mjs 里的 total()"
+```
+
+改文件和运行命令都会先问你。输入 y 接受，其他键拒绝。拒绝的修改不会写进文件。
+
+脚本里加上 `--yes` 才自动接受修改和命令。不加时，修改和命令一律拒绝。`--yes` 不代替你回答选择题，也不填写密码。
+
+```bash
+koder run --yes --json "补上 README 的安装说明"
+```
+
+`--json` 每行一个事件。退出码 0 是完成，1 是中断或任务出错，2 是没能运行，例如模型没配好或参数不对。
+
+### 4. 审查、修复、补测试
+
+```bash
+koder ask "登录流程从哪个文件开始？"
+npm test 2>&1 | koder run "根据这段失败输出修好测试"
+koder review --base origin/main --format markdown --out review.md
+koder fix --check "npm test"
+koder test src/price.js --check "npm test"
+```
+
+`review` 读取改动、仓库结构、`AGENTS.md` 这类规则和最近的提交，写出每条问题的文件、行号、级别和修改建议。`fix` 运行检查，失败就把输出交给 Koder 修，修完再查，直到通过或用完次数，默认 3 次。
+
+### 5. 教程、流程和 CI
+
+```bash
+koder learn
+koder learn 3
+koder learn --print --os powershell
+koder flow init pr-gate
+koder ci init
+```
+
+`koder learn` 在终端里上课，进度会记住。`--print` 只印文字。`--os` 用 `powershell`、`cmd`、`mac` 或 `linux`。第 16 课是安装和更新。
+
+`koder ci init` 写入 `.github/workflows/koder.yml`。PR 打开或更新时审查并评论。PR 里评论 `/koder review`、`/koder fix` 会触发对应动作。会改仓库的指令只接受仓库成员。
+
+### 6. 聊天软件和编辑器
+
+```bash
+koder gateway setup feishu
+koder gateway start --background
+koder editor zed
+koder acp
+```
+
+`koder editor` 的参数可以是 `zed`、`nvim`、`emacs`。它印出对应编辑器的配置。
+
+### 7. TUI
+
+```bash
+cd 你的项目文件夹
+koder-tui
+```
+
+直接输入任务，Enter 发送，Ctrl+J 换行。输入 `/` 打开命令，其中有 `/help`、`/learn`、`/lang`、`/mode`、`/yes`、`/model`、`/sidebar`、`/about`、`/exit`。Esc 中断当前这一轮，已经接受的修改会保留。
+
+TUI 读取 `koder setup` 写好的模型。还没配时，先完成上面的第 1 步。
+
+## 常用选项
+
+| 选项 | 作用 |
+| --- | --- |
+| `-w`、`--workspace` | 工作区，默认当前目录 |
+| `-y`、`--yes` | 自动接受文件修改和命令 |
+| `--json` | 每行一个 JSON 事件 |
+| `--mode` | standard、code、minimal、plan、execute、report、enhance |
+| `--lang` | 这一次用中文或英文 |
+| `--no-color` | 关闭颜色 |
+
+每个命令的完整说明：`koder help`，或 `koder help 命令名`。
 
 ## 许可证
 
-本仓库里的 Koder CLI 源码采用 GNU General Public License v3.0（见 `LICENSE`），与 [OpenHuman](https://github.com/tinyhumansai/openhuman) 使用的协议相同。我们没有复制 OpenHuman 的代码，只把它当作架构上的参照。第三方组件的许可见 `THIRD_PARTY_NOTICES.md`。
+本仓库的 Koder CLI 源码采用 GNU General Public License v3.0，全文见 `LICENSE`。第三方组件见 `THIRD_PARTY_NOTICES.md`。
 
-Koder 内核（KARMEN LOOP）不在本仓库里，也不采用这份 GPL。内核是闭源的，版权所有 © KARMEN / Koder，保留所有权利，不提供二次开发。官网安装包在运行时使用这份闭源内核；下载安装包不等于取得内核源码，也不等于可以把内核再授权给别人。
+KARMEN LOOP 内核不在本仓库，不公开，不适用上面的许可证。版权所有 © KARMEN / Koder。保留所有权利。不提供内核的二次开发。
 
-问题写到 <info@karmenloop.com>，或从官网 <https://karmenloop.com> 进入。
+官网 <https://karmenloop.com> · 邮箱 <info@karmenloop.com>

@@ -1,10 +1,11 @@
 # Third-party notices
 
 The Koder CLI source in this repository is licensed under the GNU General
-Public License v3.0 (see LICENSE), the same licence OpenHuman uses. No
-OpenHuman code is included. The Koder kernel is not in this repository, is not
-under the GPL, and is proprietary; see the notice below.
-It builds on, ports from, or follows the designs of the projects below.
+Public License v3.0 (see LICENSE). The Koder kernel is not in this repository
+and is not covered by that licence. It is proprietary. See the kernel section
+below.
+
+Components whose code is included or reimplemented are listed here.
 
 ## Hermes Agent — MIT License, Copyright (c) 2025 Nous Research
 
@@ -37,20 +38,6 @@ MIT License text:
 > COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
 > AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 > WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## OpenClaw — MIT License, Copyright (c) OpenClaw Foundation
-
-<https://github.com/openclaw/openclaw>. Design reference for the one-line
-installer that provisions Node.js into a user prefix, the onboarding wizard, and
-a single long-lived gateway owning all chat channels. No OpenClaw code is copied.
-
-## OpenHuman — GNU GPL v3.0, TinyHumans
-
-<https://github.com/tinyhumansai/openhuman>. Koder CLI uses the same licence,
-GNU GPL v3.0. OpenHuman is an architecture reference: one in-process core with
-lazily loaded integrations, and a master agent that keeps the inspect → edit →
-verify loop. No OpenHuman code is copied. The Koder kernel is a separate
-proprietary program and is not covered by this GPL.
 
 ## Lark/Feishu Node SDK — MIT License, Bytedance
 
