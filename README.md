@@ -1,297 +1,125 @@
-# Koder CLI
+# Koder
 
-Current release: 0.3.1
+A terminal agent for the work on your own computer. It reads the project, proposes the change, and waits.
 
-KARMEN / Koder is our product. We wrote KARMEN and Koder ourselves. The kernel is called KARMEN LOOP. On your computer it works in a loop: perceive, decide, act. Koder works in the folder you name. KARMEN BOT is the personal assistant in the same family. This page is the terminal product: install it, set a model, and use it. The desktop app is a separate installer on the website.
+Built by KARMEN. Plan it, run it, review it, pick it back up tomorrow. You stay in the loop the whole time.
 
-Website: <https://karmenloop.com>  
-Product page: <https://karmenloop.com/en/cli.html>  
-Updates: <https://karmenloop.com/en/updates.html>  
-Download: <https://karmenloop.com/en/download.html>  
-Email: <info@karmenloop.com>  
-GitHub: <https://github.com/KarmenLoop>
+[Website](https://karmenloop.com) · [CLI](https://karmenloop.com/en/cli.html) · [Download](https://karmenloop.com/en/download.html) · [Updates](https://karmenloop.com/en/updates.html) · [Email](mailto:info@karmenloop.com)
 
-This version does not include a model. You connect a provider you already have, or a local model such as Ollama, and you pay that provider. An official model will be published later. Until then, Settings has no model of ours.
+Source in this repo: 0.3.1
 
-The kernel is not public and it is not in this repository. The installer runs it. Downloading the installer does not give you the kernel source. Copyright © KARMEN / Koder. All rights reserved. The kernel is not offered for further development. The CLI source in this repository is under the GNU General Public License v3.0. See [Licence](#licence).
+The CLI source here is under the GNU General Public License v3.0. The KARMEN LOOP kernel is not in this repo, and it is not under that license. See [License](#license).
 
-## What you are installing
+## What it is
 
-| Piece | Command | What it is |
-| --- | --- | --- |
-| CLI | `koder` | Terminal agent. Reads the current project, proposes edits, runs commands. Every file change and every command waits for you. |
-| TUI | `koder-tui` | Full-screen terminal. Separate install. Shares the CLI's model and language. |
-| Desktop | website download page | Separate installer. Not installed by the commands below. |
+Koder works in the folder you point it at. You say what you want. It reads the code, shows a diff, and asks before it writes a file or runs a command. A no leaves the file alone.
 
-Chat apps and editors are optional. The CLI is usable as soon as a model answers `koder model test` and a small task. Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp, Zed, Neovim, or Emacs only if you want them.
+The kernel is KARMEN LOOP. On your machine it goes perceive, decide, act. We wrote KARMEN and Koder ourselves. The desktop app is a separate installer on the site. The full-screen TUI is `koder-tui`, and it shares this CLI's model and language. This repository is the CLI.
 
-## Hand-holding tutorial
+This version does not ship a model. You connect one you already pay for, or a local model such as Ollama. An official model comes later. Until then, Settings will not show one of ours.
 
-Do the steps in order. Stop at the end of step 6 if you only want the terminal. Steps 7 and 8 are the third-party tools.
+## What you can do
 
-### 1. Check the computer
+- **Chat.** Type `koder` in a project and talk. `/setup`, `/about`, `/lang`, `/memory`, and `/exit` are right there.
+- **One shot.** `koder run` edits and runs commands. `koder ask` only reads.
+- **Plan, then do.** `--mode plan` lays the work out before it touches files. Other modes: `standard`, `code`, `minimal`, `execute`, `report`, `enhance`.
+- **Review, fix, test.** `koder review` writes up the diff. `koder fix` reruns your check until it passes or hits the limit. `koder test` adds tests in the style already in the repo.
+- **Memory.** Same folder, named session, still there after you quit. `--session`, `--new`, `--no-memory`. `koder memory` can show, search, add, remove, clear, or forget. Old approvals are not restored, and old tools are not run again.
+- **Flows and CI.** `koder flow` runs a JSON pipeline. `koder ci init` adds a GitHub Actions workflow that reviews a pull request and answers `/koder` comments from repo members.
+- **Chat apps.** Feishu, Lark, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp. Strangers get a pairing code. You approve it on your machine.
+- **Editors.** Zed, Neovim, and Emacs talk to `koder acp`. `koder editor` prints the snippet.
+- **Setup.** Arrow keys or a click. Language, model, colors, banner, chat apps, editor config. `koder learn` is 17 lessons in a practice folder, and it does not spend model money.
+- **A second opinion.** `koder moa` asks other models you registered, then the current model does the work. You still approve every edit.
 
-You need one of these:
+## Quick start
 
-- macOS 11 or later
-- Linux or WSL
-- Windows 10 or Windows 11
+You need macOS 11 or later, Linux, WSL, or Windows 10 or 11. Windows XP, 7, and 8 will not run it. No invite code and no admin account for the CLI. The desktop beta on the website is a different installer.
 
-Windows XP, 7, and 8 cannot install it. Node.js 22 requires Windows 10.
+If Node.js 22 or newer is already there, the installer uses it. If not, it downloads Node.js 22 from nodejs.org, checks the SHA-256, and stops if the hash is wrong. The Koder package is checked the same way.
 
-You do not need an invite code or an administrator account. If Node.js 22 or later is already installed, the installer uses it. Otherwise it downloads Node.js 22 from nodejs.org, checks the SHA-256, and unpacks it. The Koder package is checked the same way. A mismatch stops the install.
+### Install
 
-Open a normal terminal:
-
-- macOS: Terminal, or the terminal inside your editor
-- Linux: your usual terminal
-- Windows: PowerShell, or Command Prompt. Windows Terminal is fine. The classic console is fine.
-
-### 2. Install
-
-Copy one line, paste it, and press Enter.
-
-The scripts themselves:
-
-- <https://karmenloop.com/install/koder-cli.sh>
-- <https://karmenloop.com/install/koder-cli.ps1>
-- <https://karmenloop.com/install/koder-cli.cmd>
-
-macOS, Linux, and WSL:
+Mac, Linux, WSL:
 
 ```bash
 curl -fsSL https://karmenloop.com/install/koder-cli.sh | bash
 ```
 
-Windows 10 / 11, PowerShell:
+Windows PowerShell:
 
 ```powershell
 irm https://karmenloop.com/install/koder-cli.ps1 | iex
 ```
 
-Windows 10 / 11, Command Prompt:
+Windows Command Prompt:
 
 ```bat
 powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://karmenloop.com/install/koder-cli.ps1 | iex"
 ```
 
-Where it lands:
+The scripts: [koder-cli.sh](https://karmenloop.com/install/koder-cli.sh) · [koder-cli.ps1](https://karmenloop.com/install/koder-cli.ps1) · [koder-cli.cmd](https://karmenloop.com/install/koder-cli.cmd)
 
-- Mac and Linux: files in `~/.koder-cli`, command in `~/.local/bin`
-- Windows: `%LOCALAPPDATA%\koder-cli`
-
-If `~/.local/bin` is not already on `PATH`, the installer adds it to `~/.zshrc` and `~/.bashrc` and tells you to open a new terminal. Do that, then type:
+Mac and Linux land in `~/.koder-cli`, with the command in `~/.local/bin`. Windows lands in `%LOCALAPPDATA%\koder-cli`. If the shell says `koder` is missing, open a new terminal. The installer adds `~/.local/bin` to your PATH, and the window you already have does not see that yet.
 
 ```bash
 koder version
+koder about
 ```
 
-You should see the version on the first line, then the official site and the updates page. `koder about` prints the same introduction you can read on the website.
-
-If the shell says `koder` is not found, the current window was opened before `PATH` changed. Close it and open a new one. Do not reinstall yet.
-
-A successful install looks like this:
+`koder version` prints the version, the site, the updates page, and the download page.
 
 ![Install finished](docs/screenshots/cli-install-en-dark.jpg)
 
-The installer opens setup when the terminal can show it. If it does, stay in that screen and continue at step 3. If it only prints a line telling you to run setup, type:
+The scripts download the package currently published at `karmenloop.com/install`. This repository is the 0.3.1 source. Those two stay in step when the site is updated. Until then, the installer can still be an older package than this tree.
 
-```bash
-koder setup
-```
+### Connect a model
 
-Later updates:
+The first `koder` opens setup. The Model row says it is not set. Arrow keys, Tab, or a click. Enter selects. Esc goes back. Every change saves immediately.
 
-```bash
-koder update
-```
+![Setup the first time](docs/screenshots/cli-start-en-dark.jpg)
 
-### 3. Walk through setup
+Pick a provider, then a model, then a key. Prefer an environment variable. The file stores the name, not the key. A pasted key is stored in plain text on this computer, mode 600, and the screen shows only the last four characters. Do not paste a key into the variable-name field. A name is letters, digits, and underscores, and it does not start with a digit.
 
-`koder setup` is a full-screen menu. Arrow keys or Tab move. Enter selects. Esc goes back. Digits jump. Type to filter a long list. If the terminal reports a mouse, a click selects and the wheel scrolls. Every change is saved immediately.
-
-The menu rows are: Language, Model, Colours, Banner style, Banner animation, Engine, Chat apps, Editors, Tutorial, Check-up, Done.
-
-![Setup menu the first time Koder opens](docs/screenshots/cli-start-en-dark.jpg)
-
-Until a model is saved, the Model row says it is not set. Start there after the language.
-
-**Language.** Enter on Language. Choose English or 中文. It applies at once.
-
-The same choice from a shell, if you are not inside the menu:
-
-```bash
-koder lang en
-koder lang zh
-```
-
-**Colours.** Enter on Colours. `auto` follows the terminal background and uses dark when it cannot tell. `dark` is the website dark palette (stage `#12141c`, text `#ededeb`, accent `#7ca6ff`). `light` is the website light palette (stage `#e4e1d8`, text `#1d1c1a`, accent `#2455d3`). On a white terminal, pick light.
-
-```bash
-koder theme light
-koder theme auto
-```
-
-**Banner.** Banner style `auto` uses plain characters on the classic Windows console and the colour refractor elsewhere. Banner animation is the short spin at startup, about 0.2 seconds. Leave both on `auto` / on unless the banner breaks.
-
-**Engine.** Leave it on the built-in Koder kernel. That is the default and it needs nothing else.
-
-**Done.** Do not press Done until the Model row no longer says "not set". Chat apps and Editors can wait until steps 7 and 8.
-
-### 4. Configure a model
-
-Koder does not ship a model. Pick a provider you can actually call, then a model name, then a key. The file is `~/.koder-cli/provider.json` (on Windows, under `%LOCALAPPDATA%\koder-cli`), mode 600.
-
-Prefer an environment variable. The file then stores the variable name, not the key. A key you paste is stored in plain text on this computer. The screen shows only the last four characters. Do not paste a key into the variable-name field. A variable name is letters, digits, and underscores, and it does not start with a digit.
-
-#### 4a. Inside the setup menu
-
-1. Enter on Model.
-2. Filter by typing, for example `deep`, and pick a provider. The list is the built-in presets. `koder model presets` prints the same list: id, model name, protocol, and display name. There are 31 presets.
-3. Pick a model. The recommended one is marked. Or choose "Type another model…" and enter the name from that provider's docs.
-4. Choose how the key is stored:
-   - Paste the key. On macOS paste with ⌘V. On Linux paste with Ctrl+Shift+V or the middle button. On Windows Terminal paste with Ctrl+V. In the classic Windows console, right-click.
-   - Or read it from an environment variable. The menu suggests a name and shows the exact `export`, `setx`, or `$env:` line for your shell.
-   - Or open the provider's key page in a browser, create a key there, come back, and choose Paste the key.
-5. Wait for "Model saved". It names the provider and the model, and either the variable name or the last four characters of a pasted key.
-
-Local models: pick the local preset. Start Ollama or LM Studio first, then enter the model it is serving, for example `qwen3:8b`. A local model does not need a key.
-
-#### 4b. From the shell, DeepSeek
-
-Create the key in the DeepSeek console, then put it in the environment. Replace `your-key` with the real key. Do not commit that value.
-
-macOS and Linux, this terminal only:
+DeepSeek, this terminal:
 
 ```bash
 export DEEPSEEK_API_KEY="your-key"
 koder model set --preset deepseek --key-env DEEPSEEK_API_KEY
 ```
 
-To keep it for later terminals, add the `export` line to `~/.zshrc` (macOS default) or `~/.bashrc` (many Linux shells), then open a new terminal and run the `koder model set` line again.
-
-Windows PowerShell, this window only:
+Windows PowerShell, this window:
 
 ```powershell
 $env:DEEPSEEK_API_KEY = "your-key"
 koder model set --preset deepseek --key-env DEEPSEEK_API_KEY
 ```
 
-Windows, saved for new windows (`setx` does not affect the current window; open a new one afterwards):
+Keep it for later terminals by adding the `export` line to `~/.zshrc` or `~/.bashrc`, or with `setx` on Windows. `setx` does not affect the current window. Open a new one.
 
-```bat
-setx DEEPSEEK_API_KEY "your-key"
-```
-
-Then, in that new window:
-
-```bat
-koder model set --preset deepseek --key-env DEEPSEEK_API_KEY
-```
-
-#### 4c. Other presets and a custom endpoint
-
-Same pattern. The preset id is the first column of `koder model presets`. Examples that exist: `kimi`, `qwen`, `claude`, `chatgpt`, `local`.
+Other presets work the same way. `koder model presets` lists them.
 
 ```bash
-koder model presets
-koder model set --preset kimi --key-env MOONSHOT_API_KEY
 koder model set --preset local --model qwen3:8b
-```
-
-A provider that is not in the list:
-
-```bash
 koder model set --base-url https://api.example.com/v1 --model your-model --protocol openai --key-env YOUR_API_KEY
 ```
 
-`--protocol` is `openai` or `anthropic`. The base URL must start with `http://` or `https://`.
+`--protocol` is `openai` or `anthropic`. Local models need Ollama or LM Studio already running. They do not need a key.
 
-In CI, you can skip the file and set `KODER_MODEL`, `KODER_BASE_URL`, and `KODER_API_KEY` in the job environment.
-
-More than one saved model:
+MiniMax-M3, when you do not set a limit, uses a 1,048,576 context window and 32,768 output tokens. A number you set yourself wins. Unknown custom models stay conservative until you fill in the provider's real limits.
 
 ```bash
-koder model add kimi --preset kimi --key-env MOONSHOT_API_KEY
-koder model list
-koder model use kimi
-koder model show
-```
-
-`show` prints the current setup and only the last four characters of a stored key.
-
-#### 4d. Prove the model is configured
-
-```bash
+koder model context --context-window 1048576 --max-output 32768
 koder doctor
-```
-
-Doctor checks Node.js, Git, saved model configuration, colours, and startup time. It does not contact the model by default. Run `koder model test` (or `koder doctor --api`) to send a small request and validate a real model reply; this can incur a small amount of provider usage. `koder model test <name>` checks a named model. If the check fails, the usual causes are:
-
-- The environment variable is empty in this window. Open a new terminal after `setx` or after editing `.zshrc` / `.bashrc`.
-- The preset id is wrong. Run `koder model presets` and copy the id.
-- The key was pasted into the variable-name field. Run `koder model set` again with a real variable name, or paste the key as the key.
-- The provider rejected the key. Create a new key on that provider's site and set the variable again.
-
-A read-only check that does not edit files and does not run commands:
-
-```bash
 koder ask "Reply with the single word ready"
 ```
 
-When that returns, the model is usable. Exit code 0 means finished. Exit code 1 means the task failed or was cancelled. Exit code 2 means it could not start: no model, or a bad flag.
+`koder doctor` checks Node, Git, the model, colors, and startup. If the model line fails, the usual cause is an empty variable in this window, a wrong preset id, or a key pasted into the name field. Exit code 0 means the ask finished. 1 means it failed or you cancelled. 2 means it never started.
 
-#### API connection recovery
+In CI you can skip the file and set `KODER_MODEL`, `KODER_BASE_URL`, and `KODER_API_KEY`.
 
-Model requests retry temporary connection failures, HTTP 408/409/429 and server errors at most twice, with backoff and `Retry-After`. Invalid credentials, missing endpoints, certificate failures and invalid request parameters get specific diagnostics. A response that has already started is never replayed, so interrupted tool output is not executed twice. MoA reference timeouts cancel their underlying requests.
+If you change the model or the window in another terminal, the next turn picks that up and keeps the local history.
 
-The default response-header timeout is 60 seconds, stream idle timeout 90 seconds, and total deadline 10 minutes including retries and response reading. Change these in the process environment when a provider needs different limits:
-
-| Variable | Default | Allowed |
-| --- | --- | --- |
-| `KODER_API_RETRIES` | `2` | `0` to `2` |
-| `KODER_API_CONNECT_TIMEOUT_MS` | `60000` | `1` to `600000` ms; includes waiting for response headers |
-| `KODER_API_IDLE_TIMEOUT_MS` | `90000` | `1` to `600000` ms |
-| `KODER_API_TIMEOUT_MS` | `600000` | `1` to `1800000` ms, shared by all attempts |
-
-On Node versions supporting `--use-env-proxy` (including the bundled Node 22.23), the launcher enables configured `HTTP_PROXY` / `HTTPS_PROXY` and native `NO_PROXY` handling before starting the CLI. Lowercase proxy names work too. Set `NODE_USE_ENV_PROXY=0` to opt out. On older Node versions, use a runtime supporting that flag for proxy routing. Certificate verification stays enabled; a corporate proxy can use your explicitly configured `NODE_EXTRA_CA_CERTS`. This covers HTTP model requests; app WebSocket proxy behavior needs separate verification.
-
-Base URLs may contain an API path or full `/chat/completions` or `/messages` endpoint and query parameters. Koder keeps the query parameters when building the request. Use the provider's documented version path rather than a web-console URL.
-
-#### Context and local memory
-
-Native Koder conversations now continue across invocations and restarts in the same canonical workspace. `run`, `ask` and interactive `chat` share that workspace's default conversation. Changing native model, mode or MoA retains the saved conversation. Different workspaces and named sessions stay separate.
-
-```bash
-koder run "Keep the public API unchanged; fix config.ts"
-koder ask "Continue the same task and report what remains"
-koder chat --session release-work
-koder run "Start a separate task" --new
-koder ask "Use no saved history for this request" --no-memory
-```
-
-Use `--session <name>` for independent tasks in the same directory. `/new` in chat starts fresh; it also works before the first prompt. Chat-app history is partitioned by platform, bot/account, chat and sender; it resumes after the gateway restarts, and `/new` resets only that context. A reset archives the preceding conversation; it does not undo completed file operations. Pending approvals, execution queues and partial tool calls are never restored as executable work. Missing tool receipts are explicitly unknown and require a current-state check.
-
-Older turns are retained in local history. When the model window fills, Koder sends recent complete turns plus bounded, chronological extracts of the original task and relevant older context. These are extracts rather than a second model-generated summary. Tool calls and results stay paired. Large tool results are projected as excerpts; completed tool groups can become bounded receipt summaries so a long task can continue within one user turn. Full messages remain in local history. Input, tools, carry-over and output share the same window. Use the actual limits of your model and endpoint; an input or tool schema larger than that physical window still needs a larger supported model. MiniMax-M3 defaults to its published 1M window when limits are omitted.
-
-Change limits without re-entering credentials: `koder model context --context-window 1048576 --max-output 32768`. In an open chat use `/model context` with the same flags; saved model and limit changes also reload before the next turn. The setup menu includes **Context and output**. The output ceiling is part of the window, not extra space.
-
-Run `/connect weixin` inside a chat (or `koder connect weixin` in your shell) to start binding directly, independently of any model request. Scan and confirm using WeChat on your phone. A local context failure is reported separately from network, authentication, rate-limit and invalid-response failures.
-
-```bash
-koder memory show
-koder memory search "public API"
-koder memory add "Use pnpm; preserve public API compatibility."
-koder memory remove <note-id>
-koder memory clear
-koder memory forget
-```
-
-`/memory ...` works in interactive chat, including named sessions. `clear` starts a new conversation and retains explicit notes; `forget` deletes this session's saved history, notes and archives. Explicit notes are used as scoped context and do not authorize actions. All commands accept `--session <name>` and `-w <workspace>`. Automatic history can be disabled with `--no-memory`; explicit memory-management commands still act on the named local store.
-
-History is stored under `~/.koder-cli/memory`, using private directories/files and atomic, revision-checked writes. Known configured model keys and recognizable credential fields are redacted; avoid placing unrelated secrets in conversation text. The history stays local and the selected context is sent only to your configured model (or explicitly configured MoA models). Each conversation has a 64 MiB guard; when it is reached, preserve it and start a new named session. Concurrent turns in one session are rejected; use different names for parallel work. Native editor ACP sessions remain independent and do not advertise cross-process loading; external engines such as Hermes retain their own session behavior.
-
-### 5. Use it on a real project
+### Do the work
 
 ```bash
 cd your-project
@@ -300,69 +128,74 @@ koder
 
 Type the task and press Enter. Koder reads and writes only inside this folder.
 
-Inside the session:
-
-| Type | Effect |
-| --- | --- |
-| `/help` | Command list |
-| `/setup` | The same settings screen |
-| `/about` | Website and updates page |
-| `/lang en` | English for this session |
-| `/exit` or Ctrl+D | Quit |
-
-One-shot, without staying in the chat:
+Or skip the session:
 
 ```bash
 koder run "npm test failed. Fix total() in cart.mjs"
 ```
 
-When it wants to edit a file, it prints a diff first. Red lines are removed. Green lines are added. Type `y` and Enter to write the file. Any other key leaves the file unchanged.
+A file edit shows the diff first. Red is gone, green is new. Type `y` to write it. Any other key leaves it.
 
 ![Confirming an edit](docs/screenshots/cli-diff-en-dark.jpg)
 
-Commands wait the same way. A rejected edit is not written.
-
-In a script, `--yes` accepts edits and commands. Without `--yes`, a non-interactive run rejects them. `--yes` does not answer questions for you and does not type passwords.
+Commands wait the same way. In a script, `--yes` accepts edits and commands. It does not answer questions and it does not type passwords. Without `--yes`, a non-interactive run rejects them.
 
 ```bash
-koder run --yes --json "Add install instructions to the README"
-```
-
-`--json` prints one event per line.
-
-Other everyday commands, after the model works:
-
-```bash
+koder run --yes --json "Add install notes to the README"
 koder ask "Which file starts the login flow?"
-npm test 2>&1 | koder run "Fix the tests from this failure output"
 koder review --base origin/main --format markdown --out review.md
 koder fix --check "npm test"
 koder test src/price.js --check "npm test"
-koder help review
 ```
 
-`review` reads the diff, the repository layout, rule files such as `AGENTS.md`, and recent commits, then reports each issue with a file, a line, a severity, and a suggested change. `fix` runs the check, hands the failure to Koder, and checks again until it passes or the attempt limit is used. The default limit is 3.
+`review` reads the diff, the layout, rule files such as `AGENTS.md`, and recent commits. `fix` defaults to 3 attempts.
 
 ![Help for review](docs/screenshots/cli-review-en-dark.jpg)
 
-Global flags:
+A long tool result is trimmed on the way to the model. The full text stays on disk. The current request is not cut to make room. If the raw prompt itself is bigger than the model's window, Koder says so. It does not pretend the window is infinite.
 
-| Flag | Effect |
-| --- | --- |
-| `-w`, `--workspace` | Workspace folder. Default: current directory |
-| `-y`, `--yes` | Accept file edits and commands |
-| `--json` | One JSON event per line |
-| `--mode` | `standard`, `code`, `minimal`, `plan`, `execute`, `report`, `enhance` |
-| `--lang` | Chinese or English for this run |
-| `--no-color` | Turn colour off |
+Named sessions:
 
-Full help: `koder help`, or `koder help <command>`.
+```bash
+koder --session feature-a
+koder --new
+koder --no-memory run "a one-off"
+koder memory show
+```
 
-At this point the CLI is fully usable. Steps 6 through 8 are optional.
+Inside chat, `/new` starts a fresh session. `/connect weixin` starts WeChat binding without asking the model to do it. Feishu and WeCom use the same slash command with their own names.
 
-### 6. Optional: the full-screen TUI
+### Chat apps and editors
 
-Install it separately, then open a new terminal if `PATH` was just changed.
+Skip this if the terminal is enough.
+
+Editors. The model from above has to work first.
+
+```bash
+koder editor zed
+koder editor nvim
+koder editor emacs
+```
+
+Paste the snippet into the file it names. Zed: `~/.config/zed/settings.json`, then pick Koder in the Agent panel. Neovim needs CodeCompanion. Emacs needs `agent-shell` from MELPA. On Windows the command in the snippet is `koder.cmd`.
+
+Chat apps. Each one is an account you create on that company's site. Koder checks the credentials before it saves them. WeChat is the exception: a QR code, no key.
+
+```bash
+koder gateway setup telegram
+koder gateway setup feishu
+koder gateway setup weixin
+koder gateway start --background
+koder gateway pair K7Q2MX
+```
+
+Direct messages use pairing until you change that. Groups are off until you opt in, and the bot has to be mentioned. Edits still ask in the chat. Reply `yes` to allow one. Feishu, Lark, WeCom, DingTalk, Slack, and Discord do not need a public URL. WhatsApp does: expose the local port and set the callback to `https://…/webhook`.
+
+`koder gateway status` shows what is configured. `koder gateway stop` shuts the background process down.
+
+### The full-screen TUI
+
+Separate install. It reads the model you just saved.
 
 ```bash
 curl -fsSL https://karmenloop.com/install/koder-tui.sh | bash
@@ -372,254 +205,49 @@ curl -fsSL https://karmenloop.com/install/koder-tui.sh | bash
 irm https://karmenloop.com/install/koder-tui.ps1 | iex
 ```
 
-Scripts: <https://karmenloop.com/install/koder-tui.sh> · <https://karmenloop.com/install/koder-tui.ps1> · <https://karmenloop.com/install/koder-tui.cmd>
+Scripts: [koder-tui.sh](https://karmenloop.com/install/koder-tui.sh) · [koder-tui.ps1](https://karmenloop.com/install/koder-tui.ps1) · [koder-tui.cmd](https://karmenloop.com/install/koder-tui.cmd)
 
 ```bash
 cd your-project
 koder-tui
 ```
 
-The TUI reads the model you saved in step 4. If the model is missing, finish step 4 first. The top bar shows version, workspace, model, and mode. Type a task, press Enter to send, and Ctrl+J for a new line. Type `/` for `/help`, `/learn`, `/lang`, `/mode`, `/yes`, `/model`, `/sidebar`, `/about`, `/exit`. Esc stops the current turn. Edits you already accepted stay written.
+Enter sends. Ctrl+J is a new line. `/` opens the command list. Esc stops the turn. Edits you already accepted stay written. `y` accepts a diff, `n` or Esc rejects it.
 
-![Koder TUI after it opens](docs/screenshots/tui-home-en-dark.jpg)
-
-An edit opens a diff window. `y` accepts it. `n` or Esc rejects it.
+![Koder TUI](docs/screenshots/tui-home-en-dark.jpg)
 
 ![Confirming an edit in the TUI](docs/screenshots/tui-diff-en-dark.jpg)
 
-The two edit screenshots were captured against a local scripted test endpoint, not a connected model provider. The interface itself is a real Koder CLI 0.2.0 and Koder TUI 0.1.0 screen.
+Those two edit shots were taken against a local scripted endpoint, not a live model. The chrome is a real Koder CLI 0.2.0 and Koder TUI 0.1.0 screen.
 
-### 7. Optional: editors
-
-You need the model from step 4 first. The editor starts `koder acp` and shows diffs and approvals inside the editor. Koder prints the snippet. You paste it into the editor's own settings file.
-
-From the setup menu, open Editors, pick Zed, Neovim, or Emacs, and choose Copy to clipboard. On Linux the clipboard needs `wl-copy`, `xclip`, or `xsel`. If copy fails, print the snippet instead:
-
-```bash
-koder editor zed
-koder editor nvim
-koder editor emacs
-```
-
-On Windows the command in the snippet is `koder.cmd`. To print the Windows paths from another machine:
-
-```bash
-koder editor zed --os powershell
-```
-
-**Zed.** Paste into `~/.config/zed/settings.json` (Windows: `%APPDATA%\Zed\settings.json`). The snippet adds an `agent_servers` entry named Koder that runs `koder acp`. In Zed's Agent panel, start a thread and pick Koder.
-
-**Neovim.** This needs CodeCompanion.nvim. Paste into `~/.config/nvim/lua/plugins/codecompanion.lua` (Windows: `%LOCALAPPDATA%\nvim\lua\plugins\codecompanion.lua`). Then `:CodeCompanionChat` uses Koder.
-
-**Emacs.** This needs `agent-shell` from MELPA. Paste into `~/.emacs.d/init.el`. Run `M-x agent-shell` and pick Koder.
-
-### 8. Optional: chat apps
-
-Use the model configured in step 4. Open **Chat apps** in `koder setup`, choose an app, then choose **Connect by QR code** or **Enter bot credentials manually**. WeChat, Feishu/Lark and WeCom support QR onboarding. Confirm the connection in the matching mobile app. Feishu and WeCom can create a bot application through this flow if your organization permits it; existing applications can use manual credentials.
-
-The terminal commands are:
-
-```bash
-koder connect weixin
-koder connect feishu
-koder connect wecom
-```
-
-Each command saves the confirmed credentials locally, verifies the connection and starts receiving messages in the background. Run `koder connect` without a platform to choose from a list. To replace a saved account, add `--qr`. Use `--manual` for an existing bot, `--no-start` to configure without running it, or `--foreground` to keep the gateway in the current terminal. Secrets entered interactively are hidden. Do not paste secrets into shared terminal transcripts.
-
-The WeChat and Feishu account that confirmed the QR code is allowed to talk to its bot when the platform returns that account's identity. Other users still require pairing. WeCom may not return the scanning user's identity; send a message to the bot, then approve its pairing code on this computer with `koder gateway pair <code>`.
-
-WeChat connects to an iLink bot identity. It does not turn your ordinary personal account into a remotely controlled account, and ordinary WeChat groups may not deliver events to that bot. Feishu and WeCom use their bot applications and long connections; no public callback server is needed for these modes.
-
-If QR creation is unavailable, run `koder connect feishu --manual` or `koder connect wecom --manual` and follow the platform-specific console steps below. `koder gateway doctor <platform>` checks saved credentials and receive transport prerequisites. `koder gateway status --json` reports the actual gateway connection state. Saved configuration is shown separately from a live connection. Adding or disabling an app is picked up by the running gateway without restarting the other apps.
-
-Strangers in direct messages receive a pairing code. They cannot use the bot until you approve it on this computer. Group chats are off until you change the policy. In a group the bot must be mentioned. File edits and commands are asked again in the chat. Reply `yes` to allow one.
-
-The manual console steps and platform-specific policies follow below. `gateway setup` saves configuration; `connect` also starts the gateway.
-
-List and status:
-
-```bash
-koder gateway list
-koder gateway status
-```
-
-After at least one platform is saved, receive messages:
-
-```bash
-koder gateway start --background
-```
-
-That keeps running after the terminal closes. Logs are in the gateway directory under the Koder home. Stop it with:
-
-```bash
-koder gateway stop
-```
-
-Approve a pairing code shown in the chat, for example:
-
-```bash
-koder gateway pair K7Q2MX
-```
-
-Direct-message policy is `pairing` by default. Also `allowlist`, `open`, or `disabled`. Group policy is `disabled` by default. Also `allowlist` or `open`.
-
-```bash
-koder gateway policy feishu --dm pairing --group allowlist
-```
-
-`--set key=value` fills a field without prompts. Repeat the flag for each field. Do not put real tokens in a shell history you share. The interactive prompt hides secret fields.
-
-#### Feishu / Lark
-
-Console: <https://open.feishu.cn/app>
-
-1. Create a custom app and add the Bot feature.
-2. Grant `im:message` and `im:message:send_as_bot`.
-3. Under Events, choose long connection and subscribe to `im.message.receive_v1`.
-4. Publish a version.
-5. Copy the App ID and App Secret.
-
-```bash
-koder gateway setup feishu
-```
-
-The prompts are App ID, App Secret, and an optional domain: `feishu` (default) or `lark`. Feishu and Lark use a long connection. No public URL.
-
-#### WeCom
-
-Console: <https://work.weixin.qq.com/wework_admin/frame#/aiHelper/create>
-
-1. In the WeCom admin console open App Management, then AI Bot.
-2. Create a bot with long-connection (API) mode.
-3. Copy the Bot ID and Secret.
-
-```bash
-koder gateway setup wecom
-```
-
-No public URL.
-
-#### WeChat
-
-No key. The terminal prints a QR code. Scan it with WeChat on your phone and confirm.
-
-```bash
-koder gateway setup weixin
-```
-
-#### DingTalk
-
-Console: <https://open-dev.dingtalk.com/fe/app>
-
-1. Create an internal app.
-2. Add the Robot feature, set the receive mode to Stream, and publish.
-3. Copy the Client ID (AppKey) and Client Secret (AppSecret) from credentials.
-
-```bash
-koder gateway setup dingtalk
-```
-
-No public URL.
-
-#### Telegram
-
-Open <https://t.me/BotFather>, send `/newbot`, follow the prompts, and copy the bot token.
-
-```bash
-koder gateway setup telegram
-```
-
-#### Slack
-
-Console: <https://api.slack.com/apps>
-
-1. Create an app.
-2. Enable Socket Mode and create an app token (`xapp-`) with `connections:write`.
-3. Under OAuth & Permissions add `chat:write`, `app_mentions:read`, and `im:history`. Install the app to the workspace and copy the bot token (`xoxb-`).
-4. Under Event Subscriptions subscribe to `app_mention` and `message.im`.
-
-```bash
-koder gateway setup slack
-```
-
-Prompts: App token, then Bot token. No public URL.
-
-#### Discord
-
-Console: <https://discord.com/developers/applications>
-
-1. Create an application.
-2. On the Bot page copy the token and enable Message Content Intent.
-3. In OAuth2, URL Generator, pick `bot` with Send Messages and Read Message History.
-4. Open the generated link and invite the bot to the server.
-
-```bash
-koder gateway setup discord
-```
-
-#### WhatsApp
-
-Console: <https://developers.facebook.com/apps>
-
-This one does need a public HTTPS address. Meta calls a webhook on your machine.
-
-1. Create an app, add WhatsApp, and copy the Phone number ID and a permanent access token.
-2. Choose a verify token yourself.
-3. Run setup, then start the gateway. The local port defaults to `8788`.
-4. Expose that port with cloudflared or ngrok.
-5. Set the callback to that HTTPS URL with path `/webhook`, and subscribe to `messages`.
-6. App secret is optional and recommended. It checks the signature.
-
-```bash
-koder gateway setup whatsapp
-koder gateway start --background
-```
-
-### 9. Optional extras
-
-These are not required for normal use.
-
-**Tutorial inside the product.** 17 lessons in a temporary practice project. No model and no cost. Enter goes forward, `b` goes back, `q` quits, and progress is saved. Lesson 1 names the detected system. Lesson 16 is install and update.
-
-```bash
-koder learn
-koder learn 3
-koder learn --print --os powershell
-```
-
-`--os` is `powershell`, `cmd`, `mac`, or `linux`.
-
-**Flows and GitHub Actions.**
-
-```bash
-koder flow init pr-gate
-koder ci init
-```
-
-`koder ci init` writes `.github/workflows/koder.yml`. A pull request is reviewed and commented on when it opens or updates. A comment of `/koder review`, `/koder fix`, `/koder test`, or `/koder ask <question>` runs that action. Instructions that change the repository are accepted only from repository members.
-
-**Local session scan.** This only reads working folders, times, and titles from Koder, Codex, Claude Code, and Cursor session records on this computer. It does not read accounts, keys, or databases, and it does not upload anything.
-
-```bash
-koder scan
-koder scan --tool codex --tool cursor --days 7
-```
-
-### 10. You are done when
+### You are done when
 
 - `koder version` prints a version and the updates page.
-- The Model row in `koder setup` is no longer "not set".
-- `koder model test` receives and validates a model reply.
-- `koder ask "Reply with the single word ready"` returns.
-- In a project, `koder run` shows a diff and waits for `y` before it writes.
+- The Model row in `koder setup` no longer says it is not set.
+- `koder doctor` is happy with the model.
+- `koder ask` comes back with an answer.
+- `koder run` shows a diff and waits for `y`.
 
-If you connected a chat app, `koder gateway status` shows that platform as configured, and `koder gateway start --background` is running. If you connected an editor, a new thread in that editor can select Koder.
+## In the product
 
-## Licence
+| | |
+| --- | --- |
+| `koder help` | Every command. `koder help review` for one of them. |
+| `koder learn` | 17 lessons. `--print` for text. `--os powershell`, `cmd`, `mac`, or `linux`. |
+| `koder setup` | The menu again. |
+| `koder update` | Update the installed CLI. |
+| `koder lang en` | English. `koder lang zh` for Chinese. |
+| [karmenloop.com](https://karmenloop.com) | Product, download, updates. |
+| [Updates](https://karmenloop.com/en/updates.html) | What changed. |
 
-The Koder CLI source in this repository is under the GNU General Public License v3.0. The text is `LICENSE`. Third-party components are listed in `THIRD_PARTY_NOTICES.md`.
+`koder help` inside the installed CLI matches that build. This README matches the 0.3.1 source.
 
-The KARMEN LOOP kernel is not in this repository, is not public, and is not under that licence. Copyright © KARMEN / Koder. All rights reserved. The kernel is not offered for further development.
+## License
 
-Website <https://karmenloop.com> · Email <info@karmenloop.com>
+The Koder CLI source in this repository is under the GNU General Public License v3.0. The text is [LICENSE](LICENSE). Third-party components that ship in this tree are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+The KARMEN LOOP kernel is not in this repository. It is not public, and it is not under the GPL. Copyright © KARMEN / Koder. All rights reserved. The kernel is not offered for further development. The installer runs it. Downloading the installer does not give you the kernel source.
+
+## Contact
+
+[karmenloop.com](https://karmenloop.com) · [info@karmenloop.com](mailto:info@karmenloop.com) · [GitHub](https://github.com/KarmenLoop/koder-cli)
