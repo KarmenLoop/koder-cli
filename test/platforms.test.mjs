@@ -237,6 +237,7 @@ test("weixin: QR login polls status, long poll uses iLink headers, reply echoes 
   let statusCalls = 0;
   let served = false;
   const api = await httpMock({
+    "POST /ilink/bot/getconfig": () => ({ ret: 0 }),
     "GET /ilink/bot/get_bot_qrcode": (_, __, url) => (url.searchParams.get("bot_type") === "3" ? { qrcode: "q1", qrcode_img_content: "https://liteapp.weixin.qq.com/q/abc" } : {}),
     "GET /ilink/bot/get_qrcode_status": () => {
       statusCalls += 1;

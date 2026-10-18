@@ -33,5 +33,6 @@ const manifest = { version, file, sha256: crypto.createHash("sha256").update(byt
 fs.writeFileSync(path.join(dist, `koder-cli-${version}.json`), `${JSON.stringify(manifest, null, 2)}\n`);
 fs.writeFileSync(path.join(dist, "koder-cli-latest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
 fs.copyFileSync(path.join(root, "install", "koder-cli.sh"), path.join(dist, "koder-cli.sh"));
+fs.copyFileSync(path.join(root, "install", "koder-cli.cmd"), path.join(dist, "koder-cli.cmd"));
 fs.writeFileSync(path.join(dist, "koder-cli.ps1"), powershellBootstrap(fs.readFileSync(path.join(root, "install", "koder-cli.ps1"), "utf8")));
 console.log(`dist: ${file} ${manifest.size} bytes sha256 ${manifest.sha256} -> ${dist}`);

@@ -172,7 +172,7 @@ export function createAcpServer(ctx, { input, output, sessionFactory = createSes
       const sessionCtx = Object.create(ctx);
       sessionCtx.opts = { ...ctx.opts, workspace: cwd, json: false };
       const mode = ctx.opts.mode || "standard";
-      const session = await sessionFactory(sessionCtx, { workspace: cwd, mode, quiet: true });
+      const session = await sessionFactory(sessionCtx, { workspace: cwd, mode, quiet: true, memory: false });
       const id = `koder-session-${nextId++}`;
       sessions.set(id, { id, cwd, session, mode, busy: false, rejected: new Set() });
       return {

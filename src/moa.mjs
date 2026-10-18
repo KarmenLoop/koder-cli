@@ -168,15 +168,28 @@ function hash(value) {
   return crypto.createHash("sha256").update(JSON.stringify(value)).digest("hex");
 }
 
-function timeout(promise, ms, signal) {
-  let timer;
-  return Promise.race([
-    promise,
-    new Promise((_, reject) => {
-      timer = setTimeout(() => reject(Object.assign(new Error("reference timeout"), { code: "MOA_TIMEOUT" })), ms);
-      signal?.addEventListener("abort", () => reject(Object.assign(new Error("aborted"), { name: "AbortError" })), { once: true });
-    }),
-  ]).finally(() => clearTimeout(timer));
+async function timeout(run, ms, signal) {
+  const controller = new AbortController();
+  const abort = () => controller.abort(Object.assign(new Error("aborted"), { name: "AbortError" }));
+  signal?.addEventListener("abort", abort, { once: true });
+  if (signal?.aborted) abort();
+  const timer = setTimeout(() => controller.abort(Object.assign(new Error("reference timeout"), { code: "MOA_TIMEOUT" })), ms);
+  let onAbort;
+  try {
+    if (controller.signal.aborted) throw controller.signal.reason;
+    const cancelled = new Promise((_, reject) => {
+      onAbort = () => reject(controller.signal.reason);
+      controller.signal.addEventListener("abort", onAbort, { once: true });
+    });
+    return await Promise.race([Promise.resolve().then(() => {
+      if (controller.signal.aborted) throw controller.signal.reason;
+      return run(controller.signal);
+    }), cancelled]);
+  } finally {
+    clearTimeout(timer);
+    signal?.removeEventListener("abort", abort);
+    if (onAbort) controller.signal.removeEventListener("abort", onAbort);
+  }
 }
 
 export function createMoaProvider({ aggregator, references, lang = "zh", fanout = "user_turn", privacy = "", timeoutMs = 120_000, onEvent = () => {} }) {
@@ -186,7 +199,7 @@ export function createMoaProvider({ aggregator, references, lang = "zh", fanout 
     name: `MoA(${references.map((ref) => ref.label).join("+")} → ${aggregator.name || aggregator.model || "aggregator"})`,
     model: aggregator.model,
     contextWindow: aggregator.contextWindow,
-    async complete({ messages, tools, signal, onDelta }) {
+    async complete({ messages, tools, signal, onDelta, maxOutput }) {
       const view = referenceView(messages, lang);
       const anchor = lastUserIndex(messages);
       const key = fanout === "user_turn" ? hash(referenceView(messages.slice(0, anchor + 1), lang)) : hash(view);
@@ -197,10 +210,10 @@ export function createMoaProvider({ aggregator, references, lang = "zh", fanout 
         onEvent({ type: "moa_start", references: references.map((ref) => ref.label) });
         const advisoryView = fanout === "user_turn" ? referenceView(messages.slice(0, anchor + 1), lang) : view;
         const started = Date.now();
-        const settled = await Promise.allSettled(references.map((ref) => timeout(ref.provider.complete({
+        const settled = await Promise.allSettled(references.map((ref) => timeout((referenceSignal) => ref.provider.complete({
           messages: [{ role: "system", content: REFERENCE_SYSTEM[lang] || REFERENCE_SYSTEM.zh }, ...advisoryView],
           tools: [],
-          signal,
+          signal: referenceSignal,
         }), timeoutMs, signal)));
         if (signal?.aborted) throw Object.assign(new Error("aborted"), { name: "AbortError" });
         const outputs = [];
@@ -221,7 +234,7 @@ export function createMoaProvider({ aggregator, references, lang = "zh", fanout 
         });
       }
       const block = guidanceBlock({ outputs: cache.outputs, failed: cache.failed, stale, lang });
-      return aggregator.complete({ messages: withGuidance(messages, block), tools, signal, onDelta });
+      return aggregator.complete({ messages: withGuidance(messages, block), tools, signal, onDelta, maxOutput });
     },
   };
 }

@@ -3,6 +3,7 @@ export async function requestJson(fetchImpl, url, { method = "GET", headers = {}
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   const abort = () => controller.abort();
   signal?.addEventListener("abort", abort, { once: true });
+  if (signal?.aborted) controller.abort();
   try {
     const response = await fetchImpl(url, {
       method,
@@ -28,10 +29,13 @@ export async function requestJson(fetchImpl, url, { method = "GET", headers = {}
 
 export function sleep(ms, signal) {
   return new Promise((resolve) => {
-    const timer = setTimeout(resolve, ms);
-    signal?.addEventListener("abort", () => {
+    const done = () => { signal?.removeEventListener("abort", abort); resolve(); };
+    const abort = () => {
       clearTimeout(timer);
-      resolve();
-    }, { once: true });
+      done();
+    };
+    const timer = setTimeout(done, ms);
+    signal?.addEventListener("abort", abort, { once: true });
+    if (signal?.aborted) abort();
   });
 }

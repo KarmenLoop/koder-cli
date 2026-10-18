@@ -20,6 +20,12 @@ openws adapter (`plugins/platforms/wecom`) in `src/gateway/platforms/wecom.mjs`;
 DM pairing and allowlist policies in `src/gateway/core.mjs`. The optional Hermes
 engine is Hermes itself, installed by its own installer and driven over ACP.
 
+The Feishu device-registration and WeCom scan-to-create flows in
+`src/gateway/onboarding.mjs` additionally follow the MIT-licensed adapters at
+Hermes commit `22063fc099ec9ad8357d7f8f6e6248a0400680d3`:
+`plugins/platforms/feishu/adapter.py` and `plugins/platforms/wecom/adapter.py`.
+They run through Koder's own gateway; installing Hermes is not required.
+
 MIT License text:
 
 > Permission is hereby granted, free of charge, to any person obtaining a copy of

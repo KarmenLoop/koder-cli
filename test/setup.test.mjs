@@ -81,6 +81,31 @@ test("parseInput: arrows, Enter, Esc, Backspace, control keys, SGR mouse, unknow
   assert.equal(parseInput("\x1b[<4;3;3M")[0].button, "left", "shift-click is still a click");
 });
 
+test("chat-app settings offer QR and manual connection without claiming a saved app is online", async () => {
+  const term = terminal(), home = tmp();
+  fs.mkdirSync(path.join(home, "gateway"));
+  fs.writeFileSync(path.join(home, "gateway/config.json"), JSON.stringify({ platforms: { weixin: { enabled: true } } }));
+  const unavailable = async () => { throw new Error("fixture: no external login in navigation test"); };
+  const running = cli(["setup"], { home, fetchImpl: unavailable, io: { stdin: term.input, stdout: term.output, noTerminal: false, weixinLogin: unavailable, feishuLogin: unavailable, wecomLogin: unavailable } });
+  try {
+    await term.until(/KODER CLI/);
+    term.send("7");
+    await term.until(/接入聊天软件/);
+    assert.match(term.frame(), /配置已保存/);
+    term.send("3");
+    await term.until(/扫码连接.*|手动填写.*凭据/);
+    assert.match(term.frame(), /扫码连接/);
+    assert.match(term.frame(), /手动填写/);
+    term.send("\x1b");
+    await term.until(/接入聊天软件/);
+  } finally {
+    // Also exits the pre-fix screen, which immediately starts QR login.
+    term.send("\r");
+    for (let i = 0; i < 4; i++) { await new Promise((resolve) => setTimeout(resolve, 5)); term.send("\x1b"); }
+    await running;
+  }
+});
+
 test("detectShell: PowerShell vs CMD on Windows, macOS, Linux, overrides", () => {
   const user = "C:\\Users\\张三";
   const machine = "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules";

@@ -1,5 +1,7 @@
 # Koder CLI
 
+Current release: 0.3.0
+
 KARMEN / Koder is our product. We wrote KARMEN and Koder ourselves. The kernel is called KARMEN LOOP. On your computer it works in a loop: perceive, decide, act. Koder works in the folder you name. KARMEN BOT is the personal assistant in the same family. This page is the terminal product: install it, set a model, and use it. The desktop app is a separate installer on the website.
 
 Website: <https://karmenloop.com>  
@@ -21,7 +23,7 @@ The kernel is not public and it is not in this repository. The installer runs it
 | TUI | `koder-tui` | Full-screen terminal. Separate install. Shares the CLI's model and language. |
 | Desktop | website download page | Separate installer. Not installed by the commands below. |
 
-Chat apps and editors are optional. The CLI is usable as soon as a model answers `koder doctor` and a small task. Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp, Zed, Neovim, or Emacs only if you want them.
+Chat apps and editors are optional. The CLI is usable as soon as a model answers `koder model test` and a small task. Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp, Zed, Neovim, or Emacs only if you want them.
 
 ## Hand-holding tutorial
 
@@ -114,7 +116,7 @@ The menu rows are: Language, Model, Colours, Banner style, Banner animation, Eng
 
 Until a model is saved, the Model row says it is not set. Start there after the language.
 
-**Language.** Enter on Language. Choose English or Chinese. It applies at once.
+**Language.** Enter on Language. Choose English or 中文. It applies at once.
 
 The same choice from a shell, if you are not inside the menu:
 
@@ -224,7 +226,7 @@ koder model show
 koder doctor
 ```
 
-Doctor checks Node.js, Git, the model, colours, and startup time. If the model line fails, the usual causes are:
+Doctor checks Node.js, Git, saved model configuration, colours, and startup time. It does not contact the model by default. Run `koder model test` (or `koder doctor --api`) to send a small request and validate a real model reply; this can incur a small amount of provider usage. `koder model test <name>` checks a named model. If the check fails, the usual causes are:
 
 - The environment variable is empty in this window. Open a new terminal after `setx` or after editing `.zshrc` / `.bashrc`.
 - The preset id is wrong. Run `koder model presets` and copy the id.
@@ -238,6 +240,52 @@ koder ask "Reply with the single word ready"
 ```
 
 When that returns, the model is usable. Exit code 0 means finished. Exit code 1 means the task failed or was cancelled. Exit code 2 means it could not start: no model, or a bad flag.
+
+#### API connection recovery
+
+Model requests retry temporary connection failures, HTTP 408/409/429 and server errors at most twice, with backoff and `Retry-After`. Invalid credentials, missing endpoints, certificate failures and invalid request parameters get specific diagnostics. A response that has already started is never replayed, so interrupted tool output is not executed twice. MoA reference timeouts cancel their underlying requests.
+
+The default response-header timeout is 60 seconds, stream idle timeout 90 seconds, and total deadline 10 minutes including retries and response reading. Change these in the process environment when a provider needs different limits:
+
+| Variable | Default | Allowed |
+| --- | --- | --- |
+| `KODER_API_RETRIES` | `2` | `0` to `2` |
+| `KODER_API_CONNECT_TIMEOUT_MS` | `60000` | `1` to `600000` ms; includes waiting for response headers |
+| `KODER_API_IDLE_TIMEOUT_MS` | `90000` | `1` to `600000` ms |
+| `KODER_API_TIMEOUT_MS` | `600000` | `1` to `1800000` ms, shared by all attempts |
+
+On Node versions supporting `--use-env-proxy` (including the bundled Node 22.23), the launcher enables configured `HTTP_PROXY` / `HTTPS_PROXY` and native `NO_PROXY` handling before starting the CLI. Lowercase proxy names work too. Set `NODE_USE_ENV_PROXY=0` to opt out. On older Node versions, use a runtime supporting that flag for proxy routing. Certificate verification stays enabled; a corporate proxy can use your explicitly configured `NODE_EXTRA_CA_CERTS`. This covers HTTP model requests; app WebSocket proxy behavior needs separate verification.
+
+Base URLs may contain an API path or full `/chat/completions` or `/messages` endpoint and query parameters. Koder keeps the query parameters when building the request. Use the provider's documented version path rather than a web-console URL.
+
+#### Context and local memory
+
+Native Koder conversations now continue across invocations and restarts in the same canonical workspace. `run`, `ask` and interactive `chat` share that workspace's default conversation. Changing native model, mode or MoA retains the saved conversation. Different workspaces and named sessions stay separate.
+
+```bash
+koder run "Keep the public API unchanged; fix config.ts"
+koder ask "Continue the same task and report what remains"
+koder chat --session release-work
+koder run "Start a separate task" --new
+koder ask "Use no saved history for this request" --no-memory
+```
+
+Use `--session <name>` for independent tasks in the same directory. `/new` in chat starts fresh; it also works before the first prompt. Chat-app history is partitioned by platform, bot/account, chat and sender; it resumes after the gateway restarts, and `/new` resets only that context. A reset archives the preceding conversation; it does not undo completed file operations. Pending approvals, execution queues and partial tool calls are never restored as executable work. Missing tool receipts are explicitly unknown and require a current-state check.
+
+Older turns are retained in local history. When the model window fills, Koder sends recent complete turns plus bounded, chronological extracts of the original task and relevant older context. These are extracts rather than a second model-generated summary. Tool calls and results stay paired. The request's output allowance is adjusted to the actual remaining input/tool budget; an indivisible oversized turn fails with a clear context-budget error. Set `contextWindow` and `maxOutput` to the actual limits of your configured model.
+
+```bash
+koder memory show
+koder memory search "public API"
+koder memory add "Use pnpm; preserve public API compatibility."
+koder memory remove <note-id>
+koder memory clear
+koder memory forget
+```
+
+`/memory ...` works in interactive chat, including named sessions. `clear` starts a new conversation and retains explicit notes; `forget` deletes this session's saved history, notes and archives. Explicit notes are used as scoped context and do not authorize actions. All commands accept `--session <name>` and `-w <workspace>`. Automatic history can be disabled with `--no-memory`; explicit memory-management commands still act on the named local store.
+
+History is stored under `~/.koder-cli/memory`, using private directories/files and atomic, revision-checked writes. Known configured model keys and recognizable credential fields are redacted; avoid placing unrelated secrets in conversation text. The history stays local and the selected context is sent only to your configured model (or explicitly configured MoA models). Each conversation has a 64 MiB guard; when it is reached, preserve it and start a new named session. Concurrent turns in one session are rejected; use different names for parallel work. Native editor ACP sessions remain independent and do not advertise cross-process loading; external engines such as Hermes retain their own session behavior.
 
 ### 5. Use it on a real project
 
@@ -363,11 +411,27 @@ koder editor zed --os powershell
 
 ### 8. Optional: chat apps
 
-Same model as step 4. Each app is one platform account that you create on that company's site. Koder stores the credentials under the Koder home directory and checks them online before saving. WeChat is the exception: it shows a QR code and does not ask for a key.
+Use the model configured in step 4. Open **Chat apps** in `koder setup`, choose an app, then choose **Connect by QR code** or **Enter bot credentials manually**. WeChat, Feishu/Lark and WeCom support QR onboarding. Confirm the connection in the matching mobile app. Feishu and WeCom can create a bot application through this flow if your organization permits it; existing applications can use manual credentials.
+
+The terminal commands are:
+
+```bash
+koder connect weixin
+koder connect feishu
+koder connect wecom
+```
+
+Each command saves the confirmed credentials locally, verifies the connection and starts receiving messages in the background. Run `koder connect` without a platform to choose from a list. To replace a saved account, add `--qr`. Use `--manual` for an existing bot, `--no-start` to configure without running it, or `--foreground` to keep the gateway in the current terminal. Secrets entered interactively are hidden. Do not paste secrets into shared terminal transcripts.
+
+The WeChat and Feishu account that confirmed the QR code is allowed to talk to its bot when the platform returns that account's identity. Other users still require pairing. WeCom may not return the scanning user's identity; send a message to the bot, then approve its pairing code on this computer with `koder gateway pair <code>`.
+
+WeChat connects to an iLink bot identity. It does not turn your ordinary personal account into a remotely controlled account, and ordinary WeChat groups may not deliver events to that bot. Feishu and WeCom use their bot applications and long connections; no public callback server is needed for these modes.
+
+If QR creation is unavailable, run `koder connect feishu --manual` or `koder connect wecom --manual` and follow the platform-specific console steps below. `koder gateway doctor <platform>` checks saved credentials and receive transport prerequisites. `koder gateway status --json` reports the actual gateway connection state. Saved configuration is shown separately from a live connection. Adding or disabling an app is picked up by the running gateway without restarting the other apps.
 
 Strangers in direct messages receive a pairing code. They cannot use the bot until you approve it on this computer. Group chats are off until you change the policy. In a group the bot must be mentioned. File edits and commands are asked again in the chat. Reply `yes` to allow one.
 
-From the setup menu, open Chat apps, pick a platform, and fill the prompts. Or use the commands below.
+The manual console steps and platform-specific policies follow below. `gateway setup` saves configuration; `connect` also starts the gateway.
 
 List and status:
 
@@ -542,7 +606,7 @@ koder scan --tool codex --tool cursor --days 7
 
 - `koder version` prints a version and the updates page.
 - The Model row in `koder setup` is no longer "not set".
-- `koder doctor` passes the model check.
+- `koder model test` receives and validates a model reply.
 - `koder ask "Reply with the single word ready"` returns.
 - In a project, `koder run` shows a diff and waits for `y` before it writes.
 

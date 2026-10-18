@@ -55,7 +55,7 @@ test("engine commands: list, add, use, test handshake, unknown engine", async ()
   assert.match(list.out, /self/);
   const handshake = await cli(["engine", "test", "self"], { home });
   assert.equal(handshake.code, 0, handshake.err);
-  assert.match(handshake.out, /koder 0\.2\.0 · ACP v1/);
+  assert.match(handshake.out, /koder 0\.3\.0 · ACP v1/);
   await cli(["engine", "use", "self"], { home });
   assert.equal(JSON.parse(fs.readFileSync(path.join(home, "config.json"), "utf8")).engine, "self");
   const bad = await cli(["run", "x", "--engine", "ghost"], { home, provider: { complete: () => assert.fail() } });

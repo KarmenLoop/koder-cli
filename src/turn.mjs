@@ -1,29 +1,17 @@
 import { describePause } from "./format.mjs";
 import { normalizeDecision } from "./policy.mjs";
+import { createModelFetch } from "./model-http.mjs";
 
 // The harness swallows model errors into a generic notice; this keeps the last
 // HTTP status or network failure so the CLI can say what actually went wrong.
-export function diagnosticFetch(base = globalThis.fetch) {
+export function diagnosticFetch(base = globalThis.fetch, options = {}) {
   const state = { last: null };
-  const wrapped = async (url, init) => {
-    try {
-      const response = await base(url, init);
-      state.last = response.ok ? null : { status: response.status, host: safeHost(url) };
-      return response;
-    } catch (error) {
-      if (!init?.signal?.aborted) state.last = { error: error?.cause?.code || error?.code || error?.name || "NETWORK", host: safeHost(url) };
-      throw error;
-    }
-  };
-  return { fetch: wrapped, state };
-}
-
-function safeHost(url) {
-  try {
-    return new URL(String(url)).host;
-  } catch {
-    return "";
-  }
+  const fetch = createModelFetch(base, {
+    ...options,
+    onFailure: failure => { state.last = failure; },
+    onResponse: response => { state.last = response.ok ? null : { status: response.status, host: response.host }; },
+  });
+  return { fetch, state };
 }
 
 const waiting = (status) => String(status || "").startsWith("waiting_");

@@ -25,7 +25,7 @@ export async function verify(creds, { fetchImpl = globalThis.fetch } = {}) {
   return { detail: creds.clientId };
 }
 
-export function create(creds, { fetchImpl = globalThis.fetch, WebSocketImpl, version = "0.2.0" } = {}) {
+export function create(creds, { fetchImpl = globalThis.fetch, WebSocketImpl, version = "0.3.0" } = {}) {
   const api = (creds.apiBase || "https://api.dingtalk.com").replace(/\/+$/, "");
   let socket = null;
   const webhooks = new Map();

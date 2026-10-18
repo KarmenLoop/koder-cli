@@ -13,8 +13,8 @@ import { flags as bannerFlags, showBanner } from "./banner.mjs";
 
 export const flags = { ...bannerFlags };
 
-const SLASH = ["/help", "/about", "/setup", "/learn", "/lang", "/mode", "/yes", "/moa", "/engine", "/new", "/review", "/fix", "/test", "/scan", "/flow", "/model", "/gateway", "/doctor", "/editor", "/banner", "/exit", "/quit"];
-const FORWARD = new Set(["review", "fix", "test", "scan", "flow", "model", "doctor", "editor", "gateway"]);
+const SLASH = ["/help", "/about", "/setup", "/learn", "/lang", "/mode", "/yes", "/moa", "/engine", "/new", "/memory", "/review", "/fix", "/test", "/scan", "/flow", "/model", "/gateway", "/doctor", "/editor", "/banner", "/exit", "/quit"];
+const FORWARD = new Set(["review", "fix", "test", "scan", "flow", "model", "doctor", "editor", "gateway", "memory"]);
 
 function words(text) {
   const out = [];
@@ -151,14 +151,19 @@ export async function run(ctx) {
       }
       ctx.stdout.write(`${ctx.t("chat.engine", { name: turnCtx.opts.engine || ctx.config.engine || "koder" })}\n`);
     } else if (name === "new") {
-      await session?.reset();
+      if (session) await session.reset();
+      else if (ctx.opts.memory !== false) {
+        const { createMemory } = await import("../memory.mjs");
+        const memory = createMemory({ workspace: ctx.workspace(), env: ctx.env, name: ctx.opts.session || "default" });
+        memory.transact(data => memory.reset(data));
+      }
       ctx.stdout.write(`${ctx.t("chat.cleared")}\n`);
     } else if (name === "banner") {
       await showBanner(ctx);
     } else if (FORWARD.has(name)) {
       busy = true;
       try {
-        await ctx.dispatch([name, ...args, "-w", session?.workspace || ctx.workspace(), ...(yes ? ["--yes"] : [])], { prompter, noStdin: true });
+        await ctx.dispatch([name, ...args, "-w", session?.workspace || ctx.workspace(), ...(name === "memory" && ctx.opts.session ? ["--session", ctx.opts.session] : []), ...(yes ? ["--yes"] : [])], { prompter, noStdin: true });
       } finally {
         busy = false;
       }

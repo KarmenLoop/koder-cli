@@ -21,7 +21,11 @@ export const meta = {
     zh: "不需要填写密钥：终端会显示二维码，用手机微信扫码并确认即可。",
     en: "No keys needed: scan the QR code shown in the terminal with WeChat on your phone and confirm.",
   },
-  fields: [],
+  fields: [
+    { key: "accountId", label: { zh: "机器人账号 ID", en: "Bot account ID" } },
+    { key: "token", secret: true, label: { zh: "Bot Token", en: "Bot Token" } },
+    { key: "userId", optional: true, label: { zh: "用户 ID（可选）", en: "User ID (optional)" } },
+  ],
 };
 
 function headers(token, body) {
@@ -42,13 +46,20 @@ async function post(fetchImpl, baseUrl, endpoint, payload, token, { signal, time
   return requestJson(fetchImpl, `${baseUrl.replace(/\/+$/, "")}/${endpoint}`, { method: "POST", headers: headers(token, body), body, signal, timeoutMs });
 }
 
-async function get(fetchImpl, baseUrl, endpoint, timeoutMs = 35_000) {
-  return requestJson(fetchImpl, `${baseUrl.replace(/\/+$/, "")}/${endpoint}`, { headers: { "iLink-App-Id": APP_ID, "iLink-App-ClientVersion": CLIENT_VERSION }, timeoutMs });
+async function get(fetchImpl, baseUrl, endpoint, timeoutMs = 35_000, signal) {
+  return requestJson(fetchImpl, `${baseUrl.replace(/\/+$/, "")}/${endpoint}`, { headers: { "iLink-App-Id": APP_ID, "iLink-App-ClientVersion": CLIENT_VERSION }, timeoutMs, signal });
 }
 
-export async function qrLogin({ fetchImpl = globalThis.fetch, baseUrl = ILINK_BASE, onQr = () => {}, onStatus = () => {}, timeoutMs = 480_000, pollDelay = 1000 } = {}) {
+export async function qrLogin({ fetchImpl = globalThis.fetch, baseUrl = ILINK_BASE, onQr = () => {}, onStatus = () => {}, timeoutMs = 480_000, pollDelay = 1000, signal } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  const remaining = () => {
+    signal?.throwIfAborted();
+    const value = deadline - Date.now();
+    if (value <= 0) throw new Error("weixin: login timed out");
+    return value;
+  };
   const fetchQr = async () => {
-    const answer = await get(fetchImpl, baseUrl, "ilink/bot/get_bot_qrcode?bot_type=3");
+    const answer = await get(fetchImpl, baseUrl, "ilink/bot/get_bot_qrcode?bot_type=3", Math.min(35_000, remaining()), signal);
     if (!answer.qrcode) throw new Error("weixin: no qrcode in response");
     onQr(answer.qrcode_img_content || answer.qrcode);
     return answer.qrcode;
@@ -56,33 +67,43 @@ export async function qrLogin({ fetchImpl = globalThis.fetch, baseUrl = ILINK_BA
   let qrcode = await fetchQr();
   let current = baseUrl;
   let refreshed = 0;
-  const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     let status;
     try {
-      status = await get(fetchImpl, current, `ilink/bot/get_qrcode_status?qrcode=${encodeURIComponent(qrcode)}`);
+      status = await get(fetchImpl, current, `ilink/bot/get_qrcode_status?qrcode=${encodeURIComponent(qrcode)}`, Math.min(35_000, remaining()), signal);
     } catch {
-      await sleep(pollDelay);
+      signal?.throwIfAborted();
+      await sleep(Math.min(pollDelay, remaining()), signal);
       continue;
     }
+    signal?.throwIfAborted();
     const state = String(status.status || "wait");
     onStatus(state);
     if (state === "scaned_but_redirect" && status.redirect_host) current = `https://${status.redirect_host}`;
     else if (state === "expired") {
       refreshed += 1;
       if (refreshed > 3) throw new Error("weixin: QR code expired");
+      current = baseUrl;
       qrcode = await fetchQr();
     } else if (state === "confirmed") {
       if (!status.ilink_bot_id || !status.bot_token) throw new Error("weixin: incomplete credentials");
       return { accountId: String(status.ilink_bot_id), token: String(status.bot_token), baseUrl: String(status.baseurl || baseUrl), userId: String(status.ilink_user_id || "") };
     }
-    await sleep(pollDelay);
+    await sleep(Math.min(pollDelay, remaining()), signal);
   }
   throw new Error("weixin: login timed out");
 }
 
-export async function verify(creds) {
+function validate(creds) {
   if (!creds.token || !creds.accountId) throw new Error("weixin: run koder gateway setup weixin to scan the QR code");
+}
+
+export async function verify(creds, { fetchImpl = globalThis.fetch } = {}) {
+  validate(creds);
+  if (creds.userId) {
+    const answer = await post(fetchImpl, creds.baseUrl || ILINK_BASE, "ilink/bot/getconfig", { ilink_user_id: creds.userId }, creds.token);
+    if (answer.ret || answer.errcode) throw new Error(`WeChat session expired or unavailable (ret=${answer.ret || answer.errcode}); run koder connect weixin --qr to sign in again`);
+  }
   return { detail: creds.accountId };
 }
 
@@ -107,6 +128,7 @@ export function create(creds, { fetchImpl = globalThis.fetch, dataDir, pollTimeo
   let syncBuf = syncFile ? readJson(syncFile, {}).buf || "" : "";
   let stopped = false;
   let controller = null;
+  const seen = new Set();
 
   async function send(to, text) {
     const message = {
@@ -131,13 +153,17 @@ export function create(creds, { fetchImpl = globalThis.fetch, dataDir, pollTimeo
     if (message.message_type === 2) return;
     const from = String(message.from_user_id || "").trim();
     if (!from) return;
+    const messageId = String(message.message_id || "");
+    const key = `${from}:${messageId}`;
+    if (messageId && seen.has(key)) return;
+    if (messageId) { seen.add(key); if (seen.size > 1000) seen.delete(seen.values().next().value); }
     if (message.context_token) {
       contextTokens[from] = String(message.context_token);
       if (tokenFile) writeJson(tokenFile, contextTokens);
     }
     const text = (message.item_list || []).filter((item) => item.type === 1).map((item) => item.text_item?.text || "").join("\n").trim();
     const room = String(message.room_id || message.chat_room_id || "").trim();
-    hub.receive({ platform: "weixin", chatId: room || from, userId: from, userName: from, text, isGroup: Boolean(room), mentioned: true, messageId: String(message.message_id || ""), reply: (value) => send(room || from, value) });
+    Promise.resolve(hub.receive({ platform: "weixin", chatId: room || from, userId: from, userName: from, text, isGroup: Boolean(room), mentioned: true, messageId, reply: (value) => send(room || from, value) })).catch((error) => hub.log?.(`receive: ${error.message}`));
   }
 
   async function loop(hub) {
@@ -146,10 +172,10 @@ export function create(creds, { fetchImpl = globalThis.fetch, dataDir, pollTimeo
       try {
         controller = new AbortController();
         const answer = await post(fetchImpl, baseUrl, "ilink/bot/getupdates", { get_updates_buf: syncBuf }, creds.token, { signal: controller.signal, timeoutMs: pollTimeoutMs + 10_000 });
+        if (stopped) return;
         if (answer.ret === SESSION_EXPIRED || answer.errcode === SESSION_EXPIRED) {
-          hub.status("error", "session expired; run koder gateway setup weixin again");
-          await sleep(600_000, controller.signal);
-          continue;
+          hub.status("expired", "session expired; run koder connect weixin --qr to sign in again");
+          return;
         }
         if (answer.ret || answer.errcode) throw new Error(`getupdates ret=${answer.ret} errcode=${answer.errcode}`);
         failures = 0;
@@ -172,7 +198,13 @@ export function create(creds, { fetchImpl = globalThis.fetch, dataDir, pollTimeo
     id: "weixin",
     maxLength: 2000,
     async start(hub) {
-      await verify(creds);
+      validate(creds);
+      stopped = false;
+      if (creds.userId) {
+        await verify(creds, { fetchImpl });
+        if (stopped) return;
+        hub.status("connected", creds.accountId);
+      }
       loop(hub);
     },
     stop() {

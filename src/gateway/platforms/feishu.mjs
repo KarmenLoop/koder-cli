@@ -1,6 +1,7 @@
 import { requestJson } from "../http.mjs";
 import { decodeFrame, encodeFrame, header } from "../protobuf.mjs";
 import { createSocket } from "../ws.mjs";
+export { feishuQrLogin as qrLogin } from "../onboarding.mjs";
 
 // Long connection (no public URL), same protocol as larksuite/node-sdk ws-client.
 const DOMAINS = { feishu: "https://open.feishu.cn", lark: "https://open.larksuite.com" };
@@ -11,6 +12,7 @@ export const meta = {
   id: "feishu",
   name: { zh: "飞书 / Lark", en: "Feishu / Lark" },
   console: "https://open.feishu.cn/app",
+  qr: true,
   steps: {
     zh: "在飞书开放平台创建企业自建应用，添加「机器人」能力；在「权限管理」开通 im:message、im:message:send_as_bot；在「事件与回调」选择「使用长连接接收事件」并订阅「接收消息 im.message.receive_v1」；发布版本后复制 App ID 和 App Secret。海外 Lark 选 lark。",
     en: "Create a custom app on the Feishu/Lark open platform and add the Bot feature; grant im:message and im:message:send_as_bot; under Events choose long connection and subscribe to im.message.receive_v1; publish a version and copy the App ID and App Secret. Use domain lark for Lark.",
@@ -47,7 +49,10 @@ export async function verify(creds, { fetchImpl = globalThis.fetch } = {}) {
   const token = tokens(creds, fetchImpl);
   const info = await requestJson(fetchImpl, `${base(creds)}/open-apis/bot/v3/info`, { headers: { authorization: `Bearer ${await token()}` } });
   if (info.code !== 0) throw new Error(`bot/v3/info: ${info.msg || info.code}`);
-  return { detail: info.bot?.app_name || creds.appId };
+  const endpoint = await requestJson(fetchImpl, `${base(creds)}/callback/ws/endpoint`, { method: "POST", headers: { locale: "zh" }, body: { AppID: creds.appId, AppSecret: creds.appSecret } });
+  if (endpoint.code !== 0 || !endpoint.data?.URL) throw new Error(`Feishu long connection: ${endpoint.msg || "missing WebSocket endpoint; enable long connection and publish the app"}`);
+  const bot = info.bot || info.data?.bot;
+  return { detail: bot?.app_name || creds.appId };
 }
 
 export function create(creds, { fetchImpl = globalThis.fetch, WebSocketImpl } = {}) {
@@ -122,14 +127,16 @@ export function create(creds, { fetchImpl = globalThis.fetch, WebSocketImpl } = 
     maxLength: 4000,
     async start(hub) {
       const info = await requestJson(fetchImpl, `${base(creds)}/open-apis/bot/v3/info`, { headers: { authorization: `Bearer ${await token()}` } }).catch(() => null);
-      botOpenId = info?.bot?.open_id || "";
+      const bot = info?.bot || info?.data?.bot;
+      if (info?.code !== 0 || !bot) throw new Error(`Feishu bot verification: ${info?.msg || "bot information unavailable"}`);
+      botOpenId = bot.open_id || "";
       socket = createSocket({
         WebSocketImpl,
         binary: true,
         url: endpoint,
         log: (line) => hub.log?.(line),
         onOpen(ws) {
-          hub.status("connected", info?.bot?.app_name || creds.appId);
+          hub.status("connected", bot.app_name || creds.appId);
           clearInterval(pingTimer);
           ping(ws);
           pingTimer = setInterval(() => ping(ws), pingInterval);
@@ -139,6 +146,7 @@ export function create(creds, { fetchImpl = globalThis.fetch, WebSocketImpl } = 
           clearInterval(pingTimer);
           hub.status("connecting", "reconnecting");
         },
+        onError(error) { hub.status("error", error.message); },
         onMessage(bytes, ws) {
           const frame = decodeFrame(bytes);
           if (frame.method === CONTROL) {

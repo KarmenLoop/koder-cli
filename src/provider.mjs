@@ -23,7 +23,10 @@ export function normalizeRecord(raw, env = process.env) {
   const baseUrl = String(raw.baseUrl || "").trim();
   if (!model) throw new KoderError("model.badField", { field: "model" });
   if (!baseUrl) throw new KoderError("model.badField", { field: "baseUrl" });
-  if (!/^https?:\/\/[^/\s]+/i.test(baseUrl)) throw new KoderError("model.badUrl");
+  try {
+    const parsed = new URL(baseUrl);
+    if (!["http:", "https:"].includes(parsed.protocol) || !parsed.hostname || parsed.username || parsed.password || parsed.hash || /\s/.test(baseUrl)) throw new Error();
+  } catch { throw new KoderError("model.badUrl"); }
   const auth = raw.auth === "none" ? "none" : raw.auth || "bearer";
   let apiKey = typeof raw.apiKey === "string" ? raw.apiKey : "";
   const keyEnv = typeof raw.keyEnv === "string" ? raw.keyEnv.trim() : "";

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { KoderError } from "./errors.mjs";
+import { createModelFetch, withModelEndpoint } from "./model-http.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -24,7 +25,8 @@ export async function importKernel(file, env = process.env) {
 // the real model instead of the 8192-token default used for an override.
 export async function openAgent({ workspace, record = null, providerOverride = null, fetchImpl, contextRatio = 0.75, env = process.env }) {
   const { createHarness } = await importKernel(path.join("harness", "create.mjs"), env);
-  const harness = await createHarness({ workspace, providerOverride, fetchImpl });
+  const transport = createModelFetch(fetchImpl, { env });
+  const harness = await createHarness({ workspace, providerOverride, fetchImpl: record ? withModelEndpoint(transport, record) : transport });
   if (record) {
     await harness.store.saveProviders([{ ...record, id: "cli" }]);
     await harness.store.saveSettings({ providerId: "cli", contextRatio });

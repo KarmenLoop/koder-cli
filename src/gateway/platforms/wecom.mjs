@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { createSocket } from "../ws.mjs";
+export { wecomQrLogin as qrLogin } from "../onboarding.mjs";
 
 // WeCom AI bot over the openws long connection, protocol as in Hermes Agent's
 // plugins/platforms/wecom (MIT): aibot_subscribe → ping every 30 s →
@@ -10,6 +11,7 @@ export const meta = {
   id: "wecom",
   name: { zh: "企业微信", en: "WeCom" },
   console: "https://work.weixin.qq.com/wework_admin/frame#/aiHelper/create",
+  qr: true,
   steps: {
     zh: "在企业微信管理后台 →「应用管理」→「智能机器人」创建机器人，连接方式选择「长连接（API 模式）」，复制 Bot ID 和 Secret。",
     en: "In the WeCom admin console go to App Management → AI Bot, create a bot with the long-connection (API) mode and copy the Bot ID and Secret.",
@@ -46,10 +48,10 @@ function connection(creds, { WebSocketImpl, dataDir, onFrame, onStatus, log }) {
       pending.delete(id);
       reject(new Error(`${cmd} timeout`));
     }, REQUEST_MS);
-    pending.set(id, (frame) => {
+    pending.set(id, { reject(error) { clearTimeout(timer); reject(error); }, resolve(frame) {
       clearTimeout(timer);
       resolve(frame);
-    });
+    } });
     if (!ws.send({ cmd, headers: { req_id: id }, body })) {
       clearTimeout(timer);
       pending.delete(id);
@@ -65,6 +67,7 @@ function connection(creds, { WebSocketImpl, dataDir, onFrame, onStatus, log }) {
         const answer = await request(ws, "aibot_subscribe", reqId("subscribe"), { bot_id: creds.botId, secret: creds.secret, device_id: device });
         if (answer.errcode && answer.errcode !== 0) throw new Error(`${answer.errmsg || "subscribe failed"} (errcode=${answer.errcode})`);
         onStatus("connected", creds.botId);
+        if (!ws.connected) return;
         clearInterval(pingTimer);
         pingTimer = setInterval(() => ws.send({ cmd: "ping", headers: { req_id: reqId("ping") }, body: {} }), PING_MS);
         pingTimer.unref?.();
@@ -75,13 +78,17 @@ function connection(creds, { WebSocketImpl, dataDir, onFrame, onStatus, log }) {
     },
     onClose() {
       clearInterval(pingTimer);
+      for (const entry of pending.values()) entry.reject(new Error("WeCom socket disconnected"));
+      pending.clear();
+      onStatus("connecting", "reconnecting");
     },
+    onError(error) { onStatus("error", error.message); },
     onMessage(data) {
       const frame = JSON.parse(data);
       const id = frame.headers?.req_id;
       const cmd = frame.cmd || "";
       if (id && pending.has(id) && cmd !== "aibot_msg_callback" && cmd !== "aibot_callback" && cmd !== "aibot_event_callback") {
-        pending.get(id)(frame);
+        pending.get(id).resolve(frame);
         pending.delete(id);
         return;
       }
@@ -94,6 +101,8 @@ function connection(creds, { WebSocketImpl, dataDir, onFrame, onStatus, log }) {
     request: (cmd, id, body) => request(socket, cmd, id, body),
     stop() {
       clearInterval(pingTimer);
+      for (const entry of pending.values()) entry.reject(new Error("WeCom connection stopped"));
+      pending.clear();
       socket.stop();
     },
   };
@@ -127,13 +136,14 @@ export function create(creds, { WebSocketImpl, dataDir } = {}) {
   let conn = null;
   const lastReq = new Map();
   const groups = new Set();
+  const seen = new Set();
 
   const markdown = (content) => ({ msgtype: "markdown", markdown: { content: content.slice(0, 4000) } });
 
   // Group chats only accept replies tied to an inbound req_id; each req_id answers once.
-  async function send(chatId, text) {
-    const latest = lastReq.get(chatId);
-    if (latest && !latest.used) {
+  async function send(chatId, text, origin = lastReq.get(chatId), repeated = false) {
+    const latest = origin;
+    if (latest?.id && (!latest.used || repeated)) {
       latest.used = true;
       const answer = await conn.request("aibot_respond_msg", latest.id, markdown(text));
       if (!answer.errcode) return answer;
@@ -150,14 +160,22 @@ export function create(creds, { WebSocketImpl, dataDir } = {}) {
     const sender = String(body.from?.userid || "").trim();
     const chatId = String(body.chatid || sender).trim();
     if (!chatId) return;
+    const messageId = String(body.msgid || "");
+    if (messageId && seen.has(messageId)) return;
+    if (messageId) { seen.add(messageId); if (seen.size > 1000) seen.delete(seen.values().next().value); }
     const isGroup = String(body.chattype || "").toLowerCase() === "group";
     if (isGroup) groups.add(chatId);
-    lastReq.set(chatId, { id: frame.headers?.req_id, used: false });
+    const origin = { id: frame.headers?.req_id, used: false };
+    lastReq.set(chatId, origin);
     let text = body.msgtype === "mixed"
       ? (body.mixed?.msg_item || []).filter((item) => item.msgtype === "text").map((item) => item.text?.content || "").join("\n")
       : body.text?.content || body.voice?.content || "";
     if (isGroup) text = text.replace(/^@\S+\s*/, "");
-    hub.receive({ platform: "wecom", chatId, userId: sender, userName: sender, text: text.trim(), isGroup, mentioned: true, messageId: String(body.msgid || ""), reply: (value) => send(chatId, value) });
+    Promise.resolve(hub.receive({ platform: "wecom", chatId, userId: sender, userName: sender, text: text.trim(), isGroup, mentioned: true, messageId, reply: (value) => send(chatId, value, origin), async replyChunks(chunks) {
+      // Hermes sends ordered chunks against the same callback request. Keep
+      // the legacy single-reply API while supporting the gateway's batches.
+      for (const chunk of chunks) await send(chatId, chunk, origin, true);
+    } })).catch((error) => hub.log?.(`receive: ${error.message}`));
   }
 
   return {

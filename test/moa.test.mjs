@@ -119,3 +119,28 @@ test("models: add, list, use and fall back to the default", async () => {
   const bad = await cli(["model", "add", "bad name"], { home });
   assert.match(bad.err, /模型名只能用/);
 });
+
+test('a timed-out reference aborts its request and releases the parent listener', async () => {
+  const { getEventListeners } = await import('node:events');
+  const parent = new AbortController();
+  let referenceSignal;
+  const reference = { complete({ signal }) { referenceSignal = signal; return new Promise(() => {}); } };
+  const aggregator = scripted([textStep('continue')]);
+  const moa = createMoaProvider({ aggregator, references: [{ label: 'slow', provider: reference }], timeoutMs: 15 });
+  const result = await moa.complete({ messages: [{ role: 'user', content: 'hi' }], tools: [], signal: parent.signal });
+  assert.equal(result.text, 'continue');
+  assert.equal(referenceSignal.aborted, true);
+  assert.equal(parent.signal.aborted, false);
+  assert.equal(getEventListeners(parent.signal, 'abort').length, 0);
+});
+
+test('cancelling MoA aborts references and never calls aggregator', async () => {
+  const parent = new AbortController();
+  let referenceSignal;
+  const reference = { complete({ signal }) { referenceSignal = signal; parent.abort(); return new Promise(() => {}); } };
+  const aggregator = scripted([textStep('wrong')]);
+  const moa = createMoaProvider({ aggregator, references: [{ label: 'ref', provider: reference }] });
+  await assert.rejects(moa.complete({ messages: [{ role: 'user', content: 'hi' }], tools: [], signal: parent.signal }), { name: 'AbortError' });
+  assert.equal(referenceSignal.aborted, true);
+  assert.equal(aggregator.calls.length, 0);
+});

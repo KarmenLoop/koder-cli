@@ -13,6 +13,9 @@ export const GLOBAL_FLAGS = {
   moa: { type: "bool" },
   "moa-preset": { type: "string" },
   engine: { type: "string" },
+  session: { type: "string" },
+  new: { type: "bool" },
+  memory: { type: "bool", negatable: true },
 };
 
 export class UsageError extends KoderError {}

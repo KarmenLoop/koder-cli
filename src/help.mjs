@@ -213,13 +213,28 @@ export const COMMANDS = [
     ],
   },
   {
+    name: "connect", aliases: ["连接", "apps"], group: "connect",
+    summary: L("连接聊天应用并启动收发消息", "Connect chat apps and start receiving messages"),
+    usage: "koder connect [<平台>] [--qr | --manual] [--no-start | --foreground]",
+    flags: [
+      ["--qr", L("微信、飞书、企业微信扫码连接", "Connect WeChat, Feishu or WeCom by QR code")],
+      ["--manual", L("手动填写已有机器人的凭据", "Enter credentials for an existing bot")],
+      ["--no-start", L("只保存和校验，暂不启动网关", "Save and verify without starting the gateway")],
+      ["--foreground", L("在当前终端运行网关", "Keep the gateway in this terminal")],
+    ],
+    detail: L("不带平台时可选择应用。微信、飞书、企业微信默认扫码；也可以手动填写已有机器人的凭据。连接成功后自动在后台收消息。陌生人仍需配对，执行文件修改和命令仍需确认。更多控制见 koder gateway help。", "Choose an app interactively or name it. WeChat, Feishu and WeCom support QR connection and manual credentials. A successful connection starts receiving messages in the background. Other people still need pairing, and edits and commands still need approval. See koder help gateway for policies and diagnostics."),
+    examples: [["koder connect weixin", L("微信扫码连接", "Connect WeChat")], ["koder connect feishu", L("飞书扫码连接", "Connect Feishu")], ["koder connect wecom", L("企业微信扫码连接", "Connect WeCom")]],
+  },
+  {
     name: "gateway", aliases: ["网关", "接入"], group: "connect",
     summary: L("一键接入飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp", "Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp"),
-    usage: "koder gateway setup <平台> | start [--background] | status | stop | pair <配对码> | policy <平台> --dm … --group … | list",
+    usage: "koder gateway connect [<平台>] | setup [<平台>] | doctor <平台> | start [--background] | status | stop | pair <配对码> | policy <平台> --dm … --group … | list",
     flags: [
       ["--set <键=值>", L("非交互地填写接入信息，可写多次", "Fill credentials non-interactively; repeatable")],
       ["--background", L("后台运行网关", "Run the gateway in the background")],
       ["--platform <a,b>", L("只启动这些平台", "Start only these platforms")],
+      ["--qr / --manual", L("扫码连接或手动填写已有机器人凭据", "QR connection or credentials for an existing bot")],
+      ["--no-start", L("连接时只保存和校验配置", "Save and verify without starting")],
       ["--dm <策略>", L("私聊：pairing（默认，需配对）、allowlist、open、disabled", "Direct messages: pairing (default), allowlist, open, disabled")],
       ["--group <策略>", L("群聊：disabled（默认）、allowlist、open；群里要 @ 机器人", "Groups: disabled (default), allowlist, open; the bot must be mentioned")],
     ],
@@ -228,8 +243,9 @@ export const COMMANDS = [
       "One command per platform: fill in the credentials from its console and Koder verifies them online; WeChat just scans a QR code. Feishu, WeCom, DingTalk, Slack and Discord use long connections and need no public URL; the WhatsApp Cloud API needs the local port exposed through a tunnel. Strangers get a pairing code you approve with koder gateway pair; edits and commands are confirmed in the chat with a reply of \"yes\".",
     ),
     examples: [
-      ["koder gateway setup feishu", L("接入飞书", "Connect Feishu")],
-      ["koder gateway setup weixin", L("扫码接入微信", "Connect WeChat by QR code")],
+      ["koder connect feishu", L("扫码连接飞书并开始收消息", "Connect Feishu and receive messages")],
+      ["koder connect weixin", L("扫码连接微信并开始收消息", "Connect WeChat by QR code")],
+      ["koder gateway doctor wecom", L("检查企业微信凭据和连接", "Check WeCom credentials and connection")],
       ["koder gateway start --background", L("后台收消息", "Receive messages in the background")],
       ["koder gateway pair K7Q2MX", L("同意一位用户", "Approve a user")],
     ],
@@ -270,9 +286,15 @@ export const COMMANDS = [
     usage: "koder uninstall [--purge]",
   },
   {
+    name: "memory", aliases: ["记忆"], group: "setup",
+    summary: L("查看、检索和管理本地会话记忆", "Inspect, search and manage local conversation memory"),
+    usage: "koder memory show | search <内容> | add <记忆> | remove <id> | clear | forget",
+    detail: L("同一工作目录和会话自动衔接历史。--session <名称> 可分开任务，--new 开始新会话，--no-memory 停用本次自动保存与恢复。clear 开始新会话并保留明确记忆；forget 删除此会话的历史、明确记忆和归档。", "History continues within the same workspace and session. Use --session <name> to separate tasks, --new for a fresh conversation, and --no-memory to disable automatic save/restore for this invocation. clear starts fresh while keeping explicit notes; forget deletes this session's history, notes and archives."),
+  },
+  {
     name: "model", aliases: ["模型"], group: "setup",
     summary: L("配置模型（复用 Koder 的 31 个预设）", "Configure the model (31 Koder presets)"),
-    usage: "koder model show [名称] | presets | set | add <名称> | list | use <名称> | remove <名称> | clear",
+    usage: "koder model show [名称] | test [名称] | presets | set | add <名称> | list | use <名称> | remove <名称> | clear",
     flags: [
       ["--preset <id>", L("用 Koder 预设，例如 deepseek、kimi、qwen、claude、chatgpt、local", "Koder preset such as deepseek, kimi, qwen, claude, chatgpt, local")],
       ["--base-url <地址>", L("兼容接口地址", "Compatible API base URL")],
@@ -327,7 +349,8 @@ export const COMMANDS = [
   {
     name: "doctor", aliases: ["体检"], group: "setup",
     summary: L("检查环境、模型和启动耗时", "Check environment, model and startup time"),
-    usage: "koder doctor",
+    usage: "koder doctor [--api]",
+    detail: L("默认检查本机配置；--api 会实际请求当前模型，可能产生少量 API 用量。也可运行 koder model test。", "Checks local configuration by default; --api sends a small real model request and may incur API usage. You can also run koder model test."),
   },
   {
     name: "banner", aliases: ["开屏"], group: "setup",

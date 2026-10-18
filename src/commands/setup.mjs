@@ -4,7 +4,7 @@ import { askLine } from "../ask.mjs";
 import { saveConfig } from "../config.mjs";
 import { KoderError } from "../errors.mjs";
 import { PLATFORMS, loadPlatform } from "../gateway/registry.mjs";
-import { loadGateway } from "../gateway/store.mjs";
+import { loadGateway, loadState, pidAlive } from "../gateway/store.mjs";
 import { createT } from "../i18n.mjs";
 import { activeModelName, saveModel } from "../models.mjs";
 import { isEnvName } from "../provider.mjs";
@@ -50,7 +50,7 @@ const COPY = {
     blocks: "彩色折光体", ascii: "纯字符",
     on: "开", off: "关",
     koder: "Koder 内核（内置）",
-    gwNone: "还没接入", gwCount: (n, names) => `已接入 ${n} 个：${names}`,
+    gwNone: "还没配置", gwCount: (n, names) => `已保存 ${n} 个：${names}`,
     editors: "Zed · Neovim · Emacs",
     learnDone: "已毕业", learnAt: (n) => `学到第 ${n} 课`, learnNew: "还没开始",
     langTitle: "选择语言 · Language",
@@ -103,7 +103,7 @@ const COPY = {
     current: "正在用", installed: "已安装", notInstalled: "还没安装",
     hermesWindows: "Hermes 的安装脚本需要 bash，在 Windows 上请到 WSL（适用于 Linux 的 Windows 子系统）里安装 Koder 和 Hermes。内置的 Koder 内核在 Windows 上可以直接用。",
     installNow: "现在安装 Hermes", installHint: "会下载 Hermes 官方安装脚本（固定到核对过的版本）并运行，需要联网。",
-    gwTitle: "接入聊天软件", gwOn: "已接入", gwPaused: "已暂停", gwOff: "未接入",
+    gwTitle: "接入聊天软件", gwOn: "已连接", gwPaused: "已暂停", gwOff: "未配置",
     gwStart: "在后台启动机器人", gwStartHint: "接好平台以后，让机器人在后台收消息；关掉终端也不会停。",
     editorTitle: "编辑器配置",
     copy: "复制到剪贴板", copyHint: "复制以后打开上面写的配置文件，粘贴进去保存。",
@@ -142,7 +142,7 @@ const COPY = {
     blocks: "colour refractor", ascii: "plain characters",
     on: "on", off: "off",
     koder: "Koder kernel (built in)",
-    gwNone: "none yet", gwCount: (n, names) => `${n} connected: ${names}`,
+    gwNone: "none yet", gwCount: (n, names) => `${n} saved: ${names}`,
     editors: "Zed · Neovim · Emacs",
     learnDone: "graduated", learnAt: (n) => `at lesson ${n}`, learnNew: "not started",
     langTitle: "Language · 语言",
@@ -436,17 +436,37 @@ async function chooseEngine(ctx, screen, c, shell) {
 async function chooseGateway(ctx, screen, c) {
   for (;;) {
     const config = loadGateway(ctx.env);
+    const state = loadState(ctx.env);
+    const running = state && pidAlive(state.pid);
     const lang = ctx.lang === "en" ? "en" : "zh";
     const items = [];
     for (const id of PLATFORMS) {
       const { meta } = await loadPlatform(id);
       const entry = config.platforms?.[id];
-      items.push({ label: meta.name[lang], id, value: entry ? (entry.enabled === false ? c.gwPaused : c.gwOn) : c.gwOff, tone: entry ? "ok" : undefined, hint: meta.steps[lang] });
+      const live = running ? state.platforms?.[id] : null;
+      const connected = live?.state === "connected" && entry?.enabled !== false;
+      const value = !entry ? c.gwOff : entry.enabled === false ? c.gwPaused : connected ? c.gwOn : live?.detail || ctx.t("gw.configured");
+      items.push({ label: meta.name[lang], id, value, tone: connected ? "ok" : undefined, hint: meta.steps[lang] });
     }
     items.push({ label: c.gwStart, id: "start", hint: c.gwStartHint }, { label: c.back, id: "back" });
     const picked = await select(screen, { title: c.gwTitle, items, footer: c.footer });
     if (!picked || picked.quit || picked.item.id === "back") return picked?.quit ? picked : null;
-    await outside(ctx, screen, c, picked.item.id === "start" ? ["gateway", "start", "--background"] : ["gateway", "setup", picked.item.id]);
+    if (picked.item.id === "start") { await outside(ctx, screen, c, ["gateway", "start", "--background"]); continue; }
+    const id = picked.item.id;
+    const { meta } = await loadPlatform(id);
+    let options = [];
+    if (meta.qr) {
+      const methods = [
+        { label: lang === "zh" ? "扫码连接（推荐）" : "Connect by QR code (recommended)", id: "qr", hint: lang === "zh" ? "用手机确认，机器人凭据会自动保存到本机。" : "Confirm on your phone. Bot credentials are saved on this computer." },
+        { label: lang === "zh" ? "手动填写机器人凭据" : "Enter bot credentials manually", id: "manual", hint: meta.steps[lang] },
+        ...(config.platforms[id] ? [{ label: lang === "zh" ? "连接已保存的机器人" : "Connect the saved bot", id: "saved" }] : []),
+        { label: c.back, id: "back" },
+      ];
+      const method = await select(screen, { title: `${c.gwTitle} · ${meta.name[lang]}`, items: methods, footer: c.footer });
+      if (!method || method.quit || method.item.id === "back") continue;
+      options = method.item.id === "manual" ? ["--manual"] : method.item.id === "qr" ? ["--qr"] : [];
+    }
+    await outside(ctx, screen, c, ["gateway", "connect", id, ...options]);
   }
 }
 

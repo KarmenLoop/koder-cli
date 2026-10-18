@@ -23,6 +23,8 @@ export function measureStartup({ runs = 7, args = ["version"], env = process.env
   return { median: times[Math.floor(times.length / 2)], min: times[0], max: times.at(-1), runs };
 }
 
+export const flags = { api: { type: "bool" } };
+
 export async function run(ctx) {
   const out = (line) => ctx.stdout.write(`${line}\n`);
   out(ctx.t("doctor.title"));
@@ -31,10 +33,13 @@ export async function run(ctx) {
   out(`  ${ctx.lang === "en" ? "Updates" : "更新"}：${OFFICIAL.updates}`);
   const root = kernelRoot(ctx.env);
   out(`  ${fs.existsSync(path.join(root, "harness", "create.mjs")) ? ctx.t("doctor.kernel", { path: root }) : ctx.t("doctor.kernelMissing")}`);
+  let found;
+  let modelError = false;
   try {
-    const found = ctx.findProvider();
+    found = ctx.findProvider();
     out(`  ${found ? ctx.t("doctor.model", { model: `${publicRecord(found.record).name} · ${found.record.model}`, source: found.source }) : ctx.t("doctor.noModel")}`);
   } catch (error) {
+    modelError = true;
     out(`  ${error instanceof KoderError ? ctx.t(error.key, error.vars) : error.message}`);
   }
   const git = spawnSync("git", ["--version"], { encoding: "utf8" });
@@ -47,5 +52,13 @@ export async function run(ctx) {
   out(`  ${ctx.t("doctor.lang", { lang: ctx.lang })}`);
   const timing = measureStartup({ env: ctx.env });
   out(`  ${ctx.t("doctor.startup", { runs: timing.runs, ms: timing.median.toFixed(1) })}`);
+  const { printModelCheck, transportSummary } = await import("../model-check.mjs");
+  out(`  ${transportSummary(ctx.env, ctx.lang)}`);
+  out(`  ${ctx.lang === "en" ? "Proxy" : "代理"}: ${ctx.env.NODE_USE_ENV_PROXY === "1" ? "HTTP_PROXY / HTTPS_PROXY / NO_PROXY" : ctx.lang === "en" ? "native defaults (koder launcher enables configured HTTP proxies on supported Node)" : "原生默认（koder 启动器会在支持的 Node 上启用已配置 HTTP 代理）"}`);
+  if (ctx.opts.api) {
+    if (!found || modelError) return 2;
+    return printModelCheck(ctx, found.record);
+  }
+  out(ctx.lang === "en" ? "  Configuration only; run koder model test for a live API check." : "  这里只检查配置；运行 koder model test 可实际检测 API 连接。");
   return 0;
 }

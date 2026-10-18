@@ -94,7 +94,7 @@ test("Ubuntu 18.04 (glibc 2.27) gets the glibc-217 build of Node.js", async () =
   assert.equal(result.status, 0, result.stderr + result.stdout);
   assert.match(result.stdout, /检测到系统库 glibc-217/);
   assert.match(result.launcher, /runtime\/node-v99\.0\.0-linux-x64-glibc-217\/bin\/node/);
-  assert.match(result.version.stdout, /^koder 0\.2\.0\n/);
+  assert.match(result.version.stdout, /^koder 0\.3\.0\n/);
   assert.match(result.version.stdout, /https:\/\/karmenloop\.com\/updates\.html/);
 });
 

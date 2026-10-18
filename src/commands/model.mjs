@@ -96,6 +96,11 @@ function show(ctx, found) {
 export async function run(ctx) {
   const [action = "show", target] = ctx.positionals;
   const out = (line) => ctx.stdout.write(`${line}\n`);
+  if (action === "test" || action === "check") {
+    const { printModelCheck } = await import("../model-check.mjs");
+    const found = target ? loadModel(checkName(target), ctx.env) : ctx.requireProvider();
+    return printModelCheck(ctx, found.record);
+  }
   if (action === "presets") {
     for (const preset of await presets(ctx)) out(`${preset.id.padEnd(13)}${String(preset.model || "-").padEnd(34)}${preset.protocol.padEnd(10)}${preset.name}`);
     return 0;

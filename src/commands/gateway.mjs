@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import readline from "node:readline/promises";
@@ -6,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { askLine } from "../ask.mjs";
 import { KoderError } from "../errors.mjs";
 import { createGateway } from "../gateway/core.mjs";
+import { sleep } from "../gateway/http.mjs";
 import { renderQr, encodeQr } from "../gateway/qr.mjs";
 import { PLATFORMS, loadPlatform, platformId } from "../gateway/registry.mjs";
 import {
@@ -23,6 +25,10 @@ export const flags = {
   group: { type: "string" },
   allow: { type: "string" },
   "group-allow": { type: "string" },
+  manual: { type: "bool" },
+  qr: { type: "bool" },
+  "no-start": { type: "bool" },
+  foreground: { type: "bool" },
 };
 
 const bin = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "bin", "koder.mjs");
@@ -65,7 +71,7 @@ async function promptFields(ctx, meta, current) {
   return values;
 }
 
-async function setup(ctx, id) {
+async function setup(ctx, id, { reuse = false } = {}) {
   const module = await loadPlatform(id);
   const { meta } = module;
   const config = loadGateway(ctx.env);
@@ -75,24 +81,38 @@ async function setup(ctx, id) {
   out(meta.steps[ctx.lang]);
   if (meta.console) out(ctx.t("gw.console", { url: meta.console }));
   let creds = { ...current, ...parseSets(ctx.opts.set) };
-  if (meta.qr) {
-    const login = ctx.io.weixinLogin || module.qrLogin;
-    const result = await login({
+  const hasCredentials = id === "weixin" ? creds.token && creds.accountId : meta.fields.filter((field) => !field.optional).every((field) => creds[field.key]);
+  const useQr = meta.qr && !ctx.opts.manual && (ctx.opts.qr || (!hasCredentials && !ctx.opts.set?.length));
+  if (useQr) {
+    const login = ctx.io[`${id}Login`] || module.qrLogin;
+    const controller = new AbortController();
+    const cancel = () => controller.abort(new Error(ctx.t("gw.loginCancelled")));
+    if (ctx.stdin.isTTY) process.once("SIGINT", cancel);
+    let result;
+    try { result = await login({
       fetchImpl: ctx.io.fetchImpl,
+      domain: creds.domain,
+      signal: controller.signal,
       onQr(content) {
-        out(ctx.t("gw.scan"));
-        for (const line of renderQr(encodeQr(content), { color: ctx.depth !== "none" })) out(line);
+        out(ctx.t("gw.scanApp", { name: meta.name[ctx.lang] }));
+        try { for (const line of renderQr(encodeQr(content), { color: ctx.depth !== "none" })) out(line); }
+        catch { out(ctx.t("gw.qrUrl")); }
         out(content);
       },
       onStatus(state) {
         if (state === "scaned") out(ctx.t("gw.scanned"));
       },
-    });
+    }); } finally { process.removeListener("SIGINT", cancel); }
+    controller.signal.throwIfAborted();
     creds = { ...creds, ...result };
-  } else if (ctx.stdin.isTTY && !ctx.opts.set?.length) {
+    if (result?.userId) {
+      creds.dmPolicy ||= "pairing";
+      creds.allowFrom = [...new Set([...(creds.allowFrom || []), String(result.userId)])];
+    }
+  } else if (ctx.stdin.isTTY && !ctx.opts.set?.length && !(reuse && hasCredentials)) {
     creds = { ...creds, ...(await promptFields(ctx, meta, current)) };
   }
-  const missing = meta.fields.filter((field) => !field.optional && !creds[field.key]).map((field) => field.key);
+  const missing = id === "weixin" ? ["token", "accountId"].filter((key) => !creds[key]) : meta.fields.filter((field) => !field.optional && !creds[field.key]).map((field) => field.key);
   if (missing.length) throw new KoderError("gw.missingFields", { fields: missing.join(", ") });
   if (!ctx.opts.noVerify) {
     out(ctx.t("gw.verifying"));
@@ -106,46 +126,151 @@ async function setup(ctx, id) {
   return 0;
 }
 
-export async function startGateway(ctx, { only = [], log = (line) => ctx.stderr.write(`${new Date().toISOString()} ${line}\n`) } = {}) {
+const revision = (config) => crypto.createHash("sha256").update(JSON.stringify(config)).digest("hex");
+
+export async function startGateway(ctx, { only = [], signal, log = (line) => ctx.stderr.write(`${new Date().toISOString()} ${line}\n`) } = {}) {
   const config = loadGateway(ctx.env);
   const ids = Object.entries(config.platforms).filter(([id, entry]) => entry.enabled !== false && PLATFORMS.includes(id) && (!only.length || only.includes(id))).map(([id]) => id);
   if (!ids.length) throw new KoderError("gw.nothing");
   const adapters = [];
-  for (const id of ids) {
+  const createAdapter = async (id, entry) => {
     const { create } = await loadPlatform(id);
-    adapters.push(create(config.platforms[id], { fetchImpl: ctx.io.fetchImpl || globalThis.fetch, WebSocketImpl: ctx.io.WebSocketImpl, dataDir: platformData(id, ctx.env), version: ctx.version }));
-  }
+    return create(entry, { fetchImpl: ctx.io.fetchImpl || globalThis.fetch, WebSocketImpl: ctx.io.WebSocketImpl, dataDir: platformData(id, ctx.env), version: ctx.version });
+  };
+  for (const id of ids) adapters.push(await createAdapter(id, config.platforms[id]));
   const started = new Date().toISOString();
-  const write = (status) => saveState({ pid: process.pid, startedAt: started, workspace: config.workspace, platforms: status }, ctx.env);
+  let appliedConfig = structuredClone(config);
+  let appliedRevision = revision(appliedConfig);
+  const write = (status) => saveState({ pid: process.pid, startedAt: started, workspace: config.workspace, selectedPlatforms: only, configRevision: appliedRevision, platforms: status }, ctx.env);
   const gateway = createGateway(ctx, { config, log, onState: write });
-  await gateway.start(adapters);
-  write(gateway.status);
-  return { gateway, adapters, ids, config };
+  let refreshing = false;
+  let closing = false;
+  async function refresh() {
+    if (refreshing || closing) return;
+    refreshing = true;
+    try {
+      const next = loadGateway(ctx.env);
+      if (revision(next) === appliedRevision) return;
+      const changed = new Set([...Object.keys(appliedConfig.platforms), ...Object.keys(next.platforms)].filter((id) => JSON.stringify(appliedConfig.platforms[id]) !== JSON.stringify(next.platforms[id])));
+      if (["workspace", "interaction", "moa"].some((key) => appliedConfig[key] !== next[key])) for (const id of Object.keys(next.platforms)) changed.add(id);
+      Object.assign(config, next);
+      await gateway.remove([...changed]);
+      const list = [];
+      for (const id of changed) {
+        const entry = next.platforms[id];
+        if (!closing && entry && entry.enabled !== false && PLATFORMS.includes(id) && (!only.length || only.includes(id))) list.push(await createAdapter(id, entry));
+      }
+      if (!closing) await gateway.start(list);
+      if (closing) return;
+      appliedConfig = structuredClone(next);
+      appliedRevision = revision(appliedConfig);
+      write(gateway.status);
+    } finally { refreshing = false; }
+  }
+  const stop = gateway.stop.bind(gateway);
+  const abort = () => { gateway.stop().catch((error) => log(`stop: ${error.message}`)); };
+  let stopping;
+  gateway.stop = async () => {
+    if (stopping) return stopping;
+    closing = true;
+    signal?.removeEventListener("abort", abort);
+    const halted = stop(); // Invalidates all intake synchronously.
+    stopping = (async () => { await halted; while (refreshing) await sleep(10); })();
+    return stopping;
+  };
+  signal?.addEventListener("abort", abort, { once: true });
+  try {
+    signal?.throwIfAborted();
+    await gateway.start(adapters);
+    signal?.throwIfAborted();
+    write(gateway.status);
+  } catch (error) { await gateway.stop(); throw error; }
+  return { gateway, adapters, ids, config, refresh };
 }
 
-async function start(ctx) {
+async function waitReady(ctx, pid, ids, expectedRevision, signal) {
+  const deadline = Date.now() + 60_000;
+  while (Date.now() < deadline) {
+    signal?.throwIfAborted();
+    const state = loadState(ctx.env);
+    if (state?.pid === pid && state.configRevision === expectedRevision) {
+      const entries = ids.map((id) => state.platforms?.[id]);
+      const failed = entries.find((entry) => ["error", "expired"].includes(entry?.state));
+      if (failed) throw new Error(failed.detail || failed.state);
+      if (entries.every((entry) => entry?.state === "connected")) return;
+    }
+    if (!pidAlive(pid)) throw new Error(ctx.t("gw.childExited"));
+    await sleep(50, signal);
+  }
+  throw new Error(ctx.t("gw.connectTimeout"));
+}
+
+async function terminateOwnedChild(child) {
+  if (!child || child.exitCode !== null || child.signalCode !== null) return;
+  const closed = new Promise((resolve) => child.once("close", resolve));
+  const wait = async () => {
+    let timer;
+    try { await Promise.race([closed, new Promise((resolve) => { timer = setTimeout(resolve, 1500); })]); }
+    finally { clearTimeout(timer); }
+  };
+  child.kill("SIGTERM");
+  await wait();
+  if (child.exitCode === null && child.signalCode === null) { child.kill("SIGKILL"); await wait(); }
+}
+
+async function start(ctx, { readyOnly = [] } = {}) {
   const only = (ctx.opts.platform || "").split(",").map((item) => item.trim()).filter(Boolean).map(needPlatform);
   const state = loadState(ctx.env);
   if (state && pidAlive(state.pid) && state.pid !== process.pid) throw new KoderError("gw.running", { pid: state.pid }, 1);
   if (ctx.opts.background) {
+    const controller = new AbortController();
+    const cancel = () => controller.abort(new Error(ctx.t("gw.loginCancelled")));
+    process.once("SIGINT", cancel);
+    process.once("SIGTERM", cancel);
     fs.mkdirSync(gatewayDir(ctx.env), { recursive: true, mode: 0o700 });
     const logFile = path.join(gatewayDir(ctx.env), "gateway.log");
-    const fd = fs.openSync(logFile, "a");
-    const child = spawn(process.execPath, [bin, "gateway", "start", ...(only.length ? ["--platform", only.join(",")] : [])], { env: ctx.env, detached: true, windowsHide: true, stdio: ["ignore", fd, fd] });
-    child.unref();
-    ctx.stdout.write(`${ctx.t("gw.background", { pid: child.pid, log: logFile })}\n`);
+    const fd = fs.openSync(logFile, "a", 0o600);
+    let child, spawnError;
+    try { child = spawn(process.execPath, [bin, "gateway", "start", "--lang", ctx.lang, ...(only.length ? ["--platform", only.join(",")] : [])], { env: ctx.env, detached: true, windowsHide: true, stdio: ["ignore", fd, fd] }); }
+    finally { fs.closeSync(fd); }
+    child.on("error", (error) => { spawnError = error; });
+    try {
+      const config = loadGateway(ctx.env);
+      const ids = Object.keys(config.platforms).filter((id) => PLATFORMS.includes(id) && config.platforms[id].enabled !== false && (!only.length || only.includes(id)));
+      if (!ids.length) throw new Error(ctx.t("gw.nothing"));
+      if (!child.pid || spawnError) throw spawnError || new Error(ctx.t("gw.childExited"));
+      await waitReady(ctx, child.pid, readyOnly.length ? readyOnly : ids, revision(config), controller.signal);
+      child.unref();
+      ctx.stdout.write(`${ctx.t("gw.background", { pid: child.pid, log: logFile })}\n`);
+    } catch (error) {
+      await terminateOwnedChild(child);
+      if (loadState(ctx.env)?.pid === child.pid) clearState(ctx.env);
+      throw new KoderError("gw.startFailed", { detail: error.message, log: logFile }, 1);
+    } finally {
+      process.removeListener("SIGINT", cancel);
+      process.removeListener("SIGTERM", cancel);
+    }
     return 0;
   }
-  const { gateway, ids, config } = await startGateway(ctx, { only });
-  ctx.stdout.write(`${ctx.t("gw.started", { list: ids.join(", "), workspace: config.workspace })}\n`);
-  await new Promise((resolve) => {
-    const stop = () => resolve();
-    process.once("SIGINT", stop);
-    process.once("SIGTERM", stop);
-    ctx.io.gatewayStop?.then(stop);
-  });
-  await gateway.stop();
-  clearState(ctx.env);
+  let resolveStop, runtime, reload;
+  const controller = new AbortController();
+  const stopped = new Promise((resolve) => { resolveStop = resolve; });
+  const stop = () => { controller.abort(new Error(ctx.t("gw.loginCancelled"))); resolveStop(); };
+  process.once("SIGINT", stop);
+  process.once("SIGTERM", stop);
+  ctx.io.gatewayStop?.then(stop);
+  try {
+    runtime = await startGateway(ctx, { only, signal: controller.signal });
+    reload = setInterval(() => runtime.refresh().catch((error) => ctx.stderr.write(`gateway reload: ${error.message}\n`)), 500);
+    ctx.stdout.write(`${ctx.t("gw.started", { list: runtime.ids.join(", "), workspace: runtime.config.workspace })}\n`);
+    await stopped;
+  } finally {
+    clearInterval(reload);
+    process.removeListener("SIGINT", stop);
+    process.removeListener("SIGTERM", stop);
+    await runtime?.gateway.stop();
+    if (loadState(ctx.env)?.pid === process.pid) clearState(ctx.env);
+  }
   ctx.stdout.write(`${ctx.t("gw.stoppedAll")}\n`);
   return 0;
 }
@@ -173,7 +298,18 @@ function status(ctx) {
 }
 
 export async function run(ctx) {
-  const [action = "status", target, extra] = ctx.positionals;
+  const args = ctx.command === "connect" ? ["connect", ...ctx.positionals] : ctx.positionals;
+  let [action = "status", target, extra] = args;
+  if (["setup", "add", "connect"].includes(action) && !target) {
+    if (!ctx.stdin.isTTY) throw new KoderError("gw.choosePlatform", { list: PLATFORMS.join(", ") });
+    const rl = readline.createInterface({ input: ctx.stdin, output: ctx.stdout, terminal: true });
+    try {
+      for (let i = 0; i < PLATFORMS.length; i++) { const { meta } = await loadPlatform(PLATFORMS[i]); ctx.stdout.write(`${i + 1}. ${meta.name[ctx.lang]}\n`); }
+      const value = (await askLine(rl, ctx.t("gw.selectPlatform")))?.trim();
+      if (!value) return 0;
+      target = PLATFORMS[Number(value) - 1] || value;
+    } finally { rl.close(); }
+  }
   const out = (line) => ctx.stdout.write(`${line}\n`);
   if (action === "status") return status(ctx);
   if (action === "list") {
@@ -184,6 +320,28 @@ export async function run(ctx) {
     return 0;
   }
   if (action === "setup" || action === "add") return setup(ctx, needPlatform(target));
+  if (action === "doctor" || action === "check") {
+    const id = needPlatform(target), entry = loadGateway(ctx.env).platforms[id];
+    if (!entry) throw new KoderError("gw.notSetUp", { name: id });
+    const module = await loadPlatform(id);
+    const result = await (ctx.io.verifyPlatform || module.verify)(entry, { fetchImpl: ctx.io.fetchImpl || globalThis.fetch, WebSocketImpl: ctx.io.WebSocketImpl });
+    out(ctx.t("gw.verified", { detail: result?.detail || id }));
+    return 0;
+  }
+  if (action === "connect") {
+    const id = needPlatform(target);
+    await setup(ctx, id, { reuse: true });
+    if (ctx.opts.noStart) return 0;
+    const state = loadState(ctx.env);
+    if (state && pidAlive(state.pid)) {
+      if (state.selectedPlatforms?.length && !state.selectedPlatforms.includes(id)) throw new KoderError("gw.running", { pid: state.pid }, 1);
+      await waitReady(ctx, state.pid, [id], revision(loadGateway(ctx.env)));
+      out(ctx.t("gw.appConnected", { name: id }));
+      return 0;
+    }
+    ctx.opts.background = !ctx.opts.foreground;
+    return start(ctx, { readyOnly: [id] });
+  }
   if (action === "start") return start(ctx);
   if (action === "stop") {
     const state = loadState(ctx.env);

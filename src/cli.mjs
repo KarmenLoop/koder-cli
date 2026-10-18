@@ -8,7 +8,7 @@ import { createT } from "./i18n.mjs";
 import { resolveProvider } from "./provider.mjs";
 import { detectTheme, setTheme } from "./theme.mjs";
 
-export const VERSION = "0.2.0";
+export const VERSION = "0.3.0";
 
 const LOADERS = {
   chat: () => import("./commands/chat.mjs"),
@@ -23,6 +23,7 @@ const LOADERS = {
   editor: () => import("./commands/editor.mjs"),
   scan: () => import("./commands/scan.mjs"),
   model: () => import("./commands/model.mjs"),
+  memory: () => import("./commands/memory.mjs"),
   lang: () => import("./commands/lang.mjs"),
   theme: () => import("./commands/theme.mjs"),
   help: () => import("./commands/help.mjs"),
@@ -33,6 +34,7 @@ const LOADERS = {
   about: () => import("./commands/about.mjs"),
   moa: () => import("./commands/moa.mjs"),
   gateway: () => import("./commands/gateway.mjs"),
+  connect: () => import("./commands/gateway.mjs"),
   onboard: () => import("./commands/setup.mjs"),
   setup: () => import("./commands/setup.mjs"),
   engine: () => import("./commands/engine.mjs"),
@@ -47,6 +49,8 @@ const ALIASES = {
   体检: "doctor", 开屏: "banner", 版本: "version", 关于: "about", 官网: "about", 混合: "moa", 网关: "gateway", 接入: "gateway",
   向导: "onboard", 初始化: "onboard", 引擎: "engine", 更新: "update", 卸载: "uninstall",
   设置: "setup", 配置: "setup", settings: "setup", config: "setup", configure: "setup",
+  连接: "connect", apps: "connect",
+  记忆: "memory",
 };
 
 const VALUE_FLAGS = new Set(Object.entries(GLOBAL_FLAGS).filter(([, def]) => def.type !== "bool").flatMap(([name, def]) => [`--${name}`, def.short ? `-${def.short}` : null]).filter(Boolean));
