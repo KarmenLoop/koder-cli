@@ -1,6 +1,6 @@
-# Koder
+# Koder CLI
 
-Koder 在你自己的电脑上办事。你给出一件事，它在当前项目里读代码、提出修改、运行命令。每一次改文件、每一次运行命令，都先停下来等你确认。模型由你自己接入，并和那家服务商结算。这一版不含模型。
+Koder 在你自己的电脑上办事。CLI 是终端里的 Koder：输入一件事，它在当前项目里读代码、提出修改、运行命令。每一次改文件、每一次运行命令，都先停下来等你确认。
 
 官网：<https://karmenloop.com>  
 产品页：<https://karmenloop.com/cli.html>  
@@ -8,21 +8,11 @@ Koder 在你自己的电脑上办事。你给出一件事，它在当前项目�
 下载：<https://karmenloop.com/download.html>  
 邮箱：<info@karmenloop.com>
 
-## 产品
+Koder 还有电脑版和占满一屏的 TUI。电脑版在官网下载页。TUI 的命令是 `koder-tui`，和 CLI 共用模型和语言。本仓库是 CLI 的源码。
 
-| 产品 | 在哪里用 | 怎么打开 |
-| --- | --- | --- |
-| Koder 电脑版 | 窗口里看任务、差异和确认 | 官网下载页 |
-| Koder TUI | 终端占满一屏 | `koder-tui` |
-| Koder CLI | 终端里一句话完成审查、修改、测试和流程 | `koder` |
+内核叫 KARMEN LOOP。它不公开，不在本仓库里，也不随这份源码许可证开放。版权所有 © KARMEN / Koder，保留所有权利，不提供二次开发。官网安装包运行时使用这份内核；下载安装包不是取得内核源码。
 
-三处共用同一套模型配置和语言。本仓库是 CLI 的源码，许可证是 MIT。电脑版和 TUI 的安装包在官网。TUI 和 CLI 读同一份 `koder setup` 的结果。
-
-## 内核
-
-内核叫 KARMEN LOOP。它不公开，不在本仓库里，也不在安装包的源码里，不适用 MIT 许可证。版权所有 © KARMEN / Koder，保留所有权利。官网安装包运行时使用这份内核；下载安装包不是取得内核源码，也不提供内核的二次开发。
-
-## CLI 能做的事
+## 产品里有什么
 
 - 对话：直接输入 `koder`，在项目目录里交代任务。
 - 一次性任务：`koder run` 改文件、跑命令；`koder ask` 只读，不改文件、不跑命令。
@@ -31,6 +21,8 @@ Koder 在你自己的电脑上办事。你给出一件事，它在当前项目�
 - 接入：飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp。编辑器通过 `koder acp` 和 `koder editor` 接入。
 - 设置：`koder setup` 用方向键或鼠标选择语言、模型、配色、开屏、引擎和聊天软件。
 - 教程：`koder learn` 是 17 课，按 PowerShell、CMD、macOS、Linux 分别写命令，进度会记住。
+
+模型由你自己接入，并和那家服务商结算。Koder 这一版不含模型。
 
 ## 画面
 
@@ -243,8 +235,8 @@ TUI 读取 `koder setup` 写好的模型。还没配时，先完成上面的第 
 
 ## 许可证
 
-本仓库的 Koder CLI 源码采用 MIT 许可证，全文见 `LICENSE`。第三方组件见 `THIRD_PARTY_NOTICES.md`。
+本仓库的 Koder CLI 源码采用 GNU General Public License v3.0，全文见 `LICENSE`。第三方组件见 `THIRD_PARTY_NOTICES.md`。
 
-KARMEN LOOP 内核不在本仓库，不公开，不适用 MIT 许可证。版权所有 © KARMEN / Koder。保留所有权利。不提供内核的二次开发。
+KARMEN LOOP 内核不在本仓库，不公开，不适用上面的许可证。版权所有 © KARMEN / Koder。保留所有权利。不提供内核的二次开发。
 
 官网 <https://karmenloop.com> · 邮箱 <info@karmenloop.com>
