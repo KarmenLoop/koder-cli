@@ -3,7 +3,12 @@
 协议标识：**Koder-EULA-1.0**  
 发布日期：2026-10-19  
 许可方：KARMEN / Koder 中有权授予相关软件许可的版权方  
-联系：[info@karmenloop.com](mailto:info@karmenloop.com)
+联系：[info@karmenloop.com](mailto:info@karmenloop.com)  
+元信息修订：2026-10-20
+
+官方发布与维护团队：KARMENLOOP 官方团队。所在地：中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
+
+许可仍由有权授予相关软件许可的版权方授予。KARMENLOOP 官方团队是官方发布与维护的联系方式。
 
 ## 中文
 
@@ -48,6 +53,12 @@
 在安装包已清楚提供本协议和适用版本的前提下，您接受本协议后方可安装或使用受其约束的软件；不同意时请勿安装或使用该版本。协议更新应随受影响的后续版本明确告知，不通过修改网页追溯变更既有许可。某一条款无效不影响其他可依法执行的条款。
 
 ## English
+
+Metadata revision: 2026-10-20
+
+Official publisher and maintenance team: KARMENLOOP Official Team. Location: Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+
+The license is still granted by the copyright holders authorized to license the software. KARMENLOOP Official Team is the official publishing and maintenance contact.
 
 ### 1. Scope
 

@@ -1,11 +1,11 @@
-# Koder CLI 0.4.0-preview.6 release status
+# Koder CLI 0.4.0-preview.7 release status
 
-Preview release with verified assets. Publication and artifact checks are recorded in the release metadata.
+Preview release. Interactive installation now gives clear Chinese and English acceptance and cancellation instructions. Mac/Linux pipe installation reads the controlling terminal; unattended stdin is not an acceptance answer. Windows PowerShell/CMD source contains the corresponding prompt and redirected-input checks. Native Windows execution has not been verified.
 
-Automatic update activation uses a single supervisor with fresh workers. Existing chat history, workspace, mode, named session, buffered input and volatile no-memory conversations are continued. Running gateways wait for admitted tasks, approvals and outbound replies, then release original Core ownership before reconnecting with retained bindings. Recently admitted message IDs and app/file effect receipts prevent update-induced replay. Disabled channels stay disabled. Configuration and memory directories are not replaced.
+The official publisher and maintenance contact is KARMENLOOP 官方团队 / KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. General, licensing, copyright, security and privacy email: info@karmenloop.com. The package includes EULA.md, ACCEPTANCE.md, LEGAL-NOTICE.md and complete third-party notices.
 
-Updates still compare the official GitHub feed, verify installer/package hashes, and check the actual installed entry before activation. A replacement that cannot start before receiving work falls back once. A worker that has accepted work is never automatically replayed after a crash. An ordinary shell update activates the new version and exits; open chats and gateways resume independently. A pending approval delays gateway activation rather than silently authorizing it.
+EULA clauses 1–6 are unchanged; bilingual header metadata changes its checksum. Older updaters correctly stop at this change. Use the ordinary installer, read the updated text and explicitly accept it once. Existing configuration, memory and channel bindings are retained. No new permission is enabled by license acceptance.
 
-Migration: preview.5 and older processes do not implement this restart protocol. Start preview.6 once after that initial upgrade; subsequent upgrades are automatic. No settings reset or channel rebinding is required for migration. Platform-expired/revoked credentials can still require platform authorization.
+Validation: 400 serial tests, 397 passed, 0 failed, 3 existing Core-environment skips. Independent macOS PTY consent tests and isolated packaged installation/upgrade checks passed. See release metadata for precise counts. These are local checks, not native Windows, live messaging/Gamma, multiple physical devices or production Core acceptance.
 
-Validation: real subprocess update/continuation, local model server, local WeChat HTTP protocol fixture and serial regression suite. These are local fixture results, not native Windows, real WeChat/Feishu/WeCom account or cross-device acceptance. Those environments remain unavailable. New implementation stays proprietary under the existing EULA; bundled third-party notices and legacy source remain unchanged.
+The prior verified update/restart, conversation continuation, channel reliability, memory, application/MCP and tutorial functionality is retained. New proprietary implementation source is not published. Legacy GPL source and third-party rights retain their original scope.
