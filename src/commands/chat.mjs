@@ -1,5 +1,5 @@
 import readline from "node:readline";
-import { RESET, fg, gradientText } from "../color.mjs";
+import { RESET, displayWidth, fg, gradientText } from "../color.mjs";
 import { detectTheme, setTheme, theme } from "../theme.mjs";
 import { loadConfig, resolveLang, saveConfig } from "../config.mjs";
 import { KoderError } from "../errors.mjs";
@@ -9,7 +9,7 @@ import { createPrompter } from "../prompter.mjs";
 import { MODES, createSession, pickDecider } from "../session.mjs";
 import { yesDecision } from "../policy.mjs";
 import { aboutText, asksAboutUs } from "../official.mjs";
-import { flags as bannerFlags, showBanner } from "./banner.mjs";
+import { flags as bannerFlags, showBanner, useAscii } from "./banner.mjs";
 
 export const flags = { ...bannerFlags };
 
@@ -101,6 +101,16 @@ export async function run(ctx) {
     return ctx.depth === "none" || !ctx.stdin.isTTY ? text : gradientText(text, ctx.depth, { bold: true });
   };
 
+  const separator = (label = "") => {
+    if (ctx.opts.json) return;
+    const columns = Number(ctx.stdout.columns) || Number(ctx.env.COLUMNS) || 80;
+    const width = Math.max(1, Math.min(100, Math.floor(columns) - 1));
+    const glyph = useAscii(ctx) ? "=" : "═";
+    const title = label && width >= displayWidth(label) + 4 ? `${glyph}${glyph} ${label} ` : "";
+    const text = title + glyph.repeat(Math.max(0, width - displayWidth(title)));
+    ctx.stdout.write(`\n${ctx.depth === "none" ? text : `${fg(theme().text3, ctx.depth)}${text}${RESET}`}\n`);
+  };
+
   const slash = async (line) => {
     const [head, ...args] = words(line.slice(1));
     const name = (head || "").toLowerCase();
@@ -180,10 +190,13 @@ export async function run(ctx) {
   };
 
   for (;;) {
+    if (!prompter.closed) separator(ctx.lang === "en" ? "You" : "你");
     const line = await prompter.ask(prompt());
     if (line == null) break;
     const text = line.trim();
     if (!text) continue;
+    separator();
+    if (!ctx.opts.json) ctx.stdout.write(`\n${ctx.depth === "none" ? "Agent" : `${fg(theme().accent, ctx.depth, true)}Agent${RESET}`}\n\n`);
     if (text.startsWith("/")) {
       if (!(await slash(text))) break;
       continue;
