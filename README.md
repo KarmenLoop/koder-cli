@@ -1,8 +1,6 @@
 # Koder
 
-A terminal agent for the work on your own computer. It reads the project, proposes the change, and waits.
-
-Built by KARMEN. Plan it, run it, review it, pick it back up tomorrow. You stay in the loop the whole time.
+Koder is an AI assistant for your terminal. Open a project, connect a model, and ask it to read code, review a change, or work on a task. Edits show a diff before they are saved, and commands ask for approval by default.
 
 [Website](https://karmenloop.com) · [CLI](https://karmenloop.com/en/cli.html) · [Download](https://karmenloop.com/en/download.html) · [Updates](https://karmenloop.com/en/updates.html) · [Email](mailto:info@karmenloop.com)
 
@@ -14,11 +12,11 @@ The CLI source here is under the GNU General Public License v3.0, with the limit
 
 ## What it is
 
-Koder works in the folder you point it at. You say what you want. It reads the code, shows a diff, and asks before it writes a file or runs a command. A no leaves the file alone.
+Koder works in the folder you choose. You can use it for a conversation, a single task, a script, or CI. Read-only questions use `koder ask`; tasks that edit files or run commands use `koder run`.
 
-The kernel is KARMEN LOOP. On your machine it goes perceive, decide, act. KARMEN develops the product and integrations, with selected upstream adaptations, skills and rules documented in [Open-source credits](OPEN_SOURCE_CREDITS.md). The desktop app is a separate installer on the site. The full-screen TUI is `koder-tui`, and it shares this CLI's model and language. This repository is the CLI.
+This repository contains the CLI. The desktop app is a separate download, and `koder-tui` is a separate full-screen terminal interface. The runtime underneath them is KARMEN LOOP.
 
-This version does not ship a model. You connect one you already pay for, or a local model such as Ollama. An official model comes later. Until then, Settings will not show one of ours.
+Connect a model provider you already use, or a local model through a service such as Ollama. This release does not include a model. An official model is planned but is not available in Settings yet.
 
 ## What you can do
 
