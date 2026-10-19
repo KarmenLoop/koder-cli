@@ -1,7 +1,8 @@
 # Third-party notices
 
 The Koder CLI source in this repository is licensed under the GNU General
-Public License v3.0 (see LICENSE). The Koder kernel is not in this repository
+Public License v3.0 (see LICENSE), with the limited additional permission in
+[LICENSE-EXCEPTION.txt](LICENSE-EXCEPTION.txt). The Koder kernel is not in this repository
 and is not covered by that licence. It is proprietary. See the kernel section
 below.
 
@@ -89,4 +90,4 @@ build from <https://nodejs.org/dist/> and verifies it against SHASUMS256.txt.
 
 The inspected installer includes resources from alibaba/open-code-review, affaan-m/ECC, ayghri/i-have-adhd, blader/humanizer, obra/superpowers, selected anthropics/skills, nextlevelbuilder/ui-ux-pro-max-skill and JuliusBrussee/caveman. Individual revisions, uses and full licence/NOTICE copies are listed in [Open-source credits](OPEN_SOURCE_CREDITS.md#bundled-skill-rule-and-data-resources).
 
-The 0.3.0 archive contains a truncated open-code-review Apache licence; the complete pinned [licence](licenses/open-code-review/LICENSE) is provided here. Its next build must include the complete file and updated manifest digest. GPL CLI/private-kernel compatibility and unfinished runtime/device acceptance remain release-review items. This documentation commit does not publish a new installer.
+The 0.3.0 archive contains a truncated open-code-review Apache licence; the complete pinned [licence](licenses/open-code-review/LICENSE) is provided here. Its next build must include the complete file and updated manifest digest. The granting holders have adopted the limited CLI/kernel linking permission; its inclusion in the next package, all third-party obligations and unfinished runtime/device acceptance remain release-review items. This documentation commit does not publish a new installer.

@@ -10,7 +10,7 @@ Source in this repo: **0.3.1**. Published installer checked on 2026-10-19: **0.3
 
 [Release status and download checks](RELEASE_STATUS.md) · [Open-source credits](OPEN_SOURCE_CREDITS.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 
-The CLI source here is under the GNU General Public License v3.0. The KARMEN LOOP kernel is not in this repo, and it is not under that license. See [License](#license).
+The CLI source here is under the GNU General Public License v3.0, with the limited [kernel linking permission](LICENSE-EXCEPTION.txt). The KARMEN LOOP kernel is not in this repo, and it is not under that license. See [License](#license).
 
 ## What it is
 
@@ -246,9 +246,9 @@ Those two edit shots were taken against a local scripted endpoint, not a live mo
 
 ## License
 
-The Koder CLI source in this repository is under the GNU General Public License v3.0. The text is [LICENSE](LICENSE). Third-party components that ship in this tree are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+The Koder CLI source in this repository is under the GNU General Public License v3.0. The text is [LICENSE](LICENSE); the granting copyright holders adopted the limited [additional permission](LICENSE-EXCEPTION.txt) on 2026-10-19. Third-party components that ship in this tree are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-The KARMEN LOOP kernel is not in this repository. It is not public, and it is not under the GPL. Copyright © KARMEN / Koder. All rights reserved. The kernel is not offered for further development. The installer runs it. Installed kernel modules may contain readable JavaScript under the bundled terms. A proprietary licence does not encrypt those files. The in-process GPL CLI/private-kernel distribution boundary remains under review; see [credits and outstanding corrections](OPEN_SOURCE_CREDITS.md#scope-and-outstanding-corrections).
+The KARMEN LOOP kernel is not in this repository. It is not public, and it is not under the GPL. Copyright © KARMEN / Koder. All rights reserved. The kernel is not offered for further development. The installer runs it. Installed kernel modules may contain readable JavaScript under the bundled terms. A proprietary licence does not encrypt those files. The [additional permission](LICENSE-EXCEPTION.txt) covers only the CLI portions its granting holders have authority to license. Kernel and third-party terms still apply; see [credits and outstanding corrections](OPEN_SOURCE_CREDITS.md#scope-and-outstanding-corrections).
 
 ## Contact
 

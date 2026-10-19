@@ -23,7 +23,7 @@ The attribution update adds [upstream credits](OPEN_SOURCE_CREDITS.md), full lic
 Before the next installer update, the following must be resolved:
 
 - Include the complete pinned Open Code Review Apache licence and the corresponding resource-manifest digest. The inspected old archive contains a truncated copy; [the full notice is available here](licenses/open-code-review/LICENSE).
-- Resolve the GPL CLI / in-process proprietary-kernel distribution boundary without silently changing licences or removing upstream rights.
+- Include the [additional linking permission](LICENSE-EXCEPTION.txt), adopted by the granting copyright holders on 2026-10-19, together with the GPL text, applicable Corresponding Source and all third-party notices. The adopted permission does not change the kernel or third-party licences. Verify these in the actual new archive.
 - Complete the original account/channel owner, daily-reflection/proactive runtime integration and required platform/device acceptance for features included in the selected release scope. Local tests alone do not establish live channel or cross-device acceptance.
 - Build from a fixed accepted source, verify the actual package and installation/upgrade path, then update the archive, manifest, download pages and release notes together. Keep a unique version, digest and rollback record for each published artifact.
 

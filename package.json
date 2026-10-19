@@ -3,7 +3,7 @@
   "version": "0.3.1",
   "description": "Koder CLI: terminal coding agent with MoA and chat gateways, built on the Koder kernel",
   "type": "module",
-  "license": "GPL-3.0-only",
+  "license": "SEE LICENSE IN LICENSE-EXCEPTION.txt",
   "private": true,
   "bin": {
     "koder": "bin/koder.mjs"

@@ -38,7 +38,7 @@ Full notice copies are in [licenses/](licenses/), including the per-skill Anthro
 
 ## Scope and outstanding corrections
 
-The public CLI declares `GPL-3.0-only`. The installed kernel carries separate proprietary terms and is imported into the same Node.js process by `src/agent.mjs`; it is not simply an unrelated ACP peer. Compatibility of that combined distribution needs resolution before a new package is approved. This update does not change the CLI licence or certify the current combination as compliant. See the [GPL text](LICENSE) and [GNU GPL FAQ](https://www.gnu.org/licenses/gpl-faq.html#GPLInProprietarySystem).
+The CLI remains under [GNU GPL version 3](LICENSE). On 2026-10-19 the granting copyright holders adopted the limited [kernel linking permission](LICENSE-EXCEPTION.txt) for the CLI portions they have authority to license. The installed kernel is imported into the same Node.js process by `src/agent.mjs` and retains its separate proprietary terms. The additional permission does not change third-party licences, remove applicable source or notice obligations, or grant rights in the kernel. Package metadata points to the permission text instead of inventing an SPDX exception identifier. This adoption does not replace or validate the published 0.3.0 archive.
 
 The verified 0.3.0 archive contains an incomplete `open-code-review/LICENSE` (6,895 bytes, ending mid-sentence). The [complete file from the same pinned upstream revision](licenses/open-code-review/LICENSE), 11,356 bytes with SHA-256 `1945665fdb6968a66ea29438ddee0aee23035365c862e5c4a75b62b303340acf`, is supplied here. The next package must carry that file and its updated resource-manifest hash. This documentation commit does not alter the old archive.
 
