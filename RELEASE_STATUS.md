@@ -1,16 +1,11 @@
-# Koder CLI 0.4.0-preview.4
+# Koder CLI 0.4.0-preview.5
 
-This preview refreshes the installed tutorial, setup, consent explanations and documented withdrawal actions. It retains the adopted Koder-EULA-1.0 text unchanged and adds ACCEPTANCE.md as a separate permissions/data guide.
+Adds a GitHub-first development workflow through the original harness: public repository search, fixed-commit license/file inspection, verified built-in skill reading, progressive requirements questions, project Markdown planning and existing approved tool execution. The original workflow is method-informed by GitHub Spec Kit and obra/superpowers; no new upstream code/template was copied.
 
-- 23 bilingual tutorial lessons; PowerShell, CMD, macOS and Linux editions.
-- Old graduates resume at new lesson 17; unfinished progress is retained.
-- Read-only help/tutorial before acceptance; actions remain gated.
-- Independent learning/daily-state/evolution/proactive decisions, clear scope and withdrawal.
-- Computer grant revocation; no OS privilege bypass.
-- GitHub updater introduced in preview.3 remains the upgrade route.
+Local natural-language update requests route to the GitHub updater without a model. Ask/plan mode only checks; ordinary project updates and quoted/piped text do not trigger self-update. Installer success now requires metadata, package version and actual installed entry readback. Running sessions retain loaded code; new launches use the update.
 
-Release evidence and archive hash are recorded in the published release metadata after packaging and verification. The public legacy development source remains 0.3.1 under its existing terms. This downloadable proprietary preview does not publish its development source.
+Connection repair covers transient HTTP initialization/QR failures, bounded retry/cancellation, handshake timeout, stale reconnect callbacks and reuse of a healthy gateway instead of a competing WeCom verification socket. Invalid credentials and expired/denied authorizations fail explicitly. Sends/uploads are not automatically retried.
 
-Native Windows installation/file access, real WeChat/Feishu/WeCom/Gamma, multiple physical devices and production Core integration remain unverified. Local tests and mock services do not replace those checks. No claim of full product acceptance is made.
+Prior tutorial, consent, memory, API/context, Windows path and application/MCP work is retained. The adopted EULA and third-party license bytes are unchanged. Source remains private; public legacy source retains its original terms. Package and validation hashes are recorded in release metadata after independent verification.
 
-Local source checks: 357 serial tests, 354 pass, 0 fail, 3 Core environment skips. Final agreement-status correction: 6 targeted tests, all passing. Actual macOS terminal settings navigation was inspected. See the release metadata for archive and installation verification.
+Native Windows installation/file access, real WeChat/Feishu/WeCom/Gamma accounts, multiple physical devices and production Core remain unverified. Local tests and synthetic services do not establish real-account acceptance.

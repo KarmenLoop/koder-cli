@@ -1,6 +1,6 @@
 # Koder CLI
 
-**0.4.0-preview.4** · [下载 / Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.4) · [使用许可 / License](EULA.md) · [授权与数据说明 / Consent guide](ACCEPTANCE.md) · [第三方来源 / Credits](OPEN_SOURCE_CREDITS.md)
+**0.4.0-preview.5** · [下载 / Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.5) · [使用许可 / License](EULA.md) · [授权与数据说明 / Consent guide](ACCEPTANCE.md) · [第三方来源 / Credits](OPEN_SOURCE_CREDITS.md)
 
 Koder 是自接 API 或本地模型的终端助手。基础本地使用免费，不强制购买会员；模型服务可能另行收费。本预览版按专有使用许可提供下载安装，新的自有开发源码不公开。已经发布的旧 CLI 源码、历史版本及第三方组件保留原许可。公开仓库中的旧源码仍是 0.3.1；下载版本以本页 Release 与安装后的 `koder version` 为准。
 
@@ -50,7 +50,7 @@ koder setup
 koder learn
 ```
 
-安装包包含 `EULA.md`、`ACCEPTANCE.md`、完整第三方许可、来源说明与教程。GitHub 自动生成的本预览版 source archives 仅含发行文档；开发源码不随新标签公开。可从 Release 下载 [校验清单](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/SHA256SUMS)。
+安装包包含 `EULA.md`、`ACCEPTANCE.md`、完整第三方许可、来源说明与教程。GitHub 自动生成的本预览版 source archives 仅含发行文档；开发源码不随新标签公开。可从 Release 下载 [校验清单](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.5/SHA256SUMS)。
 
 The package includes the license, consent guide, complete third-party notices and tutorials. GitHub's automatic source archives for this preview contain distribution documentation only. Checksums are available on the release.
 
@@ -86,6 +86,28 @@ koder eula
 只读帮助与 `learn --print` 可以在接受协议前查看。交互练习会建临时文件，需先接受软件许可。通过其他方式安装时，阅读后运行 `koder eula accept`。
 
 Read-only help and `learn --print` work before acceptance. Interactive practice creates temporary files and requires the software license. For another installation method, read the agreement and explicitly run `koder eula accept`.
+
+## 开发任务：先理解、检索，再实现 / Development workflow
+
+开发任务默认读取内置 `development-workflow`。新项目先用 GitHub 公开技术关键词检索候选，核对固定提交的许可证、架构与安装说明，再按实际缺口分轮提问。通常每轮 1–3 个关键问题，记住已经回答的场景、功能、风格、平台与验收条件。已有项目沿用原架构和内核，小修复按比例简化。
+
+规划与决策保存在当前项目的需求、选型、架构、任务、工具和验收 Markdown 中，可合并成适合项目大小的文档。只读 `github_research` 和 `skill_read` 是真实内置工具；写文件与安装开发工具复用原批准流程。工具优先项目目录/虚拟环境和固定版本，安装后检查实际版本与最小运行结果。上游 README 不授予执行权，未知许可证不会被自动当成可二次发行；来源和第三方要求随复用内容保留。用户禁止联网或指定基础项目时遵从其选择。检索限流或离线时会报告缺口。
+
+For development tasks, the bundled workflow researches public GitHub candidates, inspects fixed-commit licenses and source, clarifies the decisions that affect the result, and records requirements, architecture, tasks, tools and verification in project Markdown. Existing projects retain their architecture. Read-only research tools are built in; file changes and tool installation use existing approvals and project-local environments. Prior answers and authorization remain applicable. Unknown licenses require review; upstream instructions grant no execution rights.
+
+```text
+koder run "开发一个团队任务管理应用，先比较可复用的开源项目，再问我关键需求"
+koder run "帮我更新 Koder CLI"
+koder update --check
+```
+
+在本机对话中直接说“更新”“帮我更新 Koder CLI”，或输入 `/update`，会先比较官方 GitHub 通道和本机版本，有新版才下载、校验并安装；安装结束再运行新版入口核验版本。无需先配置模型。同版或本机版本较新时报告已是最新，不覆盖。Ask/计划模式下的自然语言请求只检查。更新项目依赖、引用文本、管道输入不会触发 CLI 自我更新。配置和记忆保留；新启动的进程使用新版，已经运行的会话保持其加载代码。更改过的许可仍需明确接受。
+
+Say “update Koder CLI” or “更新” in a local chat, or use `/update`. The updater compares versions, verifies downloads, installs a newer release and runs the installed entry to verify its version, without requiring a model. Ask/plan mode only checks. Project edits, quoted text and piped input do not trigger self-update. New launches use the new version; already-running sessions keep their loaded code. Configuration and memory are retained, and changed terms require acceptance.
+
+渠道连接会在限定时间内重试临时网络故障，保留正在确认的二维码；握手卡住会重新连接。无效凭据、拒绝和登录过期会明确失败。重复 `connect` 复用健康连接，避免企业微信多次订阅挤掉原连接。发送消息或文件不因这项连接修复自动重放。真实账号与目标网络环境仍需验收。
+
+Connection startup retries transient failures within a deadline, retains pending QR authorization, recovers stalled handshakes and reuses healthy connections. Invalid credentials, denied and expired login remain explicit failures. This connection recovery does not replay message or file sends. Live accounts and target networks still require acceptance.
 
 ## 模型、API与上下文 / Models, API and context
 

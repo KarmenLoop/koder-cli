@@ -32,16 +32,20 @@ Full notice copies are in [licenses/](licenses/), including the per-skill Anthro
 
 ## Runtime and optional external software
 
+The applications/MCP candidate bundles the official `@modelcontextprotocol/sdk` 1.30.0 (MIT, [source](https://github.com/modelcontextprotocol/typescript-sdk)) and 100 transitive production/required peer dependencies. Their individual origins, versions and complete license hashes appear in the `npmComponents` section of `THIRD_PARTY_COMPONENTS.json`. Runtime files retain the original package layout and licenses under `kernel/node_modules/`; none is relicensed as KARMEN proprietary code. Gamma integration uses the provider's API/MCP contracts; it does not include Gamma's application source.
+
 - [Node.js](https://nodejs.org/) is the runtime. If needed, the installer downloads an official Node distribution and checks its published SHA-256. Node's own licence and third-party notices remain with that distribution.
 - The optional Hermes engine is installed separately and called as an ACP peer process. This is separate from the Hermes-derived JavaScript adaptations above.
 - ACP and application API compatibility do not imply ownership of, endorsement by, or a licence to rebrand another vendor's product. The public CLI package declares no npm runtime dependencies; Node's built-in implementations belong to the Node distribution.
 
 ## Scope and outstanding corrections
 
-Future Koder-owned builds that expressly adopt [Koder-EULA-1.0](EULA.md) are proprietary end-user distributions. The [distribution policy](DISTRIBUTION.md) preserves this attribution inventory, all third-party licenses and rights in previously published versions. No dependency or resource is relicensed by changing Koder's own terms.
-
-The legacy public CLI source remains under [GNU GPL version 3](licenses/legacy-cli/GPL-3.0.txt). On 2026-10-19 the granting copyright holders adopted the limited [kernel linking permission](LICENSE-EXCEPTION.txt) for the CLI portions they have authority to license. The installed kernel is imported into the same Node.js process by `src/agent.mjs` and retains its separate proprietary terms. The additional permission does not change third-party licences, remove applicable source or notice obligations, or grant rights in the kernel. Package metadata points to the permission text instead of inventing an SPDX exception identifier. This adoption does not replace or validate the published 0.3.0 archive.
+The CLI remains under [GNU GPL version 3](LICENSE). On 2026-10-19 the granting copyright holders adopted the limited [kernel linking permission](LICENSE-EXCEPTION.txt) for the CLI portions they have authority to license. The installed kernel is imported into the same Node.js process by `src/agent.mjs` and retains its separate proprietary terms. The additional permission does not change third-party licences, remove applicable source or notice obligations, or grant rights in the kernel. Package metadata points to the permission text instead of inventing an SPDX exception identifier. This adoption does not replace or validate the published 0.3.0 archive.
 
 The verified 0.3.0 archive contains an incomplete `open-code-review/LICENSE` (6,895 bytes, ending mid-sentence). The [complete file from the same pinned upstream revision](licenses/open-code-review/LICENSE), 11,356 bytes with SHA-256 `1945665fdb6968a66ea29438ddee0aee23035365c862e5c4a75b62b303340acf`, is supplied here. The next package must carry that file and its updated resource-manifest hash. This documentation commit does not alter the old archive.
 
 Experimental user-supplied memory/personalization skills are outside the inspected 0.3.0 release. Their public redistribution terms are not established by an attachment or a `user-provided` label; their text is not published by this update. Listing a resource also does not mean its proposed runtime integration has passed acceptance.
+
+## Development workflow method references (preview.5)
+
+The original Koder development-workflow instructions and GitHub research adapter were written for this release. Method references: [GitHub Spec Kit](https://github.com/github/spec-kit/tree/e5714c64902cda491bd52fc4674f3f1cf3892c10) and [obra/superpowers](https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3), both reporting MIT licenses when inspected on 2026-10-20. No Spec Kit or newly retrieved Superpowers code/templates were copied into this change. Existing bundled Superpowers resources remain governed by their separately recorded license and pinned revision. This is method attribution, not a claim of upstream endorsement or complete license clearance for future projects.

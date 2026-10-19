@@ -1,8 +1,8 @@
 # Koder CLI — 使用前与授权说明 / Before you enable features
 
-适用于 0.4.0-preview.4。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。
+适用于 0.4.0-preview.5。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。
 
-For 0.4.0-preview.4. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance.
+For 0.4.0-preview.5. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance.
 
 授权与数据使用说明
 
