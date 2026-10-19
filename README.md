@@ -4,17 +4,19 @@ Koder is an AI assistant for your terminal. Open a project, connect a model, and
 
 [Website](https://karmenloop.com) · [CLI](https://karmenloop.com/en/cli.html) · [Download](https://karmenloop.com/en/download.html) · [Updates](https://karmenloop.com/en/updates.html) · [Email](mailto:info@karmenloop.com)
 
-Source in this repo: **0.3.1**. Published installer checked on 2026-10-19: **0.3.0**.
+Legacy public source in this repo: **0.3.1**. Published installer checked on 2026-10-19: **0.3.0**. Publishing a new agreement does not replace the installer.
 
 [Release status and download checks](RELEASE_STATUS.md) · [Open-source credits](OPEN_SOURCE_CREDITS.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 
-The CLI source here is under the GNU General Public License v3.0, with the limited [kernel linking permission](LICENSE-EXCEPTION.txt). The KARMEN LOOP kernel is not in this repo, and it is not under that license. See [License](#license).
+**New licensing policy (2026-10-19):** future official Koder-owned distributions will use the [Koder End-User License Agreement](EULA.md): download, install and use for personal or internal organizational work, with free basic local use. These new distributions are proprietary, not open source. Future proprietary development source will not be published here.
+
+The existing public CLI source and already distributed versions retain their original licenses, including GPL v3 and the [limited kernel permission](LICENSE-EXCEPTION.txt) where applicable. Third-party components retain their own terms. See [license scope](LICENSE) and [distribution policy](DISTRIBUTION.md).
 
 ## What it is
 
 Koder works in the folder you choose. You can use it for a conversation, a single task, a script, or CI. Read-only questions use `koder ask`; tasks that edit files or run commands use `koder run`.
 
-This repository contains the CLI. The desktop app is a separate download, and `koder-tui` is a separate full-screen terminal interface. The runtime underneath them is KARMEN LOOP.
+This repository retains legacy CLI source and publishes agreements, notices and download instructions. The desktop app is a separate download, and `koder-tui` is a separate full-screen terminal interface. The runtime underneath them is KARMEN LOOP.
 
 Connect a model provider you already use, or a local model through a service such as Ollama. This release does not include a model. An official model is planned but is not available in Settings yet.
 
@@ -70,7 +72,7 @@ koder about
 
 ![Install finished](docs/screenshots/cli-install-en-dark.jpg)
 
-The scripts download the package currently published at `karmenloop.com/install`. This repository is the 0.3.1 source. Those two stay in step when the site is updated. Until then, the installer can still be an older package than this tree.
+The scripts download the package currently published at `karmenloop.com/install`. This repository retains the legacy 0.3.1 source. Agreements, source snapshots and installed packages are separate: check the version and included license of the package you download. The new end-user agreement applies only to distributions that expressly adopt it.
 
 ### Connect a model
 
@@ -240,13 +242,17 @@ Those two edit shots were taken against a local scripted endpoint, not a live mo
 | [karmenloop.com](https://karmenloop.com) | Product, download, updates. |
 | [Updates](https://karmenloop.com/en/updates.html) | What changed. |
 
-`koder help` inside the installed CLI matches that build. This README matches the 0.3.1 source.
+`koder help` inside the installed CLI matches that build. The command descriptions here refer to the legacy 0.3.1 source; the licensing policy below concerns future distributions.
 
 ## License
 
-The Koder CLI source in this repository is under the GNU General Public License v3.0. The text is [LICENSE](LICENSE); the granting copyright holders adopted the limited [additional permission](LICENSE-EXCEPTION.txt) on 2026-10-19. Third-party components that ship in this tree are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Future Koder-owned official builds that expressly adopt **Koder-EULA-1.0** are proprietary software, available for end users to download, install and use under the [end-user agreement](EULA.md). Personal and internal business use, internal backups, official updates, and supported configuration, skills, plugins and MCP integrations are permitted. Redistribution, resale, repackaging and derivative development of the proprietary implementation require separate permission, subject to applicable law and third-party license rights. You may share official download links. Your own files, code and work products are not relicensed by the agreement.
 
-The KARMEN LOOP kernel is not in this repository. It is not public, and it is not under the GPL. Copyright © KARMEN / Koder. All rights reserved. The kernel is not offered for further development. The installer runs it. Installed kernel modules may contain readable JavaScript under the bundled terms. A proprietary licence does not encrypt those files. The [additional permission](LICENSE-EXCEPTION.txt) covers only the CLI portions its granting holders have authority to license. Kernel and third-party terms still apply; see [credits and outstanding corrections](OPEN_SOURCE_CREDITS.md#scope-and-outstanding-corrections).
+The CLI source already published here through [54e17fcf](https://github.com/KarmenLoop/koder-cli/commit/54e17fcf484638f6cf22a48b52a0533c82816191), including version 0.3.1, remains under [GNU GPL v3](licenses/legacy-cli/GPL-3.0.txt) with the [limited kernel linking permission](LICENSE-EXCEPTION.txt). Already distributed packages retain their applicable original terms. The new agreement does not withdraw those rights, make old public source confidential, or update the current installer.
+
+The KARMEN LOOP kernel is not published in this repository and retains its applicable proprietary terms. Third-party components keep their own licenses, notices and any source obligations; see [third-party notices](THIRD_PARTY_NOTICES.md) and [credits](OPEN_SOURCE_CREDITS.md). Readable files in an installer are not a grant to develop or redistribute proprietary code.
+
+[License scope](LICENSE) · [End-user agreement / 使用许可协议](EULA.md) · [Distribution policy](DISTRIBUTION.md) · [Release status](RELEASE_STATUS.md)
 
 ## Contact
 

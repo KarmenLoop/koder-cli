@@ -1,10 +1,14 @@
 # Third-party notices
 
-The Koder CLI source in this repository is licensed under the GNU General
-Public License v3.0 (see LICENSE), with the limited additional permission in
-[LICENSE-EXCEPTION.txt](LICENSE-EXCEPTION.txt). The Koder kernel is not in this repository
-and is not covered by that licence. It is proprietary. See the kernel section
-below.
+The legacy Koder CLI source already published in this repository remains under
+[GNU GPL v3](licenses/legacy-cli/GPL-3.0.txt), with the limited additional permission in
+[LICENSE-EXCEPTION.txt](LICENSE-EXCEPTION.txt). Future Koder-owned distributions that
+expressly adopt [Koder-EULA-1.0](EULA.md) are proprietary end-user distributions.
+Neither the new agreement nor the kernel terms override any third-party license,
+notice, attribution or applicable source obligation. Already distributed versions
+retain their original licenses. See [license scope](LICENSE) and [distribution policy](DISTRIBUTION.md).
+
+The Koder kernel is not in this repository and has its own proprietary terms.
 
 Components whose code is included or reimplemented are listed here. See the detailed [upstream/use/revision inventory](OPEN_SOURCE_CREDITS.md), [component record](THIRD_PARTY_COMPONENTS.json), and full notice copies in [licenses/](licenses/). This is not a combined-distribution licence clearance.
 

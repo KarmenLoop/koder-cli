@@ -223,5 +223,17 @@
       "licenseSha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
       "adoptionRevision": "517b5e10febd619ce30bb22580e29b160266eb43"
     }
-  ]
+  ],
+  "licensingPolicy": {
+    "updatedOn": "2026-10-19",
+    "agreement": "Koder-EULA-1.0",
+    "agreementFile": "EULA.md",
+    "scope": "Future Koder-owned distributions that expressly adopt this agreement; no retroactive change to old versions or third-party terms",
+    "legacyPublicSourceThrough": "54e17fcf484638f6cf22a48b52a0533c82816191",
+    "legacyGplText": "licenses/legacy-cli/GPL-3.0.txt",
+    "legacyGplSha256": "f80cba4854c07fdc7e39a44088e80c368bad7d430b1f1e634100351ea67aa7b2",
+    "licenseScopeFile": "LICENSE",
+    "distributionPolicyFile": "DISTRIBUTION.md",
+    "installerChanged": false
+  }
 }

@@ -1,5 +1,13 @@
 # CLI source and installer status
 
+## Licensing policy update — 2026-10-19
+
+[Koder-EULA-1.0](EULA.md) is published for future Koder-owned proprietary builds that expressly adopt it. It permits end-user download, installation and personal or internal business use. Basic local use remains free. Future proprietary development source will not be uploaded to this public repository. Legacy public source, already distributed packages and third-party components retain their original licenses; see [license scope](LICENSE) and [distribution policy](DISTRIBUTION.md).
+
+This is an agreement and documentation update, not a new installer, source-code release or feature acceptance. The download instructions remain available. The existing public `package.json` continues to describe the legacy GPL source.
+
+## Previously verified installer and source
+
 Checked on 2026-10-19. Source, package metadata and a published installer are separate artifacts.
 
 | Item | Observed version/status | Evidence |
@@ -23,7 +31,7 @@ The attribution update adds [upstream credits](OPEN_SOURCE_CREDITS.md), full lic
 Before the next installer update, the following must be resolved:
 
 - Include the complete pinned Open Code Review Apache licence and the corresponding resource-manifest digest. The inspected old archive contains a truncated copy; [the full notice is available here](licenses/open-code-review/LICENSE).
-- Include the [additional linking permission](LICENSE-EXCEPTION.txt), adopted by the granting copyright holders on 2026-10-19, together with the GPL text, applicable Corresponding Source and all third-party notices. The adopted permission does not change the kernel or third-party licences. Verify these in the actual new archive.
+- For a new proprietary distribution, explicitly identify and include [Koder-EULA-1.0](EULA.md), present the agreement for acceptance, and complete the [distribution requirements](DISTRIBUTION.md). For any GPL-covered portions still distributed, retain the [full GPL text](licenses/legacy-cli/GPL-3.0.txt), applicable Corresponding Source and any [additional linking permission](LICENSE-EXCEPTION.txt) relied upon. All third-party licenses and notices remain required. Verify the exact scope and files in the actual archive; do not relabel an old package by editing a web page.
 - Complete the original account/channel owner, daily-reflection/proactive runtime integration and required platform/device acceptance for features included in the selected release scope. Local tests alone do not establish live channel or cross-device acceptance.
 - Build from a fixed accepted source, verify the actual package and installation/upgrade path, then update the archive, manifest, download pages and release notes together. Keep a unique version, digest and rollback record for each published artifact.
 

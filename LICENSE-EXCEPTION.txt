@@ -1,7 +1,7 @@
 Koder CLI additional permission
 Adopted by the granting copyright holders on 2026-10-19.
 
-The covered Koder CLI portions remain under GNU GPL version 3 (see LICENSE), with the following additional permission.
+The covered Koder CLI portions remain under GNU GPL version 3 (see licenses/legacy-cli/GPL-3.0.txt), with the following additional permission.
 
 Additional permission under GNU GPL version 3, section 7
 
