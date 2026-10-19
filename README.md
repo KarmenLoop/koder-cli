@@ -2,13 +2,13 @@
 
 Koder is an AI assistant for your terminal. Open a project, connect a model, and ask it to read code, review a change, or work on a task. Edits show a diff before they are saved, and commands ask for approval by default.
 
-[Website](https://karmenloop.com) · [CLI](https://karmenloop.com/en/cli.html) · [Download](https://karmenloop.com/en/download.html) · [Updates](https://karmenloop.com/en/updates.html) · [Email](mailto:info@karmenloop.com)
+[Website](https://karmenloop.com) · [CLI](https://karmenloop.com/en/cli.html) · [Download CLI preview](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.2) · [Updates](https://karmenloop.com/en/updates.html) · [Email](mailto:info@karmenloop.com)
 
-Legacy public source in this repo: **0.3.1**. Published installer checked on 2026-10-19: **0.3.0**. Publishing a new agreement does not replace the installer.
+CLI preview: **0.4.0-preview.2** — [download the installer assets](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.2). This is a downloadable proprietary preview, not a stable release. The legacy public source in this repository remains **0.3.1**. Use the version-specific GitHub links below for this preview; website downloads follow a separate publication channel.
 
 [Release status and download checks](RELEASE_STATUS.md) · [Open-source credits](OPEN_SOURCE_CREDITS.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 
-**New licensing policy (2026-10-19):** future official Koder-owned distributions will use the [Koder End-User License Agreement](EULA.md): download, install and use for personal or internal organizational work, with free basic local use. These new distributions are proprietary, not open source. Future proprietary development source will not be published here.
+**License for 0.4.0-preview.2:** this official Koder-owned distribution uses the [Koder End-User License Agreement](EULA.md): download, install and use for personal or internal organizational work, with free basic local use. The new distribution is proprietary, not open source. Its development source is not published here.
 
 The existing public CLI source and already distributed versions retain their original licenses, including GPL v3 and the [limited kernel permission](LICENSE-EXCEPTION.txt) where applicable. Third-party components retain their own terms. See [license scope](LICENSE) and [distribution policy](DISTRIBUTION.md).
 
@@ -28,7 +28,7 @@ Connect a model provider you already use, or a local model through a service suc
 - **Review, fix, test.** `koder review` writes up the diff. `koder fix` reruns your check until it passes or hits the limit. `koder test` adds tests in the style already in the repo.
 - **Memory.** Same folder, named session, still there after you quit. `--session`, `--new`, `--no-memory`. `koder memory` can show, search, add, remove, clear, or forget. Old approvals are not restored, and old tools are not run again.
 - **Flows and CI.** `koder flow` runs a JSON pipeline. `koder ci init` adds a GitHub Actions workflow that reviews a pull request and answers `/koder` comments from repo members.
-- **Chat apps.** Feishu, Lark, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp. Strangers get a pairing code. You approve it on your machine.
+- **Chat apps.** Adapters for Feishu, Lark, WeCom, WeChat, DingTalk, Telegram, Slack, Discord and WhatsApp are included. Pairing controls access. Live-channel acceptance for this preview is still pending; see release status.
 - **Editors.** Zed, Neovim, and Emacs talk to `koder acp`. `koder editor` prints the snippet.
 - **Setup.** Arrow keys or a click. Language, model, colors, banner, chat apps, editor config. `koder learn` is 17 lessons in a practice folder, and it does not spend model money.
 - **A second opinion.** `koder moa` asks other models you registered, then the current model does the work. You still approve every edit.
@@ -39,27 +39,33 @@ You need macOS 11 or later, Linux, WSL, or Windows 10 or 11. Windows XP, 7, and 
 
 If Node.js 22 or newer is already there, the installer uses it. If not, it downloads Node.js 22 from nodejs.org, checks the SHA-256, and stops if the hash is wrong. The Koder package is checked the same way.
 
-### Install
+### Install the preview
+
+Read [Koder-EULA-1.0](EULA.md) before installing. The commands below explicitly accept that agreement. Accepting it does not grant file, computer-control, learning, or messaging permissions; configure those separately in Koder.
+
+Windows installers are included, but native Windows installation and the reported Windows file-access fix still need device testing. Live WeChat, Feishu, WeCom, Gamma and cross-device workflows have not completed end-to-end acceptance. See [release status](RELEASE_STATUS.md) before relying on these integrations.
 
 Mac, Linux, WSL:
 
 ```bash
-curl -fsSL https://karmenloop.com/install/koder-cli.sh | bash
+curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 ```
 
 Windows PowerShell:
 
 ```powershell
-irm https://karmenloop.com/install/koder-cli.ps1 | iex
+$env:KODER_EULA_ACCEPT = "1"
+irm https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.ps1 | iex
 ```
 
 Windows Command Prompt:
 
 ```bat
-powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://karmenloop.com/install/koder-cli.ps1 | iex"
+set KODER_EULA_ACCEPT=1
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.ps1 | iex"
 ```
 
-The scripts: [koder-cli.sh](https://karmenloop.com/install/koder-cli.sh) · [koder-cli.ps1](https://karmenloop.com/install/koder-cli.ps1) · [koder-cli.cmd](https://karmenloop.com/install/koder-cli.cmd)
+The scripts: [koder-cli.sh](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.sh) · [koder-cli.ps1](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.ps1) · [koder-cli.cmd](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.cmd)
 
 Mac and Linux land in `~/.koder-cli`, with the command in `~/.local/bin`. Windows lands in `%LOCALAPPDATA%\koder-cli`. If the shell says `koder` is missing, open a new terminal. The installer adds `~/.local/bin` to your PATH, and the window you already have does not see that yet.
 
@@ -72,7 +78,7 @@ koder about
 
 ![Install finished](docs/screenshots/cli-install-en-dark.jpg)
 
-The scripts download the package currently published at `karmenloop.com/install`. This repository retains the legacy 0.3.1 source. Agreements, source snapshots and installed packages are separate: check the version and included license of the package you download. The new end-user agreement applies only to distributions that expressly adopt it.
+These version-specific scripts download **0.4.0-preview.2** from the same GitHub release and verify its SHA-256. [SHA256SUMS](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/SHA256SUMS) and [the package manifest](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli-latest.json) are included. The automatic GitHub source archives for this preview contain distribution documentation, not the proprietary implementation. Legacy 0.3.1 source remains available on `main` under its original terms.
 
 ### Connect a model
 
@@ -128,7 +134,7 @@ cd your-project
 koder
 ```
 
-Type the task and press Enter. Koder reads and writes only inside this folder.
+Type the task and press Enter. Project tools start inside this folder. Broader computer or home-directory access requires the permissions you choose in setup and any required operating-system authorization.
 
 Or skip the session:
 
@@ -242,13 +248,13 @@ Those two edit shots were taken against a local scripted endpoint, not a live mo
 | [karmenloop.com](https://karmenloop.com) | Product, download, updates. |
 | [Updates](https://karmenloop.com/en/updates.html) | What changed. |
 
-`koder help` inside the installed CLI matches that build. The command descriptions here refer to the legacy 0.3.1 source; the licensing policy below concerns future distributions.
+`koder help` inside the installed CLI matches that build. Preview validation and known limits are listed in [release status](RELEASE_STATUS.md).
 
 ## License
 
 Future Koder-owned official builds that expressly adopt **Koder-EULA-1.0** are proprietary software, available for end users to download, install and use under the [end-user agreement](EULA.md). Personal and internal business use, internal backups, official updates, and supported configuration, skills, plugins and MCP integrations are permitted. Redistribution, resale, repackaging and derivative development of the proprietary implementation require separate permission, subject to applicable law and third-party license rights. You may share official download links. Your own files, code and work products are not relicensed by the agreement.
 
-The CLI source already published here through [54e17fcf](https://github.com/KarmenLoop/koder-cli/commit/54e17fcf484638f6cf22a48b52a0533c82816191), including version 0.3.1, remains under [GNU GPL v3](licenses/legacy-cli/GPL-3.0.txt) with the [limited kernel linking permission](LICENSE-EXCEPTION.txt). Already distributed packages retain their applicable original terms. The new agreement does not withdraw those rights, make old public source confidential, or update the current installer.
+The CLI source already published here through [54e17fcf](https://github.com/KarmenLoop/koder-cli/commit/54e17fcf484638f6cf22a48b52a0533c82816191), including version 0.3.1, remains under [GNU GPL v3](licenses/legacy-cli/GPL-3.0.txt) with the [limited kernel linking permission](LICENSE-EXCEPTION.txt). Already distributed packages retain their applicable original terms. The new agreement does not withdraw those rights, make old public source confidential, or retroactively change their terms.
 
 The KARMEN LOOP kernel is not published in this repository and retains its applicable proprietary terms. Third-party components keep their own licenses, notices and any source obligations; see [third-party notices](THIRD_PARTY_NOTICES.md) and [credits](OPEN_SOURCE_CREDITS.md). Readable files in an installer are not a grant to develop or redistribute proprietary code.
 

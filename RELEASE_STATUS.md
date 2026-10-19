@@ -1,38 +1,32 @@
-# CLI source and installer status
+# CLI installer and validation status
 
-## Licensing policy update — 2026-10-19
+Updated 2026-10-19. **[Koder CLI 0.4.0-preview.2](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.2) is an installable preview.** The GitHub README commands select this exact release. The legacy public development source on `main` remains 0.3.1 under its original terms.
 
-[Koder-EULA-1.0](EULA.md) is published for future Koder-owned proprietary builds that expressly adopt it. It permits end-user download, installation and personal or internal business use. Basic local use remains free. Future proprietary development source will not be uploaded to this public repository. Legacy public source, already distributed packages and third-party components retain their original licenses; see [license scope](LICENSE) and [distribution policy](DISTRIBUTION.md).
+| Item | Result |
+| --- | --- |
+| New GitHub installer | 0.4.0-preview.2, 4,647,395 bytes |
+| Archive SHA-256 | `2d4e162f5800414e24be816b0aeea3d929f1e4a35cd64c39644eae7238dc9bbc` |
+| License | Koder-EULA-1.0 for Koder-owned new distribution; third-party and legacy rights retained |
+| Independent installation | macOS: old 0.3.0 install, upgrade, provider/memory preservation, installed local HTTP model request, updater and uninstall passed |
+| Package integrity | Manifest and 3,838 planned kernel members verified; complete GPL and third-party notices retained |
+| Full regression baseline | 342 tests: 338 passed, 1 startup-timing failure, 3 configured-Core skips; exit 1 |
+| Final focused checks | Agreement/uninstall 3 passed; installer 5 passed; version/channel delta independently verified |
+| Native/live acceptance | Windows, second physical device, live messaging, Gamma, paid providers and deployed Core remain unverified |
 
-This is an agreement and documentation update, not a new installer, source-code release or feature acceptance. The download instructions remain available. The existing public `package.json` continues to describe the legacy GPL source.
+Download the assets from the linked release and compare [SHA256SUMS](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/SHA256SUMS). The [machine-readable release record](releases/0.4.0-preview.2.json) lists each asset's size and digest. Source, installer, local validation and live acceptance are distinct.
 
-## Previously verified installer and source
+The baseline startup failure recorded 594.367625 ms against a 250 ms limit on the loaded build host. A separate single-sample run was faster, but that is not a performance pass. The three skipped tests require configured Core lease, host-review and formal-service integrations. No tests were removed to obtain the result. Final changes after the full run were reviewed and checked separately; the full suite was not repeated.
 
-Checked on 2026-10-19. Source, package metadata and a published installer are separate artifacts.
+Shared memory, personalization, daily reflection, proactive services, applications and MCP code are included in the CLI dependency closure. Cross-device and channel behavior still depends on configured identity, services and credentials. This preview does not claim live communication or multi-device acceptance. Computer access requires user authorization and applicable system permissions.
 
-| Item | Observed version/status | Evidence |
-| --- | --- | --- |
-| Public CLI source | 0.3.1 | [`package.json`](package.json) |
-| Default installer manifest | 0.3.0 | [`koder-cli-latest.json`](https://karmenloop.com/install/koder-cli-latest.json) |
-| Package named by that manifest | `koder-cli-0.3.0.tgz`, 735,988 bytes; its internal package version is 0.3.0 | Download read and SHA-256 checked on 2026-10-19 |
-| GitHub Releases | No published release at the check time | [Releases](https://github.com/KarmenLoop/koder-cli/releases) |
-| New shared-memory/personalization and capability work | Unreleased; acceptance incomplete | Not an installable-version claim |
+## License and provenance
 
-Verified installer SHA-256:
+Read [EULA.md](EULA.md), [license scope](LICENSE), [third-party notices](THIRD_PARTY_NOTICES.md) and [upstream credits](OPEN_SOURCE_CREDITS.md). The new proprietary development tree is not published. The release tag contains distribution metadata only; install from its assets. Readable runtime files inside an installer do not grant new open-source rights. Existing GPL source and third-party terms are preserved.
 
-```text
-281e31d96ce1764a0da8c7fbd08633118b21a04b595703f81d304a7f60f78f94
-```
+The old 0.3.0 archive had a truncated Open Code Review license. The new archive contains the complete checked copy. The experimental user-provided shared-memory and personalization skill texts are excluded while redistribution terms remain unresolved; original Koder interface notes are packaged instead. Learning and self-evolution require opt-in.
 
-The README install commands fetch the website's manifest and archive. Updating GitHub source or its version string does not replace that archive. At this check, running the documented installer still selected 0.3.0; the installer download was not a newer build mislabeled by the terminal.
+## Earlier download observations
 
-The attribution update adds [upstream credits](OPEN_SOURCE_CREDITS.md), full licence/NOTICE copies and explicit source/install version information. It does not replace the archive, create a new binary release, or claim that the unreleased features are available.
+At the initial 2026-10-19 check, the website selected 0.3.0, SHA-256 `281e31d96ce1764a0da8c7fbd08633118b21a04b595703f81d304a7f60f78f94` (735,988 bytes). Later that day, its manifest selected an earlier 0.4.0-preview.1 archive, SHA-256 `1793a21cdf5519a8cd0db8edaa60a26e8bee38480cfb94b55ab848340e0326eb`. These observations are historical, not a claim about every current website cache.
 
-Before the next installer update, the following must be resolved:
-
-- Include the complete pinned Open Code Review Apache licence and the corresponding resource-manifest digest. The inspected old archive contains a truncated copy; [the full notice is available here](licenses/open-code-review/LICENSE).
-- For a new proprietary distribution, explicitly identify and include [Koder-EULA-1.0](EULA.md), present the agreement for acceptance, and complete the [distribution requirements](DISTRIBUTION.md). For any GPL-covered portions still distributed, retain the [full GPL text](licenses/legacy-cli/GPL-3.0.txt), applicable Corresponding Source and any [additional linking permission](LICENSE-EXCEPTION.txt) relied upon. All third-party licenses and notices remain required. Verify the exact scope and files in the actual archive; do not relabel an old package by editing a web page.
-- Complete the original account/channel owner, daily-reflection/proactive runtime integration and required platform/device acceptance for features included in the selected release scope. Local tests alone do not establish live channel or cross-device acceptance.
-- Build from a fixed accepted source, verify the actual package and installation/upgrade path, then update the archive, manifest, download pages and release notes together. Keep a unique version, digest and rollback record for each published artifact.
-
-Until that release is validated, 0.3.0 remains the observed installer version. A new documentation commit must not be presented as a new installed CLI build.
+This GitHub release uses the distinct version 0.4.0-preview.2 and a fixed tag URL. Running an old installed updater may still follow its old channel; use the new README installer commands to move to this preview. Website publication is a separate channel. Do not label the older package as this release by changing a manifest alone.
