@@ -2,13 +2,13 @@
 
 Koder is an AI assistant for your terminal. Open a project, connect a model, and ask it to read code, review a change, or work on a task. Edits show a diff before they are saved, and commands ask for approval by default.
 
-[Website](https://karmenloop.com) · [CLI](https://karmenloop.com/en/cli.html) · [Download CLI preview](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.2) · [Updates](https://karmenloop.com/en/updates.html) · [Email](mailto:info@karmenloop.com)
+[Website](https://karmenloop.com) · [CLI](https://karmenloop.com/en/cli.html) · [Download CLI preview](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.3) · [Updates](https://karmenloop.com/en/updates.html) · [Email](mailto:info@karmenloop.com)
 
-CLI preview: **0.4.0-preview.2** — [download the installer assets](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.2). This is a downloadable proprietary preview, not a stable release. The legacy public source in this repository remains **0.3.1**. Use the version-specific GitHub links below for this preview; website downloads follow a separate publication channel.
+CLI preview: **0.4.0-preview.3** — [download the installer assets](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.3). This is a downloadable proprietary preview, not a stable release. The legacy public source in this repository remains **0.3.1**. The GitHub install commands below discover the current published preview. Website downloads follow a separate publication channel.
 
 [Release status and download checks](RELEASE_STATUS.md) · [Open-source credits](OPEN_SOURCE_CREDITS.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 
-**License for 0.4.0-preview.2:** this official Koder-owned distribution uses the [Koder End-User License Agreement](EULA.md): download, install and use for personal or internal organizational work, with free basic local use. The new distribution is proprietary, not open source. Its development source is not published here.
+**License for 0.4.0-preview.3:** this official Koder-owned distribution uses the [Koder End-User License Agreement](EULA.md): download, install and use for personal or internal organizational work, with free basic local use. The new distribution is proprietary, not open source. Its development source is not published here.
 
 The existing public CLI source and already distributed versions retain their original licenses, including GPL v3 and the [limited kernel permission](LICENSE-EXCEPTION.txt) where applicable. Third-party components retain their own terms. See [license scope](LICENSE) and [distribution policy](DISTRIBUTION.md).
 
@@ -48,24 +48,24 @@ Windows installers are included, but native Windows installation and the reporte
 Mac, Linux, WSL:
 
 ```bash
-curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
+curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 ```
 
 Windows PowerShell:
 
 ```powershell
 $env:KODER_EULA_ACCEPT = "1"
-irm https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.ps1 | iex
+irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex
 ```
 
 Windows Command Prompt:
 
 ```bat
 set KODER_EULA_ACCEPT=1
-powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.ps1 | iex"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex"
 ```
 
-The scripts: [koder-cli.sh](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.sh) · [koder-cli.ps1](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.ps1) · [koder-cli.cmd](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli.cmd)
+The scripts: [koder-cli.sh](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/koder-cli.sh) · [koder-cli.ps1](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/koder-cli.ps1) · [koder-cli.cmd](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/koder-cli.cmd)
 
 Mac and Linux land in `~/.koder-cli`, with the command in `~/.local/bin`. Windows lands in `%LOCALAPPDATA%\koder-cli`. If the shell says `koder` is missing, open a new terminal. The installer adds `~/.local/bin` to your PATH, and the window you already have does not see that yet.
 
@@ -78,7 +78,21 @@ koder about
 
 ![Install finished](docs/screenshots/cli-install-en-dark.jpg)
 
-These version-specific scripts download **0.4.0-preview.2** from the same GitHub release and verify its SHA-256. [SHA256SUMS](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/SHA256SUMS) and [the package manifest](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/koder-cli-latest.json) are included. The automatic GitHub source archives for this preview contain distribution documentation, not the proprietary implementation. Legacy 0.3.1 source remains available on `main` under its original terms.
+The bootstrap commands resolve the published GitHub channel, verify the release installer SHA-256, then install its pinned package version and digest. The current channel selects **0.4.0-preview.3**. The direct scripts linked above remain fixed to that release. [SHA256SUMS](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/SHA256SUMS) and [the package manifest](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/koder-cli-latest.json) are included. The automatic GitHub source archives for this preview contain distribution documentation, not the proprietary implementation. Legacy 0.3.1 source remains available on `main` under its original terms.
+
+### Update from GitHub
+
+From **0.4.0-preview.3** onward:
+
+```bash
+koder update --check
+koder update
+koder version
+```
+
+`--check` reports the published version without installing. `koder update` compares versions, labels previews, verifies the downloaded installer and package, and keeps your model settings and memory. It does not reinstall the same version or downgrade. A failed download or checksum stops before the existing installation is replaced. An explicit `KODER_INSTALL_BASE` mirror is still respected.
+
+**If you have 0.3.0, 0.3.1, preview.1 or preview.2, run the install command above once to move to the new updater.** The old updater cannot gain this discovery fix until it is upgraded. You do not need to uninstall or remove your settings. Later upgrades reuse agreement acceptance only when the agreement text is unchanged; a changed agreement requires your explicit acceptance. Updates start when you run the command, not in a hidden background job.
 
 ### Connect a model
 
@@ -243,7 +257,8 @@ Those two edit shots were taken against a local scripted endpoint, not a live mo
 | `koder help` | Every command. `koder help review` for one of them. |
 | `koder learn` | 17 lessons. `--print` for text. `--os powershell`, `cmd`, `mac`, or `linux`. |
 | `koder setup` | The menu again. |
-| `koder update` | Update the installed CLI. |
+| `koder update --check` | Check the published GitHub channel without installing. |
+| `koder update` | Verify and install a newer GitHub CLI release. |
 | `koder lang en` | English. `koder lang zh` for Chinese. |
 | [karmenloop.com](https://karmenloop.com) | Product, download, updates. |
 | [Updates](https://karmenloop.com/en/updates.html) | What changed. |

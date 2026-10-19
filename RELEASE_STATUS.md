@@ -1,32 +1,29 @@
 # CLI installer and validation status
 
-Updated 2026-10-19. **[Koder CLI 0.4.0-preview.2](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.2) is an installable preview.** The GitHub README commands select this exact release. The legacy public development source on `main` remains 0.3.1 under its original terms.
+Current GitHub preview: **[Koder CLI 0.4.0-preview.3](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.3)**. The README commands and repository `install/` entrypoints resolve the current published preview. The legacy public source remains 0.3.1 under its original terms; it is not the new proprietary download.
 
 | Item | Result |
 | --- | --- |
-| New GitHub installer | 0.4.0-preview.2, 4,647,395 bytes |
-| Archive SHA-256 | `2d4e162f5800414e24be816b0aeea3d929f1e4a35cd64c39644eae7238dc9bbc` |
-| License | Koder-EULA-1.0 for Koder-owned new distribution; third-party and legacy rights retained |
-| Independent installation | macOS: old 0.3.0 install, upgrade, provider/memory preservation, installed local HTTP model request, updater and uninstall passed |
-| Package integrity | Manifest and 3,838 planned kernel members verified; complete GPL and third-party notices retained |
-| Full regression baseline | 342 tests: 338 passed, 1 startup-timing failure, 3 configured-Core skips; exit 1 |
-| Final focused checks | Agreement/uninstall 3 passed; installer 5 passed; version/channel delta independently verified |
-| Native/live acceptance | Windows, second physical device, live messaging, Gamma, paid providers and deployed Core remain unverified |
+| Installer archive | 0.4.0-preview.3, 4,652,524 bytes |
+| SHA-256 | `d7b7af255a9f172f44c56812105f082087bd04efdced91a57f1b793557ec729c` |
+| GitHub updating | `koder update --check` checks only; `koder update` verifies and installs a newer version |
+| One-time migration | Old 0.3.x / preview.1 / preview.2 users run the new README installer once |
+| Independent installation | macOS: actual old 0.3.0 to current preview, model settings and memory retained, installed local model request, same-version no-op and uninstall passed |
+| Integrity | 215 source files checked; 3,838 kernel files and license copies unchanged; all three installer hashes verified |
+| Full serial regression | 352 tests: 349 passed, 0 failed, 0 cancelled, 3 configured-Core skips; exit 0 |
+| Initial parallel run | 344 tests reported: 336 passed, 2 failed, 3 cancelled, 3 skipped; exit 1; preserved below |
+| Live/platform limits | Windows, second physical device, live messaging/Gamma, paid providers and production Core remain unverified |
 
-Download the assets from the linked release and compare [SHA256SUMS](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.2/SHA256SUMS). The [machine-readable release record](releases/0.4.0-preview.2.json) lists each asset's size and digest. Source, installer, local validation and live acceptance are distinct.
+The initial parallel run encountered a 872.925208 ms version-startup measurement against the original 250 ms limit, a Discord heartbeat timing assertion, and 60-second timeouts in three test files. The same complete suite then passed serially with unchanged assertions and timeout. This resolves the serial functional check; parallel-load performance is still not accepted. No tests were removed or thresholds relaxed.
 
-The baseline startup failure recorded 594.367625 ms against a 250 ms limit on the loaded build host. A separate single-sample run was faster, but that is not a performance pass. The three skipped tests require configured Core lease, host-review and formal-service integrations. No tests were removed to obtain the result. Final changes after the full run were reviewed and checked separately; the full suite was not repeated.
+The update check uses a bounded GitHub metadata request and reports previews explicitly. Before execution it verifies the selected installer hash; the installer compares the checked version and archive hash and verifies the downloaded archive. Same or older versions are not reinstalled. Update tests confirm failures before replacement leave existing installation records and memory unchanged. Agreement consent is reused only for identical text. Updates run only on request.
 
-Shared memory, personalization, daily reflection, proactive services, applications and MCP code are included in the CLI dependency closure. Cross-device and channel behavior still depends on configured identity, services and credentials. This preview does not claim live communication or multi-device acceptance. Computer access requires user authorization and applicable system permissions.
+[Asset hashes and validation record](releases/0.4.0-preview.3.json) · [Release notes](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.3) · [Published update channel](updates/koder-cli-latest.json)
 
 ## License and provenance
 
-Read [EULA.md](EULA.md), [license scope](LICENSE), [third-party notices](THIRD_PARTY_NOTICES.md) and [upstream credits](OPEN_SOURCE_CREDITS.md). The new proprietary development tree is not published. The release tag contains distribution metadata only; install from its assets. Readable runtime files inside an installer do not grant new open-source rights. Existing GPL source and third-party terms are preserved.
+Read [EULA.md](EULA.md), [license scope](LICENSE), [third-party notices](THIRD_PARTY_NOTICES.md) and [upstream credits](OPEN_SOURCE_CREDITS.md). The adopted proprietary development tree is not published. The tag contains distribution metadata only; install from its assets. Existing GPL source and third-party terms remain intact. Complete legacy GPL and Open Code Review license copies are retained. The two experimental user-supplied skill texts remain excluded pending redistribution terms; original Koder interface notes are packaged instead. Preference learning and evolution are opt-in.
 
-The old 0.3.0 archive had a truncated Open Code Review license. The new archive contains the complete checked copy. The experimental user-provided shared-memory and personalization skill texts are excluded while redistribution terms remain unresolved; original Koder interface notes are packaged instead. Learning and self-evolution require opt-in.
+## Earlier downloads
 
-## Earlier download observations
-
-At the initial 2026-10-19 check, the website selected 0.3.0, SHA-256 `281e31d96ce1764a0da8c7fbd08633118b21a04b595703f81d304a7f60f78f94` (735,988 bytes). Later that day, its manifest selected an earlier 0.4.0-preview.1 archive, SHA-256 `1793a21cdf5519a8cd0db8edaa60a26e8bee38480cfb94b55ab848340e0326eb`. These observations are historical, not a claim about every current website cache.
-
-This GitHub release uses the distinct version 0.4.0-preview.2 and a fixed tag URL. Running an old installed updater may still follow its old channel; use the new README installer commands to move to this preview. Website publication is a separate channel. Do not label the older package as this release by changing a manifest alone.
+The original website archive was 0.3.0, SHA-256 `281e31d96ce1764a0da8c7fbd08633118b21a04b595703f81d304a7f60f78f94`. An earlier website preview.1 used SHA-256 `1793a21cdf5519a8cd0db8edaa60a26e8bee38480cfb94b55ab848340e0326eb`. GitHub preview.2 used SHA-256 `2d4e162f5800414e24be816b0aeea3d929f1e4a35cd64c39644eae7238dc9bbc`. These remain historical observations; the GitHub channel now identifies this distinct preview.3 package. Website publication is a separate channel.
