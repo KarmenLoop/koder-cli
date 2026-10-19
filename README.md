@@ -1,51 +1,24 @@
-# Koder
+# Koder CLI
 
-Koder is an AI assistant for your terminal. Open a project, connect a model, and ask it to read code, review a change, or work on a task. Edits show a diff before they are saved, and commands ask for approval by default.
+**0.4.0-preview.4** · [下载 / Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.4) · [使用许可 / License](EULA.md) · [授权与数据说明 / Consent guide](ACCEPTANCE.md) · [第三方来源 / Credits](OPEN_SOURCE_CREDITS.md)
 
-[Website](https://karmenloop.com) · [CLI](https://karmenloop.com/en/cli.html) · [Download CLI preview](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.3) · [Updates](https://karmenloop.com/en/updates.html) · [Email](mailto:info@karmenloop.com)
+Koder 是自接 API 或本地模型的终端助手。基础本地使用免费，不强制购买会员；模型服务可能另行收费。本预览版按专有使用许可提供下载安装，新的自有开发源码不公开。已经发布的旧 CLI 源码、历史版本及第三方组件保留原许可。公开仓库中的旧源码仍是 0.3.1；下载版本以本页 Release 与安装后的 `koder version` 为准。
 
-CLI preview: **0.4.0-preview.3** — [download the installer assets](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.3). This is a downloadable proprietary preview, not a stable release. The legacy public source in this repository remains **0.3.1**. The GitHub install commands below discover the current published preview. Website downloads follow a separate publication channel.
+Koder is a terminal assistant using your own API or an installed local model. Basic local use is free, with no required membership; model providers may charge. This downloadable preview uses a proprietary end-user license. New Koder-owned development source is not published. Legacy public source (0.3.1), prior distributions and third-party components retain their applicable licenses.
 
-[Release status and download checks](RELEASE_STATUS.md) · [Open-source credits](OPEN_SOURCE_CREDITS.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
+## 安装前 / Before installing
 
-**License for 0.4.0-preview.3:** this official Koder-owned distribution uses the [Koder End-User License Agreement](EULA.md): download, install and use for personal or internal organizational work, with free basic local use. The new distribution is proprietary, not open source. Its development source is not published here.
+先阅读 [EULA.md](EULA.md) 与 [ACCEPTANCE.md](ACCEPTANCE.md)。以下命令中的 `KODER_EULA_ACCEPT=1` 表示明确接受当前软件使用许可，**不会开启学习、同步、应用连接或电脑权限**。这些能力分别配置。API请求可能包含任务、选择的文件、相关记忆和工具结果；关联群全员可使用关联私聊记忆，群回复对群成员可见。
 
-The existing public CLI source and already distributed versions retain their original licenses, including GPL v3 and the [limited kernel permission](LICENSE-EXCEPTION.txt) where applicable. Third-party components retain their own terms. See [license scope](LICENSE) and [distribution policy](DISTRIBUTION.md).
+Read both documents first. The install commands explicitly accept the software license only. Optional learning, synchronization, application connections and computer grants remain separate choices. Your selected model may receive tasks, selected file contents, relevant memory and tool results. All linked-group members can use linked private-chat memory and see replies posted to the group.
 
-## What it is
+安装器面向 macOS 11+、Linux/WSL、Windows 10/11，使用 Node.js 22+ 或按平台下载运行时，并校验安装器与程序包。Windows 真机安装/文件操作、真实微信/飞书/企业微信/Gamma及多设备端到端验收仍待完成。本版是预览版，请查看 [RELEASE_STATUS.md](RELEASE_STATUS.md) 中证据与限制。
 
-Koder works in the folder you choose. You can use it for a conversation, a single task, a script, or CI. Read-only questions use `koder ask`; tasks that edit files or run commands use `koder run`.
+Installers target macOS 11+, Linux/WSL and Windows 10/11, using Node.js 22+ or downloading the platform runtime. Installer and package checksums are verified. Native Windows, live messaging/Gamma and physical multi-device acceptance remain pending. See [release status](RELEASE_STATUS.md).
 
-This repository retains legacy CLI source and publishes agreements, notices and download instructions. The desktop app is a separate download, and `koder-tui` is a separate full-screen terminal interface. The runtime underneath them is KARMEN LOOP.
+## 安装 / Install
 
-Connect a model provider you already use, or a local model through a service such as Ollama. This release does not include a model. An official model is planned but is not available in Settings yet.
-
-## What you can do
-
-- **Chat.** Type `koder` in a project and talk. `/setup`, `/about`, `/lang`, `/memory`, and `/exit` are right there.
-- **One shot.** `koder run` edits and runs commands. `koder ask` only reads.
-- **Plan, then do.** `--mode plan` lays the work out before it touches files. Other modes: `standard`, `code`, `minimal`, `execute`, `report`, `enhance`.
-- **Review, fix, test.** `koder review` writes up the diff. `koder fix` reruns your check until it passes or hits the limit. `koder test` adds tests in the style already in the repo.
-- **Memory.** Same folder, named session, still there after you quit. `--session`, `--new`, `--no-memory`. `koder memory` can show, search, add, remove, clear, or forget. Old approvals are not restored, and old tools are not run again.
-- **Flows and CI.** `koder flow` runs a JSON pipeline. `koder ci init` adds a GitHub Actions workflow that reviews a pull request and answers `/koder` comments from repo members.
-- **Chat apps.** Adapters for Feishu, Lark, WeCom, WeChat, DingTalk, Telegram, Slack, Discord and WhatsApp are included. Pairing controls access. Live-channel acceptance for this preview is still pending; see release status.
-- **Editors.** Zed, Neovim, and Emacs talk to `koder acp`. `koder editor` prints the snippet.
-- **Setup.** Arrow keys or a click. Language, model, colors, banner, chat apps, editor config. `koder learn` is 17 lessons in a practice folder, and it does not spend model money.
-- **A second opinion.** `koder moa` asks other models you registered, then the current model does the work. You still approve every edit.
-
-## Quick start
-
-You need macOS 11 or later, Linux, WSL, or Windows 10 or 11. Windows XP, 7, and 8 will not run it. No invite code and no admin account for the CLI. The desktop beta on the website is a different installer.
-
-If Node.js 22 or newer is already there, the installer uses it. If not, it downloads Node.js 22 from nodejs.org, checks the SHA-256, and stops if the hash is wrong. The Koder package is checked the same way.
-
-### Install the preview
-
-Read [Koder-EULA-1.0](EULA.md) before installing. The commands below explicitly accept that agreement. Accepting it does not grant file, computer-control, learning, or messaging permissions; configure those separately in Koder.
-
-Windows installers are included, but native Windows installation and the reported Windows file-access fix still need device testing. Live WeChat, Feishu, WeCom, Gamma and cross-device workflows have not completed end-to-end acceptance. See [release status](RELEASE_STATUS.md) before relying on these integrations.
-
-Mac, Linux, WSL:
+macOS / Linux / WSL（仅在阅读并同意后执行 / only after reading and agreeing）:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
@@ -56,225 +29,148 @@ Windows PowerShell:
 ```powershell
 $env:KODER_EULA_ACCEPT = "1"
 irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex
+Remove-Item Env:KODER_EULA_ACCEPT
 ```
 
-Windows Command Prompt:
+Windows CMD:
 
 ```bat
-set KODER_EULA_ACCEPT=1
+set "KODER_EULA_ACCEPT=1"
 powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex"
+set "KODER_EULA_ACCEPT="
 ```
 
-The scripts: [koder-cli.sh](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/koder-cli.sh) · [koder-cli.ps1](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/koder-cli.ps1) · [koder-cli.cmd](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/koder-cli.cmd)
+装完重新打开终端，让新的 PATH 生效。Mac/Linux 默认安装到 `~/.koder-cli`、启动器在 `~/.local/bin`；Windows 程序默认在 `%LOCALAPPDATA%\koder-cli`，配置在 `%USERPROFILE%\.koder-cli`。记忆目录另见实际状态。
 
-Mac and Linux land in `~/.koder-cli`, with the command in `~/.local/bin`. Windows lands in `%LOCALAPPDATA%\koder-cli`. If the shell says `koder` is missing, open a new terminal. The installer adds `~/.local/bin` to your PATH, and the window you already have does not see that yet.
+Reopen the terminal after installation so PATH refreshes. Mac/Linux default to `~/.koder-cli` with the launcher in `~/.local/bin`. Windows installs the program in `%LOCALAPPDATA%\koder-cli` and stores configuration in `%USERPROFILE%\.koder-cli`. Inspect the separate memory location below.
 
-```bash
+```text
 koder version
-koder about
+koder setup
+koder learn
 ```
 
-`koder version` prints the version, the site, the updates page, and the download page.
+安装包包含 `EULA.md`、`ACCEPTANCE.md`、完整第三方许可、来源说明与教程。GitHub 自动生成的本预览版 source archives 仅含发行文档；开发源码不随新标签公开。可从 Release 下载 [校验清单](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/SHA256SUMS)。
 
-![Install finished](docs/screenshots/cli-install-en-dark.jpg)
+The package includes the license, consent guide, complete third-party notices and tutorials. GitHub's automatic source archives for this preview contain distribution documentation only. Checksums are available on the release.
 
-The bootstrap commands resolve the published GitHub channel, verify the release installer SHA-256, then install its pinned package version and digest. The current channel selects **0.4.0-preview.3**. The direct scripts linked above remain fixed to that release. [SHA256SUMS](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/SHA256SUMS) and [the package manifest](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.3/koder-cli-latest.json) are included. The automatic GitHub source archives for this preview contain distribution documentation, not the proprietary implementation. Legacy 0.3.1 source remains available on `main` under its original terms.
+## 首次使用与教程 / First use and tutorial
 
-### Update from GitHub
+设置界面包含语言、模型、上下文/输出、记忆与灵魂、电脑权限、应用/MCP、渠道、编辑器、教程与使用许可说明。四项学习相关功能默认关闭，可独立选择或跳过。对话中使用 `/setup` 返回设置，`/learn` 返回教程。
 
-From **0.4.0-preview.3** onward:
+Setup covers language, models, context/output limits, memory and soul, computer scope, apps/MCP, channels, editors, tutorials and the consent guide. The four learning-related features default off and can be selected independently or skipped. Use `/setup` or `/learn` in a chat.
 
-```bash
+教程共 **23课**，支持中文/英文、PowerShell/CMD/macOS/Linux；练习场使用脚本化教练，真实练习差异、拒绝修改和命令，但不请求付费模型。新增功能章节只演示，不会自动连接账号或授权。旧教程已毕业用户会从新第17课继续，未完成进度会保留。
+
+The **23-lesson** tutorial has Chinese and English editions for four shells. A scripted coach runs real edits and command exercises in a disposable practice folder without paid model requests. New feature chapters only explain actions; they do not connect accounts or grant permissions. Old graduates resume at lesson 17, while unfinished progress is retained.
+
+| 课号 / Lessons | 内容 / Content |
+| --- | --- |
+| 1–16 | 开屏、模型、差异/命令批准、提问、模式、审查/修复/测试、流程、MoA、渠道、编辑器、扫描、安装 / Core CLI workflow |
+| 17 | 使用许可与各项可选授权 / License and optional consent |
+| 18 | 文件与电脑授权、Windows路径、撤销 / Files, computer scope, Windows paths, revocation |
+| 19 | 存储位置、共享空间、群私聊与跨设备 / Storage, groups, private chats and devices |
+| 20 | 习惯、当天状态、灵魂、每日反思与主动服务 / Learning, daily state, soul, reflection, proactive service |
+| 21 | Gamma、应用与MCP / Gamma, apps and MCP |
+| 22 | API、上下文、更新与卸载排障 / API, context, updates and uninstall |
+| 23 | 速查表与毕业 / Reference and graduation |
+
+```text
+koder learn --print
+koder learn --print --lang en --os powershell
+koder learn 17
+koder help permissions
+koder eula
+```
+
+只读帮助与 `learn --print` 可以在接受协议前查看。交互练习会建临时文件，需先接受软件许可。通过其他方式安装时，阅读后运行 `koder eula accept`。
+
+Read-only help and `learn --print` work before acceptance. Interactive practice creates temporary files and requires the software license. For another installation method, read the agreement and explicitly run `koder eula accept`.
+
+## 模型、API与上下文 / Models, API and context
+
+在 `koder setup` 选真实可用的服务商、型号、地址和协议。推荐使用 `--key-env` 保存环境变量名；直接粘贴的密钥在本机配置中明文存储，屏幕遮盖不等于加密。设置环境变量的命令也可能留在 shell 历史里。选择本地预设之前，需实际安装并启动本地模型。
+
+Choose a working provider, model, endpoint and protocol in setup. Prefer `--key-env` so configuration stores only the variable name. A pasted key is stored in plaintext; masking the screen is not encryption. Shell commands setting environment variables can enter history too. A local model must be installed and running.
+
+```text
+koder model presets
+koder model show
+koder doctor
+koder model test
+```
+
+`model test` / `doctor --api` 会真实请求配置的模型，可能计费。API错误先核对地址/协议/凭据/网络，并保留错误码：401/403核对授权，429核对额度与限流，5xx/超时查看服务状态。分享日志前隐藏密钥与敏感内容。
+
+`model test` / `doctor --api` make real requests and may incur cost. Check endpoint, protocol, credentials and network. Keep error codes: 401/403 suggest access issues, 429 quota/rate limits, 5xx/timeouts service problems. Redact secrets before sharing logs.
+
+上下文在「设置 → 上下文与输出」调整，必须符合当前型号与接口真实窗口，输出也占用窗口。压缩历史与检索记忆可延续任务；修改客户端数字不会突破服务端上限。超大文件分段读取或检索相关部分。
+
+Set actual supported limits under Context and output; output shares the window. Compaction and memory retrieval help retain continuity, but a larger client number cannot enlarge provider limits. Read oversized files in chunks or retrieve relevant parts.
+
+## 记忆、学习和主动服务 / Memory, learning and proactive service
+
+```text
+koder memory status
+koder memory personalization status
+koder memory learning status
+koder memory daily-state status
+koder memory evolution status
+koder memory proactive status
+koder memory profile show
+koder memory soul show
+koder account status
+```
+
+新Windows记忆优先可写D盘，否则可写C盘用户专属位置；已有位置或手动配置保留。以实际状态输出为准。跨设备需兼容Core服务、账号和授权渠道，查看 `koder help account`。登录共享空间后默认跨关联终端、渠道、设备、群与私聊互通；群全员可用关联私聊记忆。API密钥与电脑权限不会作为记忆同步。
+
+New Windows memory prefers writable D, falling back to a writable per-user C location. Existing/explicit locations are retained; inspect actual status. Cross-device memory needs a compatible Core service, an account and authorized channels. See `koder help account`. The account default space shares linked terminals, channels, devices, groups and private chats. Model keys and computer grants are not memory-sync data.
+
+习惯学习、当天状态、自我进化、主动服务分别通过 `on/off/status` 管理，先显示用途、存储、共享范围和费用，再要求 `ENABLE` 或 `DISABLE`。手动灵魂风格保存用 `SAVE`，可回退。每日反思需要兼容Core宿主与授权来源，默认每日最多4次模型调用；`waiting-account-host` 表示尚不具备条件。主动服务依赖运行中的宿主，默认22:00–08:00安静时段。关闭功能保留旧记录；删除记录、删除共享空间与账号退出是不同操作。
+
+Learning, daily state, evolution and proactive service each use `on/off/status`, with scope/cost explanations and explicit ENABLE/DISABLE. Manual soul edits use SAVE and support rollback. Daily reflection needs an authorized source and compatible Core host, with a default four-call daily budget; waiting-account-host is not completion. Proactive service needs a running host and has default quiet hours 22:00–08:00. Disabling retains records; deleting records, forgetting shared space and signing out are separate actions.
+
+## 电脑、文件与应用 / Computer, files and applications
+
+```text
+koder permissions status
+koder help permissions
+koder apps
+koder help apps
+koder mcp list
+koder help mcp
+```
+
+主目录授权、指定目录和完整工作模式都需核对能力后输入 `GRANT`；操作系统权限仍由系统控制。`koder permissions revoke` 撤销本机Koder后续电脑工具调用，不能追回已发送文件或恢复已覆盖文件，也不撤销系统设置中的权限。
+
+Home, custom-root and full work modes require reviewing scope and typing GRANT. The OS still controls its own permissions. `koder permissions revoke` withdraws future Koder computer-tool grants; it does not unsend files, restore overwritten files or change OS settings.
+
+Gamma可选API Key或服务支持的浏览器授权；MCP支持本地程序与远端服务。导入MCP默认关闭，启用或 `test` 会启动真实连接/本地程序。连接由同一配置内的对话和Agent复用，第三方能收到经连接提交的数据并可能收费。关闭用 `apps disconnect <id>` 或 `mcp disable <id>`；服务端令牌在服务方撤销。真实业务效果需查看结果，连接在线不等于任务完成。
+
+Gamma supports API-key or service-supported browser authorization; MCP supports local programs and remote services. Imports default disabled. Enable or test starts real connections/programs. Chats and agents in the same profile reuse connections. Providers receive submitted data and may charge. Disconnect/disable locally and revoke provider tokens separately. Inspect actual results; a connection is not a completed task.
+
+## 从GitHub更新与卸载 / GitHub updates and uninstall
+
+从preview.3起：
+
+```text
 koder update --check
 koder update
 koder version
 ```
 
-`--check` reports the published version without installing. `koder update` compares versions, labels previews, verifies the downloaded installer and package, and keeps your model settings and memory. It does not reinstall the same version or downgrade. A failed download or checksum stops before the existing installation is replaced. An explicit `KODER_INSTALL_BASE` mirror is still respected.
+`--check`只检查。更新时校验安装器和程序包，保留配置/记忆，同版不重复安装、旧版不自动回退；许可文本变化时需重新阅读并明确接受。更新只在运行命令时发生。
 
-**If you have 0.3.0, 0.3.1, preview.1 or preview.2, run the install command above once to move to the new updater.** The old updater cannot gain this discovery fix until it is upgraded. You do not need to uninstall or remove your settings. Later upgrades reuse agreement acceptance only when the agreement text is unchanged; a changed agreement requires your explicit acceptance. Updates start when you run the command, not in a hidden background job.
+Since preview.3, the updater discovers GitHub releases. Check is read-only; update verifies the installer and package, retains config/memory, avoids equal-version reinstalls and downgrades, and requires explicit acceptance if the license changes. Updates run only when invoked.
 
-### Connect a model
+0.3.0、0.3.1、preview.1/2用户先执行本页安装命令一次，获得新的更新器，无需卸载或清空配置。普通 `koder uninstall` 保留配置；`--purge` 是删除配置的独立选择，先备份。外置记忆目录与服务器副本另行管理。
 
-The first `koder` opens setup. The Model row says it is not set. Arrow keys, Tab, or a click. Enter selects. Esc goes back. Every change saves immediately.
+Users on 0.3.0, 0.3.1 or preview.1/2 should run the installer above once to obtain the new updater, without uninstalling or clearing config. Normal uninstall keeps config; --purge deletes it separately. Back up first and manage external memory/server copies separately.
 
-![Setup the first time](docs/screenshots/cli-start-en-dark.jpg)
+## 来源与许可 / Provenance and license
 
-Pick a provider, then a model, then a key. Prefer an environment variable. The file stores the name, not the key. A pasted key is stored in plain text on this computer, mode 600, and the screen shows only the last four characters. Do not paste a key into the variable-name field. A name is letters, digits, and underscores, and it does not start with a digit.
+KARMEN LOOP自有代码、旧CLI的GPL权利、私有内核与第三方许可分别保留。可选Hermes引擎来自Nous Research，需明确选择另行安装并适用其原许可；未安装时不会自动使用。具体依赖与来源以 [OPEN_SOURCE_CREDITS.md](OPEN_SOURCE_CREDITS.md)、[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)、[LICENSE](LICENSE) 和 [LICENSE-EXCEPTION.txt](LICENSE-EXCEPTION.txt) 为准。
 
-DeepSeek, this terminal:
+KARMEN LOOP-owned code, legacy GPL CLI rights, the private kernel and third-party licenses keep their stated scopes. The optional Hermes engine is from Nous Research, requires explicit separate installation and retains its own license. See the credits, notices, license scope and kernel linking permission above.
 
-```bash
-export DEEPSEEK_API_KEY="your-key"
-koder model set --preset deepseek --key-env DEEPSEEK_API_KEY
-```
-
-Windows PowerShell, this window:
-
-```powershell
-$env:DEEPSEEK_API_KEY = "your-key"
-koder model set --preset deepseek --key-env DEEPSEEK_API_KEY
-```
-
-Keep it for later terminals by adding the `export` line to `~/.zshrc` or `~/.bashrc`, or with `setx` on Windows. `setx` does not affect the current window. Open a new one.
-
-Other presets work the same way. `koder model presets` lists them.
-
-```bash
-koder model set --preset local --model qwen3:8b
-koder model set --base-url https://api.example.com/v1 --model your-model --protocol openai --key-env YOUR_API_KEY
-```
-
-`--protocol` is `openai` or `anthropic`. Local models need Ollama or LM Studio already running. They do not need a key.
-
-MiniMax-M3, when you do not set a limit, uses a 1,048,576 context window and 32,768 output tokens. A number you set yourself wins. Unknown custom models stay conservative until you fill in the provider's real limits.
-
-```bash
-koder model context --context-window 1048576 --max-output 32768
-koder doctor
-koder ask "Reply with the single word ready"
-```
-
-`koder doctor` checks Node, Git, the model, colors, and startup. If the model line fails, the usual cause is an empty variable in this window, a wrong preset id, or a key pasted into the name field. Exit code 0 means the ask finished. 1 means it failed or you cancelled. 2 means it never started.
-
-In CI you can skip the file and set `KODER_MODEL`, `KODER_BASE_URL`, and `KODER_API_KEY`.
-
-If you change the model or the window in another terminal, the next turn picks that up and keeps the local history.
-
-### Do the work
-
-```bash
-cd your-project
-koder
-```
-
-Type the task and press Enter. Project tools start inside this folder. Broader computer or home-directory access requires the permissions you choose in setup and any required operating-system authorization.
-
-Or skip the session:
-
-```bash
-koder run "npm test failed. Fix total() in cart.mjs"
-```
-
-A file edit shows the diff first. Red is gone, green is new. Type `y` to write it. Any other key leaves it.
-
-![Confirming an edit](docs/screenshots/cli-diff-en-dark.jpg)
-
-Commands wait the same way. In a script, `--yes` accepts edits and commands. It does not answer questions and it does not type passwords. Without `--yes`, a non-interactive run rejects them.
-
-```bash
-koder run --yes --json "Add install notes to the README"
-koder ask "Which file starts the login flow?"
-koder review --base origin/main --format markdown --out review.md
-koder fix --check "npm test"
-koder test src/price.js --check "npm test"
-```
-
-`review` reads the diff, the layout, rule files such as `AGENTS.md`, and recent commits. `fix` defaults to 3 attempts.
-
-![Help for review](docs/screenshots/cli-review-en-dark.jpg)
-
-A long tool result is trimmed on the way to the model. The full text stays on disk. The current request is not cut to make room. If the raw prompt itself is bigger than the model's window, Koder says so. It does not pretend the window is infinite.
-
-Named sessions:
-
-```bash
-koder --session feature-a
-koder --new
-koder --no-memory run "a one-off"
-koder memory show
-```
-
-Inside chat, `/new` starts a fresh session. `/connect weixin` starts WeChat binding without asking the model to do it. Feishu and WeCom use the same slash command with their own names.
-
-### Chat apps and editors
-
-Skip this if the terminal is enough.
-
-Editors. The model from above has to work first.
-
-```bash
-koder editor zed
-koder editor nvim
-koder editor emacs
-```
-
-Paste the snippet into the file it names. Zed: `~/.config/zed/settings.json`, then pick Koder in the Agent panel. Neovim needs CodeCompanion. Emacs needs `agent-shell` from MELPA. On Windows the command in the snippet is `koder.cmd`.
-
-Chat apps. Each one is an account you create on that company's site. Koder checks the credentials before it saves them. WeChat is the exception: a QR code, no key.
-
-```bash
-koder gateway setup telegram
-koder gateway setup feishu
-koder gateway setup weixin
-koder gateway start --background
-koder gateway pair K7Q2MX
-```
-
-Direct messages use pairing until you change that. Groups are off until you opt in, and the bot has to be mentioned. Edits still ask in the chat. Reply `yes` to allow one. Feishu, Lark, WeCom, DingTalk, Slack, and Discord do not need a public URL. WhatsApp does: expose the local port and set the callback to `https://…/webhook`.
-
-`koder gateway status` shows what is configured. `koder gateway stop` shuts the background process down.
-
-### The full-screen TUI
-
-Separate install. It reads the model you just saved.
-
-```bash
-curl -fsSL https://karmenloop.com/install/koder-tui.sh | bash
-```
-
-```powershell
-irm https://karmenloop.com/install/koder-tui.ps1 | iex
-```
-
-Scripts: [koder-tui.sh](https://karmenloop.com/install/koder-tui.sh) · [koder-tui.ps1](https://karmenloop.com/install/koder-tui.ps1) · [koder-tui.cmd](https://karmenloop.com/install/koder-tui.cmd)
-
-```bash
-cd your-project
-koder-tui
-```
-
-Enter sends. Ctrl+J is a new line. `/` opens the command list. Esc stops the turn. Edits you already accepted stay written. `y` accepts a diff, `n` or Esc rejects it.
-
-![Koder TUI](docs/screenshots/tui-home-en-dark.jpg)
-
-![Confirming an edit in the TUI](docs/screenshots/tui-diff-en-dark.jpg)
-
-Those two edit shots were taken against a local scripted endpoint, not a live model. The chrome is a real Koder CLI 0.2.0 and Koder TUI 0.1.0 screen.
-
-### You are done when
-
-- `koder version` prints a version and the updates page.
-- The Model row in `koder setup` no longer says it is not set.
-- `koder doctor` is happy with the model.
-- `koder ask` comes back with an answer.
-- `koder run` shows a diff and waits for `y`.
-
-## In the product
-
-| | |
-| --- | --- |
-| `koder help` | Every command. `koder help review` for one of them. |
-| `koder learn` | 17 lessons. `--print` for text. `--os powershell`, `cmd`, `mac`, or `linux`. |
-| `koder setup` | The menu again. |
-| `koder update --check` | Check the published GitHub channel without installing. |
-| `koder update` | Verify and install a newer GitHub CLI release. |
-| `koder lang en` | English. `koder lang zh` for Chinese. |
-| [karmenloop.com](https://karmenloop.com) | Product, download, updates. |
-| [Updates](https://karmenloop.com/en/updates.html) | What changed. |
-
-`koder help` inside the installed CLI matches that build. Preview validation and known limits are listed in [release status](RELEASE_STATUS.md).
-
-## License
-
-Future Koder-owned official builds that expressly adopt **Koder-EULA-1.0** are proprietary software, available for end users to download, install and use under the [end-user agreement](EULA.md). Personal and internal business use, internal backups, official updates, and supported configuration, skills, plugins and MCP integrations are permitted. Redistribution, resale, repackaging and derivative development of the proprietary implementation require separate permission, subject to applicable law and third-party license rights. You may share official download links. Your own files, code and work products are not relicensed by the agreement.
-
-The CLI source already published here through [54e17fcf](https://github.com/KarmenLoop/koder-cli/commit/54e17fcf484638f6cf22a48b52a0533c82816191), including version 0.3.1, remains under [GNU GPL v3](licenses/legacy-cli/GPL-3.0.txt) with the [limited kernel linking permission](LICENSE-EXCEPTION.txt). Already distributed packages retain their applicable original terms. The new agreement does not withdraw those rights, make old public source confidential, or retroactively change their terms.
-
-The KARMEN LOOP kernel is not published in this repository and retains its applicable proprietary terms. Third-party components keep their own licenses, notices and any source obligations; see [third-party notices](THIRD_PARTY_NOTICES.md) and [credits](OPEN_SOURCE_CREDITS.md). Readable files in an installer are not a grant to develop or redistribute proprietary code.
-
-[License scope](LICENSE) · [End-user agreement / 使用许可协议](EULA.md) · [Distribution policy](DISTRIBUTION.md) · [Release status](RELEASE_STATUS.md)
-
-## Contact
-
-[karmenloop.com](https://karmenloop.com) · [info@karmenloop.com](mailto:info@karmenloop.com) · [GitHub](https://github.com/KarmenLoop/koder-cli)
+[karmenloop.com](https://karmenloop.com) · [info@karmenloop.com](mailto:info@karmenloop.com)

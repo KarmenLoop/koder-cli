@@ -1,0 +1,94 @@
+{
+  "version": "0.4.0-preview.4",
+  "channel": "preview",
+  "tag": "cli-0.4.0-preview.4",
+  "license": "Koder-EULA-1.0",
+  "agreementUnchanged": true,
+  "developmentSourcePublished": false,
+  "archiveSha256": "4d4c4307483e93d6ca531ded5fe394f871e92023431450bc02adc856a560685a",
+  "assets": [
+    {
+      "name": "koder-cli-0.4.0-preview.4.tgz",
+      "bytes": 4673778,
+      "sha256": "4d4c4307483e93d6ca531ded5fe394f871e92023431450bc02adc856a560685a",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/koder-cli-0.4.0-preview.4.tgz"
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.4.json",
+      "bytes": 830,
+      "sha256": "6fe60a3e39070359ae2898a3d873d3d62e36a57a5d12ec299363221140b4cdab",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/koder-cli-0.4.0-preview.4.json"
+    },
+    {
+      "name": "koder-cli-latest.json",
+      "bytes": 830,
+      "sha256": "6fe60a3e39070359ae2898a3d873d3d62e36a57a5d12ec299363221140b4cdab",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/koder-cli-latest.json"
+    },
+    {
+      "name": "koder-cli.sh",
+      "bytes": 13125,
+      "sha256": "c67c9c431c9e59367f8eb2bd409102c41a2afdda4dcd39015ed0c363f567af4e",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/koder-cli.sh"
+    },
+    {
+      "name": "koder-cli.ps1",
+      "bytes": 16547,
+      "sha256": "77c761f64d1c1ad4db1114247f0ecf2fa7ceb5c7865bf53a0011bc195d7302e5",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/koder-cli.ps1"
+    },
+    {
+      "name": "koder-cli.cmd",
+      "bytes": 575,
+      "sha256": "b262c125ed9e9822529f78c489727a85f65e652d73c19ac2ae943f57bba6c3a7",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/koder-cli.cmd"
+    },
+    {
+      "name": "EULA.md",
+      "bytes": 9552,
+      "sha256": "93c1624718fc27d1c327325c7bef214be29950b6e516bf252992881fc3f01bfc",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/EULA.md"
+    },
+    {
+      "name": "ACCEPTANCE.md",
+      "bytes": 9916,
+      "sha256": "034d4e187c4f40688b06cc6a287a1271c80a03a41be916ffb399b0154484a3a9",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/ACCEPTANCE.md"
+    },
+    {
+      "name": "SHA256SUMS",
+      "bytes": 674,
+      "sha256": "7b586646932507ac13d715465d35c64305932fe6e74604b535fe786141e285a3",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.4/SHA256SUMS"
+    }
+  ],
+  "updateChannel": "https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/updates/koder-cli-latest.json",
+  "validation": {
+    "checkedAt": "2026-10-19T16:54:03.076232+00:00",
+    "sourceFilesVerified": 220,
+    "kernelFilesVerified": 3838,
+    "reviewedKernelChange": "computer grant revocation",
+    "licensesUnchanged": true,
+    "independentInstallationSteps": 20,
+    "fullRegression": {
+      "serialTests": 357,
+      "pass": 354,
+      "fail": 0,
+      "skip": 3,
+      "exitCode": 0,
+      "finalTargetedTests": 6,
+      "finalTargetedPass": 6
+    },
+    "tutorialEditions": 8,
+    "platform": "macOS",
+    "upgradeVerified": "isolated 0.3.0 to preview.4; model settings and memory preserved",
+    "paidModelUsed": false
+  },
+  "notVerified": [
+    "native Windows",
+    "live WeChat/Feishu/WeCom/Gamma accounts",
+    "multiple physical devices",
+    "production Core"
+  ],
+  "websiteChannel": "independent; use GitHub preview assets and bootstrap"
+}
