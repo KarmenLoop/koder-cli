@@ -6,7 +6,9 @@ Built by KARMEN. Plan it, run it, review it, pick it back up tomorrow. You stay 
 
 [Website](https://karmenloop.com) · [CLI](https://karmenloop.com/en/cli.html) · [Download](https://karmenloop.com/en/download.html) · [Updates](https://karmenloop.com/en/updates.html) · [Email](mailto:info@karmenloop.com)
 
-Source in this repo: 0.3.1
+Source in this repo: **0.3.1**. Published installer checked on 2026-10-19: **0.3.0**.
+
+[Release status and download checks](RELEASE_STATUS.md) · [Open-source credits](OPEN_SOURCE_CREDITS.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 
 The CLI source here is under the GNU General Public License v3.0. The KARMEN LOOP kernel is not in this repo, and it is not under that license. See [License](#license).
 
@@ -14,7 +16,7 @@ The CLI source here is under the GNU General Public License v3.0. The KARMEN LOO
 
 Koder works in the folder you point it at. You say what you want. It reads the code, shows a diff, and asks before it writes a file or runs a command. A no leaves the file alone.
 
-The kernel is KARMEN LOOP. On your machine it goes perceive, decide, act. We wrote KARMEN and Koder ourselves. The desktop app is a separate installer on the site. The full-screen TUI is `koder-tui`, and it shares this CLI's model and language. This repository is the CLI.
+The kernel is KARMEN LOOP. On your machine it goes perceive, decide, act. KARMEN develops the product and integrations, with selected upstream adaptations, skills and rules documented in [Open-source credits](OPEN_SOURCE_CREDITS.md). The desktop app is a separate installer on the site. The full-screen TUI is `koder-tui`, and it shares this CLI's model and language. This repository is the CLI.
 
 This version does not ship a model. You connect one you already pay for, or a local model such as Ollama. An official model comes later. Until then, Settings will not show one of ours.
 
@@ -246,7 +248,7 @@ Those two edit shots were taken against a local scripted endpoint, not a live mo
 
 The Koder CLI source in this repository is under the GNU General Public License v3.0. The text is [LICENSE](LICENSE). Third-party components that ship in this tree are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-The KARMEN LOOP kernel is not in this repository. It is not public, and it is not under the GPL. Copyright © KARMEN / Koder. All rights reserved. The kernel is not offered for further development. The installer runs it. Downloading the installer does not give you the kernel source.
+The KARMEN LOOP kernel is not in this repository. It is not public, and it is not under the GPL. Copyright © KARMEN / Koder. All rights reserved. The kernel is not offered for further development. The installer runs it. Installed kernel modules may contain readable JavaScript under the bundled terms. A proprietary licence does not encrypt those files. The in-process GPL CLI/private-kernel distribution boundary remains under review; see [credits and outstanding corrections](OPEN_SOURCE_CREDITS.md#scope-and-outstanding-corrections).
 
 ## Contact
 

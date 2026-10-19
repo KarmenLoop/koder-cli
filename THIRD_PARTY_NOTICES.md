@@ -5,7 +5,7 @@ Public License v3.0 (see LICENSE). The Koder kernel is not in this repository
 and is not covered by that licence. It is proprietary. See the kernel section
 below.
 
-Components whose code is included or reimplemented are listed here.
+Components whose code is included or reimplemented are listed here. See the detailed [upstream/use/revision inventory](OPEN_SOURCE_CREDITS.md), [component record](THIRD_PARTY_COMPONENTS.json), and full notice copies in [licenses/](licenses/). This is not a combined-distribution licence clearance.
 
 ## Hermes Agent — MIT License, Copyright (c) 2025 Nous Research
 
@@ -45,18 +45,24 @@ MIT License text:
 > AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 > WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Lark/Feishu Node SDK — MIT License, Bytedance
+## Lark/Feishu Node SDK — MIT License, Lark Technologies Pte. Ltd.
+
+Copyright (c) 2022 Lark Technologies Pte. Ltd. [Full MIT notice](licenses/lark-node-sdk.txt).
 
 <https://github.com/larksuite/node-sdk>. The long-connection frame layout
 (`ws-client/proto-buf/pbbp2`) and handshake are reimplemented in
 `src/gateway/protobuf.mjs` and `src/gateway/platforms/feishu.mjs`.
 
-## DingTalk Stream SDK for Node.js — open-dingtalk
+## DingTalk Stream SDK for Node.js — MIT License, open-dingtalk
+
+Copyright (c) 2023 钉钉开放平台团队. [Full MIT notice](licenses/dingtalk-stream-sdk.txt).
 
 <https://github.com/open-dingtalk/dingtalk-stream-sdk-nodejs>. Stream-mode
 connection, SYSTEM ping and callback acknowledgement follow its client.
 
-## QR Code generator — Project Nayuki
+## QR Code generator — MIT License, Project Nayuki
+
+Copyright (c) Project Nayuki. [Full MIT notice](licenses/nayuki-qrcodegen.txt).
 
 The structure of `src/gateway/qr.mjs` follows qrcodegen by Project Nayuki
 (MIT). The tables come from ISO/IEC 18004.
@@ -78,3 +84,9 @@ revision and file hashes are listed in `kernel/fusion/ecosystem/manifest.json`.
 
 When Node.js is not already installed, the installer downloads the official
 build from <https://nodejs.org/dist/> and verifies it against SHASUMS256.txt.
+
+## Bundled resource projects and release correction
+
+The inspected installer includes resources from alibaba/open-code-review, affaan-m/ECC, ayghri/i-have-adhd, blader/humanizer, obra/superpowers, selected anthropics/skills, nextlevelbuilder/ui-ux-pro-max-skill and JuliusBrussee/caveman. Individual revisions, uses and full licence/NOTICE copies are listed in [Open-source credits](OPEN_SOURCE_CREDITS.md#bundled-skill-rule-and-data-resources).
+
+The 0.3.0 archive contains a truncated open-code-review Apache licence; the complete pinned [licence](licenses/open-code-review/LICENSE) is provided here. Its next build must include the complete file and updated manifest digest. GPL CLI/private-kernel compatibility and unfinished runtime/device acceptance remain release-review items. This documentation commit does not publish a new installer.

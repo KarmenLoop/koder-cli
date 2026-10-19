@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-19",
+  "scope": "Attribution inventory, not a complete dependency SBOM or legal clearance",
+  "inspectedInstallerVersion": "0.3.0",
+  "inspectedInstallerSha256": "281e31d96ce1764a0da8c7fbd08633118b21a04b595703f81d304a7f60f78f94",
+  "bundledResources": [
+    {
+      "id": "open-code-review",
+      "repository": "alibaba/open-code-review",
+      "recordedSourceRevision": "8eb83340a487b1150af00701b94f01af97e4b4d6",
+      "declaredLicense": "Apache-2.0",
+      "use": "Code-review skills, language rules and review prompts",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/open-code-review",
+      "listedResourceFiles": 13,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/open-code-review/LICENSE",
+          "sha256": "1945665fdb6968a66ea29438ddee0aee23035365c862e5c4a75b62b303340acf",
+          "matchesPreviousBundle": false
+        }
+      ]
+    },
+    {
+      "id": "ecc",
+      "repository": "affaan-m/ECC",
+      "recordedSourceRevision": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+      "declaredLicense": "MIT",
+      "use": "Learning, evaluation, security review, compaction, TDD and verification skills",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/ecc",
+      "listedResourceFiles": 7,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/ecc/LICENSE",
+          "sha256": "326146379f01bb137c0a5d3c54770c1aa31076705c8b88a7f6b26a460f6221b2",
+          "matchesPreviousBundle": true
+        }
+      ]
+    },
+    {
+      "id": "i-have-adhd",
+      "repository": "ayghri/i-have-adhd",
+      "recordedSourceRevision": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
+      "declaredLicense": "MIT",
+      "use": "Selected task-focus skill text",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/i-have-adhd",
+      "listedResourceFiles": 2,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/i-have-adhd/LICENSE",
+          "sha256": "8acbb618089b738404f76ac60fca1aaa995d9a87995eddf95f0b777acd7f7d2c",
+          "matchesPreviousBundle": true
+        }
+      ]
+    },
+    {
+      "id": "humanizer",
+      "repository": "blader/humanizer",
+      "recordedSourceRevision": "8c307f367c91bd974002f10f2be2965d642c13df",
+      "declaredLicense": "MIT",
+      "use": "Writing-editing skill text",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/humanizer",
+      "listedResourceFiles": 2,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/humanizer/LICENSE",
+          "sha256": "4ac4810254ab36d45419141aeb8e69bf50652cfafe5b2dab947d06d44e5cbf96",
+          "matchesPreviousBundle": true
+        }
+      ]
+    },
+    {
+      "id": "superpowers",
+      "repository": "obra/superpowers",
+      "recordedSourceRevision": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "declaredLicense": "MIT",
+      "use": "Planning, debugging, testing and review workflow resources",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/superpowers",
+      "listedResourceFiles": 61,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/superpowers/LICENSE",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+          "matchesPreviousBundle": true
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "repository": "anthropics/skills",
+      "recordedSourceRevision": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "declaredLicense": "Apache-2.0",
+      "use": "Selected art, frontend, internal-comms, MCP-builder, skill-creator, theme and webapp-testing resources",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/skills",
+      "listedResourceFiles": 36,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "skills/algorithmic-art/LICENSE.txt",
+          "publicCopy": "licenses/skills/skills/algorithmic-art/LICENSE.txt",
+          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+          "matchesPreviousBundle": true
+        },
+        {
+          "upstreamPath": "skills/frontend-design/LICENSE.txt",
+          "publicCopy": "licenses/skills/skills/frontend-design/LICENSE.txt",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "matchesPreviousBundle": true
+        },
+        {
+          "upstreamPath": "skills/internal-comms/LICENSE.txt",
+          "publicCopy": "licenses/skills/skills/internal-comms/LICENSE.txt",
+          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+          "matchesPreviousBundle": true
+        },
+        {
+          "upstreamPath": "skills/mcp-builder/LICENSE.txt",
+          "publicCopy": "licenses/skills/skills/mcp-builder/LICENSE.txt",
+          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+          "matchesPreviousBundle": true
+        },
+        {
+          "upstreamPath": "skills/skill-creator/LICENSE.txt",
+          "publicCopy": "licenses/skills/skills/skill-creator/LICENSE.txt",
+          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+          "matchesPreviousBundle": true
+        },
+        {
+          "upstreamPath": "skills/theme-factory/LICENSE.txt",
+          "publicCopy": "licenses/skills/skills/theme-factory/LICENSE.txt",
+          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+          "matchesPreviousBundle": true
+        },
+        {
+          "upstreamPath": "skills/webapp-testing/LICENSE.txt",
+          "publicCopy": "licenses/skills/skills/webapp-testing/LICENSE.txt",
+          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+          "matchesPreviousBundle": true
+        }
+      ]
+    },
+    {
+      "id": "ui-ux-pro-max-skill",
+      "repository": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "recordedSourceRevision": "56ea9cf174ed86786187daa9de0e6247cb0747e4",
+      "declaredLicense": "MIT",
+      "use": "UI/UX guidance and selected reference data",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/ui-ux-pro-max-skill",
+      "listedResourceFiles": 9,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/ui-ux-pro-max-skill/LICENSE",
+          "sha256": "738f69dfa83db5c347c678fb9d90e560877059f0de93a327c39001bff92dc014",
+          "matchesPreviousBundle": true
+        }
+      ]
+    },
+    {
+      "id": "caveman",
+      "repository": "JuliusBrussee/caveman",
+      "recordedSourceRevision": "d262ab3882952a59312ff3537cd86d894523c5ab",
+      "declaredLicense": "Apache-2.0",
+      "use": "Selected concise-response resources; retains its MIT notice and Apache changes",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/caveman",
+      "listedResourceFiles": 6,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/caveman/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "matchesPreviousBundle": true
+        },
+        {
+          "upstreamPath": "LICENSE-MIT",
+          "publicCopy": "licenses/caveman/LICENSE-MIT",
+          "sha256": "5eb826cd03151bcc7cce3f80d40e87733237fedfc6c36d6908aca5fd650a0bdb",
+          "matchesPreviousBundle": true
+        },
+        {
+          "upstreamPath": "NOTICE",
+          "publicCopy": "licenses/caveman/NOTICE",
+          "sha256": "20112dc6e62e91da4f03c29fd10cfa41743a9c526389fdf1396c3649c18216fc",
+          "matchesPreviousBundle": true
+        }
+      ]
+    }
+  ],
+  "portLicenseChecks": [
+    {
+      "repository": "larksuite/node-sdk",
+      "checkedRevision": "b188be60134d409b61259546bcf69c731d2b0b7c",
+      "upstreamPath": "LICENSE",
+      "licenseFile": "licenses/lark-node-sdk.txt",
+      "licenseSha256": "f9bfd5e309b1523a2dd3937b44f516e6018605eb05b35336485b0a34cbd9f373",
+      "adoptionRevision": null
+    },
+    {
+      "repository": "open-dingtalk/dingtalk-stream-sdk-nodejs",
+      "checkedRevision": "e7fe301d9afdcc1d62d2b7ffeba6fe7768b6489c",
+      "upstreamPath": "LICENSE",
+      "licenseFile": "licenses/dingtalk-stream-sdk.txt",
+      "licenseSha256": "d4560b1cd75490afdef0f84a710745c7be714402e67922cd8cdf196ac2ab13b7",
+      "adoptionRevision": null
+    },
+    {
+      "repository": "nayuki/QR-Code-generator",
+      "checkedRevision": "3c6d0b3cefb4e049dc337e82237c9644399716a8",
+      "upstreamPath": "typescript-javascript/qrcodegen.ts",
+      "licenseFile": "licenses/nayuki-qrcodegen.txt",
+      "licenseSha256": "aa22f0fefb530552bfcc713e3791c80796c2a2e666ed61856bcf4767a6852984",
+      "adoptionRevision": null
+    },
+    {
+      "repository": "NousResearch/hermes-agent",
+      "checkedRevision": "517b5e10febd619ce30bb22580e29b160266eb43",
+      "upstreamPath": "LICENSE",
+      "licenseFile": "licenses/hermes-agent.txt",
+      "licenseSha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+      "adoptionRevision": "517b5e10febd619ce30bb22580e29b160266eb43"
+    }
+  ]
+}
