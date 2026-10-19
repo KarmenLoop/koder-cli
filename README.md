@@ -1,6 +1,6 @@
 # Koder CLI
 
-**0.4.0-preview.5** · [下载 / Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.5) · [使用许可 / License](EULA.md) · [授权与数据说明 / Consent guide](ACCEPTANCE.md) · [第三方来源 / Credits](OPEN_SOURCE_CREDITS.md)
+**0.4.0-preview.6** · [下载 / Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.6) · [使用许可 / License](EULA.md) · [授权与数据说明 / Consent guide](ACCEPTANCE.md) · [第三方来源 / Credits](OPEN_SOURCE_CREDITS.md)
 
 Koder 是自接 API 或本地模型的终端助手。基础本地使用免费，不强制购买会员；模型服务可能另行收费。本预览版按专有使用许可提供下载安装，新的自有开发源码不公开。已经发布的旧 CLI 源码、历史版本及第三方组件保留原许可。公开仓库中的旧源码仍是 0.3.1；下载版本以本页 Release 与安装后的 `koder version` 为准。
 
@@ -50,7 +50,7 @@ koder setup
 koder learn
 ```
 
-安装包包含 `EULA.md`、`ACCEPTANCE.md`、完整第三方许可、来源说明与教程。GitHub 自动生成的本预览版 source archives 仅含发行文档；开发源码不随新标签公开。可从 Release 下载 [校验清单](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.5/SHA256SUMS)。
+安装包包含 `EULA.md`、`ACCEPTANCE.md`、完整第三方许可、来源说明与教程。GitHub 自动生成的本预览版 source archives 仅含发行文档；开发源码不随新标签公开。可从 Release 下载 [校验清单](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.6/SHA256SUMS)。
 
 The package includes the license, consent guide, complete third-party notices and tutorials. GitHub's automatic source archives for this preview contain distribution documentation only. Checksums are available on the release.
 
@@ -101,9 +101,9 @@ koder run "帮我更新 Koder CLI"
 koder update --check
 ```
 
-在本机对话中直接说“更新”“帮我更新 Koder CLI”，或输入 `/update`，会先比较官方 GitHub 通道和本机版本，有新版才下载、校验并安装；安装结束再运行新版入口核验版本。无需先配置模型。同版或本机版本较新时报告已是最新，不覆盖。Ask/计划模式下的自然语言请求只检查。更新项目依赖、引用文本、管道输入不会触发 CLI 自我更新。配置和记忆保留；新启动的进程使用新版，已经运行的会话保持其加载代码。更改过的许可仍需明确接受。
+在本机对话中直接说“更新”“帮我更新 Koder CLI”，或输入 `/update`，会先比较官方 GitHub 通道和本机版本，有新版才下载、校验并安装；安装结束再运行新版入口核验版本。无需先配置模型。同版或本机版本较新时报告已是最新，不覆盖。Ask/计划模式下的自然语言请求只检查。更新项目依赖、引用文本、管道输入不会触发 CLI 自我更新。配置、记忆和微信／飞书等渠道绑定保留。以 preview.6 或更新版本启动的会话会自动重启到已核验新版，接回原工作区、会话、模式和待处理输入；已完成的请求不重放。正在运行的渠道任务、确认和回复先完成，再释放原宿主并重连，禁用的渠道不会自动开启。更改过的许可仍需明确接受。
 
-Say “update Koder CLI” or “更新” in a local chat, or use `/update`. The updater compares versions, verifies downloads, installs a newer release and runs the installed entry to verify its version, without requiring a model. Ask/plan mode only checks. Project edits, quoted text and piped input do not trigger self-update. New launches use the new version; already-running sessions keep their loaded code. Configuration and memory are retained, and changed terms require acceptance.
+Say “update Koder CLI” or “更新” in a local chat, or use `/update`. The updater compares versions, verifies downloads, installs a newer release and runs the installed entry to verify its version, without requiring a model. Ask/plan mode only checks. Project edits, quoted text and piped input do not trigger self-update. Sessions launched with preview.6 or later automatically restart into the verified update with their workspace, session, mode and buffered input restored. Completed requests are not replayed. Running gateways finish admitted work, approval waits and replies before releasing ownership and reconnecting; disabled channels stay disabled. Configuration, memory and bindings are retained, and changed terms require acceptance.
 
 渠道连接会在限定时间内重试临时网络故障，保留正在确认的二维码；握手卡住会重新连接。无效凭据、拒绝和登录过期会明确失败。重复 `connect` 复用健康连接，避免企业微信多次订阅挤掉原连接。发送消息或文件不因这项连接修复自动重放。真实账号与目标网络环境仍需验收。
 
@@ -181,11 +181,13 @@ koder update
 koder version
 ```
 
-`--check`只检查。更新时校验安装器和程序包，保留配置/记忆，同版不重复安装、旧版不自动回退；许可文本变化时需重新阅读并明确接受。更新只在运行命令时发生。
+`--check`只检查。更新时校验安装器和程序包，保留配置/记忆，同版不重复安装、旧版不自动回退；许可文本变化时需重新阅读并明确接受。下载更新只在运行更新命令时发生；同一安装中已经运行的新版会话和网关会自动发现核验完成的安装，并在安全节点重启。独立 shell 中的 `koder update` 启动新版核验后返回 shell；已有对话自行恢复，不强制另开聊天。
 
 Since preview.3, the updater discovers GitHub releases. Check is read-only; update verifies the installer and package, retains config/memory, avoids equal-version reinstalls and downgrades, and requires explicit acceptance if the license changes. Updates run only when invoked.
 
-0.3.0、0.3.1、preview.1/2用户先执行本页安装命令一次，获得新的更新器，无需卸载或清空配置。普通 `koder uninstall` 保留配置；`--purge` 是删除配置的独立选择，先备份。外置记忆目录与服务器副本另行管理。
+0.3.0、0.3.1、preview.1/2 用户先执行本页安装命令一次，获得新的更新器，无需卸载或清空配置。preview.5 及更早已经运行的进程没有重启协议：首次升级后仍需正常退出旧会话并启动一次新版；从 preview.6 启动后，后续升级会自动接续。跨版本迁移不要求重新配置 API、记忆或渠道。第三方自行撤销或过期的登录凭据仍需按平台重新授权。
+
+`--no-memory` 会话只通过本机进程间通信接续，不因升级写入聊天历史文件。未响应的渠道批准会继续等待，更新不代替用户批准，也不强制终止正在执行的工具。新版在接收会话前启动失败时恢复原进程一次；已经开始接管后不会自动重放工作。电脑重启或系统崩溃后的任务恢复不属于本次软件升级接续。普通 `koder uninstall` 保留配置；`--purge` 是删除配置的独立选择，先备份。外置记忆目录与服务器副本另行管理。
 
 Users on 0.3.0, 0.3.1 or preview.1/2 should run the installer above once to obtain the new updater, without uninstalling or clearing config. Normal uninstall keeps config; --purge deletes it separately. Back up first and manage external memory/server copies separately.
 
@@ -196,3 +198,5 @@ KARMEN LOOP自有代码、旧CLI的GPL权利、私有内核与第三方许可分
 KARMEN LOOP-owned code, legacy GPL CLI rights, the private kernel and third-party licenses keep their stated scopes. The optional Hermes engine is from Nous Research, requires explicit separate installation and retains its own license. See the credits, notices, license scope and kernel linking permission above.
 
 [karmenloop.com](https://karmenloop.com) · [info@karmenloop.com](mailto:info@karmenloop.com)
+
+外部 ACP 引擎会收到升级前的对话与工具结果作为历史参考，Koder 不重放旧请求或批准；引擎内部隐藏状态是否可加载由该引擎决定。

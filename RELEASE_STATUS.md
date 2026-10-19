@@ -1,11 +1,11 @@
-# Koder CLI 0.4.0-preview.5
+# Koder CLI 0.4.0-preview.6 release status
 
-Adds a GitHub-first development workflow through the original harness: public repository search, fixed-commit license/file inspection, verified built-in skill reading, progressive requirements questions, project Markdown planning and existing approved tool execution. The original workflow is method-informed by GitHub Spec Kit and obra/superpowers; no new upstream code/template was copied.
+Preview release with verified assets. Publication and artifact checks are recorded in the release metadata.
 
-Local natural-language update requests route to the GitHub updater without a model. Ask/plan mode only checks; ordinary project updates and quoted/piped text do not trigger self-update. Installer success now requires metadata, package version and actual installed entry readback. Running sessions retain loaded code; new launches use the update.
+Automatic update activation uses a single supervisor with fresh workers. Existing chat history, workspace, mode, named session, buffered input and volatile no-memory conversations are continued. Running gateways wait for admitted tasks, approvals and outbound replies, then release original Core ownership before reconnecting with retained bindings. Recently admitted message IDs and app/file effect receipts prevent update-induced replay. Disabled channels stay disabled. Configuration and memory directories are not replaced.
 
-Connection repair covers transient HTTP initialization/QR failures, bounded retry/cancellation, handshake timeout, stale reconnect callbacks and reuse of a healthy gateway instead of a competing WeCom verification socket. Invalid credentials and expired/denied authorizations fail explicitly. Sends/uploads are not automatically retried.
+Updates still compare the official GitHub feed, verify installer/package hashes, and check the actual installed entry before activation. A replacement that cannot start before receiving work falls back once. A worker that has accepted work is never automatically replayed after a crash. An ordinary shell update activates the new version and exits; open chats and gateways resume independently. A pending approval delays gateway activation rather than silently authorizing it.
 
-Prior tutorial, consent, memory, API/context, Windows path and application/MCP work is retained. The adopted EULA and third-party license bytes are unchanged. Source remains private; public legacy source retains its original terms. Package and validation hashes are recorded in release metadata after independent verification.
+Migration: preview.5 and older processes do not implement this restart protocol. Start preview.6 once after that initial upgrade; subsequent upgrades are automatic. No settings reset or channel rebinding is required for migration. Platform-expired/revoked credentials can still require platform authorization.
 
-Native Windows installation/file access, real WeChat/Feishu/WeCom/Gamma accounts, multiple physical devices and production Core remain unverified. Local tests and synthetic services do not establish real-account acceptance.
+Validation: real subprocess update/continuation, local model server, local WeChat HTTP protocol fixture and serial regression suite. These are local fixture results, not native Windows, real WeChat/Feishu/WeCom account or cross-device acceptance. Those environments remain unavailable. New implementation stays proprietary under the existing EULA; bundled third-party notices and legacy source remain unchanged.
