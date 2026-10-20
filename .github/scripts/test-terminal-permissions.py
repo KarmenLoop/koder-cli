@@ -1,5 +1,5 @@
 """Use an owned real terminal and fresh CLI processes to verify execution grants."""
-import argparse,json,os,subprocess,threading,time
+import argparse,json,os,subprocess,threading,time,queue
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 p=argparse.ArgumentParser();p.add_argument('--node',required=True);p.add_argument('--package',required=True);p.add_argument('--out',required=True);a=p.parse_args()
@@ -34,9 +34,16 @@ try:
  if os.name=='nt':
   from winpty import PtyProcess
   child=PtyProcess.spawn(subprocess.list2cmdline(command),cwd=str(workspace),env=env,dimensions=(35,140))
+  pending=queue.Queue()
+  def pump():
+   while True:
+    try:chunk=child.read(8192)
+    except (EOFError,OSError):break
+    if chunk:pending.put(chunk)
+  reader=threading.Thread(target=pump,daemon=True);reader.start()
   def read():
-   try:return child.read(8192,blocking=False)
-   except EOFError:return ''
+   try:return pending.get_nowait()
+   except queue.Empty:return ''
   def write(s):child.write(s)
   alive=child.isalive
  else:
@@ -51,10 +58,15 @@ try:
  while time.monotonic()-start<20:
   text+=read()
   if 'always remembers this action' in text and not sent:write('always\r\n');sent=True
-  if not alive():break
+  if not alive():
+   if os.name=='nt':
+    reader.join(timeout=2)
+    while not pending.empty():text+=read()
+   break
   time.sleep(.03)
  (out/'always-terminal.log').write_text(text,encoding='utf-8')
- assert sent and not alive() and (workspace/'owned-marker.txt').read_text()=='x',text[-2500:]
+ assert sent and not alive() and (workspace/'owned-marker.txt').read_text()=='x' and 'OWNED-ROUNDTRIP-DONE' in text,text[-2500:]
+ if os.name=='nt':assert child.exitstatus==0,child.exitstatus
  if os.name!='nt':os.close(master);assert proc.wait(timeout=2)==0
  rows.append({'name':'real terminal Always allow executes once','passed':True,'seconds':round(time.monotonic()-start,3)})
  r=run('remembered-fresh-process',task);assert r.returncode==0 and (workspace/'owned-marker.txt').read_text()=='xx' and 'always remembers this action' not in r.stdout
@@ -68,6 +80,8 @@ try:
  assert run('reset',['permissions','execution','reset']).returncode==0
  rows.append({'name':'explicit full mode runs a different sensitive command','passed':True})
 finally:
+ if os.name=='nt' and 'child' in globals() and child.isalive():child.terminate(force=True)
+ if os.name!='nt' and 'proc' in globals() and proc.poll() is None:proc.terminate();proc.wait(timeout=5)
  server.shutdown()
  report={'passed':len(rows)==5 and all(r['passed'] for r in rows),'checks':rows,'scope':'Owned real terminal and fresh CLI processes; synthetic local model only'}
  (out/'RESULT.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
