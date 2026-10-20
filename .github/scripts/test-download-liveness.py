@@ -11,7 +11,7 @@ class Handler(BaseHTTPRequestHandler):
   if state['mode']=='bootstrap' or state['mode']=='manifest' and self.path.endswith('.json'):
    stop.wait(15);return
   if state['mode']=='package' and self.path.endswith('.tgz'):
-   self.send_response(200);self.send_header('Content-Length','99999999');self.end_headers();self.wfile.write(b'x'*1024);self.wfile.flush();stop.wait(15);return
+   self.send_response(200);self.send_header('Content-Length','99999999');self.end_headers();self.wfile.write(b'x'*65536);self.wfile.flush();stop.wait(15);return
   f=assets/self.path.lstrip('/')
   if not f.is_file():self.send_error(404);return
   b=f.read_bytes();self.send_response(200);self.send_header('Content-Length',str(len(b)));self.end_headers();self.wfile.write(b)
@@ -29,7 +29,7 @@ try:
   try:r=subprocess.run(argv,env=env,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=7);text=r.stdout+r.stderr;code=r.returncode
   except subprocess.TimeoutExpired as error:timed_out=True;text=str(error.stdout)+str(error.stderr);code=None
   elapsed=time.monotonic()-started;(home/'terminal.log').write_text(text,encoding='utf-8')
-  passed=not timed_out and code!=0 and elapsed<7 and not (home/'install/bin/koder.cmd').exists()
+  passed=not timed_out and code!=0 and elapsed<7 and ('stalled' in text.lower() or '\u4e0b\u8f7d\u505c\u6ede' in text) and not (home/'install/bin/koder.cmd').exists()
   rows.append({'name':mode+' no-progress limit with long total budget','passed':passed,'elapsedSeconds':round(elapsed,3),'processTimedOut':timed_out,'exitCode':code,'noActivation':not (home/'install/bin/koder.cmd').exists()})
 finally:stop.set();server.shutdown()
 result={'passed':len(rows)==3 and all(r['passed'] for r in rows),'checks':rows,'scope':'Real Windows PowerShell, owned bootstrap/header/body stalls, total budget 100000000s with explicit one-second no-progress limits','requests':requests};(out/'LIVENESS-RESULT.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result));raise SystemExit(0 if result['passed'] else 1)
