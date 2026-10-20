@@ -110,8 +110,10 @@ stop_download() {
 fetch() {
   local started next now status
   started=$(date +%s); next=5
-  if command -v curl >/dev/null 2>&1; then curl -fsSL --connect-timeout "$DOWNLOAD_TIMEOUT" --max-time "$DOWNLOAD_TIMEOUT" -o "$2" "$1" &
-  elif command -v wget >/dev/null 2>&1; then wget -q --timeout="$DOWNLOAD_TIMEOUT" --tries=1 -O "$2" "$1" &
+  # The elapsed-time owner below enforces the deadline. Some curl builds use
+  # 32-bit milliseconds and reject a 100000000-second native timer argument.
+  if command -v curl >/dev/null 2>&1; then curl -fsSL --connect-timeout 0 --max-time 0 -o "$2" "$1" &
+  elif command -v wget >/dev/null 2>&1; then wget -q --timeout=0 --tries=1 -O "$2" "$1" &
   else fail "需要 curl 或 wget" "curl or wget is required"; fi
   DOWNLOAD_PID=$!
   while kill -0 "$DOWNLOAD_PID" 2>/dev/null; do
