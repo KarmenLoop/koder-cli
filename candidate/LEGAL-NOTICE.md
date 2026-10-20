@@ -20,7 +20,7 @@ Koder 自有软件部分的相关版权方保留未明确授予的权利。官�
 
 ### 下载安装与明确同意
 
-请从官网或官方 GitHub 发布页取得安装器，核对版本、包名和 SHA-256。安装器会给出完整使用许可和授权说明的阅读入口。仅在阅读并同意后，按提示输入 **accept** 并回车继续；输入 **decline**、直接回车或按 Ctrl+C 取消，不会因为拒绝而启用软件功能。非交互部署仅可由已阅读并有权同意的人显式设置 KODER_EULA_ACCEPT=1；该变量不应替不知情的用户默认填写。
+请从官网或官方 GitHub 发布页取得安装器，核对版本、包名和 SHA-256。安装器会给出完整使用许可和授权说明的阅读入口。仅在阅读并同意后，按提示输入 **accept** 并回车继续；输入 **decline** 或按 Ctrl+C 取消；Windows 空回车会重新询问，Mac/Linux 空回车取消，不会因为拒绝而启用软件功能。非交互部署仅可由已阅读并有权同意的人显式设置 KODER_EULA_ACCEPT=1；该变量不应替不知情的用户默认填写。
 
 安装后的许可查看命令为 `koder eula`；明确接受命令为 `koder eula accept`。许可的版本和校验值随安装记录保存。后续协议有变化时，应显示适用文本并重新取得明确同意；修改网页本身不会追溯改变既有版本许可。
 
@@ -66,7 +66,7 @@ Third-party software, models, images and other materials belong to their respect
 
 ### Download, installation and explicit acceptance
 
-Obtain installers from the official website or GitHub release page. Check the version, filename and SHA-256. The installer provides links to the full license and permission guide. Only after reading and agreeing, type **accept** and press Enter to continue. Type **decline**, press Enter with no answer, or press Ctrl+C to cancel. Refusal does not enable product features. For unattended deployment, a person who has read the terms and is authorized to accept them may explicitly set KODER_EULA_ACCEPT=1; do not prefill it for an uninformed user.
+Obtain installers from the official website or GitHub release page. Check the version, filename and SHA-256. The installer provides links to the full license and permission guide. Only after reading and agreeing, type **accept** and press Enter to continue. Type **decline** or press Ctrl+C to cancel. On Windows an empty Enter asks again; on Mac/Linux it cancels. Refusal does not enable product features. For unattended deployment, a person who has read the terms and is authorized to accept them may explicitly set KODER_EULA_ACCEPT=1; do not prefill it for an uninformed user.
 
 After installation, use `koder eula` to read the license and `koder eula accept` to explicitly accept it. The installation record retains the agreement version and checksum. Changed terms should be presented and explicitly accepted for the affected release. Editing a website does not retroactively change an existing license.
 
