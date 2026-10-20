@@ -268,8 +268,8 @@ try:
             names = ['test-native-api-recovery.mjs', 'test-native-protocol-matrix.mjs', 'test-execution-permissions.mjs']
             extended = subprocess.run([info['node'], '--test', '--test-timeout=20000', *[str(Path(__file__).with_name(n)) for n in names]], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=90)
             (out / 'native-recovery-permissions.tap').write_text(extended.stdout + extended.stderr, encoding='utf-8')
-            assert extended.returncode == 0 and '# pass 14' in extended.stdout and '# fail 0' in extended.stdout, extended.stdout + extended.stderr
-            (out / 'NATIVE-PERMISSIONS-RESULT.json').write_text(json.dumps({'passed':True,'checks':14,'scope':'Actual installed package, synthetic protocol replies and owned execution policy fixtures; no provider account acceptance'}) + '\n')
+            assert extended.returncode == 0 and '# pass 15' in extended.stdout and '# fail 0' in extended.stdout, extended.stdout + extended.stderr
+            (out / 'NATIVE-PERMISSIONS-RESULT.json').write_text(json.dumps({'passed':True,'checks':15,'scope':'Actual installed package, synthetic protocol replies and owned execution policy fixtures; no provider account acceptance'}) + '\n')
             terminal = subprocess.run(['python', str(Path(__file__).with_name('test-terminal-permissions.py')), '--node', info['node'], '--package', str(packages[0]), '--out', str(out / 'terminal-permissions')], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=75)
             (out / 'terminal-permissions.log').write_text(terminal.stdout + terminal.stderr, encoding='utf-8')
             assert terminal.returncode == 0, terminal.stdout + terminal.stderr

@@ -57,3 +57,13 @@ test('an explicit deny overrides --yes and permissions are reread after revocati
  await cli(['run','Append marker','--no-memory','--yes','--approval','deny'],{home,cwd,provider:model(codeCommand)});assert.equal(fs.existsSync(cwd+'/owned-marker.txt'),false);
  await cli(['permissions','execution','auto'],{home,cwd});assert.equal(executionStatus({env:{KODER_CLI_HOME:home},workspace:cwd}).mode,'auto');
 });
+
+test('an explicit profile mode applies to existing workspace overrides and can be withdrawn globally',async()=>{
+ const home=tmp(),cwd=tmp(),other=tmp();
+ await cli(['permissions','execution','deny'],{home,cwd});
+ await cli(['permissions','execution','ask'],{home,cwd:other});
+ const grant=await cli(['permissions','execution','full','--scope','profile','--confirm','FULL'],{home,cwd});assert.equal(grant.code,0,grant.err);
+ for(const workspace of [cwd,other]){assert.equal(executionStatus({env:{KODER_CLI_HOME:home},workspace}).mode,'full');const r=await cli(['run','Append owned marker','--no-memory'],{home,cwd:workspace,provider:model(codeCommand)});assert.equal(r.code,0,r.err);assert.equal(fs.readFileSync(workspace+'/owned-marker.txt','utf8'),'x');}
+ await cli(['permissions','execution','reset'],{home,cwd});
+ for(const workspace of [cwd,other])assert.equal(executionStatus({env:{KODER_CLI_HOME:home},workspace}).mode,'auto');
+});
