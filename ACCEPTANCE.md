@@ -2,7 +2,7 @@
 
 适用于 0.4.0-preview.7。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
 
-For 0.4.0-preview.9. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+For 0.4.0-preview.10. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
 
 授权与数据使用说明
 
