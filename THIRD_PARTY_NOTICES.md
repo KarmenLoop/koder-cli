@@ -72,14 +72,26 @@ Copyright (c) Project Nayuki. [Full MIT notice](licenses/nayuki-qrcodegen.txt).
 The structure of `src/gateway/qr.mjs` follows qrcodegen by Project Nayuki
 (MIT). The tables come from ISO/IEC 18004.
 
+## Model Context Protocol TypeScript SDK and npm dependencies
+
+Application connections use the official [Model Context Protocol TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk), version 1.30.0, under its MIT license. The standalone installer includes its production dependency closure in `kernel/node_modules/`. Each dependency retains its own license; the proprietary kernel terms do not restrict these third-party files.
+
+Exact versions, upstream archive identifiers, license file hashes and source tree hashes are recorded in `THIRD_PARTY_COMPONENTS.json` and the installed `kernel/MANIFEST.json`. Builds verify the reviewed license bytes and reject missing or changed copies. The lock file archive identifiers are provenance references; they are not a claim that this build independently downloaded and verified each upstream archive.
+
 ## Koder kernel
 
 `kernel/` (bundled at packaging time from koder-desktop: `harness/`, a `fusion/`
 subset, `loop/json-store.mjs`, `public/model-order.mjs`) is Koder's own agent
 loop, tools, model adapters and presets. It is proprietary, all rights reserved,
 and may only be run as part of Koder CLI; the terms are in `kernel/LICENSE`. The
-desktop app's data encryption and key storage modules are not included: the
-bundle carries stubs in their place.
+desktop app's K131419 algorithm sources, native data-lock key management and
+login vault are not included. `fusion/data-lock.mjs` and `fusion/vault.mjs`
+remain stubs. The generic protected-record store, file lease and record-format
+identifier are included in the proprietary kernel for persistent memory.
+The public CLI supplies standard Node.js AES-256-GCM record protection, backed
+by the existing OS credential store. Runtime keys, credentials and user memory
+are never build inputs and are not bundled. These changes do not publish the
+proprietary kernel under the CLI's GPL licence.
 
 `kernel/fusion/ecosystem/resources/` holds third-party skills and data that the
 kernel reads, each with its original licence file in its own folder; the source,
