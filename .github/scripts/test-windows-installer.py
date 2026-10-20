@@ -23,7 +23,7 @@ out.mkdir(parents=True, exist_ok=True)
 manifest = json.loads((assets / 'koder-cli-latest.json').read_text())
 expected = manifest['version']
 for extension, data in manifest['installers'].items():
-    assert hashlib.sha256((assets / data['file']).read_bytes()).hexdigest() == data['sha256']
+    assert hashlib.sha256((assets / data['file']).read_bytes()).hexdigest() == data['sha256'], data['file']
 assert hashlib.sha256((assets / manifest['file']).read_bytes()).hexdigest() == manifest['sha256']
 
 requests = []
