@@ -70,7 +70,7 @@ threading.Thread(target=server.serve_forever, daemon=True).start()
 base = 'http://127.0.0.1:' + str(server.server_port)
 ps = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/powershell.exe')
 rows = []
-native_checks_complete = expected not in ['0.4.0-preview.10','0.4.0-preview.11','0.4.0-preview.12']
+native_checks_complete = expected not in ['0.4.0-preview.10','0.4.0-preview.11','0.4.0-preview.12','0.4.0-preview.13']
 
 def environment(name):
     home = out / (name + ('-中文用户' if name in ['powershell-spaces', 'public-download', 'cmd-pasted-command', 'public-cmd-download'] else ''))
@@ -224,7 +224,7 @@ try:
     run_console('powershell-download-runtime', 'powershell', 'accept\r', True)
     run_console('powershell-refuse', 'powershell', 'decline\r', False)
     run_console('cmd-empty-then-accept', 'cmd', '\raccept\r', True)
-    if expected in ('0.4.0-preview.11','0.4.0-preview.12'):
+    if expected in ('0.4.0-preview.11','0.4.0-preview.12','0.4.0-preview.13'):
         run_console('cmd-pasted-command', 'cmd', 'accept\r', True)
         run_console('bootstrap-timeout', 'cmd', '', False)
     run_console('stalled-node', 'powershell', 'accept\r', True)
@@ -232,14 +232,14 @@ try:
     run_console('package-timeout', 'powershell', 'accept\r', None)
     if args.public_download:
         run_console('public-download', 'powershell', 'accept\r', True)
-        if expected in ('0.4.0-preview.11','0.4.0-preview.12'):
+        if expected in ('0.4.0-preview.11','0.4.0-preview.12','0.4.0-preview.13'):
             run_console('public-cmd-download', 'cmd', 'accept\r', True)
     home, env = environment('redirected-input')
     run = subprocess.run([ps, '-NoLogo', '-NoProfile', '-File', str(assets / 'koder-cli.ps1')], input='accept\n', env=env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=30)
     (home / 'terminal.log').write_text(run.stdout + run.stderr, encoding='utf-8')
     assert run.returncode != 0 and not (home / 'install').exists(), 'redirected text accepted the license'
     rows.append({'name': 'redirected-input', 'passed': True})
-    if expected in ['0.4.0-preview.10','0.4.0-preview.11','0.4.0-preview.12']:
+    if expected in ['0.4.0-preview.10','0.4.0-preview.11','0.4.0-preview.12','0.4.0-preview.13']:
         installation = out / 'powershell-empty-then-accept/install'
         info = json.loads((installation / 'install.json').read_text(encoding='utf-8-sig'))
         packages = [installation / 'versions' / expected]
@@ -249,13 +249,13 @@ try:
         (out / 'mimo-native.tap').write_text(mimo.stdout + mimo.stderr, encoding='utf-8')
         assert mimo.returncode == 0 and '# pass 10' in mimo.stdout and '# fail 0' in mimo.stdout, mimo.stdout + mimo.stderr
         (out / 'MIMO-RESULT.json').write_text(json.dumps({'passed': True, 'checks': 10, 'scope': 'Actual installed Windows package with protocol/ACP fixtures; not authenticated Xiaomi service'}) + '\n')
-        if expected in ('0.4.0-preview.11','0.4.0-preview.12'):
+        if expected in ('0.4.0-preview.11','0.4.0-preview.12','0.4.0-preview.13'):
             provider = subprocess.run([info['node'], '--test', '--test-timeout=15000', str(Path(__file__).with_name('test-provider-compat.mjs'))], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=60)
             (out / 'providers-native.tap').write_text(provider.stdout + provider.stderr, encoding='utf-8')
             assert provider.returncode == 0 and '# pass 14' in provider.stdout and '# fail 0' in provider.stdout, provider.stdout + provider.stderr
             (out / 'PROVIDERS-RESULT.json').write_text(json.dumps({'passed': True, 'checks':14, 'scope':'Installed native protocol tool loops and disabled fallback; no authenticated provider acceptance'}) + '\n')
 
-        if expected == '0.4.0-preview.12':
+        if expected in ('0.4.0-preview.12','0.4.0-preview.13'):
             consumer = subprocess.run([info['node'], '--test', '--test-timeout=15000', str(Path(__file__).with_name('test-consumer-features.mjs'))], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=60)
             (out / 'consumer-native.tap').write_text(consumer.stdout + consumer.stderr, encoding='utf-8')
             assert consumer.returncode == 0 and '# pass 12' in consumer.stdout and '# fail 0' in consumer.stdout, consumer.stdout + consumer.stderr
@@ -264,11 +264,21 @@ try:
             (out / 'terminal-celebrations.log').write_text(animation.stdout + animation.stderr, encoding='utf-8')
             assert animation.returncode == 0, animation.stdout + animation.stderr
             assert json.loads((out / 'terminal-celebrations/ANIMATION-RESULT.json').read_text())['passed']
+        if expected == '0.4.0-preview.13':
+            names = ['test-native-api-recovery.mjs', 'test-native-protocol-matrix.mjs', 'test-execution-permissions.mjs']
+            extended = subprocess.run([info['node'], '--test', '--test-timeout=20000', *[str(Path(__file__).with_name(n)) for n in names]], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=90)
+            (out / 'native-recovery-permissions.tap').write_text(extended.stdout + extended.stderr, encoding='utf-8')
+            assert extended.returncode == 0 and '# pass 14' in extended.stdout and '# fail 0' in extended.stdout, extended.stdout + extended.stderr
+            (out / 'NATIVE-PERMISSIONS-RESULT.json').write_text(json.dumps({'passed':True,'checks':14,'scope':'Actual installed package, synthetic protocol replies and owned execution policy fixtures; no provider account acceptance'}) + '\n')
+            terminal = subprocess.run(['python', str(Path(__file__).with_name('test-terminal-permissions.py')), '--node', info['node'], '--package', str(packages[0]), '--out', str(out / 'terminal-permissions')], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=75)
+            (out / 'terminal-permissions.log').write_text(terminal.stdout + terminal.stderr, encoding='utf-8')
+            assert terminal.returncode == 0, terminal.stdout + terminal.stderr
+            assert json.loads((out / 'terminal-permissions/RESULT.json').read_text())['passed']
         native_checks_complete = True
 
 
 finally:
-    report = {'passed': native_checks_complete and len(rows) == ((13 if args.public_download else 11) if expected in ('0.4.0-preview.11','0.4.0-preview.12') else (10 if args.public_download else 9)) and all(r['passed'] for r in rows), 'installedAcceptanceComplete': native_checks_complete, 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
+    report = {'passed': native_checks_complete and len(rows) == ((13 if args.public_download else 11) if expected in ('0.4.0-preview.11','0.4.0-preview.12','0.4.0-preview.13') else (10 if args.public_download else 9)) and all(r['passed'] for r in rows), 'installedAcceptanceComplete': native_checks_complete, 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
     (out / 'RESULT.json').write_text(json.dumps(report, indent=2) + '\n')
     stop_requests.set()
     server.shutdown()

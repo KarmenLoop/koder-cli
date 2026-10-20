@@ -49,7 +49,7 @@ test('a greeting isolates old task projection while an explicit continuation sti
  assert.match(JSON.stringify(projectContext({...args,history:[...history,{role:'user',content:'继续之前的网站任务'}],query:'继续之前的网站任务'}).messages),/OLD-TASK-21/);
 });
 test('subscription presets retain exact billing paths and reject known credential mistakes',async()=>{
- const all=await presets({env:{}});assert.equal(all.length,35);assert.equal(all.reduce((n,p)=>n+(p.models?.length||0),0),94);
+ const all=await presets({env:{}});assert.equal(all.length,36);assert.equal(all.reduce((n,p)=>n+(p.models?.length||0),0),98);
  for(const id of ['aliyun-token-plan','aliyun-coding-plan','volcano-coding-plan']){const p=all.find(p=>p.id===id);assert.ok(p);const r=normalizeRecord({...presetRecord(p),apiKey:'sk-sp-synthetic-plan'});const provider=createProvider({provider:r,fetchImpl:withModelEndpoint(async url=>{assert.equal(url,p.baseUrl+'/chat/completions');return json({choices:[{finish_reason:'stop',message:{content:'ready'}}]});},r)});assert.equal((await provider.complete({messages:[{role:'user',content:'hi'}],tools:[]})).text,'ready');}
  assert.throws(()=>normalizeRecord({model:'qwen3.8-max',baseUrl:'https://dashscope.aliyuncs.com/compatible-mode/v1',apiKey:'sk-sp-synthetic-plan'}),/PLAN_ENDPOINT_MISMATCH/);
 });
