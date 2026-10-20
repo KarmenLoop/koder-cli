@@ -23,7 +23,7 @@ subprocess.run([a.node,'--input-type=module','-e','(await import(process.argv[1]
 base=[a.node,str(root/'bin/koder.mjs')]
 rows=[]
 def run(name,args):
- r=subprocess.run(base+args,cwd=workspace,env=env,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=20)
+ r=subprocess.run(base+args,cwd=workspace,env=env,input='',capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=20)
  (out/(name+'.log')).write_text(r.stdout+r.stderr,encoding='utf-8');return r
 task=['run','Execute the owned fixture action','--no-memory','--lang','en']
 try:
