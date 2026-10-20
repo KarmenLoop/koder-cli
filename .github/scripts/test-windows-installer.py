@@ -10,12 +10,14 @@ import shutil
 import subprocess
 import threading
 import time
+import urllib.request
 
 from winpty import PtyProcess
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--assets', required=True)
 parser.add_argument('--out', required=True)
+parser.add_argument('--public-download', action='store_true')
 args = parser.parse_args()
 assets = Path(args.assets).resolve()
 out = Path(args.out).resolve()
@@ -26,10 +28,35 @@ for extension, data in manifest['installers'].items():
     assert hashlib.sha256((assets / data['file']).read_bytes()).hexdigest() == data['sha256'], data['file']
 assert hashlib.sha256((assets / manifest['file']).read_bytes()).hexdigest() == manifest['sha256']
 
+# A public command is exercised only when it currently serves the exact
+# candidate installer. Draft candidates retain their separate local endpoint scope.
+public_probe = {'matchedCandidate': False}
+try:
+    request = urllib.request.Request('https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1', headers={'Cache-Control': 'no-cache'})
+    with urllib.request.urlopen(request, timeout=15) as response:
+        public_bytes = response.read(512 * 1024)
+    public_probe['matchedCandidate'] = hashlib.sha256(public_bytes).hexdigest() == manifest['installers']['ps1']['sha256']
+    args.public_download = args.public_download or public_probe['matchedCandidate']
+except Exception as error:
+    public_probe['errorType'] = type(error).__name__
+
+
 requests = []
+stop_requests = threading.Event()
 class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         requests.append(self.path)
+        if getattr(self.server, 'stall', None) == 'manifest' and self.path.endswith('/koder-cli-latest.json'):
+            stop_requests.wait(20)
+            return
+        if getattr(self.server, 'stall', None) == 'package' and self.path.endswith('.tgz'):
+            self.send_response(200)
+            self.send_header('Content-Length', str((assets / manifest['file']).stat().st_size))
+            self.end_headers()
+            self.wfile.write((assets / manifest['file']).read_bytes()[:1024])
+            self.wfile.flush()
+            stop_requests.wait(20)
+            return
         super().do_GET()
     def log_message(self, *args):
         pass
@@ -41,7 +68,7 @@ ps = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/power
 rows = []
 
 def environment(name):
-    home = out / (name + ('-中文用户' if name == 'powershell-spaces' else ''))
+    home = out / (name + ('-中文用户' if name in ['powershell-spaces', 'public-download'] else ''))
     home.mkdir()
     env = {**os.environ, 'KODER_INSTALL_BASE': base, 'KODER_INSTALL_HOME': str(home / 'install'), 'KODER_NO_ONBOARD': '1', 'USERPROFILE': str(home), 'HOME': str(home)}
     env.pop('KODER_EULA_ACCEPT', None)
@@ -53,6 +80,20 @@ def environment(name):
     env['PSMODULEPATH'] = os.pathsep.join([inbox, legacy, env.get('PSMODULEPATH', '')])
     if name == 'powershell-download-runtime':
         env['PATH'] = os.pathsep.join(part for part in env['PATH'].split(os.pathsep) if not (Path(part) / 'node.exe').is_file())
+    if name in ['manifest-timeout', 'package-timeout']:
+        env['KODER_DOWNLOAD_TIMEOUT_SECONDS'] = '7'
+    if name == 'public-download':
+        env.pop('KODER_INSTALL_BASE', None)
+        env['PATH'] = os.pathsep.join(part for part in env['PATH'].split(os.pathsep) if not (Path(part) / 'node.exe').is_file())
+    if name == 'stalled-node':
+        shim = home / 'node-shim'
+        shim.mkdir()
+        pidfile = home / 'owned-node.pid'
+        code = 'using System; using System.IO; using System.Threading; public class KoderNodeStall { public static void Main() { File.WriteAllText(Environment.GetEnvironmentVariable("KODER_STALL_PID"), System.Diagnostics.Process.GetCurrentProcess().Id.ToString()); Thread.Sleep(30000); } }'
+        compile = subprocess.run([ps, '-NoProfile', '-Command', "Add-Type -TypeDefinition '" + code + "' -OutputAssembly '" + str(shim / 'node.exe') + "' -OutputType ConsoleApplication"], env=env, capture_output=True, timeout=30)
+        assert compile.returncode == 0, compile.stderr.decode(errors='replace')
+        env['KODER_STALL_PID'] = str(pidfile)
+        env['PATH'] = str(shim) + os.pathsep + env['PATH']
     return home, env
 
 def run_console(name, mode, answer, accepted):
@@ -60,6 +101,21 @@ def run_console(name, mode, answer, accepted):
     command = [ps, '-NoLogo', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', 'irm ' + base + '/koder-cli.ps1 | iex']
     if mode == 'cmd':
         command = [os.environ['COMSPEC'], '/d', '/c', str(assets / 'koder-cli.cmd')]
+    if name == 'public-download':
+        command = [ps, '-NoLogo', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', 'irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex']
+    server.stall = 'manifest' if name == 'manifest-timeout' else 'package' if name == 'package-timeout' else None
+    preserved = {}
+    if accepted is None:
+        previous = out / 'powershell-empty-then-accept/install'
+        shutil.copytree(previous, home / 'install')
+        config = home / '.koder-cli/config.json'
+        config.parent.mkdir(exist_ok=True)
+        config.write_text('{"preserve":"configuration"}\n')
+        memory = home / '.koder-cli/memory/sentinel.txt'
+        memory.parent.mkdir(exist_ok=True)
+        memory.write_text('preserve memory\n')
+        for file in [home / 'install/install.json', home / 'install/eula-acceptance.json', home / 'install/bin/koder.cmd', config, memory]:
+            preserved[str(file)] = hashlib.sha256(file.read_bytes()).hexdigest()
     proc = PtyProcess.spawn(command, env=env, dimensions=(45, 160))
     parts = []
     def read():
@@ -88,8 +144,8 @@ def run_console(name, mode, answer, accepted):
         (home / 'terminal.log').write_text(text, encoding='utf-8')
         assert sent, 'interactive question missing: ' + text[-1800:]
         install = home / 'install'
-        assert (not accepted or (install / 'install.json').exists()), text[-4000:]
-        if accepted:
+        assert (accepted is not True or (install / 'install.json').exists()), text[-4000:]
+        if accepted is True:
             info = json.loads((install / 'install.json').read_text(encoding='utf-8-sig'))
             assert info['version'] == expected, info
             acceptance = json.loads((install / 'eula-acceptance.json').read_text(encoding='utf-8-sig'))
@@ -97,10 +153,27 @@ def run_console(name, mode, answer, accepted):
             version = subprocess.run([os.environ['COMSPEC'], '/d', '/c', str(install / 'bin/koder.cmd'), 'version'], env=env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=30)
             (home / 'version.log').write_text(version.stdout + version.stderr, encoding='utf-8')
             assert version.returncode == 0 and expected in version.stdout, version.stdout + version.stderr
-        else:
+        elif accepted is False:
             assert not install.exists(), 'refusal created installation state'
-        rows.append({'name': name, 'mode': mode, 'unicodeInstallPath': '中文用户' in str(home), 'promptSeen': sent, 'accepted': accepted, 'passed': True})
+        else:
+            assert 'Download timed out' in text or '下载超时' in text, text[-4000:]
+            assert 'License accepted.' in text or '已同意使用许可' in text
+            assert 'Downloading:' in text or '仍在下载' in text, 'missing heartbeat'
+            assert time.monotonic() - start < 25, 'deadline did not bound the stalled transfer'
+            assert all(hashlib.sha256(Path(file).read_bytes()).hexdigest() == sha for file, sha in preserved.items()), 'existing state changed'
+            version = subprocess.run([os.environ['COMSPEC'], '/d', '/c', str(install / 'bin/koder.cmd'), 'version'], env=env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=30)
+            (home / 'preserved-version.log').write_text(version.stdout + version.stderr, encoding='utf-8')
+            assert version.returncode == 0 and expected in version.stdout, 'previous installed launcher stopped working'
+        if name == 'stalled-node':
+            assert (home / 'owned-node.pid').exists(), 'unresponsive node was not actually invoked'
+            assert 'did not respond within 5s' in text or '5 秒内未响应' in text, text[-4000:]
+            owned_pid = int((home / 'owned-node.pid').read_text())
+            check = subprocess.run([ps, '-NoProfile', '-Command', 'if (Get-Process -Id ' + str(owned_pid) + ' -ErrorAction SilentlyContinue) { exit 1 }'], env=env, capture_output=True, timeout=10)
+            assert check.returncode == 0, 'owned stalled Node process survived the probe deadline'
+        rows.append({'name': name, 'mode': mode, 'unicodeInstallPath': '中文用户' in str(home), 'promptSeen': sent, 'accepted': accepted, 'passed': True, 'seconds': round(time.monotonic() - start, 2), 'preservedFiles': len(preserved)})
     finally:
+        (home / 'terminal.log').write_text(''.join(parts), encoding='utf-8')
+        server.stall = None
         if proc.isalive():
             proc.terminate(force=True)
 
@@ -110,13 +183,25 @@ try:
     run_console('powershell-download-runtime', 'powershell', 'accept\r', True)
     run_console('powershell-refuse', 'powershell', 'decline\r', False)
     run_console('cmd-empty-then-accept', 'cmd', '\raccept\r', True)
+    run_console('stalled-node', 'powershell', 'accept\r', True)
+    run_console('manifest-timeout', 'powershell', 'accept\r', None)
+    run_console('package-timeout', 'powershell', 'accept\r', None)
+    if args.public_download:
+        run_console('public-download', 'powershell', 'accept\r', True)
     home, env = environment('redirected-input')
     run = subprocess.run([ps, '-NoLogo', '-NoProfile', '-File', str(assets / 'koder-cli.ps1')], input='accept\n', env=env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=30)
     (home / 'terminal.log').write_text(run.stdout + run.stderr, encoding='utf-8')
     assert run.returncode != 0 and not (home / 'install').exists(), 'redirected text accepted the license'
     rows.append({'name': 'redirected-input', 'passed': True})
 finally:
-    report = {'passed': len(rows) == 6 and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests}
+    report = {'passed': len(rows) == (10 if args.public_download else 9) and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
     (out / 'RESULT.json').write_text(json.dumps(report, indent=2) + '\n')
+    stop_requests.set()
     server.shutdown()
+    if report['passed']:
+        # All installations are disposable owned test fixtures. Keep terminal,
+        # result and retained-state evidence, not repeated runtime binaries.
+        for home in out.iterdir():
+            if home.is_dir() and (home / 'install').is_dir():
+                shutil.rmtree(home / 'install')
     print(json.dumps(report))
