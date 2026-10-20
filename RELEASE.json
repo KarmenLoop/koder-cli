@@ -1,7 +1,0 @@
-{
-  "version": "0.4.0-preview.10",
-  "file": "koder-cli-0.4.0-preview.10.tgz",
-  "sha256": "0c9054de7fb1815385bccb0425b10e955854ccb5f1f69b97fa53a3d72a4632a8",
-  "size": 4709302,
-  "sourceArchive": "Distribution documentation and license material only; implementation is distributed in the release package under its existing EULA."
-}
