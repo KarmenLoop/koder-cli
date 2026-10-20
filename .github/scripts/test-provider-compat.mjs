@@ -62,7 +62,7 @@ test('native CLI preserves private reasoning between actual tool requests',async
 test('every offered cloud preset completes a native tool/result round trip with its declared wire protocol',async()=>{
  const list=await presets({env:{}});
  for(const preset of list.filter(p=>!['local','custom','kilo-free'].includes(p.id))){
-  const record=normalizeRecord({...presetRecord(preset),apiKey:preset.id==='mimo-token-plan'?'tp-fixture':'sk-fixture'});let n=0;
+  const record=normalizeRecord({...presetRecord(preset),apiKey:preset.id==='mimo-token-plan'?'tp-fixture':preset.id.startsWith('aliyun-')?'sk-sp-fixture':'sk-fixture'});let n=0;
   const p=createProvider({provider:{...record,id:'cli'},fetchImpl:withModelEndpoint(async(url,init)=>{
    const body=JSON.parse(init.body),second=!!n++;assert.equal(new URL(url).origin,new URL(record.baseUrl).origin,preset.id);
    if(record.protocol==='responses'){
