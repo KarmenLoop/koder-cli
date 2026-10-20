@@ -1,6 +1,6 @@
 # Koder CLI
 
-**0.4.0-preview.9** · [下载 / Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.9) · [使用许可 / License](EULA.md) · [授权与数据说明 / Consent guide](ACCEPTANCE.md) · [版权与国际用户说明 / Legal notice](LEGAL-NOTICE.md) · [第三方来源 / Credits](OPEN_SOURCE_CREDITS.md)
+**0.4.0-preview.10** · [下载 / Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.10) · [使用许可 / License](EULA.md) · [授权与数据说明 / Consent guide](ACCEPTANCE.md) · [版权与国际用户说明 / Copyright notice](LEGAL-NOTICE.md) · [第三方来源 / Credits](OPEN_SOURCE_CREDITS.md)
 
 Koder 是自接 API 或本地模型的终端助手。基础本地使用免费，不强制购买会员；模型服务可能另行收费。本预览版按专有使用许可提供下载安装，新的自有开发源码不公开。已经发布的旧 CLI 源码、历史版本及第三方组件保留原许可。公开仓库中的旧源码仍是 0.3.1；下载版本以本页 Release 与安装后的 `koder version` 为准。
 
@@ -8,21 +8,25 @@ Koder is a terminal assistant using your own API or an installed local model. Ba
 
 ## 安装前 / Before installing
 
-官方发布与维护：**KARMENLOOP 官方团队 / KARMENLOOP Official Team**。所在地：**中国上海 / Shanghai, China**。官网：[karmenloop.com](https://karmenloop.com)。咨询、版权、许可、安全和隐私联系：[info@karmenloop.com](mailto:info@karmenloop.com)。
+官方发布与维护团队：KARMENLOOP 官方团队 / KARMENLOOP Official Team。所在地：中国上海 / Shanghai, China。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
 
-先阅读 [EULA.md](EULA.md)、[ACCEPTANCE.md](ACCEPTANCE.md) 与 [LEGAL-NOTICE.md](LEGAL-NOTICE.md)。普通终端安装会显示中英文提示：输入 **accept** 并回车表示同意并继续；输入 **decline** 或按 Ctrl+C 取消。Windows 空回车会重新询问，Mac/Linux 空回车取消。没有明确同意时，不下载程序或运行时、不创建安装目录、不修改 PATH、不写接受记录。接受软件许可不会开启学习、同步、应用连接或电脑权限，这些能力分别配置。
+先阅读 [EULA.md](EULA.md)、[ACCEPTANCE.md](ACCEPTANCE.md) 与 [LEGAL-NOTICE.md](LEGAL-NOTICE.md)。普通安装会在真实终端请你输入 `accept` 并回车表示同意；输入 `decline` 或按 Ctrl+C 取消；Windows 空回车会重新询问，Mac/Linux 空回车取消，取消后不会下载或安装。接受软件许可**不会开启学习、同步、应用连接或电脑权限**。这些能力分别配置。API请求可能包含任务、选择的文件、相关记忆和工具结果；关联群全员可使用关联私聊记忆，群回复对群成员可见。
 
-Read the license, consent guide and legal notice first. The installer presents both Chinese and English instructions. Type **accept** and press Enter to agree and continue. Type **decline** or press Ctrl+C to cancel. On Windows an empty Enter asks again; on Mac/Linux it cancels. Before explicit acceptance, the installer does not download the program or runtime, create installation directories, change PATH or record acceptance. Optional learning, sync, application access and computer grants remain separate choices.
+Official publisher and maintenance team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+
+Read the license, consent guide and copyright notice first. A normal install asks you to type `accept` and press Enter on a real terminal. Type `decline` or press Ctrl+C to cancel before any download. On Windows an empty Enter asks again; on Mac/Linux it cancels. License acceptance does not enable learning, synchronization, application connections or computer grants. Your selected model may receive tasks, selected file contents, relevant memory and tool results. All linked-group members can use linked private-chat memory and see replies posted to the group.
 
 安装器面向 macOS 11+、Linux/WSL、Windows 10/11，使用 Node.js 22+ 或按平台下载运行时，并校验安装器与程序包。Windows 真机安装/文件操作、真实微信/飞书/企业微信/Gamma及多设备端到端验收仍待完成。本版是预览版，请查看 [RELEASE_STATUS.md](RELEASE_STATUS.md) 中证据与限制。
 
-Installers target macOS 11+, Linux/WSL and Windows 10/11, using Node.js 22+ or downloading the platform runtime. Installer and package checksums are verified. Acceptance on users’ Windows devices, live messaging/Gamma and multiple physical devices remains pending. See [release status](RELEASE_STATUS.md).
+Installers target macOS 11+, Linux/WSL and Windows 10/11, using Node.js 22+ or downloading the platform runtime. Installer and package checksums are verified. Native Windows, live messaging/Gamma and physical multi-device acceptance remain pending. See [release status](RELEASE_STATUS.md).
 
-See the [step-by-step installation and troubleshooting guide](docs/INSTALLATION.md) for Windows PowerShell/CMD, macOS/Linux, model setup, verification and the first task. The [Windows installer checks](docs/WINDOWS-INSTALL-CHECKS.md) passed nine native regression cases.
+See the complete [step-by-step installation and troubleshooting guide](docs/INSTALLATION.md), including Windows PowerShell/CMD, model setup and the first successful request.
 
-Preview.9 reports each installation phase immediately after consent, bounds an existing Node probe to five seconds, and shows download progress with finite per-source deadlines. Default Windows downloads use identical official website mirrors with official-host fallback. Read the [stall troubleshooting guide](docs/INSTALLATION.md#if-installation-stops-producing-output-after-accept).
+See the [MiMo V2.6 setup guide](docs/MIMO.md) for pay-as-you-go, Token Plan, model selection, Hermes configuration and account-test limits.
 
 ## 安装 / Install
+
+普通安装在终端里输入 `accept` 并回车。`decline` 或 Ctrl+C 会取消；Windows 空回车会重新询问，Mac/Linux 空回车取消。
 
 macOS / Linux / WSL:
 
@@ -42,21 +46,27 @@ Windows CMD:
 powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex"
 ```
 
-出现提示后输入 `accept` 并回车。不同意则输入 `decline` 或 Ctrl+C 退出。Windows 空回车会重新询问，Mac/Linux 空回车退出。Mac/Linux 管道安装会从真实控制终端询问；无终端时及时退出并显示说明，不把脚本或管道内容当作答案。
+### 已阅读并同意的自动部署 / Unattended install after you have read and agreed
 
-At the prompt, type `accept` and press Enter, or decline as described above. A piped Mac/Linux installer reads from the controlling terminal. Without one, it stops with instructions instead of treating piped script content as consent.
+下面的变量只给已经阅读并有权同意的人使用。不要把它写成普通安装的必做步骤，也不要替未阅读的用户预先填写。只有精确值 `1` 表示同意。
 
-**已阅读并同意的自动部署 / Unattended deployment after explicit agreement**
-
-仅由已经阅读并有权同意的人设置 `KODER_EULA_ACCEPT=1`。不要将此变量为其他用户默认打开。Only a person who has read and is authorized to accept the terms may set this variable; do not prefill it for other users.
+The variable below is only for someone who has already read the terms and is allowed to accept them. It is not a required step for a normal install, and it must not be prefilled for someone who has not read the terms. Only the exact value `1` is acceptance.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 ```
 
-PowerShell 自动部署：先设置 `$env:KODER_EULA_ACCEPT = "1"`，执行上面的安装命令，完成后运行 `Remove-Item Env:KODER_EULA_ACCEPT`。CMD 自动部署：先 `set "KODER_EULA_ACCEPT=1"`，安装后 `set "KODER_EULA_ACCEPT="`。
+```powershell
+$env:KODER_EULA_ACCEPT = "1"
+irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex
+Remove-Item Env:KODER_EULA_ACCEPT
+```
 
-For PowerShell unattended deployment, set `$env:KODER_EULA_ACCEPT = "1"`, run the installer above, then remove it with `Remove-Item Env:KODER_EULA_ACCEPT`. For CMD, set `KODER_EULA_ACCEPT=1` before installation and clear it afterwards with `set "KODER_EULA_ACCEPT="`.
+```bat
+set "KODER_EULA_ACCEPT=1"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex"
+set "KODER_EULA_ACCEPT="
+```
 
 装完重新打开终端，让新的 PATH 生效。Mac/Linux 默认安装到 `~/.koder-cli`、启动器在 `~/.local/bin`；Windows 程序默认在 `%LOCALAPPDATA%\koder-cli`，配置在 `%USERPROFILE%\.koder-cli`。记忆目录另见实际状态。
 
@@ -68,7 +78,7 @@ koder setup
 koder learn
 ```
 
-安装包包含 `EULA.md`、`ACCEPTANCE.md`、`LEGAL-NOTICE.md`、完整第三方许可、来源说明与教程。GitHub 自动生成的本预览版 source archives 仅含发行文档；开发源码不随新标签公开。可从 Release 下载 [校验清单](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.9/SHA256SUMS)。
+安装包包含 `EULA.md`、`ACCEPTANCE.md`、`LEGAL-NOTICE.md`、完整第三方许可、来源说明与教程。GitHub 自动生成的本预览版 source archives 仅含发行文档；开发源码不随新标签公开。可从 Release 下载 [校验清单](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.10/SHA256SUMS)。
 
 The package includes the license, consent guide, complete third-party notices and tutorials. GitHub's automatic source archives for this preview contain distribution documentation only. Checksums are available on the release.
 
@@ -191,13 +201,6 @@ Gamma supports API-key or service-supported browser authorization; MCP supports 
 
 ## 从GitHub更新与卸载 / GitHub updates and uninstall
 
-**preview.6 及更早版本迁移 / Migration from preview.6 and earlier:** preview.7 的 EULA 补齐了双语团队、所在地、官网和邮箱，原第 1–6 条保持不变，但文件校验值已变化。旧版更新器会停止并要求阅读新版说明。请重新执行本页普通安装命令，阅读后输入 `accept`；配置、记忆和渠道绑定保留，不需要卸载或重新配置。不要通过修改接受记录跳过确认。
-
-The preview.7 EULA header added bilingual team, location, website and email details. Clauses 1–6 are unchanged, but the file checksum has changed. An older updater therefore stops and asks you to review the new text. Run the normal installer above and type `accept` after reading it. Configuration, memory and bindings are retained; uninstalling or reconfiguration is unnecessary. Do not edit acceptance records to bypass this step.
-
-
-preview.7 to preview.8 retains the same EULA digest. Run `koder update` to update without resetting configuration, memory or bindings.
-
 从preview.3起：
 
 ```text
@@ -210,11 +213,11 @@ koder version
 
 Since preview.3, the updater discovers GitHub releases. Check is read-only; update verifies the installer and package, retains config/memory, avoids equal-version reinstalls and downgrades, and requires explicit acceptance if the license changes. Updates run only when invoked.
 
-0.3.0、0.3.1、preview.1/2 用户先执行本页安装命令一次，获得新的更新器，无需卸载或清空配置。preview.5 及更早已经运行的进程没有重启协议：首次升级后仍需正常退出旧会话并启动一次新版；从 preview.6 启动后，后续升级会自动接续。跨版本迁移不要求重新配置 API、记忆或渠道。第三方自行撤销或过期的登录凭据仍需按平台重新授权。
+0.3.0、0.3.1、preview.1/2 用户先执行本页安装命令一次，获得新的更新器，无需卸载或清空配置。preview.6 升到 preview.7 时，许可头部校验已经变化：已安装的更新器会在下载安装器之前停止，设置 KODER_EULA_ACCEPT 也不能跳过这道检查。请运行上面的普通安装命令，阅读后输入 accept。配置、记忆和绑定保留。preview.5 及更早已经运行的进程没有重启协议：首次升级后仍需正常退出旧会话并启动一次新版；从 preview.6 启动后，许可校验一致的后续升级会自动接续。跨版本迁移不要求重新配置 API、记忆或渠道。第三方自行撤销或过期的登录凭据仍需按平台重新授权。
 
 `--no-memory` 会话只通过本机进程间通信接续，不因升级写入聊天历史文件。未响应的渠道批准会继续等待，更新不代替用户批准，也不强制终止正在执行的工具。新版在接收会话前启动失败时恢复原进程一次；已经开始接管后不会自动重放工作。电脑重启或系统崩溃后的任务恢复不属于本次软件升级接续。普通 `koder uninstall` 保留配置；`--purge` 是删除配置的独立选择，先备份。外置记忆目录与服务器副本另行管理。
 
-Users on 0.3.0, 0.3.1 or preview.1/2 should run the installer above once to obtain the new updater, without uninstalling or clearing config. Normal uninstall keeps config; --purge deletes it separately. Back up first and manage external memory/server copies separately.
+Users on 0.3.0, 0.3.1 or preview.1/2 should run the installer above once to obtain the new updater, without uninstalling or clearing config. Moving from preview.6 to preview.7 changes the license checksum: the installed updater stops before downloading the installer, and KODER_EULA_ACCEPT does not bypass that check. Run the normal install command above and type accept after reading. Configuration, memory and bindings are kept. Later updates whose license checksum matches can continue through koder update. Normal uninstall keeps config; --purge deletes it separately. Back up first and manage external memory/server copies separately.
 
 ## 来源与许可 / Provenance and license
 
@@ -225,3 +228,12 @@ KARMEN LOOP-owned code, legacy GPL CLI rights, the private kernel and third-part
 [karmenloop.com](https://karmenloop.com) · [info@karmenloop.com](mailto:info@karmenloop.com)
 
 外部 ACP 引擎会收到升级前的对话与工具结果作为历史参考，Koder 不重放旧请求或批准；引擎内部隐藏状态是否可加载由该引擎决定。
+
+
+## Preview.10 validation
+
+Full local regression: 409 tests, 406 pass, 0 fail, 3 existing Core skips, exit 0. Ten MiMo protocol/ACP checks and the Token Plan/Flash terminal setup interaction passed. The installed pinned Hermes 517b5e10 runtime completed a real local-file read and a second model turn against a local HTTP/SSE fixture, retaining reasoning history. Its upstream asynchronous title callback emitted a shutdown RuntimeWarning; the actual tool result and completed response were verified. Authenticated Xiaomi service and the reported user device remain unverified.
+
+[Native Windows candidate acceptance](https://github.com/KarmenLoop/koder-cli/actions/runs/39395431998): nine installer checks plus ten checks against the actual installed MiMo package passed. Public-command validation is recorded separately after publication.
+
+Package SHA-256: `0c9054de7fb1815385bccb0425b10e955854ccb5f1f69b97fa53a3d72a4632a8`.

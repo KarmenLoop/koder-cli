@@ -1,15 +1,9 @@
-# Windows installer checks for preview.9
+# Windows installer and MiMo checks for preview.10
 
-[Native Windows regression run](https://github.com/KarmenLoop/koder-cli/actions/runs/39388845502) passed nine checks on October 20, 2026, using Windows PowerShell 5.1/CMD on hosted Windows build 10.0.26100.33438.
+[Candidate run](https://github.com/KarmenLoop/koder-cli/actions/runs/39395431998) passed nine installer regressions and ten MiMo compatibility checks on real Windows PowerShell 5.1/CMD. Installer checks include Chinese directories, runtime download, explicit consent/refusal, an unresponsive existing Node executable, stalled headers and partial package transfers. The failure cases retain the previous working installation and configuration.
 
-The checks cover empty Enter followed by explicit acceptance, spaces around accept, a Chinese install directory, automatic Node runtime download, explicit refusal, CMD installation, redirected-input refusal, an unresponsive existing Node executable, a stalled release manifest and a partially transferred package. The last two use a seven-second test deadline and require a progress heartbeat. They retain the previous installed launcher, acceptance record, configuration and memory sentinels, then run the retained launcher with exit code 0.
+The MiMo checks import the actual installed package and exercise its presets, exact endpoints, authentication headers, completion-budget field, streaming tool calls, reasoning history, protocol diagnostics and Hermes ACP child/profile isolation. They use local fixtures, not an authenticated Xiaomi account. Public-command acceptance is added after publication.
 
-The stalled Node case proves that the exact owned process was invoked and terminated after five seconds, then completes installation with the installer runtime. Multiple node.exe paths are resolved explicitly before probing.
+The first candidate transport changed line endings during Git checkout; SHA-256 verification stopped before installation. A candidate-local .gitattributes correction passed an explicit core.autocrlf=true checkout test and the native run above. No checksum assertion was relaxed.
 
-Default Windows transfers first use byte-identical official website mirrors, with GitHub/Node.js fallback. A checksum mismatch still fails. Each source has a 120-second transfer limit by default, with progress every five seconds. KODER_DOWNLOAD_TIMEOUT_SECONDS may explicitly choose 1–600 seconds; it changes neither consent nor verification. Custom download bases are respected.
-
-The matching public command is checked separately after publication, in a Chinese user directory without Node on PATH. This regression run itself used isolated local release endpoints plus the actual runtime download path; it does not prove a user's network is reachable.
-
-Package SHA-256: `4838162c99a65454a1f454069e621fa1209759f335c0b1869e4d870d0346ef58`.
-
-These checks do not establish acceptance on every user's Windows device, live messaging/Gamma accounts or multiple physical devices.
+Package SHA-256: `0c9054de7fb1815385bccb0425b10e955854ccb5f1f69b97fa53a3d72a4632a8`.
