@@ -70,6 +70,7 @@ threading.Thread(target=server.serve_forever, daemon=True).start()
 base = 'http://127.0.0.1:' + str(server.server_port)
 ps = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/powershell.exe')
 rows = []
+native_checks_complete = expected not in ['0.4.0-preview.10','0.4.0-preview.11','0.4.0-preview.12']
 
 def environment(name):
     home = out / (name + ('-中文用户' if name in ['powershell-spaces', 'public-download', 'cmd-pasted-command', 'public-cmd-download'] else ''))
@@ -263,10 +264,11 @@ try:
             (out / 'terminal-celebrations.log').write_text(animation.stdout + animation.stderr, encoding='utf-8')
             assert animation.returncode == 0, animation.stdout + animation.stderr
             assert json.loads((out / 'terminal-celebrations/ANIMATION-RESULT.json').read_text())['passed']
+        native_checks_complete = True
 
 
 finally:
-    report = {'passed': len(rows) == ((13 if args.public_download else 11) if expected in ('0.4.0-preview.11','0.4.0-preview.12') else (10 if args.public_download else 9)) and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
+    report = {'passed': native_checks_complete and len(rows) == ((13 if args.public_download else 11) if expected in ('0.4.0-preview.11','0.4.0-preview.12') else (10 if args.public_download else 9)) and all(r['passed'] for r in rows), 'installedAcceptanceComplete': native_checks_complete, 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
     (out / 'RESULT.json').write_text(json.dumps(report, indent=2) + '\n')
     stop_requests.set()
     server.shutdown()

@@ -32,6 +32,7 @@ def exercise(effect, skip):
     first_frame = None
     sent = False
     status = None
+    ended = None
     deadline = time.monotonic() + 15
     started = time.monotonic()
     if os.name == 'nt':
@@ -73,6 +74,7 @@ def exercise(effect, skip):
                 sent = True
             if os.name == 'nt':
                 if not proc.isalive():
+                    ended = time.monotonic()
                     reader.join(2)
                     status = proc.exitstatus
                     break
@@ -80,16 +82,19 @@ def exercise(effect, skip):
             else:
                 child, value = os.waitpid(pid, os.WNOHANG)
                 if child:
+                    ended = time.monotonic()
                     status = os.waitstatus_to_exitcode(value)
                     break
         assert status is not None, name + ': owned process did not exit within 15 seconds'
         assert status == 0, (name, status, ''.join(parts)[-1500:])
         assert first_frame is not None, name + ': actual animation screen missing'
-        elapsed = time.monotonic() - first_frame
+        # Draining the terminal reader is cleanup, not animation playback.
+        elapsed = ended - first_frame
         assert (.0 <= elapsed < 3) if skip else (5 <= elapsed < 7.5), (name, elapsed)
         rows.append({'name': name, 'passed': True, 'exitCode': status,
                      'skipSent': sent, 'secondsAfterFirstFrame': round(elapsed, 3),
-                     'processSeconds': round(time.monotonic() - started, 3)})
+                     'processSeconds': round(ended - started, 3),
+                     'readerCleanupSeconds': round(time.monotonic() - ended, 3)})
     finally:
         (out / (name + '.log')).write_text(''.join(parts), encoding='utf-8')
         if os.name == 'nt':
