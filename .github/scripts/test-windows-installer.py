@@ -71,7 +71,7 @@ ps = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/power
 rows = []
 
 def environment(name):
-    home = out / (name + ('-中文用户' if name in ['powershell-spaces', 'public-download', 'cmd-pasted-command'] else ''))
+    home = out / (name + ('-中文用户' if name in ['powershell-spaces', 'public-download', 'cmd-pasted-command', 'public-cmd-download'] else ''))
     home.mkdir()
     env = {**os.environ, 'KODER_INSTALL_BASE': base, 'KODER_INSTALL_HOME': str(home / 'install'), 'KODER_NO_ONBOARD': '1', 'USERPROFILE': str(home), 'HOME': str(home)}
     env.pop('KODER_EULA_ACCEPT', None)
@@ -89,7 +89,7 @@ def environment(name):
         env['KODER_DOWNLOAD_TIMEOUT_SECONDS'] = '100000000'
     if name == 'cmd-pasted-command':
         temporary = home / 'temp with spaces-中文'; temporary.mkdir(); env['TEMP'] = str(temporary); env['TMP'] = str(temporary)
-    if name == 'public-download':
+    if name in ['public-download','public-cmd-download']:
         env.pop('KODER_INSTALL_BASE', None)
         env['PATH'] = os.pathsep.join(part for part in env['PATH'].split(os.pathsep) if not (Path(part) / 'node.exe').is_file())
     if name == 'stalled-node':
@@ -113,6 +113,9 @@ def run_console(name, mode, answer, accepted):
         command = [os.environ['COMSPEC'], '/d', '/c', command_text]
     if name == 'public-download':
         command = [ps, '-NoLogo', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', 'irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex']
+    if name == 'public-cmd-download':
+        command_text = Path(__file__).with_name('windows-install-command.txt').read_text().strip()
+        command = [os.environ['COMSPEC'], '/d', '/c', command_text]
     server.stall = 'bootstrap' if name == 'bootstrap-timeout' else 'manifest' if name == 'manifest-timeout' else 'package' if name == 'package-timeout' else None
     preserved = {}
     if accepted is None:
@@ -164,7 +167,7 @@ def run_console(name, mode, answer, accepted):
         if accepted is True:
             info = json.loads((install / 'install.json').read_text(encoding='utf-8-sig'))
             assert info['version'] == expected, info
-            if name in ['powershell-download-runtime', 'public-download']:
+            if name in ['powershell-download-runtime', 'public-download', 'public-cmd-download']:
                 assert str(Path(info['node'])).lower().startswith(str(install / 'runtime').lower()), 'test did not use the downloaded runtime'
                 assert Path(info['node']).is_file(), 'downloaded runtime missing'
             acceptance = json.loads((install / 'eula-acceptance.json').read_text(encoding='utf-8-sig'))
@@ -210,6 +213,8 @@ try:
     run_console('package-timeout', 'powershell', 'accept\r', None)
     if args.public_download:
         run_console('public-download', 'powershell', 'accept\r', True)
+        if expected == '0.4.0-preview.11':
+            run_console('public-cmd-download', 'cmd', 'accept\r', True)
     home, env = environment('redirected-input')
     run = subprocess.run([ps, '-NoLogo', '-NoProfile', '-File', str(assets / 'koder-cli.ps1')], input='accept\n', env=env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=30)
     (home / 'terminal.log').write_text(run.stdout + run.stderr, encoding='utf-8')
@@ -232,7 +237,7 @@ try:
             (out / 'PROVIDERS-RESULT.json').write_text(json.dumps({'passed': True, 'checks':14, 'scope':'Installed native protocol tool loops and disabled fallback; no authenticated provider acceptance'}) + '\n')
 
 finally:
-    report = {'passed': len(rows) == ((12 if args.public_download else 11) if expected == '0.4.0-preview.11' else (10 if args.public_download else 9)) and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
+    report = {'passed': len(rows) == ((13 if args.public_download else 11) if expected == '0.4.0-preview.11' else (10 if args.public_download else 9)) and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
     (out / 'RESULT.json').write_text(json.dumps(report, indent=2) + '\n')
     stop_requests.set()
     server.shutdown()
