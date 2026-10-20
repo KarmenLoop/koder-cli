@@ -1,0 +1,14 @@
+Koder CLI additional permission
+Adopted by the granting copyright holders on 2026-10-19.
+
+The covered Koder CLI portions remain under GNU GPL version 3 (see licenses/legacy-cli/GPL-3.0.txt), with the following additional permission.
+
+Additional permission under GNU GPL version 3, section 7
+
+For portions of Koder CLI for which the granting copyright holders have authority, those holders give you additional permission to link or combine those portions with the KARMEN LOOP kernel distributed by KARMEN / Koder under its separate licence, and to convey the resulting combination.
+
+This permission is conditional on compliance with the GNU GPL version 3 for the covered Koder CLI portions, including the applicable Corresponding Source obligations for those portions. It does not remove any recipient's GPL rights in Koder CLI.
+
+This permission does not change the licence of the KARMEN LOOP kernel or any third-party component, grant rights the granting holders do not possess, or permit omission of third-party copyright notices, licence texts, NOTICE files, or applicable source obligations. Rights to use or convey the kernel must also be obtained under its own applicable terms.
+
+If you modify Koder CLI, you may extend this additional permission to your version of the portions for which you have authority, but you are not required to do so. If you do not wish to extend it, remove the additional permission from your version. The GNU GPL version 3 continues to apply to the covered Koder CLI portions.
