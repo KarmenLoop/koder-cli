@@ -1,0 +1,41 @@
+name: Windows installer acceptance
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Candidate release tag (drafts supported)
+        required: true
+        default: cli-0.4.0-preview.8
+permissions:
+  contents: read
+jobs:
+  install:
+    runs-on: windows-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare isolated test dependencies and candidate assets
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release }}
+        run: |
+          python -m pip install pywinpty
+          New-Item -ItemType Directory -Path candidate | Out-Null
+          gh release download $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --dir candidate
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: PowerShell 5.1 and CMD consent, install and version
+        shell: pwsh
+        run: python .github/scripts/test-windows-installer.py --assets candidate --out windows-results
+      - name: Preserve complete terminal and result evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-installer-results
+          path: windows-results
