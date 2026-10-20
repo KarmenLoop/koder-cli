@@ -46,6 +46,9 @@ stop_requests = threading.Event()
 class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         requests.append(self.path)
+        if getattr(self.server, 'stall', None) == 'bootstrap' and self.path.endswith('.ps1'):
+            stop_requests.wait(20)
+            return
         if getattr(self.server, 'stall', None) == 'manifest' and self.path.endswith('/koder-cli-latest.json'):
             stop_requests.wait(20)
             return
@@ -68,7 +71,7 @@ ps = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/power
 rows = []
 
 def environment(name):
-    home = out / (name + ('-中文用户' if name in ['powershell-spaces', 'public-download'] else ''))
+    home = out / (name + ('-中文用户' if name in ['powershell-spaces', 'public-download', 'cmd-pasted-command'] else ''))
     home.mkdir()
     env = {**os.environ, 'KODER_INSTALL_BASE': base, 'KODER_INSTALL_HOME': str(home / 'install'), 'KODER_NO_ONBOARD': '1', 'USERPROFILE': str(home), 'HOME': str(home)}
     env.pop('KODER_EULA_ACCEPT', None)
@@ -80,8 +83,12 @@ def environment(name):
     env['PSMODULEPATH'] = os.pathsep.join([inbox, legacy, env.get('PSMODULEPATH', '')])
     if name == 'powershell-download-runtime':
         env['PATH'] = os.pathsep.join(part for part in env['PATH'].split(os.pathsep) if not (Path(part) / 'node.exe').is_file())
-    if name in ['manifest-timeout', 'package-timeout']:
+    if name in ['manifest-timeout', 'package-timeout', 'bootstrap-timeout']:
         env['KODER_DOWNLOAD_TIMEOUT_SECONDS'] = '7'
+    if name == 'powershell-spaces':
+        env['KODER_DOWNLOAD_TIMEOUT_SECONDS'] = '100000000'
+    if name == 'cmd-pasted-command':
+        temporary = home / 'temp with spaces-中文'; temporary.mkdir(); env['TEMP'] = str(temporary); env['TMP'] = str(temporary)
     if name == 'public-download':
         env.pop('KODER_INSTALL_BASE', None)
         env['PATH'] = os.pathsep.join(part for part in env['PATH'].split(os.pathsep) if not (Path(part) / 'node.exe').is_file())
@@ -101,9 +108,12 @@ def run_console(name, mode, answer, accepted):
     command = [ps, '-NoLogo', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', 'irm ' + base + '/koder-cli.ps1 | iex']
     if mode == 'cmd':
         command = [os.environ['COMSPEC'], '/d', '/c', str(assets / 'koder-cli.cmd')]
+    if name == 'cmd-pasted-command':
+        command_text = (Path(__file__).with_name('windows-install-command.txt')).read_text().strip().replace('https://karmenloop.com/install/koder-cli.cmd', base + '/koder-cli.cmd')
+        command = [os.environ['COMSPEC'], '/d', '/c', command_text]
     if name == 'public-download':
         command = [ps, '-NoLogo', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', 'irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex']
-    server.stall = 'manifest' if name == 'manifest-timeout' else 'package' if name == 'package-timeout' else None
+    server.stall = 'bootstrap' if name == 'bootstrap-timeout' else 'manifest' if name == 'manifest-timeout' else 'package' if name == 'package-timeout' else None
     preserved = {}
     if accepted is None:
         previous = out / 'powershell-empty-then-accept/install'
@@ -142,6 +152,12 @@ def run_console(name, mode, answer, accepted):
         reader.join(2)
         text = ''.join(parts)
         (home / 'terminal.log').write_text(text, encoding='utf-8')
+        if name == 'bootstrap-timeout':
+            assert not sent and not (home / 'install').exists(), 'bootstrap stall reached consent or installation'
+            assert 'Still loading installer:' in text and 'timed out' in text, text[-4000:]
+            assert time.monotonic() - start < 25, 'bootstrap timeout exceeded its limit'
+            rows.append({'name':name,'passed':True,'seconds':round(time.monotonic()-start,2),'progressBeforeConsent':True})
+            return
         assert sent, 'interactive question missing: ' + text[-1800:]
         install = home / 'install'
         assert (accepted is not True or (install / 'install.json').exists()), text[-4000:]
@@ -186,6 +202,9 @@ try:
     run_console('powershell-download-runtime', 'powershell', 'accept\r', True)
     run_console('powershell-refuse', 'powershell', 'decline\r', False)
     run_console('cmd-empty-then-accept', 'cmd', '\raccept\r', True)
+    if expected == '0.4.0-preview.11':
+        run_console('cmd-pasted-command', 'cmd', 'accept\r', True)
+        run_console('bootstrap-timeout', 'cmd', '', False)
     run_console('stalled-node', 'powershell', 'accept\r', True)
     run_console('manifest-timeout', 'powershell', 'accept\r', None)
     run_console('package-timeout', 'powershell', 'accept\r', None)
@@ -196,7 +215,7 @@ try:
     (home / 'terminal.log').write_text(run.stdout + run.stderr, encoding='utf-8')
     assert run.returncode != 0 and not (home / 'install').exists(), 'redirected text accepted the license'
     rows.append({'name': 'redirected-input', 'passed': True})
-    if expected == '0.4.0-preview.10':
+    if expected in ['0.4.0-preview.10','0.4.0-preview.11']:
         installation = out / 'powershell-empty-then-accept/install'
         info = json.loads((installation / 'install.json').read_text(encoding='utf-8-sig'))
         packages = [installation / 'versions' / expected]
@@ -206,9 +225,14 @@ try:
         (out / 'mimo-native.tap').write_text(mimo.stdout + mimo.stderr, encoding='utf-8')
         assert mimo.returncode == 0 and '# pass 10' in mimo.stdout and '# fail 0' in mimo.stdout, mimo.stdout + mimo.stderr
         (out / 'MIMO-RESULT.json').write_text(json.dumps({'passed': True, 'checks': 10, 'scope': 'Actual installed Windows package with protocol/ACP fixtures; not authenticated Xiaomi service'}) + '\n')
+        if expected == '0.4.0-preview.11':
+            provider = subprocess.run([info['node'], '--test', '--test-timeout=15000', str(Path(__file__).with_name('test-provider-compat.mjs'))], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=60)
+            (out / 'providers-native.tap').write_text(provider.stdout + provider.stderr, encoding='utf-8')
+            assert provider.returncode == 0 and '# pass 14' in provider.stdout and '# fail 0' in provider.stdout, provider.stdout + provider.stderr
+            (out / 'PROVIDERS-RESULT.json').write_text(json.dumps({'passed': True, 'checks':14, 'scope':'Installed native protocol tool loops and disabled fallback; no authenticated provider acceptance'}) + '\n')
 
 finally:
-    report = {'passed': len(rows) == (10 if args.public_download else 9) and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
+    report = {'passed': len(rows) == ((12 if args.public_download else 11) if expected == '0.4.0-preview.11' else (10 if args.public_download else 9)) and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
     (out / 'RESULT.json').write_text(json.dumps(report, indent=2) + '\n')
     stop_requests.set()
     server.shutdown()
