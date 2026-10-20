@@ -1,6 +1,6 @@
 # Model providers and compatibility
 
-This guide covers **0.4.0-preview.13**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
+This guide covers **0.4.0-preview.15**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
 
 ## What the catalog means
 
