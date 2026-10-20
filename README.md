@@ -1,6 +1,6 @@
 # Koder CLI
 
-**0.4.0-preview.12** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.12) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.0-preview.13** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.13) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Basic local use is free and does not require membership. A provider may charge for API requests.
 
@@ -107,3 +107,23 @@ Run `koder update --check` to inspect a release, and `koder update` to install a
 Release notes and [Windows installation checks](docs/WINDOWS-INSTALL-CHECKS.md) distinguish source tests, installed protocol fixtures, hosted native Windows, real provider accounts, and user devices. New tags contain distribution documentation rather than new proprietary runtime source. Ready-to-use packages, installers, and checksums are attached release assets.
 
 KARMENLOOP Official Team · Shanghai, China · [karmenloop.com](https://karmenloop.com) · [info@karmenloop.com](mailto:info@karmenloop.com)
+
+## Execution permissions
+
+Smart approval is the default: recognized low-risk local checks and ordinary project edits run without a question. Code execution, deletion, secret/configuration paths, shell effects, unknown commands and external application actions ask. The decision comes from local code, not a model's claim. This is an approval policy, not an OS sandbox.
+
+At a sensitive prompt, y allows once, a or always saves that exact action for this workspace, and f or full saves full access for this workspace. Enter/n declines. Saved choices are loaded in later sessions and can be inspected or revoked:
+
+```sh
+koder permissions execution status
+koder permissions execution ask
+koder permissions execution auto
+koder permissions execution full --confirm FULL
+koder permissions execution full --scope profile --confirm FULL
+koder permissions execution revoke all
+koder permissions execution reset
+```
+
+Full access runs commands, modifies/deletes files and uses already authorized applications without per-action questions. The default scope is this project. --scope profile explicitly covers every project in this local profile. reset removes all saved execution settings; revoke all returns this workspace to smart mode and removes applicable saved rules. --approval auto|ask|full|deny applies only to the current run, while --yes is also temporary and cannot override explicit deny. These choices do not accept software terms, supply passwords, enable learning/sync or grant OS access. ACP/editor and remote gateway callers retain their own approval policies.
+
+Rules stay in the local CLI home as execution-permissions.json, with host/workspace scope and action hashes rather than raw commands or keys. Execution authority is not synchronized as memory. Corrupt or unsafe permission files fail closed. Use the settings menu's Execution permissions section to manage the same controls.

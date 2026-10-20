@@ -1,17 +1,17 @@
-# Windows installation checks for preview.12
+# Windows installation checks for preview.13
 
-The [native Windows candidate run](https://github.com/KarmenLoop/koder-cli/actions/runs/39418333643) passed 11 installer cases, 36 installed-package protocol/consumer checks, and 9 real-terminal animation checks with the preview.12 archive.
+The [native Windows candidate run](https://github.com/KarmenLoop/koder-cli/actions/runs/39439317403) passed 11 installer cases, 54 installed-package protocol/permission/consumer/ACL checks, 5 real-process permission checks and 9 real-terminal animation checks with this exact preview.13 archive.
 
-The installer cases include PowerShell 5.1, CMD, a real pasted CMD command, blank input followed by accept, trimmed accept, refusal, Chinese and space-containing paths, no installed Node runtime, first-script stalls, unresponsive Node detection, stalled manifest/package transfers, preserved configuration/memory/launcher state, and redirected-input refusal. Downloads retain progress, cancellation, checksum validation, and rollback protection. The production download default/maximum remains 100000000 seconds.
+The installer coverage includes PowerShell 5.1, CMD, actual pasted CMD input, consent and refusal, Chinese/space-containing paths, no installed Node, stalled bootstrap/runtime probes/transfers, preserved state, redirected-input refusal, checksums and rollback. Published acceptance additionally downloads through the ordinary public PowerShell and pasted CMD commands.
 
-Installed checks comprise 10 MiMo protocol/ACP cases, 14 broader provider cases, and 12 consumer-feature cases. They exercise native subscription routes, MiMo nullable streaming metadata through an actual local file tool and continuation, greeting context isolation, full offline privacy texts, separate birthday/music/IP choices, blank feedback templates, private local state, and single-play browser scheduling. They use synthetic local protocol fixtures; no authenticated paid provider account is accepted by this evidence.
+Installed tests include 10 MiMo cases, 14 broader provider cases, 12 consumer cases, 15 native recovery/permission cases and 3 native Windows ACL cases. Kimi China/international, Kimi Code and DeepSeek routes exercise real owned file tools and continuation using synthetic provider replies. Saved-history recovery runs through fresh CLI sessions and actual local persistence. These fixtures do not prove authenticated provider-account access, membership, quota or the reporting user's device.
 
-The real-terminal checks play fireworks for six seconds and skip each of the eight scenes. Full playback measured 6.062 seconds; the process exited normally. Reader-thread cleanup is measured separately (2 seconds on this runner) and is not included in animation duration. All eight skip paths exited normally without waiting for the six-second timer.
+Smart approval, Always allow across fresh processes, revocation, workspace full access, profile-wide overrides, explicit deny and reset are checked. Native ACL tests create an owned private memory root, read back its protected ACL, retain existing contents, reject a broad-access nonempty directory without changing it, and reject a junction. Test roots are temporary directories, never the user's real profile or API key.
 
-The first rejected candidate run 39417860285 passed installation and installed fixtures but failed the animation driver's duration check because it included reader cleanup. Its failure remains recorded. A prior local package was also rejected when a fresh terminal remained open after skipping; input-flow restoration was fixed before this archive was built. No runtime code changed between the two hosted candidate runs.
+Full fireworks playback measured 6.046 seconds and exited normally. All eight effects can be skipped; reader cleanup is measured separately.
 
-Published-command acceptance is recorded separately after release. The reporting user's Windows device, real model account access, and browser autoplay behavior remain separate acceptance scopes.
+Earlier candidate 39434099180 failed a Git checkout byte gate before installation. Candidate 39434368331 exposed the missing Windows memory ACL implementation before saved-history inference. Candidate 39435029037 was cancelled for that repair. Those results remain recorded and are not promoted to acceptance. Native Windows validation follows the accepted source and archive, with no fake ACL receipt.
 
-Package SHA-256: `06614d853668757a3821acdcee828a71c9bab68b7e8ed88d34382facdbb5234d`.
+Archive: koder-cli-0.4.0-preview.13.tgz. SHA-256: 1095c13185ae2b221bc78be7eb6c1c97134ab6ecf113f304c986be0a1b608790. Bytes: 4784825.
 
-Previous preview.11 public acceptance: https://github.com/KarmenLoop/koder-cli/actions/runs/39405078337.
+See [installation](INSTALLATION.md) and [provider setup](PROVIDERS.md). The download deadline remains 100000000 seconds; model API deadlines remain separate.
