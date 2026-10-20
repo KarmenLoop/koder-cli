@@ -29,6 +29,13 @@ for extension, data in manifest['installers'].items():
     assert hashlib.sha256((assets / data['file']).read_bytes()).hexdigest() == data['sha256'], data['file']
 assert hashlib.sha256((assets / manifest['file']).read_bytes()).hexdigest() == manifest['sha256']
 
+# A separate probe branch can exercise bounded download recovery against a
+# frozen published artifact without running unrelated acceptance cases.
+if (assets / 'LIVENESS_PROBE.json').is_file():
+    import sys
+    assert json.loads((assets / 'LIVENESS_PROBE.json').read_text()) == {'mode':'download-liveness-only'}
+    raise SystemExit(subprocess.call([sys.executable, str(Path(__file__).with_name('test-download-liveness.py')), '--assets', str(assets), '--out', str(out)]))
+
 # A public command is exercised only when it currently serves the exact
 # candidate installer. Draft candidates retain their separate local endpoint scope.
 public_probe = {'matchedCandidate': False}
