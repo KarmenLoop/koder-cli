@@ -34,7 +34,7 @@ test('full access requires an explicit choice, persists for its workspace, and d
 
 test('smart classification rejects shell effects, code, external actions, sensitive files and project executables',()=>{
  const workspace=tmp();
- for(const command of ['rm -rf build','curl https://fixture.invalid/upload','node -e "process.exit()"','echo ok > output','cat .env','rg --pre sh token','find . -exec rm {} \\;','git reset --hard','npm install','npm test','ls; node --version','cat ../outside.txt','cat ~/ordinary.txt','powershell -Command Get-Content'])assert.equal(classifyExecution({kind:'approval',toolName:'shell',command},{workspace}).sensitive,true,command);
+ for(const command of ['rm -rf build','curl https://fixture.invalid/upload','node -e "process.exit()"','echo ok > output','cat .env','rg --pre sh token','rg --hostname-bin node pattern','rg --search-zip pattern','find . -exec rm {} \\;','git reset --hard','npm install','npm test','ls; node --version','cat ../outside.txt','cat ~/ordinary.txt','powershell -Command Get-Content'])assert.equal(classifyExecution({kind:'approval',toolName:'shell',command},{workspace}).sensitive,true,command);
  assert.equal(classifyExecution({kind:'approval',toolName:'app_call',command:'node --version',action:{destination:'different'}},{workspace}).sensitive,true);
  assert.equal(classifyExecution({kind:'secret'},{workspace}).sensitive,true);
  for(const file of ['.env','.git/config','package.json','run.ps1','execution-permissions.json'])assert.equal(classifyExecution({kind:'change',path:file,before:'old',after:'new'},{workspace}).sensitive,true,file);
