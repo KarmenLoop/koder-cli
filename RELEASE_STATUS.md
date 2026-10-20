@@ -1,4 +1,4 @@
-# Koder CLI 0.4.0-preview.10 release status
+# Koder CLI 0.4.0-preview.11 release status
 
 Preview.10 adds explicit Xiaomi MiMo V2.6 pay-as-you-go and Token Plan setup, Pro/Flash model IDs, the official completion-budget field, and the Anthropic-compatible endpoint/header mapping. Credential-class mismatches fail locally before a request. Custom proxy endpoints and explicit account limits are preserved. Streaming/tool-call/reasoning-history checks are local fixture evidence. Authenticated Xiaomi service and the reported Windows device remain unverified.
 
@@ -27,14 +27,10 @@ Preview.9 addresses silent waiting after consent. It immediately reports the acc
 
 Windows release and Node runtime downloads use byte-identical official website mirrors with official-host fallback. Explicit custom download bases are respected, and checksum failures are not retried against a different source.
 
+## Preview.11 provider and download repair
 
-## Preview.10 validation
+Koder directly implements Chat Completions, Anthropic Messages, and Responses tool loops. OpenAI GPT-6 and Perplexity Agent use Responses; Gemini tool signatures, signed Anthropic thinking, and private reasoning survive actual tool continuation. Each visible cloud preset has a local native tool/result protocol fixture. This is not authenticated provider acceptance.
 
-Full local regression: 409 tests, 406 pass, 0 fail, 3 existing Core skips, exit 0. Ten MiMo protocol/ACP checks and the Token Plan/Flash terminal setup interaction passed. The installed pinned Hermes 517b5e10 runtime completed a real local-file read and a second model turn against a local HTTP/SSE fixture, retaining reasoning history. Its upstream asynchronous title callback emitted a shutdown RuntimeWarning; the actual tool result and completed response were verified. Authenticated Xiaomi service and the reported user device remain unverified.
+The dated model list adds current official task models, removes Yi and obsolete Sonar choices, and excludes batch, speech-only, safety-only and computer-use-specific protocol models from the general task picker. Model metadata can be refreshed from the selected account without changing its active model or credentials. koder model test --tools verifies a harmless tool call and continuation explicitly; a text reply alone no longer claims task capability.
 
-[Native Windows candidate acceptance](https://github.com/KarmenLoop/koder-cli/actions/runs/39395431998): nine installer checks plus ten checks against the actual installed MiMo package passed. Public-command validation is recorded separately after publication.
-
-Package SHA-256: `0c9054de7fb1815385bccb0425b10e955854ccb5f1f69b97fa53a3d72a4632a8`.
-
-
-Published-release validation: [Windows public-command run](https://github.com/KarmenLoop/koder-cli/actions/runs/39395890655) passed all ten installer checks and all ten MiMo protocol/ACP checks against the actual installed preview.10 package. The public case used a Chinese directory without a preinstalled Node runtime, downloaded from the default public hosts, verified hashes and ran the installed version command with exit code 0. It completed in 12.99 seconds on the hosted Windows machine. These MiMo checks remain protocol fixtures, not authenticated Xiaomi-account acceptance.
+The download default and accepted maximum are now 100000000 seconds. Progress, cancellation, checksums, finite shorter test deadlines, and rollback protection remain. Native Koder is the default; Hermes is an explicit optional engine, and unsupported fallback routes fail before a prompt or credential handoff.

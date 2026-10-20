@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.10/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.10/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.11/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.11/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Preview tag path. Do not use GitHub /releases/latest (stable-only).
@@ -10,7 +10,7 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.10}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.11}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
@@ -98,10 +98,37 @@ else
   consent_stop "已取消：没有可交互的控制终端，不能把安装脚本的管道当作同意。没有下载或安装。这不是网络失败。" "Cancelled: no controlling terminal is available, and the installer pipe is not an answer. Nothing was downloaded or installed. This is not a network failure."
 fi
 
+DOWNLOAD_TIMEOUT="${KODER_DOWNLOAD_TIMEOUT_SECONDS:-100000000}"
+case "$DOWNLOAD_TIMEOUT" in ''|*[!0-9]*) fail "下载超时必须是 1–100000000 秒。" "Download timeout must be 1..100000000 seconds.";; esac
+if [ "${#DOWNLOAD_TIMEOUT}" -gt 9 ] || [ "$DOWNLOAD_TIMEOUT" -lt 1 ] || [ "$DOWNLOAD_TIMEOUT" -gt 100000000 ]; then
+  fail "下载超时必须是 1–100000000 秒。" "Download timeout must be 1..100000000 seconds."
+fi
+DOWNLOAD_PID=""
+stop_download() {
+  if [ -n "$DOWNLOAD_PID" ]; then kill "$DOWNLOAD_PID" 2>/dev/null || true; wait "$DOWNLOAD_PID" 2>/dev/null || true; DOWNLOAD_PID=""; fi
+}
 fetch() {
-  if command -v curl >/dev/null 2>&1; then curl -fsSL --connect-timeout 15 --max-time 120 --retry 2 -o "$2" "$1"
-  elif command -v wget >/dev/null 2>&1; then wget -q --timeout=30 --tries=3 -O "$2" "$1"
+  local started next now status
+  started=$(date +%s); next=5
+  # The elapsed-time owner below enforces the deadline. Some curl builds use
+  # 32-bit milliseconds and reject a 100000000-second native timer argument.
+  if command -v curl >/dev/null 2>&1; then curl -fsSL --connect-timeout 0 --max-time 0 -o "$2" "$1" &
+  elif command -v wget >/dev/null 2>&1; then wget -q --timeout=0 --tries=1 -O "$2" "$1" &
   else fail "需要 curl 或 wget" "curl or wget is required"; fi
+  DOWNLOAD_PID=$!
+  while kill -0 "$DOWNLOAD_PID" 2>/dev/null; do
+    now=$(date +%s)
+    if [ "$((now-started))" -ge "$DOWNLOAD_TIMEOUT" ]; then
+      stop_download
+      fail "下载超时（${DOWNLOAD_TIMEOUT} 秒）。" "Download timed out after ${DOWNLOAD_TIMEOUT}s."
+    fi
+    if [ "$((now-started))" -ge "$next" ]; then
+      printf 'Downloading: %ss elapsed (%ss limit). Ctrl+C cancels.\n' "$((now-started))" "$DOWNLOAD_TIMEOUT" >&2
+      next=$((next+5))
+    fi
+    sleep 0.2
+  done
+  status=0; wait "$DOWNLOAD_PID" || status=$?; DOWNLOAD_PID=""; return "$status"
 }
 
 sha256() {
@@ -153,7 +180,9 @@ if [ "${OS}" = linux ]; then
 fi
 
 TMP="$(mktemp -d)"
-trap 'status=$?; rm -rf "${TMP}"; exit $status' EXIT
+trap 'status=$?; stop_download; rm -rf "${TMP}"; exit $status' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 mkdir -p "${KODER_HOME}" "${BIN_DIR}"
 
 NODE_BIN=""
