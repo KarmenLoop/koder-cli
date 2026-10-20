@@ -298,8 +298,8 @@ try:
         if expected == '0.4.0-preview.16':
             audit = subprocess.run([info['node'], '--test', '--test-timeout=60000', str(Path(__file__).with_name('test-provider-audit.mjs'))], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=180)
             (out / 'provider-audit-native.tap').write_text(audit.stdout + audit.stderr, encoding='utf-8')
-            assert audit.returncode == 0 and '# pass 10' in audit.stdout and '# fail 0' in audit.stdout, audit.stdout + audit.stderr
-            (out / 'PROVIDER-AUDIT-RESULT.json').write_text(json.dumps({'passed':True,'checks':10,'scope':'Installed terminal-stream, live HTTP keep-alive tool-loop, diagnostics, tutorial model IDs and reasoning continuity; synthetic model replies'}) + '\n')
+            assert audit.returncode == 0 and '# pass 12' in audit.stdout and '# fail 0' in audit.stdout, audit.stdout + audit.stderr
+            (out / 'PROVIDER-AUDIT-RESULT.json').write_text(json.dumps({'passed':True,'checks':12,'scope':'Installed terminal-stream, live HTTP keep-alive tool-loop, diagnostics, tutorial model IDs and reasoning continuity; synthetic model replies'}) + '\n')
             liveness = subprocess.run([os.sys.executable, str(Path(__file__).with_name('test-download-liveness.py')), '--assets', str(assets), '--out', str(out / 'download-liveness')], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=60)
             (out / 'download-liveness.log').write_text(liveness.stdout + liveness.stderr, encoding='utf-8')
             assert liveness.returncode == 0 and json.loads((out / 'download-liveness/LIVENESS-RESULT.json').read_text())['passed'], liveness.stdout + liveness.stderr

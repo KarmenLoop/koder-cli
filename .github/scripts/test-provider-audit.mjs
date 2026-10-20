@@ -11,6 +11,18 @@ const {MODEL_CODE}=await load('src/tutorial/platform-text.mjs');
 
 const {createProvider}=await importKernel('harness/providers.mjs',{});
 const json=value=>new Response(JSON.stringify(value),{headers:{'content-type':'application/json'}});
+test('raw official MiMo profiles receive model limits without overriding explicit or proxy limits',()=>{
+ for(const host of ['api.xiaomimimo.com','token-plan-cn.xiaomimimo.com','token-plan-sgp.xiaomimimo.com','token-plan-ams.xiaomimimo.com'])for(const model of ['mimo-v2.6-pro','mimo-v2.6-flash']){
+  const raw={model,baseUrl:'https://'+host+'/v1',apiKey:'synthetic'},r=normalizeRecord(raw);assert.equal(r.contextWindow,1048576);assert.equal(r.maxOutput,131072);
+  const explicit=normalizeRecord({...raw,contextWindow:8192,maxOutput:1024});assert.equal(explicit.contextWindow,8192);assert.equal(explicit.maxOutput,1024);
+ }
+ const proxy=normalizeRecord({model:'mimo-v2.6-pro',baseUrl:'https://owned-proxy.invalid/v1',apiKey:'synthetic',maxOutput:1024});assert.equal(proxy.contextWindow,8192);assert.equal(proxy.maxOutput,1024);
+});
+test('raw MiMo environment configuration does not truncate a valid reasoning reply at generic defaults',async()=>{
+ const r=await cli(['run','Reply ready','--no-memory'],{env:{KODER_MODEL:'mimo-v2.6-pro',KODER_BASE_URL:'https://api.xiaomimimo.com/v1',KODER_API_KEY:'synthetic'},fetchImpl:async(_u,init)=>{
+  const body=JSON.parse(init.body);return body.max_completion_tokens<32768?json({choices:[{finish_reason:'length',message:{content:null,reasoning_content:'private unfinished fixture'}}]}):json({choices:[{finish_reason:'stop',message:{content:'MIMO-RAW-PROFILE-PASS',reasoning_content:'private finished fixture'}}]});
+ }});assert.equal(r.code,0,r.err);assert.match(r.out,/MIMO-RAW-PROFILE-PASS/);assert.doesNotMatch(r.out,/private .*fixture/);
+});
 test('every tutorial DeepSeek environment example selects a currently supported official model',()=>{
  let checked=0;for(const variants of Object.values(MODEL_CODE.variants))for(const text of Object.values(variants))for(const m of text.matchAll(/KODER_MODEL\s*=\s*"?([a-z0-9.-]+)/g)){
   if(!m[1].startsWith('deepseek'))continue;checked++;assert.doesNotThrow(()=>normalizeRecord({model:m[1],baseUrl:'https://api.deepseek.com/v1',apiKey:'synthetic'}));
