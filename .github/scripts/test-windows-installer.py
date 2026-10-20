@@ -5,6 +5,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import argparse
 import hashlib
 import json
+import re
 import os
 import shutil
 import subprocess
@@ -172,7 +173,9 @@ def run_console(name, mode, answer, accepted):
         (home / 'terminal.log').write_text(text, encoding='utf-8')
         if name == 'bootstrap-timeout':
             assert not sent and not (home / 'install').exists(), 'bootstrap stall reached consent or installation'
-            assert 'Still loading installer:' in text and 'timed out' in text, text[-4000:]
+            plain = re.sub(r'\x1b\[[0-?]*[ -/]*[@-~]', '', text)
+            assert re.search(r'Still loading installer: [5-9][0-9]*s elapsed', plain), text[-4000:]
+            assert 'Installer download timed out after 7s' in plain, text[-4000:]
             assert time.monotonic() - start < 25, 'bootstrap timeout exceeded its limit'
             rows.append({'name':name,'passed':True,'seconds':round(time.monotonic()-start,2),'progressBeforeConsent':True})
             return
@@ -207,7 +210,7 @@ def run_console(name, mode, answer, accepted):
             owned_pid = int((home / 'owned-node.pid').read_text())
             check = subprocess.run([ps, '-NoProfile', '-Command', 'if (Get-Process -Id ' + str(owned_pid) + ' -ErrorAction SilentlyContinue) { exit 1 }'], env=env, capture_output=True, timeout=10)
             assert check.returncode == 0, 'owned stalled Node process survived the probe deadline'
-        rows.append({'name': name, 'mode': mode, 'unicodeInstallPath': '中文用户' in str(home), 'promptSeen': sent, 'accepted': accepted, 'passed': True, 'seconds': round(time.monotonic() - start, 2), 'preservedFiles': len(preserved)})
+        rows.append({'name': name, 'mode': mode, 'commandWasPasted': command_sent, 'unicodeInstallPath': '中文用户' in str(home), 'promptSeen': sent, 'accepted': accepted, 'passed': True, 'seconds': round(time.monotonic() - start, 2), 'preservedFiles': len(preserved)})
     finally:
         (home / 'terminal.log').write_text(''.join(parts), encoding='utf-8')
         server.stall = None
