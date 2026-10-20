@@ -1,10 +1,10 @@
 {
   "version": "0.4.0-preview.13",
   "file": "koder-cli-0.4.0-preview.13.tgz",
-  "sha256": "fbf36e625c3ff8e0fa352219ecef8771578e086f719e7fb5af571a20def81499",
-  "size": 4783605,
+  "sha256": "7efe45b389ebdabcc51274069a615391d04fbc1b865b182a5ebca503228b9c5e",
+  "size": 4785670,
   "node": ">=22",
-  "builtAt": "2026-10-20T13:49:39.687Z",
+  "builtAt": "2026-10-20T13:56:24.991Z",
   "preview": true,
   "agreement": {
     "id": "Koder-EULA-1.0",
