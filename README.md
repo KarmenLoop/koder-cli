@@ -1,8 +1,8 @@
 # Koder CLI
 
-**0.4.0-preview.13** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.13) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.0-preview.15** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.15) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
-Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Basic local use is free and does not require membership. A provider may charge for API requests.
+Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
 The KARMEN LOOP kernel connects task planning, permission checks, tool execution, and saved results. Public descriptions cover capabilities; new application runtime source remains proprietary under the [EULA](EULA.md). Third-party components retain their own licenses and [credits](OPEN_SOURCE_CREDITS.md).
 
@@ -48,7 +48,7 @@ In chat, `/setup` opens settings, `/model` manages the model, `/new` starts a ne
 
 ## Native model APIs and subscriptions
 
-Koder directly implements Chat Completions, Anthropic Messages, and Responses. The dated catalog has 35 visible presets and 94 curated model choices. Protocol fixtures cover the 32 cloud presets; account permissions, quota, and live availability require your own verification.
+Koder directly implements Chat Completions, Anthropic Messages, and Responses. The dated catalog has 36 visible presets and 98 curated model choices. Protocol fixtures cover the 33 cloud presets; account permissions, quota, and live availability require your own verification.
 
 Alibaba Token Plan, Alibaba Coding Plan, and Volcano Coding Plan have independent entries and billing paths. MiMo pay-as-you-go and Token Plan are separate too. No fallback silently changes the host, key, or billing route. The internal backup engine is disabled and gray by default.
 
@@ -127,3 +127,13 @@ koder permissions execution reset
 Full access runs commands, modifies/deletes files and uses already authorized applications without per-action questions. The default scope is this project. --scope profile explicitly covers every project in this local profile. reset removes all saved execution settings; revoke all returns this workspace to smart mode and removes applicable saved rules. --approval auto|ask|full|deny applies only to the current run, while --yes is also temporary and cannot override explicit deny. These choices do not accept software terms, supply passwords, enable learning/sync or grant OS access. ACP/editor and remote gateway callers retain their own approval policies.
 
 Rules stay in the local CLI home as execution-permissions.json, with host/workspace scope and action hashes rather than raw commands or keys. Execution authority is not synchronized as memory. Corrupt or unsafe permission files fail closed. Use the settings menu's Execution permissions section to manage the same controls.
+
+## Private collections and company licensing
+
+Use the official encrypted reference library with `koder resources search "1688"` and `koder resources read RESOURCE_ID`. Local model tasks can retrieve matching excerpts without preloading the library. Queries go to the official service; use short keywords without private data. Disable with `KODER_REMOTE_RESOURCES=0`. See [remote retrieval and privacy](docs/REMOTE-RESOURCES.md).
+
+Optionally import your own archives with koder resources import /path/to/collection.zip. Add --model-access only if local model sessions may search the collection and receive selected excerpts. References are encrypted locally, loaded on demand and excluded from sync and public releases; bundled scripts never run on import. See [private collection controls](docs/PRIVATE-RESOURCES.md).
+
+For company licensing and dedicated private repository delivery, run koder business or contact [info@karmenloop.com](mailto:info@karmenloop.com). A separate written agreement defines the delivery scope and rights. See [commercial licensing](docs/COMMERCIAL-LICENSING.md).
+
+If Koder is useful, an optional [GitHub star](https://github.com/KarmenLoop/koder-cli) helps others find it. Skip freely; stars never affect installation or licensed features.

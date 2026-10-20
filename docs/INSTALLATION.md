@@ -2,7 +2,7 @@
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide covers the downloadable **0.4.0-preview.13** release. Basic local use is free. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide covers the downloadable **0.4.0-preview.15** release. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -49,7 +49,7 @@ koder version
 koder setup
 ```
 
-`koder version` should show `0.4.0-preview.13` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
+`koder version` should show `0.4.0-preview.15` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
 
 If Windows says `koder` is not recognized, reopen the terminal first. You can inspect the installed launcher directly:
 
@@ -163,3 +163,12 @@ Full access runs commands, modifies/deletes files and uses already authorized ap
 Rules stay in the local CLI home as execution-permissions.json, with host/workspace scope and action hashes rather than raw commands or keys. Execution authority is not synchronized as memory. Corrupt or unsafe permission files fail closed. Use the settings menu's Execution permissions section to manage the same controls.
 
 Windows memory directories now use native ACL inspection. New empty directories are protected for the local owner, SYSTEM and Administrators, then read back before use. Existing nonempty directories with broader access stay blocked without changing their ACL or contents. No administrator elevation is requested. A junction or changed root is rejected.
+
+## Personal-use terms and private collections in preview.15
+
+This release adopts Koder-EULA-1.1. Earlier acceptance records do not accept the new terms, and older updaters stop before installation when the agreement changes. Read the new EULA and run the ordinary installer above; type accept only if you agree. Configuration, memory and model settings are retained. Commercial use requires a separate written authorization; koder business explains company licensing and dedicated private repository inquiries.
+
+For local archives, see [private reference collections](PRIVATE-RESOURCES.md). Imported originals are never included in the public download. A voluntarily chosen GitHub star is welcome and never required to install or use licensed features.
+
+
+The official encrypted workflow library is available on demand with `koder resources search "1688"`. No full library is installed locally. The server receives short query keywords; use `KODER_REMOTE_RESOURCES=0` to disable it. See [remote references](REMOTE-RESOURCES.md) for privacy, licenses and controls.

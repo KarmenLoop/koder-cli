@@ -1,12 +1,12 @@
 # Koder CLI — 使用前与授权说明 / Before you enable features
 
-适用于 0.4.0-preview.7。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
+适用于 0.4.0-preview.15。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
 
-For 0.4.0-preview.10. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+For 0.4.0-preview.15. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
 
 授权与数据使用说明
 
-使用许可：基础本地使用免费；新自有发行版采用专有的 Koder-EULA-1.0，第三方和旧 GPL 权利保留。接受协议只取得软件使用许可，不会开启以下任何可选能力。查看协议：koder eula；明确接受：koder eula accept。
+使用许可：个人非商业本地使用免费；商用与组织部署须单独书面授权，个人许可不授二次开发或修改自有实现代码的权利；新自有发行版采用专有的 Koder-EULA-1.1，第三方和旧 GPL 权利保留。接受协议只取得软件使用许可，不会开启以下任何可选能力。查看协议：koder eula；明确接受：koder eula accept。
 
 模型与网络：任务、选择的文件内容、检索到的记忆及工具结果可能发给你配置的模型/API；自带API费用由服务商收取。本地模型也必须实际安装运行，选择本地预设不等于已离线可用。使用 --key-env 保存变量引用；粘贴到模型配置的密钥是本机明文，界面仅隐藏显示。
 
@@ -43,7 +43,7 @@ For 0.4.0-preview.10. This guide explains features and consent; it does not repl
 
 Permissions and data guide
 
-License: basic local use is free. New Koder-owned distributions use proprietary Koder-EULA-1.0; third-party and legacy GPL rights remain intact. Acceptance licenses the software and enables none of the optional capabilities below. Read: koder eula. Explicitly accept: koder eula accept.
+License: personal, noncommercial local use is free; commercial use and organizational deployment require separate written authorization, and the personal license grants no proprietary development or code-modification rights. New Koder-owned distributions use proprietary Koder-EULA-1.1; third-party and legacy GPL rights remain intact. Acceptance licenses the software and enables none of the optional capabilities below. Read: koder eula. Explicitly accept: koder eula accept.
 
 Model and network: tasks, selected file contents, retrieved memories and tool results may be sent to your configured model/API. Provider charges apply. A local model must actually be installed and running; selecting a preset does not make offline inference available. Use --key-env for a variable reference. A key pasted into provider configuration is stored locally in plaintext even when the display masks it.
 

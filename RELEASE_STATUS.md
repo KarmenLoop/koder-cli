@@ -1,6 +1,14 @@
-# Koder CLI 0.4.0-preview.13 release status
+# Preview.15 encrypted reference library
 
-This release adds native Kimi API and Kimi Code handling, DeepSeek route/parameter normalization, and privacy-preserving recovery for saved thinking-model conversations. Causal fixtures reproduce the prior failures; authenticated user-account acceptance remains unverified.
+This candidate replaces the preloaded-library proposal with an official encrypted remote library of 1,004 MIT-licensed workflow adaptations. Retrieval is lazy and bounded. Unknown-license material is withheld. Original notices accompany readings; proprietary application restrictions do not override the reference licenses. Public release requires native Windows candidate acceptance and public readback.
+
+# Koder CLI 0.4.0-preview.15 release status
+
+Private ZIP collections are kept in a local encrypted library. The local user chooses model access; resource_search and resource_read load matching references on demand without bulk prompt injection, script execution, public redistribution or memory sync. The public package includes the integration code and instructions, not user collections.
+
+The new personal license does not grant proprietary code modification, secondary development or commercial use. Commercial and organizational use require separate written authorization. koder business provides company-licensing and dedicated-private-repository inquiry details; koder star shows a voluntary link without opening a browser or gating features. Prior distributions and third-party rights remain intact.
+
+This release retains native Kimi API and Kimi Code handling, DeepSeek route/parameter normalization, and privacy-preserving recovery for saved thinking-model conversations. Causal fixtures reproduce the prior failures; authenticated user-account acceptance remains unverified.
 
 Smart approval runs recognized low-risk checks and ordinary project edits automatically. Sensitive operations can be allowed once, remembered for the exact action in a workspace, or covered by explicit workspace/profile full access. Inspect, downgrade and revoke controls persist across sessions; OS and optional privacy grants remain separate.
 
@@ -8,11 +16,11 @@ This release retains the previous repair for MiMo streaming tool-call fragments 
 
 The native catalog adds independent Alibaba Token Plan, Alibaba Coding Plan, and Volcano Coding Plan routes. It contains 36 visible presets, 98 curated choices, and protocol fixtures for 33 cloud presets. Koder remains the default engine; the internal fallback is disabled and gray and never switches automatically.
 
-Public installation introductions describe the website, free local use, and the task kernel without private implementation or credentials. Full CLI consumer privacy terms and statements ship in Chinese and English, with the complete official consumer originals and source hashes. Clear feedback intent provides an address and blank template without sending email.
+Public installation introductions describe the website, free personal, noncommercial local use, and the task kernel without private implementation or credentials. Full CLI consumer privacy terms and statements ship in Chinese and English, with the complete official consumer originals and source hashes. Clear feedback intent provides an address and blank template without sending email.
 
 Seven new tutorial chapters bring the interactive and eight shell/language editions to 30 lessons. Optional code rain, confetti, fireworks, Christmas, Halloween, National Day, New Year, and birthday screens run for about six seconds and skip immediately. Supported calendars produce one greeting by default; automatic effects are a separate setting. Birthday month/day, music, IP lookup, and language learning remain independent choices. Browser autoplay may require a click.
 
-The accepted preview.11 installer architecture is retained: immediate initial-download feedback, five-second Node probe, progress/cancellation, CommonJS extraction under an ESM TEMP path, checksum gates, rollback protection, and a 100000000-second download default/maximum. The EULA digest is unchanged.
+The accepted preview.11 installer architecture is retained: immediate initial-download feedback, five-second Node probe, progress/cancellation, CommonJS extraction under an ESM TEMP path, checksum gates, rollback protection, and a 100000000-second download default/maximum. This release adopts the new Koder-EULA-1.1 personal, noncommercial terms with a new digest. Earlier acceptance records do not accept the new license. Use the ordinary installer, read the terms and explicitly accept if you agree; existing configurations and memory are retained.
 
 Release-specific local, installed-package, native Windows, and public-readback evidence is recorded with the release notes and WINDOWS-INSTALL-CHECKS.md. Paid provider accounts and the reporting user’s device remain separate acceptance scopes. Optional controls do not imply an operating-system firewall or unextractable runtime code.
 

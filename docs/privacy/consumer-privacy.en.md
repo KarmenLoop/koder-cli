@@ -1,11 +1,11 @@
 # Koder CLI consumer privacy terms — full text
 
-Updated and effective October 20, 2026. Applies from 0.4.0-preview.13.
+Updated and effective October 20, 2026. Applies from 0.4.0-preview.15.
 Provider: KARMENLOOP Official Team, Shanghai, China. Contact: info@karmenloop.com. Website: https://karmenloop.com.
 
 ## 1. Scope and choices
 
-These terms describe Koder CLI/TUI, its local KARMEN LOOP task kernel, installation and updates, optional connections, and celebrations. Basic local use is free and supports your own model API. Accepting the license does not enable preference learning, sync, computer access, country lookup, or music. Skipping an optional feature does not prevent ordinary work. Model providers, music sites, the country-lookup service, your operating system, and other connected services have their own terms.
+These terms describe Koder CLI/TUI, its local KARMEN LOOP task kernel, installation and updates, optional connections, and celebrations. Personal, noncommercial local use is free and supports your own model API; commercial use requires separate written authorization. Accepting the license does not enable preference learning, sync, computer access, country lookup, or music. Skipping an optional feature does not prevent ordinary work. Model providers, music sites, the country-lookup service, your operating system, and other connected services have their own terms.
 
 The package also includes the latest complete official consumer privacy notice and agreement. Read them offline with koder privacy desktop / agreement; koder privacy sources lists their origins and hashes. Those originals include desktop-specific descriptions, such as the desktop encrypted key store and clipboard behavior. This CLI notice and the actual CLI settings describe CLI behavior; a desktop implementation is not a promise about the CLI.
 
@@ -65,3 +65,10 @@ A material change to features, recipients, or purposes is described with the upd
 
 
 Execution approval settings stay in the local execution-permissions.json with host/workspace scope. Rules store action hashes, risk labels and timestamps, not raw commands or keys; authority is never memory-synced. Smart approval allows low-risk checks and ordinary project edits. Sensitive actions ask and offer Always allow. Explicit full access can cover one workspace or an explicitly selected profile; it can execute code, modify/delete files and use existing app grants without action prompts, but cannot grant OS permissions or supply passwords. Inspect with permissions execution status; revoke/reset withdraws settings. Private thinking protocol state stays in the live tool loop. Restored history uses a bounded visible-history reference without inventing or persisting hidden reasoning.
+
+## Private reference collections
+
+Selected ZIP collections are stored encrypted in the local private-resources directory, independently of account memory sync. Import does not run scripts or publish originals. Model retrieval is off by default; --model-access or allow-model ... --confirm MODEL permits local Koder tasks to search metadata and send selected excerpts to the configured model provider. Gateway and ACP sessions do not automatically receive this library. Disable stops future retrieval; it does not recall material already transmitted. Remove unlinks the catalog entry but retains encrypted objects and original archives. Commercial-license inquiries and GitHub stars are optional and do not automatically send information, open a browser, create repositories or grant rights.
+
+
+Official remote references: local CLI tasks can retrieve selected licensed workflows. The official service receives short search keywords and selected resource IDs, offsets and limits; the client does not attach full conversations, model keys or private collections. Hosting infrastructure receives normal network metadata, including IP. The handler does not log query or response bodies. Selected excerpts and required notices reach the task model and may remain in task history. No full library is downloaded at startup. Disable with KODER_REMOTE_RESOURCES=0. Private local collections never fall back to remote search. Encrypted GitHub assets are decrypted only by the official server; readable excerpts can be retained. Unknown-license materials are withheld. See docs/REMOTE-RESOURCES.md.

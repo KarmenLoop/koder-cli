@@ -3,7 +3,7 @@
 The legacy Koder CLI source already published in this repository remains under
 [GNU GPL v3](licenses/legacy-cli/GPL-3.0.txt), with the limited additional permission in
 [LICENSE-EXCEPTION.txt](LICENSE-EXCEPTION.txt). Future Koder-owned distributions that
-expressly adopt [Koder-EULA-1.0](EULA.md) are proprietary end-user distributions.
+expressly adopt [Koder-EULA-1.1](EULA.md) are proprietary end-user distributions.
 Neither the new agreement nor the kernel terms override any third-party license,
 notice, attribution or applicable source obligation. Already distributed versions
 retain their original licenses. See [license scope](LICENSE) and [distribution policy](DISTRIBUTION.md).

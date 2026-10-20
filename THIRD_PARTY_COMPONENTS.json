@@ -227,7 +227,7 @@
   "cliLicenseFiles": [
     {
       "path": "LICENSE",
-      "sha256": "1f2285f5f465c3397e0a43958a6db5b50c249203dc4cad50ac3090c70eeb888a"
+      "sha256": "87e7892876f01c448d338166270877cc0bc657a198e52f666b2bc2c254771649"
     },
     {
       "path": "licenses/legacy-cli/GPL-3.0.txt",
@@ -239,8 +239,8 @@
     },
     {
       "path": "EULA.md",
-      "sha256": "f136148e4135e944e04c7e0de820a8bc3dc8a38102315639a4a43dce9ba7a8f6",
-      "id": "Koder-EULA-1.0"
+      "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092",
+      "id": "Koder-EULA-1.1"
     },
     {
       "path": "LEGAL-NOTICE.md",
@@ -2105,8 +2105,8 @@
     }
   ],
   "licensingPolicy": {
-    "updatedOn": "2026-10-19",
-    "agreement": "Koder-EULA-1.0",
+    "updatedOn": "2026-10-20",
+    "agreement": "Koder-EULA-1.1",
     "agreementFile": "EULA.md",
     "scope": "Future Koder-owned distributions that expressly adopt this agreement; no retroactive change to old versions or third-party terms",
     "legacyPublicSourceThrough": "54e17fcf484638f6cf22a48b52a0533c82816191",
@@ -2114,6 +2114,6 @@
     "legacyGplSha256": "f80cba4854c07fdc7e39a44088e80c368bad7d430b1f1e634100351ea67aa7b2",
     "licenseScopeFile": "LICENSE",
     "distributionPolicyFile": "DISTRIBUTION.md",
-    "installerChanged": false
+    "installerChanged": true
   }
 }

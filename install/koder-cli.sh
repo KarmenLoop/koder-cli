@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.13/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.13/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.15/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.15/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Preview tag path. Do not use GitHub /releases/latest (stable-only).
@@ -10,7 +10,7 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.13}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.15}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
@@ -53,10 +53,16 @@ consent_stop() {
 CONSENT_TEXT="$(cat <<EOF
 Koder CLI ${BASE}
 官方团队 / Official team: KARMENLOOP 官方团队 / KARMENLOOP Official Team
-Koder：免费本地使用，自接模型 API；把想法交给任务，把权限留在你手里。
-Koder: free local use, your own model API, and permissions you control.
+Koder：个人非商业本地使用免费，自接模型 API；把想法交给任务，把权限留在你手里。
+Koder: free personal, noncommercial local use, your own model API, and permissions you control.
 KARMEN LOOP 本地任务内核：计划、权限核对、工具执行与结果记录，让工作稳稳往前走。
 The local KARMEN LOOP task kernel connects plans, permission checks, tools, and saved results.
+个人许可不包含二次开发、修改自有实现代码或商用。商用与组织部署须单独书面授权。第三方和旧版本原许可不变。
+No secondary development, proprietary code changes or commercial use under the personal license. Commercial use and organizational deployment require separate written authorization. Third-party and earlier licenses remain intact.
+公司授权服务＋专用私有仓库：info@karmenloop.com；安装后运行 koder business 查看洽询说明。
+Company licensing + dedicated private repositories: info@karmenloop.com. Run koder business for inquiry details.
+喜欢 Koder？欢迎自愿点 Star：https://github.com/KarmenLoop/koder-cli；可直接跳过，不影响使用。
+Find Koder useful? An optional star helps: https://github.com/KarmenLoop/koder-cli. Skip freely; it never affects access.
 隐私全文 / Full privacy notices: https://karmenloop.com/cli.html#cli-privacy
 安装后离线查看 / Read offline after install: koder privacy consumer / koder privacy statement
 所在地 / Location: 中国上海 / Shanghai, China
@@ -66,8 +72,8 @@ The local KARMEN LOOP task kernel connects plans, permission checks, tools, and 
 授权说明 / Consent guide: ${BASE}/ACCEPTANCE.md
 版权与国际用户说明 / Copyright and international-use notice: ${BASE}/LEGAL-NOTICE.md
 安装后查看全文 / Read the installed text: koder eula
-基础本地使用免费。接受只表示同意 Koder-EULA-1.0，不会开启喜好学习、同步、应用、电脑或发消息权限。
-Basic local use is free. Acceptance agrees to Koder-EULA-1.0 only. It does not enable preference learning, sync, apps, computer access, or messaging.
+个人非商业本地使用免费。接受只表示同意 Koder-EULA-1.1，不会开启喜好学习、同步、应用、电脑或发消息权限。
+Personal, noncommercial local use is free. Acceptance agrees to Koder-EULA-1.1 only. It does not enable preference learning, sync, apps, computer access, or messaging.
 输入 accept 并回车：同意并继续。输入 decline、直接回车，或按 Ctrl+C：取消。取消后不会下载程序、创建安装目录、修改 PATH 或写入接受记录。
 Type accept and press Enter to agree and continue. Type decline, press Enter with no text, or press Ctrl+C to cancel. Cancellation does not download the program, create an install directory, change PATH, or write an acceptance record.
 只有已经阅读并同意的人，才可在自动部署中显式设置 KODER_EULA_ACCEPT=1。其他值、--yes 或任意文字都不是同意。
@@ -226,8 +232,8 @@ fi
 MANIFEST="koder-cli-latest.json"
 [ -n "${VERSION}" ] && MANIFEST="koder-cli-${VERSION}.json"
 fetch "${BASE}/${MANIFEST}" "${TMP}/manifest.json"
-read -r VERSION FILE EXPECTED <<EOF
-$("${NODE_BIN}" -e 'const m=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); if(!/^[0-9A-Za-z.+-]+$/.test(m.version)||!/^[\w.+-]+\.tgz$/.test(m.file)||!/^[0-9a-f]{64}$/.test(m.sha256)) process.exit(3); console.log(m.version, m.file, m.sha256)' "${TMP}/manifest.json")
+read -r VERSION FILE EXPECTED AGREEMENT_SHA <<EOF
+$("${NODE_BIN}" -e 'const m=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); if(!/^[0-9A-Za-z.+-]+$/.test(m.version)||!/^[\w.+-]+\.tgz$/.test(m.file)||!/^[0-9a-f]{64}$/.test(m.sha256)||m.agreement?.id!=="Koder-EULA-1.1"||m.agreement?.version!=="1.1"||!/^[0-9a-f]{64}$/.test(m.agreement?.sha256)) process.exit(3); console.log(m.version, m.file, m.sha256,m.agreement.sha256)' "${TMP}/manifest.json")
 EOF
 [ -n "${EXPECTED:-}" ] || fail "安装清单无效" "invalid manifest"
 [ -z "${KODER_EXPECTED_VERSION:-}" ] || [ "${KODER_EXPECTED_VERSION}" = "${VERSION}" ] || fail "更新版本与已检查的版本不同，已停止" "release version changed after update check; aborted"
@@ -242,6 +248,7 @@ rm -rf "${TARGET}.tmp"
 mkdir -p "${TARGET}.tmp"
 tar -xzf "${TMP}/${FILE}" -C "${TARGET}.tmp" --strip-components=1
 [ -f "${TARGET}.tmp/bin/koder.mjs" ] || fail "安装包内容不完整" "package is incomplete"
+[ -f "${TARGET}.tmp/EULA.md" ] && [ "$(sha256 "${TARGET}.tmp/EULA.md")" = "${AGREEMENT_SHA}" ] || fail "安装包许可与发行清单不一致，未激活此版本" "package agreement differs from the release manifest; this version was not activated"
 rm -rf "${TARGET}"
 mv "${TARGET}.tmp" "${TARGET}"
 ln -sfn "${TARGET}" "${KODER_HOME}/current"
@@ -253,7 +260,7 @@ exec "${NODE_BIN}" "${KODER_HOME}/current/bin/koder.mjs" "\$@"
 EOF
 chmod +x "${LAUNCHER}"
 
-"${NODE_BIN}" -e 'const fs=require("fs"),crypto=require("crypto"),path=require("path"); const [home,file,version,base,launcher,node,site,updates,download]=process.argv.slice(1); const eula=fs.readFileSync(path.join(home,"current","EULA.md")); const sha=crypto.createHash("sha256").update(eula).digest("hex"); const acceptedAt=new Date().toISOString(); fs.mkdirSync(home,{recursive:true}); fs.writeFileSync(path.join(home,"eula-acceptance.json"), JSON.stringify({id:"Koder-EULA-1.0",version:"1.0",sha256:sha,acceptedAt,preview:true},null,2)+"\n",{mode:0o600}); fs.writeFileSync(file, JSON.stringify({version,base,launcher,node,site,updates,download,installedAt:acceptedAt,preview:true,agreementId:"Koder-EULA-1.0",agreementVersion:"1.0",agreementSha256:sha},null,2)+"\n")' \
+"${NODE_BIN}" -e 'const fs=require("fs"),crypto=require("crypto"),path=require("path"); const [home,file,version,base,launcher,node,site,updates,download]=process.argv.slice(1); const eula=fs.readFileSync(path.join(home,"current","EULA.md")); const sha=crypto.createHash("sha256").update(eula).digest("hex"); const acceptedAt=new Date().toISOString(); fs.mkdirSync(home,{recursive:true}); fs.writeFileSync(path.join(home,"eula-acceptance.json"), JSON.stringify({id:"Koder-EULA-1.1",version:"1.1",sha256:sha,acceptedAt,preview:true},null,2)+"\n",{mode:0o600}); fs.writeFileSync(file, JSON.stringify({version,base,launcher,node,site,updates,download,installedAt:acceptedAt,preview:true,agreementId:"Koder-EULA-1.1",agreementVersion:"1.1",agreementSha256:sha},null,2)+"\n")' \
   "${KODER_HOME}" "${KODER_HOME}/install.json" "${VERSION}" "${BASE}" "${LAUNCHER}" "${NODE_BIN}" "https://karmenloop.com" "https://karmenloop.com/updates.html" "https://karmenloop.com/download.html"
 
 case ":${PATH}:" in
@@ -277,6 +284,8 @@ if [ "${WITH_HERMES}" = 1 ]; then
 fi
 
 say "Koder CLI ${VERSION} 安装完成：${LAUNCHER}" "Koder CLI ${VERSION} installed: ${LAUNCHER}"
+say "KARMEN LOOP：本地任务内核，计划、核对权限、执行与记录。个人非商业使用免费；商用／公司授权＋私有仓库：info@karmenloop.com。" "KARMEN LOOP: the local task kernel for plans, permissions, execution and results. Personal, noncommercial use is free; company licensing + private repositories: info@karmenloop.com."
+say "欢迎自愿点 Star：https://github.com/KarmenLoop/koder-cli；直接跳过，不影响使用。" "An optional star helps others find Koder: https://github.com/KarmenLoop/koder-cli. Skip freely; it never affects access."
 say "官网和更新说明：https://karmenloop.com/updates.html （软件里也可运行 koder version 或 koder about）" "Official site and updates: https://karmenloop.com/updates.html (or run koder version / koder about)"
 if [ "${ONBOARD}" = 1 ] && [ -r /dev/tty ] && [ -w /dev/tty ] && (: < /dev/tty) 2>/dev/null; then
   "${LAUNCHER}" onboard < /dev/tty > /dev/tty 2>&1 || true
