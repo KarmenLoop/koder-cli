@@ -8,10 +8,11 @@ const {resolveMemoryLocation}=await load('src/shared-memory/location.mjs');
 assert.equal(process.platform,'win32');
 function powershell(script,root){
  const env={...process.env,KODER_ACL_FIXTURE:root};
+ const system=env[Object.keys(env).find(k=>k.toLowerCase()==='systemroot')];assert.ok(system,'Native SystemRoot is required');
  const key=Object.keys(env).find(k=>k.toLowerCase()==='psmodulepath');const original=key&&env[key];
  for(const k of Object.keys(env))if(k.toLowerCase()==='psmodulepath')delete env[k];
- env.PSModulePath=path.join(env.SystemRoot,'System32/WindowsPowerShell/v1.0/Modules')+';'+(original||'');
- const r=spawnSync(path.join(env.SystemRoot,'System32/WindowsPowerShell/v1.0/powershell.exe'),['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from("$ErrorActionPreference='Stop';"+script,'utf16le').toString('base64')],{env,encoding:'utf8',timeout:15000});
+ env.PSModulePath=path.join(system,'System32/WindowsPowerShell/v1.0/Modules')+';'+(original||'');
+ const r=spawnSync(path.join(system,'System32/WindowsPowerShell/v1.0/powershell.exe'),['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from("$ErrorActionPreference='Stop';"+script,'utf16le').toString('base64')],{env,encoding:'utf8',timeout:15000});
  assert.equal(r.status,0,r.stdout+r.stderr);return r.stdout.trim();
 }
 test('native Windows creates and reads back a protected owned memory directory',()=>{
