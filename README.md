@@ -1,6 +1,6 @@
 # Koder CLI
 
-**0.4.0-preview.8** · [下载 / Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.8) · [使用许可 / License](EULA.md) · [授权与数据说明 / Consent guide](ACCEPTANCE.md) · [版权与国际用户说明 / Legal notice](LEGAL-NOTICE.md) · [第三方来源 / Credits](OPEN_SOURCE_CREDITS.md)
+**0.4.0-preview.9** · [下载 / Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.9) · [使用许可 / License](EULA.md) · [授权与数据说明 / Consent guide](ACCEPTANCE.md) · [版权与国际用户说明 / Legal notice](LEGAL-NOTICE.md) · [第三方来源 / Credits](OPEN_SOURCE_CREDITS.md)
 
 Koder 是自接 API 或本地模型的终端助手。基础本地使用免费，不强制购买会员；模型服务可能另行收费。本预览版按专有使用许可提供下载安装，新的自有开发源码不公开。已经发布的旧 CLI 源码、历史版本及第三方组件保留原许可。公开仓库中的旧源码仍是 0.3.1；下载版本以本页 Release 与安装后的 `koder version` 为准。
 
@@ -18,7 +18,9 @@ Read the license, consent guide and legal notice first. The installer presents b
 
 Installers target macOS 11+, Linux/WSL and Windows 10/11, using Node.js 22+ or downloading the platform runtime. Installer and package checksums are verified. Acceptance on users’ Windows devices, live messaging/Gamma and multiple physical devices remains pending. See [release status](RELEASE_STATUS.md).
 
-See the [step-by-step installation and troubleshooting guide](docs/INSTALLATION.md) for Windows PowerShell/CMD, macOS/Linux, model setup, verification and the first task. The [Windows installer checks](docs/WINDOWS-INSTALL-CHECKS.md) passed six native console cases.
+See the [step-by-step installation and troubleshooting guide](docs/INSTALLATION.md) for Windows PowerShell/CMD, macOS/Linux, model setup, verification and the first task. The [Windows installer checks](docs/WINDOWS-INSTALL-CHECKS.md) passed nine native regression cases.
+
+Preview.9 reports each installation phase immediately after consent, bounds an existing Node probe to five seconds, and shows download progress with finite per-source deadlines. Default Windows downloads use identical official website mirrors with official-host fallback. Read the [stall troubleshooting guide](docs/INSTALLATION.md#if-installation-stops-producing-output-after-accept).
 
 ## 安装 / Install
 
@@ -66,7 +68,7 @@ koder setup
 koder learn
 ```
 
-安装包包含 `EULA.md`、`ACCEPTANCE.md`、`LEGAL-NOTICE.md`、完整第三方许可、来源说明与教程。GitHub 自动生成的本预览版 source archives 仅含发行文档；开发源码不随新标签公开。可从 Release 下载 [校验清单](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.8/SHA256SUMS)。
+安装包包含 `EULA.md`、`ACCEPTANCE.md`、`LEGAL-NOTICE.md`、完整第三方许可、来源说明与教程。GitHub 自动生成的本预览版 source archives 仅含发行文档；开发源码不随新标签公开。可从 Release 下载 [校验清单](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.9/SHA256SUMS)。
 
 The package includes the license, consent guide, complete third-party notices and tutorials. GitHub's automatic source archives for this preview contain distribution documentation only. Checksums are available on the release.
 

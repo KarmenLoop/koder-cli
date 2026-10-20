@@ -1,18 +1,15 @@
-# Windows installer checks for preview.8
+# Windows installer checks for preview.9
 
-[Native Windows run](https://github.com/KarmenLoop/koder-cli/actions/runs/39383794418), October 20, 2026. The Windows PowerShell 5.1/CMD console test finished successfully with six checks:
+[Native Windows regression run](https://github.com/KarmenLoop/koder-cli/actions/runs/39388845502) passed nine checks on October 20, 2026, using Windows PowerShell 5.1/CMD on hosted Windows build 10.0.26100.33438.
 
-- Empty Enter asks again, then explicit accept installs and the actual launcher reports preview.8.
-- Spaces around accept are trimmed; installation and launch succeed in a Chinese directory.
-- With Node removed from the child PATH, the installer downloads, verifies and uses its own Node runtime.
-- Explicit decline creates no installation directory.
-- CMD installation handles empty Enter followed by explicit accept.
-- Redirected text cannot accept the license and creates no installation directory.
+The checks cover empty Enter followed by explicit acceptance, spaces around accept, a Chinese install directory, automatic Node runtime download, explicit refusal, CMD installation, redirected-input refusal, an unresponsive existing Node executable, a stalled release manifest and a partially transferred package. The last two use a seven-second test deadline and require a progress heartbeat. They retain the previous installed launcher, acceptance record, configuration and memory sentinels, then run the retained launcher with exit code 0.
 
-The runner is hosted Windows, build 10.0.26100.33438. It uses real ConPTY consoles and actual release assets served by an isolated local HTTP server. Every accepted installation verifies the package checksum and acceptance digest, then runs the installed koder.cmd version with exit code 0. Complete logs and RESULT.json are attached to the linked run.
+The stalled Node case proves that the exact owned process was invoked and terminated after five seconds, then completes installation with the installer runtime. Multiple node.exe paths are resolved explicitly before probing.
 
-The fix also removes Get-FileHash lookup as an installation dependency, uses the system .NET SHA-256 implementation, and uses Node for Unicode-safe package extraction instead of native tar.exe.
+Default Windows transfers first use byte-identical official website mirrors, with GitHub/Node.js fallback. A checksum mismatch still fails. Each source has a 120-second transfer limit by default, with progress every five seconds. KODER_DOWNLOAD_TIMEOUT_SECONDS may explicitly choose 1–600 seconds; it changes neither consent nor verification. Custom download bases are respected.
 
-This does not establish acceptance on every user's Windows computer, live WeChat/Feishu/WeCom/Gamma accounts, or multiple physical devices. Model access still needs the user's own correctly configured provider or local model.
+The matching public command is checked separately after publication, in a Chinese user directory without Node on PATH. This regression run itself used isolated local release endpoints plus the actual runtime download path; it does not prove a user's network is reachable.
 
-Package SHA-256: `79b966613ddf65c8a5f4dd2c2fbf796c0ec049f09cfe82e73601e6d7f77d3788`.
+Package SHA-256: `4838162c99a65454a1f454069e621fa1209759f335c0b1869e4d870d0346ef58`.
+
+These checks do not establish acceptance on every user's Windows device, live messaging/Gamma accounts or multiple physical devices.

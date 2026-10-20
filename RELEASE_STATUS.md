@@ -1,8 +1,8 @@
-# Koder CLI 0.4.0-preview.8 release status
+# Koder CLI 0.4.0-preview.9 release status
 
 Installers ask for `accept` on a real terminal. Windows package checksums use the built-in .NET SHA-256 implementation, so installation does not depend on Get-FileHash being discoverable through the PowerShell module path. Windows now asks again on an empty or unrecognized answer and trims spaces around an explicit answer. `decline` or Ctrl+C cancels before download. The Mac/Linux shell installer also cancels on an empty Enter. `KODER_EULA_ACCEPT=1` remains the explicit unattended acceptance and is not implied by another value. PowerShell 7.6.7 PTY regression reproduces the old empty-answer cancellation and verifies the repair. Native Windows installer checks are published separately in the [Windows installer acceptance workflow](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml); they do not establish acceptance on user devices or real channels.
 
-Preview release. [Native Windows installer CI](https://github.com/KarmenLoop/koder-cli/actions/runs/39383794418) passed six checks, including a Chinese install path and automatic runtime download. The [check details](docs/WINDOWS-INSTALL-CHECKS.md) describe the scope. Isolated macOS preview.7 to preview.8 overlay installation preserved configuration, memory and binding sentinels. Acceptance on user devices and real channels remains separate.
+Preview release. [Nine native Windows regression checks](https://github.com/KarmenLoop/koder-cli/actions/runs/39388845502) passed, including a stalled existing Node process, a nonresponding manifest, a partial package transfer and retained working installation/configuration after failure. Public-command coverage is recorded separately after publication.
 
 Automatic update activation uses a single supervisor with fresh workers. Existing chat history, workspace, mode, named session, buffered input and volatile no-memory conversations are continued. Running gateways wait for admitted tasks, approvals and outbound replies, then release original Core ownership before reconnecting with retained bindings. Recently admitted message IDs and app/file effect receipts prevent update-induced replay. Disabled channels stay disabled. Configuration and memory directories are not replaced.
 
@@ -12,4 +12,8 @@ Migration: preview.5 and older processes do not implement this restart protocol.
 
 Validation: real subprocess update/continuation, local model server, local WeChat HTTP protocol fixture and serial regression suite. These are local fixture results, not native Windows, real WeChat/Feishu/WeCom account or cross-device acceptance. Those environments remain unavailable. New implementation stays proprietary under the existing EULA; bundled third-party notices and legacy source remain unchanged.
 
-This candidate: serial 400 tests, 397 pass, 0 fail, 3 existing Core skips; focused installer/consent 18 pass. EULA unchanged from preview.7. The package includes the step-by-step installation guide and this release-status document.
+Previous application regression: 400 tests, 397 pass, 0 fail, 3 existing Core skips. Preview.9 final installer/content checks: 17 pass. EULA unchanged from preview.7. The package includes the step-by-step installation guide and this release-status document.
+
+Preview.9 addresses silent waiting after consent. It immediately reports the accepted/runtime-check stage, bounds an existing Node process probe to five seconds, and reports each network phase and progress every five seconds. Each download source has a 120-second limit (explicit KODER_DOWNLOAD_TIMEOUT_SECONDS may set 1–600 seconds). A stalled transfer fails with a network/proxy diagnostic; it does not record an installed update. The EULA and optional permissions remain unchanged. Native Windows stall and happy-path evidence is recorded separately.
+
+Windows release and Node runtime downloads use byte-identical official website mirrors with official-host fallback. Explicit custom download bases are respected, and checksum failures are not retried against a different source.

@@ -2,7 +2,7 @@
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide covers the downloadable **0.4.0-preview.8** release. Basic local use is free. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide covers the downloadable **0.4.0-preview.9** release. Basic local use is free. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -49,7 +49,7 @@ koder version
 koder setup
 ```
 
-`koder version` should show `0.4.0-preview.8` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
+`koder version` should show `0.4.0-preview.9` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
 
 If Windows says `koder` is not recognized, reopen the terminal first. You can inspect the installed launcher directly:
 
@@ -121,3 +121,9 @@ For old 0.3.x/preview.1/2 installations, run the normal install command once to 
 Run the current command again, wait for `accept / decline:`, type `accept` and press Enter. If you do not agree, type `decline` or press Ctrl+C. If it still fails, report the terminal name, Windows version, exact command and complete redacted error to [GitHub Issues](https://github.com/KarmenLoop/koder-cli/issues) or the official email.
 
 See [release status](../RELEASE_STATUS.md) for the precise test coverage. Windows CI checks do not replace acceptance on your own machine, real messaging/Gamma accounts, or physical multi-device testing.
+
+## If installation stops producing output after accept
+
+Preview.9 immediately prints that consent was accepted and it is checking the runtime. An unresponsive existing Node probe is stopped after five seconds and the installer uses its own runtime. Downloads show their current phase and a progress message every five seconds. A blocked transfer fails after 120 seconds instead of waiting indefinitely. Check the named download host and your network/proxy before retrying. No installation success or license-acceptance record is written for a failed download. Explicitly setting KODER_DOWNLOAD_TIMEOUT_SECONDS can change a transfer limit to 1–600 seconds for a known slow connection. It does not grant consent or skip checksums.
+
+The default Windows installer first uses the official website mirror, then the official GitHub/Node host if the mirror cannot be reached. The mirrored package/runtime bytes retain the original checksums; a checksum mismatch stops installation. Explicit custom KODER_INSTALL_BASE or KODER_NODE_DIST values are respected.
