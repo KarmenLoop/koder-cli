@@ -105,17 +105,22 @@ def environment(name):
 
 def run_console(name, mode, answer, accepted):
     home, env = environment(name)
+    pasted_command = None
     command = [ps, '-NoLogo', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', 'irm ' + base + '/koder-cli.ps1 | iex']
     if mode == 'cmd':
         command = [os.environ['COMSPEC'], '/d', '/c', str(assets / 'koder-cli.cmd')]
-    if name == 'cmd-pasted-command':
+    if name in ['cmd-pasted-command', 'bootstrap-timeout']:
         command_text = (Path(__file__).with_name('windows-install-command.txt')).read_text().strip().replace('https://karmenloop.com/install/koder-cli.ps1', base + '/koder-cli.ps1')
-        command = [os.environ['COMSPEC'], '/d', '/c', command_text]
+        pasted_command = command_text
+        command = [os.environ['COMSPEC'], '/d', '/q']
     if name == 'public-download':
         command = [ps, '-NoLogo', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', 'irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex']
     if name == 'public-cmd-download':
         command_text = Path(__file__).with_name('windows-install-command.txt').read_text().strip()
-        command = [os.environ['COMSPEC'], '/d', '/c', command_text]
+        pasted_command = command_text
+        command = [os.environ['COMSPEC'], '/d', '/q']
+    if pasted_command:
+        env['PROMPT'] = 'KODER_CMD_TEST$G'
     server.stall = 'bootstrap' if name == 'bootstrap-timeout' else 'manifest' if name == 'manifest-timeout' else 'package' if name == 'package-timeout' else None
     preserved = {}
     if accepted is None:
@@ -141,9 +146,19 @@ def run_console(name, mode, answer, accepted):
     reader.start()
     start = time.monotonic()
     sent = False
+    command_sent = False
+    exit_sent = False
     try:
         while time.monotonic() - start < 100:
             text = ''.join(parts)
+            if pasted_command and not command_sent and 'KODER_CMD_TEST>' in text:
+                # This is a real paste at a CMD prompt. Passing the whole line
+                # through /c adds a second quoting layer and changes $variables.
+                proc.write(pasted_command + '\r')
+                command_sent = True
+            if pasted_command and command_sent and not exit_sent and text.count('KODER_CMD_TEST>') >= 2:
+                proc.write('exit\r')
+                exit_sent = True
             if not sent and 'accept / decline:' in text:
                 proc.write(answer)
                 sent = True
