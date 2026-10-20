@@ -41,10 +41,16 @@ ps = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/power
 rows = []
 
 def environment(name):
-    home = out / name
+    home = out / (name + ('-中文用户' if name == 'powershell-spaces' else ''))
     home.mkdir()
     env = {**os.environ, 'KODER_INSTALL_BASE': base, 'KODER_INSTALL_HOME': str(home / 'install'), 'KODER_NO_ONBOARD': '1', 'USERPROFILE': str(home), 'HOME': str(home)}
     env.pop('KODER_EULA_ACCEPT', None)
+    # This workflow itself runs under PowerShell 7. Its inherited module path
+    # omits Windows PowerShell 5.1's inbox script modules (including Get-FileHash).
+    # A normal 5.1 console includes these; restore them for this actual 5.1 child.
+    inbox = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/Modules')
+    legacy = str(Path(os.environ['ProgramFiles']) / 'WindowsPowerShell/Modules')
+    env['PSModulePath'] = os.pathsep.join([inbox, legacy, env.get('PSModulePath', '')])
     return home, env
 
 def run_console(name, mode, answer, accepted):
@@ -80,17 +86,18 @@ def run_console(name, mode, answer, accepted):
         (home / 'terminal.log').write_text(text, encoding='utf-8')
         assert sent, 'interactive question missing: ' + text[-1800:]
         install = home / 'install'
+        assert (not accepted or (install / 'install.json').exists()), text[-4000:]
         if accepted:
             info = json.loads((install / 'install.json').read_text(encoding='utf-8-sig'))
             assert info['version'] == expected, info
             acceptance = json.loads((install / 'eula-acceptance.json').read_text(encoding='utf-8-sig'))
             assert acceptance['sha256'] == manifest['agreement']['sha256']
-            version = subprocess.run([os.environ['COMSPEC'], '/d', '/c', str(install / 'bin/koder.cmd'), 'version'], env=env, capture_output=True, text=True, timeout=30)
+            version = subprocess.run([os.environ['COMSPEC'], '/d', '/c', str(install / 'bin/koder.cmd'), 'version'], env=env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=30)
             (home / 'version.log').write_text(version.stdout + version.stderr, encoding='utf-8')
             assert version.returncode == 0 and expected in version.stdout, version.stdout + version.stderr
         else:
             assert not install.exists(), 'refusal created installation state'
-        rows.append({'name': name, 'mode': mode, 'promptSeen': sent, 'accepted': accepted, 'passed': True})
+        rows.append({'name': name, 'mode': mode, 'unicodeInstallPath': '中文用户' in str(home), 'promptSeen': sent, 'accepted': accepted, 'passed': True})
     finally:
         if proc.isalive():
             proc.terminate(force=True)
@@ -101,7 +108,7 @@ try:
     run_console('powershell-refuse', 'powershell', 'decline\r', False)
     run_console('cmd-empty-then-accept', 'cmd', '\raccept\r', True)
     home, env = environment('redirected-input')
-    run = subprocess.run([ps, '-NoLogo', '-NoProfile', '-File', str(assets / 'koder-cli.ps1')], input='accept\n', env=env, capture_output=True, text=True, timeout=30)
+    run = subprocess.run([ps, '-NoLogo', '-NoProfile', '-File', str(assets / 'koder-cli.ps1')], input='accept\n', env=env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=30)
     (home / 'terminal.log').write_text(run.stdout + run.stderr, encoding='utf-8')
     assert run.returncode != 0 and not (home / 'install').exists(), 'redirected text accepted the license'
     rows.append({'name': 'redirected-input', 'passed': True})
