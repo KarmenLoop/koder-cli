@@ -13,3 +13,6 @@ KARMENLOOP 官方团队，中国上海，info@karmenloop.com，https://karmenloo
 反馈只提供邮箱和空白模板，不自动发送或附加历史。官网与内核介绍只展示公开能力；应用权限、确认、脱敏和校验不能替代操作系统防护，也不能承诺安装在设备上的代码绝对无法被提取。
 
 完整消费者隐私条款：koder privacy consumer。官网原始消费者声明与协议：koder privacy desktop / agreement。来源及文件 SHA-256：koder privacy sources。生日删除：koder celebrate birthday forget；关闭音乐：koder celebrate music off；关闭自动提示：koder celebrate auto off。全部全文随安装包离线提供。
+
+
+执行审批设置仅保存在本机 execution-permissions.json，按宿主与工作区限定；规则保存动作哈希、风险类型和时间，不保存原始命令或密钥，也不作为共享记忆同步。默认智能判断允许低风险检查与普通项目修改；敏感操作询问并可选择始终允许。全面开放必须明确选择，可覆盖当前项目或显式选择全部项目；它能运行代码、改删文件和使用已有应用授权，不授予系统权限或代填密码。permissions execution status 可查看，revoke/reset 可撤销。严格思考模型的私有续答状态仅保留在当前工具循环；恢复旧历史时使用有限的可见历史引用，不伪造或持久化隐藏推理。

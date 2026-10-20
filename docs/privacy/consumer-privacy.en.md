@@ -1,6 +1,6 @@
 # Koder CLI consumer privacy terms — full text
 
-Updated and effective October 20, 2026. Applies from 0.4.0-preview.12.
+Updated and effective October 20, 2026. Applies from 0.4.0-preview.13.
 Provider: KARMENLOOP Official Team, Shanghai, China. Contact: info@karmenloop.com. Website: https://karmenloop.com.
 
 ## 1. Scope and choices
@@ -62,3 +62,6 @@ Do not submit information you lack authority to process, secrets, identity docum
 ## 11. Updates and contact
 
 A material change to features, recipients, or purposes is described with the updated version and date. Features needing a separate choice retain their own confirmation. For privacy questions, access, correction, deletion, or complaints, contact the KARMENLOOP Official Team at info@karmenloop.com with only the redacted details needed to locate the issue. We handle requests under the applicable requirements. The official consumer notice's contact and complaint arrangements remain available in full.
+
+
+Execution approval settings stay in the local execution-permissions.json with host/workspace scope. Rules store action hashes, risk labels and timestamps, not raw commands or keys; authority is never memory-synced. Smart approval allows low-risk checks and ordinary project edits. Sensitive actions ask and offer Always allow. Explicit full access can cover one workspace or an explicitly selected profile; it can execute code, modify/delete files and use existing app grants without action prompts, but cannot grant OS permissions or supply passwords. Inspect with permissions execution status; revoke/reset withdraws settings. Private thinking protocol state stays in the live tool loop. Restored history uses a bounded visible-history reference without inventing or persisting hidden reasoning.

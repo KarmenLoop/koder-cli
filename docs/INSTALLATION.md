@@ -2,7 +2,7 @@
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide covers the downloadable **0.4.0-preview.12** release. Basic local use is free. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide covers the downloadable **0.4.0-preview.13** release. Basic local use is free. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -49,7 +49,7 @@ koder version
 koder setup
 ```
 
-`koder version` should show `0.4.0-preview.12` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
+`koder version` should show `0.4.0-preview.13` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
 
 If Windows says `koder` is not recognized, reopen the terminal first. You can inspect the installed launcher directly:
 
@@ -141,3 +141,25 @@ See [PROVIDERS.md](PROVIDERS.md) for the dated model catalog, native protocols, 
 Run `koder privacy consumer` or `koder privacy statement` for the complete installed CLI notices; `desktop` and `agreement` retain the official originals, and `sources` shows hashes. No model or prior license acceptance is needed to read them. `koder feedback` supplies info@karmenloop.com and an empty template without sending anything.
 
 The 30-lesson tutorial includes native subscription routes, safe API checks, and privacy controls. `koder celebrate` offers skippable six-second effects. Birthday month/day, music, and optional IP country lookup have separate choices; none is enabled by accepting the license or --yes. Music autoplay depends on the browser and keeps a one-click fallback. These optional features do not change installer consent, checksums, or runtime download behavior.
+
+## Execution permissions
+
+Smart approval is the default: recognized low-risk local checks and ordinary project edits run without a question. Code execution, deletion, secret/configuration paths, shell effects, unknown commands and external application actions ask. The decision comes from local code, not a model's claim. This is an approval policy, not an OS sandbox.
+
+At a sensitive prompt, y allows once, a or always saves that exact action for this workspace, and f or full saves full access for this workspace. Enter/n declines. Saved choices are loaded in later sessions and can be inspected or revoked:
+
+```sh
+koder permissions execution status
+koder permissions execution ask
+koder permissions execution auto
+koder permissions execution full --confirm FULL
+koder permissions execution full --scope profile --confirm FULL
+koder permissions execution revoke all
+koder permissions execution reset
+```
+
+Full access runs commands, modifies/deletes files and uses already authorized applications without per-action questions. The default scope is this project. --scope profile explicitly covers every project in this local profile. reset removes all saved execution settings; revoke all returns this workspace to smart mode and removes applicable saved rules. --approval auto|ask|full|deny applies only to the current run, while --yes is also temporary and cannot override explicit deny. These choices do not accept software terms, supply passwords, enable learning/sync or grant OS access. ACP/editor and remote gateway callers retain their own approval policies.
+
+Rules stay in the local CLI home as execution-permissions.json, with host/workspace scope and action hashes rather than raw commands or keys. Execution authority is not synchronized as memory. Corrupt or unsafe permission files fail closed. Use the settings menu's Execution permissions section to manage the same controls.
+
+Windows memory directories now use native ACL inspection. New empty directories are protected for the local owner, SYSTEM and Administrators, then read back before use. Existing nonempty directories with broader access stay blocked without changing their ACL or contents. No administrator elevation is requested. A junction or changed root is rejected.

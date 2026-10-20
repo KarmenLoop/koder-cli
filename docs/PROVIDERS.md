@@ -1,10 +1,10 @@
 # Model providers and compatibility
 
-This guide covers **0.4.0-preview.12**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
+This guide covers **0.4.0-preview.13**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
 
 ## What the catalog means
 
-The 35 visible presets contain 94 curated model choices. Each cloud preset has a local native tool-call/result round trip. Local fixtures check request fields, response parsing and continuation; they do not establish your account’s model access, region, quota, billing or reliability. Some providers require model activation or a deployment endpoint in their console. The list contains task models, not every audio, image, embedding or batch service a vendor sells.
+The 36 visible presets contain 98 curated model choices. Each cloud preset has a local native tool-call/result round trip. Local fixtures check request fields, response parsing and continuation; they do not establish your account’s model access, region, quota, billing or reliability. Some providers require model activation or a deployment endpoint in their console. The list contains task models, not every audio, image, embedding or batch service a vendor sells.
 
 | Preset | Curated model IDs | Native protocol | Source |
 | --- | --- | --- | --- |
@@ -12,6 +12,7 @@ The 35 visible presets contain 94 curated model choices. Each cloud preset has a
 | qwen | qwen3.8-max, qwen3.8-flash | openai | [Official reference](https://help.aliyun.com/en/model-studio/qwen3-8-max) |
 | mimo | mimo-v2.6-pro, mimo-v2.6-flash | openai | [Official reference](https://platform.xiaomimimo.com/#/docs) |
 | mimo-token-plan | mimo-v2.6-pro, mimo-v2.6-flash | openai | [Official reference](https://platform.xiaomimimo.com/#/docs) |
+| kimi-code | k3-256k, k3, kimi-for-coding, kimi-for-coding-highspeed | responses | [Official reference](https://www.kimi.com/code/docs/en/) |
 | kimi | kimi-k3, kimi-k2.7-code, kimi-k2.6 | openai | [Official reference](https://platform.moonshot.cn/docs/intro) |
 | doubao | doubao-seed-2-1-pro-260915, doubao-seed-2-1-lite-260915 | openai | [Official reference](https://docs.volcengine.com/docs/ark/model-list?lang=zh) |
 | hunyuan | hunyuan-turbos-latest, hunyuan-t1-latest | openai | [Official reference](https://cloud.tencent.com/document/product/1729/111007) |
@@ -112,3 +113,15 @@ Volcano Coding Plan uses /api/coding/v3 for Chat Completions or Responses, and /
 Token Plan Anthropic base: https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic. Alibaba Coding Plan Anthropic base: https://coding.dashscope.aliyuncs.com/apps/anthropic. Koder appends /v1/messages for these documented compatibility bases.
 
 Provider subscription rules and data practices remain the provider’s terms. In particular, review the current Alibaba personal/team data terms before submitting private work. No compatibility test here establishes live account access or billing eligibility.
+
+## Kimi, Kimi Code and DeepSeek recovery
+
+Moonshot API supports the official api.moonshot.cn and api.moonshot.ai Chat Completions bases. Kimi K3 uses max_completion_tokens and low/high/max reasoning effort; it does not offer a thinking-off setting. DeepSeek uses deepseek-flash or deepseek-v4-pro on api.deepseek.com. Deprecated official deepseek-chat/reasoner IDs fail with a specific local explanation instead of silently selecting a billed replacement. Custom proxy routes remain explicit.
+
+Kimi Code is a separate membership product with separate credentials: choose **kimi-code** in setup. Its default is k3-256k at https://api.kimi.com/coding/v1 using Responses. Overseas accounts may use https://api.kimi.ai/coding/v1. Select only an entitled model ID from the four listed choices. Unknown IDs are rejected to avoid a documented silent fallback. Koder identifies itself honestly as KoderCLI; membership or client restrictions are not bypassed. Context and model access depend on your tier, and a 401/403 can indicate an entitlement issue. K3 and K2.8 support low/high/max; HighSpeed keeps thinking on. No automatic route or model switch occurs.
+
+For these documented native models, the default output reserve is 32768 tokens and reasoning starts low when supported. An explicit user context/output ceiling is retained. A model check reserves enough output for thinking before visible text. A reply that ends at its token budget is identified as incomplete; an unfinished tool call never runs.
+
+Strict thinking APIs require private protocol state during a tool loop. Koder preserves that state in the live loop. Saved visible history deliberately omits private reasoning. When restoring such history, Koder projects a bounded quoted reference for the model rather than forging missing reasoning blocks. The saved conversation stays intact; quoted history cannot grant permission or replay an old tool action. A plain greeting remains isolated from old tasks.
+
+[Moonshot K3](https://platform.kimi.ai/docs/guide/kimi-k3-quickstart), [Moonshot thinking and tool loops](https://platform.kimi.ai/docs/guide/use-thinking-models), [DeepSeek thinking](https://api-docs.deepseek.com/guides/thinking_mode/), [Kimi Code models and membership](https://www.kimi.com/code/docs/en/kimi-code/models.html).
