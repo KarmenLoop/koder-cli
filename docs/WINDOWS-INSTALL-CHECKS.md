@@ -8,7 +8,7 @@ The stalled Node case proves that the exact owned process was invoked and termin
 
 Default Windows transfers first use byte-identical official website mirrors, with GitHub/Node.js fallback. A checksum mismatch still fails. Each source has a 120-second transfer limit by default, with progress every five seconds. KODER_DOWNLOAD_TIMEOUT_SECONDS may explicitly choose 1–600 seconds; it changes neither consent nor verification. Custom download bases are respected.
 
-The matching public command is checked separately after publication, in a Chinese user directory without Node on PATH. This regression run itself used isolated local release endpoints plus the actual runtime download path; it does not prove a user's network is reachable.
+[Published-release validation](https://github.com/KarmenLoop/koder-cli/actions/runs/39389597530) passed all ten checks after publication. Its public-command case fetched the exact installer from public GitHub main without an authentication token, in a Chinese user directory with Node removed from PATH. It downloaded the runtime and package through the default public hosts, verified the checksums, installed the runtime under the owned install directory and ran `koder version` with exit code 0. The public case completed in 14.38 seconds on that hosted Windows machine. The remaining nine cases retain their regression scope; this result does not prove a user's network is reachable.
 
 Package SHA-256: `4838162c99a65454a1f454069e621fa1209759f335c0b1869e4d870d0346ef58`.
 

@@ -18,7 +18,7 @@ Read the license, consent guide and legal notice first. The installer presents b
 
 Installers target macOS 11+, Linux/WSL and Windows 10/11, using Node.js 22+ or downloading the platform runtime. Installer and package checksums are verified. Acceptance on users’ Windows devices, live messaging/Gamma and multiple physical devices remains pending. See [release status](RELEASE_STATUS.md).
 
-See the [step-by-step installation and troubleshooting guide](docs/INSTALLATION.md) for Windows PowerShell/CMD, macOS/Linux, model setup, verification and the first task. The [Windows installer checks](docs/WINDOWS-INSTALL-CHECKS.md) passed nine native regression cases.
+See the [step-by-step installation and troubleshooting guide](docs/INSTALLATION.md) for Windows PowerShell/CMD, macOS/Linux, model setup, verification and the first task. The [Windows installer checks](docs/WINDOWS-INSTALL-CHECKS.md) passed all ten native Windows cases, including the [published public command](https://github.com/KarmenLoop/koder-cli/actions/runs/39389597530) in a Chinese directory without preinstalled Node.
 
 Preview.9 reports each installation phase immediately after consent, bounds an existing Node probe to five seconds, and shows download progress with finite per-source deadlines. Default Windows downloads use identical official website mirrors with official-host fallback. Read the [stall troubleshooting guide](docs/INSTALLATION.md#if-installation-stops-producing-output-after-accept).
 
