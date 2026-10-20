@@ -1,36 +1,17 @@
 # Koder CLI 0.4.0-preview.11 release status
 
-Preview.10 adds explicit Xiaomi MiMo V2.6 pay-as-you-go and Token Plan setup, Pro/Flash model IDs, the official completion-budget field, and the Anthropic-compatible endpoint/header mapping. Credential-class mismatches fail locally before a request. Custom proxy endpoints and explicit account limits are preserved. Streaming/tool-call/reasoning-history checks are local fixture evidence. Authenticated Xiaomi service and the reported Windows device remain unverified.
+Preview.11 is published on GitHub and the official website. Native Koder is the default engine. The internal Hermes fallback is disabled and gray by default, requires an explicit internal opt-in, and is never selected automatically.
 
-Selecting Hermes with a saved official MiMo model creates a Koder-managed Hermes profile. Its selected model and endpoint are explicit; the key stays in the child environment. Existing Hermes configuration is not overwritten or copied. The pinned installed Hermes runtime is checked against a local model fixture and an actual synthetic-file read; this does not establish Xiaomi account access.
+Koder directly implements Chat Completions, Anthropic Messages, and Responses tool loops. The dated catalog contains 32 visible presets and 71 curated model choices. Each of the 29 cloud presets has a native tool/result protocol fixture. Current OpenAI and Perplexity Agent routes use Responses. Gemini tool signatures, Anthropic thinking blocks, and provider reasoning survive actual harness tool continuation. MiMo pay-as-you-go and Token Plan endpoints remain separate; credentials are never silently moved between hosts.
 
-The installer keeps the preview.9 post-consent progress, bounded existing-Node probe, transfer deadlines, checksum gates and official mirror fallback. The EULA and optional permissions are unchanged.
+Stopped Yi and obsolete Sonar entries are removed from the task picker. Batch, speech-only, safety-only, and models requiring a separate computer-use protocol are excluded from general task choices. Account model refresh preserves the active model and key. A text reply alone is reported as text-only evidence; `koder model test --tools` explicitly checks a harmless tool call and continuation.
 
-## Previous preview.9 evidence
+Windows installation reports the initial download host immediately and displays progress before consent as well as during subsequent downloads. CMD uses a monitored PowerShell bootstrap. The extractor uses .cjs so TEMP may be inside an ESM project, including Chinese and space-containing paths. Download default and maximum are 100000000 seconds, including installer, runtime, and updater transfers. Progress, cancellation, checksums, explicit shorter deadlines, and rollback protection remain. The EULA digest and optional permissions are unchanged.
 
+Validation passed 424 source tests with no failures and three existing skips, 66 website tests, and [13 native Windows installer cases plus 24 installed protocol/ACP checks](https://github.com/KarmenLoop/koder-cli/actions/runs/39405078337). All 74 production pages, 10 download assets, and eight tutorials were read back and compared with the accepted publication. The Windows public commands installed without preinstalled Node in Chinese paths.
 
-Installers ask for `accept` on a real terminal. Windows package checksums use the built-in .NET SHA-256 implementation, so installation does not depend on Get-FileHash being discoverable through the PowerShell module path. Windows now asks again on an empty or unrecognized answer and trims spaces around an explicit answer. `decline` or Ctrl+C cancels before download. The Mac/Linux shell installer also cancels on an empty Enter. `KODER_EULA_ACCEPT=1` remains the explicit unattended acceptance and is not implied by another value. PowerShell 7.6.7 PTY regression reproduces the old empty-answer cancellation and verifies the repair. Native Windows installer checks are published separately in the [Windows installer acceptance workflow](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml); they do not establish acceptance on user devices or real channels.
+These protocol checks do not establish authenticated provider access, account quota, or live model availability. The reporting user's Windows device and real messaging-channel accounts remain unverified. The unrelated desktop release gates are unchanged.
 
-Preview candidate; publication and artifact verification are recorded separately.
+Package SHA-256: `7adf763f02b3f919225023a9232ce1610a06d8ef93f6a14e8f0db5d1b9cf8864`.
 
-Automatic update activation uses a single supervisor with fresh workers. Existing chat history, workspace, mode, named session, buffered input and volatile no-memory conversations are continued. Running gateways wait for admitted tasks, approvals and outbound replies, then release original Core ownership before reconnecting with retained bindings. Recently admitted message IDs and app/file effect receipts prevent update-induced replay. Disabled channels stay disabled. Configuration and memory directories are not replaced.
-
-Updates still compare the official GitHub feed, verify installer/package hashes, and check the actual installed entry before activation. A replacement that cannot start before receiving work falls back once. A worker that has accepted work is never automatically replayed after a crash. An ordinary shell update activates the new version and exits; open chats and gateways resume independently. A pending approval delays gateway activation rather than silently authorizing it.
-
-Migration: preview.5 and older processes do not implement this restart protocol. Start preview.6 once after that initial upgrade; subsequent upgrades are automatic. No settings reset or channel rebinding is required for migration. Platform-expired/revoked credentials can still require platform authorization.
-
-Validation: real subprocess update/continuation, local model server, local WeChat HTTP protocol fixture and serial regression suite. These are local fixture results, not native Windows, real WeChat/Feishu/WeCom account or cross-device acceptance. Those environments remain unavailable. New implementation stays proprietary under the existing EULA; bundled third-party notices and legacy source remain unchanged.
-
-Previous application regression: serial 400 tests, 397 pass, 0 fail, 3 existing Core skips; focused installer/consent 18 pass. EULA unchanged from preview.7. The package includes the step-by-step installation guide and this release-status document.
-
-Preview.9 addresses silent waiting after consent. It immediately reports the accepted/runtime-check stage, bounds an existing Node process probe to five seconds, and reports each network phase and progress every five seconds. Each download source has a 120-second limit (explicit KODER_DOWNLOAD_TIMEOUT_SECONDS may set 1–600 seconds). A stalled transfer fails with a network/proxy diagnostic; it does not record an installed update. The EULA and optional permissions remain unchanged. Native Windows stall and happy-path evidence is recorded separately.
-
-Windows release and Node runtime downloads use byte-identical official website mirrors with official-host fallback. Explicit custom download bases are respected, and checksum failures are not retried against a different source.
-
-## Preview.11 provider and download repair
-
-Koder directly implements Chat Completions, Anthropic Messages, and Responses tool loops. OpenAI GPT-6 and Perplexity Agent use Responses; Gemini tool signatures, signed Anthropic thinking, and private reasoning survive actual tool continuation. Each visible cloud preset has a local native tool/result protocol fixture. This is not authenticated provider acceptance.
-
-The dated model list adds current official task models, removes Yi and obsolete Sonar choices, and excludes batch, speech-only, safety-only and computer-use-specific protocol models from the general task picker. Model metadata can be refreshed from the selected account without changing its active model or credentials. koder model test --tools verifies a harmless tool call and continuation explicitly; a text reply alone no longer claims task capability.
-
-The download default and accepted maximum are now 100000000 seconds. Progress, cancellation, checksums, finite shorter test deadlines, and rollback protection remain. Native Koder is the default; Hermes is an explicit optional engine, and unsupported fallback routes fail before a prompt or credential handoff.
+See [installation](docs/INSTALLATION.md), [provider setup](docs/PROVIDERS.md), [MiMo setup](docs/MIMO.md), and [Windows evidence](docs/WINDOWS-INSTALL-CHECKS.md). Earlier release history remains in the [GitHub releases](https://github.com/KarmenLoop/koder-cli/releases).
