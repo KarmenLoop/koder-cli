@@ -51,7 +51,7 @@ test('disabling remote references removes the tools without making a resource re
  const result=await cli(['ask','Say hello.','--no-memory'],{home,io,env:{KODER_REMOTE_RESOURCES:'0'},provider:{model:'synthetic',contextWindow:64000,complete:async({tools})=>{assert.ok(!tools.some(t=>t.name==='resource_search'));return {text:'Hello.',toolCalls:[]};}}});assert.equal(result.code,0,result.err);assert.equal(calls,0);
 });
 test('an empty private search never falls back to the official remote service',async()=>{
- const home=tmp(),vault={read:async()=>({key:Buffer.alloc(32,91).toString('base64')}),write:async()=>{},availability:()=>({mode:'protected',nativeVerified:true})};
+ const home=fs.realpathSync(tmp()),vault={read:async()=>({key:Buffer.alloc(32,91).toString('base64')}),write:async()=>{},availability:()=>({mode:'protected',nativeVerified:true})};
  const {openResourceLibrary}=await load('src/resource-library.mjs');const {syntheticBundle}=await import('./import-fixtures.mjs');const file=path.join(home,'owned.zip');fs.writeFileSync(file,syntheticBundle());const lib=await openResourceLibrary({env:{...process.env,KODER_CLI_HOME:home},credentials:vault});try{await lib.importFile(file,{modelAccess:true});}finally{await lib.close();}
  let calls=0,round=0;const result=await cli(['ask','Search my private library.','--no-memory'],{home,io:{resourceCredentials:vault,resourceFetchImpl:async()=>{calls++;throw Error('private query leaked');}},provider:{model:'synthetic',contextWindow:64000,complete:async({messages})=>{
   if(++round===1)return {text:'',toolCalls:[{id:'private-search',name:'resource_search',arguments:{query:'private-customer-no-match'}}]};
