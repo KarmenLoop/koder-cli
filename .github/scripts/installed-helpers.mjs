@@ -75,6 +75,7 @@ export async function cli(argv, { cwd, home = tmp("koder-home-"), env = {}, prov
   input.isTTY = false;
   input.end(stdin);
   const childEnv = { PATH: process.env.PATH, HOME: process.env.HOME, KODER_CLI_HOME: home, NO_COLOR: "1", ...env };
+  if(process.platform==='win32'&&!childEnv.KODER_MEMORY_ROOT)childEnv.KODER_MEMORY_ROOT=path.join(home,'owned-memory-root');
   if (process.env.KODER_DESKTOP_ROOT && childEnv.KODER_DESKTOP_ROOT == null) childEnv.KODER_DESKTOP_ROOT = process.env.KODER_DESKTOP_ROOT;
   if (env.KODER_EULA_ACCEPT !== "0") writeAcceptance(childEnv);
   const code = await runCli(argv, {

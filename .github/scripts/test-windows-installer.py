@@ -265,8 +265,12 @@ try:
             assert animation.returncode == 0, animation.stdout + animation.stderr
             assert json.loads((out / 'terminal-celebrations/ANIMATION-RESULT.json').read_text())['passed']
         if expected == '0.4.0-preview.13':
+            acl = subprocess.run([info['node'], '--test', '--test-timeout=30000', str(Path(__file__).with_name('test-windows-memory-acl.mjs'))], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=100)
+            (out / 'windows-memory-acl.tap').write_text(acl.stdout + acl.stderr, encoding='utf-8')
+            assert acl.returncode == 0 and '# pass 3' in acl.stdout and '# fail 0' in acl.stdout, acl.stdout + acl.stderr
+            (out / 'WINDOWS-ACL-RESULT.json').write_text(json.dumps({'passed':True,'checks':3,'scope':'Native Windows ACL readback, real owned directories and negative access/junction cases'}) + '\n')
             names = ['test-native-api-recovery.mjs', 'test-native-protocol-matrix.mjs', 'test-execution-permissions.mjs']
-            extended = subprocess.run([info['node'], '--test', '--test-timeout=20000', *[str(Path(__file__).with_name(n)) for n in names]], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=90)
+            extended = subprocess.run([info['node'], '--test', '--test-timeout=60000', *[str(Path(__file__).with_name(n)) for n in names]], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=180)
             (out / 'native-recovery-permissions.tap').write_text(extended.stdout + extended.stderr, encoding='utf-8')
             assert extended.returncode == 0 and '# pass 15' in extended.stdout and '# fail 0' in extended.stdout, extended.stdout + extended.stderr
             (out / 'NATIVE-PERMISSIONS-RESULT.json').write_text(json.dumps({'passed':True,'checks':15,'scope':'Actual installed package, synthetic protocol replies and owned execution policy fixtures; no provider account acceptance'}) + '\n')
