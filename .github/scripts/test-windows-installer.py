@@ -148,6 +148,9 @@ def run_console(name, mode, answer, accepted):
         if accepted is True:
             info = json.loads((install / 'install.json').read_text(encoding='utf-8-sig'))
             assert info['version'] == expected, info
+            if name in ['powershell-download-runtime', 'public-download']:
+                assert str(Path(info['node'])).lower().startswith(str(install / 'runtime').lower()), 'test did not use the downloaded runtime'
+                assert Path(info['node']).is_file(), 'downloaded runtime missing'
             acceptance = json.loads((install / 'eula-acceptance.json').read_text(encoding='utf-8-sig'))
             assert acceptance['sha256'] == manifest['agreement']['sha256']
             version = subprocess.run([os.environ['COMSPEC'], '/d', '/c', str(install / 'bin/koder.cmd'), 'version'], env=env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=30)
