@@ -50,7 +50,9 @@ def environment(name):
     # A normal 5.1 console includes these; restore them for this actual 5.1 child.
     inbox = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/Modules')
     legacy = str(Path(os.environ['ProgramFiles']) / 'WindowsPowerShell/Modules')
-    env['PSModulePath'] = os.pathsep.join([inbox, legacy, env.get('PSModulePath', '')])
+    env['PSMODULEPATH'] = os.pathsep.join([inbox, legacy, env.get('PSMODULEPATH', '')])
+    if name == 'powershell-download-runtime':
+        env['PATH'] = os.pathsep.join(part for part in env['PATH'].split(os.pathsep) if not (Path(part) / 'node.exe').is_file())
     return home, env
 
 def run_console(name, mode, answer, accepted):
@@ -105,6 +107,7 @@ def run_console(name, mode, answer, accepted):
 try:
     run_console('powershell-empty-then-accept', 'powershell', '\raccept\r', True)
     run_console('powershell-spaces', 'powershell', '  accept  \r', True)
+    run_console('powershell-download-runtime', 'powershell', 'accept\r', True)
     run_console('powershell-refuse', 'powershell', 'decline\r', False)
     run_console('cmd-empty-then-accept', 'cmd', '\raccept\r', True)
     home, env = environment('redirected-input')
@@ -113,7 +116,7 @@ try:
     assert run.returncode != 0 and not (home / 'install').exists(), 'redirected text accepted the license'
     rows.append({'name': 'redirected-input', 'passed': True})
 finally:
-    report = {'passed': len(rows) == 5 and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests}
+    report = {'passed': len(rows) == 6 and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests}
     (out / 'RESULT.json').write_text(json.dumps(report, indent=2) + '\n')
     server.shutdown()
     print(json.dumps(report))
