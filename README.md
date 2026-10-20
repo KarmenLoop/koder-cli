@@ -16,9 +16,9 @@ Read the license, consent guide and legal notice first. The installer presents b
 
 安装器面向 macOS 11+、Linux/WSL、Windows 10/11，使用 Node.js 22+ 或按平台下载运行时，并校验安装器与程序包。Windows 真机安装/文件操作、真实微信/飞书/企业微信/Gamma及多设备端到端验收仍待完成。本版是预览版，请查看 [RELEASE_STATUS.md](RELEASE_STATUS.md) 中证据与限制。
 
-Installers target macOS 11+, Linux/WSL and Windows 10/11, using Node.js 22+ or downloading the platform runtime. Installer and package checksums are verified. Native Windows, live messaging/Gamma and physical multi-device acceptance remain pending. See [release status](RELEASE_STATUS.md).
+Installers target macOS 11+, Linux/WSL and Windows 10/11, using Node.js 22+ or downloading the platform runtime. Installer and package checksums are verified. Acceptance on users’ Windows devices, live messaging/Gamma and multiple physical devices remains pending. See [release status](RELEASE_STATUS.md).
 
-See the [step-by-step installation and troubleshooting guide](docs/INSTALLATION.md) for Windows PowerShell/CMD, macOS/Linux, model setup, verification and the first task.
+See the [step-by-step installation and troubleshooting guide](docs/INSTALLATION.md) for Windows PowerShell/CMD, macOS/Linux, model setup, verification and the first task. The [Windows installer checks](docs/WINDOWS-INSTALL-CHECKS.md) passed six native console cases.
 
 ## 安装 / Install
 
