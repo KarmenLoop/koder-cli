@@ -1,0 +1,31 @@
+{
+  "retrievedAt": "2026-10-20",
+  "sources": [
+    {
+      "file": "official-consumer-privacy.zh.md",
+      "source": "https://karmenloop.com/legal/source/privacy.md",
+      "sha256": "77867a527aea57cd0da95ba5eb023d345e81665ac6eeafd6691928984a39042a",
+      "scope": "Unmodified official consumer text; desktop-specific behavior is distinguished from this CLI notice."
+    },
+    {
+      "file": "official-consumer-privacy.en.md",
+      "source": "https://karmenloop.com/en/legal/source/privacy.md",
+      "sha256": "f86542794280ccbea2a694752b25d5ffebb4ba8a73b9ace93c95f0a54736b11a",
+      "scope": "Unmodified official consumer text; desktop-specific behavior is distinguished from this CLI notice."
+    },
+    {
+      "file": "official-consumer-agreement.zh.md",
+      "source": "https://karmenloop.com/legal/source/agreement.md",
+      "sha256": "c172c2bfe9a934108e78efd287d5b5c032f8e82044e9108e0aed73521b904cb5",
+      "scope": "Unmodified official consumer text; desktop-specific behavior is distinguished from this CLI notice."
+    },
+    {
+      "file": "official-consumer-agreement.en.md",
+      "source": "https://karmenloop.com/en/legal/source/agreement.md",
+      "sha256": "7b0cd4d4b21232809e0c4e6fc1c93e501516e4d18c0e382603b770a31204d048",
+      "scope": "Unmodified official consumer text; desktop-specific behavior is distinguished from this CLI notice."
+    }
+  ],
+  "cliNotice": "consumer-privacy.zh.md / consumer-privacy.en.md",
+  "statuteReference": "https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm"
+}

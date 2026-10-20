@@ -1,15 +1,17 @@
-# Windows installer checks for preview.11
+# Windows installation checks for preview.12
 
-The [published-release Windows run](https://github.com/KarmenLoop/koder-cli/actions/runs/39405078337) passed all 13 installer cases and 24 installed-package protocol/ACP checks on Windows PowerShell 5.1 and CMD. It tested the same preview.11 archive available on the official website and GitHub release.
+The [native Windows candidate run](https://github.com/KarmenLoop/koder-cli/actions/runs/39418333643) passed 11 installer cases, 36 installed-package protocol/consumer checks, and 9 real-terminal animation checks with the preview.12 archive.
 
-The public CMD case pasted the complete documented command at an interactive CMD prompt, accepted the agreement, downloaded a Node runtime into a Chinese user path, verified checksums, and ran the installed version command successfully. It finished in 12.78 seconds on the hosted Windows machine. The public PowerShell command completed the same flow in 12.58 seconds. These timings describe that runner and connection.
+The installer cases include PowerShell 5.1, CMD, a real pasted CMD command, blank input followed by accept, trimmed accept, refusal, Chinese and space-containing paths, no installed Node runtime, first-script stalls, unresponsive Node detection, stalled manifest/package transfers, preserved configuration/memory/launcher state, and redirected-input refusal. Downloads retain progress, cancellation, checksum validation, and rollback protection. The production download default/maximum remains 100000000 seconds.
 
-The 13 installer cases cover empty input followed by accept, whitespace around accept, Chinese and space-containing paths, no preinstalled Node, refusal, the downloaded CMD installer, direct CMD paste, initial-script download stalls, an unresponsive existing Node, stalled manifest and partial package transfers, both public commands, and redirected-input refusal. Stalled updates preserve five existing installation, configuration, and memory files and retain the working launcher. A seven-second initial-script test displayed progress before consent and stopped in 9.70 seconds. Production downloads default to 100000000 seconds; tests use explicit shorter deadlines.
+Installed checks comprise 10 MiMo protocol/ACP cases, 14 broader provider cases, and 12 consumer-feature cases. They exercise native subscription routes, MiMo nullable streaming metadata through an actual local file tool and continuation, greeting context isolation, full offline privacy texts, separate birthday/music/IP choices, blank feedback templates, private local state, and single-play browser scheduling. They use synthetic local protocol fixtures; no authenticated paid provider account is accepted by this evidence.
 
-The 10 MiMo checks and 14 broader provider checks import the actual installed package. They cover native tool/result continuation, Responses, Anthropic Messages, Chat Completions, provider controls, reasoning/signature replay, and the disabled internal fallback. They use local protocol fixtures. No authenticated paid provider account or reporting user's Windows device was accepted by this run.
+The real-terminal checks play fireworks for six seconds and skip each of the eight scenes. Full playback measured 6.062 seconds; the process exited normally. Reader-thread cleanup is measured separately (2 seconds on this runner) and is not included in animation duration. All eight skip paths exited normally without waiting for the six-second timer.
 
-The [candidate run](https://github.com/KarmenLoop/koder-cli/actions/runs/39403801311) passed 11 installer cases and the same 24 installed checks before publication. Earlier rejected candidates retained failures for Windows curl timer overflow, a test-driver quoting layer, and a CommonJS extractor saved with an ESM-sensitive .js extension. The final command uses a monitored PowerShell bootstrap; the extractor uses .cjs. Checksum assertions and agreement requirements were preserved.
+The first rejected candidate run 39417860285 passed installation and installed fixtures but failed the animation driver's duration check because it included reader cleanup. Its failure remains recorded. A prior local package was also rejected when a fresh terminal remained open after skipping; input-flow restoration was fixed before this archive was built. No runtime code changed between the two hosted candidate runs.
 
-Package SHA-256: `7adf763f02b3f919225023a9232ce1610a06d8ef93f6a14e8f0db5d1b9cf8864`.
+Published-command acceptance is recorded separately after release. The reporting user's Windows device, real model account access, and browser autoplay behavior remain separate acceptance scopes.
 
-Previous preview.10 evidence: [candidate](https://github.com/KarmenLoop/koder-cli/actions/runs/39395431998), [published commands](https://github.com/KarmenLoop/koder-cli/actions/runs/39395890655).
+Package SHA-256: `06614d853668757a3821acdcee828a71c9bab68b7e8ed88d34382facdbb5234d`.
+
+Previous preview.11 public acceptance: https://github.com/KarmenLoop/koder-cli/actions/runs/39405078337.

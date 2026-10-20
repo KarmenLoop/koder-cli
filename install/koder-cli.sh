@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.11/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.11/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.12/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.12/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Preview tag path. Do not use GitHub /releases/latest (stable-only).
@@ -10,7 +10,7 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.11}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.12}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
@@ -53,6 +53,12 @@ consent_stop() {
 CONSENT_TEXT="$(cat <<EOF
 Koder CLI ${BASE}
 官方团队 / Official team: KARMENLOOP 官方团队 / KARMENLOOP Official Team
+Koder：免费本地使用，自接模型 API；把想法交给任务，把权限留在你手里。
+Koder: free local use, your own model API, and permissions you control.
+KARMEN LOOP 本地任务内核：计划、权限核对、工具执行与结果记录，让工作稳稳往前走。
+The local KARMEN LOOP task kernel connects plans, permission checks, tools, and saved results.
+隐私全文 / Full privacy notices: https://karmenloop.com/cli.html#cli-privacy
+安装后离线查看 / Read offline after install: koder privacy consumer / koder privacy statement
 所在地 / Location: 中国上海 / Shanghai, China
 官网 / Website: https://karmenloop.com
 邮箱 / Email: info@karmenloop.com

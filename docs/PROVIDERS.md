@@ -1,10 +1,10 @@
 # Model providers and compatibility
 
-This guide covers **0.4.0-preview.11**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
+This guide covers **0.4.0-preview.12**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
 
 ## What the catalog means
 
-The 32 visible presets contain 71 curated model choices. Each cloud preset has a local native tool-call/result round trip. Local fixtures check request fields, response parsing and continuation; they do not establish your account’s model access, region, quota, billing or reliability. Some providers require model activation or a deployment endpoint in their console. The list contains task models, not every audio, image, embedding or batch service a vendor sells.
+The 35 visible presets contain 94 curated model choices. Each cloud preset has a local native tool-call/result round trip. Local fixtures check request fields, response parsing and continuation; they do not establish your account’s model access, region, quota, billing or reliability. Some providers require model activation or a deployment endpoint in their console. The list contains task models, not every audio, image, embedding or batch service a vendor sells.
 
 | Preset | Curated model IDs | Native protocol | Source |
 | --- | --- | --- | --- |
@@ -82,3 +82,33 @@ Koder is the default and handles the configured API directly. The internal fallb
 ## Download completion deadline
 
 The installer bootstrap, program/runtime downloads and CLI updater default to **100000000 seconds**. You may explicitly set `KODER_DOWNLOAD_TIMEOUT_SECONDS` to an integer from 1 through 100000000 for a shorter limit. Progress remains visible and Ctrl+C cancels. Long Node deadlines are scheduled in bounded chunks, avoiding timer overflow. This setting does not increase the five-second existing-Node probe or model API timeouts. Checksums and agreement checks still apply.
+
+## Alibaba and Volcano subscriptions
+
+Checked October 20, 2026. These are separate native API routes; subscription access is not implied by an ordinary provider key. A custom proxy remains explicit and is never silently redirected.
+
+### Alibaba Cloud: aliyun-token-plan
+
+Base URL: https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1. Default: qwen3.8-max. Models: qwen3.8-max, qwen3.8-flash, qwen3.7-plus, deepseek-v4-pro, glm-5.2.
+
+[Official setup](https://help.aliyun.com/zh/model-studio/token-plan-personal-overview). Account and regional availability must be checked in the plan console.
+
+### Alibaba Cloud: aliyun-coding-plan
+
+Base URL: https://coding.dashscope.aliyuncs.com/v1. Default: qwen3.7-plus. Models: qwen3.7-plus, qwen3.6-plus, kimi-k2.5, glm-5, MiniMax-M2.5, qwen3-coder-next, qwen3-coder-plus.
+
+[Official setup](https://help.aliyun.com/zh/model-studio/coding-plan). Account and regional availability must be checked in the plan console.
+
+### Volcano Engine: volcano-coding-plan
+
+Base URL: https://ark.cn-beijing.volces.com/api/coding/v3. Default: ark-code-latest. Models: ark-code-latest, doubao-seed-2.1-pro, doubao-seed-2.1-lite, doubao-seed-evolving, minimax-m3, glm-5.3, glm-5.3-flash, deepseek-v4.1-flash, deepseek-v4-pro, kimi-k3, kimi-k2.8-preview.
+
+[Official setup](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-get-started). Account and regional availability must be checked in the plan console.
+
+Alibaba Token Plan personal/team subscriptions share the documented Token Plan service path but have their own issued keys and data terms. Coding Plan is a separate subscription with different supported versions and no Responses route. Both use their own sk-sp- key; the prefix alone cannot prove which subscription issued it. Ordinary Alibaba API credentials do not substitute for a subscription.
+
+Volcano Coding Plan uses /api/coding/v3 for Chat Completions or Responses, and /api/coding for Anthropic Messages. Standard /api/v3 is a separate metered route. Use ark-code-latest to follow the console selection, or an exact supported model name; metered ep- endpoint IDs are not Coding Plan model names.
+
+Token Plan Anthropic base: https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic. Alibaba Coding Plan Anthropic base: https://coding.dashscope.aliyuncs.com/apps/anthropic. Koder appends /v1/messages for these documented compatibility bases.
+
+Provider subscription rules and data practices remain the provider’s terms. In particular, review the current Alibaba personal/team data terms before submitting private work. No compatibility test here establishes live account access or billing eligibility.
