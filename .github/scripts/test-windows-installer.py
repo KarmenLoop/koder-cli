@@ -109,7 +109,7 @@ def run_console(name, mode, answer, accepted):
     if mode == 'cmd':
         command = [os.environ['COMSPEC'], '/d', '/c', str(assets / 'koder-cli.cmd')]
     if name == 'cmd-pasted-command':
-        command_text = (Path(__file__).with_name('windows-install-command.txt')).read_text().strip().replace('https://karmenloop.com/install/koder-cli.cmd', base + '/koder-cli.cmd')
+        command_text = (Path(__file__).with_name('windows-install-command.txt')).read_text().strip().replace('https://karmenloop.com/install/koder-cli.ps1', base + '/koder-cli.ps1')
         command = [os.environ['COMSPEC'], '/d', '/c', command_text]
     if name == 'public-download':
         command = [ps, '-NoLogo', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', 'irm https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.ps1 | iex']
