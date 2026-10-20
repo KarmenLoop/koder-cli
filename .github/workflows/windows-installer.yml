@@ -3,9 +3,12 @@ on:
   workflow_dispatch:
     inputs:
       release:
-        description: Candidate release tag (drafts supported)
+        description: Published release tag
         required: true
         default: cli-0.4.0-preview.8
+      assets_ref:
+        description: Optional branch containing candidate release assets
+        required: false
 permissions:
   contents: read
 jobs:
@@ -25,10 +28,17 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ inputs.release }}
+          ASSETS_REF: ${{ inputs.assets_ref }}
         run: |
           python -m pip install pywinpty
           New-Item -ItemType Directory -Path candidate | Out-Null
-          gh release download $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --dir candidate
+          if ($env:ASSETS_REF) {
+            git fetch --depth 1 origin "refs/heads/$env:ASSETS_REF"
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            git restore --source=FETCH_HEAD --worktree -- candidate
+          } else {
+            gh release download $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --dir candidate
+          }
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: PowerShell 5.1 and CMD consent, install and version
         shell: pwsh
