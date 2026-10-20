@@ -196,6 +196,17 @@ try:
     (home / 'terminal.log').write_text(run.stdout + run.stderr, encoding='utf-8')
     assert run.returncode != 0 and not (home / 'install').exists(), 'redirected text accepted the license'
     rows.append({'name': 'redirected-input', 'passed': True})
+    if expected == '0.4.0-preview.10':
+        installation = out / 'powershell-empty-then-accept/install'
+        info = json.loads((installation / 'install.json').read_text(encoding='utf-8-sig'))
+        packages = [installation / 'versions' / expected]
+        assert (packages[0] / 'src/mimo.mjs').is_file(), packages
+        native_env = {**os.environ, 'KODER_ACCEPTANCE_PACKAGE': str(packages[0])}
+        mimo = subprocess.run([info['node'], '--test', '--test-timeout=15000', str(Path(__file__).with_name('test-mimo-compat.mjs'))], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=60)
+        (out / 'mimo-native.tap').write_text(mimo.stdout + mimo.stderr, encoding='utf-8')
+        assert mimo.returncode == 0 and '# pass 10' in mimo.stdout and '# fail 0' in mimo.stdout, mimo.stdout + mimo.stderr
+        (out / 'MIMO-RESULT.json').write_text(json.dumps({'passed': True, 'checks': 10, 'scope': 'Actual installed Windows package with protocol/ACP fixtures; not authenticated Xiaomi service'}) + '\n')
+
 finally:
     report = {'passed': len(rows) == (10 if args.public_download else 9) and all(r['passed'] for r in rows), 'version': expected, 'powershell': ps, 'windows': subprocess.run(['cmd', '/c', 'ver'], capture_output=True, text=True).stdout.strip(), 'checks': rows, 'requests': requests, 'publicCommandTested': args.public_download, 'publicProbe': public_probe}
     (out / 'RESULT.json').write_text(json.dumps(report, indent=2) + '\n')
