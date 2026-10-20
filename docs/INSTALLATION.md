@@ -2,7 +2,7 @@
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide covers the downloadable **0.4.0-preview.11** release. Basic local use is free. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide covers the downloadable **0.4.0-preview.12** release. Basic local use is free. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -49,7 +49,7 @@ koder version
 koder setup
 ```
 
-`koder version` should show `0.4.0-preview.11` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
+`koder version` should show `0.4.0-preview.12` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
 
 If Windows says `koder` is not recognized, reopen the terminal first. You can inspect the installed launcher directly:
 
@@ -135,3 +135,9 @@ See [the MiMo guide](MIMO.md) for separate pay-as-you-go and Token Plan presets,
 ## Provider compatibility
 
 See [PROVIDERS.md](PROVIDERS.md) for the dated model catalog, native protocols, removed entries, account verification, and optional fallback engine.
+
+## Offline privacy, feedback, and optional celebrations
+
+Run `koder privacy consumer` or `koder privacy statement` for the complete installed CLI notices; `desktop` and `agreement` retain the official originals, and `sources` shows hashes. No model or prior license acceptance is needed to read them. `koder feedback` supplies info@karmenloop.com and an empty template without sending anything.
+
+The 30-lesson tutorial includes native subscription routes, safe API checks, and privacy controls. `koder celebrate` offers skippable six-second effects. Birthday month/day, music, and optional IP country lookup have separate choices; none is enabled by accepting the license or --yes. Music autoplay depends on the browser and keeps a one-click fallback. These optional features do not change installer consent, checksums, or runtime download behavior.
