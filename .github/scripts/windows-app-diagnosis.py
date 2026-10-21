@@ -7,7 +7,7 @@ for name,digest in [(m['file'],m['sha256']),(h['file'],h['sha256'])]:
 cli=P/'koder-cli';shutil.copytree(cli/'kernel',P/'koder-desktop',dirs_exist_ok=True);env={**os.environ,'KODER_DESKTOP_ROOT':str(P/'koder-desktop')}
 f=cli/'test/apps-bundle.test.mjs';original=f.read_text()
 # Keep every operation and original 60-second file limit; measure only boundaries.
-s=original.replace(' const dist=path.join(dir,'dist');execFileSync('," console.error('[DEBUG-app-phase] pack-start',Date.now());const dist=path.join(dir,'dist');execFileSync(")
+s=original.replace(" const dist=path.join(dir,'dist');execFileSync("," console.error('[DEBUG-app-phase] pack-start',Date.now());const dist=path.join(dir,'dist');execFileSync(")
 s=s.replace(" const manifest=JSON.parse", " console.error('[DEBUG-app-phase] pack-end',Date.now());const manifest=JSON.parse")
 s=s.replace("execFileSync('tar',['-xzf',path.join(dist,manifest.file),'-C',dir]);return", "console.error('[DEBUG-app-phase] extract-start',Date.now());execFileSync('tar',['-xzf',path.join(dist,manifest.file),'-C',dir]);console.error('[DEBUG-app-phase] extract-end',Date.now());return")
 s=s.replace("async()=>assert.equal((await host.release()).cleanupComplete,true)","async()=>{console.error('[DEBUG-app-phase] release-start',Date.now());assert.equal((await host.release()).cleanupComplete,true);console.error('[DEBUG-app-phase] release-end',Date.now());}")
