@@ -1,7 +1,7 @@
 {
-  "file": "acceptance-harness-menu-r3.tar.gz",
-  "sha256": "d5289648adb7d6a0cd5adc708918eea303ca99d23abdac444fc62f7d7bf507f3",
-  "bytes": 338415,
-  "files": 165,
-  "adaptation": "Original assertions and deadlines retained. The two protected-lock credential ports remain synthetic. Five new regressions cover website task routing, exact menu entry points, same-terminal input and language inheritance. Existing expected settings-exit copy is updated to match the current-session instructions. No API credentials or private development runtime sources."
+  "file": "acceptance-harness-memory-r1.tar.gz",
+  "sha256": "523838c459b387efc7ea7a82f63c950b2e92fce39896c26fb04cd7170b7901ee",
+  "bytes": 340575,
+  "files": 166,
+  "adaptation": "Original assertions and deadlines retained; current version literals only changed to preview.21. Nine new real CLI memory-isolation regressions. Existing protected-lock credential ports remain synthetic. No private runtime source or provider credentials."
 }

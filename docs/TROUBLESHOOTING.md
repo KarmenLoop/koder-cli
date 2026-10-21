@@ -42,6 +42,18 @@ Contact [info@karmenloop.com](mailto:info@karmenloop.com) with the Koder version
 
 ## A website task returns the Koder introduction
 
-Update to preview.20 or newer. Earlier versions could mistake the word “官网” in a website redesign task for a question about Koder. In preview.20, the whole request must be an explicit product question before that local response is used. Ordinary website work reaches the model.
+Update to preview.21 or newer. Earlier versions could mistake the word “官网” in a website redesign task for a question about Koder. In preview.21, the whole request must be an explicit product question before that local response is used. Ordinary website work reaches the model.
 
 Open menus at the current `koder ›` prompt with `/menu`, `/setup`, `/celebrate`, or `彩蛋菜单`. You can also type `koder setup` or `koder celebrate` there. Escape returns from settings; Enter skips the effect menu. No additional terminal is required.
+
+## MEMORY_ACCESS_ISOLATION_UNVERIFIED
+
+This means Koder could not verify private access to the configured memory directory. It is a storage permission check, before any model request. It is not an API-key error.
+
+From preview.21, ordinary tasks continue in a temporary in-memory conversation. Existing history is not read, changed, deleted or silently moved. History persistence, personalization and synchronization stay paused for that session. Closing or manually updating the process does not restore that temporary conversation. Automatic installation waits while temporary memory is active. Account changes clear its context and invalidate pending approvals. An explicit `--no-memory` also skips personalization.
+
+Run `koder memory diagnose --json` or `/memory diagnose` to see the selected root and reason. On Windows, private inherited rules can be sealed after native ACL readback, preserving all existing access rules and denies. A nonempty directory with access for other users remains blocked and unchanged. Unsupported filesystems, enterprise restrictions and unavailable native verification use temporary mode rather than a repeated failed chat turn.
+
+Keep the old directory. Check that the selected volume is available and supports Windows ACLs, and have the owner or administrator review the exact directory permissions if access is broader than intended. Do not change global PowerShell execution policy, grant Everyone access, delete histories or select another root merely to suppress this error. Restart Koder after the actual directory issue is resolved to verify it and resume normal history.
+
+中文：这是记忆目录的权限隔离检查，不是 API 密钥错误。新版会保留旧记录、暂停历史读写与同步，并用临时内存会话继续任务；退出或更新后临时对话不恢复。用 `/memory diagnose` 查看目录与原因。仅现有规则已经私有的继承权限可自动固定；有其他用户权限、非正常目录或无法验证的磁盘继续受到保护。请保留旧目录，核实磁盘与目录权限，解决后重启验证；不要放开全盘权限或删除历史来消除报错。

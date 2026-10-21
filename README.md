@@ -1,6 +1,6 @@
 # Koder CLI
 
-**0.4.0-preview.20** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.20) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.0-preview.21** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.21) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
@@ -11,6 +11,10 @@ The KARMEN LOOP kernel connects task planning, permission checks, tool execution
 Type `/menu`, `/setup` or `koder setup` at the `koder ›` prompt for settings. Type `/celebrate` or `koder celebrate` for optional effects. Chinese shortcuts `菜单` and `彩蛋菜单` work there too. Escape leaves settings, Enter skips the effect menu, and any key skips an animation. Continue the task in the same terminal. `/growth status` checks the embedded learning method.
 
 Preview.20 also fixes ordinary website tasks being intercepted by the product introduction. Website and menu work reaches the task engine; only a complete explicit question about Koder itself uses the local introduction.
+
+## Memory permission recovery
+
+Preview.21 fixes repeated `MEMORY_ACCESS_ISOLATION_UNVERIFIED` failures before ordinary chat. Unverified memory stays protected and unchanged while tasks continue in temporary RAM. Use `/memory diagnose` or `koder memory diagnose --json` for the selected location and recovery guidance. Safe private inherited Windows ACLs can be sealed without new grants. Broad-access nonempty directories remain blocked. Account changes reset temporary context; automatic installation waits while temporary memory is active. Closing or manually updating the CLI does not restore that temporary conversation.
 
 ## Install
 

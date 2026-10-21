@@ -6,6 +6,8 @@ import {spawnSync} from 'node:child_process';
 import {load,tmp} from './installed-helpers.mjs';
 const {resolveMemoryLocation}=await load('src/shared-memory/location.mjs');
 assert.equal(process.platform,'win32');
+const {VERSION}=await load('src/version.mjs');
+const supportsInheritedRepair=Number(VERSION.split('preview.')[1])>=21;
 function powershell(script,root){
  const env={...process.env,KODER_ACL_FIXTURE:root};
  const system=env[Object.keys(env).find(k=>k.toLowerCase()==='systemroot')];assert.ok(system,'Native SystemRoot is required');
@@ -32,3 +34,12 @@ test('a Windows junction cannot redirect memory root validation',()=>{
  const r=resolveMemoryLocation({configured:{root:path.join(dir,'junction','new')}});assert.equal(r.state,'restricted');assert.equal(r.reasonCode,'MEMORY_ROOT_UNSAFE');assert.equal(fs.existsSync(path.join(target,'new')),false);
 });
 
+
+test('a nonempty private inherited root is sealed without new grants or data loss',{skip:!supportsInheritedRepair},()=>{
+ const parent=tmp(),root=path.join(parent,'inherited-private');
+ powershell("$me=[Security.Principal.WindowsIdentity]::GetCurrent().User;$a=[Security.AccessControl.DirectorySecurity]::new();$a.SetOwner($me);$a.SetAccessRuleProtection($true,$false);foreach($sid in @($me.Value,'S-1-5-18','S-1-5-32-544')){$r=[Security.AccessControl.FileSystemAccessRule]::new([Security.Principal.SecurityIdentifier]::new($sid),'FullControl','ContainerInherit,ObjectInherit','None','Allow');$a.AddAccessRule($r)};[IO.Directory]::SetAccessControl($env:KODER_ACL_FIXTURE,$a)",parent);
+ fs.mkdirSync(root);fs.writeFileSync(path.join(root,'kept.txt'),'kept');
+ const before=JSON.parse(powershell("$a=Get-Acl -LiteralPath $env:KODER_ACL_FIXTURE;@{protected=$a.AreAccessRulesProtected;rules=@($a.GetAccessRules($true,$true,[Security.Principal.SecurityIdentifier]) | % {$_.IdentityReference.Value+':'+$_.FileSystemRights+':'+$_.AccessControlType})}|ConvertTo-Json -Compress",root));assert.equal(before.protected,false);
+ const result=resolveMemoryLocation({configured:{root}});assert.equal(result.state,'ready',JSON.stringify(result));
+ const after=JSON.parse(powershell("$a=Get-Acl -LiteralPath $env:KODER_ACL_FIXTURE;@{protected=$a.AreAccessRulesProtected;rules=@($a.GetAccessRules($true,$true,[Security.Principal.SecurityIdentifier]) | % {$_.IdentityReference.Value+':'+$_.FileSystemRights+':'+$_.AccessControlType})}|ConvertTo-Json -Compress",root));assert.equal(after.protected,true);assert.deepEqual(after.rules.sort(),before.rules.sort());assert.equal(fs.readFileSync(path.join(root,'kept.txt'),'utf8'),'kept');
+});
