@@ -36,8 +36,6 @@ if os.name=='nt':
  for key in list(env):
   if key.lower()=='psmodulepath':del env[key]
  env['PSModulePath']=str(Path(os.environ['SystemRoot'])/'System32/WindowsPowerShell/v1.0/Modules')
-if os.environ.get('KODER_ACCEPTANCE_DIAG')=='1':
- sys.exit(subprocess.run([sys.executable,str(ROOT/'.github/scripts/diagnose-automatic-update.py')]).returncode)
 runs=[]
 def run(name,argv,cwd,timeout):
  started=time.monotonic();log=O/(name+'.log')

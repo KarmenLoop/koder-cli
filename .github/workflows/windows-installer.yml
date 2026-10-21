@@ -8,8 +8,8 @@ on:
         default: cli-0.4.0-preview.17
       phase:
         type: choice
-        options: [candidate, candidate-windows, negative, published, diagnostic]
-        default: candidate
+        options: [published, candidate, candidate-windows, negative]
+        default: published
       assets_ref:
         description: Reserved for older installer-only runs
         required: false
@@ -50,7 +50,7 @@ jobs:
         run: python .github/scripts/packaged-release-gates.py
 
   negative:
-    if: inputs.phase == 'negative' || inputs.phase == 'diagnostic'
+    if: inputs.phase == 'negative'
     permissions:
       contents: write
     runs-on: windows-latest
@@ -70,12 +70,7 @@ jobs:
           RELEASE_TAG: ${{ inputs.release }}
         run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
         shell: bash
-      - if: inputs.phase == 'negative'
-        run: python .github/scripts/native-installer-negatives.py
-      - if: inputs.phase == 'diagnostic'
-        env:
-          KODER_ACCEPTANCE_DIAG: '1'
-        run: python .github/scripts/packaged-release-gates.py
+      - run: python .github/scripts/native-installer-negatives.py
   published:
     if: inputs.phase == 'published'
     strategy:
