@@ -1,7 +1,7 @@
 {
-  "file": "acceptance-harness-celebration-r1.tar.gz",
-  "sha256": "ffa6425afe8519c88f6df57a489961d4db0fcee9cecf5860340383c6c52ccbc8",
-  "bytes": 328445,
+  "file": "acceptance-harness-celebration-r2.tar.gz",
+  "sha256": "e46615fb5cd289502b3c0221d14cad08c9347eb3d33d421302b3269649a8253b",
+  "bytes": 328442,
   "files": 167,
-  "adaptation": "All original assertions and deadlines retained; current version literals changed to preview.22. Three added real process-count regressions and the ten unchanged memory-isolation regressions are included. Protected-lock credential ports remain synthetic. No private runtime or provider credentials."
+  "adaptation": "All original assertions and deadlines retained; current version literals changed to preview.22. Three added real process-count regressions and the ten unchanged memory-isolation regressions are included. Protected-lock credential ports remain synthetic. No private runtime or provider credentials. Supplemental raw installer fixtures now use preview.22 too. Legacy C# helper source is retained as an unused fixture; native ACL acceptance executes the pinned distributed binary, not that source."
 }
