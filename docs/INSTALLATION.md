@@ -4,7 +4,7 @@
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide covers the downloadable **0.4.0-preview.19** release. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide covers the downloadable **0.4.0-preview.22** release. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -51,7 +51,7 @@ koder version
 koder setup
 ```
 
-`koder version` should show `0.4.0-preview.19` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
+`koder version` should show `0.4.0-preview.22` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
 
 If Windows says `koder` is not recognized, reopen the terminal first. You can inspect the installed launcher directly:
 

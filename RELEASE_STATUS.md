@@ -1,10 +1,4 @@
-# Koder CLI preview.21
-
-Repairs memory-location failures that previously blocked every chat request. Temporary conversations do not read or write unverified memory, use personalization or synchronize. Private inherited Windows ACLs are sealed without new grants; broad, foreign-owned and changed roots keep their protections. Explicit execution approvals and account boundaries remain in effect. Automatic installation waits while temporary memory is active. Use memory diagnose for the exact location and reason.
-
-
-Website tasks containing “官网” now continue to the task engine. Settings and optional celebrations open in the current conversation using `/menu`, `/celebrate`, `菜单`, `彩蛋菜单`, `koder setup` or `koder celebrate`. Escape and skip controls return to the same prompt. `/growth status` is available in chat.
-
+# Koder CLI 0.4.0-preview.22
 
 Preview.19 embeds KARMEN LOOP personal-agent-growth 0.3.2 as a pinned, offline method resource. Relevant tasks receive contextual Skill recommendations; growth status/show/on/off provides inspection and opt-out. Its eight original files and full license remain intact. The method adds no daemon or execution authority.
 

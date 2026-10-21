@@ -1,7 +1,7 @@
 {
-  "file": "acceptance-harness-memory-r2.tar.gz",
-  "sha256": "030632a27498fadcd65b7d012fcd4a451bd6b2d0b2840a377e8c86c0824e12c5",
-  "bytes": 327901,
-  "files": 166,
-  "adaptation": "All original assertions and deadlines retained; current version literals changed to preview.21. Ten added real CLI memory-isolation regressions use canonical owned temporary paths. Protected-lock credential ports remain synthetic. No private runtime or provider credentials."
+  "file": "acceptance-harness-celebration-r1.tar.gz",
+  "sha256": "ffa6425afe8519c88f6df57a489961d4db0fcee9cecf5860340383c6c52ccbc8",
+  "bytes": 328445,
+  "files": 167,
+  "adaptation": "All original assertions and deadlines retained; current version literals changed to preview.22. Three added real process-count regressions and the ten unchanged memory-isolation regressions are included. Protected-lock credential ports remain synthetic. No private runtime or provider credentials."
 }
