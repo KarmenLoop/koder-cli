@@ -1,0 +1,425 @@
+{
+  "version": "0.4.0-preview.19",
+  "status": "READY_FOR_PUBLICATION",
+  "package": {
+    "version": "0.4.0-preview.19",
+    "file": "koder-cli-0.4.0-preview.19.tgz",
+    "sha256": "0a2415718dbc0d3c6dc904d8f5e11d9369cf56cffe5c872b3201550f9844a13e",
+    "size": 4867451,
+    "node": "^22.21.0 || >=24.0.0",
+    "builtAt": "2026-10-21T16:40:39.041Z",
+    "preview": true,
+    "agreement": {
+      "id": "Koder-EULA-1.1",
+      "version": "1.1",
+      "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+    },
+    "installers": {
+      "sh": {
+        "file": "koder-cli.sh",
+        "sha256": "76af4a3699da48cd1bf462694eb05eab2d6e0f3b63c1d1572bfcc06927ad2925"
+      },
+      "ps1": {
+        "file": "koder-cli.ps1",
+        "sha256": "66342d0cb5cf8720d1942458b5cda2863aff152aec99bf0efac2116c4c5319b5"
+      },
+      "cmd": {
+        "file": "koder-cli.cmd",
+        "sha256": "7316acc9eb4d5438a5b6d1711e6847bf1be4777761a79102439a56a2352812ed"
+      }
+    }
+  },
+  "skill": {
+    "name": "personal-agent-growth",
+    "version": "0.3.2",
+    "sourceRef": "bfe713595ee22808d5a9148508369966ca71035e",
+    "originalFiles": 8,
+    "unmodified": true,
+    "input": {
+      "archiveSha256": "b2e58a97357cee25cac9c890e053d381cb4240b4d63ff1815886c0dfcd9a61b0",
+      "manifestSha256": "38c173aded1b11f91814684a52e82d3f71275c44cf86da420a7e28d2b07ebc9a",
+      "version": "0.3.2",
+      "files": {
+        "LICENSE": {
+          "bytes": 34523,
+          "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+        },
+        "NOTICE": {
+          "bytes": 1071,
+          "sha256": "a40bb7e087f8bb67fc2b843ab3714648db4c73329ac62384341c576fd9e95e4f"
+        },
+        "SKILL.md": {
+          "bytes": 5213,
+          "sha256": "d50877ba2986b00752f504d4bc17780d68c47026f4c1e99fbc933cd82505e688"
+        },
+        "references/autonomous-continuation.md": {
+          "bytes": 3659,
+          "sha256": "78622a4f42f0a0aedc29eb0fd3072bb621caf1849913ad15cbdccf9ff68167e3"
+        },
+        "references/learning-and-contact.md": {
+          "bytes": 2068,
+          "sha256": "027419c71c477ea6aa18a489b191dc59aa462f1c58da3783ed01361fcb0d6125"
+        },
+        "references/shared-memory.md": {
+          "bytes": 4455,
+          "sha256": "07e2f3eb132d5e059fc3b397077894b9ff4e1194eaf6b6149a5f15b354d62272"
+        },
+        "references/task-record.md": {
+          "bytes": 2059,
+          "sha256": "f6b35591235d5119c74bed49a3a348d5a75c0d53b43689425b356b52de4b824c"
+        },
+        "scripts/verify_handoff.py": {
+          "bytes": 7721,
+          "sha256": "526667a4374c9d470a01da1197cbdde5f7a8aad0501689a15cced63c95cd9dde"
+        }
+      },
+      "sourceRevision": "bfe713595ee22808d5a9148508369966ca71035e",
+      "unmodified": true
+    }
+  },
+  "requiredHostedAcceptancePassed": true,
+  "fullProductAcceptance": false,
+  "hostedFullRun": {
+    "id": 39638896512,
+    "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/39638896512",
+    "platforms": {
+      "linux": {
+        "passed": true,
+        "runs": [
+          {
+            "name": "host-lifecycle",
+            "exitCode": 0,
+            "seconds": 7.189,
+            "counts": {
+              "tests": 18,
+              "pass": 17,
+              "fail": 0,
+              "cancelled": 0,
+              "skipped": 1
+            }
+          },
+          {
+            "name": "full-cli",
+            "exitCode": 0,
+            "seconds": 116.108,
+            "counts": {
+              "tests": 601,
+              "pass": 579,
+              "fail": 0,
+              "cancelled": 0,
+              "skipped": 22
+            }
+          }
+        ]
+      },
+      "macos": {
+        "passed": true,
+        "runs": [
+          {
+            "name": "host-lifecycle",
+            "exitCode": 0,
+            "seconds": 19.347,
+            "counts": {
+              "tests": 18,
+              "pass": 17,
+              "fail": 0,
+              "cancelled": 0,
+              "skipped": 1
+            }
+          },
+          {
+            "name": "full-cli",
+            "exitCode": 0,
+            "seconds": 381.657,
+            "counts": {
+              "tests": 601,
+              "pass": 580,
+              "fail": 0,
+              "cancelled": 0,
+              "skipped": 21
+            }
+          }
+        ]
+      },
+      "windows": {
+        "passed": true,
+        "runs": [
+          {
+            "name": "host-lifecycle",
+            "exitCode": 0,
+            "seconds": 12.484,
+            "counts": {
+              "tests": 18,
+              "pass": 18,
+              "fail": 0,
+              "cancelled": 0,
+              "skipped": 0
+            }
+          },
+          {
+            "name": "full-cli",
+            "exitCode": 0,
+            "seconds": 274.641,
+            "counts": {
+              "tests": 601,
+              "pass": 568,
+              "fail": 0,
+              "cancelled": 0,
+              "skipped": 33
+            }
+          },
+          {
+            "name": "native-installer",
+            "exitCode": 0,
+            "seconds": 130.359,
+            "counts": {}
+          },
+          {
+            "name": "native-permission-terminal",
+            "exitCode": 0,
+            "seconds": 3.141,
+            "counts": {}
+          }
+        ]
+      }
+    }
+  },
+  "nativeWindows": {
+    "installerCases": 11,
+    "passed": true,
+    "realTerminalPermissionRecovery": true
+  },
+  "installerRejections": {
+    "run": 39640267689,
+    "passed": true,
+    "cases": [
+      {
+        "case": "agreement-version",
+        "passed": true,
+        "exitCode": 1,
+        "seconds": 4.281000000000006,
+        "retainedFiles": 5,
+        "packageDownloaded": false
+      },
+      {
+        "case": "agreement-package-hash",
+        "passed": true,
+        "exitCode": 1,
+        "seconds": 9.563000000000017,
+        "retainedFiles": 5,
+        "packageDownloaded": true
+      },
+      {
+        "case": "tampered-package",
+        "passed": true,
+        "exitCode": 1,
+        "seconds": 0.875,
+        "retainedFiles": 5,
+        "packageDownloaded": true
+      },
+      {
+        "case": "changed-manifest",
+        "passed": true,
+        "exitCode": 1,
+        "seconds": 0.7820000000000107,
+        "retainedFiles": 5,
+        "packageDownloaded": false
+      }
+    ]
+  },
+  "local": {
+    "focused": {
+      "tests": 9,
+      "passed": 9,
+      "failed": 0,
+      "command": "node --test --test-concurrency=1 --test-timeout=60000 test/growth-skill.test.mjs test/development-workflow.test.mjs"
+    },
+    "website": {
+      "tests": 40,
+      "passed": 40,
+      "failed": 0,
+      "initialFailure": "The existing site test needed missing desktop build-audit inputs; 115 real records were then pinned, assertions unchanged."
+    }
+  },
+  "historicalFailures": {
+    "run": 39638021960,
+    "classification": "Linux and macOS each had seven stale escaped-version assertions. Windows had three stale-version assertions and one first-model timing miss at 1025.556 ms. R2 passed with the same runtime and original limits; 20 further original fresh-profile startup cases also passed. The earlier failure remains recorded.",
+    "platforms": [
+      {
+        "log": "candidate-r1-windows.log",
+        "failures": [
+          "who made the tool is answered from the official site, with no model and no network",
+          "light commands start fast; a task reaches the model quickly",
+          "preview installers and update share the tag channel; CMD retrieves its exact versioned website mirror",
+          "engine commands: list, add, use, test handshake, unknown engine"
+        ]
+      },
+      {
+        "log": "candidate-r1-linux.log",
+        "failures": [
+          "who made the tool is answered from the official site, with no model and no network",
+          "Ubuntu 18.04 (glibc 2.27) gets the glibc-217 build of Node.js",
+          "preview installers and update share the tag channel; CMD retrieves its exact versioned website mirror",
+          "engine commands: list, add, use, test handshake, unknown engine",
+          "one-line install with an existing Node: launcher works, bundled kernel runs a real turn, uninstall cleans up",
+          "a changed release manifest cannot replace an existing installation after the update check",
+          "without Node.js the installer downloads, verifies and uses its own runtime"
+        ]
+      },
+      {
+        "log": "candidate-r1-macos.log",
+        "failures": [
+          "who made the tool is answered from the official site, with no model and no network",
+          "Ubuntu 18.04 (glibc 2.27) gets the glibc-217 build of Node.js",
+          "preview installers and update share the tag channel; CMD retrieves its exact versioned website mirror",
+          "engine commands: list, add, use, test handshake, unknown engine",
+          "one-line install with an existing Node: launcher works, bundled kernel runs a real turn, uninstall cleans up",
+          "a changed release manifest cannot replace an existing installation after the update check",
+          "without Node.js the installer downloads, verifies and uses its own runtime"
+        ]
+      }
+    ],
+    "correction": "The initial all-platform summary was too broad; the original raw logs and initial classification are retained."
+  },
+  "notVerified": [
+    "Reporting physical Windows PC",
+    "Dedicated paid-provider accounts",
+    "Real model autonomous Skill choice and learning quality",
+    "A fresh unattended host scheduler trial",
+    "Standalone legacy website admin server"
+  ],
+  "preserved": [
+    "Original assertions and deadlines",
+    "Provider holds",
+    "Independent privacy and execution controls",
+    "Main karmenbot read-only",
+    "Other running tasks",
+    "Private proprietary development source"
+  ],
+  "checkedOn": "2026-10-22 Asia/Shanghai",
+  "windowsStartupRepeat": {
+    "run": 39641400131,
+    "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/39641400131",
+    "passed": true,
+    "packageSha256": "0a2415718dbc0d3c6dc904d8f5e11d9369cf56cffe5c872b3201550f9844a13e",
+    "runs": [
+      {
+        "iteration": 0,
+        "exitCode": 0,
+        "seconds": 1.735
+      },
+      {
+        "iteration": 1,
+        "exitCode": 0,
+        "seconds": 0.765
+      },
+      {
+        "iteration": 2,
+        "exitCode": 0,
+        "seconds": 0.766
+      },
+      {
+        "iteration": 3,
+        "exitCode": 0,
+        "seconds": 0.766
+      },
+      {
+        "iteration": 4,
+        "exitCode": 0,
+        "seconds": 0.781
+      },
+      {
+        "iteration": 5,
+        "exitCode": 0,
+        "seconds": 0.781
+      },
+      {
+        "iteration": 6,
+        "exitCode": 0,
+        "seconds": 0.766
+      },
+      {
+        "iteration": 7,
+        "exitCode": 0,
+        "seconds": 0.906
+      },
+      {
+        "iteration": 8,
+        "exitCode": 0,
+        "seconds": 1.0
+      },
+      {
+        "iteration": 9,
+        "exitCode": 0,
+        "seconds": 1.094
+      },
+      {
+        "iteration": 10,
+        "exitCode": 0,
+        "seconds": 1.015
+      },
+      {
+        "iteration": 11,
+        "exitCode": 0,
+        "seconds": 1.032
+      },
+      {
+        "iteration": 12,
+        "exitCode": 0,
+        "seconds": 0.89
+      },
+      {
+        "iteration": 13,
+        "exitCode": 0,
+        "seconds": 0.844
+      },
+      {
+        "iteration": 14,
+        "exitCode": 0,
+        "seconds": 0.891
+      },
+      {
+        "iteration": 15,
+        "exitCode": 0,
+        "seconds": 0.828
+      },
+      {
+        "iteration": 16,
+        "exitCode": 0,
+        "seconds": 0.781
+      },
+      {
+        "iteration": 17,
+        "exitCode": 0,
+        "seconds": 0.75
+      },
+      {
+        "iteration": 18,
+        "exitCode": 0,
+        "seconds": 0.766
+      },
+      {
+        "iteration": 19,
+        "exitCode": 0,
+        "seconds": 0.875
+      }
+    ],
+    "assertions": {
+      "versionMsLessThan": 250,
+      "firstModelRequestMsLessThan": 1000
+    },
+    "sourceModified": false
+  },
+  "validationPreparationFailures": [
+    {
+      "run": 39640786766,
+      "stage": "fixture preparation",
+      "casesExecuted": 0,
+      "reason": "copytree needed to merge into the existing test fixture directory; fixed in validator only."
+    }
+  ],
+  "evidenceLimits": {
+    "modelBehavior": "Context recommendations and a scripted model exercised the actual read/write/command/recovery loop. Real-model learning quality is not measured.",
+    "scheduling": "The method resource adds no scheduler or background process; a fresh unattended wakeup was not run."
+  }
+}
