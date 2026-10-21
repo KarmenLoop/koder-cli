@@ -11,7 +11,7 @@ for name,digest in [(manifest['file'],manifest['sha256']),(harness['file'],harne
         for item in archive:
             assert not item.issym() and not item.islnk() and '..' not in Path(item.name).parts and not Path(item.name).is_absolute()
         archive.extractall(payload,filter='data')
-cli=payload/'koder-cli';shutil.copytree(cli/'kernel',payload/'koder-desktop')
+cli=payload/'koder-cli';shutil.copytree(cli/'kernel',payload/'koder-desktop',dirs_exist_ok=True)
 env={**os.environ,'KODER_DESKTOP_ROOT':str(payload/'koder-desktop')}
 rows=[]
 for index in range(20):
