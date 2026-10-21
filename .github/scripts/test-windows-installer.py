@@ -265,7 +265,8 @@ try:
         if expected in ('0.4.0-preview.12','0.4.0-preview.13','0.4.0-preview.14','0.4.0-preview.15','0.4.0-preview.17','0.4.0-preview.18','0.4.0-preview.19'):
             consumer = subprocess.run([info['node'], '--test', '--test-timeout=15000', str(Path(__file__).with_name('test-consumer-features.mjs'))], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=60)
             (out / 'consumer-native.tap').write_text(consumer.stdout + consumer.stderr, encoding='utf-8')
-            assert consumer.returncode == 0 and '# pass 12' in consumer.stdout and '# fail 0' in consumer.stdout, consumer.stdout + consumer.stderr
+            expected_consumer_checks = 13 if expected == '0.4.0-preview.19' else 12
+            assert consumer.returncode == 0 and f'# pass {expected_consumer_checks}' in consumer.stdout and '# fail 0' in consumer.stdout, consumer.stdout + consumer.stderr
             (out / 'CONSUMER-RESULT.json').write_text(json.dumps({'passed':True,'checks':12,'scope':'Installed optional consumer features and native MiMo continuation; synthetic data only'}) + '\n')
             animation = subprocess.run(['python', str(Path(__file__).with_name('test-terminal-celebrations.py')), '--node', info['node'], '--package', str(packages[0]), '--out', str(out / 'terminal-celebrations')], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=160)
             (out / 'terminal-celebrations.log').write_text(animation.stdout + animation.stderr, encoding='utf-8')
