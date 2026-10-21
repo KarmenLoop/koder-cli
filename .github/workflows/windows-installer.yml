@@ -8,7 +8,7 @@ on:
         default: cli-0.4.0-preview.19
       phase:
         type: choice
-        options: [published, candidate, candidate-windows, candidate-focused, negative, windows-diagnosis, windows-app-diagnosis]
+        options: [published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, windows-diagnosis, windows-app-diagnosis]
         default: published
       assets_ref:
         description: Reserved for older installer-only runs
@@ -51,6 +51,28 @@ jobs:
           KODER_ACCEPTANCE_FOCUSED: ${{ inputs.phase == 'candidate-focused' && '1' || '0' }}
         run: python .github/scripts/packaged-release-gates.py
 
+  startup-repeat:
+    if: inputs.phase == 'startup-repeat'
+    permissions:
+      contents: write
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release }}
+        run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
+        shell: bash
+      - run: python .github/scripts/windows-startup-repeat.py
   negative:
     if: inputs.phase == 'negative'
     permissions:
