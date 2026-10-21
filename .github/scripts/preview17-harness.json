@@ -1,7 +1,7 @@
 {
-  "file": "acceptance-harness-menu-r1.tar.gz",
-  "sha256": "9d8be359c8a94e1d12cd1c6510cad78780a3ef74e45cc10c6f27c25b9c7414e8",
-  "bytes": 338311,
+  "file": "acceptance-harness-menu-r2.tar.gz",
+  "sha256": "4424026d55ffaf94c2c9c0431e9fd3829371b5b61abac88e36adf840e54a3ca2",
+  "bytes": 338331,
   "files": 165,
-  "adaptation": "Original assertions and deadlines retained. Adds exact screenshot task-routing and same-terminal menu regressions. Existing protected-lock ports remain synthetic; no development runtime sources or API credentials."
+  "adaptation": "Original assertions and deadlines retained. Adds exact screenshot task-routing and same-terminal menu regressions. Existing protected-lock ports remain synthetic; no development runtime sources or API credentials. Corrects the expected settings-exit copy for the current-session instructions; runtime archive unchanged."
 }
