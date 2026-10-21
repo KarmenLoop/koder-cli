@@ -1,0 +1,319 @@
+{
+  "version": "0.4.0-preview.22",
+  "passed": true,
+  "verifiedAt": "2026-10-21T20:51:20.965692+00:00",
+  "releaseUrl": "https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.22",
+  "releaseCommit": "11c3727ed0c07d95eac700a2884e0b94817558b8",
+  "packageSha256": "f90d4b35e37dac523ed757af20c142f01eced99cae952f9a7c3285d7cb65ebe8",
+  "publicRun": 39673051183,
+  "systems": [
+    {
+      "job": 119475653028,
+      "name": "published (macos-15-intel)",
+      "passed": true
+    },
+    {
+      "job": 119475653482,
+      "name": "published (ubuntu-latest)",
+      "passed": true
+    },
+    {
+      "job": 119475653535,
+      "name": "published (windows-latest)",
+      "passed": true
+    }
+  ],
+  "websiteReadback": {
+    "passed": true,
+    "checkedAt": "2026-10-21T20:45:42.107845+00:00",
+    "version": "0.4.0-preview.22",
+    "pages": 76,
+    "websiteFiles": 116,
+    "external": [
+      {
+        "name": "GitHub update feed",
+        "status": 200,
+        "sha256": "106711c5a873e9e2bb35a28fa940e36ebed982214671f0bb73bccaa84ecbccc5",
+        "passed": true
+      },
+      {
+        "name": "GitHub release manifest",
+        "status": 200,
+        "sha256": "106711c5a873e9e2bb35a28fa940e36ebed982214671f0bb73bccaa84ecbccc5",
+        "passed": true
+      },
+      {
+        "name": "Reference library status",
+        "status": 200,
+        "resources": 1004,
+        "passed": true
+      }
+    ]
+  },
+  "windowsPublicInstallChecks": [
+    {
+      "name": "powershell-empty-then-accept",
+      "mode": "powershell",
+      "commandWasPasted": false,
+      "unicodeInstallPath": false,
+      "promptSeen": true,
+      "accepted": true,
+      "passed": true,
+      "seconds": 8.59,
+      "preservedFiles": 0
+    },
+    {
+      "name": "powershell-spaces",
+      "mode": "powershell",
+      "commandWasPasted": false,
+      "unicodeInstallPath": true,
+      "promptSeen": true,
+      "accepted": true,
+      "passed": true,
+      "seconds": 4.11,
+      "preservedFiles": 0
+    },
+    {
+      "name": "powershell-download-runtime",
+      "mode": "powershell",
+      "commandWasPasted": false,
+      "unicodeInstallPath": false,
+      "promptSeen": true,
+      "accepted": true,
+      "passed": true,
+      "seconds": 10.02,
+      "preservedFiles": 0
+    },
+    {
+      "name": "powershell-refuse",
+      "mode": "powershell",
+      "commandWasPasted": false,
+      "unicodeInstallPath": false,
+      "promptSeen": true,
+      "accepted": false,
+      "passed": true,
+      "seconds": 2.7,
+      "preservedFiles": 0
+    },
+    {
+      "name": "cmd-empty-then-accept",
+      "mode": "cmd",
+      "commandWasPasted": false,
+      "unicodeInstallPath": false,
+      "promptSeen": true,
+      "accepted": true,
+      "passed": true,
+      "seconds": 4.17,
+      "preservedFiles": 0
+    },
+    {
+      "name": "cmd-pasted-command",
+      "mode": "cmd",
+      "commandWasPasted": true,
+      "unicodeInstallPath": true,
+      "promptSeen": true,
+      "accepted": true,
+      "passed": true,
+      "seconds": 4.2,
+      "preservedFiles": 0
+    },
+    {
+      "name": "bootstrap-timeout",
+      "passed": true,
+      "seconds": 9.61,
+      "progressBeforeConsent": true
+    },
+    {
+      "name": "stalled-node",
+      "mode": "powershell",
+      "commandWasPasted": false,
+      "unicodeInstallPath": false,
+      "promptSeen": true,
+      "accepted": true,
+      "passed": true,
+      "seconds": 14.28,
+      "preservedFiles": 0
+    },
+    {
+      "name": "manifest-timeout",
+      "mode": "powershell",
+      "commandWasPasted": false,
+      "unicodeInstallPath": false,
+      "promptSeen": true,
+      "accepted": null,
+      "passed": true,
+      "seconds": 10.06,
+      "preservedFiles": 5
+    },
+    {
+      "name": "package-timeout",
+      "mode": "powershell",
+      "commandWasPasted": false,
+      "unicodeInstallPath": false,
+      "promptSeen": true,
+      "accepted": null,
+      "passed": true,
+      "seconds": 9.99,
+      "preservedFiles": 5
+    },
+    {
+      "name": "public-download",
+      "mode": "powershell",
+      "commandWasPasted": false,
+      "unicodeInstallPath": true,
+      "promptSeen": true,
+      "accepted": true,
+      "passed": true,
+      "seconds": 9.39,
+      "preservedFiles": 0
+    },
+    {
+      "name": "public-cmd-download",
+      "mode": "cmd",
+      "commandWasPasted": true,
+      "unicodeInstallPath": true,
+      "promptSeen": true,
+      "accepted": true,
+      "passed": true,
+      "seconds": 9.83,
+      "preservedFiles": 0
+    },
+    {
+      "name": "redirected-input",
+      "passed": true
+    }
+  ],
+  "windowsMemoryTerminal": {
+    "passed": true,
+    "nativeTerminal": true,
+    "modelTurns": 2,
+    "temporaryContinuity": true,
+    "historyUntouched": true,
+    "noSilentLocationFork": true,
+    "warningCount": 1,
+    "exitCode": 0
+  },
+  "memoryRepairAccepted": true,
+  "standaloneCelebrationExitAccepted": true,
+  "releaseAssets": [
+    {
+      "name": "ACCEPTANCE-REPORT.json",
+      "sha256": "9a4e6951c3d74d9fe7b18d19a43f3597cfcd91431099b8a5a60a63eed7de4a42",
+      "bytes": 6277,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "ACCEPTANCE.md",
+      "sha256": "cfcfdea0b40a43241ae86510450193513546e327176fb77b47f48d5398648445",
+      "bytes": 10607,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "EULA.md",
+      "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092",
+      "bytes": 12170,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "LEGAL-NOTICE.md",
+      "sha256": "484422100f8b17953307658c1e68b1e44fd7dcb2da79932f7a5310bc0a700ea8",
+      "bytes": 11717,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "SHA256SUMS",
+      "sha256": "70204e9e79e7dcc67a5789659334e9eda4d5ea8bc50ead31cc23a49f1fd7d832",
+      "bytes": 758,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22-en-cmd.txt",
+      "sha256": "6ed94672fc5c3cb9a824bb2d670d35b64e566cbc6d60572c15794b300f72a3ea",
+      "bytes": 44382,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22-en-linux.txt",
+      "sha256": "0f212d59d0210f09ddfdd4b1ab635afabf5cbf19404f2618dce2a166167e058e",
+      "bytes": 41073,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22-en-mac.txt",
+      "sha256": "e38674e9ff7e16af94d399ada6255526641aa5a09da77d32ff1060c43e401c87",
+      "bytes": 40665,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22-en-powershell.txt",
+      "sha256": "469f48a944548c51e66c8e56abf0059e64060ad90abc874ace7ab2dd3e066fc2",
+      "bytes": 44395,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22-zh-cmd.txt",
+      "sha256": "ad9dd4a40b8e7275270e1ff7311a9054e83c7df07763744b1492e13e01eb7b3f",
+      "bytes": 44191,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22-zh-linux.txt",
+      "sha256": "ffa2b664149d7030e51477c15ed58af5fd6fdbd3791e27b1fa323c286f40c720",
+      "bytes": 40671,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22-zh-mac.txt",
+      "sha256": "0756c4bfffa012b3c5ba47880ba07d6259d88a58934c73719d613c787ca63339",
+      "bytes": 40291,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22-zh-powershell.txt",
+      "sha256": "c24844dbdc37870abb8ec345233ad58de18c922c78a7e0bc7acd0b6e7dad5ebf",
+      "bytes": 44144,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22.json",
+      "sha256": "106711c5a873e9e2bb35a28fa940e36ebed982214671f0bb73bccaa84ecbccc5",
+      "bytes": 848,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-0.4.0-preview.22.tgz",
+      "sha256": "f90d4b35e37dac523ed757af20c142f01eced99cae952f9a7c3285d7cb65ebe8",
+      "bytes": 4872915,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli-latest.json",
+      "sha256": "106711c5a873e9e2bb35a28fa940e36ebed982214671f0bb73bccaa84ecbccc5",
+      "bytes": 848,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli.cmd",
+      "sha256": "0d8b4863faf055fbe3dd004b085fb6e49d2690a6188418a4577732d37b56919f",
+      "bytes": 2443,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli.ps1",
+      "sha256": "d0b6511fa6a44aa0d27b5cb1c3d2bd7b9d8abf7d6095e06a55d79680737a3796",
+      "bytes": 34777,
+      "serverDigestVerified": true
+    },
+    {
+      "name": "koder-cli.sh",
+      "sha256": "cf380040674df46cedb100e1fe91ece8cb6178b4bce0606253d8b14ac1f56551",
+      "bytes": 19911,
+      "serverDigestVerified": true
+    }
+  ],
+  "desktopPreservation": {
+    "Windows": "0.4.54",
+    "Mac": "0.4.53"
+  },
+  "limits": "Controlled hosted CLI/terminal checks and synthetic model replies; the reporting customer computer and paid provider accounts were unavailable. Seven provider products remain disabled. Temporary RAM conversations do not survive exit or a manual update. No original timing or privacy check was relaxed; earlier failures and non-acceptance experiments remain separately archived."
+}
