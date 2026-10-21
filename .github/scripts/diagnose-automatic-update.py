@@ -10,6 +10,10 @@ for key in list(env):
 env['PSModulePath']=str(Path(os.environ['SystemRoot'])/'System32/WindowsPowerShell/v1.0/Modules')
 result=subprocess.run(['node','--test','--test-concurrency=1','test/automatic-update.test.mjs'],cwd=P,env=env,timeout=90)
 print('ORIGINAL_FIXTURE_EXIT',result.returncode,flush=True)
+s=u.read_text().replace("stdio: ctx.io.quietInstaller?'pipe':'inherit'","stdio: ctx.io.quietInstaller?['ignore','pipe','pipe']:'inherit'").replace('child.stdin.end();','');u.write_text(s)
+result=subprocess.run(['node','--test','--test-concurrency=1','test/automatic-update.test.mjs'],cwd=P,env=env,timeout=90)
+print('IGNORED_STDIN_FIXTURE_EXIT',result.returncode,flush=True)
+
 f=P/'test/windows-fixtures.mjs';body=f.read_text();start=body.index('export function installerFixture(js)');body=body[:start]+"export function installerFixture(js){const encoded=Buffer.from(js).toString('base64');return `$ErrorActionPreference='Stop'\\n& '${process.execPath.replaceAll(\"'\",\"''\")}' -e \"eval(Buffer.from('${encoded}','base64').toString())\"\\nif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }\\n`;}\n";f.write_text(body)
 result=subprocess.run(['node','--test','--test-concurrency=1','test/automatic-update.test.mjs'],cwd=P,env=env,timeout=90)
 print('ARGUMENT_FIXTURE_EXIT',result.returncode,flush=True)
