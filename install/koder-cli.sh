@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.15/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.15/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.16/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.16/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Preview tag path. Do not use GitHub /releases/latest (stable-only).
@@ -10,14 +10,14 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.15}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.16}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
 # Official Node.js builds need glibc 2.28+; older glibc and musl use the
 # project's unofficial builds, which publish SHASUMS256.txt the same way.
 NODE_DIST_UNOFFICIAL="${KODER_NODE_DIST_UNOFFICIAL:-https://unofficial-builds.nodejs.org/download/release}"
-NODE_VERSION="${KODER_NODE_VERSION:-22.12.0}"
+NODE_VERSION="${KODER_NODE_VERSION:-22.23.3}"
 VERSION=""
 ONBOARD=1
 WITH_HERMES=0
@@ -199,7 +199,7 @@ mkdir -p "${KODER_HOME}" "${BIN_DIR}"
 
 NODE_BIN=""
 if [ "${FORCE_NODE}" = 0 ] && command -v node >/dev/null 2>&1; then
-  if node -e 'process.exit(Number(process.versions.node.split(".")[0]) >= 22 ? 0 : 1)' 2>/dev/null; then
+  if node -e 'try{const [a,b]=process.versions.node.split(".").map(Number);if((a===22&&b>=21||a>=24)&&process.allowedNodeEnvironmentFlags.has("--use-env-proxy")){require("node:sqlite");process.stdout.write(process.versions.node)}else process.exit(1)}catch{process.exit(1)}' 2>/dev/null; then
     NODE_BIN="$(command -v node)"
   fi
 fi
@@ -226,7 +226,7 @@ if [ -z "${NODE_BIN}" ]; then
   fi
   NODE_BIN="${NODE_DIR}/bin/node"
   [ -x "${NODE_BIN}" ] || fail "Node.js 解压后找不到可执行文件" "node binary not found after extraction"
-  "${NODE_BIN}" -e 0 >/dev/null 2>&1 || fail "下载的 Node.js 在这台机器上无法运行（系统库 ${LIBC}，架构 ${ARCH}）" "the downloaded Node.js does not run here (libc ${LIBC}, arch ${ARCH})"
+  "${NODE_BIN}" -e 'try{const [a,b]=process.versions.node.split(".").map(Number);if((a===22&&b>=21||a>=24)&&process.allowedNodeEnvironmentFlags.has("--use-env-proxy")){require("node:sqlite");process.stdout.write(process.versions.node)}else process.exit(1)}catch{process.exit(1)}' >/dev/null 2>&1 || fail "下载的 Node.js 在这台机器上无法运行（系统库 ${LIBC}，架构 ${ARCH}）" "the downloaded Node.js does not run here (libc ${LIBC}, arch ${ARCH})"
 fi
 
 MANIFEST="koder-cli-latest.json"

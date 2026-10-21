@@ -1,10 +1,16 @@
 # Model providers and compatibility
 
-This guide covers **0.4.0-preview.15**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
+## Current availability
+
+**Known integration bugs; temporarily unavailable:** MiMo Token Plan, Kimi API, Kimi Code, DeepSeek, Alibaba Token Plan, Volcano Coding Plan, and Volcano Ark API. Setup displays these entries in gray and prevents selection. Existing profiles are retained for viewing or removal; activation, model tests, refresh and execution are blocked before network access. No automatic backup engine or billing-route switch is used.
+
+These entries are currently unsupported. Endpoint and protocol details below remain as historical reference, not instructions to enable an unavailable integration. This status overrides earlier compatibility claims. Other entries, including local endpoints, MiMo pay-as-you-go, and Alibaba Coding Plan, keep their separate status.
+
+This guide covers **0.4.0-preview.16**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
 
 ## What the catalog means
 
-The 36 visible presets contain 98 curated model choices. Each cloud preset has a local native tool-call/result round trip. Local fixtures check request fields, response parsing and continuation; they do not establish your account’s model access, region, quota, billing or reliability. Some providers require model activation or a deployment endpoint in their console. The list contains task models, not every audio, image, embedding or batch service a vendor sells.
+The 36 visible presets contain 108 curated model choices. Each cloud preset has a local native tool-call/result round trip. Local fixtures check request fields, response parsing and continuation; they do not establish your account’s model access, region, quota, billing or reliability. Some providers require model activation or a deployment endpoint in their console. The list contains task models, not every audio, image, embedding or batch service a vendor sells.
 
 | Preset | Curated model IDs | Native protocol | Source |
 | --- | --- | --- | --- |
@@ -82,7 +88,7 @@ Koder is the default and handles the configured API directly. The internal fallb
 
 ## Download completion deadline
 
-The installer bootstrap, program/runtime downloads and CLI updater default to **100000000 seconds**. You may explicitly set `KODER_DOWNLOAD_TIMEOUT_SECONDS` to an integer from 1 through 100000000 for a shorter limit. Progress remains visible and Ctrl+C cancels. Long Node deadlines are scheduled in bounded chunks, avoiding timer overflow. This setting does not increase the five-second existing-Node probe or model API timeouts. Checksums and agreement checks still apply.
+The installer bootstrap, program/runtime downloads and CLI updater default to **100000000 seconds**. You may explicitly set `KODER_DOWNLOAD_TIMEOUT_SECONDS` to an integer from 1 through 100000000 for a shorter limit. The long total ceiling is separate from the no-progress guards: connection/header inactivity defaults to 30 seconds and body inactivity to 60 seconds. Set KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS (1–3600) and KODER_DOWNLOAD_IDLE_TIMEOUT_SECONDS (1–86400) explicitly when needed. Progress remains visible and Ctrl+C cancels. Long Node deadlines are scheduled in bounded chunks, avoiding timer overflow. This setting does not increase the five-second existing-Node probe or model API timeouts. Checksums and agreement checks still apply.
 
 ## Alibaba and Volcano subscriptions
 
@@ -90,7 +96,7 @@ Checked October 20, 2026. These are separate native API routes; subscription acc
 
 ### Alibaba Cloud: aliyun-token-plan
 
-Base URL: https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1. Default: qwen3.8-max. Models: qwen3.8-max, qwen3.8-flash, qwen3.7-plus, deepseek-v4-pro, glm-5.2.
+Base URL: https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1. Default: qwen3.8-max. Models: qwen3.8-max, qwen3.8-flash, qwen3.7-max, qwen3.7-plus, qwen3.6-flash, deepseek-v4.1-flash, deepseek-v4.1-flash-1017, deepseek-v4-pro, deepseek-v4-pro-0813, deepseek-v4-flash-0731, glm-5.3, glm-5.2, auto.
 
 [Official setup](https://help.aliyun.com/zh/model-studio/token-plan-personal-overview). Account and regional availability must be checked in the plan console.
 
@@ -102,7 +108,7 @@ Base URL: https://coding.dashscope.aliyuncs.com/v1. Default: qwen3.7-plus. Model
 
 ### Volcano Engine: volcano-coding-plan
 
-Base URL: https://ark.cn-beijing.volces.com/api/coding/v3. Default: ark-code-latest. Models: ark-code-latest, doubao-seed-2.1-pro, doubao-seed-2.1-lite, doubao-seed-evolving, minimax-m3, glm-5.3, glm-5.3-flash, deepseek-v4.1-flash, deepseek-v4-pro, kimi-k3, kimi-k2.8-preview.
+Base URL: https://ark.cn-beijing.volces.com/api/coding/v3. Default: ark-code-latest. Models: ark-code-latest, doubao-seed-2.1-pro, doubao-seed-2.1-lite, doubao-seed-evolving, doubao-seed-2.0-mini, glm-5.3, glm-5.3-flash, deepseek-v4.1-flash, deepseek-v4.1-flash-economy, deepseek-v4-flash, deepseek-v4-pro, kimi-k3, kimi-k2.8-preview.
 
 [Official setup](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-get-started). Account and regional availability must be checked in the plan console.
 
@@ -116,7 +122,7 @@ Provider subscription rules and data practices remain the provider’s terms. In
 
 ## Kimi, Kimi Code and DeepSeek recovery
 
-Moonshot API supports the official api.moonshot.cn and api.moonshot.ai Chat Completions bases. Kimi K3 uses max_completion_tokens and low/high/max reasoning effort; it does not offer a thinking-off setting. DeepSeek uses deepseek-flash or deepseek-v4-pro on api.deepseek.com. Deprecated official deepseek-chat/reasoner IDs fail with a specific local explanation instead of silently selecting a billed replacement. Custom proxy routes remain explicit.
+Moonshot API supports Chat Completions and Responses at the official api.moonshot.cn/v1 and api.moonshot.ai/v1 bases. Its Anthropic compatibility base is /anthropic. DeepSeek also supports Responses; its Anthropic compatibility base is /anthropic. Use the protocol offered for your selected product. Kimi K3 uses max_completion_tokens and low/high/max reasoning effort; it does not offer a thinking-off setting. DeepSeek uses deepseek-flash or deepseek-v4-pro on api.deepseek.com. Deprecated official deepseek-chat/reasoner IDs fail with a specific local explanation instead of silently selecting a billed replacement. Custom proxy routes remain explicit. Official native and subscription routes require HTTPS. Bare official origins are normalized to the selected protocol; mixed protocol paths and cross-product paths fail locally. Model redirects fail safely rather than forwarding your key or task to another endpoint.
 
 Kimi Code is a separate membership product with separate credentials: choose **kimi-code** in setup. Its default is k3-256k at https://api.kimi.com/coding/v1 using Responses. Overseas accounts may use https://api.kimi.ai/coding/v1. Select only an entitled model ID from the four listed choices. Unknown IDs are rejected to avoid a documented silent fallback. Koder identifies itself honestly as KoderCLI; membership or client restrictions are not bypassed. Context and model access depend on your tier, and a 401/403 can indicate an entitlement issue. K3 and K2.8 support low/high/max; HighSpeed keeps thinking on. No automatic route or model switch occurs.
 
@@ -125,3 +131,5 @@ For these documented native models, the default output reserve is 32768 tokens a
 Strict thinking APIs require private protocol state during a tool loop. Koder preserves that state in the live loop. Saved visible history deliberately omits private reasoning. When restoring such history, Koder projects a bounded quoted reference for the model rather than forging missing reasoning blocks. The saved conversation stays intact; quoted history cannot grant permission or replay an old tool action. A plain greeting remains isolated from old tasks.
 
 [Moonshot K3](https://platform.kimi.ai/docs/guide/kimi-k3-quickstart), [Moonshot thinking and tool loops](https://platform.kimi.ai/docs/guide/use-thinking-models), [DeepSeek thinking](https://api-docs.deepseek.com/guides/thinking_mode/), [Kimi Code models and membership](https://www.kimi.com/code/docs/en/kimi-code/models.html).
+
+[Moonshot Responses setup](https://platform.kimi.com/docs/guide/codex-kimi), [DeepSeek Responses setup](https://api-docs.deepseek.com/quick_start/agent_integrations/codex/).

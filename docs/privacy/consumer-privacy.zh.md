@@ -1,6 +1,6 @@
 # Koder CLI 消费者隐私条款（完整文本）
 
-更新与生效日期：2026 年 10 月 20 日。适用版本：0.4.0-preview.15 起。
+更新与生效日期：2026 年 10 月 20 日。适用版本：0.4.0-preview.16 起。
 提供方：KARMENLOOP 官方团队，所在地：中国上海。联系：info@karmenloop.com。官网：https://karmenloop.com。
 
 ## 1. 适用范围与选择

@@ -1,14 +1,13 @@
-# Native Windows candidate acceptance: preview.15
+# Windows installation checks
 
-Run: https://github.com/KarmenLoop/koder-cli/actions/runs/39455206123
+The release checks use an isolated Windows runner with native CMD, Windows PowerShell 5.1 and ConPTY. They cover explicit license acceptance, empty input, cancellation, download progress, Chinese and space-containing paths, CommonJS extraction under an ESM temporary directory, checksum failures and preservation of an existing installation.
 
-The candidate passed 11 real PowerShell 5.1/CMD installer cases, 71 installed checks, 5 real-process permission checks and 9 actual-terminal animation checks. The suites cover native model protocols, consumer features, permissions, ACL, DPAPI, private references and remote retrieval. Original user archives and production resource keys were never uploaded to Actions. The remote suite uses synthetic replies. Paid provider accounts and the reporting user's device remain unverified. Public-command acceptance is recorded separately after publication.
+A five-second Node.js probe must not stall installation. An outdated owned runtime fixture must cause selection of private Node.js 22.23.3. Release checks also cover ACP child shutdown, update restart and rollback, native ACL readback, execution permissions, skipped animations and bounded stalled downloads.
 
-Version: 0.4.0-preview.15. Archive SHA-256: dbaa782cf87a19606804e9d7dcbb4d0d13248f0235eca56c7fa2ddddd7ed4498. Size: 4807854 bytes. Agreement: Koder-EULA-1.1 (fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092).
+After promotion, repeat the ordinary public CMD and PowerShell download commands against the actual website and compare the installed package digest with the release manifest. Check `koder --version` and `koder doctor`. A test against a loopback asset server is candidate evidence, not public-download evidence.
 
+The full CLI and configured Core service suites run separately on Windows, Linux and macOS. The Windows service host uses an owned Linux Core fixture because Core requires POSIX locking; this is test infrastructure, not an extra Windows consumer installation requirement.
 
-## Published-command acceptance
+MiMo Token Plan, Kimi, Kimi Code, DeepSeek, Alibaba Token Plan and Volcano integrations are temporarily unavailable. The current product checks require refusal before a request, preserved saved configuration and gray setup entries. Earlier enabled file-tool contracts are explicitly excluded pending re-acceptance; retained protocol adapter fixtures do not establish authenticated account access.
 
-The [public Windows run](https://github.com/KarmenLoop/koder-cli/actions/runs/39456178684) passed 13 installer cases, including the ordinary website/GitHub PowerShell and CMD download commands. Its public installer hash probe matched preview.15 exactly. The same run passed 71 installed checks, 5 real-process permission checks and 9 terminal animation checks. This applies to archive dbaa782cf87a19606804e9d7dcbb4d0d13248f0235eca56c7fa2ddddd7ed4498. No paid model account or user-owned Windows device was used.
-
-The official resource service was also exercised through the installed package's actual task/tool loop: one short query and one selected reading, with the required MIT notice returned to the task. A synthetic model drove that test; the resource endpoint was the real production service. All 74 public pages, 10 installer assets, 8 shell/language tutorial files and 9 privacy files were read back and matched the release inputs.
+Hosted Windows x64 checks do not certify every user's PC, physical Windows ARM hardware, corporate proxy or paid provider account. Release notes identify the actual run and artifact hashes. Never send API keys with a support report.

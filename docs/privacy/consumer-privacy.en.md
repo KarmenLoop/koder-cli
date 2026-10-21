@@ -1,6 +1,6 @@
 # Koder CLI consumer privacy terms — full text
 
-Updated and effective October 20, 2026. Applies from 0.4.0-preview.15.
+Updated and effective October 20, 2026. Applies from 0.4.0-preview.16.
 Provider: KARMENLOOP Official Team, Shanghai, China. Contact: info@karmenloop.com. Website: https://karmenloop.com.
 
 ## 1. Scope and choices

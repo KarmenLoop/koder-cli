@@ -1,6 +1,8 @@
 # Use Xiaomi MiMo V2.6 with Koder CLI
 
-Koder supports the OpenAI-compatible MiMo endpoint. Choose the credential type first. A Token Plan subscription and a pay-as-you-go API account use different keys and endpoints.
+**MiMo Token Plan has known integration bugs and is temporarily unavailable.** Its setup entry is gray, and calls are blocked. Existing configuration is kept. Token Plan configuration below is historical reference; do not follow it to enable this entry. MiMo pay-as-you-go is separate and keeps its existing status.
+
+The two products use different keys and endpoints.
 
 | Account | Koder preset | Default Base URL | Key type |
 |---|---|---|---|
@@ -25,20 +27,9 @@ For Flash, change the model ID to `mimo-v2.6-flash`. For pay as you go, change t
 
 The API request uses `/chat/completions`, the exact selected model ID and `max_completion_tokens`. Tool-call IDs and reasoning history are retained through subsequent calls. Private reasoning is not printed as the answer. The preset uses a 1,048,576-token context setting and an 8,192-token output ceiling; explicit smaller endpoint/account limits take precedence. Model tests and tasks use your provider quota.
 
-## Use the Hermes engine
+## Use the built-in engine
 
-The built-in Koder engine can use MiMo without installing Hermes. If Hermes is already installed in your current environment:
-
-```text
-koder engine use hermes
-koder ask "Reply with the single word ready."
-```
-
-With an official MiMo model selected in Koder, the bridge creates a Koder-managed profile under `~/.koder-cli/engines/hermes/mimo-<id>/` (or your explicit Koder CLI home). Its model and endpoint match your choice. The key is passed in the child environment and is not written to the Hermes profile or command line. ACP model selection must succeed before a prompt is sent; refusal does not silently use another model.
-
-Your original Hermes profile, settings and credentials are not overwritten or copied. Its separate conversation history and custom settings are not imported into this new profile. Koder's own conversation continuity remains separate. A changed profile destination is rejected before credential transfer. Non-model settings in the managed profile are retained.
-
-This integration targets the pinned Hermes revision `517b5e10febd619ce30bb22580e29b160266eb43`. Koder's existing Hermes installer uses bash; on Windows use the built-in Koder engine or run the Hermes integration inside WSL. Native Windows Hermes installation is outside this change.
+MiMo connects through Koder directly. The internal backup integration is disabled and gray by default. It never activates automatically after a connection failure. Keep the built-in Koder engine selected while checking the exact Token Plan region, endpoint, model ID and key class. A bare official origin is expanded to the selected protocol path; a path copied from a different protocol is rejected locally.
 
 ## Check a failure
 
