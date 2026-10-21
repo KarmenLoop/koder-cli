@@ -387,8 +387,8 @@
     },
     {
       "path": "install/koder-cli-0.4.0-preview.20.tgz",
-      "sha256": "d57af1fd6f90557e8268f38f4504e3bc955b5b95938bcf94f731353839accb51",
-      "bytes": 4876773
+      "sha256": "e132d21c6cfbb6d776618ddd81e9a3e0c3a558c28f0861fb304e4a70affb04c6",
+      "bytes": 4875291
     },
     {
       "path": "install/LEGAL-NOTICE.md",
@@ -402,17 +402,17 @@
     },
     {
       "path": "install/SHA256SUMS",
-      "sha256": "1f76bc12a0dda230a2841b993876d38f8ac959fac9b5a65e2d727783c0107e18",
+      "sha256": "418230e0f2f9adb30cb5baddadd7847f5c50731f0f7157cb6212c3fa1d440beb",
       "bytes": 758
     },
     {
       "path": "install/koder-cli-latest.json",
-      "sha256": "32c4fe516238018bd582cc8a98d47305568a42f3a0e3f3c8195d45fd3b0631da",
+      "sha256": "542f3b850ccf5bb70e82fd1a18ddf0e8a3049099c62c2d2cf1982c256e1c307e",
       "bytes": 848
     },
     {
       "path": "install/koder-cli-0.4.0-preview.20.json",
-      "sha256": "32c4fe516238018bd582cc8a98d47305568a42f3a0e3f3c8195d45fd3b0631da",
+      "sha256": "542f3b850ccf5bb70e82fd1a18ddf0e8a3049099c62c2d2cf1982c256e1c307e",
       "bytes": 848
     },
     {
@@ -437,8 +437,8 @@
     },
     {
       "path": "install/cli-0.4.0-preview.20/koder-cli-0.4.0-preview.20.tgz",
-      "sha256": "d57af1fd6f90557e8268f38f4504e3bc955b5b95938bcf94f731353839accb51",
-      "bytes": 4876773
+      "sha256": "e132d21c6cfbb6d776618ddd81e9a3e0c3a558c28f0861fb304e4a70affb04c6",
+      "bytes": 4875291
     },
     {
       "path": "install/cli-0.4.0-preview.20/LEGAL-NOTICE.md",
@@ -452,17 +452,17 @@
     },
     {
       "path": "install/cli-0.4.0-preview.20/SHA256SUMS",
-      "sha256": "1f76bc12a0dda230a2841b993876d38f8ac959fac9b5a65e2d727783c0107e18",
+      "sha256": "418230e0f2f9adb30cb5baddadd7847f5c50731f0f7157cb6212c3fa1d440beb",
       "bytes": 758
     },
     {
       "path": "install/cli-0.4.0-preview.20/koder-cli-latest.json",
-      "sha256": "32c4fe516238018bd582cc8a98d47305568a42f3a0e3f3c8195d45fd3b0631da",
+      "sha256": "542f3b850ccf5bb70e82fd1a18ddf0e8a3049099c62c2d2cf1982c256e1c307e",
       "bytes": 848
     },
     {
       "path": "install/cli-0.4.0-preview.20/koder-cli-0.4.0-preview.20.json",
-      "sha256": "32c4fe516238018bd582cc8a98d47305568a42f3a0e3f3c8195d45fd3b0631da",
+      "sha256": "542f3b850ccf5bb70e82fd1a18ddf0e8a3049099c62c2d2cf1982c256e1c307e",
       "bytes": 848
     },
     {

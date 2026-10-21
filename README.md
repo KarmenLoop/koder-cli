@@ -6,6 +6,12 @@ Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, 
 
 The KARMEN LOOP kernel connects task planning, permission checks, tool execution, and saved results. Public descriptions cover capabilities; new application runtime source remains proprietary under the [EULA](EULA.md). Third-party components retain their own licenses and [credits](OPEN_SOURCE_CREDITS.md).
 
+## Menus in your current conversation
+
+Type `/menu`, `/setup` or `koder setup` at the `koder ›` prompt for settings. Type `/celebrate` or `koder celebrate` for optional effects. Chinese shortcuts `菜单` and `彩蛋菜单` work there too. Escape leaves settings, Enter skips the effect menu, and any key skips an animation. Continue the task in the same terminal. `/growth status` checks the embedded learning method.
+
+Preview.20 also fixes ordinary website tasks being intercepted by the product introduction. Website and menu work reaches the task engine; only a complete explicit question about Koder itself uses the local introduction.
+
 ## Install
 
 Preview.18 restores a usable approval prompt when a saved execution record is damaged, preserves the old record before an explicitly confirmed repair, and accepts valid UTF-8 BOM records. Celebration colors use valid terminal sequences. Failed automatic installations now display a retry message while the current conversation remains usable. Windows MCP and MiniMax fixes from preview.17 are retained. Real account availability still depends on your provider, key, plan and quota; the temporarily unavailable integrations listed below remain disabled.

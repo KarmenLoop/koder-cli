@@ -97,6 +97,8 @@ def exercise(effect, skip):
                      'readerCleanupSeconds': round(time.monotonic() - ended, 3)})
     finally:
         (out / (name + '.log')).write_text(''.join(parts), encoding='utf-8')
+        if status != 0:
+            print('ANIMATION_DIAGNOSTIC '+json.dumps({'name':name,'status':status,'frameObserved':first_frame is not None,'processSeconds':round(time.monotonic()-started,3),'outputBytes':len(''.join(parts)),'tail':''.join(parts)[-4000:]}),flush=True)
         if os.name == 'nt':
             if proc.isalive():
                 proc.terminate(force=True)
