@@ -8,7 +8,7 @@ on:
         default: cli-0.4.0-preview.17
       phase:
         type: choice
-        options: [candidate, negative, published, diagnostic]
+        options: [candidate, candidate-windows, negative, published, diagnostic]
         default: candidate
       assets_ref:
         description: Reserved for older installer-only runs
@@ -19,13 +19,13 @@ env:
   PYTHONUTF8: '1'
 jobs:
   packaged:
-    if: inputs.phase == 'candidate'
+    if: inputs.phase == 'candidate' || inputs.phase == 'candidate-windows'
     permissions:
       contents: write # Draft release assets require push access; the job only downloads.
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-15-intel, windows-latest]
+        os: ${{ inputs.phase == 'candidate-windows' && fromJSON('["windows-latest"]') || fromJSON('["ubuntu-latest","macos-15-intel","windows-latest"]') }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 40
     steps:

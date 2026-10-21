@@ -22,6 +22,15 @@ for name in ['consent-content.test.mjs','personalization-setup.test.mjs']:
  file=cli/'test'/name;before=sha(file);text=file.read_text();old="'../../koder-desktop/fusion/data-lock.mjs'";assert text.count(old)==1
  file.write_text(text.replace(old,"'./packaged-protected-lock.mjs'"));print(json.dumps({'adaptedTestFixture':name,'before':before,'after':sha(file),'reason':harness['adaptation']}),flush=True)
 
+if os.name=='nt':
+ # A synthetic here-string piped to node.exe stalls inside a redirected
+ # PowerShell 5.1 host. The real installer invokes Node with arguments.
+ # Keep the same script body, assertions and deadlines using that transport.
+ fixture=cli/'test/packaged-automatic-fixture.mjs'
+ fixture.write_text("export function installerFixture(js){const encoded=Buffer.from(js).toString('base64');return `$ErrorActionPreference='Stop'\\n& '${process.execPath.replaceAll(\"'\",\"''\")}' -e \"eval(Buffer.from('${encoded}','base64').toString())\"\\nif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }\\n`;}\n")
+ file=cli/'test/automatic-update.test.mjs';before=sha(file);text=file.read_text();old="import {installerFixture} from './windows-fixtures.mjs';";assert text.count(old)==1
+ file.write_text(text.replace(old,"import {installerFixture} from './packaged-automatic-fixture.mjs';"));print(json.dumps({'adaptedTestFixture':file.name,'before':before,'after':sha(file),'reason':'Use the actual installer argument transport; original script body, assertions and deadlines retained'}),flush=True)
+
 env={**os.environ,'KODER_DESKTOP_ROOT':str(P/'koder-desktop'),'PYTHONUTF8':'1'}
 if os.name=='nt':
  for key in list(env):
