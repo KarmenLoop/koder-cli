@@ -1,10 +1,10 @@
 {
-  "version": "0.4.0-preview.17",
-  "file": "koder-cli-0.4.0-preview.17.tgz",
-  "sha256": "5dcd162321d71b68fa2355d7ff2ecd7380bf3bed96ccf9a4e1605ac2047a95d7",
-  "size": 4825413,
+  "version": "0.4.0-preview.21",
+  "file": "koder-cli-0.4.0-preview.21.tgz",
+  "sha256": "0d03f565e0a3634a2f64d0a658e8efcb93c9a98d666a5b3668bec6738153a036",
+  "size": 4873998,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-21T11:31:23.885Z",
+  "builtAt": "2026-10-21T19:19:52.447Z",
   "preview": true,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,17 +14,17 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "9bb921c74640224693d9a3f83a096deda67038125b84fe59f6ebf6c2b53a88a3"
+      "sha256": "aef3ca45ba84a5bd7207c960ff0fcf58667331af66eb5007263f4c505197e58f"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "174b6283ac81381fee99814bd476bbbd215f712e2f0f7931a64d7333426135b2"
+      "sha256": "6d18c6766162b725eb5a92b11fe68de494f4725ded6c8c619b1bb831c8e76d18"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "781462bddbdd8bdc98fefe458af81e96fa5aef7255dc945b821c4d5754bc56ec"
+      "sha256": "65d75678a5c93a53bf7fda18f313d8814c352cc7979cf2a47bb48a522993dde6"
     }
   },
   "sourceArchive": "Accepted private development source. This public repository retains legacy source; new implementation is supplied in the licensed runtime package.",
-  "acceptance": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.17/ACCEPTANCE-REPORT.json"
+  "acceptance": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.21/ACCEPTANCE-REPORT.json"
 }
