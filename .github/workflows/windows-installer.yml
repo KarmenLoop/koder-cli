@@ -8,7 +8,7 @@ on:
         default: cli-0.4.0-preview.17
       phase:
         type: choice
-        options: [published, candidate, candidate-windows, negative]
+        options: [published, candidate, candidate-windows, candidate-focused, negative]
         default: published
       assets_ref:
         description: Reserved for older installer-only runs
@@ -19,13 +19,13 @@ env:
   PYTHONUTF8: '1'
 jobs:
   packaged:
-    if: inputs.phase == 'candidate' || inputs.phase == 'candidate-windows'
+    if: inputs.phase == 'candidate' || inputs.phase == 'candidate-windows' || inputs.phase == 'candidate-focused'
     permissions:
       contents: write # Draft release assets require push access; the job only downloads.
     strategy:
       fail-fast: false
       matrix:
-        os: ${{ inputs.phase == 'candidate-windows' && fromJSON('["windows-latest"]') || fromJSON('["ubuntu-latest","macos-15-intel","windows-latest"]') }}
+        os: ${{ (inputs.phase == 'candidate-windows' || inputs.phase == 'candidate-focused') && fromJSON('["windows-latest"]') || fromJSON('["ubuntu-latest","macos-15-intel","windows-latest"]') }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 40
     steps:
@@ -47,6 +47,8 @@ jobs:
         run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
         shell: bash
       - name: Verify package, run original CLI regressions and MCP lifecycle tests
+        env:
+          KODER_ACCEPTANCE_FOCUSED: ${{ inputs.phase == 'candidate-focused' && '1' || '0' }}
         run: python .github/scripts/packaged-release-gates.py
 
   negative:

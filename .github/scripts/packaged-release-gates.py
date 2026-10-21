@@ -49,11 +49,15 @@ def run(name,argv,cwd,timeout):
 try:
  run('host-lifecycle',['node','--test','--test-concurrency=1','--test-timeout=60000','test/loop-json-store.test.mjs','test/loop-windows-publish.test.mjs','test/app-host.test.mjs'],P/'koder-desktop',300)
  files=[str(p.relative_to(cli)) for p in sorted((cli/'test').glob('*.test.mjs'))]
- run('full-cli',['node','--test','--test-concurrency=1','--test-timeout=60000',*files],cli,1200)
+ if os.environ.get('KODER_ACCEPTANCE_FOCUSED')=='1':
+  files=['test/automatic-update.test.mjs','test/automatic-update-responsive.test.mjs','test/github-update.test.mjs','test/update-restart-process.test.mjs','test/acp.test.mjs','test/acp-close.test.mjs','test/mcp-command.test.mjs','test/apps-bundle.test.mjs']
+  run('focused-original-functional-cli',['node','--test','--test-concurrency=1','--test-timeout=60000',*files],cli,360)
+ else:
+  run('full-cli',['node','--test','--test-concurrency=1','--test-timeout=60000',*files],cli,1200)
  if os.name=='nt':
   run('native-installer',['python',str(ROOT/'.github/scripts/test-windows-installer.py'),'--assets',str(A),'--out',str(O/'windows')],ROOT,840)
   for file in sorted((O/'windows').glob('*.json')):print(file.name,file.read_text(encoding='utf-8'),flush=True)
 finally:
- result={'passed':all(r['exitCode']==0 for r in runs),'runs':runs,'package':m,'platform':sys.platform,'accountAcceptance':'NOT_RUN_NO_TEST_KEYS','scope':'Distributed runtime with original CLI tests and synthetic fixtures, no private development runtime sources uploaded'}
+ result={'passed':all(r['exitCode']==0 for r in runs),'runs':runs,'package':m,'platform':sys.platform,'focused':os.environ.get('KODER_ACCEPTANCE_FOCUSED')=='1','accountAcceptance':'NOT_RUN_NO_TEST_KEYS','scope':'Distributed runtime with original CLI tests and synthetic fixtures, no private development runtime sources uploaded'}
  (O/'RESULT.json').write_text(json.dumps(result,indent=2)+'\n');print('ACCEPTANCE_RESULT '+json.dumps(result),flush=True)
 sys.exit(0 if result['passed'] else 1)
