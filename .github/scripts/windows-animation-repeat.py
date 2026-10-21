@@ -1,5 +1,5 @@
 from pathlib import Path
-import hashlib,json,os,subprocess,sys,tarfile
+import hashlib,json,os,shutil,subprocess,sys,tarfile
 r=Path.cwd();a=r/'candidate';m=json.loads((a/'koder-cli-latest.json').read_text());assert hashlib.sha256((a/m['file']).read_bytes()).hexdigest()==m['sha256']
 payload=r/'animation-repeat';payload.mkdir()
 with tarfile.open(a/m['file']) as z:
@@ -7,9 +7,7 @@ with tarfile.open(a/m['file']) as z:
  z.extractall(payload,filter='data')
 cli=payload/'koder-cli';rows=[]
 for n in range(3):
- command=['python',str(r/'.github/scripts/test-terminal-celebrations.py'),'--node',sys.executable.replace('python.exe','node.exe'),'--package',str(cli),'--out',str(payload/f'case-{n}')]
- import shutil
- command[command.index('--node')+1]=shutil.which('node')
+ command=['python',str(r/'.github/scripts/test-terminal-celebrations.py'),'--node',shutil.which('node'),'--package',str(cli),'--out',str(payload/f'case-{n}')]
  result=subprocess.run(command,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=160)
  print('ANIMATION_REPEAT_CASE',n,result.returncode,flush=True);print(result.stdout+result.stderr,flush=True)
  report=payload/f'case-{n}/ANIMATION-RESULT.json';data=json.loads(report.read_text()) if report.exists() else {}
