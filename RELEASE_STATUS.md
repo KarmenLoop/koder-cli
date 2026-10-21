@@ -31,3 +31,5 @@ See [installation](docs/INSTALLATION.md), [troubleshooting](docs/TROUBLESHOOTING
 ## Windows timing limits
 
 Known Windows timing limits remain: fresh-process startup sometimes exceeds the original one-second target, and one full celebration check exceeded its end-to-end limit (10.125 seconds). Earlier failures are retained; functional installation checks do not erase these performance limits.
+
+A Windows WeChat hot-update handoff exceeded its eight-second readiness deadline once. Three subsequent unchanged replays passed; the intermittent limit remains open. If a gateway does not reconnect after updating, finish current work and restart Koder manually without repeating completed tasks.

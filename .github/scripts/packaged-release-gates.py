@@ -36,16 +36,6 @@ if os.name=='nt':
  for key in list(env):
   if key.lower()=='psmodulepath':del env[key]
  env['PSModulePath']=str(Path(os.environ['SystemRoot'])/'System32/WindowsPowerShell/v1.0/Modules')
-if os.environ.get('KODER_HANDOFF_DIAG')=='1':
- p=cli/'test/update-restart-process.test.mjs';text=p.read_text();old="pendingSend();await until(()=>state()?.pid!==priorPid && state()?.version===(startupFailure?'0.4.0-preview.6':'0.4.0-preview.100'));";assert text.count(old)==1
- text=text.replace(old,"pendingSend();try{await until(()=>state()?.pid!==priorPid && state()?.version===(startupFailure?'0.4.0-preview.6':'0.4.0-preview.100'));}catch(error){console.log('HANDOFF_AT_FAILURE',JSON.stringify({state:state(),output:old.output()}));await new Promise(r=>setTimeout(r,3000));console.log('HANDOFF_AFTER_FAILURE',JSON.stringify({state:state(),output:old.output()}));throw error;}")
- p.write_text(text)
- for index in range(3):
-  result=subprocess.run(['node','--test','--test-concurrency=1','--test-timeout=60000','--test-name-pattern=running WeChat.*updated worker','test/update-restart-process.test.mjs'],cwd=cli,env=env,timeout=75)
-  print('HANDOFF_DIAGNOSTIC_RUN',index,result.returncode,flush=True)
-  if result.returncode:sys.exit(result.returncode)
- sys.exit(0)
-
 runs=[]
 def run(name,argv,cwd,timeout):
  started=time.monotonic();log=O/(name+'.log')
