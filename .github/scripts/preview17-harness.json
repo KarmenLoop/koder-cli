@@ -1,7 +1,7 @@
 {
-  "file": "acceptance-harness-winfinal-r2.tar.gz",
-  "sha256": "035d149eef6a86cef2f1720071af4a5b80ebb31e026977a7b17c3ec289520e61",
-  "bytes": 318900,
+  "file": "acceptance-harness-winfinal-r3.tar.gz",
+  "sha256": "8909cbb44ca0030ac62639a96c0133e4dac91faa8e3a971175d7828723b1092e",
+  "bytes": 318924,
   "files": 163,
   "adaptation": "The two protected-lock fixture ports remain synthetic; original assertions and deadlines retained. Windows installer fixtures use the same Node argument transport as the real installer."
 }
