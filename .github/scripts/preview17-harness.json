@@ -1,6 +1,8 @@
 {
-  "sha256": "db7f752ad659cdb7377af04fc29ce0f0e9c0b18d27b7fe0c556c1cb9c552b560",
-  "bytes": 316581,
-  "files": 160,
-  "scope": "Tests, synthetic fixtures, packaging test tooling and dependency lock only. No development runtime source. Temporary draft release asset removed before publication."
+  "sha256": "25825ca95d3ebda118bad53faa68c165e0bd84ad9e4cafc61d70dd423634e0df",
+  "bytes": 317503,
+  "files": 161,
+  "scope": "Tests, synthetic fixtures, packaging test tooling and dependency lock only. No development runtime source. Temporary draft release asset removed before publication.",
+  "file": "acceptance-harness-preview17-r2.tar.gz",
+  "adaptation": "Two tests inject the shipped protected personalization lock through a synthetic credential fixture instead of the intentionally excluded desktop vault. All original assertions and deadlines are retained."
 }

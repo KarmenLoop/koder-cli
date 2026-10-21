@@ -5,14 +5,23 @@ ROOT=Path.cwd();A=ROOT/'candidate';P=ROOT/'payload';O=ROOT/'results';O.mkdir(exi
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 m=json.loads((A/'koder-cli-latest.json').read_text());assert sha(A/m['file'])==m['sha256'];assert (A/m['file']).stat().st_size==m['size']
 for line in (A/'SHA256SUMS').read_text().splitlines():h,n=line.split('  ',1);assert sha(A/n)==h,n
-harness=json.loads((ROOT/'.github/scripts/preview17-harness.json').read_text());assert sha(A/'acceptance-harness-preview17.tar.gz')==harness['sha256']
+harness=json.loads((ROOT/'.github/scripts/preview17-harness.json').read_text());assert sha(A/harness.get('file','acceptance-harness-preview17.tar.gz'))==harness['sha256']
 def extract(archive,to):
  with tarfile.open(archive) as z:
   for item in z:assert not item.issym() and not item.islnk() and '..' not in Path(item.name).parts and not Path(item.name).is_absolute()
   z.extractall(to,filter='data')
 extract(A/m['file'],P);cli=P/'koder-cli';kernel=cli/'kernel'
 for row in json.loads((kernel/'MANIFEST.json').read_text())['files']:assert sha(kernel/row['path'])==row['sha256'],row['path']
-shutil.copytree(kernel,P/'koder-desktop');extract(A/'acceptance-harness-preview17.tar.gz',P)
+shutil.copytree(kernel,P/'koder-desktop');extract(A/harness.get('file','acceptance-harness-preview17.tar.gz'),P)
+# The distributed CLI deliberately excludes the desktop login vault. These
+# tests inject a lock and test consent behavior, so use the real CLI lock with
+# an isolated synthetic credential port. Assertions and deadlines are unchanged.
+fixture = cli/'test/packaged-protected-lock.mjs'
+fixture.write_text("import {createPersonalizationLock} from '../src/personalization-lock.mjs';\nexport async function createDataLock({dir}){let record=null;return createPersonalizationLock({scope:'packaged-test:'+dir,credentials:{read:async()=>record,write:async value=>{record=structuredClone(value);},availability:()=>({mode:'protected',nativeVerified:true})}}); }\n")
+for name in ['consent-content.test.mjs','personalization-setup.test.mjs']:
+ file=cli/'test'/name;before=sha(file);text=file.read_text();old="'../../koder-desktop/fusion/data-lock.mjs'";assert text.count(old)==1
+ file.write_text(text.replace(old,"'./packaged-protected-lock.mjs'"));print(json.dumps({'adaptedTestFixture':name,'before':before,'after':sha(file),'reason':harness['adaptation']}),flush=True)
+
 env={**os.environ,'KODER_DESKTOP_ROOT':str(P/'koder-desktop'),'PYTHONUTF8':'1'}
 if os.name=='nt':
  for key in list(env):
