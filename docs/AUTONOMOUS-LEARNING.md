@@ -1,6 +1,6 @@
 # Built-in autonomous learning
 
-Koder CLI preview.19 includes KARMEN LOOP's `personal-agent-growth` 0.3.2. Its eight released files are pinned and read locally through the existing `skill_read` tool. No separate download is required.
+Koder CLI preview.20 includes KARMEN LOOP's `personal-agent-growth` 0.3.2. Its eight released files are pinned and read locally through the existing `skill_read` tool. No separate download is required.
 
 ## Use and controls
 

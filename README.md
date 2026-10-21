@@ -1,6 +1,6 @@
 # Koder CLI
 
-**0.4.0-preview.19** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.19) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.0-preview.20** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.20) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 

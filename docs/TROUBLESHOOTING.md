@@ -39,3 +39,9 @@ For an available service, confirm its exact product and endpoint, then run `kode
 ## Send useful feedback
 
 Contact [info@karmenloop.com](mailto:info@karmenloop.com) with the Koder version, Windows/macOS/Linux version, terminal, provider product and the final error text. Remove keys, private prompts and personal paths. Koder can prepare a feedback template when you ask; it does not send it for you.
+
+## A website task returns the Koder introduction
+
+Update to preview.20 or newer. Earlier versions could mistake the word “官网” in a website redesign task for a question about Koder. In preview.20, the whole request must be an explicit product question before that local response is used. Ordinary website work reaches the model.
+
+Open menus at the current `koder ›` prompt with `/menu`, `/setup`, `/celebrate`, or `彩蛋菜单`. You can also type `koder setup` or `koder celebrate` there. Escape returns from settings; Enter skips the effect menu. No additional terminal is required.

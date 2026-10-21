@@ -35,8 +35,19 @@ try:
  proc.write('Append the owned fixture marker again.\r\n');until(lambda:marker.read_text()=='xx','persisted permission actual command');until(lambda:''.join(parts).count('OWNED_COMMAND_DONE')>=2,'second model continuation')
  assert ''.join(parts).count('permission record is unreadable')==1,'a persisted full grant must not ask again'
  backups=list(home.glob('execution-permissions.invalid-*.json'));assert len(backups)==1 and backups[0].read_bytes()==broken
+ request_count=len(requests);offset=len(''.join(parts));proc.write('/menu\r\n')
+ until(lambda:'Koder setup' in ''.join(parts)[offset:],'same-window settings menu')
+ proc.write('\x1b');until(lambda:'Settings saved.' in ''.join(parts)[offset:],'return from settings')
+ assert len(requests)==request_count,'local menu must not call the model'
+ offset=len(''.join(parts));proc.write('koder celebrate menu\r\n')
+ until(lambda:'Choose an effect' in ''.join(parts)[offset:],'same-window celebration menu')
+ proc.write('3\r\n');until(lambda:'Any key skips' in ''.join(parts)[offset:],'same-window fireworks')
+ proc.write('q');until(lambda:'Any key skips' in ''.join(parts)[offset:] and 'koder' in ''.join(parts)[offset:].split('Any key skips')[-1],'return after animation skip')
+ assert len(requests)==request_count,'celebrations must not call the model'
+ proc.write('Append the owned fixture marker after the menus.\r\n');until(lambda:marker.read_text()=='xxx','task after current-window menus');until(lambda:''.join(parts).count('OWNED_COMMAND_DONE')>=3,'model continuation after menus')
+ assert ''.join(parts).count('permission record is unreadable')==1
  proc.write('/exit\r\n');until(lambda:not proc.isalive(),'cooperative chat exit');reader.join(2);assert proc.exitstatus==0,proc.exitstatus
- print(json.dumps({'passed':True,'nativeTerminal':True,'freshFullAnswerAccepted':True,'actualCommandExecutions':2,'corruptRecordPreserved':True,'repeatedApprovalPrompts':0,'exitCode':proc.exitstatus}),flush=True)
+ print(json.dumps({'passed':True,'nativeTerminal':True,'freshFullAnswerAccepted':True,'actualCommandExecutions':3,'sameWindowSettings':True,'sameWindowCelebration':True,'animationSkipped':True,'corruptRecordPreserved':True,'repeatedApprovalPrompts':0,'exitCode':proc.exitstatus}),flush=True)
 finally:
  (work/'terminal.log').write_text(''.join(parts),encoding='utf-8');print('TERMINAL_OUTPUT '+''.join(parts)[-6000:],flush=True)
  if proc.isalive():proc.terminate(force=True)

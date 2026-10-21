@@ -1,4 +1,4 @@
-# Koder CLI 0.4.0-preview.19
+# Koder CLI 0.4.0-preview.20
 
 Preview.19 embeds KARMEN LOOP personal-agent-growth 0.3.2 as a pinned, offline method resource. Relevant tasks receive contextual Skill recommendations; growth status/show/on/off provides inspection and opt-out. Its eight original files and full license remain intact. The method adds no daemon or execution authority.
 
