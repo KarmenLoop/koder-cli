@@ -8,7 +8,7 @@ on:
         default: cli-0.4.0-preview.21
       phase:
         type: choice
-        options: [published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, animation-repeat, windows-diagnosis, windows-app-diagnosis]
+        options: [published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, animation-repeat, windows-diagnosis, windows-app-diagnosis, native-acl-build]
         default: published
       assets_ref:
         description: Reserved for older installer-only runs
@@ -197,3 +197,24 @@ jobs:
         run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
         shell: bash
       - run: python .github/scripts/windows-app-diagnosis.py
+
+  native-acl-build:
+    if: inputs.phase == 'native-acl-build'
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - name: Compile the owned ACL helper with the installed .NET compiler
+        shell: pwsh
+        env:
+          BUILD_SOURCE: ${{ secrets.PREVIEW21_ACL_BUILD_SOURCE }}
+        run: |
+          if (-not $env:BUILD_SOURCE) { throw 'Build source is unavailable' }
+          New-Item -ItemType Directory -Path output | Out-Null
+          [IO.File]::WriteAllBytes("$pwd/MemoryAcl.cs", [Convert]::FromBase64String($env:BUILD_SOURCE))
+          & "$env:SystemRoot/Microsoft.NET/Framework64/v4.0.30319/csc.exe" /nologo /optimize+ /target:exe /platform:anycpu /out:output/koder-memory-acl.exe MemoryAcl.cs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          @{sourceSha256=(Get-FileHash MemoryAcl.cs -Algorithm SHA256).Hash.ToLower();outputSha256=(Get-FileHash output/koder-memory-acl.exe -Algorithm SHA256).Hash.ToLower();compiler='Windows .NET Framework csc v4.0.30319'} | ConvertTo-Json | Set-Content output/BUILD-IDENTITY.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: preview21-native-acl
+          path: output
