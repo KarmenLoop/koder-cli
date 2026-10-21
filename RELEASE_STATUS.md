@@ -1,4 +1,6 @@
-# Koder CLI 0.4.0-preview.18
+# Koder CLI 0.4.0-preview.19
+
+Preview.19 embeds KARMEN LOOP personal-agent-growth 0.3.2 as a pinned, offline method resource. Relevant tasks receive contextual Skill recommendations; growth status/show/on/off provides inspection and opt-out. Its eight original files and full license remain intact. The method adds no daemon or execution authority.
 
 Preview.18 repairs damaged execution-permission records only after a fresh explicit choice, backs up their original bytes, and reads valid UTF-8 BOM records. The full-access prompt no longer fails before the user can answer in this recovery case. Unsafe or inaccessible files remain blocked. Animated colors now use valid RGB sequences rather than malformed escapes. Automatic installer failures are reported without stopping the current chat.
 

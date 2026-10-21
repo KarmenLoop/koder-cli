@@ -1,6 +1,6 @@
 {
   "origin": "https://karmenloop.com",
-  "version": "0.4.0-preview.18",
+  "version": "0.4.0-preview.19",
   "pages": 74,
   "files": [
     {
@@ -15,12 +15,12 @@
     },
     {
       "path": "cli.html",
-      "sha256": "35ba9fca041cf0e267133bb25c89ec4d116331caff3c8fb4eb5b61a072b4e55d",
-      "bytes": 74788
+      "sha256": "b419bdfa08037a12be68ceefc4dd557da5b8bc9d7ee30081cda4ea8ef740c866",
+      "bytes": 75771
     },
     {
       "path": "configure.html",
-      "sha256": "a9c6fa5561ee7557b6e66d736869380334ea4834494f40e5ddbfed63fa097cbb",
+      "sha256": "b93db69286dad363acdc1a20f6e0cc0e403e56250d7d9780cd5e67f43a9a76a7",
       "bytes": 19837
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "path": "download.html",
-      "sha256": "823a5c4105f3416aa85285cbb49f9542d56321ab3f645f3d9ba237559dfc1b33",
+      "sha256": "7abb499c9570fc3ad2b894f5136834b9baef36084c6603f0c8c0320249fe3c7c",
       "bytes": 40776
     },
     {
@@ -60,12 +60,12 @@
     },
     {
       "path": "en/cli.html",
-      "sha256": "9ea22e9a882a405dadf089f7daf8c9599fc95878659f881c6bb4fce3357d8db3",
-      "bytes": 77807
+      "sha256": "e0290358e727db0152235959477e1060146e2bf678e0cf4cae8b6ec19cbd459c",
+      "bytes": 78914
     },
     {
       "path": "en/configure.html",
-      "sha256": "e905fbb416181ea606babf210fb2d957dd0297191936c167548dfc4d181577f8",
+      "sha256": "569591f41623b7b5626f0b771d1423aaae1fd1d1ba16b3b3631d482dd12eb608",
       "bytes": 21014
     },
     {
@@ -85,7 +85,7 @@
     },
     {
       "path": "en/download.html",
-      "sha256": "fd1550769a97ba216121501cbf9243d85fbc9998010b3eb0780b40b8cb3b92a5",
+      "sha256": "29bffbd563bc5e5e8d6409a75fb3a2834b5f01f7dc8af2fe45a1c1edd1b100f8",
       "bytes": 41648
     },
     {
@@ -105,12 +105,12 @@
     },
     {
       "path": "en/help.html",
-      "sha256": "ee8575310f0c6348e4d525709658b1ec3de7eccd397aa9d78cb2d60e2f6a4f96",
+      "sha256": "4aa1639760a87ad2eff04eff646dbfe99d34f226a66d97ce52aecf6edcab0cf4",
       "bytes": 15379
     },
     {
       "path": "en/ide.html",
-      "sha256": "a043a8b69a3be8eb809b415db27c36ae13431bfdbc427745c59f4a054fa926de",
+      "sha256": "33ee11355739bb001c636f6a28100c6b94b03c321d0b788355d043aa6f8d65d0",
       "bytes": 29746
     },
     {
@@ -166,7 +166,7 @@
     },
     {
       "path": "en/models.html",
-      "sha256": "50bfacb1b2389c4f624705440a6416c9fcefa343eb6e724a373c6f7986ef8deb",
+      "sha256": "af3da406ff9a0aff1b47d7606a249091236c5319fc1502f90e745db3eef38f55",
       "bytes": 16927
     },
     {
@@ -181,7 +181,7 @@
     },
     {
       "path": "en/resources.html",
-      "sha256": "98836ecedd7306d56561650882c8c57190f21ee3bbc7d74ccef1e82677b57a5c",
+      "sha256": "8e4ac7187de01b23575fd52a5c33bc47baf728ff3409bb2993ab438b1764d36e",
       "bytes": 14795
     },
     {
@@ -226,12 +226,12 @@
     },
     {
       "path": "en/tutorial.html",
-      "sha256": "f4a6ba3683a32357f68de86e03b69cb8f7bc491d759f8c01494bc69606a4aa00",
-      "bytes": 310896
+      "sha256": "8f3c7495da64bfa029218e8b4d17d5762abe73cdd3c2ca343d734d0a7e894b98",
+      "bytes": 312160
     },
     {
       "path": "en/updates.html",
-      "sha256": "39af504b5ed300b21e978100e04dc79d7c43ec938dc7ab6912b49ed67a1b023f",
+      "sha256": "6a33a4f0fdbbb008a69241a1a99e6db43a21348330b19b826fe70f698f217f35",
       "bytes": 19342
     },
     {
@@ -246,17 +246,17 @@
     },
     {
       "path": "help.html",
-      "sha256": "4eb6081905795754d83cee291afa044f2c853e6fa0a261a00d9e726bb3cee84a",
+      "sha256": "5180e8f1efe169c725fbeaf8b5749919905d3d34c1308be52809f6bcc653e0fe",
       "bytes": 14888
     },
     {
       "path": "ide.html",
-      "sha256": "bda67cb04193020d37856554c99b28ace8b80271782c65b15bf420d619a6fb82",
+      "sha256": "86534223a50acffd01e65d387a0faa652968d18d5d693e301cc3def10164bf85",
       "bytes": 28932
     },
     {
       "path": "index.html",
-      "sha256": "56de8b1bc5f3a533dcaa3c3fd47d87fe209319ea4f257dda5c292d1d806b1e44",
+      "sha256": "5d1e66688e9cf6179af5c63f58570d0ff3e10a812d74cb8dedd8773bd143e575",
       "bytes": 27441
     },
     {
@@ -307,7 +307,7 @@
     },
     {
       "path": "models.html",
-      "sha256": "25ec50d5a7a7a0740e4ee7f51081dc38b6f37c417b87ce98e7ae20c4594ec2eb",
+      "sha256": "52eee5f02a0520a0b6810ee3c8623f40df3a42f7df8500acce2066a056ff641a",
       "bytes": 16134
     },
     {
@@ -322,7 +322,7 @@
     },
     {
       "path": "resources.html",
-      "sha256": "9a859c0e1c03f036f9dd36355780cd32360fc02d418e6a84ee902daad1fd6837",
+      "sha256": "c88bf6948d357598083e31f97a012650006de72933782e35b39305d215212b80",
       "bytes": 14318
     },
     {
@@ -367,28 +367,28 @@
     },
     {
       "path": "tutorial.html",
-      "sha256": "084bda806b25e33853cfd76b32f5a995f15c42e3d3e32ef9f4e981250bacdf5e",
-      "bytes": 321833
+      "sha256": "4dcbcb43e3dd3571a270b424e7a5f13a0e31ee535de812ab69c099573bca1465",
+      "bytes": 323085
     },
     {
       "path": "updates.html",
-      "sha256": "3c4e30aa6abfa7764e6f5bf3384ade4e949860aa6ac70a995eba57d22deb8cd6",
+      "sha256": "77ecf8a72c29f85811ed5378b673a84eb6c12a140cf044e8dee5abe8caf3802d",
       "bytes": 19048
     },
     {
       "path": "install/koder-cli.sh",
-      "sha256": "02c44ca52c73438106da4ba9c7612d420dc7cef71cc19f9df659c1ac6a5a330f",
+      "sha256": "76af4a3699da48cd1bf462694eb05eab2d6e0f3b63c1d1572bfcc06927ad2925",
       "bytes": 19911
     },
     {
       "path": "install/koder-cli.cmd",
-      "sha256": "f78f3082406f8db119e64b9163ed38134089a04311db5286cf3e4edc0726d8b4",
+      "sha256": "7316acc9eb4d5438a5b6d1711e6847bf1be4777761a79102439a56a2352812ed",
       "bytes": 2443
     },
     {
-      "path": "install/koder-cli-0.4.0-preview.18.tgz",
-      "sha256": "9afa106b623f0c4ea1428e7d1ff8fa57c94c38d4bf24bb06afbdd0c96d967b5f",
-      "bytes": 4826187
+      "path": "install/koder-cli-0.4.0-preview.19.tgz",
+      "sha256": "0a2415718dbc0d3c6dc904d8f5e11d9369cf56cffe5c872b3201550f9844a13e",
+      "bytes": 4867451
     },
     {
       "path": "install/LEGAL-NOTICE.md",
@@ -402,22 +402,22 @@
     },
     {
       "path": "install/SHA256SUMS",
-      "sha256": "7cfcff0985f8f9412469d42e5eca1088e27805a6f01f411d3e4de9dc3f4f56ae",
+      "sha256": "772d21504c5105f9ee65b646ba9d8fb816ed2fb01434e51d687c7dbe1dfc05b2",
       "bytes": 758
     },
     {
       "path": "install/koder-cli-latest.json",
-      "sha256": "3945ec49ce3292d8856d23286542129cdb0efab36eefd3d9fb244c39f79e7e8d",
+      "sha256": "c1b13b1cc7a64d72e050c4a83c30e8e7cc8d69cac5e6a5d983cc8da30b942ff0",
       "bytes": 848
     },
     {
-      "path": "install/koder-cli-0.4.0-preview.18.json",
-      "sha256": "3945ec49ce3292d8856d23286542129cdb0efab36eefd3d9fb244c39f79e7e8d",
+      "path": "install/koder-cli-0.4.0-preview.19.json",
+      "sha256": "c1b13b1cc7a64d72e050c4a83c30e8e7cc8d69cac5e6a5d983cc8da30b942ff0",
       "bytes": 848
     },
     {
       "path": "install/koder-cli.ps1",
-      "sha256": "9c2107e75f69f8175fb12b2bf3f9cc4e9ed6165c60d5278c8559aaf8b368b6d5",
+      "sha256": "66342d0cb5cf8720d1942458b5cda2863aff152aec99bf0efac2116c4c5319b5",
       "bytes": 34777
     },
     {
@@ -426,94 +426,94 @@
       "bytes": 10607
     },
     {
-      "path": "install/cli-0.4.0-preview.18/koder-cli.sh",
-      "sha256": "02c44ca52c73438106da4ba9c7612d420dc7cef71cc19f9df659c1ac6a5a330f",
+      "path": "install/cli-0.4.0-preview.19/koder-cli.sh",
+      "sha256": "76af4a3699da48cd1bf462694eb05eab2d6e0f3b63c1d1572bfcc06927ad2925",
       "bytes": 19911
     },
     {
-      "path": "install/cli-0.4.0-preview.18/koder-cli.cmd",
-      "sha256": "f78f3082406f8db119e64b9163ed38134089a04311db5286cf3e4edc0726d8b4",
+      "path": "install/cli-0.4.0-preview.19/koder-cli.cmd",
+      "sha256": "7316acc9eb4d5438a5b6d1711e6847bf1be4777761a79102439a56a2352812ed",
       "bytes": 2443
     },
     {
-      "path": "install/cli-0.4.0-preview.18/koder-cli-0.4.0-preview.18.tgz",
-      "sha256": "9afa106b623f0c4ea1428e7d1ff8fa57c94c38d4bf24bb06afbdd0c96d967b5f",
-      "bytes": 4826187
+      "path": "install/cli-0.4.0-preview.19/koder-cli-0.4.0-preview.19.tgz",
+      "sha256": "0a2415718dbc0d3c6dc904d8f5e11d9369cf56cffe5c872b3201550f9844a13e",
+      "bytes": 4867451
     },
     {
-      "path": "install/cli-0.4.0-preview.18/LEGAL-NOTICE.md",
+      "path": "install/cli-0.4.0-preview.19/LEGAL-NOTICE.md",
       "sha256": "484422100f8b17953307658c1e68b1e44fd7dcb2da79932f7a5310bc0a700ea8",
       "bytes": 11717
     },
     {
-      "path": "install/cli-0.4.0-preview.18/EULA.md",
+      "path": "install/cli-0.4.0-preview.19/EULA.md",
       "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092",
       "bytes": 12170
     },
     {
-      "path": "install/cli-0.4.0-preview.18/SHA256SUMS",
-      "sha256": "7cfcff0985f8f9412469d42e5eca1088e27805a6f01f411d3e4de9dc3f4f56ae",
+      "path": "install/cli-0.4.0-preview.19/SHA256SUMS",
+      "sha256": "772d21504c5105f9ee65b646ba9d8fb816ed2fb01434e51d687c7dbe1dfc05b2",
       "bytes": 758
     },
     {
-      "path": "install/cli-0.4.0-preview.18/koder-cli-latest.json",
-      "sha256": "3945ec49ce3292d8856d23286542129cdb0efab36eefd3d9fb244c39f79e7e8d",
+      "path": "install/cli-0.4.0-preview.19/koder-cli-latest.json",
+      "sha256": "c1b13b1cc7a64d72e050c4a83c30e8e7cc8d69cac5e6a5d983cc8da30b942ff0",
       "bytes": 848
     },
     {
-      "path": "install/cli-0.4.0-preview.18/koder-cli-0.4.0-preview.18.json",
-      "sha256": "3945ec49ce3292d8856d23286542129cdb0efab36eefd3d9fb244c39f79e7e8d",
+      "path": "install/cli-0.4.0-preview.19/koder-cli-0.4.0-preview.19.json",
+      "sha256": "c1b13b1cc7a64d72e050c4a83c30e8e7cc8d69cac5e6a5d983cc8da30b942ff0",
       "bytes": 848
     },
     {
-      "path": "install/cli-0.4.0-preview.18/koder-cli.ps1",
-      "sha256": "9c2107e75f69f8175fb12b2bf3f9cc4e9ed6165c60d5278c8559aaf8b368b6d5",
+      "path": "install/cli-0.4.0-preview.19/koder-cli.ps1",
+      "sha256": "66342d0cb5cf8720d1942458b5cda2863aff152aec99bf0efac2116c4c5319b5",
       "bytes": 34777
     },
     {
-      "path": "install/cli-0.4.0-preview.18/ACCEPTANCE.md",
+      "path": "install/cli-0.4.0-preview.19/ACCEPTANCE.md",
       "sha256": "cfcfdea0b40a43241ae86510450193513546e327176fb77b47f48d5398648445",
       "bytes": 10607
     },
     {
-      "path": "tutorials/koder-cli-0.4.0-preview.18-en-cmd.txt",
-      "sha256": "2e7e8b5c65095d5da0587c43a6ba6d2ab584e2fff0f7860700bc5224d26978e5",
-      "bytes": 44066
+      "path": "tutorials/koder-cli-0.4.0-preview.19-en-cmd.txt",
+      "sha256": "6ed94672fc5c3cb9a824bb2d670d35b64e566cbc6d60572c15794b300f72a3ea",
+      "bytes": 44382
     },
     {
-      "path": "tutorials/koder-cli-0.4.0-preview.18-en-linux.txt",
-      "sha256": "04c57d7579dfab134a81155b920cf72ba16e978563196f7ca285b20594a39b0d",
-      "bytes": 40757
+      "path": "tutorials/koder-cli-0.4.0-preview.19-en-linux.txt",
+      "sha256": "0f212d59d0210f09ddfdd4b1ab635afabf5cbf19404f2618dce2a166167e058e",
+      "bytes": 41073
     },
     {
-      "path": "tutorials/koder-cli-0.4.0-preview.18-en-mac.txt",
-      "sha256": "7717e15a26e0deb22cb96da9c494e6c8f4633f1708b7c04e338192b1abe73a95",
-      "bytes": 40349
+      "path": "tutorials/koder-cli-0.4.0-preview.19-en-mac.txt",
+      "sha256": "e38674e9ff7e16af94d399ada6255526641aa5a09da77d32ff1060c43e401c87",
+      "bytes": 40665
     },
     {
-      "path": "tutorials/koder-cli-0.4.0-preview.18-en-powershell.txt",
-      "sha256": "9297c1305e50346c25c34c4fe02bc1abcb00965a6205d742eef320b0d6421f0a",
-      "bytes": 44079
+      "path": "tutorials/koder-cli-0.4.0-preview.19-en-powershell.txt",
+      "sha256": "469f48a944548c51e66c8e56abf0059e64060ad90abc874ace7ab2dd3e066fc2",
+      "bytes": 44395
     },
     {
-      "path": "tutorials/koder-cli-0.4.0-preview.18-zh-cmd.txt",
-      "sha256": "8b177642b3d8bcbfa50751bcac7c8d825100879a0a6056477f0b224a698b3d39",
-      "bytes": 43878
+      "path": "tutorials/koder-cli-0.4.0-preview.19-zh-cmd.txt",
+      "sha256": "ad9dd4a40b8e7275270e1ff7311a9054e83c7df07763744b1492e13e01eb7b3f",
+      "bytes": 44191
     },
     {
-      "path": "tutorials/koder-cli-0.4.0-preview.18-zh-linux.txt",
-      "sha256": "5edbc866a47086beb060b1b1343c7c223ff9c9e160f11dfe8a1c3e696fcc6b35",
-      "bytes": 40358
+      "path": "tutorials/koder-cli-0.4.0-preview.19-zh-linux.txt",
+      "sha256": "ffa2b664149d7030e51477c15ed58af5fd6fdbd3791e27b1fa323c286f40c720",
+      "bytes": 40671
     },
     {
-      "path": "tutorials/koder-cli-0.4.0-preview.18-zh-mac.txt",
-      "sha256": "221ce3707d7615ff239dfc0c272bc73248aa057d058d4ef17759e73738d70586",
-      "bytes": 39978
+      "path": "tutorials/koder-cli-0.4.0-preview.19-zh-mac.txt",
+      "sha256": "0756c4bfffa012b3c5ba47880ba07d6259d88a58934c73719d613c787ca63339",
+      "bytes": 40291
     },
     {
-      "path": "tutorials/koder-cli-0.4.0-preview.18-zh-powershell.txt",
-      "sha256": "878e39685b5f2dbdd931c15c05fe48515a81663cfadf7eb125b3e16f29474ebe",
-      "bytes": 43831
+      "path": "tutorials/koder-cli-0.4.0-preview.19-zh-powershell.txt",
+      "sha256": "c24844dbdc37870abb8ec345233ad58de18c922c78a7e0bc7acd0b6e7dad5ebf",
+      "bytes": 44144
     },
     {
       "path": "legal/cli/SOURCES.json",

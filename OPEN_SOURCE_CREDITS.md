@@ -49,3 +49,7 @@ Experimental user-supplied memory/personalization skills are outside the inspect
 ## Development workflow method references (preview.5)
 
 The original Koder development-workflow instructions and GitHub research adapter were written for this release. Method references: [GitHub Spec Kit](https://github.com/github/spec-kit/tree/e5714c64902cda491bd52fc4674f3f1cf3892c10) and [obra/superpowers](https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3), both reporting MIT licenses when inspected on 2026-10-20. No Spec Kit or newly retrieved Superpowers code/templates were copied into this change. Existing bundled Superpowers resources remain governed by their separately recorded license and pinned revision. This is method attribution, not a claim of upstream endorsement or complete license clearance for future projects.
+
+## KARMEN LOOP personal-agent-growth 0.3.2
+
+The eight unmodified files from [personal-agent-growth v0.3.2](https://github.com/KarmenLoop/personal-agent-growth/releases/tag/v0.3.2) are bundled as a separately licensed method resource, not as a background service. Copyright (C) 2026 KARMENLOOP Official Team. They retain AGPL-3.0-only and their full [license](licenses/personal-agent-growth/LICENSE) and [notice](licenses/personal-agent-growth/NOTICE). The resource manifest pins each file and the source revision. Koder's own license does not replace these terms.

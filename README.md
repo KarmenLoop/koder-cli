@@ -1,6 +1,6 @@
 # Koder CLI
 
-**0.4.0-preview.18** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.18) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.0-preview.19** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.19) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
@@ -66,6 +66,19 @@ koder model test --tools
 ```
 
 The last two commands call your configured API and may incur charges. A text reply proves text access only. The tools check explicitly requests a harmless tool call and continuation. See [PROVIDERS.md](docs/PROVIDERS.md) and [MIMO.md](docs/MIMO.md) for exact endpoints and safe setup.
+
+## Built-in autonomous learning method
+
+KARMEN LOOP's `personal-agent-growth` 0.3.2 ships with the CLI. For relevant tasks, Koder can read its method and references locally through `skill_read`, prepare for the next step, retain failed checks, verify a revised candidate, and resume from task records. Simple requests stay direct.
+
+```sh
+koder growth status
+koder growth show
+koder growth off
+koder growth on
+```
+
+The switch applies to the next CLI session. This method uses the current model, tools and execution approvals. Task records stay in the authorized workspace. It does not enable personal profiling, synchronization, a background service or a new API budget. Timed continuation requires a separately authorized, available host backend; a saved plan is not a registered schedule. See [the usage guide](docs/AUTONOMOUS-LEARNING.md). The unmodified method retains its own AGPL-3.0-only license and notice.
 
 ## Optional celebrations
 

@@ -30,6 +30,13 @@ async function cli(argv,{home=tmp(),cwd=home,env={},fetchImpl,io={},accepted=tru
  const code=await runCli(argv,{cwd,env:childEnv,stdin,stdout,stderr,noTerminal:true,fetchImpl,...io});return {code,out,err,home};
 }
 const json=value=>new Response(JSON.stringify(value),{headers:{'content-type':'application/json'}});
+test('installed preview.19 contains the original autonomous learning method and independent controls',{skip:!fs.existsSync(path.join(root,'src/commands/growth.mjs'))},async()=>{
+ const home=tmp();
+ const r=await cli(['growth','status','--json'],{home});assert.equal(r.code,0,r.err);const value=JSON.parse(r.out);
+ assert.equal(value.version,'0.3.2');assert.equal(value.resources.length,8);assert.equal(value.backgroundService,false);
+ const off=await cli(['growth','off','--json'],{home});assert.equal(off.code,0,off.err);assert.equal(JSON.parse(off.out).enabled,false);
+ const show=await cli(['growth','show'],{home});assert.equal(show.code,0,show.err);assert.match(show.out,/version: "0.3.2"/);
+});
 test('installed full privacy originals retain their hashes and can be read without license acceptance',async()=>{
  const source=JSON.parse(fs.readFileSync(path.join(root,'docs/privacy/SOURCES.json'),'utf8'));for(const row of source.sources)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'docs/privacy',row.file))).digest('hex'),row.sha256);
  for(const lang of ['zh','en'])for(const name of ['consumer','statement','desktop','agreement']){const r=await cli(['privacy',name,'--lang',lang],{accepted:false});assert.equal(r.code,0,r.err);assert.ok(r.out.length>800);}

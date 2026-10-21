@@ -188,6 +188,29 @@
           "matchesPreviousBundle": true
         }
       ]
+    },
+    {
+      "id": "personal-agent-growth",
+      "repository": "KarmenLoop/personal-agent-growth",
+      "recordedSourceRevision": "bfe713595ee22808d5a9148508369966ca71035e",
+      "declaredLicense": "AGPL-3.0-only",
+      "use": "Unmodified KARMEN LOOP task-learning method, references and optional offline handoff checker; separate from the host runtime.",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/personal-agent-growth",
+      "listedResourceFiles": 8,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/personal-agent-growth/LICENSE",
+          "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "NOTICE",
+          "publicCopy": "licenses/personal-agent-growth/NOTICE",
+          "sha256": "a40bb7e087f8bb67fc2b843ab3714648db4c73329ac62384341c576fd9e95e4f",
+          "matchesPreviousBundle": false
+        }
+      ]
     }
   ],
   "portLicenseChecks": [

@@ -20,6 +20,10 @@ def run(name,argv):
 run('linux-public-install',['bash',str(installer),'--no-onboard','--no-modify-path'])
 launcher=str(home/'bin/koder')
 version=run('linux-public-version',[launcher,'--version']);assert expected['version'] in version
+growth=json.loads(run('public-growth-status',[launcher,'growth','status','--json']))
+assert growth['id']=='builtin:personal-agent-growth' and growth['version']=='0.3.2' and growth['enabled'] is True
+assert growth['backgroundService'] is False and len(growth['resources'])==8
+assert '0.3.2' in run('public-growth-method',[launcher,'growth','show'])
 for name in ['deepseek','kimi','mimo-token-plan','aliyun-token-plan','volcano-coding-plan']:
     output=run('linux-unavailable-'+name,[launcher,'--json','model','models',name])
     assert json.loads(output)[0]['disabled'] is True
