@@ -1,0 +1,579 @@
+{
+  "origin": "https://karmenloop.com",
+  "version": "0.4.0-preview.17",
+  "pages": 74,
+  "files": [
+    {
+      "path": "api-access.html",
+      "sha256": "a7582908b915e7f96e076ef997b5f70017f5b1779b0763ad3a2044bb2dde7efc",
+      "bytes": 12473
+    },
+    {
+      "path": "api.html",
+      "sha256": "8b1f0682dcd218b9ccdf4ce216f714c2ac0813fa95242b2239ab103a87fb0cd4",
+      "bytes": 13405
+    },
+    {
+      "path": "cli.html",
+      "sha256": "ed20b3f8694cb953226f1921c77036ce7277d1d8f0161d13cf5b04ef032c885c",
+      "bytes": 74308
+    },
+    {
+      "path": "configure.html",
+      "sha256": "a3e00a8a1c73c7043c1d0dcd5988fddea49c75360c09821cd5ef17e89ce7bf59",
+      "bytes": 19837
+    },
+    {
+      "path": "contact.html",
+      "sha256": "1b13e9edf2707da7377d33d5ae3173ac59da960423f300ecabb12c068267819e",
+      "bytes": 11408
+    },
+    {
+      "path": "deploy-safety.html",
+      "sha256": "620c9e54dabbb5b42ff58513851065a8186ed0c52632d4488fb0bdf34e9f476d",
+      "bytes": 12586
+    },
+    {
+      "path": "developers.html",
+      "sha256": "86e00f67fda1aef3e7c14ba7610eb03ab38f2f922f2579b77a3195291b7ccbea",
+      "bytes": 17097
+    },
+    {
+      "path": "download.html",
+      "sha256": "c67f4333864dc617b944686233f58037944838b410b3c0e395e4f8eaa55a8094",
+      "bytes": 40776
+    },
+    {
+      "path": "education.html",
+      "sha256": "cdfa4562bc020379dd30bce164767c985d7186eddab1ad89037cbe96475ae472",
+      "bytes": 12571
+    },
+    {
+      "path": "en/api-access.html",
+      "sha256": "dc81cc0da847c184a2620b819483b69861c0416b15e7d61445cfc5223a4b270e",
+      "bytes": 12982
+    },
+    {
+      "path": "en/api.html",
+      "sha256": "6b9a1766ef0504aa08e1005157d0d05166f44200886f8dd59191982bab55ecea",
+      "bytes": 13887
+    },
+    {
+      "path": "en/cli.html",
+      "sha256": "64774bc6c13b40309473f5a3dc9e6fdc93b980dd574d4a16070a439fc5b0c44e",
+      "bytes": 77246
+    },
+    {
+      "path": "en/configure.html",
+      "sha256": "0a387c8ac819b30fd3bae0d809078b363262cfc45af6db3df5a84c4b87572ab8",
+      "bytes": 21014
+    },
+    {
+      "path": "en/contact.html",
+      "sha256": "e80bf24241fa467c4932324a8e68affcf31efbb0e33f582f90b0a5f9f5aabe5b",
+      "bytes": 11461
+    },
+    {
+      "path": "en/deploy-safety.html",
+      "sha256": "519eb91706104ad4e883686c9591d65cdbc918219904544d3ac65a8ca22d70cf",
+      "bytes": 12932
+    },
+    {
+      "path": "en/developers.html",
+      "sha256": "55245e4a897f8330f2dac27bdab03428b422e71ab035897324346d1d7d410824",
+      "bytes": 17706
+    },
+    {
+      "path": "en/download.html",
+      "sha256": "fd521aca9b7c3571738082385a9c17e3a81aa84df67953e815550a19e666bbb8",
+      "bytes": 41648
+    },
+    {
+      "path": "en/education.html",
+      "sha256": "558a65b3b06ff373b4ae53eaea93f470ed06147e2a9cb3d864d20c66d56bd8e9",
+      "bytes": 12995
+    },
+    {
+      "path": "en/examples.html",
+      "sha256": "66c81d667084294a9de010a77eecb8a8982bc09a0e5521c9fd3eaa9996e4249e",
+      "bytes": 12219
+    },
+    {
+      "path": "en/forum.html",
+      "sha256": "54dc3c8a64491c05debc74b624f3698cd137ee897cf7dc243102eb08c71d5171",
+      "bytes": 11015
+    },
+    {
+      "path": "en/help.html",
+      "sha256": "f55538bcab754f9224c75aa216b136d876bc7e91cae6f22b58a39f784ea89507",
+      "bytes": 15379
+    },
+    {
+      "path": "en/ide.html",
+      "sha256": "80692fc2dad4d9330139e74e0879b15bc3b26b3ddd8a1d0e35d029e71cd24751",
+      "bytes": 29746
+    },
+    {
+      "path": "en/index.html",
+      "sha256": "d1f354e1554c4bb32c88e8a7a38d67f78af9dcfbe3f8f33d7f29057b0de8581a",
+      "bytes": 28271
+    },
+    {
+      "path": "en/karmen-bot.html",
+      "sha256": "b7eab072b8189dbbee580448b39ca7fc1d98b68c36d2dd108294011fe4e275cf",
+      "bytes": 10889,
+      "redirectTo": "https://karmenbot.ai/en/"
+    },
+    {
+      "path": "en/koder.html",
+      "sha256": "92df8728a18d273acd24cf50bb9df0935e24d5ba3d68c10f0a6ebebdd4850e61",
+      "bytes": 36685
+    },
+    {
+      "path": "en/legal/agreement.html",
+      "sha256": "83b3a2b1b941a6c730ba72066f47239985e956f70d156bf6a9781c0122d3fdf1",
+      "bytes": 23075
+    },
+    {
+      "path": "en/legal/disclaimer.html",
+      "sha256": "76c4c833716f320ee9783499431d9450ce8e284abd7f5d828a17ca67c36adaf3",
+      "bytes": 18275
+    },
+    {
+      "path": "en/legal/open-source.html",
+      "sha256": "c1e8956f9540e4ca7db6fd0390497ec75f6d3cc2f34795ab545edbca65f0aeb7",
+      "bytes": 17564
+    },
+    {
+      "path": "en/legal/privacy.html",
+      "sha256": "ea723f87a68200ef0a44c70d45d14fb45b85783d4fa40537ebd802b237362d53",
+      "bytes": 24246
+    },
+    {
+      "path": "en/legal/publisher-notice.html",
+      "sha256": "4af845398c06c78f8d82bd0debaf8c7920d5653aeabae184f3af875118209cc4",
+      "bytes": 17046
+    },
+    {
+      "path": "en/legal/security.html",
+      "sha256": "046f67bd792b7efd63b37a962b150e4891718a5dc1d7dd13e381774f43c5f681",
+      "bytes": 18862
+    },
+    {
+      "path": "en/legal.html",
+      "sha256": "59ff04dd77ab44b4069f1c70ebaaabacd0d1f344818bc2fd06c903118f8a6752",
+      "bytes": 11813
+    },
+    {
+      "path": "en/models.html",
+      "sha256": "db7ca1a308ff4cda0d2e12842ada2158fc608b40ced7f47ccaa51ea39c5b1e64",
+      "bytes": 16927
+    },
+    {
+      "path": "en/plugins.html",
+      "sha256": "dabe94f8d5be6b92a8d5b4021305af7915c6402c5789a4de91d3882f1938168c",
+      "bytes": 12796
+    },
+    {
+      "path": "en/products.html",
+      "sha256": "a83ad710a83925dd1c9611dd72c21a1b5cb06eb287058663e3ff5536c9121c72",
+      "bytes": 15231
+    },
+    {
+      "path": "en/resources.html",
+      "sha256": "3021ac1634391ab29eaca98f334835bf0bb1e6f8569494631ee0dbc3e69acaa3",
+      "bytes": 14795
+    },
+    {
+      "path": "en/safeguards.html",
+      "sha256": "e2f222c66839ce7e22aa99e8c54deda571176e72e13e23856d1d24488b7a689d",
+      "bytes": 15074
+    },
+    {
+      "path": "en/safety-privacy.html",
+      "sha256": "95bd8f82f94be7afe65fe661cacc2857648160e3aa1dfda3ead931a174f0431e",
+      "bytes": 13760
+    },
+    {
+      "path": "en/safety.html",
+      "sha256": "72c8ce02679877ec547a7ace7c5416f7a87c49ef23750332c062393a31b8ce19",
+      "bytes": 13562
+    },
+    {
+      "path": "en/security-patches.html",
+      "sha256": "49fecb447f176953c55d5729449e9c071fa3158e17d08525ad4b81d06ce17a08",
+      "bytes": 16334
+    },
+    {
+      "path": "en/solutions.html",
+      "sha256": "cdb20d69681b2a0bacbccc96012ce36e18f8767858c0f2f7a6be755e7e1a7627",
+      "bytes": 14482
+    },
+    {
+      "path": "en/status.html",
+      "sha256": "d0fd643a75706d99b5573ef5de0412b2102d4fcee89350da346d51205b751de8",
+      "bytes": 11629
+    },
+    {
+      "path": "en/teams.html",
+      "sha256": "614d6e92120d796a42039a65d6f1ffeefc706a030322505433fc2c5f7e6f5e15",
+      "bytes": 14098
+    },
+    {
+      "path": "en/trust.html",
+      "sha256": "de5788d296be3764d57e664da9cfeeb18389a64f428b473e6862aa2e916a7aff",
+      "bytes": 12103
+    },
+    {
+      "path": "en/tutorial.html",
+      "sha256": "5eefa7d7a1693703a80213e0c68713afe56891b2158b0c8d46b6f8c6f0fa1f7f",
+      "bytes": 310896
+    },
+    {
+      "path": "en/updates.html",
+      "sha256": "3565e1dbc77f4ed55c73302180504f70be036552c49201fcfb84fd67dd95c2ce",
+      "bytes": 19342
+    },
+    {
+      "path": "examples.html",
+      "sha256": "054f997cd241bb90c3755b7f7003bf499e163a58c7551abdc8ad240aac762d0d",
+      "bytes": 12073
+    },
+    {
+      "path": "forum.html",
+      "sha256": "a5bc51ed69bd550da44a60bff7bc8e29726a02b17e0300d86dbf66d66fd3cd98",
+      "bytes": 10870
+    },
+    {
+      "path": "help.html",
+      "sha256": "4f280325a7e69a230675785c3a81b5d6db80b3b10bdd1199010995f453cf8075",
+      "bytes": 14888
+    },
+    {
+      "path": "ide.html",
+      "sha256": "d6f6fa62087ce3576737a179004c312c0e8b5380aa8cabe674f5ffb2f502a110",
+      "bytes": 28932
+    },
+    {
+      "path": "index.html",
+      "sha256": "f744d8e58196e345b4a3cba0c92af8d289bf64a386c89bbac03f6b14f731c75a",
+      "bytes": 27441
+    },
+    {
+      "path": "karmen-bot.html",
+      "sha256": "40126bdf8d50803d4b545c5807c4a064b89f8ec4e578c7a3e1f7d307429c48c5",
+      "bytes": 10828,
+      "redirectTo": "https://karmenbot.ai/"
+    },
+    {
+      "path": "koder.html",
+      "sha256": "63aea14d871876ff19e5a73cb5ce96b2fef34f512c0a2c3da0b8f5041ee788dc",
+      "bytes": 35001
+    },
+    {
+      "path": "legal/agreement.html",
+      "sha256": "838d7cb32d7aa33dcffb0f47ad05fe217a39b27207d79aee626dbc61570efa08",
+      "bytes": 22079
+    },
+    {
+      "path": "legal/disclaimer.html",
+      "sha256": "efb68233dfbe09eea03e8625a93c7223e5ab335263c1f8f9ca9440e8add49caf",
+      "bytes": 17585
+    },
+    {
+      "path": "legal/open-source.html",
+      "sha256": "0084535752efd4d38e77065f41409bc52fa40a2138f57a14d49df06cc7d9db8a",
+      "bytes": 17205
+    },
+    {
+      "path": "legal/privacy.html",
+      "sha256": "2068616dfa7ec9439035acbd944d9f0e8beaccfc9bca4e8541513ed532fb6be0",
+      "bytes": 23125
+    },
+    {
+      "path": "legal/publisher-notice.html",
+      "sha256": "0488dd203ee0bc69567e997693858712cbd6de723a6b60ada659df172b0b4245",
+      "bytes": 16366
+    },
+    {
+      "path": "legal/security.html",
+      "sha256": "4a2dde3ce50aabdb825045f8f517be88f9e31628a7e175dbfb099b3477aeee47",
+      "bytes": 18133
+    },
+    {
+      "path": "legal.html",
+      "sha256": "e9d3ff81740e595d08cf7145160d2086bd419f46d6dc2e6225f129d0cfcdeb3f",
+      "bytes": 11875
+    },
+    {
+      "path": "models.html",
+      "sha256": "2ddd09be80c090772150e6af348f905e24599e11227018f5b8b75fd361066696",
+      "bytes": 16134
+    },
+    {
+      "path": "plugins.html",
+      "sha256": "905e4eea4f1d235c622a70b659f240a706ecb36bef60645d949fcacdbe4c0fcb",
+      "bytes": 12506
+    },
+    {
+      "path": "products.html",
+      "sha256": "1711cfba62dba279adf3a6b3cf8a88d6b56ec61c0950dc79331c94ece8481dbf",
+      "bytes": 14765
+    },
+    {
+      "path": "resources.html",
+      "sha256": "1cea2340bb602616100a53d334c5529b62ab95578aa3f7cd801f7c4565f77f28",
+      "bytes": 14318
+    },
+    {
+      "path": "safeguards.html",
+      "sha256": "48322c2b3a90b837d5dad5eed1715b27c2a0887b92b3a9e86560f97ed34390e3",
+      "bytes": 14490
+    },
+    {
+      "path": "safety-privacy.html",
+      "sha256": "46ea21cfb532524ebea858a312fb669c449d2b84cebb63e865e0a78561effeeb",
+      "bytes": 13164
+    },
+    {
+      "path": "safety.html",
+      "sha256": "1096766893fd9e2cdbd0c4d1f8dfa53d62810ae9ea87e8d4dc4f0ff4f9efdff7",
+      "bytes": 13249
+    },
+    {
+      "path": "security-patches.html",
+      "sha256": "ee913800f3aaf693069a69d06772cf290c0aa2fc4880a0c5356dedc5182f3714",
+      "bytes": 15747
+    },
+    {
+      "path": "solutions.html",
+      "sha256": "b17d8bba880f453c0745a0da6bb710044fbb7135b51c64e24f249e188be826a1",
+      "bytes": 14036
+    },
+    {
+      "path": "status.html",
+      "sha256": "e10efb2db379cd34c77a23a273d7731e93bbccc07e5aa24a95295d669da23402",
+      "bytes": 11564
+    },
+    {
+      "path": "teams.html",
+      "sha256": "dae470788ec7e7f7ee3305b264c0dc8aa48efc0176c8c01ab03111234b5675a2",
+      "bytes": 13682
+    },
+    {
+      "path": "trust.html",
+      "sha256": "1e22b8a16a87ea48e3b9037088929f7805f1f303d4e54b80ab3c9220871761d6",
+      "bytes": 11914
+    },
+    {
+      "path": "tutorial.html",
+      "sha256": "888b2e2ccca00ebe7abcb16df9f4401fad2084ad917c53a9c436c45b46bc64df",
+      "bytes": 321833
+    },
+    {
+      "path": "updates.html",
+      "sha256": "d5520658c0d781701c5fb86d546ccfdb37652ce218cd562ef15e8b7f57e72123",
+      "bytes": 19048
+    },
+    {
+      "path": "install/koder-cli.sh",
+      "sha256": "9bb921c74640224693d9a3f83a096deda67038125b84fe59f6ebf6c2b53a88a3",
+      "bytes": 19911
+    },
+    {
+      "path": "install/koder-cli.cmd",
+      "sha256": "781462bddbdd8bdc98fefe458af81e96fa5aef7255dc945b821c4d5754bc56ec",
+      "bytes": 2443
+    },
+    {
+      "path": "install/koder-cli-0.4.0-preview.17.tgz",
+      "sha256": "5dcd162321d71b68fa2355d7ff2ecd7380bf3bed96ccf9a4e1605ac2047a95d7",
+      "bytes": 4825413
+    },
+    {
+      "path": "install/LEGAL-NOTICE.md",
+      "sha256": "484422100f8b17953307658c1e68b1e44fd7dcb2da79932f7a5310bc0a700ea8",
+      "bytes": 11717
+    },
+    {
+      "path": "install/EULA.md",
+      "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092",
+      "bytes": 12170
+    },
+    {
+      "path": "install/SHA256SUMS",
+      "sha256": "1d08db3f2d27234215276e99ae3bb743a1b765b675cd9118cd8c86eafef254d0",
+      "bytes": 758
+    },
+    {
+      "path": "install/koder-cli-latest.json",
+      "sha256": "88eb86f45caa76bcf6ff963b6012aacf66cb6afa9b64f3b6699b15f81f0e5c68",
+      "bytes": 848
+    },
+    {
+      "path": "install/koder-cli-0.4.0-preview.17.json",
+      "sha256": "88eb86f45caa76bcf6ff963b6012aacf66cb6afa9b64f3b6699b15f81f0e5c68",
+      "bytes": 848
+    },
+    {
+      "path": "install/koder-cli.ps1",
+      "sha256": "174b6283ac81381fee99814bd476bbbd215f712e2f0f7931a64d7333426135b2",
+      "bytes": 34777
+    },
+    {
+      "path": "install/ACCEPTANCE.md",
+      "sha256": "cfcfdea0b40a43241ae86510450193513546e327176fb77b47f48d5398648445",
+      "bytes": 10607
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/koder-cli.sh",
+      "sha256": "9bb921c74640224693d9a3f83a096deda67038125b84fe59f6ebf6c2b53a88a3",
+      "bytes": 19911
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/koder-cli.cmd",
+      "sha256": "781462bddbdd8bdc98fefe458af81e96fa5aef7255dc945b821c4d5754bc56ec",
+      "bytes": 2443
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/koder-cli-0.4.0-preview.17.tgz",
+      "sha256": "5dcd162321d71b68fa2355d7ff2ecd7380bf3bed96ccf9a4e1605ac2047a95d7",
+      "bytes": 4825413
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/LEGAL-NOTICE.md",
+      "sha256": "484422100f8b17953307658c1e68b1e44fd7dcb2da79932f7a5310bc0a700ea8",
+      "bytes": 11717
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/EULA.md",
+      "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092",
+      "bytes": 12170
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/SHA256SUMS",
+      "sha256": "1d08db3f2d27234215276e99ae3bb743a1b765b675cd9118cd8c86eafef254d0",
+      "bytes": 758
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/koder-cli-latest.json",
+      "sha256": "88eb86f45caa76bcf6ff963b6012aacf66cb6afa9b64f3b6699b15f81f0e5c68",
+      "bytes": 848
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/koder-cli-0.4.0-preview.17.json",
+      "sha256": "88eb86f45caa76bcf6ff963b6012aacf66cb6afa9b64f3b6699b15f81f0e5c68",
+      "bytes": 848
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/koder-cli.ps1",
+      "sha256": "174b6283ac81381fee99814bd476bbbd215f712e2f0f7931a64d7333426135b2",
+      "bytes": 34777
+    },
+    {
+      "path": "install/cli-0.4.0-preview.17/ACCEPTANCE.md",
+      "sha256": "cfcfdea0b40a43241ae86510450193513546e327176fb77b47f48d5398648445",
+      "bytes": 10607
+    },
+    {
+      "path": "tutorials/koder-cli-0.4.0-preview.17-en-cmd.txt",
+      "sha256": "2e7e8b5c65095d5da0587c43a6ba6d2ab584e2fff0f7860700bc5224d26978e5",
+      "bytes": 44066
+    },
+    {
+      "path": "tutorials/koder-cli-0.4.0-preview.17-en-linux.txt",
+      "sha256": "04c57d7579dfab134a81155b920cf72ba16e978563196f7ca285b20594a39b0d",
+      "bytes": 40757
+    },
+    {
+      "path": "tutorials/koder-cli-0.4.0-preview.17-en-mac.txt",
+      "sha256": "7717e15a26e0deb22cb96da9c494e6c8f4633f1708b7c04e338192b1abe73a95",
+      "bytes": 40349
+    },
+    {
+      "path": "tutorials/koder-cli-0.4.0-preview.17-en-powershell.txt",
+      "sha256": "9297c1305e50346c25c34c4fe02bc1abcb00965a6205d742eef320b0d6421f0a",
+      "bytes": 44079
+    },
+    {
+      "path": "tutorials/koder-cli-0.4.0-preview.17-zh-cmd.txt",
+      "sha256": "8b177642b3d8bcbfa50751bcac7c8d825100879a0a6056477f0b224a698b3d39",
+      "bytes": 43878
+    },
+    {
+      "path": "tutorials/koder-cli-0.4.0-preview.17-zh-linux.txt",
+      "sha256": "5edbc866a47086beb060b1b1343c7c223ff9c9e160f11dfe8a1c3e696fcc6b35",
+      "bytes": 40358
+    },
+    {
+      "path": "tutorials/koder-cli-0.4.0-preview.17-zh-mac.txt",
+      "sha256": "221ce3707d7615ff239dfc0c272bc73248aa057d058d4ef17759e73738d70586",
+      "bytes": 39978
+    },
+    {
+      "path": "tutorials/koder-cli-0.4.0-preview.17-zh-powershell.txt",
+      "sha256": "878e39685b5f2dbdd931c15c05fe48515a81663cfadf7eb125b3e16f29474ebe",
+      "bytes": 43831
+    },
+    {
+      "path": "legal/cli/SOURCES.json",
+      "sha256": "2a06e94db1edc933292ec413374e81569ba413f6c55c3162d195bd2e2a503fbc",
+      "bytes": 1531
+    },
+    {
+      "path": "legal/cli/consumer-privacy.en.md",
+      "sha256": "0046cd824acc6158ffcd4d4e8a87d5d0d3b1d4ecf7c3878dd3a433929bf20eb7",
+      "bytes": 12969
+    },
+    {
+      "path": "legal/cli/consumer-privacy.zh.md",
+      "sha256": "b070a619b590e214b13e7e5d9b84533b24d3d36731fd34563c79d7e038a6c33e",
+      "bytes": 11324
+    },
+    {
+      "path": "legal/cli/official-consumer-agreement.en.md",
+      "sha256": "7b0cd4d4b21232809e0c4e6fc1c93e501516e4d18c0e382603b770a31204d048",
+      "bytes": 12281
+    },
+    {
+      "path": "legal/cli/official-consumer-agreement.zh.md",
+      "sha256": "c172c2bfe9a934108e78efd287d5b5c032f8e82044e9108e0aed73521b904cb5",
+      "bytes": 11349
+    },
+    {
+      "path": "legal/cli/official-consumer-privacy.en.md",
+      "sha256": "f86542794280ccbea2a694752b25d5ffebb4ba8a73b9ace93c95f0a54736b11a",
+      "bytes": 13693
+    },
+    {
+      "path": "legal/cli/official-consumer-privacy.zh.md",
+      "sha256": "77867a527aea57cd0da95ba5eb023d345e81665ac6eeafd6691928984a39042a",
+      "bytes": 12616
+    },
+    {
+      "path": "legal/cli/privacy-statement.en.md",
+      "sha256": "f018befeaadc3d83ea1301c03e6e575f6cc4264caa46550e7333605e34fbb071",
+      "bytes": 3717
+    },
+    {
+      "path": "legal/cli/privacy-statement.zh.md",
+      "sha256": "bf457d9ed25fa45d1005687a2504545f713c3d74a5f3588704a763b63c9e5398",
+      "bytes": 3364
+    },
+    {
+      "path": "install/node/v22.23.3/node-v22.23.3-win-x64.zip",
+      "sha256": "2b0ff57b049cda1bbcea2240eec20467018713c1efe1f7360c2681859b90ed71",
+      "bytes": 35574076
+    },
+    {
+      "path": "install/node/v22.23.3/node-v22.23.3-win-arm64.zip",
+      "sha256": "33dad22e4cef5ee8f9fbb1b0d037fdacd0e56d12a4580f0d63f68b894deab535",
+      "bytes": 31310058
+    },
+    {
+      "path": "install/node/v22.23.3/SHASUMS256.txt",
+      "sha256": "4fe99a2ba9d552a6f51c13ed68fb11104cfa5df601aec616be689253a8139e7a",
+      "bytes": 3981
+    }
+  ]
+}

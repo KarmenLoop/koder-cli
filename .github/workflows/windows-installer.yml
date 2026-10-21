@@ -6,6 +6,10 @@ on:
         description: Draft or published release tag
         required: true
         default: cli-0.4.0-preview.17
+      phase:
+        type: choice
+        options: [candidate, negative, published]
+        default: candidate
       assets_ref:
         description: Reserved for older installer-only runs
         required: false
@@ -15,6 +19,7 @@ env:
   PYTHONUTF8: '1'
 jobs:
   packaged:
+    if: inputs.phase == 'candidate'
     permissions:
       contents: write # Draft release assets require push access; the job only downloads.
     strategy:
@@ -43,3 +48,58 @@ jobs:
         shell: bash
       - name: Verify package, run original CLI regressions and MCP lifecycle tests
         run: python .github/scripts/packaged-release-gates.py
+
+  negative:
+    if: inputs.phase == 'negative'
+    permissions:
+      contents: write
+    runs-on: windows-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release }}
+        run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
+        shell: bash
+      - run: python .github/scripts/native-installer-negatives.py
+  published:
+    if: inputs.phase == 'published'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-15-intel, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - if: runner.os == 'Linux'
+        run: python .github/scripts/public-readback.py
+      - if: runner.os != 'Windows'
+        run: python .github/scripts/public-linux-install.py
+      - if: runner.os == 'Windows'
+        run: python -m pip install --disable-pip-version-check pywinpty==3.1.0
+      - if: runner.os == 'Windows'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release }}
+        run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
+        shell: bash
+      - if: runner.os == 'Windows'
+        run: python .github/scripts/test-windows-installer.py --assets candidate --out public-windows-results --public-download
