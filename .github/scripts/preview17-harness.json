@@ -3,5 +3,5 @@
   "sha256": "d5289648adb7d6a0cd5adc708918eea303ca99d23abdac444fc62f7d7bf507f3",
   "bytes": 338415,
   "files": 165,
-  "adaptation": "Original assertions and deadlines retained. Adds exact screenshot task-routing and same-terminal menu regressions. Existing protected-lock ports remain synthetic; no development runtime sources or API credentials. Corrects the expected settings-exit copy for the current-session instructions; runtime archive unchanged. Adds a regression for menu language inheritance and explicit per-command overrides."
+  "adaptation": "Original assertions and deadlines retained. The two protected-lock credential ports remain synthetic. Five new regressions cover website task routing, exact menu entry points, same-terminal input and language inheritance. Existing expected settings-exit copy is updated to match the current-session instructions. No API credentials or private development runtime sources."
 }
