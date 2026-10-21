@@ -1,4 +1,10 @@
-# Koder CLI 0.4.0-preview.16
+# Koder CLI 0.4.0-preview.17
+
+Preview.17 adds automatic updates for consenting, installed interactive sessions. Discovery runs in the background; installation waits for tasks, queued input and drafts to clear, verifies the new entry, and resumes the saved conversation. `koder update auto off` disables it. Changed license text is never accepted automatically. Concurrent manual and automatic installation attempts share one local lease.
+
+Windows MCP readiness publication now retries short filesystem sharing denials within a fixed bound and closes the owned Core if publication still fails. MiniMax official host/protocol normalization and fixed-code business errors are corrected. Shared timeout and network categories survive the public diagnostic boundary. Version queries no longer load model adapters.
+
+Provider protocol fixtures are not authenticated account acceptance. Dedicated MiniMax API/Plan test credentials were unavailable. The historical Windows startup timing failures remain recorded; no benchmark threshold or privacy check was relaxed.
 
 This build includes Windows CMD and PowerShell download progress, explicit license acceptance, verified extraction under paths with spaces or Chinese characters, private Node.js 22.23.3 selection when needed, and update restart and rollback protection. Download total time defaults to a maximum of 100000000 seconds; separate stalled-transfer checks remain bounded and cancellable.
 

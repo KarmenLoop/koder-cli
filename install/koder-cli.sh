@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.16/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.16/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.17/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.17/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Preview tag path. Do not use GitHub /releases/latest (stable-only).
@@ -10,7 +10,7 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.16}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.17}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
@@ -284,6 +284,7 @@ if [ "${WITH_HERMES}" = 1 ]; then
 fi
 
 say "Koder CLI ${VERSION} 安装完成：${LAUNCHER}" "Koder CLI ${VERSION} installed: ${LAUNCHER}"
+say "交互对话会在空闲时自动更新并恢复会话。关闭：koder update auto off。" "Interactive chats update while idle and resume the conversation. Disable with: koder update auto off."
 say "KARMEN LOOP：本地任务内核，计划、核对权限、执行与记录。个人非商业使用免费；商用／公司授权＋私有仓库：info@karmenloop.com。" "KARMEN LOOP: the local task kernel for plans, permissions, execution and results. Personal, noncommercial use is free; company licensing + private repositories: info@karmenloop.com."
 say "欢迎自愿点 Star：https://github.com/KarmenLoop/koder-cli；直接跳过，不影响使用。" "An optional star helps others find Koder: https://github.com/KarmenLoop/koder-cli. Skip freely; it never affects access."
 say "官网和更新说明：https://karmenloop.com/updates.html （软件里也可运行 koder version 或 koder about）" "Official site and updates: https://karmenloop.com/updates.html (or run koder version / koder about)"

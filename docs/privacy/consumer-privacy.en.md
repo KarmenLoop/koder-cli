@@ -1,6 +1,6 @@
 # Koder CLI consumer privacy terms — full text
 
-Updated and effective October 20, 2026. Applies from 0.4.0-preview.16.
+Updated and effective October 20, 2026. Applies from 0.4.0-preview.17.
 Provider: KARMENLOOP Official Team, Shanghai, China. Contact: info@karmenloop.com. Website: https://karmenloop.com.
 
 ## 1. Scope and choices
@@ -72,3 +72,7 @@ Selected ZIP collections are stored encrypted in the local private-resources dir
 
 
 Official remote references: local CLI tasks can retrieve selected licensed workflows. The official service receives short search keywords and selected resource IDs, offsets and limits; the client does not attach full conversations, model keys or private collections. Hosting infrastructure receives normal network metadata, including IP. The handler does not log query or response bodies. Selected excerpts and required notices reach the task model and may remain in task history. No full library is downloaded at startup. Disable with KODER_REMOTE_RESOURCES=0. Private local collections never fall back to remote search. Encrypted GitHub assets are decrypted only by the official server; readable excerpts can be retained. Unknown-license materials are withheld. See docs/REMOTE-RESOURCES.md.
+
+## Automatic update traffic
+
+An installed CLI may contact the official GitHub release and update endpoints during interactive chats, at most once every six hours, and download a verified update while idle. The hosting service receives ordinary connection information such as your IP address and the updater user agent. This check does not send conversation content, project files, API keys, birthdays or execution permissions. Turn it off with `koder update auto off` or set `KODER_AUTO_UPDATE=0` for the current process. A changed software license is not accepted automatically.

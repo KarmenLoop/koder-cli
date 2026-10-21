@@ -3,12 +3,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {cli,tmp} from './installed-helpers.mjs';
-const {normalizeRecord}=await load('src/provider.mjs');
-const {presets}=await load('src/commands/model.mjs');
+const {normalizeRecord}=await load("src/provider.mjs");
+const {presets}=await load("src/commands/model.mjs");
 const json=v=>new Response(JSON.stringify(v),{headers:{'content-type':'application/json'}});
 const settings=(model,baseUrl,protocol)=>({KODER_MODEL:model,KODER_BASE_URL:baseUrl,KODER_PROTOCOL:protocol,KODER_API_KEY:'synthetic-native-key'});
 
-test('Kimi China and international Chat Completions complete real file-tool continuations with nullable SSE fields',async()=>{
+test('Kimi China and international Chat Completions complete real file-tool continuations with nullable SSE fields',{skip:"Temporarily unavailable by user decision; public refusal is covered by provider-availability.test.mjs; prior enabled file-tool contract is retained for future re-acceptance."},async()=>{
  for(const host of ['api.moonshot.cn','api.moonshot.ai']){
   const cwd=tmp();fs.writeFileSync(cwd+'/fixture.txt','owned Kimi matrix');let count=0;
   const r=await cli(['run','Read fixture.txt','--no-memory'],{cwd,env:settings('kimi-k3','https://'+host+'/v1','openai'),fetchImpl:async(url,init)=>{
@@ -20,7 +20,7 @@ test('Kimi China and international Chat Completions complete real file-tool cont
  }
 });
 
-test('Kimi, DeepSeek and Kimi Code Messages routes retain thinking signatures through actual file-tool results',async()=>{
+test('Kimi, DeepSeek and Kimi Code Messages routes retain thinking signatures through actual file-tool results',{skip:"Temporarily unavailable by user decision; public refusal is covered by provider-availability.test.mjs; prior enabled file-tool contract is retained for future re-acceptance."},async()=>{
  const cases=[['kimi-k3','https://api.moonshot.ai/anthropic'],['deepseek-flash','https://api.deepseek.com/anthropic'],['k3-256k','https://api.kimi.com/coding']];
  for(const [model,base] of cases){
   const cwd=tmp();fs.writeFileSync(cwd+'/fixture.txt','owned Messages fixture');let count=0;
@@ -34,7 +34,7 @@ test('Kimi, DeepSeek and Kimi Code Messages routes retain thinking signatures th
  }
 });
 
-test('DeepSeek and Kimi Code Responses preserve opaque reasoning and actual file-tool call IDs',async()=>{
+test('DeepSeek and Kimi Code Responses preserve opaque reasoning and actual file-tool call IDs',{skip:"Temporarily unavailable by user decision; public refusal is covered by provider-availability.test.mjs; prior enabled file-tool contract is retained for future re-acceptance."},async()=>{
  for(const [model,base] of [['deepseek-flash','https://api.deepseek.com/v1'],['k3-256k','https://api.kimi.ai/coding/v1']]){
   const cwd=tmp();fs.writeFileSync(cwd+'/fixture.txt','owned Responses matrix');let count=0;
   const r=await cli(['run','Read fixture.txt','--no-memory'],{cwd,env:settings(model,base,'responses'),fetchImpl:async(url,init)=>{
@@ -55,7 +55,7 @@ test('Kimi Code presets use separate products and documented model IDs without i
 
 test('incomplete reasoning output is diagnosed as budget exhaustion and never executes partial calls',async()=>{
  const cwd=tmp();let calls=0;
- const r=await cli(['run','Write an owned marker','--no-memory'],{cwd,env:settings('deepseek-flash','https://api.deepseek.com','openai'),fetchImpl:async()=>{calls++;return json({choices:[{finish_reason:'length',message:{reasoning_content:'private partial',tool_calls:[{id:'partial',function:{name:'write_file',arguments:'{"path":"must-not-exist.txt",'}}]}}]});}});
+ const r=await cli(['run','Write an owned marker','--no-memory'],{cwd,env:settings('mimo-v2.6-pro','https://api.xiaomimimo.com/v1','openai'),fetchImpl:async()=>{calls++;return json({choices:[{finish_reason:'length',message:{reasoning_content:'private partial',tool_calls:[{id:'partial',function:{name:'write_file',arguments:'{"path":"must-not-exist.txt",'}}]}}]});}});
  assert.notEqual(r.code,0);assert.equal(calls,1);assert.equal(fs.existsSync(cwd+'/must-not-exist.txt'),false);assert.match(r.err,/MODEL_INCOMPLETE/);
- const check=await cli(['model','test'],{env:settings('deepseek-flash','https://api.deepseek.com','openai'),fetchImpl:async()=>json({choices:[{finish_reason:'length',message:{reasoning_content:'private'}}]})});assert.equal(check.code,2);assert.match(check.err,/MODEL_INCOMPLETE/);assert.doesNotMatch(check.err,/接口返回网页/);
+ const check=await cli(['model','test'],{env:settings('mimo-v2.6-pro','https://api.xiaomimimo.com/v1','openai'),fetchImpl:async()=>json({choices:[{finish_reason:'length',message:{reasoning_content:'private'}}]})});assert.equal(check.code,2);assert.match(check.err,/MODEL_INCOMPLETE/);assert.doesNotMatch(check.err,/接口返回网页/);
 });

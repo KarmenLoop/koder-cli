@@ -1,14 +1,13 @@
+import {load} from './installed-helpers.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {load} from './installed-helpers.mjs';
-const {importKernel}=await load('src/agent.mjs');
-const {normalizeRecord}=await load('src/provider.mjs');
-const {checkModel,connectionHint}=await load('src/model-check.mjs');
+const {importKernel}=await load("src/agent.mjs");
+const {normalizeRecord}=await load("src/provider.mjs");
+const {checkModel,connectionHint}=await load("src/model-check.mjs");
 import http from 'node:http';
 import fs from 'node:fs';
 import {cli,tmp} from './installed-helpers.mjs';
-const {MODEL_CODE}=await load('src/tutorial/platform-text.mjs');
-
+const {MODEL_CODE}=await load("src/tutorial/platform-text.mjs");
 const {createProvider}=await importKernel('harness/providers.mjs',{});
 const json=value=>new Response(JSON.stringify(value),{headers:{'content-type':'application/json'}});
 test('raw official MiMo profiles receive model limits without overriding explicit or proxy limits',()=>{
@@ -23,18 +22,23 @@ test('raw MiMo environment configuration does not truncate a valid reasoning rep
   const body=JSON.parse(init.body);return body.max_completion_tokens<32768?json({choices:[{finish_reason:'length',message:{content:null,reasoning_content:'private unfinished fixture'}}]}):json({choices:[{finish_reason:'stop',message:{content:'MIMO-RAW-PROFILE-PASS',reasoning_content:'private finished fixture'}}]});
  }});assert.equal(r.code,0,r.err);assert.match(r.out,/MIMO-RAW-PROFILE-PASS/);assert.doesNotMatch(r.out,/private .*fixture/);
 });
-test('every tutorial DeepSeek environment example selects a currently supported official model',()=>{
+test('tutorial environment examples use an available product and a valid model',()=>{
  let checked=0;for(const variants of Object.values(MODEL_CODE.variants))for(const text of Object.values(variants))for(const m of text.matchAll(/KODER_MODEL\s*=\s*"?([a-z0-9.-]+)/g)){
-  if(!m[1].startsWith('deepseek'))continue;checked++;assert.doesNotThrow(()=>normalizeRecord({model:m[1],baseUrl:'https://api.deepseek.com/v1',apiKey:'synthetic'}));
+  if(!m[1].startsWith('gpt-'))continue;checked++;assert.doesNotThrow(()=>normalizeRecord({model:m[1],baseUrl:'https://api.openai.com/v1',apiKey:'synthetic'}));
  }assert.ok(checked>=4);
 });
+
 test('terminal SSE completion does not await an uncooperative stream cancellation promise',async()=>{
  let cancelled=false,timer;
  const p=createProvider({provider:normalizeRecord({model:'mimo-v2.6-pro',baseUrl:'https://api.xiaomimimo.com/v1',apiKey:'synthetic'}),fetchImpl:async()=>new Response(new ReadableStream({start(c){c.enqueue(new TextEncoder().encode('data: '+JSON.stringify({choices:[{delta:{content:'ready'},finish_reason:'stop'}]})+'\n\ndata: [DONE]\n\n'));},cancel(){cancelled=true;return new Promise(()=>{});}}),{headers:{'content-type':'text/event-stream'}})});
  try{const result=await Promise.race([p.complete({messages:[{role:'user',content:'Reply ready'}],tools:[]}),new Promise(resolve=>{timer=setTimeout(()=>resolve(null),200);})]);assert.equal(result?.text,'ready');assert.equal(cancelled,true);}finally{clearTimeout(timer);}
 });
-test('actual native CLI file-tool loops complete on HTTP keep-alive streams for all three providers',async()=>{
+test('held services refuse requests while available MiMo completes keep-alive file-tool loops',async()=>{
  for(const [model,baseUrl] of [['mimo-v2.6-pro','https://api.xiaomimimo.com/v1'],['kimi-k3','https://api.moonshot.cn/v1'],['deepseek-v4-pro','https://api.deepseek.com/v1']]){
+  if(model!=='mimo-v2.6-pro'){
+   let calls=0;const r=await cli(['run','Read fixture.txt','--no-memory'],{env:{KODER_MODEL:model,KODER_BASE_URL:baseUrl,KODER_API_KEY:'synthetic'},fetchImpl:async()=>{calls++;throw Error('Unavailable');}});
+   assert.equal(r.code,2);assert.equal(calls,0);assert.match(r.err,/暂时无法使用|temporarily unavailable/);continue;
+  }
   const cwd=tmp();fs.writeFileSync(cwd+'/fixture.txt','OWNED-KEEPALIVE-REFERENCE');let requests=0,closed=0,failure;
   const server=http.createServer(async(req,res)=>{
    try{let raw='';for await(const part of req)raw+=part;const body=JSON.parse(raw);requests++;res.on('close',()=>closed++);

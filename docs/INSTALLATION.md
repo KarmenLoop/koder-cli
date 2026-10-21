@@ -4,7 +4,7 @@
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide covers the downloadable **0.4.0-preview.16** release. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide covers the downloadable **0.4.0-preview.17** release. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -51,7 +51,7 @@ koder version
 koder setup
 ```
 
-`koder version` should show `0.4.0-preview.16` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
+`koder version` should show `0.4.0-preview.17` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
 
 If Windows says `koder` is not recognized, reopen the terminal first. You can inspect the installed launcher directly:
 
@@ -183,3 +183,8 @@ The overall transfer limit remains 100,000,000 seconds by default and can be low
 Model replies terminate at the provider's stream completion marker, even if an intermediary keeps HTTP open. `koder model test --tools` checks a harmless tool call and its continuation. An empty, incomplete or malformed HTTP 200 response is reported as the specific model error rather than as an HTTP failure. The three providers' paid API keys, subscription keys and regions are distinct; select the matching preset and product.
 
 The installer uses private Node.js 22.23.3 when an existing runtime lacks the required SQLite or environment-proxy support. It leaves the global Node.js installation unchanged.
+# Automatic updates in preview.17
+
+An installed CLI checks the official GitHub update feed during interactive chats, at most once every six hours. The check runs without blocking input. Installation waits for an idle conversation with no running task, queued line or unfinished draft. The updater checks installer and package hashes, verifies the installed entry, and uses the existing conversation handoff and startup fallback. It does not replay completed work or grant permissions.
+
+Run `koder update auto off` (or `/update auto off` in chat) to disable it. Use `on` to enable it and `status` to inspect it. `KODER_AUTO_UPDATE=0` disables automatic checks in the current process. Scripts, one-shot questions, unmanaged copies, explicit private mirrors, and read-only chat modes do not automatically install. A changed license stops automatic installation and requires review. Manual `koder update --check` and `koder update` remain available.

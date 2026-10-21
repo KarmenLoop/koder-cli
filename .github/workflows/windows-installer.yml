@@ -1,51 +1,43 @@
-name: Windows installer acceptance
+name: Packaged release acceptance
 on:
   workflow_dispatch:
     inputs:
       release:
-        description: Published release tag
+        description: Draft or published release tag
         required: true
-        default: cli-0.4.0-preview.8
+        default: cli-0.4.0-preview.17
       assets_ref:
-        description: Optional branch containing candidate release assets
+        description: Reserved for older installer-only runs
         required: false
 permissions:
   contents: read
+env:
+  PYTHONUTF8: '1'
 jobs:
-  install:
-    runs-on: windows-latest
-    timeout-minutes: 12
+  packaged:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-15-intel, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22.23.3'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Prepare isolated test dependencies and candidate assets
-        shell: pwsh
+      - if: runner.os == 'Windows'
+        run: python -m pip install --disable-pip-version-check pywinpty==3.1.0
+      - name: Download the exact draft candidate and temporary test harness
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ inputs.release }}
-          ASSETS_REF: ${{ inputs.assets_ref }}
-        run: |
-          python -m pip install pywinpty
-          New-Item -ItemType Directory -Path candidate | Out-Null
-          if ($env:ASSETS_REF) {
-            git fetch --depth 1 origin "refs/heads/$env:ASSETS_REF"
-            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-            git restore --source=FETCH_HEAD --worktree -- candidate
-          } else {
-            gh release download $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --dir candidate
-          }
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: PowerShell 5.1 and CMD consent, install and version
-        shell: pwsh
-        run: python .github/scripts/test-windows-installer.py --assets candidate --out windows-results
-      - name: Preserve complete terminal and result evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-installer-results
-          path: windows-results
+        run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
+        shell: bash
+      - name: Verify package, run original CLI regressions and MCP lifecycle tests
+        run: python .github/scripts/packaged-release-gates.py

@@ -1,6 +1,6 @@
 # Koder CLI
 
-**0.4.0-preview.16** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.16) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.0-preview.17** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.17) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
@@ -8,9 +8,13 @@ The KARMEN LOOP kernel connects task planning, permission checks, tool execution
 
 ## Install
 
+Preview.17 fixes a Windows MCP readiness-file replacement failure and adds bounded cleanup after a failed launch. MiniMax official endpoints, business errors and network timeouts have more precise handling. Real account availability still depends on your provider, key, plan and quota; the temporarily unavailable integrations listed below remain disabled.
+
 Use Windows 10/11, macOS, Linux, or WSL with the matching shell. The installer reuses Node.js 22.21+ or 24+ or downloads and verifies the runtime. Normal installation does not require administrator access. Read the [license](EULA.md), [consent guide](ACCEPTANCE.md), [copyright notice](LEGAL-NOTICE.md), and [CLI privacy terms](docs/privacy/consumer-privacy.en.md).
 
 Choose **one** command. Wait for the license question, type `accept`, and press Enter. `decline` or Ctrl+C cancels. Empty Windows input asks again. License acceptance enables no optional permissions.
+
+Installed interactive chats check the official update feed in the background at most once every six hours. Updates install only after active tasks, queued input and unfinished drafts are clear, verify the replacement, and resume the conversation. Preparation continues in the background if you start new work; the final handoff waits for the active task. Closing chat cancels unfinished preparation. A changed license requires manual review. Use `koder update auto off` to disable automatic updates, `koder update auto on` to enable them, or `koder update auto status` to inspect the setting. Scripts, one-shot commands and unmanaged copies do not auto-install. `KODER_AUTO_UPDATE=0` disables automatic checks for that process.
 
 ### Windows PowerShell
 
@@ -139,3 +143,5 @@ For company licensing and dedicated private repository delivery, run koder busin
 If Koder is useful, an optional [GitHub star](https://github.com/KarmenLoop/koder-cli) helps others find it. Skip freely; stars never affect installation or licensed features.
 
 Installation stalled or an integration is gray? See [troubleshooting](docs/TROUBLESHOOTING.md).
+
+See [source status](SOURCE-STATUS.md) for the public repository and packaged runtime boundaries.

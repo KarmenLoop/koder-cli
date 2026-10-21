@@ -6,7 +6,7 @@
 
 These entries are currently unsupported. Endpoint and protocol details below remain as historical reference, not instructions to enable an unavailable integration. This status overrides earlier compatibility claims. Other entries, including local endpoints, MiMo pay-as-you-go, and Alibaba Coding Plan, keep their separate status.
 
-This guide covers **0.4.0-preview.16**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
+This guide covers **0.4.0-preview.17**, checked on **October 20, 2026**. Koder directly handles Chat Completions, Anthropic Messages, and Responses. It does not require a separate agent engine to adapt a model API.
 
 ## What the catalog means
 

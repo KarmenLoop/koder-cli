@@ -3,11 +3,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {cli,tmp} from './installed-helpers.mjs';
-const {normalizeRecord}=await load('src/provider.mjs');
+const {normalizeRecord}=await load("src/provider.mjs");
 const json=(value,init={})=>new Response(JSON.stringify(value),{...init,headers:{'content-type':'application/json'}});
 const answer=(content,reasoning_content)=>json({choices:[{finish_reason:'stop',message:{content,reasoning_content}}]});
 
-test('Kimi K3 official international endpoint receives its supported token field and reasoning control',async()=>{
+test('Kimi K3 official international endpoint receives its supported token field and reasoning control',{skip:"Temporarily unavailable by user decision; public refusal is covered by provider-availability.test.mjs; prior enabled file-tool contract is retained for future re-acceptance."},async()=>{
  const result=await cli(['run','Reply ready','--no-memory'],{env:{KODER_MODEL:'kimi-k3',KODER_BASE_URL:'https://api.moonshot.ai/v1',KODER_API_KEY:'synthetic-key'},fetchImpl:async(url,init)=>{
   assert.equal(url,'https://api.moonshot.ai/v1/chat/completions');const b=JSON.parse(init.body);
   if(b.max_tokens!==undefined||!Number.isInteger(b.max_completion_tokens)||b.reasoning_effort!=='low')return json({error:{code:'invalid_parameter',message:'Unsupported request fields'}},{status:400});
@@ -15,8 +15,12 @@ test('Kimi K3 official international endpoint receives its supported token field
  }});assert.equal(result.code,0,result.err);assert.match(result.out,/ready/);assert.doesNotMatch(result.out,/private reasoning/);
 });
 
-test('restored DeepSeek and Kimi history with missing private protocol state remains usable for actual file tools',async()=>{
+test('held services refuse recovery while available MiMo retains actual file-tool recovery',async()=>{
  for(const [model,base] of [['deepseek-flash','https://api.deepseek.com/v1'],['kimi-k3','https://api.moonshot.cn/v1'],['mimo-v2.6-pro','https://api.xiaomimimo.com/v1']]){
+  if(model!=='mimo-v2.6-pro'){
+   let calls=0;const r=await cli(['run','Read fixture.txt','--no-memory'],{env:{KODER_MODEL:model,KODER_BASE_URL:base,KODER_API_KEY:'synthetic-key'},fetchImpl:async()=>{calls++;throw Error('Unavailable');}});
+   assert.equal(r.code,2);assert.equal(calls,0);assert.match(r.err,/暂时无法使用|temporarily unavailable/);continue;
+  }
   const home=tmp(),cwd=tmp();fs.writeFileSync(cwd+'/fixture.txt','owned recovery fixture');fs.writeFileSync(home+'/provider.json',JSON.stringify({model,baseUrl:base,apiKey:'synthetic-key'}));
   const first=await cli(['run','Remember that the project marker is RECOVER-42.'],{home,cwd,fetchImpl:async()=>answer('The project marker is RECOVER-42.','private first-turn state')});assert.equal(first.code,0,first.err);
   let requests=0,invalid=0;

@@ -1,31 +1,19 @@
+import {load} from './installed-helpers.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import os from 'node:os';
-import {PassThrough,Writable} from 'node:stream';
-import {pathToFileURL} from 'node:url';
-const root=process.env.KODER_ACCEPTANCE_PACKAGE;
-assert.ok(root,'KODER_ACCEPTANCE_PACKAGE must point at the installed package');
-const load=rel=>import(pathToFileURL(path.join(root,rel)));
-const {presets,presetRecord}=await load('src/commands/model.mjs');
-const {normalizeRecord}=await load('src/provider.mjs');
-const {withModelEndpoint,modelEndpoint}=await load('src/model-http.mjs');
-const {importKernel}=await load('src/agent.mjs');
-const {runCli}=await load('src/cli.mjs');
-const {writeAcceptance}=await load('src/eula.mjs');
-const {hermesMiMoConfig}=await load('src/mimo.mjs');
-const tmp=()=>fs.mkdtempSync(path.join(os.tmpdir(),'koder-mimo-'));
-async function cli(argv,{home=tmp(),cwd=home,env={},stdin=''}={}){
- let out='',err='';const output=new Writable({write(c,e,cb){out+=c;cb();}}),error=new Writable({write(c,e,cb){err+=c;cb();}}),input=new PassThrough();input.end(stdin);
- const childEnv={PATH:process.env.PATH,SystemRoot:process.env.SystemRoot,KODER_CLI_HOME:home,NO_COLOR:'1',...env};writeAcceptance(childEnv);
- const code=await runCli(argv,{cwd,env:childEnv,stdin:input,stdout:output,stderr:error,noTerminal:true});return {code,out,err,home};
-}
+import {cli,tmp} from './installed-helpers.mjs';
+const {presets,presetRecord}=await load("src/commands/model.mjs");
+const {normalizeRecord}=await load("src/provider.mjs");
+const {withModelEndpoint,modelEndpoint}=await load("src/model-http.mjs");
+const {importKernel}=await load("src/agent.mjs");
+
 const key='tp-fixture-never-a-real-credential';
 const context={env:{}};
 test('MiMo offers explicit pay-as-you-go and Token Plan presets with Pro and Flash',async()=>{
  const list=await presets(context),paid=list.find(p=>p.id==='mimo'),plan=list.find(p=>p.id==='mimo-token-plan');
- assert.ok(plan,'Token Plan must be independently selectable');
+ assert.ok(plan,'Token Plan retains a separate catalog entry');assert.equal(plan.disabled,true);
  assert.equal(paid.baseUrl,'https://api.xiaomimimo.com/v1');assert.equal(plan.baseUrl,'https://token-plan-cn.xiaomimimo.com/v1');
  for(const p of [paid,plan]){assert.ok(p.models.includes('mimo-v2.6-pro'));assert.ok(p.models.includes('mimo-v2.6-flash'));assert.equal(p.contextWindow,1048576);}
 });
@@ -62,7 +50,8 @@ test('MiMo Anthropic compatibility uses the exact messages path and accepted API
  assert.equal((await provider.complete({messages:[{role:'user',content:'ready'}],tools:[]})).text,'ready');
 });
 test('Hermes gets the selected MiMo model over ACP and credentials in its child environment only',async()=>{
- const home=tmp(),workspace=tmp(),fixture=path.join(home,'agent.mjs'),record={model:'mimo-v2.6-flash',baseUrl:'https://token-plan-cn.xiaomimimo.com/v1',apiKey:key};
+ const key='sk-owned-hermes-fixture';
+ const home=tmp(),workspace=tmp(),fixture=path.join(home,'agent.mjs'),record={model:'mimo-v2.6-flash',baseUrl:'https://api.xiaomimimo.com/v1',apiKey:key};
  fs.writeFileSync(path.join(home,'provider.json'),JSON.stringify(record));
  fs.writeFileSync(path.join(home,'config.json'),JSON.stringify({engine:'hermes',fallbackEngineEnabled:true,engines:{hermes:{command:process.execPath,args:[fixture]}}}));
  fs.writeFileSync(fixture,`import readline from 'node:readline';let selected=false;for await(const line of readline.createInterface({input:process.stdin})){const m=JSON.parse(line);let result={};if(m.method==='initialize')result={protocolVersion:1};if(m.method==='session/new')result={sessionId:'fixture'};if(m.method==='session/set_model'){selected=m.params.modelId==='custom:mimo-v2.6-flash'&&process.env.KODER_HERMES_MODEL_KEY===${JSON.stringify(key)}&&JSON.parse((await import('node:fs')).readFileSync((await import('node:path')).join(process.env.HERMES_HOME,'config.yaml'),'utf8')).model.base_url===${JSON.stringify(record.baseUrl)};}if(m.method==='session/prompt'){process.stdout.write(JSON.stringify({jsonrpc:'2.0',method:'session/update',params:{sessionId:'fixture',update:{sessionUpdate:'agent_message_chunk',content:{type:'text',text:selected?'MiMo selected':'wrong model'}}}})+'\\n');result={stopReason:'end_turn'};}if(m.id!==undefined)process.stdout.write(JSON.stringify({jsonrpc:'2.0',id:m.id,result})+'\\n');}`);
@@ -93,14 +82,16 @@ test('MiMo wrong protocol gives a local diagnostic without sending credentials',
 });
 
 test('Hermes profile keeps non-model settings and refuses a changed credential destination',async()=>{
- const home=tmp(),ctx={env:{KODER_CLI_HOME:home}},record=normalizeRecord({model:'mimo-v2.6-pro',baseUrl:'https://token-plan-cn.xiaomimimo.com/v1',apiKey:key});
+ const key='sk-owned-hermes-fixture';
+ const {hermesMiMoConfig}=await load('src/mimo.mjs'),home=tmp(),ctx={env:{KODER_CLI_HOME:home}},record=normalizeRecord({model:'mimo-v2.6-pro',baseUrl:'https://api.xiaomimimo.com/v1',apiKey:key});
  const first=hermesMiMoConfig(ctx,record),file=path.join(first.env.HERMES_HOME,'config.yaml'),config=JSON.parse(fs.readFileSync(file,'utf8'));config.agent={disabled_toolsets:['terminal']};fs.writeFileSync(file,JSON.stringify(config));
- const second=hermesMiMoConfig(ctx,{...record,apiKey:'tp-rotated-fixture'});assert.equal(second.env.HERMES_HOME,first.env.HERMES_HOME);assert.equal(second.env.KODER_HERMES_MODEL_KEY,'tp-rotated-fixture');assert.deepEqual(JSON.parse(fs.readFileSync(file,'utf8')).agent,config.agent);
+ const second=hermesMiMoConfig(ctx,{...record,apiKey:'sk-rotated-fixture'});assert.equal(second.env.HERMES_HOME,first.env.HERMES_HOME);assert.equal(second.env.KODER_HERMES_MODEL_KEY,'sk-rotated-fixture');assert.deepEqual(JSON.parse(fs.readFileSync(file,'utf8')).agent,config.agent);
  config.model.base_url='https://unrelated.example/v1';fs.writeFileSync(file,JSON.stringify(config));assert.throws(()=>hermesMiMoConfig(ctx,record),e=>e.key==='model.hermesProfileChanged');assert.equal(JSON.parse(fs.readFileSync(file,'utf8')).model.base_url,'https://unrelated.example/v1');
 });
 test('Hermes refusing model selection stops before any prompt and redacts the credential',async()=>{
+ const key='sk-owned-hermes-fixture';
  const home=tmp(),fixture=path.join(home,'refuse.mjs'),marker=path.join(home,'unexpected-prompt');
- fs.writeFileSync(path.join(home,'provider.json'),JSON.stringify({model:'mimo-v2.6-pro',baseUrl:'https://token-plan-cn.xiaomimimo.com/v1',apiKey:key}));fs.writeFileSync(path.join(home,'config.json'),JSON.stringify({engine:'hermes',fallbackEngineEnabled:true,engines:{hermes:{command:process.execPath,args:[fixture]}}}));
+ fs.writeFileSync(path.join(home,'provider.json'),JSON.stringify({model:'mimo-v2.6-pro',baseUrl:'https://api.xiaomimimo.com/v1',apiKey:key}));fs.writeFileSync(path.join(home,'config.json'),JSON.stringify({engine:'hermes',fallbackEngineEnabled:true,engines:{hermes:{command:process.execPath,args:[fixture]}}}));
  fs.writeFileSync(fixture,`import readline from 'node:readline';import fs from 'node:fs';for await(const line of readline.createInterface({input:process.stdin})){const m=JSON.parse(line);if(m.method==='session/prompt')fs.writeFileSync(${JSON.stringify(marker)},'unexpected');const result=m.method==='initialize'?{protocolVersion:1}:m.method==='session/new'?{sessionId:'fixture'}:{};process.stdout.write(JSON.stringify({jsonrpc:'2.0',id:m.id,...(m.method==='session/set_model'?{error:{code:-32602,message:process.env.KODER_HERMES_MODEL_KEY+' refused'}}:{result})})+'\\n');}`);
  const result=await cli(['ask','hello','--no-memory'],{home});assert.equal(result.code,2);assert.ok(!fs.existsSync(marker));assert.ok(!result.err.includes(key));assert.match(result.err,/<REDACTED>/);
 });

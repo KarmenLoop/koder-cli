@@ -1,0 +1,6 @@
+{
+  "sha256": "db7f752ad659cdb7377af04fc29ce0f0e9c0b18d27b7fe0c556c1cb9c552b560",
+  "bytes": 316581,
+  "files": 160,
+  "scope": "Tests, synthetic fixtures, packaging test tooling and dependency lock only. No development runtime source. Temporary draft release asset removed before publication."
+}
