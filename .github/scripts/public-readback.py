@@ -39,7 +39,7 @@ manifest=next(r for r in expected['files'] if r['path']=='install/koder-cli-late
 external=[]
 for label,url in [
     ('GitHub update feed','https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/updates/koder-cli-latest.json'),
-    ('GitHub release manifest','https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.17/koder-cli-latest.json'),
+    ('GitHub release manifest',f"https://github.com/KarmenLoop/koder-cli/releases/download/cli-{expected['version']}/koder-cli-latest.json"),
 ]:
     status,_,body=request(url)
     passed=status==200 and sha(body)==manifest['sha256'] and json.loads(body)['version']==expected['version']
