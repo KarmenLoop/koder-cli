@@ -16,6 +16,20 @@ koder doctor
 koder model show
 ```
 
+## EXECUTION_PERMISSIONS_INVALID before a command runs
+
+This error comes from Koder's saved execution settings. A “Preparing command” line is a preview, not evidence that Windows ran the command. Changing the system PowerShell execution policy does not repair this record.
+
+Preview.18 accepts a valid UTF-8 BOM record. If the record is damaged, the next action offers a fresh decision. Type y to allow that action once, always to rebuild an exact-action grant, or full to rebuild full access for the current workspace. A rebuilt record preserves the original bytes in a local execution-permissions.invalid-UUID.json backup. Other workspaces return to smart approval. Declining leaves the old file untouched. Symbolic links, oversized files and files that cannot be safely read are not trusted or silently replaced.
+
+You can also choose Full access in Settings and confirm FULL, or run:
+
+```text
+koder permissions execution full --confirm FULL
+```
+
+To revoke execution permissions instead, use `koder permissions execution reset`. Koder full access controls its own approval prompts; it does not grant Windows administrator rights, fill passwords or change machine-wide script policies.
+
 ## A provider is gray or says temporarily unavailable
 
 Preview.16 disables MiMo Token Plan, Kimi API, Kimi Code, DeepSeek, Alibaba Token Plan and both Volcano routes because of known integration bugs. This is a product availability status, not a diagnosis that your key is wrong. Re-entering a key will not enable these entries. Your saved configuration is retained. Choose another available service in `koder setup`; no replacement service or backup engine is selected automatically.

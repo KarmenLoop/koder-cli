@@ -1,10 +1,15 @@
-# Koder CLI 0.4.0-preview.17
+# Koder CLI 0.4.0-preview.18
 
-Preview.17 adds automatic updates for consenting, installed interactive sessions. Discovery runs in the background; installation waits for tasks, queued input and drafts to clear, verifies the new entry, and resumes the saved conversation. `koder update auto off` disables it. Changed license text is never accepted automatically. Concurrent manual and automatic installation attempts share one local lease.
+Preview.18 repairs damaged execution-permission records only after a fresh explicit choice, backs up their original bytes, and reads valid UTF-8 BOM records. The full-access prompt no longer fails before the user can answer in this recovery case. Unsafe or inaccessible files remain blocked. Animated colors now use valid RGB sequences rather than malformed escapes. Automatic installer failures are reported without stopping the current chat.
+
+The repair candidate passed the original CLI and MCP lifecycle suites on hosted Windows, macOS and Linux, plus a real Windows terminal approval/recovery check. Windows stress checks covered 20 cold compile-cache starts, 10 WeChat update handoffs and four full animation/skip suites with the original deadlines. Final versioned-package and public-download checks are recorded separately; earlier failures remain evidence rather than being erased. A PowerShell-to-Node pipeline used only by installer test fixtures was replaced with the real installer's argument transport, keeping script bodies and assertions intact.
+
+
+Preview.17 introduced automatic updates for consenting, installed interactive sessions. Discovery runs in the background; installation waits for tasks, queued input and drafts to clear, verifies the new entry, and resumes the saved conversation. `koder update auto off` disables it. Changed license text is never accepted automatically. Concurrent manual and automatic installation attempts share one local lease.
 
 Windows MCP readiness publication now retries short filesystem sharing denials within a fixed bound and closes the owned Core if publication still fails. MiniMax official host/protocol normalization and fixed-code business errors are corrected. Shared timeout and network categories survive the public diagnostic boundary. Version queries no longer load model adapters.
 
-Provider protocol fixtures are not authenticated account acceptance. Dedicated MiniMax API/Plan test credentials were unavailable. The historical Windows startup timing failures remain recorded; no benchmark threshold or privacy check was relaxed.
+Provider protocol fixtures are not authenticated account acceptance. Dedicated MiniMax API/Plan test credentials were unavailable. Historical Windows startup, animation and WeChat failures remain recorded; no benchmark threshold or privacy check was relaxed.
 
 This build includes Windows CMD and PowerShell download progress, explicit license acceptance, verified extraction under paths with spaces or Chinese characters, private Node.js 22.23.3 selection when needed, and update restart and rollback protection. Download total time defaults to a maximum of 100000000 seconds; separate stalled-transfer checks remain bounded and cancellable.
 
@@ -27,9 +32,3 @@ The application introduces KARMEN LOOP and its task kernel without exposing deve
 ## Installation help
 
 See [installation](docs/INSTALLATION.md), [troubleshooting](docs/TROUBLESHOOTING.md), [provider availability](docs/PROVIDERS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Release-specific verification records distinguish isolated hosted tests, public readback and physical-device or paid-account evidence. The reporting user's Windows machine and authenticated accounts for the disabled services have not been tested.
-
-## Windows timing limits
-
-Known Windows timing limits remain: fresh-process startup sometimes exceeds the original one-second target, and one full celebration check exceeded its end-to-end limit (10.125 seconds). Earlier failures are retained; functional installation checks do not erase these performance limits.
-
-A Windows WeChat hot-update handoff exceeded its eight-second readiness deadline once. Three subsequent unchanged replays passed; the intermittent limit remains open. If a gateway does not reconnect after updating, finish current work and restart Koder manually without repeating completed tasks.
