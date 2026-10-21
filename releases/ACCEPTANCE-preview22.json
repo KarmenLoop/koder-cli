@@ -1,0 +1,201 @@
+{
+  "version": "0.4.0-preview.22",
+  "requiredHostedAcceptancePassed": true,
+  "fullProductAcceptance": false,
+  "status": "READY_FOR_PUBLICATION",
+  "acceptedAt": "2026-10-21T20:41:38.769426+00:00",
+  "package": {
+    "version": "0.4.0-preview.22",
+    "file": "koder-cli-0.4.0-preview.22.tgz",
+    "sha256": "f90d4b35e37dac523ed757af20c142f01eced99cae952f9a7c3285d7cb65ebe8",
+    "size": 4872915,
+    "node": "^22.21.0 || >=24.0.0",
+    "builtAt": "2026-10-21T20:05:45.257Z",
+    "preview": true,
+    "agreement": {
+      "id": "Koder-EULA-1.1",
+      "version": "1.1",
+      "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+    },
+    "installers": {
+      "sh": {
+        "file": "koder-cli.sh",
+        "sha256": "cf380040674df46cedb100e1fe91ece8cb6178b4bce0606253d8b14ac1f56551"
+      },
+      "ps1": {
+        "file": "koder-cli.ps1",
+        "sha256": "d0b6511fa6a44aa0d27b5cb1c3d2bd7b9d8abf7d6095e06a55d79680737a3796"
+      },
+      "cmd": {
+        "file": "koder-cli.cmd",
+        "sha256": "0d8b4863faf055fbe3dd004b085fb6e49d2690a6188418a4577732d37b56919f"
+      }
+    }
+  },
+  "sourceRevision": "celebration-exit-r1",
+  "gateCommit": "82db8f1de96c7d7d1f7235a425b6e47f3131df0c",
+  "fullRunAttempt": 2,
+  "retainedTimingOutlier": {
+    "run": 39669265212,
+    "attempt": 1,
+    "failedJob": 119462477491,
+    "failure": "first model request after 1086.2946 ms",
+    "originalBoundMs": 1000,
+    "otherChecks": "All functional, native installer and real terminal tests passed; original 20 cold startup repetitions passed. macOS and Linux complete suites passed.",
+    "packageUnchanged": true,
+    "packageSha256": "f90d4b35e37dac523ed757af20c142f01eced99cae952f9a7c3285d7cb65ebe8",
+    "action": "One bounded rerun of the failed Windows job on a fresh hosted runner; no source, input, assertion or timeout changes."
+  },
+  "harness": {
+    "file": "acceptance-harness-celebration-r2.tar.gz",
+    "sha256": "e46615fb5cd289502b3c0221d14cad08c9347eb3d33d421302b3269649a8253b",
+    "bytes": 328442,
+    "files": 167,
+    "adaptation": "All original assertions and deadlines retained; current version literals changed to preview.22. Three added real process-count regressions and the ten unchanged memory-isolation regressions are included. Protected-lock credential ports remain synthetic. No private runtime or provider credentials. Supplemental raw installer fixtures now use preview.22 too. Legacy C# helper source is retained as an unused fixture; native ACL acceptance executes the pinned distributed binary, not that source."
+  },
+  "fullRun": 39669265212,
+  "systems": [
+    {
+      "platform": "darwin",
+      "job": 119462476931,
+      "attempt": 1,
+      "counts": {
+        "tests": 619,
+        "pass": 598,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 21
+      },
+      "checks": [
+        {
+          "name": "host-lifecycle",
+          "exitCode": 0,
+          "counts": {
+            "tests": 18,
+            "pass": 17,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 1
+          }
+        },
+        {
+          "name": "full-cli",
+          "exitCode": 0,
+          "counts": {
+            "tests": 619,
+            "pass": 598,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 21
+          }
+        }
+      ]
+    },
+    {
+      "platform": "linux",
+      "job": 119462477347,
+      "attempt": 1,
+      "counts": {
+        "tests": 619,
+        "pass": 597,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 22
+      },
+      "checks": [
+        {
+          "name": "host-lifecycle",
+          "exitCode": 0,
+          "counts": {
+            "tests": 18,
+            "pass": 17,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 1
+          }
+        },
+        {
+          "name": "full-cli",
+          "exitCode": 0,
+          "counts": {
+            "tests": 619,
+            "pass": 597,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 22
+          }
+        }
+      ]
+    },
+    {
+      "platform": "win32",
+      "job": 119468937577,
+      "attempt": 2,
+      "counts": {
+        "tests": 619,
+        "pass": 586,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 33
+      },
+      "checks": [
+        {
+          "name": "host-lifecycle",
+          "exitCode": 0,
+          "counts": {
+            "tests": 18,
+            "pass": 18,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "name": "full-cli",
+          "exitCode": 0,
+          "counts": {
+            "tests": 619,
+            "pass": 586,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 33
+          }
+        },
+        {
+          "name": "native-installer",
+          "exitCode": 0,
+          "counts": {}
+        },
+        {
+          "name": "native-permission-terminal",
+          "exitCode": 0,
+          "counts": {}
+        }
+      ]
+    }
+  ],
+  "negativeRun": 39668098421,
+  "startupRepeatRun": 39668104606,
+  "animationRepeatRun": 39668111068,
+  "animationRepeatChecks": 27,
+  "websiteChecks": 47,
+  "newProcessRegressions": 3,
+  "retainedMemoryRegressions": 10,
+  "windowsMemoryTerminal": {
+    "passed": true,
+    "nativeTerminal": true,
+    "modelTurns": 2,
+    "temporaryContinuity": true,
+    "historyUntouched": true,
+    "noSilentLocationFork": true,
+    "warningCount": 1,
+    "exitCode": 0
+  },
+  "nativeMemoryAclChecks": 4,
+  "sourceFiles": 7038,
+  "kernelFiles": 3850,
+  "nativeHelperSha256": "c4ba925e4e08581292a899426aab763168ba0b47583760099ea76ebb3dd04273",
+  "initialFailures": "Retained source/hosted failures and non-acceptance timing experiments from preview.21 are kept in private evidence. Animation completion at six seconds and a subsequent worker-exit wait were separately observed. No timing, privacy or original functional assertion was relaxed.",
+  "limits": "Customer hardware, real customer storage and paid service accounts remain unavailable. Seven provider products remain disabled. Temporary RAM conversations do not survive exit or manual update. Prototype timing overlays are not acceptance.",
+  "publication": "Public download verification follows publication."
+}
