@@ -15,8 +15,8 @@
     },
     {
       "path": "cli.html",
-      "sha256": "ed20b3f8694cb953226f1921c77036ce7277d1d8f0161d13cf5b04ef032c885c",
-      "bytes": 74308
+      "sha256": "dd96114842ccea5f12168c30fa1ccd07104d5135b7141c4828ceecc05c6406c4",
+      "bytes": 74515
     },
     {
       "path": "configure.html",
@@ -60,8 +60,8 @@
     },
     {
       "path": "en/cli.html",
-      "sha256": "64774bc6c13b40309473f5a3dc9e6fdc93b980dd574d4a16070a439fc5b0c44e",
-      "bytes": 77246
+      "sha256": "3f618c3c1560dbb25cdd00ababa6ef97426b44ee6187d920e441768af0b17c81",
+      "bytes": 77490
     },
     {
       "path": "en/configure.html",

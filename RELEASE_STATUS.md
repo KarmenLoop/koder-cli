@@ -27,3 +27,7 @@ The application introduces KARMEN LOOP and its task kernel without exposing deve
 ## Installation help
 
 See [installation](docs/INSTALLATION.md), [troubleshooting](docs/TROUBLESHOOTING.md), [provider availability](docs/PROVIDERS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Release-specific verification records distinguish isolated hosted tests, public readback and physical-device or paid-account evidence. The reporting user's Windows machine and authenticated accounts for the disabled services have not been tested.
+
+## Windows timing limits
+
+Known Windows timing limits remain: fresh-process startup sometimes exceeds the original one-second target, and one full celebration check exceeded its end-to-end limit (10.125 seconds). Earlier failures are retained; functional installation checks do not erase these performance limits.
