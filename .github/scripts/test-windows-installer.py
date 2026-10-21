@@ -267,7 +267,7 @@ try:
             (out / 'consumer-native.tap').write_text(consumer.stdout + consumer.stderr, encoding='utf-8')
             expected_consumer_checks = 13 if expected == '0.4.0-preview.19' else 12
             assert consumer.returncode == 0 and f'# pass {expected_consumer_checks}' in consumer.stdout and '# fail 0' in consumer.stdout, consumer.stdout + consumer.stderr
-            (out / 'CONSUMER-RESULT.json').write_text(json.dumps({'passed':True,'checks':12,'scope':'Installed optional consumer features and native MiMo continuation; synthetic data only'}) + '\n')
+            (out / 'CONSUMER-RESULT.json').write_text(json.dumps({'passed':True,'checks':expected_consumer_checks,'scope':'Installed optional consumer features, bundled learning method when present and native MiMo continuation; synthetic data only'}) + '\n')
             animation = subprocess.run(['python', str(Path(__file__).with_name('test-terminal-celebrations.py')), '--node', info['node'], '--package', str(packages[0]), '--out', str(out / 'terminal-celebrations')], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=160)
             (out / 'terminal-celebrations.log').write_text(animation.stdout + animation.stderr, encoding='utf-8')
             assert animation.returncode == 0, animation.stdout + animation.stderr
