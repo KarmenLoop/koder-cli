@@ -197,4 +197,3 @@ jobs:
         run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
         shell: bash
       - run: python .github/scripts/windows-app-diagnosis.py
-

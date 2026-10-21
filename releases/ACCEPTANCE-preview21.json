@@ -1,0 +1,168 @@
+{
+  "version": "0.4.0-preview.21",
+  "requiredHostedAcceptancePassed": true,
+  "fullProductAcceptance": false,
+  "status": "READY_FOR_PUBLICATION",
+  "acceptedAt": "2026-10-21T19:30:04.038110+00:00",
+  "package": {
+    "version": "0.4.0-preview.21",
+    "file": "koder-cli-0.4.0-preview.21.tgz",
+    "sha256": "0d03f565e0a3634a2f64d0a658e8efcb93c9a98d666a5b3668bec6738153a036",
+    "size": 4873998,
+    "node": "^22.21.0 || >=24.0.0",
+    "builtAt": "2026-10-21T19:19:52.447Z",
+    "preview": true,
+    "agreement": {
+      "id": "Koder-EULA-1.1",
+      "version": "1.1",
+      "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+    },
+    "installers": {
+      "sh": {
+        "file": "koder-cli.sh",
+        "sha256": "aef3ca45ba84a5bd7207c960ff0fcf58667331af66eb5007263f4c505197e58f"
+      },
+      "ps1": {
+        "file": "koder-cli.ps1",
+        "sha256": "6d18c6766162b725eb5a92b11fe68de494f4725ded6c8c619b1bb831c8e76d18"
+      },
+      "cmd": {
+        "file": "koder-cli.cmd",
+        "sha256": "65d75678a5c93a53bf7fda18f313d8814c352cc7979cf2a47bb48a522993dde6"
+      }
+    }
+  },
+  "sourceRevision": "memory-isolation-r2",
+  "gateCommit": "28026e1b1edfcec88aa21351c8ec77f51aec716c",
+  "fullRun": 39660924587,
+  "systems": [
+    {
+      "platform": "win32",
+      "job": 119433397575,
+      "counts": {
+        "tests": 616,
+        "pass": 583,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 33
+      },
+      "checks": [
+        {
+          "name": "host-lifecycle",
+          "exitCode": 0,
+          "counts": {
+            "tests": 18,
+            "pass": 18,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "name": "full-cli",
+          "exitCode": 0,
+          "counts": {
+            "tests": 616,
+            "pass": 583,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 33
+          }
+        },
+        {
+          "name": "native-installer",
+          "exitCode": 0,
+          "counts": {}
+        },
+        {
+          "name": "native-permission-terminal",
+          "exitCode": 0,
+          "counts": {}
+        }
+      ]
+    },
+    {
+      "platform": "linux",
+      "job": 119433398072,
+      "counts": {
+        "tests": 616,
+        "pass": 594,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 22
+      },
+      "checks": [
+        {
+          "name": "host-lifecycle",
+          "exitCode": 0,
+          "counts": {
+            "tests": 18,
+            "pass": 17,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 1
+          }
+        },
+        {
+          "name": "full-cli",
+          "exitCode": 0,
+          "counts": {
+            "tests": 616,
+            "pass": 594,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 22
+          }
+        }
+      ]
+    },
+    {
+      "platform": "darwin",
+      "job": 119433398257,
+      "counts": {
+        "tests": 616,
+        "pass": 595,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 21
+      },
+      "checks": [
+        {
+          "name": "host-lifecycle",
+          "exitCode": 0,
+          "counts": {
+            "tests": 18,
+            "pass": 17,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 1
+          }
+        },
+        {
+          "name": "full-cli",
+          "exitCode": 0,
+          "counts": {
+            "tests": 616,
+            "pass": 595,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 21
+          }
+        }
+      ]
+    }
+  ],
+  "negativeRun": 39660931393,
+  "startupRepeatRun": 39660938033,
+  "animationRepeatRun": 39660944269,
+  "animationRepeatChecks": 27,
+  "websiteChecks": 47,
+  "replacementPackageChecks": 8,
+  "memoryRegressionCases": 10,
+  "nativeMemoryAclChecks": 4,
+  "nativeHelperBuildRun": 39660434183,
+  "nativeHelperSha256": "c4ba925e4e08581292a899426aab763168ba0b47583760099ea76ebb3dd04273",
+  "initialFailures": "Retained in the private acceptance evidence archive, including run 39658257656, local red reproductions, and build/fixture preparation errors. No original timing or privacy assertions were relaxed.",
+  "limits": "Customer hardware, actual customer storage and paid service accounts remain unverified. Seven provider products remain disabled. Temporary RAM conversations do not survive exit or manual update; original memory is untouched. Historical intermittent animation timing failures remain recorded; final original-deadline repetitions are separate evidence.",
+  "publication": "Public download verification follows publication."
+}

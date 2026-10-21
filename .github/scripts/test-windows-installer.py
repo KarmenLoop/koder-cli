@@ -276,7 +276,7 @@ try:
             acl = subprocess.run([info['node'], '--test', '--test-timeout=30000', str(Path(__file__).with_name('test-windows-memory-acl.mjs'))], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=100)
             (out / 'windows-memory-acl.tap').write_text(acl.stdout + acl.stderr, encoding='utf-8')
             assert acl.returncode == 0 and f"# pass {4 if expected == '0.4.0-preview.21' else 3}" in acl.stdout and '# fail 0' in acl.stdout, acl.stdout + acl.stderr
-            (out / 'WINDOWS-ACL-RESULT.json').write_text(json.dumps({'passed':True,'checks':3,'scope':'Native Windows ACL readback, real owned directories and negative access/junction cases'}) + '\n')
+            (out / 'WINDOWS-ACL-RESULT.json').write_text(json.dumps({'passed':True,'checks':4 if expected == '0.4.0-preview.21' else 3,'scope':'Native Windows ACL readback, real owned directories and negative access/junction cases'}) + '\n')
             names = ['test-native-api-recovery.mjs', 'test-native-protocol-matrix.mjs', 'test-execution-permissions.mjs']
             extended = subprocess.run([info['node'], '--test', '--test-timeout=60000', *[str(Path(__file__).with_name(n)) for n in names]], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=180)
             (out / 'native-recovery-permissions.tap').write_text(extended.stdout + extended.stderr, encoding='utf-8')
@@ -291,6 +291,10 @@ try:
             (out/'memory-recovery-terminal.log').write_text(temporary.stdout+temporary.stderr,encoding='utf-8')
             assert temporary.returncode == 0,temporary.stdout+temporary.stderr
             assert json.loads((out/'memory-recovery-terminal/RESULT.json').read_text())['passed']
+            memory_result=json.loads((out/'memory-recovery-terminal/RESULT.json').read_text())
+            (out/'MEMORY-RECOVERY-RESULT.json').write_text(json.dumps(memory_result)+'\n')
+            print('MEMORY_TERMINAL_RESULT '+json.dumps(memory_result),flush=True)
+            print('MEMORY_ACL_RESULT '+(out/'WINDOWS-ACL-RESULT.json').read_text(),flush=True)
         if expected in ('0.4.0-preview.14','0.4.0-preview.15','0.4.0-preview.17','0.4.0-preview.18','0.4.0-preview.19','0.4.0-preview.20','0.4.0-preview.21'):
             resources = subprocess.run([info['node'], '--test', '--test-timeout=60000', str(Path(__file__).with_name('test-private-resources.mjs'))], env=native_env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=180)
             (out / 'private-resources-native.tap').write_text(resources.stdout + resources.stderr, encoding='utf-8')
