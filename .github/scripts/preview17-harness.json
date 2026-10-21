@@ -1,7 +1,7 @@
 {
-  "file": "acceptance-harness-growth-r1.tar.gz",
-  "sha256": "2d150c1850d7f1f1fa0e1a6e6013664fb6b8c86a5127a27001dd15b275f2baf3",
-  "bytes": 321204,
+  "file": "acceptance-harness-growth-r2.tar.gz",
+  "sha256": "26074fa6006e0fcddd01ddbff25390191794577f40785b512c1559b89be797f8",
+  "bytes": 321194,
   "files": 164,
-  "adaptation": "The two protected-lock fixture ports remain synthetic; original assertions and deadlines retained. Windows installer fixtures use the same Node argument transport as the real installer. The apps bundle tests build one immutable archive per test file and extract separate mutation fixtures; all original assertions and the 60-second file deadline remain. Includes six new synthetic learning-method integration checks; no API credentials or development runtime sources."
+  "adaptation": "The two protected-lock fixture ports remain synthetic; original assertions and deadlines retained. Windows installer fixtures use the same Node argument transport as the real installer. The apps bundle tests build one immutable archive per test file and extract separate mutation fixtures; all original assertions and the 60-second file deadline remain. Includes six new synthetic learning-method integration checks; no API credentials or development runtime sources. Corrects only escaped version literals from preview.18 to preview.19; all assertions remain."
 }
