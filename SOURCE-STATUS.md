@@ -1,5 +1,5 @@
 # Current distribution and legacy source
 
-The current beta distribution is Koder CLI 0.4.0-preview.26. Installers, checksums and complete guides are available on https://karmenloop.com/cli.html and the matching GitHub release. The current feed is updates/koder-cli-latest.json.
+Current beta: 0.4.0-preview.27. Complete installers, checksums and bilingual guides: https://karmenloop.com/cli.html. See updates/koder-cli-latest.json and the matching release.
 
-The older GPL source and its original package version remain historical. Building that legacy tree does not produce this proprietary beta. Current runtime development source stays private; the intended application runtime is supplied inside the installer under its EULA. Third-party licenses and existing source rights remain unchanged.
+The older GPL source and its package version remain historical. Building that tree does not produce the current proprietary beta. Current runtime development source remains private; the intended application runtime ships in the licensed installer. Third-party rights remain unchanged.

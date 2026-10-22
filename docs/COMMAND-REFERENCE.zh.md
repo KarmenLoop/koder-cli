@@ -1,6 +1,6 @@
 # 完整命令参考
 
-Beta 0.4.0-preview.26。互动教练 30 课。
+Beta 0.4.0-preview.27。互动教练 30 课。
 
 - `--stdin`: 将标准输入附加到显式提示词；没有提示词时自动读取
 - `--stdin-timeout <秒>`: 完整输入的等待上限，默认 5 秒，范围 0.01–3600 秒
@@ -23,9 +23,9 @@ koder project  新建、打开与查看独立项目文件夹
 别名: 项目
 
 用法
-  koder project create <name> [--kind website|slides|app|project] | open <path> | list | status
+  koder project create <name> [--kind website|slides|app|project] | open <path> | list | status | check [--kind project|website|service|generator]
 
-新项目统一放在用户的 Koder Projects 文件夹。/project create 或 open 在当前聊天切换项目并重建会话；已有工程可用 -w。默认任务历史按项目与会话隔离。
+新项目统一放在用户的 Koder Projects 文件夹。/project create 或 open 在当前聊天切换项目并重建会话；已有工程可用 -w。默认任务历史按项目与会话隔离。project check 只检查文件结构，缺项退出3，不运行脚本。
 
 通用选项见 koder help。
 ```

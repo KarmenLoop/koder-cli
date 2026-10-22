@@ -1,6 +1,6 @@
 # Complete command reference
 
-Beta 0.4.0-preview.26. Interactive coach: 30 lessons.
+Beta 0.4.0-preview.27. Interactive coach: 30 lessons.
 
 - `--stdin`: Attach stdin to an explicit prompt; read it automatically when there is no prompt
 - `--stdin-timeout <秒>`: Complete-input deadline, default 5 seconds, range 0.01–3600 seconds
@@ -23,9 +23,9 @@ koder project  Create, open and inspect isolated project folders
 Aliases: 项目
 
 Usage
-  koder project create <name> [--kind website|slides|app|project] | open <path> | list | status
+  koder project create <name> [--kind website|slides|app|project] | open <path> | list | status | check [--kind project|website|service|generator]
 
-New projects live in the users Koder Projects folder. /project create or open switches the current chat and its session. Use -w for an existing workspace. Automatic task history is isolated by project and session.
+New projects live in the users Koder Projects folder. /project create or open switches the current chat and its session. Use -w for an existing workspace. Automatic task history is isolated by project and session. project check inspects file structure only; missing items return 3. It never runs scripts.
 
 Global options: koder help.
 ```

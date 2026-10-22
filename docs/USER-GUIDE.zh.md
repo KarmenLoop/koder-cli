@@ -1,6 +1,6 @@
 # Koder CLI 完整使用教程
 
-版本：**0.4.0-preview.26 Beta**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.4.0-preview.27 Beta**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -170,14 +170,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.4.0-preview.26-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.26-en-cmd.txt)
-- [koder-cli-0.4.0-preview.26-en-linux.txt](tutorials/koder-cli-0.4.0-preview.26-en-linux.txt)
-- [koder-cli-0.4.0-preview.26-en-mac.txt](tutorials/koder-cli-0.4.0-preview.26-en-mac.txt)
-- [koder-cli-0.4.0-preview.26-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.26-en-powershell.txt)
-- [koder-cli-0.4.0-preview.26-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.26-zh-cmd.txt)
-- [koder-cli-0.4.0-preview.26-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.26-zh-linux.txt)
-- [koder-cli-0.4.0-preview.26-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.26-zh-mac.txt)
-- [koder-cli-0.4.0-preview.26-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.26-zh-powershell.txt)
+- [koder-cli-0.4.0-preview.27-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.27-en-cmd.txt)
+- [koder-cli-0.4.0-preview.27-en-linux.txt](tutorials/koder-cli-0.4.0-preview.27-en-linux.txt)
+- [koder-cli-0.4.0-preview.27-en-mac.txt](tutorials/koder-cli-0.4.0-preview.27-en-mac.txt)
+- [koder-cli-0.4.0-preview.27-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.27-en-powershell.txt)
+- [koder-cli-0.4.0-preview.27-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.27-zh-cmd.txt)
+- [koder-cli-0.4.0-preview.27-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.27-zh-linux.txt)
+- [koder-cli-0.4.0-preview.27-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.27-zh-mac.txt)
+- [koder-cli-0.4.0-preview.27-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.27-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 
@@ -192,3 +192,14 @@ Linux 应用连接宿主需要 `secret-tool`（常见包名 `libsecret-tools`）
 ## 无交互运行与来源检查
 
 [CLI 行为契约](CLI-CONTRACTS.zh.md)说明管道输入、未回答的澄清、临时审批、失败请求不增加历史的条件以及退出码。[原始盲测题](BLIND-BENCHMARKS.zh.md)区分确定性流程检查和真实模型评测。审查无法解析或发版文案归因缺少支持时返回 3，不能当作 CI 通过。
+
+## 文案与项目交付检查
+
+完整规则见[质量检查教程](QUALITY-CHECKS.zh.md)。文案或项目缺项时退出码为 3，已写文件保留，并列出未通过项；这不会误报为 API 故障。下面的检查无需模型，也不运行项目脚本：
+
+```sh
+koder project check --kind service --json -w /path/to/project
+koder project check --kind website --json -w /path/to/site
+```
+
+之后再运行当前授权范围内的真实测试。找到测试文件不代表测试通过，就像找到跑鞋不代表已经跑完马拉松。模型预设会按实际目录显示可选与暂不可用数量；账号能否使用还要单独检测。

@@ -1,12 +1,16 @@
 # Koder CLI
 
-Koder CLI **0.4.0-preview.26 Beta** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
+Koder CLI **0.4.0-preview.27 Beta** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
 
-**0.4.0-preview.22** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.26) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.0-preview.22** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.27) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
 The KARMEN LOOP kernel connects task planning, permission checks, tool execution, and saved results. Public descriptions cover capabilities; new application runtime source remains proprietary under the [EULA](EULA.md). Third-party components retain their own licenses and [credits](OPEN_SOURCE_CREDITS.md).
+
+## Writing and delivery checks
+
+This beta adds measured Chinese-length checks for decision-maker copy, workspace release-source snapshots and references, comparison-compression checks, and `koder project check`. Missing structure returns 3 without deleting work or claiming tests ran. Read [Quality checks](docs/QUALITY-CHECKS.en.md) for the exact limits.
 
 ## Complete guides
 

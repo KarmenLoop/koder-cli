@@ -1,0 +1,37 @@
+{
+  "version": "0.4.0-preview.27",
+  "file": "koder-cli-0.4.0-preview.27.tgz",
+  "sha256": "41df71c10daec8a7a609e2de2144b946b99ec6d6a15102165ce0fc1ab792d374",
+  "size": 35184375,
+  "node": "^22.21.0 || >=24.0.0",
+  "builtAt": "2026-10-22T20:27:01.995Z",
+  "preview": true,
+  "agreement": {
+    "id": "Koder-EULA-1.1",
+    "version": "1.1",
+    "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+  },
+  "installers": {
+    "sh": {
+      "file": "koder-cli.sh",
+      "sha256": "49aa43c8497eae700b25b7502c529c2f2eff27515fa70dc42316017f9bdee72a"
+    },
+    "ps1": {
+      "file": "koder-cli.ps1",
+      "sha256": "34c9b51a7b1eb59c8666aa89e29fbc335ab91b86cc49fcdb71ae9208c5779e6c"
+    },
+    "cmd": {
+      "file": "koder-cli.cmd",
+      "sha256": "7af4a788014bd17427074a8dc35493bd71ad8609bc3f0ee19751e0114d2432ff"
+    }
+  },
+  "channel": "beta",
+  "guides": "https://karmenloop.com/cli-guide/",
+  "sourceBaseline": "0.4.0-preview.26",
+  "contractPass": 75,
+  "installationUpdatePass": 33,
+  "installationUpdateSkip": 4,
+  "nativeWindows": "not executed in this task",
+  "realProviderAccounts": "not tested in this task",
+  "capabilityBenchmark": "not rerun"
+}
