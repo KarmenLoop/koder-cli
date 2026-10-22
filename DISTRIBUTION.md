@@ -1,6 +1,6 @@
 # Distribution and release records
 
-This source tree builds **0.4.0-preview.26 Beta**. The official release feed identifies the downloadable build. A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distribution is **0.4.0-preview.26 Beta**. Its application runtime is built privately; the legacy source retained in this public repository does not build that beta. The official release feed identifies the downloadable build. A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
