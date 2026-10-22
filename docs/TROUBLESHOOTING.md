@@ -40,6 +40,18 @@ For an available service, confirm its exact product and endpoint, then run `kode
 
 Contact [info@karmenloop.com](mailto:info@karmenloop.com) with the Koder version, Windows/macOS/Linux version, terminal, provider product and the final error text. Remove keys, private prompts and personal paths. Koder can prepare a feedback template when you ask; it does not send it for you.
 
+## MiniMax authentication and interrupted replies
+
+An HTTP 401 from `api.minimax.cn` means the endpoint rejected the credential. Check the account region, whether the key belongs to the API or M Plan/Coding Plan product, subscription status and model access in that product's console. Repeating the same credential, changing Windows administrator permissions or relaxing memory-folder access does not repair an authentication rejection. Koder does not switch regions or forward the key to another host automatically. See the [MiniMax API overview](https://platform.minimax.cn/docs/api-reference/api-overview).
+
+`MEMORY_ACCESS_ISOLATION_UNVERIFIED` can appear before that response. Its temporary RAM fallback allows an ordinary API request to proceed; the storage warning and HTTP 401 are separate findings. Preserve the private-folder checks described below.
+
+The internal preview.26 candidate preserves MiniMax Messages response blocks in their original order. It also distinguishes a valid response that omitted thinking from private state lost after exit. This follows MiniMax's [tool-use guidance](https://platform.minimax.cn/docs/guides/text-m3-function-call). These changes are not included in the public preview.22 installer.
+
+In that candidate, `MODEL_STREAM_INTERRUPTED` means a stream ended before its completion marker, within an event, or within a UTF-8 character. It does not establish whether the provider, a proxy or the connection caused the interruption. Incomplete tool calls are rejected. If a file operation already completed, type `重试` or `retry` in the same live conversation to resume only the failed model reply. Completed tools are not replayed and a later user edit is preserved. A process restart can expire the private response state; Koder then requires review instead of guessing or repeating the operation.
+
+`MODEL_PROTOCOL` remains appropriate for a complete malformed event or invalid tool arguments. Do not bypass that guard. No paid-account or customer-device recovery is implied by synthetic protocol checks. If you authorize a billable check, `koder model test --tools` reports both tool use and continuation. Share only the version, product, model, endpoint host/path and redacted final error; never share the key or full request body.
+
 ## A website task returns the Koder introduction
 
 Update to preview.22 or newer. Earlier versions could mistake the word “官网” in a website redesign task for a question about Koder. In preview.22, the whole request must be an explicit product question before that local response is used. Ordinary website work reaches the model.
@@ -62,3 +74,11 @@ Keep the old directory. Check that the selected volume is available and supports
 ## Windows celebration finishes but returns late
 
 Preview.22 runs standalone `koder celebrate` and `koder 彩蛋` through the existing one-process command path when no proxy bootstrap is required. Full playback stays at six seconds, and any key can skip. This avoids an extra worker-exit wait after the final frame. Current-chat menus continue to return to the same prompt.
+
+## Source candidate.7 reliability changes
+
+An open unrelated stdin pipe no longer blocks an explicit ask/run prompt. To attach a pipe, add --stdin; no-prompt commands read it automatically. The complete-input deadline defaults to five seconds; incomplete input is rejected before a model request. Use --stdin-timeout for an intentionally slow producer.
+
+A session named default is scoped to its canonical workspace. Automatic task facts must not enter another projects model context; switching projects rebuilds the current chat session. Explicit shared notes have their separate scope. Private storage is in the Koder profile, not the public output folder.
+
+Model checks have a short single-attempt budget. HTTP validation errors can include a bounded, redacted JSON provider reason; raw response bodies and credentials are not printed. Invalid arguments return exit 2. A fix request without a description or check reports an example. An explicit --lang reaches the model request. These are candidate behaviors, not claims about older installed packages.

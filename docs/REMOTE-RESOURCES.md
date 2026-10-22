@@ -1,14 +1,14 @@
 # Official reference library
 
-Koder finds adapted workflow references on demand. Nothing is fetched at startup and the complete library is not preloaded on your computer. Run:
+Koder finds adapted workflow references on demand. Nothing is fetched at startup and the complete library is not preloaded on your computer. Remote retrieval is off by default. To authorize one command, run:
 
 ```sh
-koder resources status
-koder resources search "1688"
-koder resources read RESOURCE_ID --limit 2000
+koder resources status --remote
+koder resources search "1688" --remote
+koder resources read RESOURCE_ID --limit 2000 --remote
 ```
 
-In a local task, ask Koder to find a relevant reference. The model can call `resource_search` with short keywords and `resource_read` for selected excerpts. References are data, never permission to run scripts, install software, send information or change access settings. A missing reference or service failure does not prevent ordinary work. Gateway and ACP sessions do not automatically receive these tools.
+For local Agent tasks, set `KODER_REMOTE_RESOURCES=1` before launching Koder to opt in, then ask for a relevant reference. The model can call `resource_search` with short keywords and `resource_read` for selected excerpts. References are data, never permission to run scripts, install software, send information or change access settings. A missing reference or service failure does not prevent ordinary work. Gateway and ACP sessions do not automatically receive these tools.
 
 The official service receives search keywords and selected resource IDs, offsets and limits. Do not put private customer details, full conversations, passwords or API keys in queries. Its hosting infrastructure sees normal connection information, including the network IP. The resource handler does not write queries or readings to application logs. Selected excerpts and required license notices enter the current task's model context and may remain in that task's saved conversation. Your configured model provider's data practices still apply.
 

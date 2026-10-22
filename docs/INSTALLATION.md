@@ -4,7 +4,7 @@
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide covers the downloadable **0.4.0-preview.22** release. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide describes **0.4.0-preview.26 Beta**. The official website provides the installer, package, checksums and tutorials. The complete [English guide](USER-GUIDE.en.md) and [Chinese guide](USER-GUIDE.zh.md) identify candidate-only features. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -94,7 +94,7 @@ Ask it to explain a file first. Review proposed changes and commands before appr
 koder learn
 ```
 
-The tutorial contains 23 lessons, in Chinese and English, with distinct PowerShell, CMD, macOS and Linux commands. View the matching printable edition without a model request:
+The tutorial contains 30 lessons, in Chinese and English, with distinct PowerShell, CMD, macOS and Linux commands. View the matching printable edition without a model request:
 
 ```text
 koder learn --print --lang en --os powershell
@@ -189,3 +189,9 @@ An installed CLI checks the official GitHub update feed during interactive chats
 
 Run `koder update auto off` (or `/update auto off` in chat) to disable it. Use `on` to enable it and `status` to inspect it. `KODER_AUTO_UPDATE=0` disables automatic checks in the current process. Scripts, one-shot questions, unmanaged copies, explicit private mirrors, and read-only chat modes do not automatically install. A changed license stops automatic installation and requires review. Manual `koder update --check` and `koder update` remain available.
 
+
+## Project folders, scripts and diagnostic checks
+
+New creation tasks use the users Koder Projects folder unless an existing or explicit workspace is selected. Use koder project create, open, list or status; /project switches the current chat. Task history and automatically captured facts stay in their selected conversation. Private records remain in the local Koder profile.
+
+An explicit ask/run prompt does not consume unrelated stdin. Add --stdin to attach a pipe; with no prompt, stdin supplies the task. Input has a five-second complete-read deadline, adjustable with --stdin-timeout. Model diagnosis uses a separate ten-second budget with no inference retries. Provider reasons are bounded and redacted. See the complete guide for platform-specific pipes, language, approvals, browser methods and H5 delivery.

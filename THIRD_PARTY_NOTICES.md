@@ -111,3 +111,10 @@ The 0.3.0 archive contains a truncated open-code-review Apache licence; the comp
 ## KARMEN LOOP personal-agent-growth 0.3.2
 
 The eight unmodified files from [personal-agent-growth v0.3.2](https://github.com/KarmenLoop/personal-agent-growth/releases/tag/v0.3.2) are bundled as a separately licensed method resource, not as a background service. Copyright (C) 2026 KARMENLOOP Official Team. They retain AGPL-3.0-only and their full [license](licenses/personal-agent-growth/LICENSE) and [notice](licenses/personal-agent-growth/NOTICE). The resource manifest pins each file and the source revision. Koder's own license does not replace these terms.
+
+
+REA 6.7.0 is bundled under its original MIT license. Its dependencies retain their own licenses and notices, including OpenPGP.js under LGPL-3.0+. See vendor/rea/README.md, vendor/rea/components.json, vendor/rea/node_modules/rea-agents/THIRD_PARTY_NOTICES.md and vendor/rea/sources/. External analysis engines are not included.
+
+## Vercel agent-browser - Apache License 2.0
+
+Browser automation method, reference documentation and example templates from `vercel-labs/agent-browser`, pinned to `468c0526c884722afd9c10bcc0d5b09ed4c0c5d1`. The executable and browser binaries are not installed by this resource bundle. Original authors retain their rights; read the [complete license](licenses/agent-browser/LICENSE). Koder adds host capability and permission guidance without replacing upstream notices.

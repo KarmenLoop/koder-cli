@@ -53,3 +53,12 @@ The original Koder development-workflow instructions and GitHub research adapter
 ## KARMEN LOOP personal-agent-growth 0.3.2
 
 The eight unmodified files from [personal-agent-growth v0.3.2](https://github.com/KarmenLoop/personal-agent-growth/releases/tag/v0.3.2) are bundled as a separately licensed method resource, not as a background service. Copyright (C) 2026 KARMENLOOP Official Team. They retain AGPL-3.0-only and their full [license](licenses/personal-agent-growth/LICENSE) and [notice](licenses/personal-agent-growth/NOTICE). The resource manifest pins each file and the source revision. Koder's own license does not replace these terms.
+
+
+REA 6.7.0 is bundled under its original MIT license. Its dependencies retain their own licenses and notices, including OpenPGP.js under LGPL-3.0+. See vendor/rea/README.md, vendor/rea/components.json, vendor/rea/node_modules/rea-agents/THIRD_PARTY_NOTICES.md and vendor/rea/sources/. External analysis engines are not included.
+
+## Browser automation workflow
+
+The agent-browser core method, command references and three reference templates are bundled from [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser/tree/468c0526c884722afd9c10bcc0d5b09ed4c0c5d1) at `468c0526c884722afd9c10bcc0d5b09ed4c0c5d1` under Apache-2.0. The original [license](licenses/agent-browser/LICENSE) and the kernel resource manifest retain provenance and SHA-256 values. These are on-demand method resources; the agent-browser executable and Chromium are not installed by this change. The Koder adapter maps the workflow to actually available computer tools and keeps tool, account and execution authorization separate. Templates are reference text and are never automatically executed.
+
+The existing Anthropic frontend-design files were verified byte-for-byte against `anthropics/skills` at `dbd4588f9e1033efb41dad4bef2f7947c8993d44`. They were already current and retain their original Apache-2.0 license. Unrelated skill revisions were not repinned.

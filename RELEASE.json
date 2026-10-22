@@ -1,10 +1,10 @@
 {
-  "version": "0.4.0-preview.22",
-  "file": "koder-cli-0.4.0-preview.22.tgz",
-  "sha256": "f90d4b35e37dac523ed757af20c142f01eced99cae952f9a7c3285d7cb65ebe8",
-  "size": 4872915,
+  "version": "0.4.0-preview.26",
+  "file": "koder-cli-0.4.0-preview.26.tgz",
+  "sha256": "c2f925d832dfe3b4c2fd9d3d34527cc24b2c98df4c85e266ca78613dce59b0bf",
+  "size": 35178992,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-21T20:05:45.257Z",
+  "builtAt": "2026-10-22T19:37:32.256Z",
   "preview": true,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,17 +14,22 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "cf380040674df46cedb100e1fe91ece8cb6178b4bce0606253d8b14ac1f56551"
+      "sha256": "0c7534858eb50d801ddae3c56bb4df9fcd975e9e2103d17d40df1353c0e81b68"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "d0b6511fa6a44aa0d27b5cb1c3d2bd7b9d8abf7d6095e06a55d79680737a3796"
+      "sha256": "011bdd4905f48d055f080673dfd31c69ea7a41f35e5930b3b95f6cc778b7fb4b"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "0d8b4863faf055fbe3dd004b085fb6e49d2690a6188418a4577732d37b56919f"
+      "sha256": "008f5d3fae7faee19efabd2d33a37897f2fc43f993834cdee3e35759faa12941"
     }
   },
-  "sourceArchive": "Accepted private development source. This public repository retains legacy source; new implementation is supplied in the licensed runtime package.",
-  "acceptance": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.22/ACCEPTANCE-REPORT.json"
+  "channel": "beta",
+  "guides": "https://karmenloop.com/cli-guide/",
+  "sourceBaseline": "0.4.0-preview.26-candidate.8",
+  "localContractPass": 63,
+  "portableWindowsLogicPass": 30,
+  "nativeWindows": "not executed in this publication task",
+  "realProviderAccounts": "not tested in this task"
 }

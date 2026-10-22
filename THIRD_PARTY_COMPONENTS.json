@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedOn": "2026-10-19",
+  "checkedOn": "2026-10-23",
   "scope": "Attribution inventory, not a complete dependency SBOM or legal clearance",
   "inspectedInstallerVersion": "0.3.0",
   "inspectedInstallerSha256": "281e31d96ce1764a0da8c7fbd08633118b21a04b595703f81d304a7f60f78f94",
@@ -208,6 +208,23 @@
           "upstreamPath": "NOTICE",
           "publicCopy": "licenses/personal-agent-growth/NOTICE",
           "sha256": "a40bb7e087f8bb67fc2b843ab3714648db4c73329ac62384341c576fd9e95e4f",
+          "matchesPreviousBundle": false
+        }
+      ]
+    },
+    {
+      "id": "agent-browser",
+      "repository": "vercel-labs/agent-browser",
+      "recordedSourceRevision": "468c0526c884722afd9c10bcc0d5b09ed4c0c5d1",
+      "declaredLicense": "Apache-2.0",
+      "use": "Browser automation method, references and unexecuted example templates; no browser binary or executable is installed",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/agent-browser",
+      "listedResourceFiles": 15,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/agent-browser/LICENSE",
+          "sha256": "014bb31e83d5c2e76aea1cc6e82217346ab41362f32cb355ad0f5c10aa0aeaff",
           "matchesPreviousBundle": false
         }
       ]
@@ -2138,5 +2155,13 @@
     "licenseScopeFile": "LICENSE",
     "distributionPolicyFile": "DISTRIBUTION.md",
     "installerChanged": true
+  },
+  "reaRuntime": {
+    "version": "6.7.0",
+    "directory": "vendor/rea",
+    "inventory": "vendor/rea/components.json",
+    "integrity": "vendor/rea/integrity.json",
+    "optionalFridaBundled": false,
+    "optionalPtyBundled": false
   }
 }

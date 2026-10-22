@@ -1,14 +1,20 @@
 # Koder CLI
 
-**0.4.0-preview.22** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.22) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+Koder CLI **0.4.0-preview.26 Beta** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
+
+**0.4.0-preview.22** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.26) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
 The KARMEN LOOP kernel connects task planning, permission checks, tool execution, and saved results. Public descriptions cover capabilities; new application runtime source remains proprietary under the [EULA](EULA.md). Third-party components retain their own licenses and [credits](OPEN_SOURCE_CREDITS.md).
 
+## Complete guides
+
+Use the [complete English guide](docs/USER-GUIDE.en.md), [Chinese guide](docs/USER-GUIDE.zh.md), and generated [command reference](docs/COMMAND-REFERENCE.en.md). They distinguish source candidates from the published installer. New projects use Koder Projects; explicit stdin attachment, project-scoped task context, short model diagnostics and on-demand skills are documented with their limits.
+
 ## Install
 
-Preview.18 restores a usable approval prompt when a saved execution record is damaged, preserves the old record before an explicitly confirmed repair, and accepts valid UTF-8 BOM records. Celebration colors use valid terminal sequences. Failed automatic installations now display a retry message while the current conversation remains usable. Windows MCP and MiniMax fixes from preview.17 are retained. Real account availability still depends on your provider, key, plan and quota; the temporarily unavailable integrations listed below remain disabled.
+This beta includes the stdin, workspace-history and project-folder repairs. Use the official installer below. The Windows checklist records the remaining native checks for the dedicated test team; local checks do not certify every PC or provider account.
 
 Use Windows 10/11, macOS, Linux, or WSL with the matching shell. The installer reuses Node.js 22.21+ or 24+ or downloads and verifies the runtime. Normal installation does not require administrator access. Read the [license](EULA.md), [consent guide](ACCEPTANCE.md), [copyright notice](LEGAL-NOTICE.md), and [CLI privacy terms](docs/privacy/consumer-privacy.en.md).
 
@@ -147,7 +153,7 @@ Rules stay in the local CLI home as execution-permissions.json, with host/worksp
 
 ## Private collections and company licensing
 
-Use the official encrypted reference library with `koder resources search "1688"` and `koder resources read RESOURCE_ID`. Local model tasks can retrieve matching excerpts without preloading the library. Queries go to the official service; use short keywords without private data. Disable with `KODER_REMOTE_RESOURCES=0`. See [remote retrieval and privacy](docs/REMOTE-RESOURCES.md).
+Remote references are off by default. Opt in for one command with `koder resources search "1688" --remote` or `koder resources read RESOURCE_ID --remote`. Set `KODER_REMOTE_RESOURCES=1` to offer remote references to local model tasks. Queries go to the official service; use short keywords without private data. `KODER_REMOTE_RESOURCES=0` blocks remote retrieval. See [remote retrieval and privacy](docs/REMOTE-RESOURCES.md).
 
 Optionally import your own archives with koder resources import /path/to/collection.zip. Add --model-access only if local model sessions may search the collection and receive selected excerpts. References are encrypted locally, loaded on demand and excluded from sync and public releases; bundled scripts never run on import. See [private collection controls](docs/PRIVATE-RESOURCES.md).
 
@@ -162,3 +168,6 @@ Installation stalled or an integration is gray? See [troubleshooting](docs/TROUB
 In a Koder conversation, type `/menu` (or `菜单`) for settings, `/celebrate` (or `彩蛋菜单`) for optional effects, and `/growth status` to inspect the built-in learning method. `koder setup` and `koder celebrate` also work directly at the chat prompt. Escape leaves settings; Enter skips the effect menu; any key skips an animation. Continue the task in the same terminal.
 
 Ordinary task requests that mention a website or a menu go to the task engine. Only an explicit question about Koder itself uses the local product introduction.
+
+
+REA 6.7.0 is bundled under its original MIT license. Its dependencies retain their own licenses and notices, including OpenPGP.js under LGPL-3.0+. See vendor/rea/README.md, vendor/rea/components.json, vendor/rea/node_modules/rea-agents/THIRD_PARTY_NOTICES.md and vendor/rea/sources/. External analysis engines are not included.
