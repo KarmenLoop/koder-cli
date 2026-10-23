@@ -1,0 +1,14 @@
+[
+  "src/memory.mjs",
+  "src/session.mjs",
+  "src/process-lifecycle.mjs",
+  "test/helpers.mjs",
+  "test/windows-fixtures.mjs",
+  "test/multi-window-lock-compat.test.mjs",
+  "test/fixtures/legacy-session-owner.mjs",
+  "test/multi-window-session.test.mjs",
+  "test/fixtures/multi-window-session.mjs",
+  "test/memory-store.test.mjs",
+  "test/worker-disconnect.test.mjs",
+  "test/update-restart-process.test.mjs"
+]

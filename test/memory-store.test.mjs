@@ -76,3 +76,11 @@ test('secret-like session and workspace names retain a valid opaque routing iden
  memory.transact(data=>memory.write({...data,notes:[{id:'note',text:'value workspace-name',at:1}]}));
  assert.equal(memory.read().notes[0].text,'value [redacted]');assert.equal(memory.read().revision,1);
 });
+
+test('a lock disappearing between stat and owner read is contention, never corrupt history',()=>{
+ const memory=createMemory({workspace:tmp(),env:{KODER_CLI_HOME:tmp()}}),lock=memory.file.replace(/\.json$/,'.lock');
+ fs.writeFileSync(lock,JSON.stringify({pid:process.pid,token:'12345678-1234-4234-8234-123456789012'}));
+ const original=fs.lstatSync;let removed=false;
+ try{fs.lstatSync=(target,...args)=>{const stat=original(target,...args);if(target===lock&&!removed){removed=true;fs.unlinkSync(lock);}return stat;};assert.throws(()=>memory.acquire(),{code:'MEMORY_BUSY'});}finally{fs.lstatSync=original;}
+ assert.ok(removed);memory.acquire();try{const before=memory.read();memory.write({...before,notes:[{id:'preserved',text:'no corruption',at:1}]});}finally{memory.release();}assert.equal(memory.read().notes[0].text,'no corruption');
+});

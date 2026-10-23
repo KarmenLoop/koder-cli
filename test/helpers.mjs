@@ -5,7 +5,9 @@ import os from "node:os";
 import path from "node:path";
 import { PassThrough, Writable } from "node:stream";
 import { fileURLToPath } from "node:url";
+import { protectOwnedFixture, fixtureEnv } from "./windows-fixtures.mjs";
 import { runCli } from "../src/cli.mjs";
+import { writeAcceptance } from "../src/eula.mjs";
 
 export const BIN = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "bin", "koder.mjs");
 
@@ -21,7 +23,7 @@ export function capture() {
 }
 
 export function tmp(prefix = "koder-cli-") {
-  return fs.mkdtempSync(path.join(os.tmpdir(), prefix));
+  return protectOwnedFixture(fs.mkdtempSync(path.join(os.tmpdir(), prefix)));
 }
 
 export function write(root, files) {
@@ -49,10 +51,10 @@ export function scripted(steps) {
     calls,
     model: "scripted",
     contextWindow: 64_000,
-    async complete({ messages, tools }) {
-      calls.push({ messages, tools });
+    async complete({ messages, tools, maxOutput }) {
+      calls.push({ messages, tools, maxOutput });
       const step = steps[Math.min(calls.length - 1, steps.length - 1)];
-      return typeof step === "function" ? step({ messages, tools, index: calls.length - 1 }) : step;
+      return typeof step === "function" ? step({ messages, tools, maxOutput, index: calls.length - 1 }) : step;
     },
   };
 }
@@ -71,12 +73,15 @@ export async function cli(argv, { cwd, home = tmp("koder-home-"), env = {}, prov
   const input = new PassThrough();
   input.isTTY = false;
   input.end(stdin);
+  const childEnv = fixtureEnv(home, { NO_COLOR: "1", ...env });
+  if (process.env.KODER_DESKTOP_ROOT && childEnv.KODER_DESKTOP_ROOT == null) childEnv.KODER_DESKTOP_ROOT = process.env.KODER_DESKTOP_ROOT;
+  if (env.KODER_EULA_ACCEPT !== "0") writeAcceptance(childEnv);
   const code = await runCli(argv, {
     stdout: out.stream,
     stderr: err.stream,
     stdin: input,
     cwd: cwd || home,
-    env: { PATH: process.env.PATH, HOME: process.env.HOME, KODER_CLI_HOME: home, NO_COLOR: "1", ...env },
+    env: childEnv,
     providerOverride: provider,
     decide,
     fetchImpl,

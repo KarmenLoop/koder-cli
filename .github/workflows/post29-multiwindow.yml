@@ -1,0 +1,37 @@
+name: Post29 multiwindow regression
+on:
+  push:
+    branches: [verify/post29-completion-20261023]
+    paths: [.github/workflows/post29-multiwindow.yml, .github/scripts/post29-multiwindow.py, .github/scripts/post29-multiwindow-entry.mjs, src/memory.mjs, src/session.mjs, src/process-lifecycle.mjs, test/multi-window-lock-compat.test.mjs, test/worker-disconnect.test.mjs]
+permissions:
+  contents: read
+jobs:
+  windows:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-11-arm, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+          architecture: x64
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          architecture: x64
+      - name: Compare original failure and candidate multiwindow paths
+        shell: cmd
+        run: python .github/scripts/post29-multiwindow.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: multiwindow-${{ matrix.os }}
+          path: ${{ runner.temp }}/post29-multiwindow/evidence/
+          retention-days: 7
+          if-no-files-found: error
