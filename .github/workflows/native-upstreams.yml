@@ -1,8 +1,8 @@
-name: Windows 11 ARM actual MCP acceptance
+name: Windows 11 protected storage diagnosis
 on:
   push:
     branches: [verify/windows11-native-20261023]
-    paths: [.github/workflows/native-upstreams.yml, .github/scripts/native-upstreams.py]
+    paths: [.github/workflows/native-upstreams.yml, .github/scripts/client-protected-storage.py]
 permissions:
   contents: read
 jobs:
@@ -41,16 +41,16 @@ jobs:
           python -m venv "$root/runtime"
           & "$root/runtime/Scripts/python.exe" -m pip install --only-binary=:all: --timeout 20 --retries 1 --disable-pip-version-check --progress-bar off --report "$root/install-report.json" windows-mcp==0.8.8
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Actual stdio calls and published Koder connection
+      - name: Native DPAPI and published CLI connection diagnosis
         shell: pwsh
         run: |
           $root = Join-Path $env:RUNNER_TEMP 'Koder Native 验收'
-          & "$root/runtime/Scripts/python.exe" .github/scripts/native-upstreams.py --root "$root"
+          & "$root/runtime/Scripts/python.exe" .github/scripts/client-protected-storage.py
           exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: windows11-arm-mcp-results
-          path: ${{ runner.temp }}/Koder Native 验收/evidence/
+          name: windows11-protected-storage-results
+          path: ${{ runner.temp }}/Koder protected-storage probe/evidence/
           retention-days: 7
           if-no-files-found: warn
