@@ -38,7 +38,7 @@ jobs:
       - name: Verify standard GUI fixture dependency without opening a window
         run: '"%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" -c "import tkinter; print(tkinter.TkVersion, tkinter.TclVersion)"'
       - name: Actual Koder-mediated GUI interaction with owned targets
-        run: '"%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" .github/probes/mcp-gui-r3.py --root "%RUNNER_TEMP%\koder-gui" --package "%RUNNER_TEMP%\koder-gui\assets\koder-cli-0.4.0.tgz" --sha256 86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566 --version 0.4.0'
+        run: '"%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" .github/probes/mcp-gui-r4.py --root "%RUNNER_TEMP%\koder-gui" --package "%RUNNER_TEMP%\koder-gui\assets\koder-cli-0.4.0.tgz" --sha256 86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566 --version 0.4.0'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -48,6 +48,10 @@ jobs:
             ${{ runner.temp }}/koder-gui/install-report.json
           retention-days: 14
   native-credential:
+    # GitHub restricts draft release downloads to write-capable repository tokens.
+    # This job only downloads and verifies the frozen draft; it never publishes.
+    permissions:
+      contents: write
     strategy:
       fail-fast: false
       matrix:
@@ -102,6 +106,8 @@ jobs:
           python .github/probes/prepare-native.py --root "%RUNNER_TEMP%\upgrade-input"
           if errorlevel 1 exit /b %errorlevel%
           python .github/probes/prepare-prior.py --out "%RUNNER_TEMP%\upgrade-input\prior"
+      - name: Verify frozen probe bytes after checkout
+        run: python -c "from pathlib import Path; import hashlib; b=Path('.github/probes/windows-no-node-r2.py').read_bytes(); h=hashlib.sha256(b).hexdigest(); print(dict(sha256=h,bytes=len(b),lf=b.count(bytes([10])),crlf=b.count(bytes([13,10])))); assert h=='678d880abea327f1a2951aeb59468f3bc1551bef915d74c82863dfa48b9d08aa'"
       - name: Actual installed CLI update and complete installed-byte readback
         run: python .github/probes/windows-upgrade.py --previous-assets "%RUNNER_TEMP%\upgrade-input\prior" --assets "%RUNNER_TEMP%\upgrade-input\assets" --out "%RUNNER_TEMP%\upgrade-result"
       - uses: actions/upload-artifact@v4
