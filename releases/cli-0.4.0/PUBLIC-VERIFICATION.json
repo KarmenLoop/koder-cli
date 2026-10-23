@@ -1,0 +1,46 @@
+{
+  "version": "0.4.0",
+  "channel": "stable",
+  "verifiedAt": "2026-10-23T16:20:53.451040+00:00",
+  "github": {
+    "url": "https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0",
+    "tag": "cli-0.4.0",
+    "isPrerelease": false,
+    "latest": true,
+    "assets": 20,
+    "anonymousAssetsVerified": 20
+  },
+  "website": {
+    "url": "https://karmenloop.com",
+    "deployId": "6adb85dfa82afb240da67027",
+    "publishedAt": "2026-10-23T16:16:30.251Z",
+    "downloadsSha256Verified": 20,
+    "currentPagesVerified": 10,
+    "installerTutorialLinksVerified": 36,
+    "publishedFiles": 1165,
+    "removedExistingFiles": 0,
+    "regularFunctionsRetained": 2,
+    "edgeFunctionsRetained": 4,
+    "homeLanguageRedirectVerified": true
+  },
+  "package": {
+    "file": "koder-cli-0.4.0.tgz",
+    "sha256": "86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566",
+    "bytes": 35892000
+  },
+  "liveUpdate": {
+    "passed": true,
+    "from": "0.4.0-preview.30",
+    "to": "0.4.0",
+    "origin": "https://karmenloop.com/install",
+    "method": "Actual old installed CLI update command; live manifest and installer downloads; disposable HOME and no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 4
+  },
+  "feedsMatch": true,
+  "verificationLimits": [
+    "Readback checks HTTP content and hashes, not browser visual appearance",
+    "Native Windows checks use Windows Server; complete Windows10/11 client GUI and no-Node cold bootstrap remain incomplete",
+    "Real provider accounts and background automatic-update handoff were not retested"
+  ]
+}
