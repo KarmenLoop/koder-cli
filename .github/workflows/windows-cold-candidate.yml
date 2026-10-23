@@ -1,0 +1,55 @@
+name: Isolated Windows cold startup and owned GUI
+on:
+  push:
+    branches: [verify/windows-cold-package-20261023]
+    paths: [.github/workflows/windows-cold-candidate.yml, .github/scripts/client-cold-acceptance.py]
+permissions:
+  contents: read
+jobs:
+  client:
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [baseline, reflection]
+    runs-on: windows-11-arm
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: '1'
+      PYTHONIOENCODING: utf-8
+      ANONYMIZED_TELEMETRY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+          architecture: x64
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          architecture: x64
+      - name: Prepare disposable client environment
+        shell: pwsh
+        run: |
+          $os = Get-CimInstance Win32_OperatingSystem
+          if ($os.ProductType -ne 1 -or [int]$os.BuildNumber -lt 22000 -or $os.Caption -notmatch 'Windows 11') { throw 'Windows 11 client required' }
+          $root = Join-Path $env:RUNNER_TEMP 'Koder cold owned verification'
+          New-Item -ItemType Directory -Force "$root/evidence" | Out-Null
+          $os | Select-Object Caption,Version,BuildNumber,OSArchitecture,ProductType | ConvertTo-Json | Set-Content -Encoding UTF8 "$root/evidence/client-os.json"
+          python -m venv "$root/runtime"
+          & "$root/runtime/Scripts/python.exe" -m pip install --only-binary=:all: --timeout 20 --retries 1 --disable-pip-version-check --progress-bar off --report "$root/install-report.json" windows-mcp==0.8.8
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: First cold CLI startup then guarded real MCP GUI
+        shell: pwsh
+        run: |
+          $root = Join-Path $env:RUNNER_TEMP 'Koder cold owned verification'
+          & "$root/runtime/Scripts/python.exe" .github/scripts/client-cold-acceptance.py --root "$root" --variant '${{ matrix.variant }}'
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-cold-${{ matrix.variant }}
+          path: ${{ runner.temp }}/Koder cold owned verification/evidence/
+          retention-days: 7
+          if-no-files-found: warn
