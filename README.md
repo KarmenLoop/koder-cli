@@ -10,6 +10,8 @@ Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, 
 
 The KARMEN LOOP kernel connects task planning, permission checks, tool execution, and saved results. Public descriptions cover capabilities; new application runtime source remains proprietary under the [EULA](EULA.md). Third-party components retain their own licenses and [credits](OPEN_SOURCE_CREDITS.md).
 
+The `package.json` and `src/` tree retain the historical GPL **0.3.1** source. They do not build the current proprietary beta installer. Use the versioned release and official feed for that build; see [source and distribution status](SOURCE-STATUS.md).
+
 ## Windows and code graph integrations
 
 Optional presets configure Windows-MCP 0.8.8 and CodeGraphContext 0.6.13 through the existing MCP host. Configuration stays disabled until an explicit test or enable. Graph settings and discovery are workspace-bound; actual tool calls retain the original approvals. External Python programs are installed separately. Read [the integration guide](docs/MCP-INTEGRATIONS.en.md) for requirements and unverified native limits.

@@ -8,6 +8,8 @@ Koder CLI **0.4.0-preview.28 Beta** 是自接模型 API 的终端编程工具。
 
 本版包含按工作区隔离的历史、独立项目目录、有界 API 诊断、非交互补问与源码披露检查。KARMEN LOOP 内核负责计划、权限、工具执行与结果保存，新运行时源码按 [EULA](EULA.md) 保持专有。第三方组件保留自己的许可与[归属](OPEN_SOURCE_CREDITS.md)。
 
+仓库中的 `package.json` 与 `src/` 保留历史 GPL **0.3.1** 源码，不能据此构建当前专有 Beta 安装包。当前分发版本以指定发行页和官方更新源为准，见[源码与分发状态（英文）](SOURCE-STATUS.md)。
+
 ## 安装
 
 按系统选择 Windows 10/11、macOS、Linux 或 WSL 的对应命令。安装器复用 Node.js 22.21+ 或 24+，缺少时下载并校验运行时；正常安装不需管理员权限。先阅读原始[许可](EULA.md)、[同意说明](ACCEPTANCE.md)、[版权声明](LEGAL-NOTICE.md)及[中文 CLI 隐私条款](docs/privacy/consumer-privacy.zh.md)。本页不替代法律文件。
