@@ -1,5 +1,7 @@
 # Koder CLI
 
+English | [简体中文](README.zh-CN.md)
+
 Koder CLI **0.4.0-preview.28 Beta** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
 
 **0.4.0-preview.28** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.28) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
