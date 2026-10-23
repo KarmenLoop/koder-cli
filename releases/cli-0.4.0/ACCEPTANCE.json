@@ -1,0 +1,137 @@
+{
+  "releaseVersion": "0.4.0",
+  "channel": "stable",
+  "packageSha256": "86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566",
+  "bytes": 35892000,
+  "allSelectedInstallationChecksPassed": true,
+  "platforms": [
+    {
+      "runner": "windows-latest",
+      "system": "Windows-2025Server-10.0.26100-SP0",
+      "machine": "AMD64",
+      "node": "v22.23.3 win32 x64",
+      "tests": [
+        {
+          "name": "windows-powershell-fresh",
+          "installer": "ps",
+          "fresh": true,
+          "upgradeFrom": null,
+          "version": "0.4.0",
+          "installPreview": false,
+          "acceptancePreview": false,
+          "sentinelPreserved": true,
+          "passed": true
+        },
+        {
+          "name": "windows-cmd-upgrade",
+          "installer": "cmd",
+          "fresh": false,
+          "upgradeFrom": "0.4.0-preview.30",
+          "version": "0.4.0",
+          "installPreview": false,
+          "acceptancePreview": false,
+          "sentinelPreserved": true,
+          "passed": true
+        }
+      ],
+      "verifiedFinalAssetCount": 20,
+      "assetShaAndBytesMatchFinalDist": true,
+      "finalPackageSha256": "86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566"
+    },
+    {
+      "runner": "macos-15-intel",
+      "system": "macOS-15.7.9-x86_64-i386-64bit",
+      "machine": "x86_64",
+      "node": "v22.23.3 darwin x64",
+      "tests": [
+        {
+          "name": "mac-shell-fresh",
+          "installer": "sh",
+          "fresh": true,
+          "upgradeFrom": null,
+          "version": "0.4.0",
+          "installPreview": false,
+          "acceptancePreview": false,
+          "sentinelPreserved": true,
+          "passed": true
+        },
+        {
+          "name": "mac-shell-upgrade",
+          "installer": "sh",
+          "fresh": false,
+          "upgradeFrom": "0.4.0-preview.30",
+          "version": "0.4.0",
+          "installPreview": false,
+          "acceptancePreview": false,
+          "sentinelPreserved": true,
+          "passed": true
+        }
+      ],
+      "verifiedFinalAssetCount": 20,
+      "assetShaAndBytesMatchFinalDist": true,
+      "finalPackageSha256": "86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566"
+    },
+    {
+      "runner": "local-macos-arm64",
+      "system": "macOS-27.0-arm64-arm-64bit",
+      "machine": "arm64",
+      "node": "v22.23.2 darwin arm64",
+      "tests": [
+        {
+          "name": "mac-shell-fresh",
+          "installer": "sh",
+          "fresh": true,
+          "upgradeFrom": null,
+          "version": "0.4.0",
+          "installPreview": false,
+          "acceptancePreview": false,
+          "sentinelPreserved": true,
+          "passed": true
+        },
+        {
+          "name": "mac-shell-upgrade",
+          "installer": "sh",
+          "fresh": false,
+          "upgradeFrom": "0.4.0-preview.30",
+          "version": "0.4.0",
+          "installPreview": false,
+          "acceptancePreview": false,
+          "sentinelPreserved": true,
+          "passed": true
+        }
+      ],
+      "verifiedFinalAssetCount": 20,
+      "assetShaAndBytesMatchFinalDist": true,
+      "finalPackageSha256": "86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566"
+    }
+  ],
+  "workflowRun": "https://github.com/KarmenLoop/koder-cli/actions/runs/39983660426",
+  "workflowCommit": "16ade1265aeca526109817a04e5a4acc4a040f4d",
+  "scope": "Fresh installation and installer-based reinstall from preview.30 with exact downloaded assets. Windows hosted Server x64, hosted Intel Mac and task-local Apple-silicon Mac; any queued cloud ARM job is separately recorded.",
+  "releaseChannelRegression": {
+    "pass": 32,
+    "fail": 0
+  },
+  "websiteRegression": {
+    "pass": 112,
+    "fail": 0,
+    "skip": 1,
+    "skipReason": "Existing desktop publish integration dependencies absent in this isolated layout"
+  },
+  "packageSmoke": {
+    "exactVersion": true,
+    "multiwindow": true,
+    "syntheticAgent": true,
+    "miniMax1026Mapping": true,
+    "realProviderCalls": 0
+  },
+  "retainedLimits": [
+    "Windows 10/11 client full GUI, ConPTY, IME, UAC",
+    "PowerShell 5.1-only cold-start certification",
+    "Real provider accounts or model quality",
+    "No-existing-Node bootstrap path",
+    "Automatic background update trigger/handoff"
+  ],
+  "sourceBaseline": "0.4.0-preview.30",
+  "baselineRegressionPass": 353
+}

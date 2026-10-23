@@ -42,5 +42,11 @@
   "unpublishedIncrements": [
     "Official numeric pricing evidence",
     "Inline JavaScript reverse extension"
+  ],
+  "acceptance": "releases/cli-0.4.0/ACCEPTANCE.json",
+  "selectedInstallPlatforms": [
+    "Windows-2025Server-10.0.26100-SP0",
+    "macOS-15.7.9-x86_64-i386-64bit",
+    "macOS-27.0-arm64-arm-64bit"
   ]
 }
