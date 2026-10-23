@@ -40,9 +40,31 @@
     "skipped": 0
   },
   "nativeEvidence": {
-    "windowsServerRun": "https://github.com/KarmenLoop/koder-cli/actions/runs/39971374806",
-    "windowsServerScope": "34 component regressions and 9 real entry checks, synthetic loopback model; not a Windows 10/11 client",
-    "windows11ARM": "Multiwindow entry passes; grouped update suite exceeded a 60-second file deadline; per-case rerun tracked separately"
+    "acceptance": "releases/cli-0.4.0-preview.30/ACCEPTANCE.json",
+    "runs": [
+      {
+        "system": "Windows Server 2025 x64",
+        "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/39971374806",
+        "pass": 34,
+        "skipped": 1,
+        "skipReason": "POSIX FIFO test",
+        "fail": 0,
+        "cancelled": 0,
+        "actualEntryChecks": 9,
+        "syntheticLoopbackRequests": 10
+      },
+      {
+        "system": "Windows 11 ARM64 (x64 Node execution)",
+        "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/39972658240",
+        "pass": 34,
+        "skipped": 1,
+        "skipReason": "POSIX FIFO test",
+        "fail": 0,
+        "cancelled": 0,
+        "actualEntryChecks": 9,
+        "syntheticLoopbackRequests": 10
+      }
+    ]
   },
   "nativeWindowsLimits": [
     "PowerShell 5.1-only cold startup unresolved",

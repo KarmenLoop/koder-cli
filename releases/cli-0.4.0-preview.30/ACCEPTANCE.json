@@ -1,0 +1,71 @@
+{
+  "version": "0.4.0-preview.30",
+  "archiveSHA256": "cb9dabbcd86ac2cd9165142b1982d047bfa5b7883485cf14d4e05250d6056c72",
+  "sourceRegression": {
+    "pass": 353,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "packagedLocal": {
+    "version": "0.4.0-preview.30",
+    "packageSha256": "cb9dabbcd86ac2cd9165142b1982d047bfa5b7883485cf14d4e05250d6056c72",
+    "bytes": 35768941,
+    "members": 13103,
+    "sha256sumsVerified": true,
+    "appleDoubleFiles": 0,
+    "standaloneRuntimeVersion": "0.4.0-preview.30",
+    "agentFixturePassed": true,
+    "taskLocalMacInstallPassed": true,
+    "globalPathChanged": false,
+    "globalDependenciesInstalled": false,
+    "nativeWindowsCandidateExecuted": false
+  },
+  "nativeComponentScope": "Three changed runtime components over verified public29 archive, the same source content as packaged30 after the recorded Git Windows CRLF checkout conversion. This does not certify every native installer or GUI path.",
+  "componentSHA256": {
+    "src/memory.mjs": "f2129369271b74687a661935c76d3a08d285094d001cdf3fcfa94d511c6ee955",
+    "src/session.mjs": "16fce885b2320d0b8627d62be9ec11fab30c11c35608436ecfdc9526dd093a54",
+    "src/process-lifecycle.mjs": "83ce6b821d2b466d1df5c235509ef2181d6e6089a534c225f70bbb7348987ff7"
+  },
+  "nativeCRLFComponentSHA256": {
+    "src/memory.mjs": "3d82a8e6d1af6b3f83452fa4fbda93e9b04f9b9f1a5ab27a9c082abbd211ff99",
+    "src/session.mjs": "332f1b6f519a2ae4287e3119be1609de87a3153f89cee66886526f171c77cf46",
+    "src/process-lifecycle.mjs": "46fe5263b931418d1b9fe64dd5928a34e5e75418802abe6f697e892b9333bd9e"
+  },
+  "checkoutDifference": "The entire three native component file hashes match converting packaged LF line endings to CRLF. No other content difference.",
+  "nativeRuns": [
+    {
+      "system": "Windows Server 2025 x64",
+      "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/39971374806",
+      "pass": 34,
+      "skipped": 1,
+      "skipReason": "POSIX FIFO test",
+      "fail": 0,
+      "cancelled": 0,
+      "actualEntryChecks": 9,
+      "syntheticLoopbackRequests": 10
+    },
+    {
+      "system": "Windows 11 ARM64 (x64 Node execution)",
+      "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/39972658240",
+      "pass": 34,
+      "skipped": 1,
+      "skipReason": "POSIX FIFO test",
+      "fail": 0,
+      "cancelled": 0,
+      "actualEntryChecks": 9,
+      "syntheticLoopbackRequests": 10
+    }
+  ],
+  "retainedFailures": [
+    "Run39969869800: updater fixture assumed a sibling source kernel; replaced only fixture lookup with kernelRoot()",
+    "Run39971374806 ARM: one whole updater file was cancelled at 60s after four passing cases; separate case processes retain the original 60s limit and assertions"
+  ],
+  "notEstablished": [
+    "Windows10/11x64 full installer and GUI/ConPTY/IME/UAC",
+    "PowerShell5.1-only cold-start repair",
+    "Authenticated external provider accounts",
+    "Optional external engine concurrency"
+  ],
+  "otherTasksInterrupted": false
+}
