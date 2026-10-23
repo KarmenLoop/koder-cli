@@ -8,6 +8,7 @@ import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {cli,mockModel,textStep,tmp} from './helpers.mjs';
+import {kernelRoot} from '../src/agent.mjs';
 const source=fileURLToPath(new URL('..',import.meta.url));
 const hash=v=>crypto.createHash('sha256').update(v).digest('hex');
 const installer=installerFixture(`const fs=require('fs'),path=require('path'),home=process.env.KODER_CLI_HOME,version=process.env.KODER_EXPECTED_VERSION;
@@ -28,7 +29,7 @@ async function fixture(t){
  const manifest={version:'0.4.0-preview.100',file:'koder-cli-0.4.0-preview.100.tgz',sha256:'a'.repeat(64),size:42,preview:true,agreement:{id:'Koder-EULA-1.1',version:'1.1',sha256:hash(fs.readFileSync(path.join(source,'EULA.md')))},installers:{sh:{file:'koder-cli.sh',sha256:hash(installer)},ps1:{file:'koder-cli.ps1',sha256:hash(installer)}}};
  const server=http.createServer((req,res)=>{if(req.url.endsWith('.json'))res.end(JSON.stringify(manifest));else res.end(installer);});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));
- const env={...process.env,...fixtureEnv(home),HOME:root,KODER_DESKTOP_ROOT:path.resolve(source,'../koder-desktop'),KODER_INSTALL_BASE:`http://127.0.0.1:${server.address().port}`,KODER_TEST_PACKAGE:future,KODER_TEST_BOOTLOG:path.join(root,'boots.jsonl'),NO_COLOR:'1',CI:'1'};
+ const env={...process.env,...fixtureEnv(home),HOME:root,KODER_DESKTOP_ROOT:kernelRoot(),KODER_INSTALL_BASE:`http://127.0.0.1:${server.address().port}`,KODER_TEST_PACKAGE:future,KODER_TEST_BOOTLOG:path.join(root,'boots.jsonl'),NO_COLOR:'1',CI:'1'};
  delete env.NODE_OPTIONS;delete env.KODER_CLI_WORKER;
  return {root,home,future,old,env};
 }
