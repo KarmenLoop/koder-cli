@@ -1,5 +1,6 @@
 """Public-package acceptance only. No private source or model credentials."""
-import argparse,asyncio,base64,hashlib,json,os,platform,re,subprocess,sys,tarfile,threading,time,urllib.request,uuid
+import argparse,asyncio,base64,ctypes,hashlib,json,os,platform,re,subprocess,sys,tarfile,threading,time,urllib.request,uuid
+from ctypes import wintypes
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
 from mcp import ClientSession,StdioServerParameters
@@ -23,17 +24,19 @@ Add-Type -AssemblyName System.Windows.Forms
 [Console]::Error.WriteLine('OWNED_UI_ASSEMBLY_READY')
 Add-Type -AssemblyName System.Drawing
 $form=New-Object Windows.Forms.Form
+[Console]::Error.WriteLine('OWNED_UI_FORM_READY')
 $form.Text='TITLE'; $form.Width=500; $form.Height=220; $form.TopMost=$true
 $form.StartPosition='Manual'; $form.Location=New-Object Drawing.Point(40,40)
 $box=New-Object Windows.Forms.TextBox
 $box.AccessibleName='KoderOwnedInput'; $box.Width=400; $box.Location=New-Object Drawing.Point(30,60)
 $form.Controls.Add($box)
+[Console]::Error.WriteLine('OWNED_UI_CONTROL_READY')
 $box.add_TextChanged({[IO.File]::WriteAllText('SAVED',$box.Text,[Text.UTF8Encoding]::new($false))})
-$form.add_Shown({$form.Activate();$box.Focus();$pt=$box.PointToScreen([Drawing.Point]::new(20,10));@{x=$pt.X;y=$pt.Y;pid=$PID}|ConvertTo-Json|Set-Content -Encoding UTF8 'COORDS'})
+$form.add_Shown({$form.Activate();$box.Focus();$pt=$box.PointToScreen([Drawing.Point]::new(20,10));@{x=$pt.X;y=$pt.Y;pid=$PID;hwnd=$form.Handle.ToInt64()}|ConvertTo-Json|Set-Content -Encoding UTF8 'COORDS'})
 [Windows.Forms.Application]::Run($form)
 """.replace('TITLE',title).replace('SAVED',literal(saved)).replace('COORDS',literal(coords))
     (e/'owned-ui.ps1').write_text(source,encoding='utf-8-sig')
-    ui_log=(e/'owned-ui.stderr').open('wb');ui=subprocess.Popen(['powershell','-NoProfile','-STA','-WindowStyle','Hidden','-EncodedCommand',base64.b64encode(source.encode('utf-16-le')).decode()],stdout=subprocess.DEVNULL,stderr=ui_log)
+    ui_log=(e/'owned-ui.stderr').open('wb');ui=subprocess.Popen(['pwsh','-NoProfile','-STA','-WindowStyle','Hidden','-EncodedCommand',base64.b64encode(source.encode('utf-16-le')).decode()],stdout=subprocess.DEVNULL,stderr=ui_log)
     try:
      end=time.monotonic()+8
      while not coords.exists():
@@ -47,7 +50,12 @@ $form.add_Shown({$form.Activate();$box.Focus();$pt=$box.PointToScreen([Drawing.P
       assert time.monotonic()<end,'Native UI text did not reach the owned control';await asyncio.sleep(.1)
      report['actualClickTypeReadback']=True
     finally:
-     subprocess.run(['powershell','-NoProfile','-Command','[Diagnostics.Process]::GetProcessById('+str(ui.pid)+').CloseMainWindow()'],capture_output=True,timeout=5)
+     if coords.exists() and ui.poll() is None:
+      owned=json.loads(coords.read_text(encoding='utf-8-sig'));owner=wintypes.DWORD();user32=ctypes.WinDLL('user32',use_last_error=True)
+      user32.GetWindowThreadProcessId.argtypes=[wintypes.HWND,ctypes.POINTER(wintypes.DWORD)];user32.GetWindowThreadProcessId.restype=wintypes.DWORD
+      user32.PostMessageW.argtypes=[wintypes.HWND,wintypes.UINT,wintypes.WPARAM,wintypes.LPARAM];user32.PostMessageW.restype=wintypes.BOOL
+      assert user32.GetWindowThreadProcessId(owned['hwnd'],ctypes.byref(owner)) and owner.value==ui.pid,'Owned window identity changed'
+      assert user32.PostMessageW(owned['hwnd'],0x0010,0,0),'Owned window close request failed'
      try:ui.wait(timeout=5)
      except subprocess.TimeoutExpired:ui.terminate();ui.wait(timeout=3)
      report['ownedUiExitCode']=ui.returncode
