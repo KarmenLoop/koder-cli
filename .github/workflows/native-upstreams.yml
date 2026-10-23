@@ -1,0 +1,46 @@
+name: Actual Windows-MCP upstream acceptance
+on:
+  push:
+    branches: [verify/mcp-upstreams-20261023]
+    paths: [.github/workflows/native-upstreams.yml, .github/scripts/native-upstreams.py]
+permissions:
+  contents: read
+jobs:
+  windows-mcp:
+    runs-on: windows-2025
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: '1'
+      PYTHONIOENCODING: utf-8
+      ANONYMIZED_TELEMETRY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Install the pinned upstream into a disposable venv
+        shell: pwsh
+        run: |
+          $root = Join-Path $env:RUNNER_TEMP 'Koder Native 验收'
+          New-Item -ItemType Directory -Force $root | Out-Null
+          python -m venv "$root/runtime"
+          & "$root/runtime/Scripts/python.exe" -m pip install --only-binary=:all: --timeout 20 --retries 1 --disable-pip-version-check --progress-bar off --report "$root/install-report.json" windows-mcp==0.8.8
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Actual stdio calls and published Koder connection
+        shell: pwsh
+        run: |
+          $root = Join-Path $env:RUNNER_TEMP 'Koder Native 验收'
+          & "$root/runtime/Scripts/python.exe" .github/scripts/native-upstreams.py --root "$root"
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-mcp-native-results
+          path: ${{ runner.temp }}/Koder Native 验收/evidence/
+          retention-days: 7
+          if-no-files-found: warn
