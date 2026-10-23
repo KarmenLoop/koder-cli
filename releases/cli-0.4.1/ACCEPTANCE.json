@@ -36,5 +36,26 @@
   "windowsClientGUI": "HOLD",
   "realModelQuality": "NOT_RUN",
   "historicalCandidate2": "Separate exact-archive Server/Windows11ARM install-update and Server GUI receipts retained; not transferred to 0.4.1",
-  "userDataOrSharedTasksChanged": false
+  "userDataOrSharedTasksChanged": false,
+  "publicDownloadAssets": {
+    "website": 20,
+    "github": 20,
+    "allSha256AndSizesMatch": true
+  },
+  "publicWebsiteFiles": {
+    "count": 1226,
+    "allMatch": true,
+    "removed": 0
+  },
+  "liveUpdate": {
+    "passed": true,
+    "from": "0.4.0",
+    "to": "0.4.1",
+    "origin": "https://karmenloop.com/install",
+    "method": "Actual old installed CLI update command; live manifest and installer downloads; disposable HOME and no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 4
+  },
+  "productionDeploy": "6adbcbed41c2d30b55b3067d",
+  "priorProductionDeploy": "6adb85dfa82afb240da67027"
 }
