@@ -2,13 +2,19 @@
 
 [English](README.md) | 简体中文
 
-Koder CLI **0.4.0-preview.28 Beta** 是自接模型 API 的终端编程工具。个人非商业本地使用免费，不要求会员；商业使用和组织部署需另行书面授权，个人许可不允许专有代码二次开发或修改。模型提供方可能按请求收费。
+Koder CLI **0.4.0-preview.29 Beta** 是自接模型 API 的终端编程工具。个人非商业本地使用免费，不要求会员；商业使用和组织部署需另行书面授权，个人许可不允许专有代码二次开发或修改。模型提供方可能按请求收费。
 
-[下载当前版](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.28) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [中文命令参考](docs/COMMAND-REFERENCE.zh.md)
+[下载当前版](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.29) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [中文命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 本版包含按工作区隔离的历史、独立项目目录、有界 API 诊断、非交互补问与源码披露检查。KARMEN LOOP 内核负责计划、权限、工具执行与结果保存，新运行时源码按 [EULA](EULA.md) 保持专有。第三方组件保留自己的许可与[归属](OPEN_SOURCE_CREDITS.md)。
 
 仓库中的 `package.json` 与 `src/` 保留历史 GPL **0.3.1** 源码，不能据此构建当前专有 Beta 安装包。当前分发版本以指定发行页和官方更新源为准，见[源码与分发状态（英文）](SOURCE-STATUS.md)。
+
+## preview.29 更新
+
+新增 MiniMax 内容审核分类、按 `/` 打开的可编辑输入选项、原生 Koder 多窗口会话隔离、长对话任务约束保留、撰写来源与前稿证据。此前候选中的 Harness² 增量对照和爬虫／自研静态逆向一并纳入。详见[完整更新说明](docs/RELEASE-preview.29.md)和[多窗口教程](docs/MULTI-WINDOW.md)。
+
+本版按 Beta 发布：PS5.1 冷启动、Windows 图形焦点／输入、完整客户端安装更新及真实模型账号仍有未验项，不宣称已全部认证。灰色模型路线继续停用。
 
 ## 安装
 

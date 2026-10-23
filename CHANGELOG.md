@@ -1,3 +1,9 @@
+# 0.4.0-preview.29 Beta
+
+MiniMax content-review diagnostics, contextual slash input, native concurrent session ownership, bounded long-context carryover and writing evidence are updated. Harness²-style local artifact comparisons and scoped first-party reverse workflows are included from the retained candidates. Read [the full notes](docs/RELEASE-preview.29.md) for exact behavior and open Windows, provider and independent-QA checks. No new model score or stable-platform certification is claimed.
+
+## Earlier release records
+
 # Koder CLI 0.4.0-preview.27 Beta
 
 This beta adds deterministic writing and project delivery checks to preview.26. It does not assign a new capability score or claim competitor performance.

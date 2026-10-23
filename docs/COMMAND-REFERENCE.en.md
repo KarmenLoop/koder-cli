@@ -1,6 +1,6 @@
 # Complete command reference
 
-Beta 0.4.0-preview.28. Interactive coach: 30 lessons.
+Beta 0.4.0-preview.29. Interactive coach: 30 lessons.
 
 - `--stdin`: Attach stdin to an explicit prompt; read it automatically when there is no prompt
 - `--stdin-timeout <秒>`: Complete-input deadline, default 5 seconds, range 0.01–3600 seconds

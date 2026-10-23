@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed beta is **0.4.0-preview.28**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary beta. Use the official release feed to identify the downloadable build and read the [source status](SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed beta is **0.4.0-preview.29**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary beta. Use the official release feed to identify the downloadable build and read the [source status](SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -16,7 +16,7 @@ Koder-owned private runtime source stays in the private build and acceptance wor
 
 Record actual command, exit status and evidence separately for source checks, protocol fixtures, native platforms, installation, update/restart, real accounts, independent review and production readback. Retain original failures and incomplete work. A blocked runner that executes no steps is not a passing Windows run.
 
-Publish only after the required gates pass. Update website content and GitHub assets together, then read back version, file sizes and SHA-256 values. A documentation-only preview must be labeled as a candidate and must not replace the current production download feed.
+Preview.29 is an explicitly authorized Beta publication with disclosed incomplete platform/account gates; it is not a stable certification. Future stable promotion still requires the applicable acceptance gates. Update website content and GitHub assets together, then read back version, file sizes and SHA-256 values. A documentation-only preview must be labeled as a candidate and must not replace the current production download feed.
 
 ## Tutorials and user data
 

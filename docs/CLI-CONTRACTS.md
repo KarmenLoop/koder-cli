@@ -1,6 +1,6 @@
 # Scriptable CLI contracts
 
-These contracts describe **0.4.0-preview.28 Beta**. Local fixture checks are separate from a native Windows installation, real provider account or whole-product release. Do not infer a live service from a visible preset or method Skill.
+These contracts describe **0.4.0-preview.29 Beta**. Local fixture checks are separate from a native Windows installation, real provider account or whole-product release. Do not infer a live service from a visible preset or method Skill.
 
 ## Commands and failure results
 
@@ -35,3 +35,7 @@ The writing gate checks disclosure and selected attribution/price patterns. It i
 ## Platform acceptance
 
 Linux application connections still require `secret-tool`, DBus and an unlocked Secret Service. No plaintext credential-file downgrade is introduced. Native Linux/keyring and Windows checks remain separate platform gates.
+
+## Writing contracts
+
+W01 measures the independently reread primary file delivered in the current turn, falling back to the final reply only when no file is identified. W02 accepts explicit non-increment disclosure in Chinese or English; a later unsupported positive claim still returns 3. Read source snapshots carry hashes and exact line citations; acceptance terms, installed version and release JSON metadata cannot certify new features. W05 records an explicitly named, actually read predecessor file or the preceding answer hash. Unknown pricing can pass; numeric pricing remains conservative until a trusted official-page receipt is integrated. Exit 3 is a writing contract failure, not an API outage. See QUALITY-CHECKS.en.md for bounded source lookup and blind-grading gates.

@@ -1,10 +1,10 @@
 {
-  "version": "0.4.0-preview.27",
-  "file": "koder-cli-0.4.0-preview.27.tgz",
-  "sha256": "41df71c10daec8a7a609e2de2144b946b99ec6d6a15102165ce0fc1ab792d374",
-  "size": 35184375,
+  "version": "0.4.0-preview.29",
+  "file": "koder-cli-0.4.0-preview.29.tgz",
+  "sha256": "107aca33641987458df2c41251824cfabbfb4927e65f7e7c4b4dbd3cd723b766",
+  "size": 35640565,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-22T20:27:01.995Z",
+  "builtAt": "2026-10-23T10:46:09.777Z",
   "preview": true,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,24 +14,33 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "49aa43c8497eae700b25b7502c529c2f2eff27515fa70dc42316017f9bdee72a"
+      "sha256": "3a92333daf9c4a2af1a63b52803906d81760df375f456b47ea4665730d91226e"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "34c9b51a7b1eb59c8666aa89e29fbc335ab91b86cc49fcdb71ae9208c5779e6c"
+      "sha256": "c1f3c6a33a87bf11d380791e3336daecd44cd0592e4dfb883ad255e7603ffcc0"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "7af4a788014bd17427074a8dc35493bd71ad8609bc3f0ee19751e0114d2432ff"
+      "sha256": "6498e19720059c30a50ba6bb0f03091b8e908057cb69c750a7ebe152a12b04a7"
     }
   },
   "channel": "beta",
   "guides": "https://karmenloop.com/cli-guide/",
-  "sourceBaseline": "0.4.0-preview.26",
-  "contractPass": 75,
-  "installationUpdatePass": 33,
-  "installationUpdateSkip": 4,
-  "nativeWindows": "not executed in this task",
-  "realProviderAccounts": "not tested in this task",
-  "capabilityBenchmark": "not rerun"
+  "sourceBaseline": "0.4.0-preview.29-candidate.2",
+  "sourceRegression": {
+    "cliPass": 343,
+    "kernelPass": 34,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "packageAcceptance": {
+    "macTaskLocalInstall": true,
+    "nativeMultiProcessIsolation": true,
+    "fixtureModelAndAgentPaths": true
+  },
+  "nativeWindows": "NOT_RUN for this build; PowerShell 5.1 cold startup and native Windows 10/11 GUI/install/update remain unverified",
+  "realProviderAccounts": "NOT_RUN for this build; fixture checks do not certify provider accounts",
+  "capabilityBenchmark": "NOT_RUN; no new writing score claim"
 }

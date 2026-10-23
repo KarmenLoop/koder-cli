@@ -1,6 +1,8 @@
+Current release: **0.4.0-preview.29 Beta**. Start with [release changes](RELEASE-preview.29.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+
 # Koder CLI complete user guide
 
-Version: **0.4.0-preview.28 Beta**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.4.0-preview.29 Beta**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -164,20 +166,20 @@ Usage and invalid configuration return exit 2. Task/check failures use a nonzero
 
 The interactive coach has **30 lessons**, with PowerShell, CMD, macOS and Linux editions. It uses a disposable practice project and a scripted coach, so the tutorial needs no paid model call. `koder learn --print` gives the text edition; `koder help COMMAND` shows current usage.
 
-The complete generated [command reference](COMMAND-REFERENCE.en.md) covers every documented command and global option in this candidate. The version, lesson count and actual configured model are distinct values; there is no universal default paid model or implied subscription.
+The complete generated [command reference](COMMAND-REFERENCE.en.md) covers every documented command and global option in this beta. The version, lesson count and actual configured model are distinct values; there is no universal default paid model or implied subscription.
 
 For a bug or licensing inquiry, `koder feedback` or `koder business` provides **info@karmenloop.com**. Nothing is sent automatically. The official site is [karmenloop.com](https://karmenloop.com).
 
 ## Download the eight text editions
 
-- [koder-cli-0.4.0-preview.28-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.28-en-cmd.txt)
-- [koder-cli-0.4.0-preview.28-en-linux.txt](tutorials/koder-cli-0.4.0-preview.28-en-linux.txt)
-- [koder-cli-0.4.0-preview.28-en-mac.txt](tutorials/koder-cli-0.4.0-preview.28-en-mac.txt)
-- [koder-cli-0.4.0-preview.28-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.28-en-powershell.txt)
-- [koder-cli-0.4.0-preview.28-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.28-zh-cmd.txt)
-- [koder-cli-0.4.0-preview.28-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.28-zh-linux.txt)
-- [koder-cli-0.4.0-preview.28-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.28-zh-mac.txt)
-- [koder-cli-0.4.0-preview.28-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.28-zh-powershell.txt)
+- [koder-cli-0.4.0-preview.29-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.29-en-cmd.txt)
+- [koder-cli-0.4.0-preview.29-en-linux.txt](tutorials/koder-cli-0.4.0-preview.29-en-linux.txt)
+- [koder-cli-0.4.0-preview.29-en-mac.txt](tutorials/koder-cli-0.4.0-preview.29-en-mac.txt)
+- [koder-cli-0.4.0-preview.29-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.29-en-powershell.txt)
+- [koder-cli-0.4.0-preview.29-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.29-zh-cmd.txt)
+- [koder-cli-0.4.0-preview.29-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.29-zh-linux.txt)
+- [koder-cli-0.4.0-preview.29-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.29-zh-mac.txt)
+- [koder-cli-0.4.0-preview.29-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.29-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 

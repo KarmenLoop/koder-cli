@@ -1,6 +1,6 @@
 # Mail and live project previews
 
-These features are implemented in the isolated mail and preview candidate. They are not included in the published preview.22 package. Release acceptance and live-account checks are recorded separately.
+These features are included in 0.4.0-preview.29 Beta. Live mailbox accounts, provider OAuth setup and native platform acceptance remain separate checks; configured presets alone do not verify a connection.
 
 Open `/setup` in your current Koder chat. `/steup` also opens the settings menu. Choose **Mail and notifications** to bind your own mailbox. The provider list includes Gmail, QQ/Foxmail, NetEase 163/126, iCloud, Alibaba Mail, Spacemail (Spaceship), Outlook, Microsoft 365 and custom servers. A recognized address preselects its provider. Company domains can select Spacemail, Alibaba Mail, Microsoft 365 or custom settings explicitly; Koder does not guess a provider from a company's domain.
 

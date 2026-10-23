@@ -1,6 +1,6 @@
 # Visual directions, project maps and Netlify
 
-This feature is in source candidate **0.4.0-preview.26-candidate.6**, not the published package. Native Windows, real Netlify credentials, Koder's registered OAuth application and production acceptance are separate release gates.
+This feature, first prepared in source candidate **0.4.0-preview.26-candidate.6**, is included in **0.4.0-preview.29 Beta**. Native Windows, real Netlify credentials, Koder's registered OAuth application and production acceptance are separate release gates.
 
 ## Compare before building
 
@@ -72,6 +72,6 @@ A rejected credential, access policy or rate limit produces a distinct safe diag
 
 ## Hosting, membership and real acceptance
 
-The first integration uses the user's own authorized Netlify account/site. Netlify controls that account's plan, quota, roles, region and charges. Koder membership cannot grant Netlify quota or silently upgrade a provider plan. Koder-managed shared hosting, its billing service, quotas and upgrade entitlements are **not configured** in this source candidate. The UI reports that state instead of advertising a nonexistent hosting service.
+The first integration uses the user's own authorized Netlify account/site. Netlify controls that account's plan, quota, roles, region and charges. Koder membership cannot grant Netlify quota or silently upgrade a provider plan. Koder-managed shared hosting, its billing service, quotas and upgrade entitlements are **not configured** in this beta. The UI reports that state instead of advertising a nonexistent hosting service.
 
 Official sources: [API authentication and deploy guide](https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/), [ticket API](https://open-api.netlify.com/#tag/ticket/operation/createTicket), [first-party ticket flow](https://github.com/netlify/build/blob/main/packages/js-client/README.md#api-flow-methods), [deploy API](https://open-api.netlify.com/#tag/deploy/operation/createSiteDeploy), and [Netlify roles](https://docs.netlify.com/manage/accounts-and-billing/team-management/roles-and-permissions/). Research and limitations are preserved in this task's `NETLIFY-RESEARCH.md`. No real account or production deployment was used for the local acceptance fixtures.

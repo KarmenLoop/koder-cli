@@ -1,6 +1,6 @@
 # Windows CLI verification
 
-Current CLI beta: **0.4.0-preview.28**. This page scopes the CLI checks for the test team. It does not define a whole-product QA program or decide when the team ships a beta.
+Current CLI beta: **0.4.0-preview.29**. This page scopes the CLI checks for the test team. It does not define a whole-product QA program or decide when the team ships a beta.
 
 ## What the local evidence establishes
 
@@ -10,7 +10,7 @@ Candidate.8 changes noninteractive clarification, pre-response failed-request hi
 
 ## Remaining Windows steps for the test team
 
-Use the matched candidate CLI/kernel revision and a disposable Windows user or VM. Record the source manifest or package digest, Windows version, terminal, exact command, exit code and output. Use an isolated candidate asset endpoint when checking an unpublished package; the public download currently points to a different version.
+Use the matched candidate CLI/kernel revision and a disposable Windows user or VM. Record the source manifest or package digest, Windows version, terminal, exact command, exit code and output. Use an isolated candidate asset endpoint when checking an unpublished package; verify that its manifest identifies the intended version rather than assuming the public feed is that candidate.
 
 | Case | Procedure and expected result | Relevant source or test |
 |---|---|---|
