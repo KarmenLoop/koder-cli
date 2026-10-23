@@ -36,7 +36,7 @@ $form.add_Shown({$form.Activate();$box.Focus();$pt=$box.PointToScreen([Drawing.P
 [Windows.Forms.Application]::Run($form)
 """.replace('TITLE',title).replace('SAVED',literal(saved)).replace('COORDS',literal(coords))
     (e/'owned-ui.ps1').write_text(source,encoding='utf-8-sig')
-    ui_log=(e/'owned-ui.stderr').open('wb');ui=subprocess.Popen(['pwsh','-NoProfile','-STA','-WindowStyle','Hidden','-EncodedCommand',base64.b64encode(source.encode('utf-16-le')).decode()],stdout=subprocess.DEVNULL,stderr=ui_log)
+    ui_log=(e/'owned-ui.stderr').open('wb');ui=subprocess.Popen(['pwsh','-NoProfile','-STA','-EncodedCommand',base64.b64encode(source.encode('utf-16-le')).decode()],stdout=subprocess.DEVNULL,stderr=ui_log)
     try:
      end=time.monotonic()+8
      while not coords.exists():
