@@ -1,0 +1,29 @@
+name: Post29 isolated Windows acceptance
+on:
+  push:
+    branches: [verify/post29-completion-20261023]
+    paths: [.github/workflows/post29-acceptance.yml, .github/scripts/post29-ps51-environment.mjs]
+permissions:
+  contents: read
+jobs:
+  ps51:
+    runs-on: windows-11-arm
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+          architecture: x64
+      - name: Preserve 10 second deadline and distinguish startup stages
+        shell: cmd
+        run: node .github/scripts/post29-ps51-environment.mjs "%RUNNER_TEMP%\post29-owned-cold-probe"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: post29-ps51-stage-evidence
+          path: ${{ runner.temp }}/post29-owned-cold-probe/probe-receipt.json
+          retention-days: 7
+          if-no-files-found: error
