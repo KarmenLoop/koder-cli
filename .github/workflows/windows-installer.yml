@@ -7,36 +7,6 @@ env:
   PYTHONUTF8: '1'
   PYTHONIOENCODING: utf-8
 jobs:
-  no-node:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [windows-latest, windows-11-arm]
-        entry: [cmd, powershell]
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 12
-    defaults:
-      run:
-        shell: cmd
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - name: Use the image Python without installing or starting PowerShell
-        run: python --version
-      - name: Prepare exact published installer bytes without target startup
-        run: python .github/probes/prepare-native.py --root "%RUNNER_TEMP%\koder-cold-input"
-      - name: First installer invocation with no discoverable Node
-        run: python .github/probes/windows-no-node-r2.py --entry ${{ matrix.entry }} --assets "%RUNNER_TEMP%\koder-cold-input\assets" --out "%RUNNER_TEMP%\koder-cold-result"
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: cold-${{ matrix.os }}-${{ matrix.entry }}
-          path: |
-            ${{ runner.temp }}/koder-cold-input/evidence
-            ${{ runner.temp }}/koder-cold-result/receipt.json
-            ${{ runner.temp }}/koder-cold-result/*.raw
-          retention-days: 14
   gui:
     strategy:
       fail-fast: false
@@ -68,7 +38,7 @@ jobs:
       - name: Verify standard GUI fixture dependency without opening a window
         run: '"%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" -c "import tkinter; print(tkinter.TkVersion, tkinter.TclVersion)"'
       - name: Actual Koder-mediated GUI interaction with owned targets
-        run: '"%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" .github/probes/mcp-gui-r2.py --root "%RUNNER_TEMP%\koder-gui" --package "%RUNNER_TEMP%\koder-gui\assets\koder-cli-0.4.0.tgz" --sha256 86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566 --version 0.4.0'
+        run: '"%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" .github/probes/mcp-gui-r3.py --root "%RUNNER_TEMP%\koder-gui" --package "%RUNNER_TEMP%\koder-gui\assets\koder-cli-0.4.0.tgz" --sha256 86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566 --version 0.4.0'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -76,4 +46,70 @@ jobs:
           path: |
             ${{ runner.temp }}/koder-gui/evidence
             ${{ runner.temp }}/koder-gui/install-report.json
+          retention-days: 14
+  native-credential:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, windows-11-arm]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: cmd
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+          architecture: x64
+      - name: Fetch unpublished component input
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download verify-windows-cold-20261024 --repo KarmenLoop/koder-cli --pattern credential-component.tgz --dir "%RUNNER_TEMP%\credential-component"
+      - name: Verify and unpack the frozen candidate
+        run: python -c "import hashlib,tarfile,pathlib,os; p=pathlib.Path(os.environ['RUNNER_TEMP'])/'credential-component'; f=p/'credential-component.tgz'; assert hashlib.sha256(f.read_bytes()).hexdigest()=='285a59bdf209ebe7f301402241adb06d74e241a4296a9b36e0cf5bd58750ea6e'; tarfile.open(f).extractall(p/'source',filter='data')"
+      - name: First native helper and independent persistence read
+        run: node .github/probes/credential-native-r2.mjs --candidate-root "%RUNNER_TEMP%\credential-component\source" --manifest "%RUNNER_TEMP%\credential-component\source\frozen.json" --out "%RUNNER_TEMP%\credential-native-result"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-credential-${{ matrix.os }}
+          path: |
+            ${{ runner.temp }}/credential-native-result/receipt.json
+            ${{ runner.temp }}/credential-native-result/*.raw
+            ${{ runner.temp }}/credential-native-result/read-process/receipt.json
+            ${{ runner.temp }}/credential-native-result/read-process/*.raw
+          retention-days: 14
+  upgrade:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, windows-11-arm]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    defaults:
+      run:
+        shell: cmd
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Prepare exact published old and new inputs
+        run: |
+          python .github/probes/prepare-native.py --root "%RUNNER_TEMP%\upgrade-input"
+          if errorlevel 1 exit /b %errorlevel%
+          python .github/probes/prepare-prior.py --out "%RUNNER_TEMP%\upgrade-input\prior"
+      - name: Actual installed CLI update and complete installed-byte readback
+        run: python .github/probes/windows-upgrade.py --previous-assets "%RUNNER_TEMP%\upgrade-input\prior" --assets "%RUNNER_TEMP%\upgrade-input\assets" --out "%RUNNER_TEMP%\upgrade-result"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: upgrade-${{ matrix.os }}
+          path: |
+            ${{ runner.temp }}/upgrade-input/evidence
+            ${{ runner.temp }}/upgrade-result/receipt.json
+            ${{ runner.temp }}/upgrade-result/*.raw
           retention-days: 14
