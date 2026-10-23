@@ -1,0 +1,38 @@
+name: Post29 PS5.1 first variant comparison
+on:
+  push:
+    branches: [verify/post29-completion-20261023]
+    paths: [.github/workflows/post29-ps51-first-variant.yml, .github/scripts/post29-ps51-first-variant.mjs]
+permissions:
+  contents: read
+jobs:
+  ps51-first:
+    name: PS5.1 ${{ matrix.variant }} first replica ${{ matrix.replica }}
+    runs-on: windows-11-arm
+    timeout-minutes: 6
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        variant: [baseline, temporary]
+        replica: [1, 2]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+          architecture: x64
+      - name: First PS5.1 process and identical repeat within 10 seconds each
+        shell: cmd
+        env:
+          KODER_PROBE_REPLICA: ${{ matrix.replica }}
+        run: node .github/scripts/post29-ps51-first-variant.mjs "%RUNNER_TEMP%\post29-first-${{ matrix.variant }}-${{ matrix.replica }}" "${{ matrix.variant }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ps51-first-${{ matrix.variant }}-${{ matrix.replica }}
+          path: ${{ runner.temp }}/post29-first-${{ matrix.variant }}-${{ matrix.replica }}/probe-receipt.json
+          retention-days: 7
+          if-no-files-found: error
