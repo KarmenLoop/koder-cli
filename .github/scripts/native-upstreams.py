@@ -11,7 +11,7 @@ async def check():
    async with ClientSession(read,write) as client:
     init=await asyncio.wait_for(client.initialize(),30);tools=await asyncio.wait_for(client.list_tools(),10);(e/'discovery.json').write_text(json.dumps({'server':init.model_dump(mode='json'),'tools':[x.model_dump(mode='json') for x in tools.tools]},indent=2),encoding='utf-8');names={x.name for x in tools.tools};assert {'PowerShell','Snapshot','Click','Type'}<=names
     async def call(name,args):
-     result=await asyncio.wait_for(client.call_tool(name,args),30);data=result.model_dump(mode='json');calls.append({'name':name,'arguments':args,'result':data});assert not result.isError,(name,data);return json.dumps(data)
+     result=await asyncio.wait_for(client.call_tool(name,args),30);data=result.model_dump(mode='json');calls.append({'name':name,'arguments':args,'result':data});assert ('is_error' in data or 'isError' in data),data;assert not data.get('is_error',data.get('isError')),(name,data);return json.dumps(data)
     path=str(artifact).replace("'","''");cmd="[IO.File]::WriteAllText('"+path+"','"+nonce+"',[Text.UTF8Encoding]::new($false)); [IO.File]::ReadAllText('"+path+"')"
     result=await call('PowerShell',{'command':cmd,'timeout':10});assert nonce in result;assert artifact.read_text(encoding='utf-8')==nonce;report['actualFileReadback']=True
     snapshot=await call('Snapshot',{'use_vision':False,'use_ui_tree':True});assert 'Error capturing desktop state' not in snapshot;report['snapshotReturned']=True
