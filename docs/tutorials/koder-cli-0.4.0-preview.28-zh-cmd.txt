@@ -1,8 +1,8 @@
-Koder CLI 0.4.0-preview.27 — Beta 测试版
+Koder CLI 0.4.0-preview.28 — Beta 测试版
 
 Koder CLI 完整教程（文字版）
 在终端里直接运行 koder learn，可以在练习场里边看边动手。
-这份文字版按「Windows PowerShell」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+这份文字版按「Windows 命令提示符（CMD）」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
 
 ━━ 第 1 课 / 共 30 课 · 开场：欢迎来到 Koder 训练营 ━━
 教练 › 嗨，我是 Koder 教练。接下来分30课，我们在一个一次性的练习场里，把 Koder 从开机到毕业完整走一遍。
@@ -18,8 +18,8 @@ Koder CLI 完整教程（文字版）
   · （这里会显示开屏：左边是 KARMEN 折光体，右边是 KODER 和 KARMEN LOOP。）
 教练 › 左边这位是 KARMEN 折光体，我们官网上的吉祥物，形状和官网用的是同一条曲面；右边是 KODER 和 KARMEN LOOP，下面列着当前用的模型、引擎、目录和常用命令。它不是装饰——好吧，主要是装饰，但它确实很好看。
   提示 · 框线和折光体乱成一团？多半是老式控制台的中文字体把方块字画成了两格宽。Koder 会自动换成纯字符画，也可以在 koder setup 里把「开屏样式」改成纯字符。最好的办法是换 Windows Terminal：Windows 11 自带，Windows 10 可以在 Microsoft Store 免费装。
-    $env:KODER_ASCII = "1"; koder
-        只在这个窗口里强制纯字符开屏
+    set "KODER_ASCII=1" && koder
+        只在这个窗口里强制纯字符开屏；CMD 的 set 要用引号把整段包起来，不然 && 前面的空格也会被存进去
 教练 › 开屏下面是提示符，它会告诉你现在的状态：
     koder ›
         在这里直接输入任务，比如：把 README 里的错别字改掉
@@ -40,16 +40,16 @@ Koder CLI 完整教程（文字版）
 教练 › 喜欢敲命令也行。密钥建议放进环境变量，配置里只记变量名：
     setx OPENAI_API_KEY "sk-你的密钥"
         永久存进你的账户，之后新开的窗口才读得到
-    $env:OPENAI_API_KEY = "sk-你的密钥"
-        只在当前窗口有效，关掉就没了
+    set "OPENAI_API_KEY=sk-你的密钥"
+        只在当前窗口有效；引号要把整段包起来
     koder model set --preset chatgpt --key-env OPENAI_API_KEY
         用预设，配置里只记变量名
     koder model set --preset local --model qwen3:8b
         用本机 Ollama，不需要密钥
-    $env:KODER_MODEL = "gpt-6.1-sol"; $env:KODER_BASE_URL = "https://api.openai.com/v1"; $env:KODER_API_KEY = "sk-…"; koder review
+    set "KODER_MODEL=gpt-6.1-sol" && set "KODER_BASE_URL=https://api.openai.com/v1" && set "KODER_API_KEY=sk-…" && koder review
         在 CI 里直接用环境变量
   提示 · koder model presets 能查看当前可用预设；koder model show 看当前配置，密钥只露最后四位。
-  （小声）把密钥直接敲进命令要小心：PowerShell 会把敲过的每条命令存进 PSReadLine 的历史文件，记性比你前任还好。所以最推荐在 koder setup 里粘贴——屏幕上只显示末四位，也不进命令历史，但会明文保存在本机配置。环境变量命令也可能进入历史，不要分享含密钥的记录。
+  （小声）CMD 关掉窗口就忘了你敲过什么，可站在你身后的同事不会忘。所以最推荐在 koder setup 里粘贴密钥：屏幕上只显示末四位，但配置文件中的密钥仍是明文。
 教练 › 今天练习场用的是教练模型，所以这一课只看不做。毕业以后再去配真的。
   · 可以现场运行 koder model presets 看全部预设。
 
@@ -106,13 +106,13 @@ Koder CLI 完整教程（文字版）
 教练 › 在脚本里，Koder 和其他命令行工具一样顺手：
     git diff | koder ask "总结这次改动"
         管道里的内容会作为附加材料交给 Koder
-    Get-Content error.log | koder ask "这个报错是什么意思"
-        把一个文件喂给它（PowerShell 里的 cat 就是它）
-    koder run --yes --json "修好 lint 报错" | ForEach-Object { ($_ | ConvertFrom-Json).type }
-        --json 每行一个事件，PowerShell 自带的 ConvertFrom-Json 就能解析
-    $LASTEXITCODE
+    type error.log | koder ask "这个报错是什么意思"
+        把一个文件喂给它
+    koder run --yes --json "修好 lint 报错" > events.jsonl
+        --json 每行一个事件；CMD 没有自带的 JSON 工具，先存成文件再交给别的程序
+    echo %ERRORLEVEL%
         看上一条命令的退出码
-  提示 · Windows PowerShell 5.1 往管道里送中文会变成问号。先执行一次 $OutputEncoding = [Text.UTF8Encoding]::new() 就好；PowerShell 7 没有这个毛病。
+  提示 · CMD 只认双引号：koder ask "这是什么" 可以；用单引号的话，引号会被当成问题的一部分。
 教练 › 退出码：0 表示完成；1 表示被取消或检查没过；2 表示用法或模型配置有问题。
   （小声）退出码 2 的意思是“先检查一下配置”，不是它不努力。
 
@@ -232,11 +232,11 @@ Koder CLI 完整教程（文字版）
     https://github.com/KarmenLoop/koder-cli/blob/main/LEGAL-NOTICE.md
         官方团队 KARMENLOOP 官方团队，中国上海。官网 https://karmenloop.com 邮箱 info@karmenloop.com
         普通安装会在真实终端提示输入 accept 并回车；decline 或 Ctrl+C 取消；空回车会重新询问，不会安装。请完整输入 accept 再回车。
-    $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
         已阅读并同意的自动部署（不要替未阅读的人预先填写；KODER_EULA_ACCEPT=1 只接受软件许可）：
-    $env:KODER_EULA_ACCEPT = "1"
-    $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
-    Remove-Item Env:KODER_EULA_ACCEPT
+    set "KODER_EULA_ACCEPT=1"
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
+    set "KODER_EULA_ACCEPT="
         Windows 10 / 11：装完重新打开命令提示符或 PowerShell；当前窗口的 PATH 不会自动刷新。
     koder version
     koder setup
@@ -248,7 +248,7 @@ Koder CLI 完整教程（文字版）
         升到 preview.7 请运行上面的普通安装命令，阅读后输入 accept。preview.6 的更新器会在许可校验变化时于下载安装器前停止，KODER_EULA_ACCEPT 不能跳过这道检查。配置、记忆和绑定保留
     koder uninstall
         卸载程序，保留配置；需要删除配置时另行选择 --purge
-  提示 · 装在 %LOCALAPPDATA%\koder-cli，设置在 %USERPROFILE%\.koder-cli，不需要管理员权限。如果提示执行策略不允许，就改用 CMD 那一行（带 -ExecutionPolicy Bypass）。
+  提示 · 装在 %LOCALAPPDATA%\koder-cli，设置在 %USERPROFILE%\.koder-cli，不需要管理员权限。装完一定要重开窗口：CMD 窗口的 PATH 是打开时定下的，不会自己刷新。
 教练 › Windows XP、7、8 没法直接装：Node.js 22 最低要求 Windows 10，XP 连连接大模型接口需要的 TLS 1.2 都不支持。想在老电脑上用，可以用 PuTTY 之类的工具 SSH 登录另一台装了 Koder 的电脑，或者在手机上通过聊天软件网关给 Koder 发任务。
   提示 · 要给别的系统装？koder learn 16 --os powershell（或者 cmd、mac、linux）能看那一套的写法。
 教练 › 安装版会在交互对话中后台检查新版，每六小时最多一次。等任务、排队输入和草稿都处理完，再自动安装、校验并恢复会话。换了使用许可就停下来，请你先读清楚。想自己掌握节奏？输入 /update auto off；重新开启用 /update auto on。更新也懂排队，不会抢你的键盘。
@@ -469,6 +469,6 @@ Koder CLI 完整教程（文字版）
     koder learn 数字
         回到某一课
 教练 › 下一步：先用 koder setup 配好模型，然后在你自己的项目里输入 koder。
-  提示 · 进入你的项目：cd D:\code\my-app，然后输入 koder。
+  提示 · 进入你的项目：cd /d D:\code\my-app，然后输入 koder。换盘一定要加 /d，不然只改路径不换盘——这是 CMD 的祖传脾气。
   （小声）教练下班了。记住：Koder 负责提议，你负责拍板，锅……我们一起背。
   · 最后可以选择保留练习场，或者直接删除。

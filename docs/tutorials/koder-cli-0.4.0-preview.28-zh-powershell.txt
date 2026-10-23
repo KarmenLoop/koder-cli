@@ -1,8 +1,8 @@
-Koder CLI 0.4.0-preview.27 — Beta 测试版
+Koder CLI 0.4.0-preview.28 — Beta 测试版
 
 Koder CLI 完整教程（文字版）
 在终端里直接运行 koder learn，可以在练习场里边看边动手。
-这份文字版按「macOS 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+这份文字版按「Windows PowerShell」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
 
 ━━ 第 1 课 / 共 30 课 · 开场：欢迎来到 Koder 训练营 ━━
 教练 › 嗨，我是 Koder 教练。接下来分30课，我们在一个一次性的练习场里，把 Koder 从开机到毕业完整走一遍。
@@ -10,14 +10,16 @@ Koder CLI 完整教程（文字版）
   · 第一课会识别你用的是 PowerShell、CMD、macOS 还是 Linux，后面的命令都按它来写；也可以输入数字换成别的系统。
 教练 › 全程不用配置模型、不花一分钱：替你干活的是我这个“教练模型”，台词提前写好了，演技有限，请多包涵。但改文件、跑命令都是真的，走的就是 Koder 平时用的那套内核。
   提示 · 操作方式：回车 = 下一步；b = 回上一课；q = 随时退出（进度会记住）；输入数字 = 跳到那一课。
-  提示 · 复制粘贴用 ⌘C 和 ⌘V。终端里的 Ctrl+C 是“取消”，不是复制，别按混了。
+  提示 · 复制粘贴：Windows Terminal 里选中文字按 Ctrl+C 复制、Ctrl+V 粘贴（没选中文字时 Ctrl+C 是“取消”）；老式的黑框控制台点鼠标右键就是粘贴。
   提示 · 嫌命令难记？随时输入 koder setup（对话里输入 /setup），用方向键或者鼠标点一点，语言、模型、配色就全配好了。
   （小声）别紧张，这里没有考试，只有彩蛋。
 
 ━━ 第 2 课 / 共 30 课 · 认识开屏和提示符 ━━
   · （这里会显示开屏：左边是 KARMEN 折光体，右边是 KODER 和 KARMEN LOOP。）
 教练 › 左边这位是 KARMEN 折光体，我们官网上的吉祥物，形状和官网用的是同一条曲面；右边是 KODER 和 KARMEN LOOP，下面列着当前用的模型、引擎、目录和常用命令。它不是装饰——好吧，主要是装饰，但它确实很好看。
-  提示 · 系统自带的“终端”App 用 256 色显示折光体；想看完整的真彩，可以用 iTerm2、Ghostty 或 WezTerm。字体选等宽字体，比如 SF Mono 或 Menlo。
+  提示 · 框线和折光体乱成一团？多半是老式控制台的中文字体把方块字画成了两格宽。Koder 会自动换成纯字符画，也可以在 koder setup 里把「开屏样式」改成纯字符。最好的办法是换 Windows Terminal：Windows 11 自带，Windows 10 可以在 Microsoft Store 免费装。
+    $env:KODER_ASCII = "1"; koder
+        只在这个窗口里强制纯字符开屏
 教练 › 开屏下面是提示符，它会告诉你现在的状态：
     koder ›
         在这里直接输入任务，比如：把 README 里的错别字改掉
@@ -36,18 +38,18 @@ Koder CLI 完整教程（文字版）
     koder setup
         方向键或鼠标选服务商、选型号，再把密钥粘进去；还能一键打开拿密钥的网页
 教练 › 喜欢敲命令也行。密钥建议放进环境变量，配置里只记变量名：
-    echo 'export OPENAI_API_KEY=sk-你的密钥' >> ~/.zshrc
-        写进 zsh 的配置（macOS 默认用 zsh），之后新开的终端都读得到
-    export OPENAI_API_KEY=sk-你的密钥
-        只在当前窗口有效
+    setx OPENAI_API_KEY "sk-你的密钥"
+        永久存进你的账户，之后新开的窗口才读得到
+    $env:OPENAI_API_KEY = "sk-你的密钥"
+        只在当前窗口有效，关掉就没了
     koder model set --preset chatgpt --key-env OPENAI_API_KEY
         用预设，配置里只记变量名
     koder model set --preset local --model qwen3:8b
         用本机 Ollama，不需要密钥
-    KODER_MODEL=… KODER_BASE_URL=… KODER_API_KEY=… koder review
+    $env:KODER_MODEL = "gpt-6.1-sol"; $env:KODER_BASE_URL = "https://api.openai.com/v1"; $env:KODER_API_KEY = "sk-…"; koder review
         在 CI 里直接用环境变量
   提示 · koder model presets 能查看当前可用预设；koder model show 看当前配置，密钥只露最后四位。
-  （小声）把密钥直接敲进命令要小心：shell 的历史记录（~/.zsh_history、~/.bash_history）记性比你前任还好。所以最推荐在 koder setup 里粘贴——屏幕上只显示末四位，也不进命令历史，但会明文保存在本机配置。环境变量命令也可能进入历史，不要分享含密钥的记录。
+  （小声）把密钥直接敲进命令要小心：PowerShell 会把敲过的每条命令存进 PSReadLine 的历史文件，记性比你前任还好。所以最推荐在 koder setup 里粘贴——屏幕上只显示末四位，也不进命令历史，但会明文保存在本机配置。环境变量命令也可能进入历史，不要分享含密钥的记录。
 教练 › 今天练习场用的是教练模型，所以这一课只看不做。毕业以后再去配真的。
   · 可以现场运行 koder model presets 看全部预设。
 
@@ -61,9 +63,10 @@ Koder CLI 完整教程（文字版）
 
 ━━ 第 5 课 / 共 30 课 · 命令确认：跑测试，也拦下可疑命令 ━━
 教练 › 改完代码当然要跑测试。运行项目代码属于敏感操作，默认先询问；node --version 这类低风险检查会自动执行。
-  提示 · 判断标准：看得懂、只影响当前项目、能撤销，就放行。rm -rf、curl … | sh、git push --force 这类命令要先确认来源与具体影响；来路不明的脚本直接拒绝。官方安装器也应先核对地址、许可和校验信息。
+  提示 · 判断标准：看得懂、只影响当前项目、能撤销，就放行。Remove-Item -Recurse -Force、rd /s /q、del /s /q、irm … | iex、git push --force 这类命令要先确认来源与具体影响；来路不明的脚本直接拒绝。官方安装器也应先核对地址、许可和校验信息。
+  提示 · 在 Windows 上，Koder 替你跑的命令交给 CMD 执行，不是 PowerShell。要用 PowerShell 的写法，就写成 powershell -NoProfile -Command "…"。
   （小声）命令确认这一步，请拿出你核对外卖账单的认真劲儿。
-  · 动手：教练先请求运行 node test.mjs（可以允许），再请求一条 curl … | sh（必须拒绝；就算你误点了 y，教练也会拦下）。
+  · 动手：教练先请求运行 node test.mjs（可以允许），再请求一条 irm … | iex（必须拒绝；就算你误点了 y，教练也会拦下）。
 教练 › 命令的输出会原样交回给模型，它看得到测试结果，再决定下一步。
 
 ━━ 第 6 课 / 共 30 课 · 做选择：Koder 也会问你 ━━
@@ -90,6 +93,7 @@ Koder CLI 完整教程（文字版）
   动手 · 输入 /mode plan 切到计划模式  →  /mode plan
   动手 · 再输入 /yes 打开自动确认  →  /yes
   动手 · 好，再输入一次 /yes 把它关掉  →  /yes
+  提示 · Windows 上习惯按 Ctrl+Z 退出？在 Koder 里它不管用，用 /exit 或者 Ctrl+D。
 教练 › Koder 正在跑一个你后悔的命令，最快的办法是？
     1. 按 Ctrl+C 取消这一轮
     2. 拔掉网线
@@ -102,12 +106,13 @@ Koder CLI 完整教程（文字版）
 教练 › 在脚本里，Koder 和其他命令行工具一样顺手：
     git diff | koder ask "总结这次改动"
         管道里的内容会作为附加材料交给 Koder
-    cat error.log | koder ask "这个报错是什么意思"
-        把一个文件喂给它
-    koder run --yes --json "修好 lint 报错" | jq -r .type
-        --json 每行一个事件，交给 jq 解析（brew install jq 就能装）
-    echo $?
+    Get-Content error.log | koder ask "这个报错是什么意思"
+        把一个文件喂给它（PowerShell 里的 cat 就是它）
+    koder run --yes --json "修好 lint 报错" | ForEach-Object { ($_ | ConvertFrom-Json).type }
+        --json 每行一个事件，PowerShell 自带的 ConvertFrom-Json 就能解析
+    $LASTEXITCODE
         看上一条命令的退出码
+  提示 · Windows PowerShell 5.1 往管道里送中文会变成问号。先执行一次 $OutputEncoding = [Text.UTF8Encoding]::new() 就好；PowerShell 7 没有这个毛病。
 教练 › 退出码：0 表示完成；1 表示被取消或检查没过；2 表示用法或模型配置有问题。
   （小声）退出码 2 的意思是“先检查一下配置”，不是它不努力。
 
@@ -153,7 +158,7 @@ Koder CLI 完整教程（文字版）
         并行跑只读步骤（shell、ask、review）
     approve: auto
         自动确认，适合 CI
-  提示 · 流程里的 shell 步骤交给 sh 执行；同一份流程拿到 Windows 上会交给 CMD。想一份流程到处跑，尽量用 node、npm、git 这些哪儿都有的命令，比如上面的庆祝步骤用的就是 node -e。
+  提示 · 在 Windows 上，流程里的 shell 步骤交给 CMD 执行（不是 PowerShell）。要用 PowerShell 的写法，就写成 powershell -NoProfile -Command "…"。想一份流程到处跑，尽量用 node、npm、git 这些哪儿都有的命令，比如上面的庆祝步骤用的就是 node -e。
 教练 › koder ci init 会生成 GitHub Actions 工作流：PR 一开就自动审查并评论；在 PR 里评论 /koder fix，它会修好并推回分支。只有仓库成员的评论才算数，路人甲喊破喉咙也没用。
 
 ━━ 第 12 课 / 共 30 课 · MoA：让几个模型一起想 ━━
@@ -186,7 +191,7 @@ Koder CLI 完整教程（文字版）
     koder gateway pair K7Q2MX
         同意一位新用户
   提示 · 飞书、企业微信、钉钉、Slack、Discord 用长连接，不需要公网地址；WhatsApp 官方接口要把本地端口通过隧道暴露出去。
-  提示 · koder gateway start --background 以后关掉终端也不会停；合上盖子让 Mac 睡着，机器人也会跟着睡。
+  提示 · koder gateway start --background 会在后台悄悄运行，不弹窗口；电脑睡眠、注销或重启以后机器人会停，登录后再运行一次就好。
 教练 › 一个陌生人在微信上给你的机器人发消息，会发生什么？
     1. 他会收到一个配对码，你在电脑上 koder gateway pair 同意以后才能用
     2. 机器人直接帮他改代码
@@ -198,10 +203,10 @@ Koder CLI 完整教程（文字版）
 教练 › 喜欢在编辑器里干活？Zed、Neovim、Emacs 都能通过 ACP 协议启动 koder acp，在编辑器里对话、看差异、批准修改。比如 Zed 只要这几行：
   · （这里显示 koder editor zed 的配置片段。）
     koder editor nvim
-        Neovim（CodeCompanion），配置文件在 ~/.config/nvim/lua/plugins/codecompanion.lua
+        Neovim（CodeCompanion），配置文件在 %LOCALAPPDATA%\nvim\lua\plugins\codecompanion.lua
     koder editor emacs
-        Emacs（agent-shell），配置文件在 ~/.emacs.d/init.el
-  提示 · Zed 的设置文件在 ~/.config/zed/settings.json。懒得复制？koder setup 里的「编辑器」能一键复制到剪贴板。
+        Emacs（agent-shell），配置文件在 %APPDATA%\.emacs.d\init.el
+  提示 · Windows 上编辑器启动程序时只会自动补 .exe，所以片段里写的是 koder.cmd，别改成 koder。Zed 的设置文件在 %APPDATA%\Zed\settings.json。懒得复制？koder setup 里的「编辑器」能一键复制到剪贴板。
   （小声）Vim 用户请放心，退出 Koder 比退出 Vim 简单多了：Ctrl+D。
 
 ━━ 第 15 课 / 共 30 课 · 扫描本机工程，决定下一步 ━━
@@ -226,11 +231,13 @@ Koder CLI 完整教程（文字版）
     https://github.com/KarmenLoop/koder-cli/blob/main/ACCEPTANCE.md
     https://github.com/KarmenLoop/koder-cli/blob/main/LEGAL-NOTICE.md
         官方团队 KARMENLOOP 官方团队，中国上海。官网 https://karmenloop.com 邮箱 info@karmenloop.com
-        普通安装会在真实终端提示输入 accept 并回车；decline、空回车或 Ctrl+C 取消，取消前不下载。
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | bash
+        普通安装会在真实终端提示输入 accept 并回车；decline 或 Ctrl+C 取消；空回车会重新询问，不会安装。请完整输入 accept 再回车。
+    $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
         已阅读并同意的自动部署（不要替未阅读的人预先填写；KODER_EULA_ACCEPT=1 只接受软件许可）：
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
-        macOS 11 以上，Apple 芯片或 Intel；装完重开终端。
+    $env:KODER_EULA_ACCEPT = "1"
+    $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
+    Remove-Item Env:KODER_EULA_ACCEPT
+        Windows 10 / 11：装完重新打开命令提示符或 PowerShell；当前窗口的 PATH 不会自动刷新。
     koder version
     koder setup
     koder learn
@@ -241,7 +248,8 @@ Koder CLI 完整教程（文字版）
         升到 preview.7 请运行上面的普通安装命令，阅读后输入 accept。preview.6 的更新器会在许可校验变化时于下载安装器前停止，KODER_EULA_ACCEPT 不能跳过这道检查。配置、记忆和绑定保留
     koder uninstall
         卸载程序，保留配置；需要删除配置时另行选择 --purge
-  提示 · 装在 ~/.koder-cli，启动命令放在 ~/.local/bin/koder，不需要 sudo。第一次用 git 时 macOS 可能弹窗让你装“命令行开发者工具”，点“安装”就行。
+  提示 · 装在 %LOCALAPPDATA%\koder-cli，设置在 %USERPROFILE%\.koder-cli，不需要管理员权限。如果提示执行策略不允许，就改用 CMD 那一行（带 -ExecutionPolicy Bypass）。
+教练 › Windows XP、7、8 没法直接装：Node.js 22 最低要求 Windows 10，XP 连连接大模型接口需要的 TLS 1.2 都不支持。想在老电脑上用，可以用 PuTTY 之类的工具 SSH 登录另一台装了 Koder 的电脑，或者在手机上通过聊天软件网关给 Koder 发任务。
   提示 · 要给别的系统装？koder learn 16 --os powershell（或者 cmd、mac、linux）能看那一套的写法。
 教练 › 安装版会在交互对话中后台检查新版，每六小时最多一次。等任务、排队输入和草稿都处理完，再自动安装、校验并恢复会话。换了使用许可就停下来，请你先读清楚。想自己掌握节奏？输入 /update auto off；重新开启用 /update auto on。更新也懂排队，不会抢你的键盘。
     koder update auto status
@@ -461,6 +469,6 @@ Koder CLI 完整教程（文字版）
     koder learn 数字
         回到某一课
 教练 › 下一步：先用 koder setup 配好模型，然后在你自己的项目里输入 koder。
-  提示 · 进入你的项目：cd ~/code/my-app，然后输入 koder。
+  提示 · 进入你的项目：cd D:\code\my-app，然后输入 koder。
   （小声）教练下班了。记住：Koder 负责提议，你负责拍板，锅……我们一起背。
   · 最后可以选择保留练习场，或者直接删除。

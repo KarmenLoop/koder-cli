@@ -1,6 +1,6 @@
 # Koder CLI 完整使用教程
 
-版本：**0.4.0-preview.27 Beta**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.4.0-preview.28 Beta**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -170,14 +170,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.4.0-preview.27-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.27-en-cmd.txt)
-- [koder-cli-0.4.0-preview.27-en-linux.txt](tutorials/koder-cli-0.4.0-preview.27-en-linux.txt)
-- [koder-cli-0.4.0-preview.27-en-mac.txt](tutorials/koder-cli-0.4.0-preview.27-en-mac.txt)
-- [koder-cli-0.4.0-preview.27-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.27-en-powershell.txt)
-- [koder-cli-0.4.0-preview.27-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.27-zh-cmd.txt)
-- [koder-cli-0.4.0-preview.27-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.27-zh-linux.txt)
-- [koder-cli-0.4.0-preview.27-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.27-zh-mac.txt)
-- [koder-cli-0.4.0-preview.27-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.27-zh-powershell.txt)
+- [koder-cli-0.4.0-preview.28-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.28-en-cmd.txt)
+- [koder-cli-0.4.0-preview.28-en-linux.txt](tutorials/koder-cli-0.4.0-preview.28-en-linux.txt)
+- [koder-cli-0.4.0-preview.28-en-mac.txt](tutorials/koder-cli-0.4.0-preview.28-en-mac.txt)
+- [koder-cli-0.4.0-preview.28-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.28-en-powershell.txt)
+- [koder-cli-0.4.0-preview.28-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.28-zh-cmd.txt)
+- [koder-cli-0.4.0-preview.28-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.28-zh-linux.txt)
+- [koder-cli-0.4.0-preview.28-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.28-zh-mac.txt)
+- [koder-cli-0.4.0-preview.28-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.28-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 
@@ -203,3 +203,8 @@ koder project check --kind website --json -w /path/to/site
 ```
 
 之后再运行当前授权范围内的真实测试。找到测试文件不代表测试通过，就像找到跑鞋不代表已经跑完马拉松。模型预设会按实际目录显示可选与暂不可用数量；账号能否使用还要单独检测。
+
+
+## Windows 操作与代码图谱
+
+参见[Windows-MCP 与 Code Graph 完整教程](MCP-INTEGRATIONS.zh.md)：当前窗口配置、平台/启动器诊断、按项目隔离、实际调用和停用。

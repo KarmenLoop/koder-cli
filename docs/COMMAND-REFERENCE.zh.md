@@ -1,6 +1,6 @@
 # 完整命令参考
 
-Beta 0.4.0-preview.27。互动教练 30 课。
+Beta 0.4.0-preview.28。互动教练 30 课。
 
 - `--stdin`: 将标准输入附加到显式提示词；没有提示词时自动读取
 - `--stdin-timeout <秒>`: 完整输入的等待上限，默认 5 秒，范围 0.01–3600 秒
@@ -290,11 +290,12 @@ koder apps  应用连接与状态
 koder mcp  添加、导入和验证 MCP
 
 用法
-  koder mcp list/add/import/login/tools/test/enable/disable/remove/resources/prompts/read/prompt [<id>] [<uri|name>] [--params <JSON>]
+  koder mcp presets|doctor <preset>|list/add/import/login/tools/test/enable/disable/remove/resources/prompts/read/prompt [<id>] [<uri|name>] [--params <JSON>]
 
-add/import 默认不启用，也不执行命令或安装依赖。enable 明确启动；test 只握手与发现，不调用写入工具。不需要配置模型或登录 Koder。Linux 连接宿主需要 secret-tool、DBus 与已解锁的 Secret Service。
+add/import 默认不启用，也不执行命令或安装依赖。Windows-MCP 只在原生 Windows 启动；CodeGraphContext 绑定当前工作区和独立运行配置。presets/doctor 不打开连接宿主；doctor 只检查启动程序存在，不证明 Python 或实际工具可用。enable 明确启动；test 只握手与发现，不调用写入工具。不需要配置模型或登录 Koder。Linux 连接宿主需要 secret-tool、DBus 与已解锁的 Secret Service。
 
 选项
+  --preset windows-mcp|codegraph [--runner installed|uvx] 配置可选版本化预设，默认不启动
   --command <program> --arg <value> 本地 stdio 服务，不自动安装
   --url <url>                   远程 Streamable HTTP
   --bearer-env <variable>       从环境变量读取凭据

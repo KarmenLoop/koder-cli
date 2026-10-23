@@ -4,7 +4,7 @@
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide describes **0.4.0-preview.27 Beta**. The official website provides the installer, package, checksums and tutorials. The complete [English guide](USER-GUIDE.en.md) and [Chinese guide](USER-GUIDE.zh.md) identify candidate-only features. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide describes **0.4.0-preview.28 Beta**. The official website provides the installer, package, checksums and tutorials. The complete [English guide](USER-GUIDE.en.md) and [Chinese guide](USER-GUIDE.zh.md) identify candidate-only features. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 

@@ -1,3 +1,22 @@
+# Koder CLI 0.4.0-preview.28 Beta
+
+This beta adds optional Windows-MCP and CodeGraphContext integration presets through the existing MCP host. Upstream Python executables and dependencies are not bundled.
+
+- mcp presets and mcp doctor inspect catalog/platform/launcher data without opening the connection host or running the upstream program. Launcher presence is not native acceptance.
+- The Windows-MCP target is 0.8.8, serve entry, native Windows 10/11 and Python 3.14+. Python stdio is UTF-8, upstream anonymized telemetry is off. No elevation, PowerShell-policy change or login task is added.
+- CodeGraphContext targets 0.6.13. The preset binds cwd/allowed roots to the workspace and separates runtime HOME and graph paths per project. Agent discovery, calls and protocol reads filter other known preset workspaces.
+- Agent guidance discovers actual graph schemas and checks indexed roots/freshness before relationship queries and source reads. Stale or unavailable graphs fall back to source search. Indexing, watching, arbitrary Cypher, deletion and desktop actions retain original approvals; graph results are not test evidence.
+- /setup provides current-terminal integration entries. Saving configuration keeps the server disabled. The optional pinned uvx runner can download its target package and Python only when explicitly started.
+- Explicit MCP add --enable or enable returns nonzero when connection fails instead of reporting configuration as successful connectivity.
+
+## Verification and limits
+
+The existing 12 benchmark prompts remain unchanged. Real MCP SDK tests use an owned stdio fixture to check discovery, approval, calls, durable results, same-turn continuation, workspace guards and failed-connection semantics. The fixture is not either upstream binary. This development Mac installs no Python dependencies and uses no paid model key. Native Windows UI actions, actual upstream binaries and a real graph database require separate acceptance. Existing unavailable model routes remain disabled. No new model capability score or competitor result is claimed.
+
+Installers and complete bilingual manuals: https://karmenloop.com/cli.html#install
+
+## Earlier release record
+
 # Koder CLI 0.4.0-preview.27 Beta
 
 This beta adds deterministic writing and project delivery checks to preview.26. It does not assign a new capability score or claim competitor performance.

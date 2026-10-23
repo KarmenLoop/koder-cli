@@ -1,4 +1,4 @@
-Koder CLI 0.4.0-preview.27 — Beta 测试版
+Koder CLI 0.4.0-preview.28 — Beta 测试版
 
 Koder CLI 完整教程（文字版）
 在终端里直接运行 koder learn，可以在练习场里边看边动手。

@@ -1,6 +1,6 @@
 # Writing and delivery checks
 
-Applies to **0.4.0-preview.27 Beta**. The original 12 benchmark prompts are preserved. These are deterministic delivery checks, not new blind-test scores.
+Applies to **0.4.0-preview.28 Beta**. The original 12 benchmark prompts are preserved. These are deterministic delivery checks, not new blind-test scores.
 
 ## Decision-maker copy
 

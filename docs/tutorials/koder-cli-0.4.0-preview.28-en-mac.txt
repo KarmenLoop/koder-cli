@@ -1,4 +1,4 @@
-Koder CLI 0.4.0-preview.27 — BETA
+Koder CLI 0.4.0-preview.28 — BETA
 
 Koder CLI tutorial (text edition)
 Run koder learn in a terminal to practise in a sandbox as you read.

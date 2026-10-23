@@ -1,6 +1,6 @@
 # Complete command reference
 
-Beta 0.4.0-preview.27. Interactive coach: 30 lessons.
+Beta 0.4.0-preview.28. Interactive coach: 30 lessons.
 
 - `--stdin`: Attach stdin to an explicit prompt; read it automatically when there is no prompt
 - `--stdin-timeout <秒>`: Complete-input deadline, default 5 seconds, range 0.01–3600 seconds
@@ -290,11 +290,12 @@ Global options: koder help.
 koder mcp  Add, import and verify MCP servers
 
 Usage
-  koder mcp list/add/import/login/tools/test/enable/disable/remove/resources/prompts/read/prompt [<id>] [<uri|name>] [--params <JSON>]
+  koder mcp presets|doctor <preset>|list/add/import/login/tools/test/enable/disable/remove/resources/prompts/read/prompt [<id>] [<uri|name>] [--params <JSON>]
 
-add/import leave servers disabled and never execute commands or install dependencies. enable explicitly starts them; test only connects and discovers tools. No model configuration or Koder login is required. The Linux connections host needs secret-tool, DBus and an unlocked Secret Service.
+add/import leave servers disabled and never execute commands or install dependencies. Windows-MCP needs native Windows. CodeGraphContext binds this workspace and a separate runtime profile. presets/doctor do not open the connections host; doctor only checks launcher presence, not Python or actual tool behavior. enable explicitly starts them; test only connects and discovers tools. No model configuration or Koder login is required. The Linux connections host needs secret-tool, DBus and an unlocked Secret Service.
 
 Options
+  --preset windows-mcp|codegraph [--runner installed|uvx] Configure an optional versioned preset without starting it
   --command <program> --arg <value> Local stdio server; does not install software
   --url <url>                   Remote Streamable HTTP
   --bearer-env <variable>       Read credentials from an environment variable

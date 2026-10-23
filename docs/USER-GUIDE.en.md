@@ -1,6 +1,6 @@
 # Koder CLI complete user guide
 
-Version: **0.4.0-preview.27 Beta**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.4.0-preview.28 Beta**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -170,14 +170,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.4.0-preview.27-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.27-en-cmd.txt)
-- [koder-cli-0.4.0-preview.27-en-linux.txt](tutorials/koder-cli-0.4.0-preview.27-en-linux.txt)
-- [koder-cli-0.4.0-preview.27-en-mac.txt](tutorials/koder-cli-0.4.0-preview.27-en-mac.txt)
-- [koder-cli-0.4.0-preview.27-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.27-en-powershell.txt)
-- [koder-cli-0.4.0-preview.27-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.27-zh-cmd.txt)
-- [koder-cli-0.4.0-preview.27-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.27-zh-linux.txt)
-- [koder-cli-0.4.0-preview.27-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.27-zh-mac.txt)
-- [koder-cli-0.4.0-preview.27-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.27-zh-powershell.txt)
+- [koder-cli-0.4.0-preview.28-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.28-en-cmd.txt)
+- [koder-cli-0.4.0-preview.28-en-linux.txt](tutorials/koder-cli-0.4.0-preview.28-en-linux.txt)
+- [koder-cli-0.4.0-preview.28-en-mac.txt](tutorials/koder-cli-0.4.0-preview.28-en-mac.txt)
+- [koder-cli-0.4.0-preview.28-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.28-en-powershell.txt)
+- [koder-cli-0.4.0-preview.28-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.28-zh-cmd.txt)
+- [koder-cli-0.4.0-preview.28-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.28-zh-linux.txt)
+- [koder-cli-0.4.0-preview.28-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.28-zh-mac.txt)
+- [koder-cli-0.4.0-preview.28-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.28-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
@@ -203,3 +203,8 @@ koder project check --kind website --json -w /path/to/site
 ```
 
 Use the existing authorized test command separately. A test file's presence does not prove it passed. Model presets now report catalog-derived selectable and temporarily unavailable counts; check your own account separately.
+
+
+## Windows interaction and code graph context
+
+Read [Windows-MCP and Code Graph setup](MCP-INTEGRATIONS.en.md) for current-terminal setup, platform/launcher checks, workspace binding, actual calls and disconnect behavior.

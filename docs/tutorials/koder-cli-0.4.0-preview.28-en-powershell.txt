@@ -1,8 +1,8 @@
-Koder CLI 0.4.0-preview.27 — BETA
+Koder CLI 0.4.0-preview.28 — BETA
 
 Koder CLI tutorial (text edition)
 Run koder learn in a terminal to practise in a sandbox as you read.
-This edition is written for Linux / Ubuntu terminal; for another system: koder learn --print --os powershell|cmd|mac|linux
+This edition is written for Windows PowerShell; for another system: koder learn --print --os powershell|cmd|mac|linux
 
 ━━ Lesson 1 of 30 · Welcome to Koder boot camp ━━
 Coach › Hi, I'm the Koder coach. Across 30 lessons we'll take Koder from first launch to graduation, inside a throwaway practice project.
@@ -10,14 +10,16 @@ Coach › Hi, I'm the Koder coach. Across 30 lessons we'll take Koder from first
   · Lesson 1 detects PowerShell, CMD, macOS or Linux and writes every command for it; you can switch with a number.
 Coach › No model setup and no cost: the one doing the work is me, the 'coach model', with a pre-written script and limited acting talent. The edits and commands are real though, through the same kernel Koder always uses.
   Tip · Controls: Enter = next; b = previous lesson; q = quit any time (progress is saved); a number = jump to that lesson.
-  Tip · Copy and paste: most Linux terminals use Ctrl+Shift+C and Ctrl+Shift+V; select text and press the middle button to paste. Plain Ctrl+C means cancel.
+  Tip · Copy and paste: in Windows Terminal select text, then Ctrl+C copies and Ctrl+V pastes (with nothing selected, Ctrl+C means cancel); in the classic console a right-click pastes.
   Tip · Commands hard to remember? Run koder setup (or /setup in a chat) any time and set language, model and colours with the arrow keys or the mouse.
   (whispering) Relax. There are no exams here, only Easter eggs.
 
 ━━ Lesson 2 of 30 · The banner and the prompt ━━
   · (The banner appears here: the KARMEN refractor on the left, KODER and KARMEN LOOP on the right.)
 Coach › On the left is the KARMEN refractor, the mascot from our website, drawn from the very same surface; on the right, KODER and KARMEN LOOP, then the current model, engine, folder and common commands. It isn't decoration. Fine, it's mostly decoration, but it is pretty.
-  Tip · GNOME Terminal, Konsole and Alacritty show true colour. Grey over SSH or tmux? Prefix COLORTERM=truecolor. Broken box lines? Switch to a monospaced font with block characters (DejaVu Sans Mono, say), or run KODER_ASCII=1 koder for plain characters.
+  Tip · Box lines or the refractor scrambled? A CJK font in the classic console draws block characters two columns wide. Koder switches to plain characters by itself, or set Banner style to plain in koder setup. Better still, use Windows Terminal: built into Windows 11, free from the Microsoft Store on Windows 10.
+    $env:KODER_ASCII = "1"; koder
+        plain-character banner for this window only
 Coach › Below the banner is the prompt, which tells you the current state:
     koder ›
         type a task here, e.g. fix the typos in README
@@ -36,18 +38,18 @@ Coach › Koder can't think on its own; it needs a model. The easiest way is the
     koder setup
         pick a provider and model with the arrow keys or mouse, paste the key; it can even open the key page
 Coach › Prefer commands? Put the key in an environment variable and save only its name:
-    echo 'export OPENAI_API_KEY=sk-your-key' >> ~/.bashrc
-        into bash's config (Ubuntu's default; ~/.zshrc for zsh); every new terminal sees it
-    export OPENAI_API_KEY=sk-your-key
+    setx OPENAI_API_KEY "sk-your-key"
+        saved to your account; new windows see it
+    $env:OPENAI_API_KEY = "sk-your-key"
         this window only
     koder model set --preset chatgpt --key-env OPENAI_API_KEY
         a preset; only the variable name is saved
     koder model set --preset local --model qwen3:8b
         local Ollama, no key
-    KODER_MODEL=… KODER_BASE_URL=… KODER_API_KEY=… koder review
+    $env:KODER_MODEL = "gpt-6.1-sol"; $env:KODER_BASE_URL = "https://api.openai.com/v1"; $env:KODER_API_KEY = "sk-…"; koder review
         environment variables, handy in CI
   Tip · koder model presets lists the available presets; koder model show prints the current setup with only the last four characters of the key.
-  (whispering) Careful typing keys into commands: your shell history (~/.zsh_history, ~/.bash_history) remembers better than your ex. Paste it in koder setup instead: only the last four show, and it skips shell history, but the key is stored in plaintext in local configuration. Environment-setting commands may enter history too; redact keys before sharing.
+  (whispering) Careful typing keys into commands: PowerShell saves every line in PSReadLine's history file and remembers better than your ex. Paste it in koder setup instead: only the last four show, and it skips shell history, but the key is stored in plaintext in local configuration. Environment-setting commands may enter history too; redact keys before sharing.
 Coach › Today the practice project uses the coach model, so this lesson is look-only. Set up a real one after you graduate.
   · You can run koder model presets right there to list them.
 
@@ -61,9 +63,10 @@ Coach › Practice asks at each step so you can see the controls. Normal use def
 
 ━━ Lesson 5 of 30 · Command approval: run tests, stop shady ones ━━
 Coach › After editing you'll want to run the tests. Running project code asks by default; low-risk checks such as node --version run automatically.
-  Tip · Rule of thumb: allow it if you understand it, it stays inside the project and it can be undone. rm -rf, curl … | sh, git push --force: verify the source and exact effects before allowing them. Reject unknown scripts. Check official installers, licenses and verification information too.
+  Tip · Rule of thumb: allow it if you understand it, it stays inside the project and it can be undone. Remove-Item -Recurse -Force, rd /s /q, del /s /q, irm … | iex, git push --force: verify the source and exact effects before allowing them. Reject unknown scripts. Check official installers, licenses and verification information too.
+  Tip · On Windows, commands Koder runs for you go through CMD, not PowerShell. For PowerShell syntax, wrap it as powershell -NoProfile -Command "…".
   (whispering) Approve commands with the same care you give a food-delivery bill.
-  · Hands-on: the coach asks to run node test.mjs (allow it), then a curl … | sh (reject it; even if you slip, the coach blocks it).
+  · Hands-on: the coach asks to run node test.mjs (allow it), then an irm … | iex (reject it; even if you slip, the coach blocks it).
 Coach › Command output goes back to the model as is, so it sees the test results and decides what to do next.
 
 ━━ Lesson 6 of 30 · Choices: Koder asks you too ━━
@@ -90,6 +93,7 @@ Coach › Lines starting with / are slash commands. They control Koder itself an
   Try it · Type /mode plan to switch to plan mode  →  /mode plan
   Try it · Now type /yes to turn on auto-approve  →  /yes
   Try it · Good. Type /yes again to turn it off  →  /yes
+  Tip · Used to Ctrl+Z on Windows? It does nothing in Koder; use /exit or Ctrl+D.
 Coach › Koder is running a command you regret. Fastest fix?
     1. Press Ctrl+C to cancel the turn
     2. Unplug the network cable
@@ -102,12 +106,13 @@ Coach › Just want answers without anything being touched? Use ask. It can list
 Coach › In scripts, Koder behaves like any other command-line tool:
     git diff | koder ask "summarise this change"
         piped input is attached as extra material
-    cat error.log | koder ask "what does this error mean"
-        feed it a file
-    koder run --yes --json "fix the lint errors" | jq -r .type
-        --json prints one event per line for jq (sudo apt install jq)
-    echo $?
+    Get-Content error.log | koder ask "what does this error mean"
+        feed it a file (PowerShell's cat is this)
+    koder run --yes --json "fix the lint errors" | ForEach-Object { ($_ | ConvertFrom-Json).type }
+        --json prints one event per line; PowerShell's ConvertFrom-Json parses it
+    $LASTEXITCODE
         the exit code of the last command
+  Tip · Windows PowerShell 5.1 turns non-ASCII text in pipes into question marks. Run $OutputEncoding = [Text.UTF8Encoding]::new() once; PowerShell 7 doesn't have this problem.
 Coach › Exit codes: 0 done; 1 cancelled or a check failed; 2 a usage or model configuration problem.
   (whispering) Exit code 2 means 'check your setup', not 'it didn't try hard enough'.
 
@@ -153,7 +158,7 @@ Coach › Put review, tests and fixes into one flow file and run the same thing 
         run read-only steps side by side (shell, ask, review)
     approve: auto
         auto-approve, for CI
-  Tip · Shell steps run through sh here; on Windows the same flow goes through CMD. For a flow that runs anywhere, stick to node, npm and git, like the node -e celebration above.
+  Tip · On Windows, shell steps run through CMD (not PowerShell); wrap PowerShell syntax as powershell -NoProfile -Command "…". For a flow that runs anywhere, stick to node, npm and git, like the node -e celebration above.
 Coach › koder ci init writes a GitHub Actions workflow: every PR gets reviewed and commented on; comment /koder fix and it fixes and pushes back. Only repository members count; strangers can shout all they like.
 
 ━━ Lesson 12 of 30 · MoA: several models think together ━━
@@ -186,7 +191,7 @@ Coach › Koder connects to Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Di
     koder gateway pair K7Q2MX
         approve a new user
   Tip · Feishu, WeCom, DingTalk, Slack and Discord use long connections and need no public URL; the WhatsApp Cloud API needs the local port exposed through a tunnel.
-  Tip · After koder gateway start --background the bots survive closing the terminal; for start at boot, put the command in a systemd user service or a crontab @reboot line.
+  Tip · koder gateway start --background runs quietly with no window; sleep, sign-out or a restart stops it, so run it again after logging in.
 Coach › A stranger messages your bot on WeChat. What happens?
     1. They get a pairing code; only after you run koder gateway pair can they use it
     2. The bot starts editing code for them
@@ -198,10 +203,10 @@ Coach › A stranger messages your bot on WeChat. What happens?
 Coach › Prefer your editor? Zed, Neovim and Emacs launch koder acp over ACP to chat, see diffs and approve edits. Zed needs just this:
   · (The koder editor zed snippet is shown here.)
     koder editor nvim
-        Neovim (CodeCompanion), config at ~/.config/nvim/lua/plugins/codecompanion.lua
+        Neovim (CodeCompanion), config at %LOCALAPPDATA%\nvim\lua\plugins\codecompanion.lua
     koder editor emacs
-        Emacs (agent-shell), config at ~/.emacs.d/init.el
-  Tip · Zed's settings live in ~/.config/zed/settings.json. Too lazy to copy? The Editors item in koder setup copies it for you.
+        Emacs (agent-shell), config at %APPDATA%\.emacs.d\init.el
+  Tip · On Windows editors only add .exe when starting programs, so the snippet says koder.cmd; keep it. Zed's settings live in %APPDATA%\Zed\settings.json. Too lazy to copy? The Editors item in koder setup copies it for you.
   (whispering) Vim users, relax: quitting Koder is far easier than quitting Vim. Ctrl+D.
 
 ━━ Lesson 15 of 30 · Scan your projects, decide what's next ━━
@@ -226,11 +231,13 @@ Coach › Want Koder on another machine? Read the license and consent guide, the
     https://github.com/KarmenLoop/koder-cli/blob/main/ACCEPTANCE.md
     https://github.com/KarmenLoop/koder-cli/blob/main/LEGAL-NOTICE.md
         Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
-        A normal install asks you to type accept and press Enter. decline, an empty Enter, or Ctrl+C cancels before download.
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | bash
+        A normal install asks you to type accept and press Enter. decline or Ctrl+C cancels; an empty Enter asks again without installing. Type the full word accept, then press Enter.
+    $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
         Unattended deployment after you have read and agreed (do not prefill this for someone else; KODER_EULA_ACCEPT=1 accepts only the software license):
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
-        Linux / WSL: follow runtime detection from the installer, then reopen your terminal.
+    $env:KODER_EULA_ACCEPT = "1"
+    $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
+    Remove-Item Env:KODER_EULA_ACCEPT
+        Windows 10 / 11: reopen Command Prompt or PowerShell; this window does not refresh PATH.
     koder version
     koder setup
     koder learn
@@ -241,7 +248,8 @@ Coach › Want Koder on another machine? Read the license and consent guide, the
         To move to preview.7, run the normal install command above and type accept after reading. The preview.6 updater stops before downloading the installer when the license checksum changes, and KODER_EULA_ACCEPT does not bypass that check. Configuration, memory and bindings are kept
     koder uninstall
         Remove the app, keep config; choose --purge separately to delete config
-  Tip · No sudo; everything goes in your home folder. Older systems such as Ubuntu 18.04 (glibc below 2.28) and musl systems such as Alpine get the Node.js unofficial build automatically; 32-bit Raspberry Pi (armv7l) works too. koder not found afterwards? Run source ~/.bashrc or open a new terminal.
+  Tip · It lives in %LOCALAPPDATA%\koder-cli with settings in %USERPROFILE%\.koder-cli; no administrator rights. If the execution policy complains, use the CMD line (it passes -ExecutionPolicy Bypass).
+Coach › Windows XP, 7 and 8 can't install it: Node.js 22 needs Windows 10, and XP can't even speak the TLS 1.2 that model APIs require. On an old PC, SSH into another machine running Koder with a tool like PuTTY, or send tasks from your phone through the chat gateway.
   Tip · Installing on another system? koder learn 16 --os powershell (or cmd, mac, linux) shows that edition.
 Coach › Installed copies check for updates in the background during interactive chats, at most once every six hours. Installation waits until tasks, queued input and drafts are clear, then verifies the new entry and resumes the conversation. A changed license requires your attention first. Prefer your own timing? Use /update auto off, or /update auto on to re-enable it. Even updates can wait their turn.
     koder update auto status
@@ -461,6 +469,6 @@ Coach › Congratulations, you've graduated! A cheat sheet for the road:
     koder learn number
         revisit a lesson
 Coach › Next: set up a model with koder setup, then type koder in your own project.
-  Tip · Go to your project: cd ~/code/my-app, then type koder.
+  Tip · Go to your project: cd D:\code\my-app, then type koder.
   (whispering) The coach is off duty. Remember: Koder proposes, you decide, and the blame… we share.
   · At the end you can keep the practice project or delete it.
