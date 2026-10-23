@@ -1,5 +1,5 @@
 """Public-package acceptance only. No private source or model credentials."""
-import argparse,asyncio,base64,hashlib,json,os,platform,re,subprocess,tarfile,threading,time,urllib.request,uuid
+import argparse,asyncio,base64,hashlib,json,os,platform,re,subprocess,sys,tarfile,threading,time,urllib.request,uuid
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
 from mcp import ClientSession,StdioServerParameters
@@ -17,7 +17,10 @@ async def check():
     result=await call('PowerShell',{'command':cmd,'timeout':10});assert nonce in result;assert artifact.read_text(encoding='utf-8')==nonce;report['actualFileReadback']=True
     coords=project/'ui-coordinates.json';saved=project/'ui-observed.txt';title='KoderOwned_'+nonce
     literal=lambda p:str(p).replace("'","''")
-    source="""Add-Type -AssemblyName System.Windows.Forms
+    source="""$ErrorActionPreference='Stop'
+[Console]::Error.WriteLine('OWNED_UI_ASSEMBLY_START')
+Add-Type -AssemblyName System.Windows.Forms
+[Console]::Error.WriteLine('OWNED_UI_ASSEMBLY_READY')
 Add-Type -AssemblyName System.Drawing
 $form=New-Object Windows.Forms.Form
 $form.Text='TITLE'; $form.Width=500; $form.Height=220; $form.TopMost=$true
@@ -30,7 +33,7 @@ $form.add_Shown({$form.Activate();$box.Focus();$pt=$box.PointToScreen([Drawing.P
 [Windows.Forms.Application]::Run($form)
 """.replace('TITLE',title).replace('SAVED',literal(saved)).replace('COORDS',literal(coords))
     (e/'owned-ui.ps1').write_text(source,encoding='utf-8-sig')
-    ui=subprocess.Popen(['powershell','-NoProfile','-STA','-WindowStyle','Hidden','-EncodedCommand',base64.b64encode(source.encode('utf-16-le')).decode()],stdout=subprocess.DEVNULL,stderr=subprocess.PIPE)
+    ui_log=(e/'owned-ui.stderr').open('wb');ui=subprocess.Popen(['powershell','-NoProfile','-STA','-WindowStyle','Hidden','-EncodedCommand',base64.b64encode(source.encode('utf-16-le')).decode()],stdout=subprocess.DEVNULL,stderr=ui_log)
     try:
      end=time.monotonic()+8
      while not coords.exists():
@@ -48,7 +51,9 @@ $form.add_Shown({$form.Activate();$box.Focus();$pt=$box.PointToScreen([Drawing.P
      try:ui.wait(timeout=5)
      except subprocess.TimeoutExpired:ui.terminate();ui.wait(timeout=3)
      report['ownedUiExitCode']=ui.returncode
-     assert ui.returncode==0,'Owned UI did not close normally'
+     ui_log.close()
+     if ui.returncode!=0:report['ownedUiCleanupFailure']=True
+     if sys.exc_info()[0] is None:assert ui.returncode==0,'Owned UI did not close normally'
 
 def agent_check(cli,server_name):
  target=project/'agent-tool-result.txt';marker='AGENT_'+nonce;trace=[]
@@ -71,7 +76,10 @@ def agent_check(cli,server_name):
  finally:model.shutdown();model.server_close();thread.join(timeout=3)
 async def main():
  try:
-  await check()
+  native_failure=None
+  try:await check()
+  except BaseException as error:
+   native_failure=error;report['nativeError']=repr(error)
   url='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.28/koder-cli-0.4.0-preview.28.tgz';tar=r/'koder.tgz'
   with urllib.request.urlopen(url,timeout=30) as response:tar.write_bytes(response.read())
   assert hashlib.sha256(tar.read_bytes()).hexdigest()=='309d6c159ca432538ff8b90afd4e77a01cf28d4b38aba9eb4f8e535aeb9e8672'
@@ -81,6 +89,7 @@ async def main():
    args=['node',str(cli),*action];v=subprocess.run(args,capture_output=True,text=True,encoding='utf-8',env=env,cwd=project,timeout=60);steps.append({'argv':args,'exitCode':v.returncode,'stdout':v.stdout,'stderr':v.stderr});(e/'koder-steps.json').write_text(json.dumps(steps,indent=2),encoding='utf-8');assert v.returncode==0,steps[-1]
   report['publishedKoderConnection']=True
   agent_check(cli,'windows')
+  if native_failure is not None:raise native_failure
   report['passed']=True
  finally:
   (e/'report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
