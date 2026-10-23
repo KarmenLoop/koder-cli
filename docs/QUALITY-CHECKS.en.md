@@ -1,6 +1,6 @@
 # Writing and delivery checks
 
-Current beta: **0.4.0-preview.29**. The additions below retain prior contracts and do not establish a new writing score. The original 12 benchmark prompts are preserved. These are deterministic delivery checks, not new blind-test scores.
+Current beta: **0.4.0-preview.30**. The additions below retain prior contracts and do not establish a new writing score. The original 12 benchmark prompts are preserved. These are deterministic delivery checks, not new blind-test scores.
 
 ## Decision-maker copy
 

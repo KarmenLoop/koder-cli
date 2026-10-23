@@ -1,3 +1,32 @@
+# Koder CLI 0.4.0-preview.30 Beta
+
+This is a focused multiwindow hotfix on the complete preview.29 runtime. Existing models, BYOK settings, permissions, Skills, project history, tutorials and recovery remain available. New writing-price and inline-script research remains in a separate unpublished candidate.
+
+## Fixed
+
+- A new default task now checks both lifetime ownership and the older per-turn lock before reading history. If an older Koder process holds only the per-turn lock, the new task receives an independent session immediately. An explicitly named busy session remains protected.
+- A CLI worker that loses its supervisor connection cancels its own pending request, closes its input wait and releases its own session. Disconnects during startup and restart acknowledgement no longer leave a 15-second waiter behind. Normal updates retain their existing restart and recovery flow.
+- Ownership records include a process-instance identifier. A record from an earlier Koder incarnation with the current recycled PID no longer blocks the current process. Legacy live owners and other unverifiable processes remain protected; records are not deleted merely because they are old.
+- A busy notice describes unavailable ownership rather than asserting that another visible window exists. Automatic isolation prints the new session name and its resume command.
+
+## Use two or three independent tasks
+
+Open separate terminal windows. Running `koder` in each window automatically separates occupied default sessions. To choose stable names, use `koder chat --session website`, `koder chat --session slides` and `koder chat --session tests` in separate windows. Resume with the displayed session name. Same-project files remain shared; use separate project directories when outputs must be independent. Do not delete the memory directory or terminate unrelated Node processes to clear a notice.
+
+## Update
+
+Run `koder update --check`, then `koder update`, and verify `koder --version`. Close a finished older window normally. Updates retain settings and stored history. All eight printable tutorials and the complete English and Chinese guides describe preview.30.
+
+## Evidence and limits
+
+The original public preview.29 archive reproduced the legacy-lock and recycled-current-PID defects. The focused candidate passed 35 local regressions. Independent review found no required fixes in the three changed runtime components. Windows subprocess checks use synthetic loopback responses, not paid provider accounts. Exact packaged checks and native results are recorded separately in the publication receipt.
+
+PowerShell 5.1-only cold startup, Windows 10 and Windows 11 x64 client coverage, unobstructed GUI focus/input, ConPTY/IME/UAC and live account acceptance remain incomplete. Windows Server is not a Windows 10/11 client. Earlier failures remain recorded. This Beta does not claim full Windows certification, a new writing score, a full third-party reverse-tool replacement or validation of the optional external engine. MiMo, Kimi, DeepSeek, Alibaba Token Plan and Volcano routes remain unavailable as previously documented.
+
+Read [the multiwindow guide](docs/MULTI-WINDOW.md), [installation](docs/INSTALLATION.md), [complete English guide](docs/USER-GUIDE.en.md) or [Chinese guide](docs/USER-GUIDE.zh.md).
+
+## Historical preview.29 and earlier records
+
 # Koder CLI 0.4.0-preview.29 Beta
 
 This beta combines the retained preview.28 runtime with the two preview.29 candidates. It is an incremental release; existing provider routes, BYOK settings, permissions, Skills, project history, tutorials and recovery remain available. Beta publication does not close the platform and account checks listed below.
@@ -28,6 +57,18 @@ Use [installation](docs/INSTALLATION.md), the [complete English guide](docs/USER
 The release includes eight complete, 30-lesson printable editions for PowerShell, CMD, macOS and Linux in English and Chinese. `koder learn` runs the scripted local tutorial without paid model calls. Read [provider and input changes](docs/PROVIDER-WRITING-INPUT.md), [multiple windows](docs/MULTI-WINDOW.md), [Harness increment](docs/HARNESS-INCREMENTAL.md), [reverse analysis](docs/AUTONOMOUS-REVERSE.md) and [Windows evidence](docs/WINDOWS-COLD-CANDIDATE.md) for limits and examples.
 
 ## Historical records retained below
+
+# Local candidate 0.4.0-preview.29-candidate.2
+
+Unpublished incremental candidate. This update addresses MiniMax content-review error reporting, writing source and predecessor evidence, an editable slash-input picker, and concurrent native Koder session ownership. Prior Harness², reverse, Skills, providers, permissions, history isolation, tutorials and platform work are retained. Synthetic regression and package checks are distinct from paid-model writing scores and native Windows acceptance. No writing-score improvement or formal release is claimed.
+
+## Retained candidate record
+
+# Local candidate 0.4.0-preview.29-candidate.1
+
+Unpublished. The complete previous source and release record are retained below. New candidate scope: additive Harness²-style contrast metadata and artifact probing, original-Core-controlled skill adoption, scoped crawler/static reverse Agent tools, and installed-system-PowerShell-7 credential startup. No new fixed provider, background scheduler or permission authority. Paid-model evaluation and complete Windows client acceptance are not claimed. See docs/HARNESS-INCREMENTAL.md, docs/AUTONOMOUS-REVERSE.md and docs/WINDOWS-COLD-CANDIDATE.md.
+
+## Retained published record
 
 # Koder CLI 0.4.0-preview.28 Beta
 

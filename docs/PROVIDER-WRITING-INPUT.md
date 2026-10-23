@@ -1,6 +1,6 @@
 # Provider diagnostics, writing evidence, and slash input
 
-This guide describes 0.4.0-preview.29 Beta. It includes the retained candidates and earlier functionality. No real-model writing score is claimed.
+This guide describes 0.4.0-preview.30 Beta. It includes the retained candidates and earlier functionality. No real-model writing score is claimed.
 
 ## MiniMax content review
 

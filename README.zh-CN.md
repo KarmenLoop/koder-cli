@@ -2,9 +2,9 @@
 
 [English](README.md) | 简体中文
 
-Koder CLI **0.4.0-preview.29 Beta** 是自接模型 API 的终端编程工具。个人非商业本地使用免费，不要求会员；商业使用和组织部署需另行书面授权，个人许可不允许专有代码二次开发或修改。模型提供方可能按请求收费。
+Koder CLI **0.4.0-preview.30 Beta** 是自接模型 API 的终端编程工具。个人非商业本地使用免费，不要求会员；商业使用和组织部署需另行书面授权，个人许可不允许专有代码二次开发或修改。模型提供方可能按请求收费。
 
-[下载当前版](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.29) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [中文命令参考](docs/COMMAND-REFERENCE.zh.md)
+[下载当前版](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.30) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [中文命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 本版包含按工作区隔离的历史、独立项目目录、有界 API 诊断、非交互补问与源码披露检查。KARMEN LOOP 内核负责计划、权限、工具执行与结果保存，新运行时源码按 [EULA](EULA.md) 保持专有。第三方组件保留自己的许可与[归属](OPEN_SOURCE_CREDITS.md)。
 

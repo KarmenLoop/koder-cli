@@ -1,10 +1,10 @@
 {
-  "version": "0.4.0-preview.29",
-  "file": "koder-cli-0.4.0-preview.29.tgz",
-  "sha256": "107aca33641987458df2c41251824cfabbfb4927e65f7e7c4b4dbd3cd723b766",
-  "size": 35640565,
+  "version": "0.4.0-preview.30",
+  "file": "koder-cli-0.4.0-preview.30.tgz",
+  "sha256": "cb9dabbcd86ac2cd9165142b1982d047bfa5b7883485cf14d4e05250d6056c72",
+  "size": 35768941,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-23T10:46:09.777Z",
+  "builtAt": "2026-10-23T14:47:45.369Z",
   "preview": true,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,33 +14,44 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "3a92333daf9c4a2af1a63b52803906d81760df375f456b47ea4665730d91226e"
+      "sha256": "ed13f0caf56d1c371ceca4c49d9699bc8a5c4855e008f7808e657fa2cfe973a3"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "c1f3c6a33a87bf11d380791e3336daecd44cd0592e4dfb883ad255e7603ffcc0"
+      "sha256": "4ff804e17e51770776d7fd3eb49161c47f1db6bf3c787f05f468dfa1482031ea"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "6498e19720059c30a50ba6bb0f03091b8e908057cb69c750a7ebe152a12b04a7"
+      "sha256": "36a2df76d3e078c7a7ff6ec9c99084220cd8b7eee43f94ccd3164372b5530d09"
     }
   },
   "channel": "beta",
   "guides": "https://karmenloop.com/cli-guide/",
-  "sourceBaseline": "0.4.0-preview.29-candidate.2",
+  "sourceBaseline": "0.4.0-preview.29",
+  "changes": [
+    "Legacy turn-lock contention forks default tasks before history loading",
+    "Supervisor disconnect cancels its worker and releases session ownership",
+    "Process instance protects against recycled-current-PID false occupancy"
+  ],
   "sourceRegression": {
-    "cliPass": 343,
-    "kernelPass": 34,
+    "cliPass": 353,
     "fail": 0,
     "cancelled": 0,
     "skipped": 0
   },
-  "packageAcceptance": {
-    "macTaskLocalInstall": true,
-    "nativeMultiProcessIsolation": true,
-    "fixtureModelAndAgentPaths": true
+  "nativeEvidence": {
+    "windowsServerRun": "https://github.com/KarmenLoop/koder-cli/actions/runs/39971374806",
+    "windowsServerScope": "34 component regressions and 9 real entry checks, synthetic loopback model; not a Windows 10/11 client",
+    "windows11ARM": "Multiwindow entry passes; grouped update suite exceeded a 60-second file deadline; per-case rerun tracked separately"
   },
-  "nativeWindows": "NOT_RUN for this build; PowerShell 5.1 cold startup and native Windows 10/11 GUI/install/update remain unverified",
-  "realProviderAccounts": "NOT_RUN for this build; fixture checks do not certify provider accounts",
-  "capabilityBenchmark": "NOT_RUN; no new writing score claim"
+  "nativeWindowsLimits": [
+    "PowerShell 5.1-only cold startup unresolved",
+    "Windows 10/11 x64 full installer and GUI/ConPTY/IME/UAC coverage incomplete"
+  ],
+  "realProviderAccounts": "NOT_RUN",
+  "newWritingScore": "NOT_RUN",
+  "unpublishedIncrements": [
+    "Official numeric pricing evidence",
+    "Inline JavaScript reverse extension"
+  ]
 }

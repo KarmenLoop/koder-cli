@@ -1,6 +1,6 @@
 # Independent Koder terminal tasks
 
-This guide covers the native Koder engine in 0.4.0-preview.29 Beta. Open two or three terminal windows normally. Each active task needs a distinct session identity; no second scheduler, memory database or permission authority is introduced.
+This guide covers the native Koder engine in 0.4.0-preview.30 Beta. Open two or three terminal windows normally. Each active task needs a distinct session identity; no second scheduler, memory database or permission authority is introduced.
 
 ## Start independent tasks
 
@@ -24,6 +24,12 @@ Each native task has its own conversation ID, conversation history, task-memory 
 
 Long-context projection reserves its history disclaimer separately and prioritizes the first task and explicit constraints within the existing hard budget. Saved history is unchanged, and quoted history never becomes a new approval. This reduces lost task markers without increasing the configured model window.
 
+## Recovery in preview.30
+
+New default tasks check legacy turn-only owners before loading history. A disconnected supervisor cancels its own worker and releases its lease. A process-instance identifier distinguishes the current process from an earlier incarnation that used the same PID. A different live or unverifiable owner is preserved; no age-based force unlock is added. Explicit `--session` contention still returns `MEMORY_BUSY`.
+
+If a notice persists, start the independent task with another name. Finish an older active task in its own window and close it normally. Keep the reported session name to resume it. Do not delete memory or kill unrelated processes.
+
 ## Shared boundaries
 
 Session isolation does not create separate copies of project files. Two tasks that edit the same path still need normal file checks, permissions and coordination. Choose separate project folders when the artifacts must be independent. Explicitly saved shared notes, account settings, configured providers and deliberately shared preferences retain their existing scope; task history is not automatically promoted into a global note.
@@ -37,3 +43,5 @@ The optional external engine is outside this concurrency acceptance. Native Kode
 每个任务的对话、任务记忆、审批和取消各自处理；`/new` 清理当前会话。这里隔离的是任务上下文，同一项目文件仍是共享文件。需要完全分开产物时，请分别使用项目文件夹。原有明确保存的共享记忆和全局设置继续保持原用途。
 
 本版按 Beta 发布；Windows 实机多窗口与完整安装更新验收仍待补齐。
+
+preview.30 修复：旧版本只持有回合锁时，新默认任务也会先分配独立会话；监督进程断开时，自己的工作进程会取消请求并释放占用。提示不再断言一定存在另一个可见窗口。明确指定的忙碌会话仍受保护。请保留会话名以便恢复，不要删除记忆目录。

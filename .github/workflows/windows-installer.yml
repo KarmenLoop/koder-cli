@@ -5,7 +5,7 @@ on:
       release:
         description: Draft or published release tag
         required: true
-        default: cli-0.4.0-preview.29
+        default: cli-0.4.0-preview.30
       phase:
         type: choice
         options: [published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, animation-repeat, windows-diagnosis, windows-app-diagnosis, animation-diagnosis, memory-public]

@@ -1,6 +1,6 @@
 # Windows CLI verification
 
-Current CLI beta: **0.4.0-preview.29**. This page scopes the CLI checks for the test team. It does not define a whole-product QA program or decide when the team ships a beta.
+Current CLI beta: **0.4.0-preview.30**. This page scopes the CLI checks for the test team. It does not define a whole-product QA program or decide when the team ships a beta.
 
 ## What the local evidence establishes
 

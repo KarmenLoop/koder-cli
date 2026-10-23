@@ -1,8 +1,8 @@
-Current release: **0.4.0-preview.29 Beta**. Start with [release changes](RELEASE-preview.29.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current release: **0.4.0-preview.30 Beta**. Start with [release changes](RELEASE-preview.30.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 # Koder CLI complete user guide
 
-Version: **0.4.0-preview.29 Beta**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.4.0-preview.30 Beta**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -172,14 +172,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.4.0-preview.29-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.29-en-cmd.txt)
-- [koder-cli-0.4.0-preview.29-en-linux.txt](tutorials/koder-cli-0.4.0-preview.29-en-linux.txt)
-- [koder-cli-0.4.0-preview.29-en-mac.txt](tutorials/koder-cli-0.4.0-preview.29-en-mac.txt)
-- [koder-cli-0.4.0-preview.29-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.29-en-powershell.txt)
-- [koder-cli-0.4.0-preview.29-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.29-zh-cmd.txt)
-- [koder-cli-0.4.0-preview.29-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.29-zh-linux.txt)
-- [koder-cli-0.4.0-preview.29-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.29-zh-mac.txt)
-- [koder-cli-0.4.0-preview.29-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.29-zh-powershell.txt)
+- [koder-cli-0.4.0-preview.30-en-cmd.txt](tutorials/koder-cli-0.4.0-preview.30-en-cmd.txt)
+- [koder-cli-0.4.0-preview.30-en-linux.txt](tutorials/koder-cli-0.4.0-preview.30-en-linux.txt)
+- [koder-cli-0.4.0-preview.30-en-mac.txt](tutorials/koder-cli-0.4.0-preview.30-en-mac.txt)
+- [koder-cli-0.4.0-preview.30-en-powershell.txt](tutorials/koder-cli-0.4.0-preview.30-en-powershell.txt)
+- [koder-cli-0.4.0-preview.30-zh-cmd.txt](tutorials/koder-cli-0.4.0-preview.30-zh-cmd.txt)
+- [koder-cli-0.4.0-preview.30-zh-linux.txt](tutorials/koder-cli-0.4.0-preview.30-zh-linux.txt)
+- [koder-cli-0.4.0-preview.30-zh-mac.txt](tutorials/koder-cli-0.4.0-preview.30-zh-mac.txt)
+- [koder-cli-0.4.0-preview.30-zh-powershell.txt](tutorials/koder-cli-0.4.0-preview.30-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
