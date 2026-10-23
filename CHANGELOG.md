@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1 — 2026-10-24
+
+Task-specific coding and writing methods, contextual revisions, release-source repairs, current-task delivery checks and Windows credential handling. Windows CMD/PowerShell and macOS/Linux installers use matching release and update metadata. See [release notes](docs/RELEASE-0.4.1.md) for the retained test limits.
+
 ## 0.4.0 — 2026-10-24
 
 Formal distribution of the published preview.30 baseline. Windows CMD and PowerShell and macOS shell installers now use matching stable version, consent and update metadata. All 30 lessons and multiwindow fixes remain. See [release notes](docs/RELEASE-0.4.0.md) for acceptance scope and remaining native-client limitations.

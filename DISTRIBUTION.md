@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed release is **0.4.0**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.4.1**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -23,3 +23,7 @@ Version 0.4.0 is a formal release of the preview.30 baseline. The release channe
 The [complete guide](docs/USER-GUIDE.en.md), [Chinese guide](docs/USER-GUIDE.zh.md) and command references distinguish candidate behavior from older installed releases. Printable lessons use the same release metadata.
 
 Projects, credentials, private conversations, browser profiles, mail and execution authority are user data and are not release inputs. New project folders use Koder Projects while private configuration remains in the user profile. Distribution tests use owned synthetic inputs; no real key is needed to print the tutorials.
+
+## Version 0.4.1
+
+Published by explicit user authorization with recorded platform and real-account limits. Candidate results remain attributed to their exact archives. The final release assets, public download checks and isolated installer/update results have separate receipts.

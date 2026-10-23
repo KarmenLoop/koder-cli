@@ -1,10 +1,12 @@
 # Koder CLI
 
+Koder CLI 0.4.1 is available for Windows and macOS. This update improves task-specific coding and writing guidance, contextual revisions, source attribution, current-task delivery checks and Windows credential handling. Read the [release notes](docs/RELEASE-0.4.1.md) for changes and verification limits.
+
 English | [简体中文](docs/USER-GUIDE.zh.md)
 
-Koder CLI **0.4.0** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
+Koder CLI **0.4.1** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
 
-**0.4.0** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.1** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.1) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
@@ -12,9 +14,9 @@ The KARMEN LOOP kernel connects task planning, permission checks, tool execution
 
 The public GitHub repository retains the historical GPL **0.3.1** package and source tree. That historical tree does not build this proprietary release installer. Use the versioned release and official feed for that build; see [source and distribution status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md).
 
-## Formal release 0.4.0
+## Formal release 0.4.1
 
-Windows CMD and PowerShell and macOS/Linux installers are published together. Release, update and license records identify the stable channel consistently. The runtime retains the preview.30 multiwindow fixes. Read [0.4.0 release notes](docs/RELEASE-0.4.0.md).
+Windows CMD and PowerShell and macOS/Linux installers are published together. Release, update and license records identify the stable channel consistently. The runtime retains the preview.30 multiwindow fixes. Read [0.4.1 release notes](docs/RELEASE-0.4.0.md).
 
 ## Retained preview.30 changes
 
@@ -24,21 +26,21 @@ This hotfix separates new default tasks from older turn-only locks, releases a w
 
 MiniMax content-review failures now have their own diagnosis. Interactive `/` choices fill editable drafts, native Koder terminal windows keep separate task sessions, and long conversations retain short original constraints within the configured budget. Writing source records, Harness²-style artifact comparisons and scoped crawling with first-party static reverse analysis are included. Read [the complete release notes](docs/RELEASE-preview.29.md) and [multi-window guide](docs/MULTI-WINDOW.md).
 
-This is the formal 0.4.0 distribution. PowerShell 5.1-only cold startup, native Windows GUI focus/input and complete Windows client install/update acceptance remain open. The unavailable provider routes below remain disabled. Local fixtures and macOS subprocess tests do not certify Windows or a provider account.
+This is the formal 0.4.1 distribution. PowerShell 5.1-only cold startup, native Windows GUI focus/input and complete Windows client install/update acceptance remain open. The unavailable provider routes below remain disabled. Local fixtures and macOS subprocess tests do not certify Windows or a provider account.
 
 ## Windows and code graph integrations
 
 Optional presets configure Windows-MCP 0.8.8 and CodeGraphContext 0.6.13 through the existing MCP host. Configuration stays disabled until an explicit test or enable. Graph settings and discovery are workspace-bound; actual tool calls retain the original approvals. External Python programs are installed separately. Read [the integration guide](docs/MCP-INTEGRATIONS.en.md) for requirements and unverified native limits.
 
-The retained preview.28 actual-call checks ran on a disposable Windows Server 2025 runner and an isolated Apple-silicon Mac. See [the dated acceptance report](docs/MCP-ACTUAL-ACCEPTANCE.en.md) for the successful tool/Agent paths, the Mac OpenSSL 3 prerequisite and unverified combinations. Agent dispatch was scripted; no real-model planning score is claimed. Those observations describe the earlier package; they do not certify every current release client path. Default permission scopes are retained.
+The retained preview.28 actual-call checks ran on a disposable Windows Server 2025 runner and an isolated Apple-silicon Mac. See [the dated acceptance report](docs/MCP-ACTUAL-ACCEPTANCE.en.md) for the successful tool/Agent paths, the Mac OpenSSL 3 prerequisite and unverified combinations. Agent dispatch was scripted; no real-model planning score is claimed. Those observations describe the earlier package; they do not certify every preview.29 client path. Default permission scopes are retained.
 
 ## Complete guides
 
-Use the [complete English guide](docs/USER-GUIDE.en.md), [Chinese guide](docs/USER-GUIDE.zh.md), and generated [command reference](docs/COMMAND-REFERENCE.en.md). They describe the current release and label earlier candidate records separately. New projects use Koder Projects; explicit stdin attachment, project-scoped task context, short model diagnostics and on-demand skills are documented with their limits.
+Use the [complete English guide](docs/USER-GUIDE.en.md), [Chinese guide](docs/USER-GUIDE.zh.md), and generated [command reference](docs/COMMAND-REFERENCE.en.md). They describe the current beta and label earlier candidate records separately. New projects use Koder Projects; explicit stdin attachment, project-scoped task context, short model diagnostics and on-demand skills are documented with their limits.
 
 ## Install
 
-This release retains the stdin, workspace-history and project-folder repairs and includes the documented preview.29 changes. Use the official installer below. The Windows checklist records the remaining native checks for the dedicated test team; local checks do not certify every PC or provider account.
+This beta retains the stdin, workspace-history and project-folder repairs and includes the documented preview.29 changes. Use the official installer below. The Windows checklist records the remaining native checks for the dedicated test team; local checks do not certify every PC or provider account.
 
 Use Windows 10/11, macOS, Linux, or WSL with the matching shell. The installer reuses Node.js 22.21+ or 24+ or downloads and verifies the runtime. Normal installation does not require administrator access. Read the [license](EULA.md), [consent guide](ACCEPTANCE.md), [copyright notice](LEGAL-NOTICE.md), and [CLI privacy terms](docs/privacy/consumer-privacy.en.md).
 
@@ -195,3 +197,7 @@ Ordinary task requests that mention a website or a menu go to the task engine. O
 
 
 REA 6.7.0 is bundled under its original MIT license. Its dependencies retain their own licenses and notices, including OpenPGP.js under LGPL-3.0+. See vendor/rea/README.md, vendor/rea/components.json, vendor/rea/node_modules/rea-agents/THIRD_PARTY_NOTICES.md and vendor/rea/sources/. External analysis engines are not included.
+
+## Current-request delivery checks
+
+The unpublished candidate adds checks for actual current-turn artifacts, explicit output paths, supported draft formats and requested test receipts. It can request at most two bounded repairs through the existing execution loop. Incomplete delivery returns exit 3 and stays marked in local history. Read the [delivery guide](docs/TASK-DELIVERY.en.md) for behavior and limits; these checks are not a coding or writing quality score.

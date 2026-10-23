@@ -1,0 +1,40 @@
+{
+  "version": "0.4.1",
+  "packageSha256": "4c22fc8d68c2ca0d05f9d91d20b6b7044300b7f0216020789a53909c6a001825",
+  "bytes": 36057274,
+  "publicationAuthorizedByUser": true,
+  "sourceBaseline": "0.4.1-candidate.4",
+  "localReleaseChecks": {
+    "pass": 68,
+    "fail": 0
+  },
+  "packageContentChecks": {
+    "pass": 51,
+    "fail": 0
+  },
+  "websiteChecks": {
+    "pass": 112,
+    "fail": 0,
+    "skip": 1
+  },
+  "isolatedMacInstall": {
+    "version": "0.4.1",
+    "packageSha256": "4c22fc8d68c2ca0d05f9d91d20b6b7044300b7f0216020789a53909c6a001825",
+    "bytes": 36057274,
+    "members": 13130,
+    "sha256sumsVerified": true,
+    "appleDoubleFiles": 0,
+    "standaloneRuntimeVersion": "0.4.1",
+    "agentFixturePassed": true,
+    "taskLocalMacInstallPassed": true,
+    "globalPathChanged": false,
+    "globalDependenciesInstalled": false,
+    "websiteOrPublicReleaseChanged": false,
+    "nativeWindowsCandidateExecuted": false
+  },
+  "nativeWindowsFinalArchive": "NOT_RUN",
+  "windowsClientGUI": "HOLD",
+  "realModelQuality": "NOT_RUN",
+  "historicalCandidate2": "Separate exact-archive Server/Windows11ARM install-update and Server GUI receipts retained; not transferred to 0.4.1",
+  "userDataOrSharedTasksChanged": false
+}

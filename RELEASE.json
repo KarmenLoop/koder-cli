@@ -1,10 +1,10 @@
 {
-  "version": "0.4.0",
-  "file": "koder-cli-0.4.0.tgz",
-  "sha256": "86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566",
-  "size": 35892000,
+  "version": "0.4.1",
+  "file": "koder-cli-0.4.1.tgz",
+  "sha256": "4c22fc8d68c2ca0d05f9d91d20b6b7044300b7f0216020789a53909c6a001825",
+  "size": 36057274,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-23T15:59:12.224Z",
+  "builtAt": "2026-10-23T21:01:06.353Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,39 +14,32 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "2b9dda691582d59bee5f5a0c004fb43a444631a73a41ff08d7861997f647382f"
+      "sha256": "76189133bfc41311b367ca56c55c4bd8d62236d9d5b0c7d40b93d5f738f4a40d"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "5c124b76c834730b776a445a83798ac8cf43f06afa2af6d8a99e2b54b2f7df3d"
+      "sha256": "0878a06d1c7e3a7a59586328f3e5967e3f0e2d39ee98eacb0f8e2ffae113686f"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "550e442d5deb34dc22417d520bd45dccebf08c005d5ac424b96304ef841a54f9"
+      "sha256": "f661e287a1f8d114502167582ceff98c87312cb848793e1188b35104bfcc0f14"
     }
   },
   "channel": "stable",
   "guides": "https://karmenloop.com/cli-guide/",
-  "sourceBaseline": "0.4.0-preview.30",
+  "sourceBaseline": "0.4.1-candidate.4",
   "changes": [
-    "Promote the published preview.30 baseline to the 0.4.0 formal release",
-    "Keep manifest, installer, license and update channel metadata consistent",
-    "Retain multiwindow fixes and all 30 tutorial lessons"
+    "Task-specific coding and writing guidance with contextual revisions",
+    "Current-request delivery checks and bounded correction",
+    "Stable/candidate release-source and attribution repairs",
+    "Windows credential helper and contradictory MCP target-result handling"
   ],
-  "nativeWindowsLimits": [
-    "PowerShell 5.1-only cold startup remains unverified",
-    "Windows 10/11 x64 full GUI/ConPTY/IME/UAC coverage incomplete"
+  "retainedLimits": [
+    "Final-package Windows native install/update NOT_RUN",
+    "Windows 10/11 client GUI/ConPTY/IME/UAC incomplete",
+    "Authenticated external accounts NOT_RUN",
+    "Real-model quality benchmark NOT_RUN"
   ],
-  "realProviderAccounts": "NOT_RUN",
-  "newWritingScore": "NOT_RUN",
-  "unpublishedIncrements": [
-    "Official numeric pricing evidence",
-    "Inline JavaScript reverse extension"
-  ],
-  "acceptance": "releases/cli-0.4.0/ACCEPTANCE.json",
-  "selectedInstallPlatforms": [
-    "Windows-2025Server-10.0.26100-SP0",
-    "macOS-15.7.9-x86_64-i386-64bit",
-    "macOS-27.0-arm64-arm-64bit"
-  ]
+  "publicationAuthorization": "Explicit user request on 2026-10-24; incomplete acceptance records retained",
+  "acceptance": "releases/cli-0.4.1/ACCEPTANCE.json"
 }

@@ -1,3 +1,75 @@
+# Koder CLI 0.4.1
+
+Koder CLI 0.4.1 updates the Windows CMD/PowerShell and macOS/Linux terminal installers together. It retains the complete 0.4.0 feature set and includes the credential, delivery and generation-method repairs developed in the 0.4.1 candidates.
+
+## Changes
+
+- Coding guidance follows the requested work: reproduce bugs and trace their causes, measure performance, preserve behavior during refactoring, and check real integration boundaries.
+- Writing guidance focuses on the reader, supported facts, useful tradeoffs and next actions. Repeated revisions retain the nearest user task, while new requests take priority.
+- Technical emails and proposals are classified by their requested deliverable. Explicit requests to analyze and repair code keep their execution scope; Ask, Plan and report modes keep their existing limits.
+- Stable, candidate and preview release sources are recognized correctly. Migration/dependency headings cannot masquerade as another product release. Revising release copy retains attribution checks, and comparisons retain predecessor checks.
+- Current-task delivery checks identify selected missing artifacts, plan-only completions, stale verification and incomplete drafts. Up to two corrections stay within the original permissions and budget; unresolved gaps remain incomplete with exit 3.
+- Windows credentials use the bundled integrity-checked helper. A contradictory Windows-MCP target report remains UNKNOWN rather than being reported as success. The Humanizer catalog description and English rewrite matching are repaired; its pinned upstream source and license remain.
+
+## Install or update
+
+- Windows CMD: download [koder-cli.cmd](https://karmenloop.com/install/koder-cli.cmd) and run it in Command Prompt.
+- Windows PowerShell: download [koder-cli.ps1](https://karmenloop.com/install/koder-cli.ps1) and follow the [installation guide](docs/INSTALLATION.md).
+- macOS, Apple silicon or Intel: download [koder-cli.sh](https://karmenloop.com/install/koder-cli.sh), then run `bash koder-cli.sh`.
+- Existing installations: run `koder update`, then `koder --version`; expect `koder 0.4.1`. Keep settings and history in place.
+
+Read the [English guide](docs/USER-GUIDE.en.md), [Chinese guide](docs/USER-GUIDE.zh.md), [coding and writing methods](docs/CONTENT-QUALITY.en.md), [current-task delivery checks](docs/TASK-DELIVERY.en.md) and [multiwindow guide](docs/MULTI-WINDOW.md). All 30 lessons and eight printable shell/language editions are retained. Windows and Mac use CLI installers; the desktop app has its own release channel.
+
+## Verification scope
+
+The candidate.4 source passed 233 local regressions with one preserved skip; 51 selected checks passed against its unpacked runtime. Those scripted-provider checks establish request transport and selected behavior, not better real-model programming or writing scores. The final 0.4.1 package and publication checks are recorded separately in the release acceptance receipt.
+
+Candidate.2 passed isolated no-Node CMD/PowerShell 5.1 installation and real update checks on Windows Server and Windows 11 ARM, plus Mac Apple silicon/Intel installation/update and a Server MCP GUI sequence. These are historical checks of that exact candidate, not native acceptance of the final 0.4.1 archive. Windows 10/11 x64 full GUI/ConPTY/IME/UAC, Windows 11 ARM client GUI focus, final-package Windows installation/update and authenticated external accounts remain incomplete. The release is published at the user's explicit request with those limits retained.
+
+MiMo, Kimi, DeepSeek, Alibaba Token Plan and Volcano remain unavailable as documented. No new real-model quality score or complete third-party reverse-tool replacement is claimed. Original releases, notices, failure records and rollback downloads remain available.
+
+## Historical build records
+
+# Koder CLI 0.4.1-candidate.4 — unpublished
+
+This increment retains candidate.3 and adds bounded coding and writing methods to the existing model request. It distinguishes the requested artifact from facts mentioned in the prompt, carries user context through short refinements, and preserves explicit implementation, Ask, Plan and report scopes.
+
+Release-source checks recognize stable, candidate and preview versions, distinguish product headings from migration/dependency headings, and keep attribution checks active when revising an update draft. Chinese and English unsupported increment claims are checked. Humanizer catalog metadata is repaired without changing its pinned upstream source or license.
+
+Local protocol and regression evidence is recorded separately. Scripted replies do not establish better prose or code: the original short-prompt blind suite still needs same-model evaluation. Native installation, update and Windows client GUI gates are retained. This candidate is not published to the production feed, website or GitHub. See [generation methods](docs/CONTENT-QUALITY.en.md) and [Chinese guide](docs/CONTENT-QUALITY.zh.md).
+
+Historical notes below describe their original builds and remain unchanged.
+
+---
+
+# Koder CLI 0.4.1-candidate.3 — unpublished
+
+This build retains candidate.2 and adds current-request delivery checks for common implementation and writing tasks. Missing files, unfulfilled explicit output paths, stale test receipts, plan-only replies and selected missing draft formats receive bounded repair within the existing executor. Remaining gaps return exit 3 and stay marked incomplete in local history. The existing source-evidence checks remain in force.
+
+The candidate does not claim a new coding or writing score. Validation receipts are recorded separately; local scripted checks are not real-provider or Windows client GUI acceptance. Production remains 0.4.0. See [the current-task guide](docs/TASK-DELIVERY.en.md) and [Chinese guide](docs/TASK-DELIVERY.zh.md).
+
+The historical candidate notes below are retained as build-time records. Candidate.2 later passed its recorded isolated installation/update checks on Windows Server, Windows 11 ARM and both Mac architectures, plus a Server GUI sequence. Client GUI limitations remained; these receipts do not certify the changed candidate.3 runtime.
+
+---
+
+> Unpublished 0.4.1-candidate.2: native package and Windows client GUI acceptance remain separate release gates. Production remains 0.4.0.
+
+# Koder CLI 0.4.1-candidate.1 — unpublished
+
+This candidate preserves the published 0.4.0 feature set and changes the Windows credential subprocess. It is not the production download or a completed Windows GUI acceptance.
+
+- Use a bundled, SHA-256-checked DPAPI helper instead of starting PowerShell for ordinary Windows credential transforms. CurrentUser protection, the existing encrypted file format, and the 10-second operation deadline remain.
+- Reassemble bounded Windows output bytes before strict UTF-8 decoding, so multibyte text split across pipe chunks remains intact.
+- Preserve the explicit legacy PowerShell backend for compatibility checks. An absent, modified, or linked packaged helper fails integrity verification; it never silently falls back to another executable.
+
+Local checks: 12 new tests and 14 existing credential, personalization, and bundle checks passed. Two Windows-only tests were not run on macOS. The native candidate cold-start and compatibility receipts are pending; local checks are not native acceptance.
+
+The unchanged 0.4.0 installers passed four fresh no-discoverable-Node paths on Windows Server and Windows 11 ARM, including actual runtime downloads, startup, and same-version update checks. These results belong to 0.4.0, not this candidate. Windows client GUI, candidate installation and cross-platform package checks remain separate release gates.
+
+All original limitations and historical failures remain recorded. No production website or release feed has been changed by this candidate build.
+
+---
+
 # Koder CLI 0.4.0
 
 Koder CLI 0.4.0 is the formal release based on the published preview.30 runtime. Windows CMD and PowerShell installers and the macOS/Linux shell installer are available alongside the shared CLI archive. This is a release-channel promotion with consistent version, installer, license-record and update metadata. It does not add the separate pricing or inline-reverse candidates.
