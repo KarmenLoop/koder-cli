@@ -5,7 +5,7 @@ from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
 from mcp import ClientSession,StdioServerParameters
 from mcp.client.stdio import stdio_client
-p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--variant',choices=['baseline','reflection'],required=True);parsed=p.parse_args();r=parsed.root;variant=parsed.variant;e=r/'evidence';e.mkdir(exist_ok=True);home=r/'home';home.mkdir(exist_ok=True);project=r/'project';project.mkdir(exist_ok=True);exe=r/'runtime/Scripts/windows-mcp.exe';nonce='KODER_NATIVE_'+uuid.uuid4().hex;artifact=project/'actual-tool.txt';calls=[];report={'variant':variant,'platform':platform.platform(),'upstream':'windows-mcp==0.8.8','realDesktop':'GitHub-hosted disposable Windows runner; not a user PC','modelRequests':0,'calls':calls,'passed':False}
+p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--variant',choices=['baseline','pwsh'],required=True);parsed=p.parse_args();r=parsed.root;variant=parsed.variant;e=r/'evidence';e.mkdir(exist_ok=True);home=r/'home';home.mkdir(exist_ok=True);project=r/'project';project.mkdir(exist_ok=True);exe=r/'runtime/Scripts/windows-mcp.exe';nonce='KODER_NATIVE_'+uuid.uuid4().hex;artifact=project/'actual-tool.txt';calls=[];report={'variant':variant,'platform':platform.platform(),'upstream':'windows-mcp==0.8.8','realDesktop':'GitHub-hosted disposable Windows runner; not a user PC','modelRequests':0,'calls':calls,'passed':False}
 env={**os.environ,'HOME':str(home),'USERPROFILE':str(home),'KODER_CLI_HOME':str(home/'.koder-cli'),'KODER_DATA':str(home/'koder-data'),'KODER_EULA_ACCEPT':'1','KODER_AUTO_UPDATE':'0','KODER_REMOTE_RESOURCES':'0','NO_COLOR':'1','ANONYMIZED_TELEMETRY':'false','PYTHONUTF8':'1','PYTHONIOENCODING':'utf-8'}
 async def check():
  with (e/'upstream.stderr').open('w',encoding='utf-8') as log:
@@ -106,10 +106,11 @@ async def main():
   with tarfile.open(tar) as f:f.extractall(r/'package',filter='data')
   package=r/'package/koder-cli';native=package/'kernel/fusion/native-credentials.mjs';original=native.read_text(encoding='utf-8')
   updated=original
-  if variant=='reflection':
-   needle='Add-Type -AssemblyName System.Security;'
-   assert updated.count(needle)==1,'Native helper source contract changed'
-   updated=updated.replace(needle,"[void][Reflection.Assembly]::Load('System.Security');")
+  if variant=='pwsh':
+   needle="const powershell=path.win32.join(env.SystemRoot"
+   line=next(line for line in updated.splitlines() if needle in line)
+   executable=Path(subprocess.check_output(['where.exe','pwsh'],text=True).splitlines()[0])
+   updated=updated.replace(line,' const powershell='+json.dumps(str(executable))+';')
   report['nativeComponentShaBefore']=hashlib.sha256(original.encode()).hexdigest()
   report['nativeComponentShaVariant']=hashlib.sha256(updated.encode()).hexdigest()
   # Timing-only instrumentation. Never record secret stdin, stdout or argv.

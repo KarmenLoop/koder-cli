@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: [baseline, reflection]
+        variant: [baseline, pwsh]
     runs-on: windows-11-arm
     timeout-minutes: 15
     env:
