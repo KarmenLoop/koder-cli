@@ -75,4 +75,4 @@ koder mcp disable windows
 
 停用会停止后续使用；remove 删除连接与绑定记录。图谱运行资料保留在 CLI 配置目录的 graph-runtimes 中，需用户明确清理；不会删源代码，也不会撤销先前桌面操作。远程服务授权需要到服务方另行撤销。
 
-开发验收使用真实 MCP SDK 与自有 stdio 测试服务，覆盖发现、调用、回执续答、过期索引提示、跨项目保护、启用失败退出码和桌面操作拒绝。该测试服务不等于上游 Python 程序。Windows 真机、实际桌面操作、第三方二进制和真实图谱数据库仍需单独验收；本机检查没有安装 Python 依赖或使用测试 Key。
+发布时的 SDK 测试记录继续保留。2026 年 10 月 23 日已补 Windows Server 2025 上 Windows-MCP 的真实 PowerShell、快照、点击输入及公开包 Agent 调用；Mac 独占环境也通过真实图谱数据库与 Koder 调用。已测组合、Mac OpenSSL 3 依赖、资源设置和未测范围见[真实调用验收](MCP-ACTUAL-ACCEPTANCE.zh.md)。未验证 Windows 10/11 用户实机、其他平台组合或真实模型规划能力。

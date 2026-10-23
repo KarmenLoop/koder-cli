@@ -208,3 +208,6 @@ Use the existing authorized test command separately. A test file's presence does
 ## Windows interaction and code graph context
 
 Read [Windows-MCP and Code Graph setup](MCP-INTEGRATIONS.en.md) for current-terminal setup, platform/launcher checks, workspace binding, actual calls and disconnect behavior.
+
+
+[Actual Windows-MCP and Code Graph acceptance](MCP-ACTUAL-ACCEPTANCE.en.md): tested platforms, native prerequisites and remaining limits.

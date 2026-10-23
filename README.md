@@ -12,6 +12,8 @@ The KARMEN LOOP kernel connects task planning, permission checks, tool execution
 
 Optional presets configure Windows-MCP 0.8.8 and CodeGraphContext 0.6.13 through the existing MCP host. Configuration stays disabled until an explicit test or enable. Graph settings and discovery are workspace-bound; actual tool calls retain the original approvals. External Python programs are installed separately. Read [the integration guide](docs/MCP-INTEGRATIONS.en.md) for requirements and unverified native limits.
 
+Actual-call checks were completed after publication on a disposable Windows Server 2025 runner and an isolated Apple-silicon Mac. See [the dated acceptance report](docs/MCP-ACTUAL-ACCEPTANCE.en.md) for the successful tool/Agent paths, the Mac OpenSSL 3 prerequisite and unverified combinations. Agent dispatch was scripted; no real-model planning score is claimed. Installer bytes and default permissions are unchanged.
+
 ## Complete guides
 
 Use the [complete English guide](docs/USER-GUIDE.en.md), [Chinese guide](docs/USER-GUIDE.zh.md), and generated [command reference](docs/COMMAND-REFERENCE.en.md). They distinguish source candidates from the published installer. New projects use Koder Projects; explicit stdin attachment, project-scoped task context, short model diagnostics and on-demand skills are documented with their limits.

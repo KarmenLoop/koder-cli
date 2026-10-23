@@ -208,3 +208,6 @@ koder project check --kind website --json -w /path/to/site
 ## Windows 操作与代码图谱
 
 参见[Windows-MCP 与 Code Graph 完整教程](MCP-INTEGRATIONS.zh.md)：当前窗口配置、平台/启动器诊断、按项目隔离、实际调用和停用。
+
+
+[Windows-MCP 与 Code Graph 真实调用验收](MCP-ACTUAL-ACCEPTANCE.zh.md)：已测平台、原生依赖与未测范围。

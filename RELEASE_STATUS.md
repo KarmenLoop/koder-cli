@@ -1,5 +1,9 @@
 # Koder CLI 0.4.0-preview.28 Beta
 
+## Actual-call addendum — October 23, 2026
+
+Windows-MCP calls and public preview.28 Agent continuation passed on an isolated Windows Server 2025 runner. CodeGraphContext with Ladybug and the Koder graph flow passed on an isolated Apple-silicon Mac with its native OpenSSL 3 prerequisite. Read docs/MCP-ACTUAL-ACCEPTANCE.en.md for exact versions, driver limitations and remaining platform gates. The initial publication evidence below remains historical; the installer was not rebuilt.
+
 This beta adds optional Windows-MCP and CodeGraphContext integration presets through the existing MCP host. Upstream Python executables and dependencies are not bundled.
 
 - mcp presets and mcp doctor inspect catalog/platform/launcher data without opening the connection host or running the upstream program. Launcher presence is not native acceptance.
