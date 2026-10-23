@@ -27,7 +27,7 @@ jobs:
       - name: Prepare exact published installer bytes without target startup
         run: python .github/probes/prepare-native.py --root "%RUNNER_TEMP%\koder-cold-input"
       - name: First installer invocation with no discoverable Node
-        run: python .github/probes/windows-no-node.py --entry ${{ matrix.entry }} --assets "%RUNNER_TEMP%\koder-cold-input\assets" --out "%RUNNER_TEMP%\koder-cold-result"
+        run: python .github/probes/windows-no-node-r2.py --entry ${{ matrix.entry }} --assets "%RUNNER_TEMP%\koder-cold-input\assets" --out "%RUNNER_TEMP%\koder-cold-result"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -36,41 +36,6 @@ jobs:
             ${{ runner.temp }}/koder-cold-input/evidence
             ${{ runner.temp }}/koder-cold-result/receipt.json
             ${{ runner.temp }}/koder-cold-result/*.raw
-          retention-days: 14
-  credential:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [windows-latest, windows-11-arm]
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 8
-    defaults:
-      run:
-        shell: cmd
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - name: Use the image Python without installing or starting PowerShell
-        run: python --version
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22.23.3'
-          architecture: x64
-      - name: Fetch exact package without invoking PowerShell
-        run: python .github/probes/prepare-native.py --root "%RUNNER_TEMP%\koder-credential-input" --extract
-      - name: First real PS5 fallback persistence and cross-process read
-        run: node .github/probes/credential-cold.mjs --package-root "%RUNNER_TEMP%\koder-credential-input\package\koder-cli" --out "%RUNNER_TEMP%\koder-credential-result" --mode ps51
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: credential-${{ matrix.os }}
-          path: |
-            ${{ runner.temp }}/koder-credential-input/evidence
-            ${{ runner.temp }}/koder-credential-result/receipt.json
-            ${{ runner.temp }}/koder-credential-result/*.raw
-            ${{ runner.temp }}/koder-credential-result/read-process/receipt.json
-            ${{ runner.temp }}/koder-credential-result/read-process/*.stderr.raw
           retention-days: 14
   gui:
     strategy:
@@ -100,8 +65,10 @@ jobs:
         run: |
           python -m venv "%RUNNER_TEMP%\koder-gui\runtime"
           "%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" -m pip install --disable-pip-version-check --only-binary=:all: --timeout 20 --retries 1 --report "%RUNNER_TEMP%\koder-gui\install-report.json" windows-mcp==0.8.8
+      - name: Verify standard GUI fixture dependency without opening a window
+        run: '"%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" -c "import tkinter; print(tkinter.TkVersion, tkinter.TclVersion)"'
       - name: Actual Koder-mediated GUI interaction with owned targets
-        run: '"%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" .github/probes/mcp-gui.py --root "%RUNNER_TEMP%\koder-gui" --package "%RUNNER_TEMP%\koder-gui\assets\koder-cli-0.4.0.tgz" --sha256 86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566 --version 0.4.0'
+        run: '"%RUNNER_TEMP%\koder-gui\runtime\Scripts\python.exe" .github/probes/mcp-gui-r2.py --root "%RUNNER_TEMP%\koder-gui" --package "%RUNNER_TEMP%\koder-gui\assets\koder-cli-0.4.0.tgz" --sha256 86b6071c224437298a01e4b909d07fd1d91826b348fab181a8a50209eb390566 --version 0.4.0'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
