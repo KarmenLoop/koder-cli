@@ -6,7 +6,7 @@ on:
         description: Frozen verification suite
         type: choice
         default: components
-        options: [components, native]
+        options: [components, native, full]
 permissions:
   contents: read
 env:
@@ -55,6 +55,7 @@ jobs:
             ${{ runner.temp }}/koder-gui/install-report.json
           retention-days: 14
   native-credential:
+    if: inputs.suite != 'full'
     # GitHub restricts draft release downloads to write-capable repository tokens.
     # This job only downloads and verifies the frozen draft; it never publishes.
     permissions:
@@ -126,4 +127,88 @@ jobs:
             ${{ runner.temp }}/upgrade-input/evidence
             ${{ runner.temp }}/upgrade-result/receipt.json
             ${{ runner.temp }}/upgrade-result/*.raw
+          retention-days: 14
+
+  full-package:
+    if: inputs.suite == 'full'
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - {name: win-server-cmd, os: windows-latest, shell: cmd, python: python, mode: cold, entry: cmd, platform: win32, arch: x64}
+          - {name: win-server-ps, os: windows-latest, shell: cmd, python: python, mode: cold, entry: powershell, platform: win32, arch: x64}
+          - {name: win-server-update, os: windows-latest, shell: cmd, python: python, mode: upgrade, entry: powershell, platform: win32, arch: x64}
+          - {name: win-arm-cmd, os: windows-11-arm, shell: cmd, python: python, mode: cold, entry: cmd, platform: win32, arch: arm64}
+          - {name: win-arm-ps, os: windows-11-arm, shell: cmd, python: python, mode: cold, entry: powershell, platform: win32, arch: arm64}
+          - {name: win-arm-update, os: windows-11-arm, shell: cmd, python: python, mode: upgrade, entry: powershell, platform: win32, arch: arm64}
+          - {name: mac-arm, os: macos-15, shell: bash, python: python3, mode: both, entry: shell, platform: darwin, arch: arm64}
+          - {name: mac-intel, os: macos-15-intel, shell: bash, python: python3, mode: both, entry: shell, platform: darwin, arch: x64}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: ${{ matrix.shell }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Download frozen unpublished package inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download verify-windows-cold-20261024 --repo KarmenLoop/koder-cli --pattern full-candidate-2-inputs.tgz --dir candidate-input-download
+      - name: Verify exact bundle and unpack only ten allowlisted files
+        run: ${{ matrix.python }} .github/probes/unpack-candidate-2.py
+      - name: No-Node install and original installed CLI update
+        run: ${{ matrix.python }} .github/probes/run-candidate-2.py ${{ matrix.mode }} ${{ matrix.entry }} ${{ matrix.platform }} ${{ matrix.arch }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: candidate2-${{ matrix.name }}
+          path: |
+            ${{ runner.temp }}/candidate-2-*/receipt.json
+            ${{ runner.temp }}/candidate-2-*/*.raw
+          retention-days: 14
+  candidate-gui:
+    if: inputs.suite == 'full'
+    permissions:
+      contents: write
+    runs-on: windows-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: cmd
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          architecture: x64
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+          architecture: x64
+      - name: Download frozen unpublished package inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download verify-windows-cold-20261024 --repo KarmenLoop/koder-cli --pattern full-candidate-2-inputs.tgz --dir candidate-input-download
+      - name: Verify exact inputs
+        run: python .github/probes/unpack-candidate-2.py
+      - name: Prepare owned MCP runtime
+        run: |
+          python -m venv "%RUNNER_TEMP%\candidate-gui\runtime"
+          "%RUNNER_TEMP%\candidate-gui\runtime\Scripts\python.exe" -m pip install --disable-pip-version-check --only-binary=:all: --timeout 20 --retries 1 --report "%RUNNER_TEMP%\candidate-gui\install-report.json" windows-mcp==0.8.8
+      - name: Candidate original Agent GUI interaction
+        run: '"%RUNNER_TEMP%\candidate-gui\runtime\Scripts\python.exe" .github/probes/mcp-gui-r4.py --root "%RUNNER_TEMP%\candidate-gui" --package "%RUNNER_TEMP%\full-candidate-2-input\candidate\koder-cli-0.4.1-candidate.2.tgz" --sha256 503214467fbe3e5585bd5471e96b0636616a1be530e8908e3a1b223cb2583c94 --version 0.4.1-candidate.2'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: candidate2-gui-server
+          path: |
+            ${{ runner.temp }}/candidate-gui/evidence
+            ${{ runner.temp }}/candidate-gui/install-report.json
           retention-days: 14
