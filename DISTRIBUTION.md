@@ -1,6 +1,6 @@
 # Distribution and release records
 
-This source tree builds **0.4.0-preview.27 Beta**. The official release feed identifies the downloadable build. A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed beta is **0.4.0-preview.28**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary beta. Use the official release feed to identify the downloadable build and read the [source status](SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
