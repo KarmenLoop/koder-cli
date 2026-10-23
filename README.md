@@ -30,15 +30,15 @@ This is the formal 0.4.0 distribution. PowerShell 5.1-only cold startup, native 
 
 Optional presets configure Windows-MCP 0.8.8 and CodeGraphContext 0.6.13 through the existing MCP host. Configuration stays disabled until an explicit test or enable. Graph settings and discovery are workspace-bound; actual tool calls retain the original approvals. External Python programs are installed separately. Read [the integration guide](docs/MCP-INTEGRATIONS.en.md) for requirements and unverified native limits.
 
-The retained preview.28 actual-call checks ran on a disposable Windows Server 2025 runner and an isolated Apple-silicon Mac. See [the dated acceptance report](docs/MCP-ACTUAL-ACCEPTANCE.en.md) for the successful tool/Agent paths, the Mac OpenSSL 3 prerequisite and unverified combinations. Agent dispatch was scripted; no real-model planning score is claimed. Those observations describe the earlier package; they do not certify every preview.29 client path. Default permission scopes are retained.
+The retained preview.28 actual-call checks ran on a disposable Windows Server 2025 runner and an isolated Apple-silicon Mac. See [the dated acceptance report](docs/MCP-ACTUAL-ACCEPTANCE.en.md) for the successful tool/Agent paths, the Mac OpenSSL 3 prerequisite and unverified combinations. Agent dispatch was scripted; no real-model planning score is claimed. Those observations describe the earlier package; they do not certify every current release client path. Default permission scopes are retained.
 
 ## Complete guides
 
-Use the [complete English guide](docs/USER-GUIDE.en.md), [Chinese guide](docs/USER-GUIDE.zh.md), and generated [command reference](docs/COMMAND-REFERENCE.en.md). They describe the current beta and label earlier candidate records separately. New projects use Koder Projects; explicit stdin attachment, project-scoped task context, short model diagnostics and on-demand skills are documented with their limits.
+Use the [complete English guide](docs/USER-GUIDE.en.md), [Chinese guide](docs/USER-GUIDE.zh.md), and generated [command reference](docs/COMMAND-REFERENCE.en.md). They describe the current release and label earlier candidate records separately. New projects use Koder Projects; explicit stdin attachment, project-scoped task context, short model diagnostics and on-demand skills are documented with their limits.
 
 ## Install
 
-This beta retains the stdin, workspace-history and project-folder repairs and includes the documented preview.29 changes. Use the official installer below. The Windows checklist records the remaining native checks for the dedicated test team; local checks do not certify every PC or provider account.
+This release retains the stdin, workspace-history and project-folder repairs and includes the documented preview.29 changes. Use the official installer below. The Windows checklist records the remaining native checks for the dedicated test team; local checks do not certify every PC or provider account.
 
 Use Windows 10/11, macOS, Linux, or WSL with the matching shell. The installer reuses Node.js 22.21+ or 24+ or downloads and verifies the runtime. Normal installation does not require administrator access. Read the [license](EULA.md), [consent guide](ACCEPTANCE.md), [copyright notice](LEGAL-NOTICE.md), and [CLI privacy terms](docs/privacy/consumer-privacy.en.md).
 
