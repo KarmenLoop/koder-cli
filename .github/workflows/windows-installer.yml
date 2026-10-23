@@ -8,7 +8,7 @@ on:
         default: cli-0.4.0-preview.30
       phase:
         type: choice
-        options: [published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, animation-repeat, windows-diagnosis, windows-app-diagnosis, animation-diagnosis, memory-public]
+        options: [stable-candidate, published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, animation-repeat, windows-diagnosis, windows-app-diagnosis, animation-diagnosis, memory-public]
         default: published
       assets_ref:
         description: Reserved for older installer-only runs
@@ -241,3 +241,39 @@ jobs:
         run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
         shell: bash
       - run: python .github/scripts/public-memory-recovery.py
+
+  stable-candidate:
+    if: inputs.phase == 'stable-candidate'
+    permissions:
+      contents: write # Only reads draft release assets; draft visibility requires this permission.
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-15, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download exact stable draft and published preview baseline
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release }}
+        run: |
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate/new
+          gh release download cli-0.4.0-preview.30 --repo "$GITHUB_REPOSITORY" --dir candidate/prior
+      - name: Native installer and channel acceptance
+        run: python .github/scripts/stable-installer-channel.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stable-installer-${{ matrix.os }}
+          path: stable-results/

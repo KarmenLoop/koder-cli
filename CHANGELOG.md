@@ -1,3 +1,9 @@
+# Changelog
+
+## 0.4.0 — 2026-10-24
+
+Formal distribution of the published preview.30 baseline. Windows CMD and PowerShell and macOS shell installers now use matching stable version, consent and update metadata. All 30 lessons and multiwindow fixes remain. See [release notes](docs/RELEASE-0.4.0.md) for acceptance scope and remaining native-client limitations.
+
 # 0.4.0-preview.30 Beta
 
 Fix default-session contention with older processes, cancel orphaned workers and recognize the current process instance after PID reuse. Active task ownership and previous features remain intact. See [release notes](docs/RELEASE-preview.30.md) for verification boundaries.

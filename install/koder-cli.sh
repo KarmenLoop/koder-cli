@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.30/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.30/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
-# Preview tag path. Do not use GitHub /releases/latest (stable-only).
+# Versioned release path. Keep the installer and manifest pinned to the same release.
 # Current install commands are on https://karmenloop.com.
 # Installs into ~/.koder-cli without root. Uses Node.js >= 22 if present,
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0-preview.30}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.0}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
@@ -260,7 +260,7 @@ exec "${NODE_BIN}" "${KODER_HOME}/current/bin/koder.mjs" "\$@"
 EOF
 chmod +x "${LAUNCHER}"
 
-"${NODE_BIN}" -e 'const fs=require("fs"),crypto=require("crypto"),path=require("path"); const [home,file,version,base,launcher,node,site,updates,download]=process.argv.slice(1); const eula=fs.readFileSync(path.join(home,"current","EULA.md")); const sha=crypto.createHash("sha256").update(eula).digest("hex"); const acceptedAt=new Date().toISOString(); fs.mkdirSync(home,{recursive:true}); fs.writeFileSync(path.join(home,"eula-acceptance.json"), JSON.stringify({id:"Koder-EULA-1.1",version:"1.1",sha256:sha,acceptedAt,preview:true},null,2)+"\n",{mode:0o600}); fs.writeFileSync(file, JSON.stringify({version,base,launcher,node,site,updates,download,installedAt:acceptedAt,preview:true,agreementId:"Koder-EULA-1.1",agreementVersion:"1.1",agreementSha256:sha},null,2)+"\n")' \
+"${NODE_BIN}" -e 'const fs=require("fs"),crypto=require("crypto"),path=require("path"); const [home,file,version,base,launcher,node,site,updates,download]=process.argv.slice(1); const eula=fs.readFileSync(path.join(home,"current","EULA.md")); const sha=crypto.createHash("sha256").update(eula).digest("hex"); const acceptedAt=new Date().toISOString(); const preview=version.includes("-"); fs.mkdirSync(home,{recursive:true}); fs.writeFileSync(path.join(home,"eula-acceptance.json"), JSON.stringify({id:"Koder-EULA-1.1",version:"1.1",sha256:sha,acceptedAt,preview},null,2)+"\n",{mode:0o600}); fs.writeFileSync(file, JSON.stringify({version,base,launcher,node,site,updates,download,installedAt:acceptedAt,preview,agreementId:"Koder-EULA-1.1",agreementVersion:"1.1",agreementSha256:sha},null,2)+"\n")' \
   "${KODER_HOME}" "${KODER_HOME}/install.json" "${VERSION}" "${BASE}" "${LAUNCHER}" "${NODE_BIN}" "https://karmenloop.com" "https://karmenloop.com/updates.html" "https://karmenloop.com/download.html"
 
 case ":${PATH}:" in

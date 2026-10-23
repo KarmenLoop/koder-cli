@@ -1,6 +1,6 @@
 # Scriptable CLI contracts
 
-These contracts describe **0.4.0-preview.30 Beta**. Local fixture checks are separate from a native Windows installation, real provider account or whole-product release. Do not infer a live service from a visible preset or method Skill.
+These contracts describe **0.4.0**. Local fixture checks are separate from a native Windows installation, real provider account or whole-product release. Do not infer a live service from a visible preset or method Skill.
 
 ## Commands and failure results
 

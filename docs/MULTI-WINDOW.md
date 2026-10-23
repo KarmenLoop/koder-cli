@@ -1,6 +1,6 @@
 # Independent Koder terminal tasks
 
-This guide covers the native Koder engine in 0.4.0-preview.30 Beta. Open two or three terminal windows normally. Each active task needs a distinct session identity; no second scheduler, memory database or permission authority is introduced.
+This guide covers the native Koder engine in 0.4.0. Open two or three terminal windows normally. Each active task needs a distinct session identity; no second scheduler, memory database or permission authority is introduced.
 
 ## Start independent tasks
 

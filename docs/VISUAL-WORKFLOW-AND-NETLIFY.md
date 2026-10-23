@@ -1,6 +1,6 @@
 # Visual directions, project maps and Netlify
 
-This feature, first prepared in source candidate **0.4.0-preview.26-candidate.6**, is included in **0.4.0-preview.30 Beta**. Native Windows, real Netlify credentials, Koder's registered OAuth application and production acceptance are separate release gates.
+This feature, first prepared in source candidate **0.4.0-preview.26-candidate.6**, is included in **0.4.0**. Native Windows, real Netlify credentials, Koder's registered OAuth application and production acceptance are separate release gates.
 
 ## Compare before building
 

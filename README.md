@@ -2,17 +2,21 @@
 
 English | [简体中文](docs/USER-GUIDE.zh.md)
 
-Koder CLI **0.4.0-preview.30 Beta** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
+Koder CLI **0.4.0** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
 
-**0.4.0-preview.30** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.30) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.0** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
 The KARMEN LOOP kernel connects task planning, permission checks, tool execution, and saved results. Public descriptions cover capabilities; new application runtime source remains proprietary under the [EULA](EULA.md). Third-party components retain their own licenses and [credits](OPEN_SOURCE_CREDITS.md).
 
-The public GitHub repository retains the historical GPL **0.3.1** package and source tree. That historical tree does not build this proprietary beta installer. Use the versioned release and official feed for that build; see [source and distribution status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md).
+The public GitHub repository retains the historical GPL **0.3.1** package and source tree. That historical tree does not build this proprietary release installer. Use the versioned release and official feed for that build; see [source and distribution status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md).
 
-## What changed in preview.30
+## Formal release 0.4.0
+
+Windows CMD and PowerShell and macOS/Linux installers are published together. Release, update and license records identify the stable channel consistently. The runtime retains the preview.30 multiwindow fixes. Read [0.4.0 release notes](docs/RELEASE-0.4.0.md).
+
+## Retained preview.30 changes
 
 This hotfix separates new default tasks from older turn-only locks, releases a worker session when its supervisor disconnects, and recognizes a recycled current process ID. It preserves active explicitly named sessions and earlier features. Read [the hotfix notes](docs/RELEASE-preview.30.md) and [multiwindow guide](docs/MULTI-WINDOW.md).
 
@@ -20,7 +24,7 @@ This hotfix separates new default tasks from older turn-only locks, releases a w
 
 MiniMax content-review failures now have their own diagnosis. Interactive `/` choices fill editable drafts, native Koder terminal windows keep separate task sessions, and long conversations retain short original constraints within the configured budget. Writing source records, Harness²-style artifact comparisons and scoped crawling with first-party static reverse analysis are included. Read [the complete release notes](docs/RELEASE-preview.29.md) and [multi-window guide](docs/MULTI-WINDOW.md).
 
-This is a Beta release. PowerShell 5.1-only cold startup, native Windows GUI focus/input and complete Windows client install/update acceptance remain open. The unavailable provider routes below remain disabled. Local fixtures and macOS subprocess tests do not certify Windows or a provider account.
+This is the formal 0.4.0 distribution. PowerShell 5.1-only cold startup, native Windows GUI focus/input and complete Windows client install/update acceptance remain open. The unavailable provider routes below remain disabled. Local fixtures and macOS subprocess tests do not certify Windows or a provider account.
 
 ## Windows and code graph integrations
 
