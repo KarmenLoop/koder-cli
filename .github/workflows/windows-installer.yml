@@ -1,6 +1,12 @@
 name: Frozen 0.4.0 Windows cold and GUI acceptance
 on:
   workflow_dispatch:
+    inputs:
+      suite:
+        description: Frozen verification suite
+        type: choice
+        default: components
+        options: [components, native]
 permissions:
   contents: read
 env:
@@ -8,6 +14,7 @@ env:
   PYTHONIOENCODING: utf-8
 jobs:
   gui:
+    if: inputs.suite == 'components'
     strategy:
       fail-fast: false
       matrix:
@@ -76,7 +83,7 @@ jobs:
       - name: Verify and unpack the frozen candidate
         run: python -c "import hashlib,tarfile,pathlib,os; p=pathlib.Path(os.environ['RUNNER_TEMP'])/'credential-component'; f=p/'credential-component.tgz'; assert hashlib.sha256(f.read_bytes()).hexdigest()=='285a59bdf209ebe7f301402241adb06d74e241a4296a9b36e0cf5bd58750ea6e'; tarfile.open(f).extractall(p/'source',filter='data')"
       - name: First native helper and independent persistence read
-        run: node .github/probes/credential-native-r2.mjs --candidate-root "%RUNNER_TEMP%\credential-component\source" --manifest "%RUNNER_TEMP%\credential-component\source\frozen.json" --out "%RUNNER_TEMP%\credential-native-result"
+        run: node .github/probes/credential-native-r3.mjs --candidate-root "%RUNNER_TEMP%\credential-component\source" --manifest "%RUNNER_TEMP%\credential-component\source\frozen.json" --out "%RUNNER_TEMP%\credential-native-result"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -88,6 +95,7 @@ jobs:
             ${{ runner.temp }}/credential-native-result/read-process/*.raw
           retention-days: 14
   upgrade:
+    if: inputs.suite == 'components'
     strategy:
       fail-fast: false
       matrix:
