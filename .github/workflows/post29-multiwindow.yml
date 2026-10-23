@@ -1,8 +1,9 @@
 name: Post29 multiwindow regression
 on:
+  workflow_dispatch:
   push:
     branches: [verify/post29-completion-20261023]
-    paths: [.github/workflows/post29-multiwindow.yml, .github/scripts/post29-multiwindow.py, .github/scripts/post29-multiwindow-entry.mjs, src/memory.mjs, src/session.mjs, src/process-lifecycle.mjs, test/multi-window-lock-compat.test.mjs, test/worker-disconnect.test.mjs]
+    paths: [.github/workflows/post29-multiwindow.yml, .github/scripts/post29-multiwindow.py, .github/scripts/post29-multiwindow-entry.mjs, src/memory.mjs, src/session.mjs, src/process-lifecycle.mjs, test/multi-window-lock-compat.test.mjs, test/worker-disconnect.test.mjs, test/update-restart-process.test.mjs]
 permissions:
   contents: read
 jobs:
