@@ -1,0 +1,24 @@
+name: Parse the newest client acceptance wrapper
+on:
+  push:
+    branches: [verify/windows-cold-package-20261023]
+    paths: [.github/workflows/candidate-packet-parse.yml, .github/scripts/candidate-packet.ps1]
+permissions:
+  contents: read
+jobs:
+  parse:
+    runs-on: windows-11-arm
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Parse without executing the candidate wrapper
+        shell: pwsh
+        run: |
+          $tokens=$null
+          $errors=$null
+          $source=Resolve-Path '.github/scripts/candidate-packet.ps1'
+          $ast=[System.Management.Automation.Language.Parser]::ParseFile($source,[ref]$tokens,[ref]$errors)
+          if ($errors.Count -ne 0) { $errors | ForEach-Object { Write-Error $_.Message }; exit 1 }
+          Write-Host "PARSE_OK: $($ast.ParamBlock.Parameters.Count) parameters. Wrapper not executed; no package or desktop acceptance claimed."
