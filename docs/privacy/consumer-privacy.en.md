@@ -1,3 +1,5 @@
+October 25, 2026 · 0.4.9 runtime-log supplement: Local diagnostic metadata is stored at <KODER_CLI_HOME>/logs/runtime.log (default ~/.koder-cli/logs/runtime.log), rotating at 4 MiB with one retained runtime.log.1. Records contain timestamps, versions, process information, command names, event/error codes and exit codes, not task/model bodies, arguments, mail, credentials or request headers. Logs are not uploaded automatically. koder logs and diagnostics_runtime_log read bounded metadata. POSIX uses 0700/0600; Windows uses the existing ACL verifier. Unsafe links or permissions are refused. Close Koder before deleting these files; further use recreates them. --no-memory does not disable this separate runtime log.
+
 Release applicability — October 23, 2026: The mail, live-preview and visual-delivery supplements below are included in preview.29 Beta. Their earlier statements about not being in a published package describe their preparation date, not this release. Their consent scopes and data-handling terms are unchanged.
 
 # Koder CLI consumer privacy terms — full text

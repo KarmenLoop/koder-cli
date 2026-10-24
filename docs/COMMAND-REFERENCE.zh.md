@@ -1019,3 +1019,8 @@ koder about  按官网介绍 Koder 是谁做的，并给出更新页
 
 通用选项见 koder help。
 ```
+
+
+## logs
+
+查看本机运行元数据：koder logs --tail 100；--path 显示路径，--json 输出结构化信息；不存在的日志返回 0。参见 [运行日志](RUNTIME-DIAGNOSTICS.md)。

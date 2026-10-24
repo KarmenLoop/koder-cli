@@ -56,3 +56,11 @@ This feature fills the next task draft. Assistant personality and long-lived ins
 ```text
 koder prompts add daily --title "每日检查" --text "请检查 [项目] 的 [范围]，给出证据和下一步。"
 ```
+
+## Slash menu and terminal fallback (0.4.9)
+
+In an empty interactive chat input, type / to browse context suggestions, templates and commands. This also works while a task is running. Tab or a selection-confirming Enter fills the draft without sending it. Continue typing to filter; no matches remain visible. Escape closes the menu without dispatching a task. /steup remains a compatibility alias for /setup.
+
+A narrow or wrapped input shows a one-time fallback explaining Tab completion and /help. Dumb/non-TTY chat prints a plain fallback without popup escape sequences. Noninteractive run --json remains headless. Pasted commands retain their literal submission behavior; pasted text is never silently converted into a selected template.
+
+中文：空输入按 /，忙时同样可选；选择只填草稿。窄屏、折行或不支持的终端明确提示改用 Tab 或 /help。没有匹配项仍保留提示；菜单打开时 Esc 先关闭菜单。粘贴命令继续按粘贴内容处理，不会偷换为当前选项。

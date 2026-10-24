@@ -1019,3 +1019,8 @@ Matches the website's about, updates and download pages: written by KARMEN LOOP,
 
 Global options: koder help.
 ```
+
+
+## logs
+
+Read local runtime metadata with koder logs --tail 100. --path shows its location; --json returns structured metadata. A missing log returns exit 0. See [runtime diagnostics](RUNTIME-DIAGNOSTICS.md).

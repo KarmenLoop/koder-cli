@@ -1,3 +1,5 @@
+2026-10-25 · 0.4.9 运行日志补充：默认在 <KODER_CLI_HOME>/logs/runtime.log（默认 ~/.koder-cli/logs/runtime.log）保留本地诊断元数据，4 MiB 轮换并仅保留上一份 runtime.log.1。记录时间、版本、进程、命令名、事件、错误码及退出码，不记录任务或模型正文、参数、邮件内容、凭据或请求头。日志不自动上传；koder logs 和 Agent 的 diagnostics_runtime_log 只读读取有界元数据。POSIX 使用 0700/0600，Windows 使用现有 ACL 检查；不安全链接或权限被拒绝。退出 Koder 后可手动删除这两份文件，继续使用会重新生成。--no-memory 不关闭独立运行日志。
+
 版本适用补充——2026年10月23日：下方邮箱、实时预览及可视化交付补充已纳入 preview.29 Beta。原文“尚未发布”等表述指当时准备阶段，不代表本版未包含；原有授权范围与数据处理条款保持不变。
 
 # Koder CLI 消费者隐私条款（完整文本）

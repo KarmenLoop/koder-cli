@@ -1,14 +1,14 @@
 # Koder CLI
 
-> Upgrading from 0.4.4 or earlier: if the updater rejects the larger bundled package, run the current official installer once. [Migration guide](docs/RELEASE-0.4.8.md).
+> Upgrading from 0.4.4 or earlier: if the updater rejects the larger bundled package, run the current official installer once. [Migration guide](docs/RELEASE-0.4.9.md).
 
-Koder CLI **0.4.8** fixes automatic-update activation in the current chat. Say “enable automatic updates” or use `/update auto on`; the current session starts checking without a manual update. Existing model discovery and all earlier features remain. [Update guide](docs/AUTO-UPDATE.en.md) · [Release notes](docs/RELEASE-0.4.8.md).
+Koder CLI **0.4.9** fixes live steering and busy-time prompt choices, adds private runtime diagnostics, and makes blocked or empty results explicit. [Release notes](docs/RELEASE-0.4.9.md) · [Live input](docs/SESSION-INPUT-AND-SKILLS.en.md) · [Logs](docs/RUNTIME-DIAGNOSTICS.md).
 
 English | [简体中文](docs/USER-GUIDE.zh.md)
 
-Koder CLI **0.4.8** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
+Koder CLI **0.4.9** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
 
-**0.4.8** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.8) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.9** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.9) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
@@ -16,9 +16,9 @@ The KARMEN LOOP kernel connects task planning, permission checks, tool execution
 
 The public GitHub repository retains the historical GPL **0.3.1** package and source tree. That historical tree does not build this proprietary release installer. Use the versioned release and official feed for that build; see [source and distribution status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md).
 
-## Formal release 0.4.8
+## Formal release 0.4.9
 
-Windows CMD and PowerShell and macOS/Linux installers are published together. Release, update and license records identify the stable channel consistently. The runtime retains the preview.30 multiwindow fixes. Read [0.4.8 release notes](docs/RELEASE-0.4.8.md).
+Windows CMD and PowerShell and macOS/Linux installers are published together. Release, update and license records identify the stable channel consistently. The runtime retains the preview.30 multiwindow fixes. Read [0.4.9 release notes](docs/RELEASE-0.4.9.md).
 
 ## Retained preview.30 changes
 
@@ -28,7 +28,7 @@ This hotfix separates new default tasks from older turn-only locks, releases a w
 
 MiniMax content-review failures now have their own diagnosis. Interactive `/` choices fill editable drafts, native Koder terminal windows keep separate task sessions, and long conversations retain short original constraints within the configured budget. Writing source records, Harness²-style artifact comparisons and scoped crawling with first-party static reverse analysis are included. Read [the complete release notes](docs/RELEASE-preview.29.md) and [multi-window guide](docs/MULTI-WINDOW.md).
 
-This is the formal 0.4.8 distribution. PowerShell 5.1-only cold startup, native Windows GUI focus/input and complete Windows client install/update acceptance remain open. The unavailable provider routes below remain disabled. Local fixtures and macOS subprocess tests do not certify Windows or a provider account.
+This is the formal 0.4.9 distribution. PowerShell 5.1-only cold startup, native Windows GUI focus/input and complete Windows client install/update acceptance remain open. The unavailable provider routes below remain disabled. Local fixtures and macOS subprocess tests do not certify Windows or a provider account.
 
 ## Windows and code graph integrations
 
@@ -48,7 +48,7 @@ Use Windows 10/11, macOS, Linux, or WSL with the matching shell. The installer r
 
 Choose **one** command. Wait for the license question, type `accept`, and press Enter. `decline` or Ctrl+C cancels. Empty Windows input asks again. License acceptance enables no optional permissions.
 
-Installed interactive chats check the official update feed in the background at most once every six hours. Updates install only after active tasks, queued input and unfinished drafts are clear, verify the replacement, and resume the conversation. Preparation continues in the background if you start new work; the final handoff waits for the active task. Closing chat cancels unfinished preparation. A changed license requires manual review. Use `koder update auto off` to disable automatic updates, `koder update auto on` to enable them, or `koder update auto status` to inspect the setting. Scripts, one-shot commands and unmanaged copies do not auto-install. `KODER_AUTO_UPDATE=0` disables automatic checks for that process.
+Installed interactive chats check the official update feed in the background at startup and every six hours while running. Updates install only after active tasks, queued input and unfinished drafts are clear, verify the replacement, and resume the conversation. Preparation continues in the background if you start new work; the final handoff waits for the active task. Closing chat cancels unfinished preparation. A changed license requires manual review. Use `koder update auto off` to disable automatic updates, `koder update auto on` to enable them, or `koder update auto status` to inspect the setting. Scripts, one-shot commands and unmanaged copies do not auto-install. `KODER_AUTO_UPDATE=0` disables automatic checks for that process.
 
 ### Windows PowerShell
 

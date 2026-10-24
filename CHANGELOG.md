@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.9 — 2026-10-25
+
+Fix steering during task preparation and require real agentd receipts. Keep editable slash choices available while busy, with readable terminal fallbacks. Preserve FIFO across asynchronous rejection receipts. Add bounded private runtime diagnostics and actionable nonzero results for unresolved permission failures or empty replies. [Release notes](docs/RELEASE-0.4.9.md).
+
 ## 0.4.8 — 2026-10-25
 
 Fix the updater scope error when automatic updates are toggled inside chat. Direct requests such as “enable automatic updates” now change local settings and start discovery in that conversation without a model call. Preserve idle installation, read-only modes, environment opt-out and license checks. [Release notes](docs/RELEASE-0.4.8.md).

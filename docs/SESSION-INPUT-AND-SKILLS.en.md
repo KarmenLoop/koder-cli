@@ -47,3 +47,15 @@ Use an isolated managed installation and a dedicated test workspace. A real mode
 10. Queue a task before a write approval appears, and leave another draft unsent. The approval waits for a fresh answer; queued text does not approve it. Decline, then check retained queue/draft and unchanged target file.
 
 Local terminal and scripted-provider checks do not certify native Windows Console/ConPTY/IME, real model quality, real accounts or production installation. See the task acceptance receipt for actual commands and remaining baseline failures.
+
+## Input reliability in 0.4.9
+
+The slash menu stays available during a model turn. Selection fills a draft; the next Enter follows the current steer/queue setting. With a menu open, Escape closes it; another Escape cancels the task. Ctrl+C cancels throughout. Approval prompts suspend the menu and do not consume queued tasks as consent.
+
+Local steering waits for session preparation. Remote steering waits for the daemon receipt. Rejection includes STEER_NOT_RUNNING, STEER_TURN_FINISHING, STEER_INBOX_FULL or STEER_RECOVERY_ONLY before queueing. AGENTD_STEER_NOT_ACCEPTED with an unknown receipt does not retry automatically. Check the result before resubmitting. External engines without a steering port are marked queue-only in Setup.
+
+Interrupt words must fill the whole line or precede a punctuation-delimited replacement. “stop a server” is an ordinary task; “stop, say NEXT” cancels and queues “say NEXT”.
+
+Check koder --version and koder doctor after upgrading. Version 0.3.0 lacks these modules; settings cannot add them. A new package cannot change an old binary's startup screen. The older 0.4.4-candidate.2 archive does not indicate which version is installed. This change does not install anything on the user's Mac.
+
+No-key checks cover real readline, CLI/harness execution and local IPC. Native Windows Console, ConPTY, IME and user-terminal checks remain separate.

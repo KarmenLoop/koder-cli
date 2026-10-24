@@ -1,16 +1,16 @@
-> 0.4.8 修复本窗口开启自动更新失败。输入“开启自动更新”或 `/update auto on` 即可生效。[教程](docs/AUTO-UPDATE.zh.md) · [本版更新与未验范围](docs/RELEASE-0.4.8.zh.md)。
+> 0.4.9 修复忙时引导与预输入菜单，新增运行日志和明确失败提示。[实时输入](docs/SESSION-INPUT-AND-SKILLS.zh.md) · [更新及未验范围](docs/RELEASE-0.4.9.zh.md)。
 
 [English](README.md) · [Windows / macOS 安装](https://karmenloop.com/download.html)
 
-当前版本：**0.4.8**。先看[本版更新](docs/RELEASE-0.4.8.md)、[输入菜单与接口诊断](docs/PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](docs/MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.4.9**。先看[本版更新](docs/RELEASE-0.4.9.md)、[输入菜单与接口诊断](docs/PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](docs/MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
-> 旧版更新器可能因包超过 100 MB 报“清单无效”。请用官网下载的当前安装器覆盖升级一次，保留配置和历史；详见 [升级说明](docs/RELEASE-0.4.8.zh.md)。
+> 旧版更新器可能因包超过 100 MB 报“清单无效”。请用官网下载的当前安装器覆盖升级一次，保留配置和历史；详见 [升级说明](docs/RELEASE-0.4.9.zh.md)。
 
-0.4.8 默认开启 [Headroom 上下文优化](docs/HEADROOM.zh.md)。以下安装入口和教程均对应本次正式发行。
+0.4.9 默认开启 [Headroom 上下文优化](docs/HEADROOM.zh.md)。以下安装入口和教程均对应本次正式发行。
 
 # Koder CLI 完整使用教程
 
-版本：**0.4.8**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.4.9**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -180,14 +180,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.4.8-en-cmd.txt](docs/tutorials/koder-cli-0.4.8-en-cmd.txt)
-- [koder-cli-0.4.8-en-linux.txt](docs/tutorials/koder-cli-0.4.8-en-linux.txt)
-- [koder-cli-0.4.8-en-mac.txt](docs/tutorials/koder-cli-0.4.8-en-mac.txt)
-- [koder-cli-0.4.8-en-powershell.txt](docs/tutorials/koder-cli-0.4.8-en-powershell.txt)
-- [koder-cli-0.4.8-zh-cmd.txt](docs/tutorials/koder-cli-0.4.8-zh-cmd.txt)
-- [koder-cli-0.4.8-zh-linux.txt](docs/tutorials/koder-cli-0.4.8-zh-linux.txt)
-- [koder-cli-0.4.8-zh-mac.txt](docs/tutorials/koder-cli-0.4.8-zh-mac.txt)
-- [koder-cli-0.4.8-zh-powershell.txt](docs/tutorials/koder-cli-0.4.8-zh-powershell.txt)
+- [koder-cli-0.4.9-en-cmd.txt](docs/tutorials/koder-cli-0.4.9-en-cmd.txt)
+- [koder-cli-0.4.9-en-linux.txt](docs/tutorials/koder-cli-0.4.9-en-linux.txt)
+- [koder-cli-0.4.9-en-mac.txt](docs/tutorials/koder-cli-0.4.9-en-mac.txt)
+- [koder-cli-0.4.9-en-powershell.txt](docs/tutorials/koder-cli-0.4.9-en-powershell.txt)
+- [koder-cli-0.4.9-zh-cmd.txt](docs/tutorials/koder-cli-0.4.9-zh-cmd.txt)
+- [koder-cli-0.4.9-zh-linux.txt](docs/tutorials/koder-cli-0.4.9-zh-linux.txt)
+- [koder-cli-0.4.9-zh-mac.txt](docs/tutorials/koder-cli-0.4.9-zh-mac.txt)
+- [koder-cli-0.4.9-zh-powershell.txt](docs/tutorials/koder-cli-0.4.9-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 
@@ -226,15 +226,15 @@ koder project check --kind website --json -w /path/to/site
 
 `koder skills list` 查看技能；聊天中 `/skill` 选择技能。执行中可继续输入补充，Setup 可选择 steer 或 queue。`/harness deep-research` 选择研究配置，`koder harness off` 关闭 JIT。应用操作沿用已授权的 Apps/MCP、浏览器和桌面；缺权限或驱动会明确提示。持久经验 owner 未接入时返回 NO_ENTRY。
 
-[技能教程](docs/PORTABLE-SKILLS.zh.md) · [输入与设置](docs/SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](docs/APP-USE-AND-LEARN.zh.md) · [Harness 配置](docs/HARNESS-JIT.md) · [更新与已知限制](docs/RELEASE-0.4.8.md)
+[技能教程](docs/PORTABLE-SKILLS.zh.md) · [输入与设置](docs/SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](docs/APP-USE-AND-LEARN.zh.md) · [Harness 配置](docs/HARNESS-JIT.md) · [更新与已知限制](docs/RELEASE-0.4.9.md)
 
 ## 常驻与邮件问询
 
-安装后先 `koder --version` 核对 0.4.8，再 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
+安装后先 `koder --version` 核对 0.4.9，再 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
 
 邮箱在 Setup 绑定，授权码以星号显示。分别开启 `/mail model on` 与 `/mail inquire on` 并确认后，相关来信可以提出选项；选择只生成草稿，发送仍需最终预览和确认。后台查收还需在常驻页打开邮箱可见性。广告和验证码不参与问询。
 
-[常驻完整教程](docs/ALWAYS-ON.zh.md) · [邮箱完整教程](docs/MAIL-PROACTIVE-INQUIRY.zh.md) · [本版更新与未验项](docs/RELEASE-0.4.8.md)。30 课和八套中英文教程仍在，运行 `koder learn` 开始。
+[常驻完整教程](docs/ALWAYS-ON.zh.md) · [邮箱完整教程](docs/MAIL-PROACTIVE-INQUIRY.zh.md) · [本版更新与未验项](docs/RELEASE-0.4.9.md)。30 课和八套中英文教程仍在，运行 `koder learn` 开始。
 
 ## 已有功能导航
 
@@ -245,7 +245,7 @@ koder project check --kind website --json -w /path/to/site
 
 ## MCP 与 Skill 适配
 
-[统一目录、开关、依赖诊断和协议设置](docs/MCP-SKILL-COMPATIBILITY.zh.md) · [逐项清单](docs/MCP-SKILL-INVENTORY.md) · [0.4.8 更新说明](docs/RELEASE-0.4.8.zh.md)。
+[统一目录、开关、依赖诊断和协议设置](docs/MCP-SKILL-COMPATIBILITY.zh.md) · [逐项清单](docs/MCP-SKILL-INVENTORY.md) · [0.4.9 更新说明](docs/RELEASE-0.4.9.zh.md)。
 
 
 模型自动更新：Setup → 模型，可自动获取、手动刷新或关闭；[完整教程](docs/MODEL-DISCOVERY.zh.md)。
