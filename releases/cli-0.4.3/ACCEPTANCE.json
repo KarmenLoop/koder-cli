@@ -35,6 +35,34 @@
     "Linux systemd login NOT_RUN",
     "Real mailbox/gateway/provider accounts and real-model quality NOT_RUN"
   ],
-  "publication": "Pending upload/readback; publication explicitly authorized by user",
-  "priorFailures": "Earlier candidate and release failure records retained; selected suites are not a full product-suite claim."
+  "publication": "Published to GitHub Latest and the official website; independently downloaded and checked",
+  "priorFailures": "Earlier candidate and release failure records retained; selected suites are not a full product-suite claim.",
+  "websiteTests": {
+    "passed": 112,
+    "failed": 0,
+    "skipped": 1
+  },
+  "publicDownloads": {
+    "websiteAssets": 20,
+    "githubAssets": 20,
+    "allSha256AndSizesMatch": true
+  },
+  "publicWebsiteFiles": {
+    "files": 1369,
+    "mismatched": [],
+    "removedFromPriorDeploy": [],
+    "deploy": "6adccfb3c0924dc2a9dc4a3c",
+    "comparison": "Static files to prepared bytes; edge artifacts to generated edge-functions-dist; effective netlify.toml to the same CLI normalizer plus merged headers/redirects."
+  },
+  "liveUpdate": {
+    "passed": true,
+    "from": "0.4.2",
+    "to": "0.4.3",
+    "origin": "https://karmenloop.com/install",
+    "method": "Actual old installed CLI update command; live manifest and installer downloads; disposable HOME and no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 4
+  },
+  "productionDeploy": "6adccfb3c0924dc2a9dc4a3c",
+  "priorProductionDeploy": "6adca9e079585b86d878d608"
 }
