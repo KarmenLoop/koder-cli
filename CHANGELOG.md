@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.6 — 2026-10-25
+
+Unify shipped Skill access and switches, include the private MCP npm installer, preserve explicit SSE transports and reduce unrelated method text in small contexts. Preserve existing features and authorization boundaries. [Release notes](docs/RELEASE-0.4.6.md).
+
 ## 0.4.5 — 2026-10-25
 
 Raise the verified update bundle limit to 512 MiB. Document one-time official-installer migration for older clients. All 0.4.4 features remain. [Release notes](docs/RELEASE-0.4.5.md).

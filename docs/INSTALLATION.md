@@ -1,12 +1,12 @@
 # Install Koder CLI, configure a model, and start working
 
-> Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](RELEASE-0.4.5.md).
+> Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](RELEASE-0.4.6.md).
 
 **Known integration bugs; temporarily unavailable:** MiMo Token Plan, Kimi API, Kimi Code, DeepSeek, Alibaba Token Plan, Volcano Coding Plan, and Volcano Ark API. Setup displays these entries in gray and prevents selection. Existing profiles are retained for viewing or removal; activation, model tests, refresh and execution are blocked before network access. No automatic backup engine or billing-route switch is used. See [provider availability](PROVIDERS.md#current-availability).
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide describes **0.4.5**. The official website provides the installer, package, checksums and tutorials. The complete [English guide](USER-GUIDE.en.md) and [Chinese guide](USER-GUIDE.zh.md) describe this release and its remaining acceptance limits. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide describes **0.4.6**. The official website provides the installer, package, checksums and tutorials. The complete [English guide](USER-GUIDE.en.md) and [Chinese guide](USER-GUIDE.zh.md) describe this release and its remaining acceptance limits. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -53,7 +53,7 @@ koder version
 koder setup
 ```
 
-`koder version` should show `0.4.5` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
+`koder version` should show `0.4.6` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
 
 If Windows says `koder` is not recognized, reopen the terminal first. You can inspect the installed launcher directly:
 
@@ -198,16 +198,16 @@ New creation tasks use the users Koder Projects folder unless an existing or exp
 
 An explicit ask/run prompt does not consume unrelated stdin. Add --stdin to attach a pipe; with no prompt, stdin supplies the task. Input has a five-second complete-read deadline, adjustable with --stdin-timeout. Model diagnosis uses a separate ten-second budget with no inference retries. Provider reasons are bounded and redacted. See the complete guide for platform-specific pipes, language, approvals, browser methods and H5 delivery.
 
-## 0.4.5 quick reference
+## 0.4.6 quick reference
 
 Use `koder skills list` and `/skill` for portable methods. Add input while the agent works; Setup selects steer or queue. Use `/harness deep-research` for research, or `koder harness off` for baseline behavior. App operations keep existing grants and driver limits. Missing persistent experience owners produce NO_ENTRY.
 
-[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.5.md)
+[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.6.md)
 
-## 0.4.5: residency and mail inquiries
+## 0.4.6: residency and mail inquiries
 
-After installation, verify `koder --version` reports 0.4.5, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
+After installation, verify `koder --version` reports 0.4.6, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
 
 Bind mail in Setup using masked authorization-code input. Separately enable `/mail model on` and `/mail inquire on` with their consent phrases. Related incoming mail can offer choices; a choice creates a draft, and sending still requires final preview and confirmation. Background mail checks also require mail visibility in resident settings. Advertisements and verification codes are excluded from inquiries.
 
-[Complete resident guide](ALWAYS-ON.en.md) · [Complete mail guide](MAIL-PROACTIVE-INQUIRY.en.md) · [Changes and unverified paths](RELEASE-0.4.5.md). All 30 lessons and eight text editions remain; start with `koder learn`.
+[Complete resident guide](ALWAYS-ON.en.md) · [Complete mail guide](MAIL-PROACTIVE-INQUIRY.en.md) · [Changes and unverified paths](RELEASE-0.4.6.md). All 30 lessons and eight text editions remain; start with `koder learn`.

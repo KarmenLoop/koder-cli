@@ -150,3 +150,7 @@ Pinned portable Skill by roman-ryzenadvanced, revision 118466d7737ebc42806c331e4
 ## Windows-MCP runtime
 
 The Windows-MCP 0.8.8 subprocess and CPython 3.14.8 are bundled for Windows x64. See `vendor/windows-mcp/NOTICE.md`, `DEPENDENCIES.json`, individual dist-info licenses and `corresponding-source/`. Third-party licenses, including GPL/MPL components, remain in effect; Koder proprietary restrictions do not override them.
+
+## Private npm installer (0.4.6)
+
+npm 10.9.8 and its pinned bundled dependencies ship only for the existing reviewed MCP installation path. Original package notices are preserved. Supplemental license files are identified in the generated component record; they do not replace upstream notices. The npm registry tarball is verified against the original lockfile SHA-512 integrity. No global npm installation or automatic lifecycle-script execution is authorized by inclusion.
