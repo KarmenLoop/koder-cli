@@ -1,6 +1,6 @@
 # Session input, Skills and startup updates
 
-Available in **0.4.2**. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
+Available in **0.4.3**. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
 
 ## Keep typing while Koder works
 

@@ -2,7 +2,7 @@
 
 # Distribution and release records
 
-The current distributed release is **0.4.2**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.4.3**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -33,3 +33,7 @@ Published by explicit user authorization with recorded platform and real-account
 ## Version 0.4.2
 
 Windows CMD/PowerShell and macOS CLI installers share the 0.4.2 archive and manifest. Published by explicit user request; native Windows and real-account limits remain in the release notes.
+
+## Version 0.4.3
+
+Windows CMD/PowerShell and macOS CLI installers use the same 0.4.3 archive, checksums and stable feed. Residency is opt-in. Native Windows, login/reboot and real-account checks remain explicitly unverified in the release notes.

@@ -1,10 +1,8 @@
-> 未发布候选 0.4.2-candidate.1：新增本机 Skill 兼容与调用。线上仍是 0.4.2。命令、格式与宿主限制见[兼容指南](PORTABLE-SKILLS.zh.md)。
-
-当前版本：**0.4.2-candidate.1**。先看[本版更新](RELEASE-0.4.2-candidate.1.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.4.3**。先看[本版更新](RELEASE-0.4.3.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 # Koder CLI 完整使用教程
 
-版本：**0.4.2-candidate.1**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.4.3**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -168,20 +166,20 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 互动教练共 **30 课**，分别提供 PowerShell、CMD、macOS、Linux 写法；使用临时练习工程与脚本教练，不调用付费模型。`koder learn --print` 查看文字版，`koder help 命令名` 查当前用法。
 
-[完整命令参考](COMMAND-REFERENCE.zh.md) 由本候选的真实命令目录生成，覆盖每个文档命令及通用参数。版本号、教程课数与实际配置模型分别来自自己的来源；没有一个对所有用户通用的默认付费模型，也不代表已购买套餐。
+[完整命令参考](COMMAND-REFERENCE.zh.md) 由本版的真实命令目录生成，覆盖每个文档命令及通用参数。版本号、教程课数与实际配置模型分别来自自己的来源；没有一个对所有用户通用的默认付费模型，也不代表已购买套餐。
 
 `koder feedback` 和 `koder business` 提供 **info@karmenloop.com**，不会自动发送。官网为 [karmenloop.com](https://karmenloop.com)。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.4.2-candidate.1-en-cmd.txt](tutorials/koder-cli-0.4.2-candidate.1-en-cmd.txt)
-- [koder-cli-0.4.2-candidate.1-en-linux.txt](tutorials/koder-cli-0.4.2-candidate.1-en-linux.txt)
-- [koder-cli-0.4.2-candidate.1-en-mac.txt](tutorials/koder-cli-0.4.2-candidate.1-en-mac.txt)
-- [koder-cli-0.4.2-candidate.1-en-powershell.txt](tutorials/koder-cli-0.4.2-candidate.1-en-powershell.txt)
-- [koder-cli-0.4.2-candidate.1-zh-cmd.txt](tutorials/koder-cli-0.4.2-candidate.1-zh-cmd.txt)
-- [koder-cli-0.4.2-candidate.1-zh-linux.txt](tutorials/koder-cli-0.4.2-candidate.1-zh-linux.txt)
-- [koder-cli-0.4.2-candidate.1-zh-mac.txt](tutorials/koder-cli-0.4.2-candidate.1-zh-mac.txt)
-- [koder-cli-0.4.2-candidate.1-zh-powershell.txt](tutorials/koder-cli-0.4.2-candidate.1-zh-powershell.txt)
+- [koder-cli-0.4.3-en-cmd.txt](tutorials/koder-cli-0.4.3-en-cmd.txt)
+- [koder-cli-0.4.3-en-linux.txt](tutorials/koder-cli-0.4.3-en-linux.txt)
+- [koder-cli-0.4.3-en-mac.txt](tutorials/koder-cli-0.4.3-en-mac.txt)
+- [koder-cli-0.4.3-en-powershell.txt](tutorials/koder-cli-0.4.3-en-powershell.txt)
+- [koder-cli-0.4.3-zh-cmd.txt](tutorials/koder-cli-0.4.3-zh-cmd.txt)
+- [koder-cli-0.4.3-zh-linux.txt](tutorials/koder-cli-0.4.3-zh-linux.txt)
+- [koder-cli-0.4.3-zh-mac.txt](tutorials/koder-cli-0.4.3-zh-mac.txt)
+- [koder-cli-0.4.3-zh-powershell.txt](tutorials/koder-cli-0.4.3-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 
@@ -216,8 +214,16 @@ koder project check --kind website --json -w /path/to/site
 
 [Windows-MCP 与 Code Graph 真实调用验收](MCP-ACTUAL-ACCEPTANCE.zh.md)：已测平台、原生依赖与未测范围。
 
-## 0.4.2 新功能速查
+## 0.4.3 新功能速查
 
 `koder skills list` 查看技能；聊天中 `/skill` 选择技能。执行中可继续输入补充，Setup 可选择 steer 或 queue。`/harness deep-research` 选择研究配置，`koder harness off` 关闭 JIT。应用操作沿用已授权的 Apps/MCP、浏览器和桌面；缺权限或驱动会明确提示。持久经验 owner 未接入时返回 NO_ENTRY。
 
-[技能教程](PORTABLE-SKILLS.zh.md) · [输入与设置](SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](APP-USE-AND-LEARN.zh.md) · [Harness 配置](HARNESS-JIT.md) · [更新与已知限制](RELEASE-0.4.2.md)
+[技能教程](PORTABLE-SKILLS.zh.md) · [输入与设置](SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](APP-USE-AND-LEARN.zh.md) · [Harness 配置](HARNESS-JIT.md) · [更新与已知限制](RELEASE-0.4.3.md)
+
+## 0.4.3：常驻与邮件问询
+
+安装后先 `koder --version` 核对 0.4.3，再 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
+
+邮箱在 Setup 绑定，授权码以星号显示。分别开启 `/mail model on` 与 `/mail inquire on` 并确认后，相关来信可以提出选项；选择只生成草稿，发送仍需最终预览和确认。后台查收还需在常驻页打开邮箱可见性。广告和验证码不参与问询。
+
+[常驻完整教程](ALWAYS-ON.zh.md) · [邮箱完整教程](MAIL-PROACTIVE-INQUIRY.zh.md) · [本版更新与未验项](RELEASE-0.4.3.md)。30 课和八套中英文教程仍在，运行 `koder learn` 开始。

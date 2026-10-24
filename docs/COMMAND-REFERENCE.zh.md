@@ -1,11 +1,10 @@
 # 完整命令参考
 
-通用应用操作与“不会就学”：查看[通道、权限和手动验收](APP-USE-AND-LEARN.zh.md)。
+Koder CLI 0.4.3 · 30 课互动教程
 
-设置现含「技能」与「回答中的输入方式」。参见[默认值、取消规则与手动验收](SESSION-INPUT-AND-SKILLS.zh.md)。
+由本版实际命令定义生成。另见 [安装](INSTALLATION.md)、[常驻](ALWAYS-ON.zh.md)、[邮件问询](MAIL-PROACTIVE-INQUIRY.zh.md)、[Skills](PORTABLE-SKILLS.zh.md) 和 [验收限制](RELEASE-0.4.3.md)。
 
-0.4.2-candidate.4 — unpublished candidate. Interactive coach: 30 lessons.
-
+- `--harness <id>`: 本轮选配 Harness；不改变权限或模型
 - `--skill <id,name>`: 本轮指定本机 Skill；正文按需读取，脚本仍走原审批
 - `--stdin`: 将标准输入附加到显式提示词；没有提示词时自动读取
 - `--stdin-timeout <秒>`: 完整输入的等待上限，默认 5 秒，范围 0.01–3600 秒
@@ -20,6 +19,75 @@
 - `--engine <名称>`: 默认 koder；内部备用引擎默认禁用并置灰，不自动切换
 - `--no-color`: 关闭颜色
 - `-h, --help`: 显示该命令的说明
+
+## activate
+
+```text
+koder activate  显式开启用户级常驻
+
+用法
+  koder activate
+
+默认不读取邮件、日历或浏览历史。常驻不增加权限；原 Core 控制执行与取消。详见 docs/ALWAYS-ON.zh.md。
+
+通用选项见 koder help。
+```
+
+## deactivate
+
+```text
+koder deactivate  关闭常驻并取消自启
+
+用法
+  koder deactivate
+
+默认不读取邮件、日历或浏览历史。常驻不增加权限；原 Core 控制执行与取消。详见 docs/ALWAYS-ON.zh.md。
+
+通用选项见 koder help。
+```
+
+## status
+
+```text
+koder status  查看常驻、提醒和网关状态
+
+用法
+  koder status
+
+默认不读取邮件、日历或浏览历史。常驻不增加权限；原 Core 控制执行与取消。详见 docs/ALWAYS-ON.zh.md。
+
+通用选项见 koder help。
+```
+
+## agentd
+
+```text
+koder agentd  常驻诊断与主动提醒设置
+
+用法
+  koder agentd status|doctor|logs|wake|proactive on|off
+
+默认不读取邮件、日历或浏览历史。常驻不增加权限；原 Core 控制执行与取消。详见 docs/ALWAYS-ON.zh.md。
+
+通用选项见 koder help。
+```
+
+## harness
+
+```text
+koder harness  按任务选配执行配置
+
+用法
+  koder harness status|list|on|off|use <id|auto>|default <id>|archive <on|off>
+
+复用原工具、预算、权限与经验接口；Setup → 技能 → 任务 Harness。关闭时保持默认 ReAct。
+
+例子
+  koder harness list
+    查看五种 Profile
+
+通用选项见 koder help。
+```
 
 ## project
 
@@ -67,9 +135,9 @@ Koder 自有 OAuth 应用配置后支持浏览器登录；未配置时明确提�
 koder mail  绑定邮箱、收信分类与独立授权回复
 
 用法
-  koder mail setup|providers|status|check|read <id>|code <id>|draft <id>|reply <id>|watch|disconnect
+  koder mail setup|status|check|inquire on|off|inquiries|choose <id> A|send-inquiry <id>|dismiss <id>|watch|disconnect
 
-模型读取、习惯学习与自主回复分别授权；/mail auto on --allow-from friend@example.com --daily-limit 5。验证码只在本地显式查看。Koder 或 mail watch 运行时才提醒。
+模型读取、习惯学习与自主回复分别授权；/mail auto on --allow-from friend@example.com --daily-limit 5。收信主动问询：先 /mail model on，再 /mail inquire on。A/B 选择后起草，发送须输入 send。验证码只在本地显式查看。Koder 或 mail watch 运行时才提醒。
 
 通用选项见 koder help。
 ```
@@ -951,9 +1019,3 @@ koder about  按官网介绍 Koder 是谁做的，并给出更新页
 
 通用选项见 koder help。
 ```
-
-## 0.4.2 新功能速查
-
-`koder skills list` 查看技能；聊天中 `/skill` 选择技能。执行中可继续输入补充，Setup 可选择 steer 或 queue。`/harness deep-research` 选择研究配置，`koder harness off` 关闭 JIT。应用操作沿用已授权的 Apps/MCP、浏览器和桌面；缺权限或驱动会明确提示。持久经验 owner 未接入时返回 NO_ENTRY。
-
-[技能教程](PORTABLE-SKILLS.zh.md) · [输入与设置](SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](APP-USE-AND-LEARN.zh.md) · [Harness 配置](HARNESS-JIT.md) · [更新与已知限制](RELEASE-0.4.2.md)

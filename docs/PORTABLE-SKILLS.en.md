@@ -1,6 +1,6 @@
 # Local Agent Skills
 
-Available in **0.4.2**. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
+Available in **0.4.3**. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
 
 Koder reads local Codex, Cursor and WorkBuddy/CodeBuddy Skill packages through its existing `skill_catalog` and `skill_read` tools. Instructions can guide the current Agent; scripts run through the existing execution tools and approvals. The current model and BYOK settings stay in use.
 

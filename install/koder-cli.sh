@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.2/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.2/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.3/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.3/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Versioned release path. Keep the installer and manifest pinned to the same release.
@@ -10,7 +10,7 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.2}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.3}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
@@ -296,3 +296,12 @@ fi
 
 say "电脑能力：运行 koder permissions status 检查，运行 koder permissions request --home 正式授权主目录；网络、文件发送与桌面能力分别检查。" "Computer access: run koder permissions status, then koder permissions request --home to grant home access; network, attachments and desktop are checked separately."
 say "安装不会自动取得系统权限。macOS 辅助功能/录屏/完整磁盘访问，或 Windows 限定管理员动作须由系统确认；实际宿主变化后需重新检查。" "Installation does not automatically grant OS permissions. Approve macOS Accessibility/Screen Recording/Full Disk Access or a specific Windows administrator action in the OS; recheck after the responsible host changes."
+
+# Residency is a separate opt-in; EULA acceptance and --yes never imply it.
+if [ "${KODER_ACTIVATE:-}" = 1 ]; then
+  "${LAUNCHER}" activate || say "常驻未确认启动，请运行 koder agentd doctor。安装已完成。" "Residency was not confirmed. Run koder agentd doctor; installation is complete."
+elif [ "${ONBOARD}" = 1 ] && [ -z "${KODER_EXPECTED_VERSION:-}" ] && [ -r /dev/tty ] && (: < /dev/tty) 2>/dev/null; then
+  "${LAUNCHER}" agentd offer < /dev/tty > /dev/tty 2>&1 || true
+else
+  say "推荐运行 koder activate 开启用户级常驻；koder deactivate 关闭。不会代开电脑或邮箱权限。" "Run koder activate for residency; koder deactivate stops it. Computer and mailbox permissions remain separate."
+fi

@@ -1,10 +1,10 @@
 {
-  "version": "0.4.2",
-  "file": "koder-cli-0.4.2.tgz",
-  "sha256": "80cb6a8766cd763730ded8a9c895c8d92e9a37fab1c12c7e993337038fe7c5eb",
-  "size": 53680932,
+  "version": "0.4.3",
+  "file": "koder-cli-0.4.3.tgz",
+  "sha256": "c84a6290b41fe639e8e0aee16db424fe259b5ff82228bab08012ca687c80a5b0",
+  "size": 53905506,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-24T12:44:37.344Z",
+  "builtAt": "2026-10-24T15:26:56.864Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,33 +14,31 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "1573f3c4776d453cce5350648f275dfd80761ca0bec9d112e44613bfbec5b2a1"
+      "sha256": "dbf2aa60fd7db41f009833c729b459037ab4ac01d62d93b94acf92063dc11773"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "904d692b00392e4626e895f12ffdc5256e68cd0e8968b7c33edec3a1c9a120a8"
+      "sha256": "c7bee0d28e515d6731782003a2637e386698464ed2c05317a184b2142786a8bb"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "5a0496ae4d0a8cebb5d3cb632ff9da127bde0ffc38d6c89e8610b90010ccdc69"
+      "sha256": "b5630a0c2d069a556e13de9f7aecf3516121508b81989b78b1ff62dbc5e8803b"
     }
   },
   "channel": "stable",
   "guides": "https://karmenloop.com/cli-guide/",
-  "sourceBaseline": "0.4.2-candidate.6",
+  "sourceBaseline": "0.4.3-candidate.2",
   "changes": [
-    "Portable Codex, Cursor and WorkBuddy Skills",
-    "Bundled media and browser workflows",
-    "Editable input with steer and queue",
-    "Setup Skill controls and application-use learning",
-    "Five task harness profiles and bounded repair",
-    "Visible eligible startup update checks"
+    "Opt-in resident agent and scoped reminders",
+    "Protected mail authorization-code input and consented inquiries",
+    "One Core for foreground tasks and hosted gateway",
+    "Per-window preview ownership and idle update continuity"
   ],
   "retainedLimits": [
-    "Final-package Windows native install/update NOT_RUN",
-    "Windows 10/11 client GUI/ConPTY/IME/UAC incomplete",
-    "Authenticated external accounts NOT_RUN",
-    "Real-model quality benchmark NOT_RUN"
+    "Native Windows final-package cold installation/update and GUI NOT_RUN",
+    "Native OS login/reboot and notification display NOT_RUN",
+    "Real mail/gateway accounts and model quality NOT_RUN",
+    "Calendar/history collectors and notification-click resume unavailable"
   ],
   "publicationAuthorization": "Explicit user request on 2026-10-24; incomplete acceptance records retained"
 }

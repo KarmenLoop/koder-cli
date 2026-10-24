@@ -1,11 +1,10 @@
 # Complete command reference
 
-App operations and learning: [routing, permissions and manual checks](APP-USE-AND-LEARN.en.md).
+Koder CLI 0.4.3 · 30 interactive lessons
 
-Setup now includes Skills and Mid-run input. See [defaults, cancellation and manual acceptance](SESSION-INPUT-AND-SKILLS.en.md).
+Generated from this release’s command definitions. See [installation](INSTALLATION.md), [resident agent](ALWAYS-ON.en.md), [mail inquiries](MAIL-PROACTIVE-INQUIRY.en.md), [Skills](PORTABLE-SKILLS.en.md) and [release limits](RELEASE-0.4.3.md).
 
-0.4.2-candidate.4 — unpublished candidate. Interactive coach: 30 lessons.
-
+- `--harness <id>`: Select a task harness without changing permissions or the model
 - `--skill <id,name>`: Select local skills for this turn; read on demand, scripts retain approvals
 - `--stdin`: Attach stdin to an explicit prompt; read it automatically when there is no prompt
 - `--stdin-timeout <秒>`: Complete-input deadline, default 5 seconds, range 0.01–3600 seconds
@@ -20,6 +19,75 @@ Setup now includes Skills and Mid-run input. See [defaults, cancellation and man
 - `--engine <名称>`: Koder is the default; the internal fallback is disabled and gray, with no automatic switch
 - `--no-color`: Disable colors
 - `-h, --help`: Show help for the command
+
+## activate
+
+```text
+koder activate  Enable the local user agent
+
+Usage
+  koder activate
+
+Sensitive sources remain off. Residency grants no tool permissions; Core still owns execution and cancellation. See docs/ALWAYS-ON.zh.md.
+
+Global options: koder help.
+```
+
+## deactivate
+
+```text
+koder deactivate  Stop the agent and remove login startup
+
+Usage
+  koder deactivate
+
+Sensitive sources remain off. Residency grants no tool permissions; Core still owns execution and cancellation. See docs/ALWAYS-ON.zh.md.
+
+Global options: koder help.
+```
+
+## status
+
+```text
+koder status  Inspect the resident agent
+
+Usage
+  koder status
+
+Sensitive sources remain off. Residency grants no tool permissions; Core still owns execution and cancellation. See docs/ALWAYS-ON.zh.md.
+
+Global options: koder help.
+```
+
+## agentd
+
+```text
+koder agentd  Resident-agent diagnostics and notification settings
+
+Usage
+  koder agentd status|doctor|logs|wake|proactive on|off
+
+Sensitive sources remain off. Residency grants no tool permissions; Core still owns execution and cancellation. See docs/ALWAYS-ON.zh.md.
+
+Global options: koder help.
+```
+
+## harness
+
+```text
+koder harness  Choose a task harness
+
+Usage
+  koder harness status|list|on|off|use <id|auto>|default <id>|archive <on|off>
+
+Reuses existing tools, budgets, permissions and experience ports. Setup → Skills → Task harness. Disabling restores baseline ReAct.
+
+Examples
+  koder harness list
+    List the five profiles
+
+Global options: koder help.
+```
 
 ## project
 
@@ -67,9 +135,9 @@ Global options: koder help.
 koder mail  Bind mail, classify messages and authorize replies
 
 Usage
-  koder mail setup|providers|status|check|read <id>|code <id>|draft <id>|reply <id>|watch|disconnect
+  koder mail setup|status|check|inquire on|off|inquiries|choose <id> A|send-inquiry <id>|dismiss <id>|watch|disconnect
 
-Model reading, learning, and automatic replies need separate grants. Use /mail auto on --allow-from friend@example.com --daily-limit 5. Codes are local-only. Checks run while chat or mail watch is running.
+Model reading, learning, and automatic replies need separate grants. Use /mail auto on --allow-from friend@example.com --daily-limit 5. For decision questions, enable /mail model on, then /mail inquire on. Choose A/B to draft; sending still requires send. Codes are local-only. Checks run while chat or mail watch is running.
 
 Global options: koder help.
 ```
@@ -951,9 +1019,3 @@ Matches the website's about, updates and download pages: written by KARMEN LOOP,
 
 Global options: koder help.
 ```
-
-## 0.4.2 quick reference
-
-Use `koder skills list` and `/skill` for portable methods. Add input while the agent works; Setup selects steer or queue. Use `/harness deep-research` for research, or `koder harness off` for baseline behavior. App operations keep existing grants and driver limits. Missing persistent experience owners produce NO_ENTRY.
-
-[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.2.md)

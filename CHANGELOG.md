@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3 — 2026-10-24
+
+Opt-in resident agent, scoped reminders, masked mail input and authorized inquiries, preview ownership and idle updates. Windows and macOS installers, manifests and tutorials match. See [changes and limits](docs/RELEASE-0.4.3.md).
+
 ## 0.4.2 — 2026-10-24
 
 Portable Skills, live steer/queue input, application-use learning, Setup controls and task harness profiles. Windows CMD/PowerShell and macOS/Linux installers use matching release and update metadata. See [release notes](docs/RELEASE-0.4.2.md) for the retained test limits.

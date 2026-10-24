@@ -1,0 +1,40 @@
+{
+  "version": "0.4.3",
+  "sourceBaseline": "0.4.3-candidate.2",
+  "sourceRegression": {
+    "passed": 200,
+    "failed": 0,
+    "exitCode": 0
+  },
+  "packagedAgentChecks": {
+    "passed": 29,
+    "failed": 0
+  },
+  "packagedCliIpc": {
+    "version": "0.4.3",
+    "platform": "darwin",
+    "arch": "arm64",
+    "case": "packaged CLI -> authenticated IPC -> original Core -> scripted model; stdin held open",
+    "code": 0,
+    "signal": null,
+    "elapsedMs": 384,
+    "modelCalls": 1,
+    "remainingSessions": 0,
+    "realProvider": false,
+    "osServiceRegistration": false
+  },
+  "packageIntegrity": {
+    "sourceFiles": 380,
+    "kernelFiles": 3893,
+    "sha256": "c84a6290b41fe639e8e0aee16db424fe259b5ff82228bab08012ca687c80a5b0",
+    "bytes": 53905506
+  },
+  "platformLimits": [
+    "Native Windows 10/11 cold install/update, ConPTY/IME, MCP GUI, login/reboot/Toast NOT_RUN",
+    "macOS LaunchAgent login/reboot and notification display NOT_RUN",
+    "Linux systemd login NOT_RUN",
+    "Real mailbox/gateway/provider accounts and real-model quality NOT_RUN"
+  ],
+  "publication": "Pending upload/readback; publication explicitly authorized by user",
+  "priorFailures": "Earlier candidate and release failure records retained; selected suites are not a full product-suite claim."
+}

@@ -77,3 +77,15 @@ React, Vue, Next.js, and Expo Web projects first start their existing developmen
 The preview server accepts loopback requests only, checks request origins, blocks secret paths and symbolic links, bounds served files, and provides no write or command endpoint. It stops with its owning chat or foreground preview command. One-shot agent tasks close their own preview at completion; use interactive chat or `koder preview start` for a continuing preview. External development servers remain owned by their original process and are not terminated by Koder.
 
 The built-in **Live project preview** skill and `workspace_preview` tool guide the agent through project discovery, approved startup, real response checks, browser opening, edits, visual checks, and cleanup. A returned URL proves that the preview server started; it does not prove that every application page or backend works.
+
+## Proactive decision questions (0.4.3 candidate)
+
+Mailbox binding now uses an exclusive masked input reader, including when invoked from chat. Windows backspace and bracketed paste are parsed as input controls, not credential characters. End-of-input and cancellation release the reader; credentials are not echoed or queued as later chat tasks. Native Windows acceptance remains separate.
+
+After binding, run `/mail model on`, then `/mail inquire on`, and confirm each grant. Notifications must also remain enabled. This path is independent of `/mail auto`: decision-bearing mail never takes the automatic-send branch. Marketing and authentication messages never enter inquiry extraction or drafting. Most low-relevance messages remain silent.
+
+A pending question offers A/B or an explicit free-text decision. `/mail choose <id> B` drafts a reply card with From, To, Subject and Body. `/mail send-inquiry <id>` shows the final preview and still requires the exact `send` confirmation; `--yes` cannot bypass it. In chat, a focused inquiry also accepts `B`, `Other: ...`, `Edit: ...`, `send` and `cancel`. `/mail inquiries` restores pending questions, while `/mail followups` lists active follow-ups. Unknown SMTP outcomes block replay.
+
+The default push cap is five per day and follow-up lasts fourteen days. Use `/mail inquire on --inquire-limit 5 --follow-up-days 14 --quiet-hours 23:00-08:00`. Quiet-held questions become due once after quiet hours, within the same limit. Settings, choices, drafts and follow-ups stay in the existing encrypted account namespace and use its operation lease. The original IMAP/POP cursor, consent gates and delivery ledger remain authoritative.
+
+The foreground chat/watch paths are implemented. `runMailProactiveTick` provides a gated adapter for a future existing daemon host; OS notifications, notification deep links and gateway delivery are not connected in this candidate. Closing chat/watch stops checks. The CLI does not claim independent always-on operation. See [the Chinese workflow guide](MAIL-PROACTIVE-INQUIRY.zh.md) for commands, recovery and acceptance boundaries.
