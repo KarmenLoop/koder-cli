@@ -1,12 +1,12 @@
 # Koder CLI
 
-Koder CLI 0.4.1 is available for Windows and macOS. This update improves task-specific coding and writing guidance, contextual revisions, source attribution, current-task delivery checks and Windows credential handling. Read the [release notes](docs/RELEASE-0.4.1.md) for changes and verification limits.
+Koder CLI **0.4.2** is available for Windows and macOS. This release adds portable Skills, editable input during agent work, application-use guidance and task-specific harness profiles. [Changes and known limitations](docs/RELEASE-0.4.2.md).
 
 English | [简体中文](docs/USER-GUIDE.zh.md)
 
-Koder CLI **0.4.1** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
+Koder CLI **0.4.2** is a terminal coding agent for personal, noncommercial local use with your own model API. This build includes workspace-isolated task history, independent project folders, bounded API diagnosis, noninteractive clarification and source-disclosure checks. Local regression evidence and Windows-specific follow-up are documented in [CLI contracts](docs/CLI-CONTRACTS.md) and [Windows checks](docs/WINDOWS-INSTALL-CHECKS.md). Native Windows and authenticated provider behavior are not established by macOS fixture tests.
 
-**0.4.1** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.1) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
+**0.4.2** · [Download](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.2) · [Installation guide](docs/INSTALLATION.md) · [Provider setup](docs/PROVIDERS.md)
 
 Koder is a local task tool from the KARMEN LOOP team. Bring your own model API, choose a project, and work through plans, tools, approvals, and recorded results. Personal, noncommercial local use is free and does not require membership. Commercial use and organizational deployment require separate written authorization. The personal license does not permit secondary development or changes to proprietary code. A provider may charge for API requests.
 
@@ -14,9 +14,9 @@ The KARMEN LOOP kernel connects task planning, permission checks, tool execution
 
 The public GitHub repository retains the historical GPL **0.3.1** package and source tree. That historical tree does not build this proprietary release installer. Use the versioned release and official feed for that build; see [source and distribution status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md).
 
-## Formal release 0.4.1
+## Formal release 0.4.2
 
-Windows CMD and PowerShell and macOS/Linux installers are published together. Release, update and license records identify the stable channel consistently. The runtime retains the preview.30 multiwindow fixes. Read [0.4.1 release notes](docs/RELEASE-0.4.0.md).
+Windows CMD and PowerShell and macOS/Linux installers are published together. Release, update and license records identify the stable channel consistently. The runtime retains the preview.30 multiwindow fixes. Read [0.4.2 release notes](docs/RELEASE-0.4.2.md).
 
 ## Retained preview.30 changes
 
@@ -26,7 +26,7 @@ This hotfix separates new default tasks from older turn-only locks, releases a w
 
 MiniMax content-review failures now have their own diagnosis. Interactive `/` choices fill editable drafts, native Koder terminal windows keep separate task sessions, and long conversations retain short original constraints within the configured budget. Writing source records, Harness²-style artifact comparisons and scoped crawling with first-party static reverse analysis are included. Read [the complete release notes](docs/RELEASE-preview.29.md) and [multi-window guide](docs/MULTI-WINDOW.md).
 
-This is the formal 0.4.1 distribution. PowerShell 5.1-only cold startup, native Windows GUI focus/input and complete Windows client install/update acceptance remain open. The unavailable provider routes below remain disabled. Local fixtures and macOS subprocess tests do not certify Windows or a provider account.
+This is the formal 0.4.2 distribution. PowerShell 5.1-only cold startup, native Windows GUI focus/input and complete Windows client install/update acceptance remain open. The unavailable provider routes below remain disabled. Local fixtures and macOS subprocess tests do not certify Windows or a provider account.
 
 ## Windows and code graph integrations
 
@@ -201,3 +201,7 @@ REA 6.7.0 is bundled under its original MIT license. Its dependencies retain the
 ## Current-request delivery checks
 
 The unpublished candidate adds checks for actual current-turn artifacts, explicit output paths, supported draft formats and requested test receipts. It can request at most two bounded repairs through the existing execution loop. Incomplete delivery returns exit 3 and stays marked in local history. Read the [delivery guide](docs/TASK-DELIVERY.en.md) for behavior and limits; these checks are not a coding or writing quality score.
+
+## Skills, live input and task harness profiles
+
+Read the [portable Skills guide](docs/PORTABLE-SKILLS.en.md), [media/browser workflows](docs/VIDEO-BROWSER-SKILLS.en.md), [input and Setup controls](docs/SESSION-INPUT-AND-SKILLS.en.md), [application-use workflow](docs/APP-USE-AND-LEARN.en.md) and [Harness profiles](docs/HARNESS-JIT.md). These capabilities reuse the original tools and permissions. Cross-task profile evolution still needs the existing authorized maintenance host; standalone mode reports NO_ENTRY.

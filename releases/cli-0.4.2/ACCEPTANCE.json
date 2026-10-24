@@ -1,0 +1,35 @@
+{
+  "version": "0.4.2",
+  "archiveSha256": "80cb6a8766cd763730ded8a9c895c8d92e9a37fab1c12c7e993337038fe7c5eb",
+  "sourceBaseline": "0.4.2-candidate.6",
+  "releaseCli": {
+    "passed": 48,
+    "failed": 0
+  },
+  "package": {
+    "checksPassed": 48,
+    "cliSubprocesses": 27,
+    "kernelFilesVerified": 3891
+  },
+  "packagedJit": {
+    "passed": 35,
+    "failed": 0
+  },
+  "packagedAppUse": {
+    "passed": 19,
+    "failed": 0,
+    "scope": "Scripted model, synthetic computer transport and owned real stdio MCP"
+  },
+  "website": {
+    "passed": 112,
+    "failed": 0,
+    "skipped": 1
+  },
+  "realModelQuality": "NOT_RUN",
+  "nativeWindowsFinalPackage": "NOT_RUN",
+  "nativeGui": "NOT_RUN",
+  "browserVisualInspection": "NOT_RUN: local browser use is disabled in Work settings",
+  "inheritedFailures": "Four planning/suggestion/tutorial fixture failures and three 8K-context failures retained in historical release notes",
+  "standaloneEvolution": "NO_ENTRY without existing authorized persistent maintenance owner",
+  "publicationAuthorization": "Explicit user request to publish Windows and macOS, GitHub and official website on 2026-10-24"
+}

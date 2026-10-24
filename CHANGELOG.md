@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2 — 2026-10-24
+
+Portable Skills, live steer/queue input, application-use learning, Setup controls and task harness profiles. Windows CMD/PowerShell and macOS/Linux installers use matching release and update metadata. See [release notes](docs/RELEASE-0.4.2.md) for the retained test limits.
+
 ## 0.4.1 — 2026-10-24
 
 Task-specific coding and writing methods, contextual revisions, release-source repairs, current-task delivery checks and Windows credential handling. Windows CMD/PowerShell and macOS/Linux installers use matching release and update metadata. See [release notes](docs/RELEASE-0.4.1.md) for the retained test limits.

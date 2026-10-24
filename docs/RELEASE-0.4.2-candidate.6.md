@@ -1,0 +1,7 @@
+# 0.4.2-candidate.6 — task harness profiles (unpublished)
+
+This increment retains candidate.5 and adds five fixed M/P/F/A profiles to the existing CLI: default ReAct, deep research, office dependencies, bounded subtasks and universal app use. Task cues, explicit chat/command overrides and Setup settings select the profile. Tool and Skill filtering is enforced before invocation; profile changes retain existing approvals and consumed budgets.
+
+The original loop handles at most two bounded repairs. Completed outcomes use the original Skill maintenance port, with NO_ENTRY unless task receipts and isolated comparison evidence justify a recommendation. Standalone CLI has no default persistent maintenance owner; it reports that boundary without creating another database. No new model, executor, permission authority or credentials are introduced.
+
+Read [the usage guide, configuration and acceptance checklist](HARNESS-JIT.md). The local evidence covers 35 kernel checks and 70 selected CLI checks, including disabled behavior, Setup, profile filtering, repair, context projection and existing session/permission contracts. Three older 8K-context tests still fail identically on candidate.5; their failure records remain. Native Windows GUI/cold installation, real accounts, model quality and cost benchmarks are not established by these fixtures. This candidate has not changed the public download.

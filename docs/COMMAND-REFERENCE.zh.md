@@ -1,7 +1,12 @@
 # 完整命令参考
 
-0.4.1。互动教练 30 课。
+通用应用操作与“不会就学”：查看[通道、权限和手动验收](APP-USE-AND-LEARN.zh.md)。
 
+设置现含「技能」与「回答中的输入方式」。参见[默认值、取消规则与手动验收](SESSION-INPUT-AND-SKILLS.zh.md)。
+
+0.4.2-candidate.4 — unpublished candidate. Interactive coach: 30 lessons.
+
+- `--skill <id,name>`: 本轮指定本机 Skill；正文按需读取，脚本仍走原审批
 - `--stdin`: 将标准输入附加到显式提示词；没有提示词时自动读取
 - `--stdin-timeout <秒>`: 完整输入的等待上限，默认 5 秒，范围 0.01–3600 秒
 - `-w, --workspace <目录>`: 工作区，默认当前目录
@@ -216,11 +221,31 @@ koder prompts  根据对话预选下一句，也可使用常用模板
 用法
   koder prompts list | show <id> | choose | add <id> --title <title> --text <text> | update <id> --title <title> --text <text> | remove <id>
 
-回复后按当前对话给出可选下一句，/prefill 1–3 填入本轮建议，/prefill 打开选择器；/suggest clear 清除，/suggest off 关闭，/suggest on 重新开启。/prefill fix 等填入常用模板。模板只作为草稿，编辑后由你按回车发送；有输入或排队消息时不覆盖。支持中英文内置模板和本机自定义模板；不自动提交、不修改系统提示词、不代替审批。
+在空输入框按 / 立即展开预输入菜单；方向键或 PgUp/PgDn 浏览，继续键入可筛选，Tab 只填入可编辑草稿，Esc 关闭；已有的斜杠命令和粘贴输入继续可用。回复后按当前对话给出可选下一句，/prefill 1–3 填入本轮建议，/prefill 打开选择器；/suggest clear 清除，/suggest off 关闭，/suggest on 重新开启。/prefill fix 等填入常用模板。模板只作为草稿，编辑后由你按回车发送；有输入或排队消息时不覆盖。支持中英文内置模板和本机自定义模板；不自动提交、不修改系统提示词、不代替审批。
 
 例子
   koder prompts list
     查看常用预填词
+
+通用选项见 koder help。
+```
+
+## skills
+
+```text
+koder skills  发现、导入并调用 Codex、Cursor 和 WorkBuddy 兼容技能
+别名: skill, 技能
+
+用法
+  koder skills list | catalog | doctor <name> | prepare <name> | show <id> [--path <file>] | import <folder-or-zip> | enable|disable <id>
+
+读取项目和用户的 .agents/skills、.codex/skills、.cursor/skills、.codebuddy/skills，以及 Koder 的技能目录。SKILL.md、references、scripts、templates 与原始许可保留。导入不执行脚本、不安装依赖；运行仍受原工具与审批约束。用 --skill name 或在任务中写 $name 显式选择；同名用完整 id。/skills list 和 /skill name 可在当前会话使用。
+
+例子
+  koder skills list
+    列出可手动调用的技能
+  koder run "Review the module" --skill review
+    指定技能处理任务
 
 通用选项见 koder help。
 ```
@@ -926,3 +951,9 @@ koder about  按官网介绍 Koder 是谁做的，并给出更新页
 
 通用选项见 koder help。
 ```
+
+## 0.4.2 新功能速查
+
+`koder skills list` 查看技能；聊天中 `/skill` 选择技能。执行中可继续输入补充，Setup 可选择 steer 或 queue。`/harness deep-research` 选择研究配置，`koder harness off` 关闭 JIT。应用操作沿用已授权的 Apps/MCP、浏览器和桌面；缺权限或驱动会明确提示。持久经验 owner 未接入时返回 NO_ENTRY。
+
+[技能教程](PORTABLE-SKILLS.zh.md) · [输入与设置](SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](APP-USE-AND-LEARN.zh.md) · [Harness 配置](HARNESS-JIT.md) · [更新与已知限制](RELEASE-0.4.2.md)

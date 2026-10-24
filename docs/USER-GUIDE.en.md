@@ -1,8 +1,10 @@
-Current release: **0.4.1**. Start with [release changes](RELEASE-0.4.0.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+> Unpublished 0.4.2-candidate.1: local Skill compatibility candidate. Production remains 0.4.1. Read [portable Skills](PORTABLE-SKILLS.en.md) for commands, format support and host-specific limits.
+
+Current release: **0.4.2-candidate.1**. Start with [release changes](RELEASE-0.4.2-candidate.1.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 # Koder CLI complete user guide
 
-Version: **0.4.1**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.4.2-candidate.1**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -172,14 +174,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.4.1-en-cmd.txt](tutorials/koder-cli-0.4.1-en-cmd.txt)
-- [koder-cli-0.4.1-en-linux.txt](tutorials/koder-cli-0.4.1-en-linux.txt)
-- [koder-cli-0.4.1-en-mac.txt](tutorials/koder-cli-0.4.1-en-mac.txt)
-- [koder-cli-0.4.1-en-powershell.txt](tutorials/koder-cli-0.4.1-en-powershell.txt)
-- [koder-cli-0.4.1-zh-cmd.txt](tutorials/koder-cli-0.4.1-zh-cmd.txt)
-- [koder-cli-0.4.1-zh-linux.txt](tutorials/koder-cli-0.4.1-zh-linux.txt)
-- [koder-cli-0.4.1-zh-mac.txt](tutorials/koder-cli-0.4.1-zh-mac.txt)
-- [koder-cli-0.4.1-zh-powershell.txt](tutorials/koder-cli-0.4.1-zh-powershell.txt)
+- [koder-cli-0.4.2-candidate.1-en-cmd.txt](tutorials/koder-cli-0.4.2-candidate.1-en-cmd.txt)
+- [koder-cli-0.4.2-candidate.1-en-linux.txt](tutorials/koder-cli-0.4.2-candidate.1-en-linux.txt)
+- [koder-cli-0.4.2-candidate.1-en-mac.txt](tutorials/koder-cli-0.4.2-candidate.1-en-mac.txt)
+- [koder-cli-0.4.2-candidate.1-en-powershell.txt](tutorials/koder-cli-0.4.2-candidate.1-en-powershell.txt)
+- [koder-cli-0.4.2-candidate.1-zh-cmd.txt](tutorials/koder-cli-0.4.2-candidate.1-zh-cmd.txt)
+- [koder-cli-0.4.2-candidate.1-zh-linux.txt](tutorials/koder-cli-0.4.2-candidate.1-zh-linux.txt)
+- [koder-cli-0.4.2-candidate.1-zh-mac.txt](tutorials/koder-cli-0.4.2-candidate.1-zh-mac.txt)
+- [koder-cli-0.4.2-candidate.1-zh-powershell.txt](tutorials/koder-cli-0.4.2-candidate.1-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
@@ -213,3 +215,9 @@ Read [Windows-MCP and Code Graph setup](MCP-INTEGRATIONS.en.md) for current-term
 
 
 [Actual Windows-MCP and Code Graph acceptance](MCP-ACTUAL-ACCEPTANCE.en.md): tested platforms, native prerequisites and remaining limits.
+
+## 0.4.2 quick reference
+
+Use `koder skills list` and `/skill` for portable methods. Add input while the agent works; Setup selects steer or queue. Use `/harness deep-research` for research, or `koder harness off` for baseline behavior. App operations keep existing grants and driver limits. Missing persistent experience owners produce NO_ENTRY.
+
+[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.2.md)

@@ -1,6 +1,8 @@
+> Local candidate **0.4.2-candidate.1** adds portable Skills; it has not replaced the production release described below. Its archive and installers are isolated acceptance artifacts.
+
 # Distribution and release records
 
-The current distributed release is **0.4.1**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.4.2**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -27,3 +29,7 @@ Projects, credentials, private conversations, browser profiles, mail and executi
 ## Version 0.4.1
 
 Published by explicit user authorization with recorded platform and real-account limits. Candidate results remain attributed to their exact archives. The final release assets, public download checks and isolated installer/update results have separate receipts.
+
+## Version 0.4.2
+
+Windows CMD/PowerShell and macOS CLI installers share the 0.4.2 archive and manifest. Published by explicit user request; native Windows and real-account limits remain in the release notes.

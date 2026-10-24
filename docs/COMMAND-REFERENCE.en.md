@@ -1,7 +1,12 @@
 # Complete command reference
 
-0.4.0. Interactive coach: 30 lessons.
+App operations and learning: [routing, permissions and manual checks](APP-USE-AND-LEARN.en.md).
 
+Setup now includes Skills and Mid-run input. See [defaults, cancellation and manual acceptance](SESSION-INPUT-AND-SKILLS.en.md).
+
+0.4.2-candidate.4 — unpublished candidate. Interactive coach: 30 lessons.
+
+- `--skill <id,name>`: Select local skills for this turn; read on demand, scripts retain approvals
 - `--stdin`: Attach stdin to an explicit prompt; read it automatically when there is no prompt
 - `--stdin-timeout <秒>`: Complete-input deadline, default 5 seconds, range 0.01–3600 seconds
 - `-w, --workspace <目录>`: Workspace folder, default: current directory
@@ -216,11 +221,31 @@ Aliases: prefill, 预填词, 预填
 Usage
   koder prompts list | show <id> | choose | add <id> --title <title> --text <text> | update <id> --title <title> --text <text> | remove <id>
 
-After a reply, optional suggestions follow the current conversation. /prefill 1–3 fills a suggestion; /prefill opens the picker. /suggest clear dismisses the current suggestions; /suggest off and /suggest on change the setting. /prefill fix fills a saved draft. Edit it and press Enter yourself to send it. Existing drafts and queued input are kept. Includes bilingual built-ins and local custom templates. Selection never submits a task, changes system instructions, or grants tool permission.
+Type / in an empty input to open suggestions, templates and commands. Use arrows or PgUp/PgDn to browse, keep typing to filter, Tab to fill an editable draft, and Esc to close. Existing slash commands and pasted input still work. After a reply, optional suggestions follow the current conversation. /prefill 1–3 fills a suggestion; /prefill opens the picker. /suggest clear dismisses the current suggestions; /suggest off and /suggest on change the setting. /prefill fix fills a saved draft. Edit it and press Enter yourself to send it. Existing drafts and queued input are kept. Includes bilingual built-ins and local custom templates. Selection never submits a task, changes system instructions, or grants tool permission.
 
 Examples
   koder prompts list
     List prompt templates
+
+Global options: koder help.
+```
+
+## skills
+
+```text
+koder skills  Discover and import Codex, Cursor and WorkBuddy-compatible skills
+Aliases: skill, 技能
+
+Usage
+  koder skills list | catalog | doctor <name> | prepare <name> | show <id> [--path <file>] | import <folder-or-zip> | enable|disable <id>
+
+Reads project/user .agents, .codex, .cursor and .codebuddy skill directories and Koder local skills. Preserves SKILL.md, resources and notices. Import executes nothing and installs no dependencies. Use --skill name or $name; disambiguate with the full id. /skills list and /skill name work in the current chat.
+
+Examples
+  koder skills list
+    List user-invocable skills
+  koder run "Review the module" --skill review
+    Use a selected skill
 
 Global options: koder help.
 ```
@@ -926,3 +951,9 @@ Matches the website's about, updates and download pages: written by KARMEN LOOP,
 
 Global options: koder help.
 ```
+
+## 0.4.2 quick reference
+
+Use `koder skills list` and `/skill` for portable methods. Add input while the agent works; Setup selects steer or queue. Use `/harness deep-research` for research, or `koder harness off` for baseline behavior. App operations keep existing grants and driver limits. Missing persistent experience owners produce NO_ENTRY.
+
+[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.2.md)

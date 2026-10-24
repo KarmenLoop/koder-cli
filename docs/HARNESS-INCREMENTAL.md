@@ -33,3 +33,8 @@ The mechanism was informed by [Google Research Harness²](https://github.com/goo
 ## 中文使用
 
 对 Koder 说：“用 Harness2 增量改进这份工作方法，保留全部原文，先固定基线，再比较候选。”它可沿原文件工具写入候选，再用 `harness_probe` 读实际文件核验。INV 改方法，DOM 补知识，COMPOSE 要依据父候选的真实回执。工件检查与整体任务质量分开；证据不足保留 `NO_ENTRY`。全局采用仍需要原 Core 的隔离回放、预算、取消、权限和版本接口，不会自动放开权限或重放发送、提交、发布。
+
+
+## Task profiles in candidate.6
+
+The [JIT profile increment](HARNESS-JIT.md) selects fixed execution components on the original loop. It reuses the comparison and experience ports described above. Observations without verified comparisons remain NO_ENTRY; no separate store or replay authority is added.

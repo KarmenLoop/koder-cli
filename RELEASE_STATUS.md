@@ -1,3 +1,113 @@
+# Koder CLI 0.4.2
+
+Koder CLI 0.4.2 brings task-specific harness profiles, portable Skills, an editable input line during agent work, and guided application use to the existing terminal runtime. Windows CMD/PowerShell and macOS installers share the same version, package checksums and update feed. Existing tools, model routing, permissions and project history remain in place.
+
+## What changed since 0.4.1
+
+- **Portable Skills:** discover and call standard Codex, Cursor and WorkBuddy/CodeBuddy Skill folders. Use `koder skills list`, `--skill`, `/skill` and `/skills`; import local folders or ZIPs with their references and scripts. Reading/importing a Skill does not run its scripts, import another host's permissions or install dependencies.
+- **Bundled workflows:** pinned browser, media and application Skill resources use the existing execution path, with original licenses and notices. Koder-authored helpers prepare local timeline, CSV, article and render artifacts. Reference-only packages are identified as unavailable for bundled execution. Account-dependent publishing and native editor export require separate authorization and acceptance.
+- **Input while working:** the current terminal keeps an editable input line. Steer is the default; queue mode retains ordered follow-up tasks. New approval prompts do not consume queued tasks. Stop/cancel behavior retains the original owner and receipts.
+- **Setup controls:** enable or disable individual Skills, use the confirmed disable-all action, configure input handling, and control universal app use and tutorial learning independently.
+- **Application use:** covering Apps/MCP tools are preferred, followed by authorized browser and desktop tools. Unfamiliar workflows use bounded public documentation reads before another attempt. Missing drivers, missing grants and unknown effects remain explicit; no new computer permission is granted.
+- **Task harness profiles:** five fixed M/P/A/F profiles select context projection, planning guidance, tool/Skill exposure and step limits. Use `/harness deep-research`, `--harness`, or Setup. Hidden tools are rejected before invocation. At most two repairs share the existing budget; external or unknown side effects are not replayed. `koder harness off` restores the baseline path.
+- **Startup updates:** eligible managed interactive launches check the official release feed visibly. Saved update-off settings, process overrides and noninteractive exclusions remain. Activation waits for idle input and retains integrity and license checks.
+
+## Install and update
+
+- Windows CMD: download [koder-cli.cmd](https://karmenloop.com/install/koder-cli.cmd) and run it in Command Prompt.
+- Windows PowerShell: download [koder-cli.ps1](https://karmenloop.com/install/koder-cli.ps1). Follow the shell-specific command in the [installation guide](docs/INSTALLATION.md); no permanent system execution-policy change is required by this release.
+- macOS, Apple silicon or Intel: download [koder-cli.sh](https://karmenloop.com/install/koder-cli.sh), then run `bash koder-cli.sh`.
+- Existing installation: run `koder update`, then `koder --version`; expect `koder 0.4.2`.
+
+The CLI archive, installers, release manifests, SHA256SUMS and eight English/Chinese PowerShell/CMD/macOS/Linux tutorials are published together. The desktop application has its own channel; these are CLI installers, not a new desktop EXE or DMG.
+
+## Guides
+
+Read the [English guide](docs/USER-GUIDE.en.md), [Chinese guide](docs/USER-GUIDE.zh.md), [portable Skills](docs/PORTABLE-SKILLS.en.md), [bundled workflows](docs/VIDEO-BROWSER-SKILLS.en.md), [input and Setup](docs/SESSION-INPUT-AND-SKILLS.en.md), [application use](docs/APP-USE-AND-LEARN.en.md), and [task harness profiles](docs/HARNESS-JIT.md). All 30 interactive lessons remain, and complete printable editions include a new feature quick reference. Original preview and candidate notes remain as historical evidence.
+
+## Verification and known limitations
+
+The frozen candidate.6 passed 35 selected kernel tests and 70 CLI regressions. Its unpacked runtime passed 38 package checks across 27 CLI subprocesses, 35 JIT checks and 19 application-use checks. These layers overlap; they are not a count of unique scenarios. Final 0.4.2 packaging, website and live-download checks are recorded separately in the release acceptance receipt.
+
+Seven inherited regression failures remain recorded: four earlier planning/suggestion/tutorial fixture failures and three 8K-context cases reproduced on the unchanged candidate.5. Selected passing suites are not a fully green product suite. Native Windows 10/11 GUI, final-package no-Node cold installation/update and authenticated external accounts remain unverified by this Mac publication run. No new real-model quality score or cost reduction is claimed. Existing unavailable provider routes remain unavailable as documented.
+
+The standalone CLI has no default persistent Skill maintenance owner. Cross-task profile evolution reports `NO_ENTRY: experience-port-unavailable` without that existing authorized host port. A completed task alone never establishes a winning profile; paired evidence is still required. Bounded delegation runs serially unless an existing authorized delegation tool is present.
+
+Published at the user's explicit request with these limitations retained. Previous releases remain available for rollback. Personal noncommercial local use is free under the included EULA; commercial use requires separate written authorization. Original third-party licenses and notices remain intact.
+
+## Historical records (unchanged)
+
+# 0.4.2-candidate.6 — task harness profiles (unpublished)
+
+This increment retains candidate.5 and adds five fixed M/P/F/A profiles to the existing CLI: default ReAct, deep research, office dependencies, bounded subtasks and universal app use. Task cues, explicit chat/command overrides and Setup settings select the profile. Tool and Skill filtering is enforced before invocation; profile changes retain existing approvals and consumed budgets.
+
+The original loop handles at most two bounded repairs. Completed outcomes use the original Skill maintenance port, with NO_ENTRY unless task receipts and isolated comparison evidence justify a recommendation. Standalone CLI has no default persistent maintenance owner; it reports that boundary without creating another database. No new model, executor, permission authority or credentials are introduced.
+
+Read [the usage guide, configuration and acceptance checklist](docs/HARNESS-JIT.md). The local evidence covers 35 kernel checks and 70 selected CLI checks, including disabled behavior, Setup, profile filtering, repair, context projection and existing session/permission contracts. Three older 8K-context tests still fail identically on candidate.5; their failure records remain. Native Windows GUI/cold installation, real accounts, model quality and cost benchmarks are not established by these fixtures. This candidate has not changed the public download.
+
+---
+
+# 0.4.2-candidate.5 — universal app use configuration
+
+This unpublished increment preserves candidate.4 and registers `builtin:universal-app-use` in the existing CLI harness. It adds independent Setup controls for the method and tutorial learning, a validated `universalAppUse` config object, legacy-ID compatibility and disable-all integration. The system message now uses a short pointer instead of repeating the full method.
+
+Known Apps/MCP remain the default first choice, followed by authorized browser/desktop channels. The existing tutorial helper enforces per-turn attempts, including failures and concurrent calls; steering does not reset them. Unknown external results still require reconciliation. Other connected-tool learning limits and UI recovery limits are model workflow constraints, not universal hard gates.
+
+No drivers, permission authority, task engine or memory store are replaced. No EULA or default grant changes. Read the [English guide](docs/APP-USE-AND-LEARN.en.md) and [Chinese guide with six acceptance cases](docs/APP-USE-AND-LEARN.zh.md). This candidate is not a production update; native client, account and real-model tests remain distinct from local fixture checks. Prior failures are retained in the task evidence and release history.
+
+---
+
+# Koder CLI 0.4.2-candidate.4 — unpublished
+
+This increment adds a default-on app-operation method to the existing Skill and Setup controls. It prioritizes covering connected Apps/MCP tools, then authorized browser/desktop channels. Unfamiliar workflows and UI mismatches call for documentation before another attempt; sources, actual actions and observed outcomes remain distinct.
+
+Two read-only tools expose current channels/grants and bounded public tutorial reads. They reuse the existing connection and computer-permission owners and anonymous public-page transport. Tutorial access does not grant persistent learning, computer control or installation permission. Unknown external effects require reconciliation before retry or fallback. No driver, host, model route, permission authority or memory store is replaced.
+
+The prior busy composer, steering/queue modes, startup update scan, Skills, histories and release records remain. Read the [English guide](docs/APP-USE-AND-LEARN.en.md) or [Chinese guide and seven-case checklist](docs/APP-USE-AND-LEARN.zh.md). Local scripted-provider and owned MCP tests do not establish real-model quality or native GUI compatibility. Candidate.3's unresolved failures and platform gates remain; no public upload or production update is claimed.
+
+---
+
+# Koder CLI 0.4.2-candidate.3 — unpublished
+
+This increment retains candidate.2 and adds an editable input line during agent work. Steer is the default: supplements enter the existing turn at the next safe model boundary without aborting the active request. Queue mode shows a count and short previews, then runs later turns in FIFO order. Esc, Ctrl+C and explicit English/Chinese stop controls still cancel. A stop phrase with a suffix queues that suffix after cancellation.
+
+Setup now exposes persistent Skill controls, confirmed disable-all for currently discovered switchable methods/collections, and the mid-run input preference. Existing model routing, project/session isolation, consent and permission owners remain intact. Fresh approval prompts never consume queued tasks, and a draft survives streaming and the return to the ordinary prompt.
+
+Each eligible managed interactive launch performs a visible official CLI release check regardless of the six-hour cache. Saved automatic-update off, process overrides, CI and non-TTY exclusions are preserved. Installation still waits for idle input and passes the existing license and integrity checks.
+
+Read the [English usage and ten-case checklist](docs/SESSION-INPUT-AND-SKILLS.en.md) or [Chinese guide](docs/SESSION-INPUT-AND-SKILLS.zh.md). This package is a local candidate, not an available remote update. Native Windows terminal/device acceptance and real-model evaluation are not established by local scripted-provider or macOS PTY tests. Earlier failures are retained in the task receipt; no full-suite or production publication claim is made.
+
+---
+
+# Koder CLI 0.4.2-candidate.2 — unpublished
+
+This increment retains candidate.1 and adds pinned media, browser and application Skill sources to the same discovery and execution path. It adds dependency discovery and verified project-local preparation, original timeline/CSV/article/render helpers, and a Jianying draft adapter that preserves existing drafts and rejects invented media metadata.
+
+Nine third-party source bundles and one Koder-authored workflow are callable. Two upstreams remain reference-only because their redistribution terms do not cover this package. Original sources, attribution and adaptation records are retained. See the [English guide](docs/VIDEO-BROWSER-SKILLS.en.md), [Chinese guide](docs/VIDEO-BROWSER-SKILLS.zh.md) and [third-party inventory](THIRD_PARTY_COMPONENTS.json).
+
+Local functional acceptance covers a fresh browser session, a rendered video with audio, file exports, Jianying draft JSON and a Draw.io adapter. It does not certify every style, native Windows UI export, real accounts or real-model output quality. The four baseline failures recorded in [candidate.1](docs/RELEASE-0.4.2-candidate.1.md) remain open. Production remains 0.4.1; this is not an available remote update.
+
+---
+
+# Koder CLI 0.4.2-candidate.1 — unpublished
+
+This candidate adds local Agent Skills discovery, import and invocation to the stable 0.4.1 runtime. It retains existing built-in methods, model routing, workspace history and execution authority.
+
+- Discover standard Codex, Cursor and WorkBuddy/CodeBuddy skill folders. Keep same-name packages separate with stable IDs.
+- Search metadata through the existing `skill_catalog` and read instructions or relative text resources through `skill_read` only when needed.
+- Select a Skill with `--skill`, a known `$name` in a task, or `/skill` in the current chat. `/skills` lists, reads and imports without leaving chat.
+- Import a local folder or ZIP without running its scripts or installing dependencies. Preserve resources and original notices; reject invalid paths, unsafe links and malformed manifests.
+- Retain manual-only and user-invocable flags and bounded file-pattern matching. Host-specific hooks, accounts and execution policy are not imported.
+
+See [the guide](docs/PORTABLE-SKILLS.en.md) and [Chinese guide](docs/PORTABLE-SKILLS.zh.md). No real-model planning score, native Windows client acceptance or production publication is claimed. Local scripted-provider and unpacked-package evidence is recorded in the task acceptance receipt. Stable 0.4.1 remains the production download; this candidate is not an available remote update.
+
+
+## Retained regression failures
+
+Expanded local regression ran 192 CLI checks: 188 passed and four failed. The same four failures were reproduced against the unchanged 0.4.1 source: the older development-plan fixture expects an implementation request to finish after planning; two terminal suggestion checks no longer receive their expected choices; the full interactive tutorial does not reach its expected second repair. Original assertions and time limits remain unchanged. These remain unresolved baseline failures, not a fully green release gate. The portable Skill cases and selected kernel regressions passed separately.
+
+## Retained release records
+
 # Koder CLI 0.4.1
 
 Koder CLI 0.4.1 updates the Windows CMD/PowerShell and macOS/Linux terminal installers together. It retains the complete 0.4.0 feature set and includes the credential, delivery and generation-method repairs developed in the 0.4.1 candidates.
