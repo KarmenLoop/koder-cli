@@ -71,7 +71,7 @@ koder model models chatgpt
 koder model refresh
 ```
 
-The first two commands show the bundled catalog without network access. Refresh performs authenticated, read-only model-list requests to the configured endpoint. It writes a local metadata cache, without changing the active model, endpoint or API key and without making an inference request. Models explicitly marked as supporting tools can appear in the next setup picker. Entries with unknown tool support remain listed in the refresh output as unverified; enter an ID manually and run the tool check before relying on it. Unsupported model-list APIs fail clearly and keep the previous cache.
+The first two commands show the bundled catalog without network access. Refresh performs authenticated, read-only model-list requests to the configured endpoint. It writes a local metadata cache, without changing the active model, endpoint or API key and without making an inference request. Setup automatically refreshes the current account list and public configuration hints. Unknown tool capability is shown as unverified instead of hidden. Choose Current account models to select a new ID. A failed listing keeps the last good cache; services without a Models API retain documented presets. [Full discovery guide](MODEL-DISCOVERY.en.md).
 
 ## Removed or excluded choices
 

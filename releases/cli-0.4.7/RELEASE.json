@@ -1,0 +1,41 @@
+{
+  "version": "0.4.7",
+  "file": "koder-cli-0.4.7.tgz",
+  "sha256": "b40725c5b2bc9b314d594de9048a51f5ab7a0a3901913801680588584fb7ab82",
+  "size": 115699949,
+  "node": "^22.21.0 || >=24.0.0",
+  "builtAt": "2026-10-24T19:47:21.176Z",
+  "preview": false,
+  "agreement": {
+    "id": "Koder-EULA-1.1",
+    "version": "1.1",
+    "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+  },
+  "installers": {
+    "sh": {
+      "file": "koder-cli.sh",
+      "sha256": "bab5e839df7038e88dbb9670499b7b0ce9c24b2213b3cad20da1f993803d5a5e"
+    },
+    "ps1": {
+      "file": "koder-cli.ps1",
+      "sha256": "a68cbc3f9870df130a46e29043c092720742ad67fbc42ba78f062a52332e023c"
+    },
+    "cmd": {
+      "file": "koder-cli.cmd",
+      "sha256": "4b6073e6f08b158242cf472257f8ffc4f017048ff810f8a93149c88fc8319543"
+    }
+  },
+  "channel": "stable",
+  "sourceBaseline": "0.4.6",
+  "changes": [
+    "Automatically discover current account models in Setup",
+    "Cache model metadata per account and endpoint",
+    "Refresh public provider configuration hints with source dates and route guards",
+    "Add manual refresh and automatic-discovery controls"
+  ],
+  "retainedLimits": [
+    "Native Windows GUI/cold install NOT_RUN",
+    "Real mailbox and model quality NOT_RUN"
+  ],
+  "publicationAuthorization": "Direct user request 2026-10-25; full native acceptance is not a release gate"
+}
