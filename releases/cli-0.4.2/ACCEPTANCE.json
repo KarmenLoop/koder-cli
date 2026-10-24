@@ -31,5 +31,35 @@
   "browserVisualInspection": "NOT_RUN: local browser use is disabled in Work settings",
   "inheritedFailures": "Four planning/suggestion/tutorial fixture failures and three 8K-context failures retained in historical release notes",
   "standaloneEvolution": "NO_ENTRY without existing authorized persistent maintenance owner",
-  "publicationAuthorization": "Explicit user request to publish Windows and macOS, GitHub and official website on 2026-10-24"
+  "publicationAuthorization": "Explicit user request to publish Windows and macOS, GitHub and official website on 2026-10-24",
+  "publicDownloads": {
+    "websiteAssets": 20,
+    "githubAssets": 20,
+    "allSha256AndSizesMatch": true
+  },
+  "publicWebsiteFiles": {
+    "count": 1306,
+    "allMatch": true,
+    "removed": 0
+  },
+  "liveUpdate": {
+    "passed": true,
+    "from": "0.4.1",
+    "to": "0.4.2",
+    "origin": "https://karmenloop.com/install",
+    "method": "Actual old installed CLI update command; live manifest and installer downloads; disposable HOME and no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 6,
+    "firstAttemptFailureRetained": true,
+    "oldInstallationVerifiedAfterTimeout": true,
+    "retryDownloadDeadlineSeconds": 240
+  },
+  "productionDeploy": "6adca9e079585b86d878d608",
+  "priorProductionDeploy": "6adbcbed41c2d30b55b3067d",
+  "netlifyUpload": {
+    "cliExitCode": 1,
+    "error": "HTTP 422",
+    "reconciledServiceState": "ready",
+    "finalProductionFilesAllMatch": true
+  }
 }
