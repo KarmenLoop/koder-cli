@@ -1,6 +1,6 @@
 当前版本：**0.4.4**。先看[本版更新](RELEASE-0.4.4.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
-本候选新增默认开启的 [Headroom 上下文优化](HEADROOM.zh.md)。下文正式版安装链接仍指向已发布版本；候选未上线。
+0.4.4 默认开启 [Headroom 上下文优化](HEADROOM.zh.md)。以下安装入口和教程均对应本次正式发行。
 
 # Koder CLI 完整使用教程
 

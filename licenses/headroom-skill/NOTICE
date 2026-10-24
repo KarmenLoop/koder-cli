@@ -1,0 +1,19 @@
+headroom-skill
+==============
+
+This project is a portable, framework-agnostic skill that distills the
+context-compression techniques from the Headroom project into a set of
+agent rules and pure-Python helper scripts.
+
+Original work: https://github.com/chopratejas/headroom
+Original authors: Tejas Chopra (https://github.com/chopratejas) and
+                  Headroom contributors.
+Original license: Apache License 2.0
+
+The compression algorithms and design patterns in this skill were
+studied from the Headroom source tree (crates/headroom-core/src/transforms/,
+wiki/, and docs/). The Python scripts in this repository are independent
+re-implementations that use only the Python 3 standard library. They do
+not import, link to, or distribute any code from the Headroom project.
+
+This NOTICE is provided in accordance with Apache License 2.0, Section 4(d).
