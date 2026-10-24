@@ -1,0 +1,73 @@
+{
+  "version": "0.4.5",
+  "publication": "Published to GitHub Latest and the official website under explicit user authorization without waiting for full native acceptance",
+  "releaseTagCommit": "db3571aacddba692fa2fc8759f6103c992531dae",
+  "githubRelease": "https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.5",
+  "packageIntegrity": {
+    "tarball": "koder-cli-0.4.5.tgz",
+    "sha256": "7120419af91e089710e1a37492ad6bbc5a6b68b31d672f78c4af9fb487b1176b",
+    "size": 112025525,
+    "kernelFilesAfterTests": 3916,
+    "installerTagsAligned": true,
+    "installerSourceEquality": true
+  },
+  "retainedCandidate5Evidence": {
+    "scope": "Previously executed on the unchanged feature baseline, not a fresh full 0.4.5 rerun",
+    "selectedSourcePassed": 132,
+    "packagedPassed": 100,
+    "nativeWindows": "NOT_RUN"
+  },
+  "newUpdaterRegression": {
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "beforeFix": "The new large-manifest test failed on the old 100,000,000-byte limit",
+    "newLimitBytes": 536870912
+  },
+  "websiteTests": {
+    "passed": 112,
+    "failed": 0,
+    "skipped": 1,
+    "exitCode": 0
+  },
+  "publicDownloads": {
+    "websiteAssets": 20,
+    "githubAssets": 20,
+    "anonymous": true,
+    "allSha256AndSizesMatch": true
+  },
+  "publicWebsiteFiles": {
+    "files": 1494,
+    "mismatched": [],
+    "removedFromPriorDeploy": [],
+    "effectiveConfig": {
+      "scope": "Reproduce CLI resolved TOML and merged headers/redirects offline; no deployment or credential read",
+      "expectedSha1": "481e684e82712760ffa97cd759ef0ded1cde3c27",
+      "actualSha1": "481e684e82712760ffa97cd759ef0ded1cde3c27",
+      "matched": true,
+      "bytes": 15485
+    }
+  },
+  "officialInstallerMigration": {
+    "passed": true,
+    "from": "0.4.3",
+    "to": "0.4.5",
+    "origin": "https://karmenloop.com/install",
+    "method": "Official installer migrates an actual 0.4.3 installation; live files; 0.4.5 updater check; disposable HOME and no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 6
+  },
+  "oldUpdaterFailure": "Actual 0.4.3 koder update rejected the 0.4.4 manifest before installation. Versions 0.4.4 and earlier need the current official installer once; this is not a successful old-updater migration.",
+  "productionDeploy": "6adcf9e14fce11be3f32568a",
+  "priorProductionDeploy": "6adcf7fbf3dc441a776facbe",
+  "netlifyCliFailure": "CLI upload returned HTTP 422 after upload. The server draft was independently confirmed ready with no pending uploads; production promotion, all-file comparison and anonymous download checks subsequently passed. The CLI failure is retained.",
+  "platformLimits": [
+    "Native Windows 10/11 no-Node/PowerShell 5.1 cold install/update, MCP GUI, UAC, ConPTY and IME NOT_RUN",
+    "OS login/reboot and visible notifications NOT_RUN; macOS Intel-device and LaunchAgent reboot checks NOT_RUN",
+    "Real 163/other mailbox, gateway and paid model accounts and model quality NOT_RUN",
+    "Prior 8K-context failures retained; selected checks do not establish full-product acceptance",
+    "Private Windows CI was not started because account billing blocked it; no native-Windows success is inferred"
+  ],
+  "rollback": "Prior releases and deploys remain available. Restore the matching prior installer/feed/website together if required; preserve configuration, history and uncertain-effect receipts."
+}
