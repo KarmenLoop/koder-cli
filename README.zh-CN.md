@@ -2,171 +2,238 @@
 
 [English](README.md) | 简体中文
 
-Koder CLI **0.4.0-preview.30 Beta** 是自接模型 API 的终端编程工具。个人非商业本地使用免费，不要求会员；商业使用和组织部署需另行书面授权，个人许可不允许专有代码二次开发或修改。模型提供方可能按请求收费。
+[Windows 与 macOS 最新安装包](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.3) · [官网](https://karmenloop.com/cli.html#install)
 
-[下载当前版](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.0-preview.30) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [中文命令参考](docs/COMMAND-REFERENCE.zh.md)
+当前版本：**0.4.3**。先看[本版更新](docs/RELEASE-0.4.3.md)、[输入菜单与接口诊断](docs/PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](docs/MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
-本版包含按工作区隔离的历史、独立项目目录、有界 API 诊断、非交互补问与源码披露检查。KARMEN LOOP 内核负责计划、权限、工具执行与结果保存，新运行时源码按 [EULA](EULA.md) 保持专有。第三方组件保留自己的许可与[归属](OPEN_SOURCE_CREDITS.md)。
+# Koder CLI 完整使用教程
 
-仓库中的 `package.json` 与 `src/` 保留历史 GPL **0.3.1** 源码，不能据此构建当前专有 Beta 安装包。当前分发版本以指定发行页和官方更新源为准，见[源码与分发状态（英文）](SOURCE-STATUS.md)。
+版本：**0.4.3**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
-## preview.29 更新
+## 1. 先选对命令窗口
 
-新增 MiniMax 内容审核分类、按 `/` 打开的可编辑输入选项、原生 Koder 多窗口会话隔离、长对话任务约束保留、撰写来源与前稿证据。此前候选中的 Harness² 增量对照和爬虫／自研静态逆向一并纳入。详见[完整更新说明](docs/RELEASE-preview.29.md)和[多窗口教程](docs/MULTI-WINDOW.md)。
+Windows PowerShell、CMD、macOS、Linux 和 WSL 的命令不能混用。完整安装命令见 [安装教程](docs/INSTALLATION.md)，下载认准 [官网](https://karmenloop.com/download.html) 和 [KarmenLoop/koder-cli](https://github.com/KarmenLoop/koder-cli)。先阅读许可与隐私全文。个人非商业使用免费；商业使用与组织部署须另行取得书面授权。
 
-本版按 Beta 发布：PS5.1 冷启动、Windows 图形焦点／输入、完整客户端安装更新及真实模型账号仍有未验项，不宣称已全部认证。灰色模型路线继续停用。
+正常安装不需要全局放开 PowerShell 执行策略，也不需要关闭安全软件。输入 `accept` 只接受许可，不会开启电脑、邮件、自主学习或同步权限。网络等待、主动取消和系统策略拦截是三回事；排查时保留实际阶段与最后几行报错。
 
-## 安装
+## 2. 配置自己的模型
 
-按系统选择 Windows 10/11、macOS、Linux 或 WSL 的对应命令。安装器复用 Node.js 22.21+ 或 24+，缺少时下载并校验运行时；正常安装不需管理员权限。先阅读原始[许可](EULA.md)、[同意说明](ACCEPTANCE.md)、[版权声明](LEGAL-NOTICE.md)及[中文 CLI 隐私条款](docs/privacy/consumer-privacy.zh.md)。本页不替代法律文件。
+运行 `koder setup`，核对服务商、国内或国际账号、API 或套餐产品、模型 ID、协议和地址。网页会员不一定包含 API。灰色条目表示当前不可用，换计费路线不是自动修复。默认使用 Koder 原生内核，备用引擎单独控制。
 
-只选择一条命令。许可提问出现后输入 `accept` 并 Enter；`decline` 或 Ctrl+C 取消。Windows 空输入会再次询问。同意软件条款不会启用可选权限。
-
-### Windows PowerShell
-
-```powershell
-$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
-```
-
-### Windows CMD
-
-把完整一行粘贴到 CMD，不要将此包装命令粘贴到 PowerShell：
-
-```bat
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
-```
-
-### macOS / Linux / WSL
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | bash
-```
-
-下载显示进度并核对 SHA-256。完成期限默认值和上限为 100000000 秒，可用 `KODER_DOWNLOAD_TIMEOUT_SECONDS` 设置 1–100000000 的较短期限。Ctrl+C 取消；更新失败保留旧安装。此设置不延长模型 API 超时或已有 Node 的五秒探测。
-
-安装排错见[故障参考（英文）](docs/TROUBLESHOOTING.md)和[完整中文指南](docs/USER-GUIDE.zh.md)。Mac 测试替身不能证明所有 Windows 设备或真实提供方账号可用。
-
-## 第一次使用
+如果希望只保存环境变量名，不把 Key 值保存到模型配置，可使用：
 
 ```text
-koder setup
-koder learn
-koder
-```
-
-30 课教程在一次性练习项目中操作真实文件和审批，教练为脚本，不需付费模型。支持中英文与 PowerShell、CMD、macOS、Linux 版本，记录进度；Enter 继续、b 返回、q 退出。`koder learn --print --os cmd --lang en` 可打印离线英文版。
-
-会话内 `/setup` 设置、`/model` 管理模型、`/new` 新话题、`/exit` 退出。恢复历史后的一句问候不会自动恢复旧编程任务；明确要求继续时仍可使用保留历史。
-
-## 模型接口与套餐
-
-**因已知集成问题暂不可用：** MiMo Token Plan、Kimi API、Kimi Code、DeepSeek、Alibaba Token Plan、Volcano Coding Plan、Volcano Ark API。设置中置灰并禁止选择。旧配置保留供查看或删除；激活、测试、刷新与执行在网络请求前拦截，不自动切换备用引擎或计费线路。
-
-CLI 实现 Chat Completions、Anthropic Messages、Responses。目录保留历史模型信息并显示当前可用性，可选条目仍需核实账号权限。Alibaba Token Plan、Alibaba Coding Plan、Volcano Coding Plan 的入口和计费路径各自独立；MiMo 按量与 Token Plan 也分别维护。内部备用引擎默认关闭、置灰，不静默换域名、密钥或付费产品。
-
-```text
-koder model presets
-koder model models aliyun-coding-plan
+koder model set --model ACTUAL_MODEL_ID --base-url OFFICIAL_API_BASE --protocol openai --key-env MY_PROVIDER_KEY
 koder model test
 koder model test --tools
 ```
 
-最后两条会调用已配置 API，可能产生费用。文字响应只证明文字访问；`--tools` 明确请求无害工具调用及后续续答。端点细节见 [PROVIDERS.md](docs/PROVIDERS.md)、[MIMO.md](docs/MIMO.md)（英文参考）。
+先通过安全输入或 CI secrets 提供 `MY_PROVIDER_KEY`；这里是变量名，不是密钥。`--key-stdin` 是另一种配置方式，会把输入的 Key 保存到本机模型配置；要求只在环境中使用密钥时不要选择它。不要把 Key 放进任务、命令参数、截图或反馈。临时环境配置支持 `KODER_MODEL`、`KODER_BASE_URL`、`KODER_PROTOCOL`、`KODER_API_KEY`、`KODER_CONTEXT_WINDOW`、`KODER_MAX_OUTPUT`，窗口必须是模型实际支持的大小。
 
-## Windows 与代码图谱
+`model test` 总诊断上限为十秒，不套用普通推理的多次重试；`--tools` 还检查无副作用的工具调用与续答。文字通了不等于整套任务能力已经验收。真实套餐、余额和权限仍须用获授权的账号核实。
 
-可选预设通过现有 MCP 宿主配置 Windows-MCP 0.8.8 与 CodeGraphContext 0.6.13。明确测试或启用前保持关闭；图谱配置与发现绑定工作区，真实工具仍沿用原审批。外部 Python 程序需单独安装。
+## 3. 每个项目都有自己的文件夹
 
-阅读[中文集成指南](docs/MCP-INTEGRATIONS.zh.md)与[真实调用验收](docs/MCP-ACTUAL-ACCEPTANCE.zh.md)。发布后在一次性 Windows Server 2025 runner 与隔离 Apple Silicon Mac 做过真实调用检查；报告列出成功路径、Mac OpenSSL 3 前提和未验证组合。Agent 派发采用脚本，不代表真实模型规划能力评分，安装器字节与默认权限未因此改变。
-
-## 内置学习方法
-
-CLI 随附 `personal-agent-growth` **0.3.2**。相关任务可通过 `skill_read` 读取本地方法，预习下一步、保留失败、核查修订候选并从记录接续；简单请求直接处理。独立技能仓库可能有更新版本，不据此改写 CLI 随包版本。
-
-```sh
-koder growth status
-koder growth show
-koder growth off
-koder growth on
-```
-
-开关在下次 CLI 会话生效。方法使用当前模型、工具和执行审批，记录保存在已授权工作区，不启用画像、同步、后台服务或新 API 预算。定时接续仍需独立授权且可用的宿主后端，保存计划不等于注册计划任务。原方法保留 AGPL-3.0-only 许可与声明；见[使用参考（英文）](docs/AUTONOMOUS-LEARNING.md)。
-
-## 可选庆祝效果
+新建网站、PPT 或应用时，如果没有显式指定工作区，也不是在已有工程里继续开发，Koder 会在用户主目录的 **Koder Projects** 中建立独立文件夹。已有项目原地继续；`-w` 明确指定的工作区优先。项目文件不应散落到 Koder 的程序安装目录。
 
 ```text
-koder celebrate
-koder celebrate fireworks
-koder celebrate auto notice
-koder celebrate auto off
-koder celebrate birthday --date 03-14
-koder celebrate music on
-koder celebrate music off
-koder celebrate locale --language en
+koder project create "Studio Site" --kind website
+koder project create "Quarterly Review" --kind slides
+koder project create "Studio App" --kind app
+koder project list --json
+koder project status
+koder chat -w /absolute/path/to/existing-project
 ```
 
-代码雨、彩纸、烟花和节日/生日效果约六秒，任意键跳过；菜单 Enter、q、Esc 可离开。重定向输出与 JSON 不动画，`KODER_REDUCED_MOTION=1` 显示静态问候。
+当前聊天内可以直接用 `/project create "Another Site" --kind website` 新建并切换；用 `/project open "/absolute/path"` 回到旧项目。切换会关闭空闲旧会话，按新项目重建，不搬走旧文件。重名时提示选择打开或改名，不合并。`.koder/project.json` 只保存项目身份和路径，不复制聊天与 API Key。
 
-节日默认只给可选问候，`auto on` 才自动播放。自定义日期可用 `celebrate custom --date MM-DD --name "Our day"`。生日只在确认后本地保存月日；`celebrate birthday forget` 删除并关音乐。
+## 4. default 不是全局聊天
 
-音乐和 IP 国家查询默认关闭、分别确认。生日音乐启用后当天最多请求一个浏览器标签，本地旋律无需音乐账号；浏览器仍可能需要手动 Play。可选 QQ Music/YouTube Music 搜索按所选语言和服务条款运行。明确语言与启用的本地语言统计优先于可选 IP 提示。
-
-## 隐私与反馈
+`default` 表示**当前规范工作路径下**的默认会话。同一项目、同一会话可继续历史；不同项目和命名会话不会自动继承彼此的任务聊天或任务事实。明确管理的共享笔记是另一项功能，沿用其声明的范围。
 
 ```text
-koder privacy consumer
-koder privacy statement
-koder privacy desktop
-koder privacy agreement
-koder privacy sources
-koder feedback
-koder permissions status
+koder ask "继续本项目发布任务" --session release
+koder ask "单独排查一个问题" --session investigation
+koder ask "本项目从头开始" --new
+koder ask "这次不用历史" --no-memory
+koder memory show --json
 ```
 
-中英文 CLI 声明与未修改的官方消费者原文随包提供，可离线阅读。CLI 配置/环境变量密钥与桌面加密密钥库分别说明。模型请求、可选同步、应用连接、国家查询和音乐具有不同范围。
+私有记录按项目路径和会话标识保存在用户 Koder 配置区，不放进将来上传的网站目录。“按工作区隔离”是数据身份边界，并非全部私有记录都在项目文件夹中。旧记录保留；不要为了解决串话直接删除整份配置。
 
-会话中提出反馈或运行 `koder feedback` 可取得邮箱与空白模板，不自动发送或附文件。联系前移除密钥、密码、私人路径和个人记录。
+## 5. 管道要明确，终端就不用猜
 
-应用审批、脱敏与校验不替代 OS 权限。`--yes` 不授予电脑、隐私、生日、音乐或国家查询的额外同意。
-
-## 执行权限
-
-默认 smart：已识别的低风险本地检查与普通项目修改可直接进行；代码执行、删除、秘密/配置路径、shell 副作用、未知命令和外部应用动作需要提问。决定由本地代码作出，不由模型自述决定，也不是 OS 沙箱。
-
-敏感提问时 `y` 单次允许，`a`/`always` 保存该工作区的确切动作，`f`/`full` 保存该工作区完全访问，Enter/`n` 拒绝。
+有提示词的 `ask/run` 默认不等待无关的标准输入。确实需要把管道内容附加到提示词时，加 `--stdin`；没有提示词时，把输入作为任务读取。输入必须完整结束，超时不会把半截内容交给模型。
 
 ```sh
-koder permissions execution status
-koder permissions execution ask
-koder permissions execution auto
-koder permissions execution full --confirm FULL
-koder permissions execution full --scope profile --confirm FULL
-koder permissions execution revoke all
-koder permissions execution reset
+koder ask "解释当前工程"
+printf '%s\n' '这里是构建输出' | koder ask "总结这段输出" --stdin
+cat task.txt | koder run
+cat report.txt | koder ask "检查这份报告" --stdin --stdin-timeout 30
 ```
 
-完全访问可在已有权限内无逐项提问执行命令、改删文件和操作应用，默认只针对当前项目；`--scope profile` 明确覆盖该本地 profile 的所有项目。`reset` 清空保存设置；`revoke all` 返回 smart 并移除适用规则。`--approval auto|ask|full|deny` 和 `--yes` 为当前运行选择，不能覆盖明确 deny。它们不接受软件条款、不填写密码、不启用学习/同步或授予 OS 权限；ACP/编辑器和远程网关保留各自策略。
+PowerShell 使用 `Get-Content -Raw .\report.txt | koder ask "总结输出" --stdin`；CMD 使用 `type report.txt | koder ask "总结输出" --stdin`。
 
-规则在本地 CLI home 的 `execution-permissions.json`，保存主机/工作区范围与动作哈希，不保存原始命令或密钥，不作为记忆同步。损坏记录不授予权限，可重新选择单次允许或在备份损坏记录后保存新规则；不安全路径和不可读文件仍阻塞。
+完整输入默认等五秒，`--stdin-timeout` 可设为 0.01–3600 秒；输入上限为 400000 字节。生产者一直不关闭时，这是输入问题，不是 API 连不上。有提示词时不再需要补 `</dev/null` 绕过卡住。过大或不完整输入会明确报错，不悄悄截断执行。
 
-## 更新、私人资料与商业许可
+## 6. Ask、执行和本次语言
 
-`koder update --check` 查看，`koder update` 安装接受的版本。已完成动作不会仅因进程重启而重做。重装保留配置与记忆，旧版迁移见[中文指南](docs/USER-GUIDE.zh.md)。
+`koder ask` 用来回答，不提出文件修改或命令；`koder run` 使用实际工具执行任务；直接输入 `koder` 进入聊天。`standard/code/minimal/plan/execute/report/enhance` 是工作模式，不是权限授权。
 
-托管的交互会话最多每六小时后台查更新；仅在活跃任务、排队输入和草稿处理完后交接，校验替换并恢复会话。新任务可与准备并行，最后安装仍等待当前任务。关闭会话取消未完成准备，许可变化需手动审阅。`koder update auto off|on|status` 控制自动更新，`KODER_AUTO_UPDATE=0` 禁用本进程自动检查；脚本、单次命令和未托管副本不会自动安装。
+```text
+koder ask "Explain the architecture" --lang en
+koder run "修复失败检查" --lang zh
+```
 
-远程参考默认关闭。`koder resources search "1688" --remote` 或 `koder resources read RESOURCE_ID --remote` 单次启用；`KODER_REMOTE_RESOURCES=1` 允许本地模型任务请求远程参考，`0` 禁止。查询发往官方服务，请用简短且不含私密信息的关键词。见[远程检索参考（英文）](docs/REMOTE-RESOURCES.md)。
+`--lang` 只控制本次调用，并给实际模型请求加入明确回答语言。`koder lang en` 保存偏好；`/lang en` 切换当前聊天。代码、标识符和用户要求原样保留的引文不被翻译。服务商未遵守指令与请求根本没带指令，要分别排查。
 
-`koder resources import /path/to/collection.zip` 可导入自己的归档；仅在允许模型检索并取得摘录时加 `--model-access`。资料本地加密、按需读取，不进入同步与公开发行，导入不执行附带脚本。见[私人资料参考（英文）](docs/PRIVATE-RESOURCES.md)。
+## 7. 权限跟着具体操作走
 
-公司许可和专用私有交付可运行 `koder business` 或联系 [info@karmenloop.com](mailto:info@karmenloop.com)，范围与权利以单独书面协议为准。[商业参考（英文）](docs/COMMERCIAL-LICENSING.md)。Star 自愿，不影响安装和许可功能。
+智能审批处理可识别的低风险检查和普通工程修改；敏感或未知操作会询问。“始终允许”只对记录下来的范围生效。`--approval auto|ask|full|deny` 控制本次策略；`--yes` 不覆盖显式 deny，不代填密码、开启系统权限、批准发信或正式发布。
 
-## 菜单、证据与第三方组件
+完整模式不是操作系统权限。先看清目标、命令和差异再同意。未知结果不能当完成，发送、付款、部署前先核对状态，避免重复操作。Windows 的系统授权问题也不能靠在模型对话里反复输入 Y 解决。
 
-会话中 `/menu`/`菜单` 打开设置，`/celebrate`/`彩蛋菜单` 打开效果，`/growth status` 查看学习方法。也可直接输入 `koder setup`、`koder celebrate`。Escape 离开设置，Enter 跳过效果菜单，任意键跳过动画，仍在原终端继续任务。普通提到网站或菜单的工作请求进入任务引擎，只有明确询问 Koder 自身时才显示产品介绍。
+## 8. 审阅、修复和检查
 
-[CLI 契约](docs/CLI-CONTRACTS.zh.md)、[质量检查](docs/QUALITY-CHECKS.zh.md)、[盲测说明](docs/BLIND-BENCHMARKS.zh.md)与[Windows 安装记录（英文）](docs/WINDOWS-INSTALL-CHECKS.md)分别区分源码、安装包、协议替身、原生平台、真实账号和用户设备。新的公开标签用于分发文档，不发布新专有运行时源码；实际包、安装器与校验文件位于发行资产。
+```text
+koder review
+koder fix "修复登录失败" --check "npm test"
+koder fix --check "npm test" --attempts 3
+koder test
+```
 
-REA 6.7.0 保留 MIT，其依赖各自保留许可（含 LGPL-3.0+ 的 OpenPGP.js）。详见原包 `vendor/rea/README.md`、`components.json`、第三方声明及 `sources/`；不附外部分析引擎。
+`fix` 需要修复描述、检查命令或明确输入。`--attempts` 为 1–20，`--timeout` 为大于零且不超过 86400 秒的检查时限。缺内容时会显示示例，不再只说“没完成”。检查会运行工程代码，仍按原命令权限和工程依赖要求执行。一项小检查通过，不等于全产品或安装包已经通过。
 
-KARMENLOOP 官方团队 · 中国上海 · [官网](https://karmenloop.com) · [联系](mailto:info@karmenloop.com)
+## 9. 先看三种方向，再完整制作
+
+新网站、PPT 和应用先做三个真实 HTML 方向稿，比较版式、信息组织和交互，不只换颜色。在本地浏览器里切换、并排比较、评分、说明保留什么。低于三分先改稿；已有确认设计、小修或明确跳过时不重复折腾。
+
+遇到抉择，可以用 2–6 个步骤图方案说明取舍。浏览器反馈只回到当前任务，不代替发送任务或授权执行。PPT 展示代表页和叙事；App 浏览器原型不冒充原生真机验收。详见 [可视化工作流](docs/VISUAL-WORKFLOW-AND-NETLIFY.md)。
+
+## 10. 旁边开一个实时预览
+
+当前聊天用 `/preview`。静态页面用本地预览，框架接入已启动且实际就绪的 loopback 开发地址。成功的工程写入或已批准启动结果可触发一次伴随预览；`/preview auto off` 关闭自动行为。
+
+预览不会擅自安装依赖或启动未知脚本。框架保留原 HMR；静态页面保留输入，编辑中由用户选择刷新。原生应用仍需模拟器或真机。退出只回收自有预览，不停其他任务服务。详见 [邮箱和实时预览](docs/MAIL-AND-LIVE-PREVIEW.md)。
+
+## 11. 浏览器自动化与网页设计 Skill
+
+可以直接要求 Koder 检查网页、填写已授权表单或测试流程。Agent 用 `skill_catalog` 按需检索，再用 `skill_read` 读取 `ecosystem:agent-browser:core`。Vercel agent-browser 的核心方法、参考页、三个示例模板和 Apache-2.0 许可已固定版本内置；这不代表外部可执行程序或浏览器安装包也被安装了。
+
+Koder 先检查宿主驱动和目标范围，获取新快照，用本次快照的元素标识动作，再观察结果。`COMPUTER_DRIVER_MISSING` 表示宿主未接通驱动。上游 `@eN` 与 Koder 元素 ID 不能混用。登录态、Cookie、发送和上传须取得各自实际授权；未知结果先核对，示例脚本不会自动执行。
+
+现有 `ecosystem:skills:frontend-design` 的内容与许可已经逐字节核对为 Anthropic 当前固定上游版本，继续内置，没有为“更新”伪造改动，也没有顺带升级其他技能。方法不能覆盖用户要求或工具权限；目录和正文按需读取，减少每轮固定上下文开销。
+
+## 12. 最后交一张 H5 项目结构图
+
+符合条件的项目交付会根据真实文件生成独立 H5 图。可以搜索、展开模块、看文件大小与本地引用候选，导出结构 JSON，并随项目离线保存。`/visuals deliver` 可明确要求重建。
+
+隐藏/私有文件、凭据、依赖、软链接和已生成的评审/交付目录会排除。达到上限必须显示不完整。结构图不是编造的架构，也不是完整语义调用图或功能测试；分享前检查路径本身是否敏感。
+
+## 13. 把静态站放到自己的 Netlify
+
+流程是连接账号→选择站点→检查输出→授权草稿上传→看预览→另行批准正式发布。当前聊天用 `/netlify`，设置中位于“应用与 MCP”。
+
+Koder 自有 OAuth 应用配置完成前，一键浏览器登录保持灰色；受保护 PAT 输入是另一条路径。绑定站点不等于批准上传。草稿也会外传文件，可能公开可访问；长期草稿授权只限一个准确项目、输出目录和站点。正式发布独立确认并读回身份；结果不明先核对，不自动重放写入。
+
+目前直接上传预构建静态输出。SSR、函数和原生安装包需要对应真实适配。Koder 会员代托管、额度和计费服务尚未配置，不会暗中替用户升级 Netlify 套餐。完整命令见 [Netlify 流程](docs/VISUAL-WORKFLOW-AND-NETLIFY.md)。
+
+## 14. 邮箱、应用和外部消息
+
+`/setup mail` 提供可用的 163、QQ、Gmail、iCloud、微软、Spacemail 等预设，并显示认证与可用性。自建邮箱可按服务器实际能力使用仅接收 POP3 TLS/STLS；微软 OAuth 配置完成前仍不可登录。准确服务器和端口见 [邮箱教程](docs/MAIL-AND-LIVE-PREVIEW.md)。
+
+绑定账号不是发信许可。广告、验证码和自动通知不会自动回复，验证码不进入模型。选中邮件进入模型与真实发信分别授权；分类只是估计，重要邮件需要用户核对。发送结果未知时不直接重发。
+
+## 15. 资源、逆向和预选词
+
+技能与资源按需读取。网页、归档、模板和 Skill 都是不可信参考，不授予安装执行权限。原始许可仍适用；改名、加密不会让私有合集变成可公开分发的内容。
+
+Koder Reverse 是有明确覆盖边界的自研静态子集，不等于已经完整替代 REA 的全部能力，也不会执行目标。见 [Koder Reverse](docs/KODER_REVERSE.md) 和 [REA](docs/REA.md)。
+
+上下文预选词只是可编辑草稿。可以选、改、清空或自由输入，选中不等于发送。`/prefill`、`/prompts`、`/suggest off` 保留。见 [预填词说明](docs/PROMPT_PREFILLS.md)。
+
+## 16. 更新、恢复和完整隐私文本
+
+已安装的交互聊天会后台检查正式更新，等任务、队列和草稿空闲后才交接。许可变化需重新阅读。`koder update auto status|on|off` 管理自动检查。准备失败时当前会话继续可用，不要在更新中叠加启动另一份安装。
+
+Windows 安装和重启必须有实际平台证据，源码测试不能替代。手动迁移前，按文档备份用户工程和私有配置；不要把 API Key 或执行权限复制到共享记忆。完整安装文本可用 `koder privacy consumer`、`statement`、`agreement`、`desktop`、`sources` 查看。
+
+## 17. 按报错阶段排查
+
+- 模型名或参数不对时，显示 HTTP 状态、主机和受支持 JSON 错误中的有界脱敏原因，不倾倒原始响应或认证头。
+- `model test` 使用短时限单次诊断；普通任务与下载采用各自时限。下载上限很长，不代表 API 检测也要等那么久。
+- `CONTEXT_BUDGET_EXCEEDED` 表示输入、历史、工具定义装不进所配窗口。按模型真实能力配置；可选数字回执只含计数，不含聊天正文。目录按需读取减少固定开销。
+- 不完整流或工具调用不会被执行。已经核对的文件动作之后模型续答失败时，恢复续答，不重做文件动作。
+- 记忆隔离告警可按提示退到临时 RAM，会说明限制；它与 HTTP 401、管理员权限不是一回事。
+
+参数和无效配置退出码为 2；任务或检查失败用非零结果，成功为 0。脚本应把任何非零退出码当失败，不要只匹配一句提示。反馈请附版本、命令、阶段和脱敏后的最后几行。
+
+## 18. 完整教程和所有命令
+
+互动教练共 **30 课**，分别提供 PowerShell、CMD、macOS、Linux 写法；使用临时练习工程与脚本教练，不调用付费模型。`koder learn --print` 查看文字版，`koder help 命令名` 查当前用法。
+
+[完整命令参考](docs/COMMAND-REFERENCE.zh.md) 由本版的真实命令目录生成，覆盖每个文档命令及通用参数。版本号、教程课数与实际配置模型分别来自自己的来源；没有一个对所有用户通用的默认付费模型，也不代表已购买套餐。
+
+`koder feedback` 和 `koder business` 提供 **info@karmenloop.com**，不会自动发送。官网为 [karmenloop.com](https://karmenloop.com)。
+
+## 下载八份完整文字教程
+
+- [koder-cli-0.4.3-en-cmd.txt](docs/tutorials/koder-cli-0.4.3-en-cmd.txt)
+- [koder-cli-0.4.3-en-linux.txt](docs/tutorials/koder-cli-0.4.3-en-linux.txt)
+- [koder-cli-0.4.3-en-mac.txt](docs/tutorials/koder-cli-0.4.3-en-mac.txt)
+- [koder-cli-0.4.3-en-powershell.txt](docs/tutorials/koder-cli-0.4.3-en-powershell.txt)
+- [koder-cli-0.4.3-zh-cmd.txt](docs/tutorials/koder-cli-0.4.3-zh-cmd.txt)
+- [koder-cli-0.4.3-zh-linux.txt](docs/tutorials/koder-cli-0.4.3-zh-linux.txt)
+- [koder-cli-0.4.3-zh-mac.txt](docs/tutorials/koder-cli-0.4.3-zh-mac.txt)
+- [koder-cli-0.4.3-zh-powershell.txt](docs/tutorials/koder-cli-0.4.3-zh-powershell.txt)
+
+## 结构化审查与无桌面的 Linux
+
+`koder review --format json` 在模型请求成功但缺少结构化结果时，最多追问一次。仍无法解析完整审查时返回退出码 3，并显示 `REVIEW_UNPARSED`，CI 不能把它当作没有问题。API 请求失败保留失败退出码，不触发这次追问。
+
+Linux 应用连接宿主需要 `secret-tool`（常见包名 `libsecret-tools`）、可用的 DBus 会话以及已解锁的 Secret Service，例如 gnome-keyring。缺少这些条件的无桌面容器不能使用受保护的应用连接。Koder 不会自动安装系统软件包或降低凭据保护；仅在进程内保存凭据也不能替代宿主的受保护存储。
+
+仅使用环境变量配置模型时，`model list` 与 `model context` 可查看当前模型；上下文和输出额度用 `KODER_CONTEXT_WINDOW` 与 `KODER_MAX_OUTPUT` 修改。设置了 `KODER_AUTO_UPDATE=0` 时，`update auto status` 会同时说明保存的设置与当前进程实际关闭的状态。
+
+远程资料默认关闭。`koder resources search "关键词" --remote` 仅为本次命令授权向 karmenloop.com 发送检索词；设置 `KODER_REMOTE_RESOURCES=1` 后才向 Agent 提供远程检索工具，`0` 可强制关闭。本机私有资料检索不会自动转到远程服务。
+
+## 无交互运行与来源检查
+
+[CLI 行为契约](docs/CLI-CONTRACTS.zh.md)说明管道输入、未回答的澄清、临时审批、失败请求不增加历史的条件以及退出码。[原始盲测题](docs/BLIND-BENCHMARKS.zh.md)区分确定性流程检查和真实模型评测。审查无法解析或发版文案归因缺少支持时返回 3，不能当作 CI 通过。
+
+## 文案与项目交付检查
+
+完整规则见[质量检查教程](docs/QUALITY-CHECKS.zh.md)。文案或项目缺项时退出码为 3，已写文件保留，并列出未通过项；这不会误报为 API 故障。下面的检查无需模型，也不运行项目脚本：
+
+```sh
+koder project check --kind service --json -w /path/to/project
+koder project check --kind website --json -w /path/to/site
+```
+
+之后再运行当前授权范围内的真实测试。找到测试文件不代表测试通过，就像找到跑鞋不代表已经跑完马拉松。模型预设会按实际目录显示可选与暂不可用数量；账号能否使用还要单独检测。
+
+
+## Windows 操作与代码图谱
+
+参见[Windows-MCP 与 Code Graph 完整教程](docs/MCP-INTEGRATIONS.zh.md)：当前窗口配置、平台/启动器诊断、按项目隔离、实际调用和停用。
+
+
+[Windows-MCP 与 Code Graph 真实调用验收](docs/MCP-ACTUAL-ACCEPTANCE.zh.md)：已测平台、原生依赖与未测范围。
+
+## 0.4.3 新功能速查
+
+`koder skills list` 查看技能；聊天中 `/skill` 选择技能。执行中可继续输入补充，Setup 可选择 steer 或 queue。`/harness deep-research` 选择研究配置，`koder harness off` 关闭 JIT。应用操作沿用已授权的 Apps/MCP、浏览器和桌面；缺权限或驱动会明确提示。持久经验 owner 未接入时返回 NO_ENTRY。
+
+[技能教程](docs/PORTABLE-SKILLS.zh.md) · [输入与设置](docs/SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](docs/APP-USE-AND-LEARN.zh.md) · [Harness 配置](docs/HARNESS-JIT.md) · [更新与已知限制](docs/RELEASE-0.4.3.md)
+
+## 0.4.3：常驻与邮件问询
+
+安装后先 `koder --version` 核对 0.4.3，再 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
+
+邮箱在 Setup 绑定，授权码以星号显示。分别开启 `/mail model on` 与 `/mail inquire on` 并确认后，相关来信可以提出选项；选择只生成草稿，发送仍需最终预览和确认。后台查收还需在常驻页打开邮箱可见性。广告和验证码不参与问询。
+
+[常驻完整教程](docs/ALWAYS-ON.zh.md) · [邮箱完整教程](docs/MAIL-PROACTIVE-INQUIRY.zh.md) · [本版更新与未验项](docs/RELEASE-0.4.3.md)。30 课和八套中英文教程仍在，运行 `koder learn` 开始。
+
+## 源码与许可
+
+公开仓库保留历史 GPL 0.3.1 源码，不能用该树构建当前专有运行包；发行物以 Release 和更新清单为准。[源码与分发说明](SOURCE-STATUS.md)。第三方许可保留。商业授权与反馈：[info@karmenloop.com](mailto:info@karmenloop.com)。欢迎自愿点星，跳过不影响使用。
