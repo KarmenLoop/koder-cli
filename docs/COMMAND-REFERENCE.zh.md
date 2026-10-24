@@ -1,8 +1,8 @@
 # 完整命令参考
 
-Koder CLI 0.4.3 · 30 课互动教程
+Koder CLI 0.4.4 · 30 课互动教程
 
-由本版实际命令定义生成。另见 [安装](INSTALLATION.md)、[常驻](ALWAYS-ON.zh.md)、[邮件问询](MAIL-PROACTIVE-INQUIRY.zh.md)、[Skills](PORTABLE-SKILLS.zh.md) 和 [验收限制](RELEASE-0.4.3.md)。
+由本版实际命令定义生成。另见 [安装](INSTALLATION.md)、[常驻](ALWAYS-ON.zh.md)、[邮件问询](MAIL-PROACTIVE-INQUIRY.zh.md)、[Skills](PORTABLE-SKILLS.zh.md) 和 [验收限制](RELEASE-0.4.4.md)。
 
 - `--harness <id>`: 本轮选配 Harness；不改变权限或模型
 - `--skill <id,name>`: 本轮指定本机 Skill；正文按需读取，脚本仍走原审批
@@ -388,7 +388,7 @@ koder mcp  添加、导入和验证 MCP
 add/import 默认不启用，也不执行命令或安装依赖。Windows-MCP 只在原生 Windows 启动；CodeGraphContext 绑定当前工作区和独立运行配置。presets/doctor 不打开连接宿主；doctor 只检查启动程序存在，不证明 Python 或实际工具可用。enable 明确启动；test 只握手与发现，不调用写入工具。不需要配置模型或登录 Koder。Linux 连接宿主需要 secret-tool、DBus 与已解锁的 Secret Service。
 
 选项
-  --preset windows-mcp|codegraph [--runner installed|uvx] 配置可选版本化预设，默认不启动
+  --preset windows-mcp|codegraph [--runner bundled|installed|uvx] 配置可选版本化预设，默认不启动
   --command <program> --arg <value> 本地 stdio 服务，不自动安装
   --url <url>                   远程 Streamable HTTP
   --bearer-env <variable>       从环境变量读取凭据

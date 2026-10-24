@@ -1,0 +1,44 @@
+{
+  "version": "0.4.4",
+  "file": "koder-cli-0.4.4.tgz",
+  "sha256": "deef189cf2c31bccb06eca3bd5c6392da17f9c639f8673e3d37746da4da4d38a",
+  "size": 111896283,
+  "node": "^22.21.0 || >=24.0.0",
+  "builtAt": "2026-10-24T18:19:23.138Z",
+  "preview": false,
+  "agreement": {
+    "id": "Koder-EULA-1.1",
+    "version": "1.1",
+    "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+  },
+  "installers": {
+    "sh": {
+      "file": "koder-cli.sh",
+      "sha256": "bf57188e8684b3d6d181eaa8c6661f233fa12b008bb8b9900b720ce3a7d0c723"
+    },
+    "ps1": {
+      "file": "koder-cli.ps1",
+      "sha256": "7eb1b35ef042853f647cb4032183e0364c144f18546c082a84b152a7e37e27c0"
+    },
+    "cmd": {
+      "file": "koder-cli.cmd",
+      "sha256": "9040a117ce2c84bcd3cdc2f8d8f677c87a47bb76efe69f427f8782eb0d54c273"
+    }
+  },
+  "channel": "stable",
+  "guides": "https://karmenloop.com/cli-guide/",
+  "sourceBaseline": "0.4.4-candidate.5",
+  "changes": [
+    "Bundled Windows-MCP and private Python",
+    "Bounded installation waits and uncertain-result recovery",
+    "Native mail sending and persisted background inbox alerts",
+    "Default-on reversible Headroom projections"
+  ],
+  "retainedLimits": [
+    "Native Windows 10/11 cold install/update and GUI NOT_RUN",
+    "OS login/reboot/visible notifications NOT_RUN",
+    "Real mailbox and model quality NOT_RUN",
+    "Earlier 8K-context failures retained"
+  ],
+  "publicationAuthorization": "Direct user request on 2026-10-25; incomplete acceptance does not block publication"
+}

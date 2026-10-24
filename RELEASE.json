@@ -1,10 +1,10 @@
 {
-  "version": "0.4.3",
-  "file": "koder-cli-0.4.3.tgz",
-  "sha256": "c84a6290b41fe639e8e0aee16db424fe259b5ff82228bab08012ca687c80a5b0",
-  "size": 53905506,
+  "version": "0.4.4",
+  "file": "koder-cli-0.4.4.tgz",
+  "sha256": "deef189cf2c31bccb06eca3bd5c6392da17f9c639f8673e3d37746da4da4d38a",
+  "size": 111896283,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-24T15:26:56.864Z",
+  "builtAt": "2026-10-24T18:19:23.138Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,31 +14,31 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "dbf2aa60fd7db41f009833c729b459037ab4ac01d62d93b94acf92063dc11773"
+      "sha256": "bf57188e8684b3d6d181eaa8c6661f233fa12b008bb8b9900b720ce3a7d0c723"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "c7bee0d28e515d6731782003a2637e386698464ed2c05317a184b2142786a8bb"
+      "sha256": "7eb1b35ef042853f647cb4032183e0364c144f18546c082a84b152a7e37e27c0"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "b5630a0c2d069a556e13de9f7aecf3516121508b81989b78b1ff62dbc5e8803b"
+      "sha256": "9040a117ce2c84bcd3cdc2f8d8f677c87a47bb76efe69f427f8782eb0d54c273"
     }
   },
   "channel": "stable",
   "guides": "https://karmenloop.com/cli-guide/",
-  "sourceBaseline": "0.4.3-candidate.2",
+  "sourceBaseline": "0.4.4-candidate.5",
   "changes": [
-    "Opt-in resident agent and scoped reminders",
-    "Protected mail authorization-code input and consented inquiries",
-    "One Core for foreground tasks and hosted gateway",
-    "Per-window preview ownership and idle update continuity"
+    "Bundled Windows-MCP and private Python",
+    "Bounded installation waits and uncertain-result recovery",
+    "Native mail sending and persisted background inbox alerts",
+    "Default-on reversible Headroom projections"
   ],
   "retainedLimits": [
-    "Native Windows final-package cold installation/update and GUI NOT_RUN",
-    "Native OS login/reboot and notification display NOT_RUN",
-    "Real mail/gateway accounts and model quality NOT_RUN",
-    "Calendar/history collectors and notification-click resume unavailable"
+    "Native Windows 10/11 cold install/update and GUI NOT_RUN",
+    "OS login/reboot/visible notifications NOT_RUN",
+    "Real mailbox and model quality NOT_RUN",
+    "Earlier 8K-context failures retained"
   ],
-  "publicationAuthorization": "Explicit user request on 2026-10-24; incomplete acceptance records retained"
+  "publicationAuthorization": "Direct user request on 2026-10-25; incomplete acceptance does not block publication"
 }

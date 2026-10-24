@@ -28,7 +28,7 @@ Use an app password or mail-client authorization code. For Gmail, app passwords 
 
 Mailbox credentials and local records use authenticated encryption and the existing protected credential store. Koder does not fall back to plaintext when key protection cannot be verified. The mailbox has a separate namespace for the current Karmen account and device. Switching accounts requires the mailbox to be bound in that scope.
 
-After connection, Koder checks for messages every minute while chat is running. `/mail check` checks immediately; `koder mail watch` runs a dedicated foreground watcher. Closing both processes stops checks. There is no claim of a system background service. Notices are queued during a task or settings screen. Marketing messages are classified silently. Personal, business, transactional, automated, and authentication categories are content-based estimates, not identity verification.
+In 0.4.4-candidate.2, Koder checks for messages every 30 seconds while chat is running. `/mail check` checks immediately; `koder mail watch` runs a dedicated foreground watcher. With /mail monitor on, the existing authorized agentd continues checks after terminals close. Without background activation, closing both foreground processes stops checks. Notices are queued during a task or settings screen. New bindings can notify all inbox categories; older notification preferences remain until explicitly changed. See [new-message sending and background monitoring](MAIL-DELIVERY.en.md). Personal, business, transactional, automated, and authentication categories are content-based estimates, not identity verification.
 
 Useful commands:
 

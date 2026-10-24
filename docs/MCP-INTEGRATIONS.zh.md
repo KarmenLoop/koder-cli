@@ -1,6 +1,6 @@
 # Windows-MCP 与 Code Graph 接入
 
-Koder 提供 **Windows-MCP 0.8.8**、**CodeGraphContext 0.6.13** 可选预设。第三方 Python 程序和依赖不在安装包内；默认 installed 路径使用已有程序。只保存配置不会下载、启动服务、修改 PowerShell 策略、提权或添加开机任务。
+从 0.4.4-candidate.3 起，Windows x64 包内置 Windows-MCP 0.8.8 与 Python/依赖，默认选择 bundled 启动器，详见[内置教程](WINDOWS-MCP-BUNDLED.zh.md)。CodeGraphContext 0.6.13 仍为外部可选预设。保存配置保持停用，不改变系统权限。
 
 2026 年 10 月 23 日核对的上游资料：[Windows-MCP](https://github.com/CursorTouch/Windows-MCP)、[其 Python 要求](https://github.com/CursorTouch/Windows-MCP/blob/e28abb5c6934cb3427190bdb970e02644c915ae3/pyproject.toml)、[CodeGraphContext](https://github.com/CodeGraphContext/CodeGraphContext)、[图谱配置实现](https://github.com/CodeGraphContext/CodeGraphContext/blob/93c9685bff9151f50a3121e9913e5ba2d27c1191/src/codegraphcontext/cli/config_manager.py)。这里记录的是预设目标版本，已有程序的实际版本还要在本机核对。
 
@@ -25,13 +25,13 @@ Doctor 只看平台和启动程序是否存在，不执行它。launcher-found �
 先自行安装、核对上游程序，然后在项目目录运行：
 
 ```powershell
-koder mcp add windows --preset windows-mcp
+koder mcp add windows --preset windows-mcp --runner bundled
 koder mcp test windows
 koder mcp enable windows
 koder chat
 ```
 
-add 只保存停用连接。test 启动程序握手并发现真实工具，随后恢复原来的停用状态，不点击、不打字。enable 才明确允许运行。PATH 找不到时，在 add 中指定 `--command "C:\Users\you\.local\bin\windows-mcp.exe"`。固定使用 serve 入口，不调用安装开机服务的命令；Python 标准输入输出设为 UTF-8，并关闭上游匿名遥测。
+add 只保存停用连接。test 启动程序握手并发现真实工具，随后恢复原来的停用状态，不点击、不打字。enable 才明确允许运行。选择 installed 路径时，在 add 中指定 `--runner installed --command "C:\Users\you\.local\bin\windows-mcp.exe"`。固定使用 serve 入口，不调用安装开机服务的命令；Python 标准输入输出设为 UTF-8，并关闭上游匿名遥测。
 
 之后在对话里明确提出操作目标，让 Agent 先发现实际工具再操作。继续使用原来的应用审批与持久结果记录；全面放开任务权限也不等于获得 Windows 管理员权限，不会绕过 UAC。结果未知时先核对，不能自动再点一次。
 

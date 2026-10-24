@@ -1,8 +1,8 @@
 # Complete command reference
 
-Koder CLI 0.4.3 · 30 interactive lessons
+Koder CLI 0.4.4 · 30 interactive lessons
 
-Generated from this release’s command definitions. See [installation](INSTALLATION.md), [resident agent](ALWAYS-ON.en.md), [mail inquiries](MAIL-PROACTIVE-INQUIRY.en.md), [Skills](PORTABLE-SKILLS.en.md) and [release limits](RELEASE-0.4.3.md).
+Generated from this release’s command definitions. See [installation](INSTALLATION.md), [resident agent](ALWAYS-ON.en.md), [mail inquiries](MAIL-PROACTIVE-INQUIRY.en.md), [Skills](PORTABLE-SKILLS.en.md) and [release limits](RELEASE-0.4.4.md).
 
 - `--harness <id>`: Select a task harness without changing permissions or the model
 - `--skill <id,name>`: Select local skills for this turn; read on demand, scripts retain approvals
@@ -388,7 +388,7 @@ Usage
 add/import leave servers disabled and never execute commands or install dependencies. Windows-MCP needs native Windows. CodeGraphContext binds this workspace and a separate runtime profile. presets/doctor do not open the connections host; doctor only checks launcher presence, not Python or actual tool behavior. enable explicitly starts them; test only connects and discovers tools. No model configuration or Koder login is required. The Linux connections host needs secret-tool, DBus and an unlocked Secret Service.
 
 Options
-  --preset windows-mcp|codegraph [--runner installed|uvx] Configure an optional versioned preset without starting it
+  --preset windows-mcp|codegraph [--runner bundled|installed|uvx] Configure an optional versioned preset without starting it
   --command <program> --arg <value> Local stdio server; does not install software
   --url <url>                   Remote Streamable HTTP
   --bearer-env <variable>       Read credentials from an environment variable

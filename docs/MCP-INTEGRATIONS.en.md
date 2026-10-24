@@ -1,6 +1,6 @@
 # Windows-MCP and code graph setup
 
-Koder provides optional presets for **Windows-MCP 0.8.8** and **CodeGraphContext 0.6.13**. The upstream Python programs and their dependencies are not bundled. The default installed runner uses an existing executable. Configuration does not download, start a service, change PowerShell policy, request elevation or add a login task.
+From 0.4.4-candidate.3, the Windows x64 package includes Windows-MCP 0.8.8, Python and dependencies, using the bundled runner by default. See the [bundled guide](WINDOWS-MCP-BUNDLED.en.md). CodeGraphContext 0.6.13 remains an optional external runtime. Saving configuration keeps the server disabled and does not change system permissions.
 
 Sources checked October 23, 2026: [Windows-MCP](https://github.com/CursorTouch/Windows-MCP), [its package requirements](https://github.com/CursorTouch/Windows-MCP/blob/e28abb5c6934cb3427190bdb970e02644c915ae3/pyproject.toml), [CodeGraphContext](https://github.com/CodeGraphContext/CodeGraphContext), and [its configuration implementation](https://github.com/CodeGraphContext/CodeGraphContext/blob/93c9685bff9151f50a3121e9913e5ba2d27c1191/src/codegraphcontext/cli/config_manager.py). Preset versions are targets; an installed executable's version must be checked separately.
 
@@ -20,18 +20,18 @@ Doctor checks platform and launcher presence without executing it. `launcher-fou
 
 ## Windows-MCP
 
-Use native Windows 10/11 with Python 3.14 or newer. WSL is not a native Windows process; run this preset from Windows or explicitly configure an authenticated remote Windows MCP through the existing generic transport. Koder does not silently select a remote computer.
+Use native Windows 10/11 x64 for the bundled runner. The installed/uvx alternatives require Python 3.14 or newer. WSL is not a native Windows process; run this preset from Windows or explicitly configure an authenticated remote Windows MCP through the existing generic transport. Koder does not silently select a remote computer.
 
 After installing and checking the upstream program yourself, run in the project directory:
 
 ```powershell
-koder mcp add windows --preset windows-mcp
+koder mcp add windows --preset windows-mcp --runner bundled
 koder mcp test windows
 koder mcp enable windows
 koder chat
 ```
 
-The first command saves a disabled connection. Test connects and discovers actual schemas, then restores the previous disabled state; it does not click or type. Enable explicitly allows the server to run. If PATH discovery fails, give `--command "C:\Users\you\.local\bin\windows-mcp.exe"` during add. The fixed argument is `serve`; no startup installer or task is invoked. Python stdio is configured for UTF-8 and upstream anonymized telemetry is disabled.
+The first command saves a disabled connection. Test connects and discovers actual schemas, then restores the previous disabled state; it does not click or type. Enable explicitly allows the server to run. For the optional installed runner, give `--runner installed --command "C:\Users\you\.local\bin\windows-mcp.exe"` during add. The fixed argument is `serve`; no startup installer or task is invoked. Python stdio is configured for UTF-8 and upstream anonymized telemetry is disabled.
 
 Ask Koder to discover this server's tools and perform a specific task. Desktop actions still use Koder's original application approval and durable result records. Full task approval does not grant Windows administrator rights or bypass UAC. An uncertain action result must be checked before retrying.
 

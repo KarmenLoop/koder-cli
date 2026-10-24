@@ -1,14 +1,16 @@
+> Koder CLI 0.4.4 已发布：Windows 内置 MCP、安装恢复、原生邮箱发送与后台收件提醒、Headroom。[完整中文教程](docs/USER-GUIDE.zh.md) · [更新与未验项](docs/RELEASE-0.4.4.zh.md)。
+
 # Koder CLI
 
 [English](README.md) | 简体中文
 
-[Windows 与 macOS 最新安装包](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.3) · [官网](https://karmenloop.com/cli.html#install)
+[Windows 与 macOS 最新安装包](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.4) · [官网](https://karmenloop.com/cli.html#install)
 
-当前版本：**0.4.3**。先看[本版更新](docs/RELEASE-0.4.3.md)、[输入菜单与接口诊断](docs/PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](docs/MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.4.4**。先看[本版更新](docs/RELEASE-0.4.3.md)、[输入菜单与接口诊断](docs/PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](docs/MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 # Koder CLI 完整使用教程
 
-版本：**0.4.3**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.4.4**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -220,15 +222,15 @@ koder project check --kind website --json -w /path/to/site
 
 [Windows-MCP 与 Code Graph 真实调用验收](docs/MCP-ACTUAL-ACCEPTANCE.zh.md)：已测平台、原生依赖与未测范围。
 
-## 0.4.3 新功能速查
+## 0.4.4 新功能速查
 
 `koder skills list` 查看技能；聊天中 `/skill` 选择技能。执行中可继续输入补充，Setup 可选择 steer 或 queue。`/harness deep-research` 选择研究配置，`koder harness off` 关闭 JIT。应用操作沿用已授权的 Apps/MCP、浏览器和桌面；缺权限或驱动会明确提示。持久经验 owner 未接入时返回 NO_ENTRY。
 
 [技能教程](docs/PORTABLE-SKILLS.zh.md) · [输入与设置](docs/SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](docs/APP-USE-AND-LEARN.zh.md) · [Harness 配置](docs/HARNESS-JIT.md) · [更新与已知限制](docs/RELEASE-0.4.3.md)
 
-## 0.4.3：常驻与邮件问询
+## 0.4.4：常驻与邮件问询
 
-安装后先 `koder --version` 核对 0.4.3，再 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
+安装后先 `koder --version` 核对 0.4.4，再 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
 
 邮箱在 Setup 绑定，授权码以星号显示。分别开启 `/mail model on` 与 `/mail inquire on` 并确认后，相关来信可以提出选项；选择只生成草稿，发送仍需最终预览和确认。后台查收还需在常驻页打开邮箱可见性。广告和验证码不参与问询。
 

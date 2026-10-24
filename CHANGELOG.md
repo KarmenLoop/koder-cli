@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.4 — 2026-10-25
+
+Bundled Windows-MCP, installation recovery, native mailbox sending, persisted inbox alerts and reversible Headroom projections. Windows/macOS installers and eight text tutorials are updated together. [Changes and limits](docs/RELEASE-0.4.4.md).
+
 ## 0.4.3 — 2026-10-24
 
 Opt-in resident agent, scoped reminders, masked mail input and authorized inquiries, preview ownership and idle updates. Windows and macOS installers, manifests and tutorials match. See [changes and limits](docs/RELEASE-0.4.3.md).

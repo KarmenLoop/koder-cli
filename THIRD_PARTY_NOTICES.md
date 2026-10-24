@@ -118,3 +118,35 @@ REA 6.7.0 is bundled under its original MIT license. Its dependencies retain the
 ## Vercel agent-browser - Apache License 2.0
 
 Browser automation method, reference documentation and example templates from `vercel-labs/agent-browser`, pinned to `468c0526c884722afd9c10bcc0d5b09ed4c0c5d1`. The executable and browser binaries are not installed by this resource bundle. Original authors retain their rights; read the [complete license](licenses/agent-browser/LICENSE). Koder adds host capability and permission guidance without replacing upstream notices.
+
+## Media, browser and application Skills — candidate.2
+
+These are pinned third-party sources and Koder adaptations, not wholly Koder-authored implementations. Original copyright notices, licenses and any upstream NOTICE/CREDITS files remain in each package. `UPSTREAM-SOURCE.json` records the upstream file hashes and excluded demo media; `BUNDLE-MANIFEST.json` records the adapted distributed bytes. Koder entrypoints and adapters do not replace third-party terms.
+
+| Component | Source revision | License / distributed scope |
+| --- | --- | --- |
+| [video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) | `43bd349a136651865ecfa6ea1cf012f6e957d304` | Apache-2.0; bundled-source |
+| [xilo-opus-video](https://github.com/Kianzzz/xilo-opus-video) | `f2cd828e2692e7186186408ee01a936707c2c38d` | MIT; bundled-source |
+| [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | `3961ddb3d24d8876e0e2754f7790d66908acee51` | MIT code; demo media excluded; bundled-source |
+| [mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) | `49052d80bfaf9fa8412cc9710530e5e95a3b8d8c` | MIT; bundled-source |
+| [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) | `8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c` | MIT; bundled-source |
+| [dashi-animationstyle](https://github.com/chuspeeism/dashi-animationstyle) | `aa620f3b859aa5d191b783b2eb0fb59263731c76` | MIT (sample voice excluded); bundled-source |
+| [playwright-cli](https://github.com/microsoft/playwright-cli) | `b1a5903c5b633b8c9f843ad7b629c2a78437040c` | Apache-2.0; bundled-source |
+| [cli-anything](https://github.com/HKUDS/CLI-Anything) | `34f519533bc175d2fe287ab8316b0dd99bb9cc43` | Apache-2.0; bundled-source |
+| [jianying-editor](https://github.com/guoluhua38-max/jianying-editor-skill) | `a081fbd4aaba9f53f356045aeb0ed570b55a4b2f` | MIT; vendored pyJianYingDraft Apache-2.0; bundled-source |
+| [wtt-code-animation-studio](https://github.com/WaterDJiang/Wattter_openSkills) | `cb79a2177e03dc7fd9520d881c8c883bbaff36af` | CC BY-NC-SA 4.0; reference-only |
+| [x-article-auto-publisher](https://github.com/tech-shrimp/x-article-auto-publisher-skill) | `caa6d1ecd34e00a952028b6b6a31b5c0bb93023d` | No license found; reference-only |
+
+The Jianying source is an attributed mirror of luoluoluo22, not a claimed latest upstream version. Its vendored pyJianYingDraft retains Apache-2.0; the license text was restored from GuanYixuan/pyJianYingDraft. Koder changed media probing, preserved failed draft loads, disabled implicit UI lock release and made replacement opt-in. These changes are identified in KODER-ADAPTATION.md.
+
+WTT Code Animation Studio (CC BY-NC-SA) and the X article publisher (no repository license found) are reference-only entries; their code is not included. The independently written `koder-media-workflow` provides local timeline/SRT, record conversion, article preview and rendering helpers. It is not an exact redistribution or complete implementation of either upstream.
+
+Demo videos, author voice tracks, sample music and binary reference assets are not bundled. Fonts/media may have separate terms; use the user's authorized assets or install permitted assets deliberately. Some renderers require Remotion, Blender, native apps, paid services or platform-specific packages under their own terms. Source availability does not establish runtime or account compatibility.
+
+## Headroom Skill
+
+Pinned portable Skill by roman-ryzenadvanced, revision 118466d7737ebc42806c331e44bd251b5222d59b, Apache-2.0. Original Headroom attribution is retained in licenses/headroom-skill/NOTICE. KARMEN LOOP added a separate Koder adapter and native bounded projection; upstream reference files are unchanged.
+
+## Windows-MCP runtime
+
+The Windows-MCP 0.8.8 subprocess and CPython 3.14.8 are bundled for Windows x64. See `vendor/windows-mcp/NOTICE.md`, `DEPENDENCIES.json`, individual dist-info licenses and `corresponding-source/`. Third-party licenses, including GPL/MPL components, remain in effect; Koder proprietary restrictions do not override them.

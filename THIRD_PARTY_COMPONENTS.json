@@ -228,6 +228,29 @@
           "matchesPreviousBundle": false
         }
       ]
+    },
+    {
+      "id": "headroom-skill",
+      "repository": "roman-ryzenadvanced/headroom-skill",
+      "recordedSourceRevision": "118466d7737ebc42806c331e44bd251b5222d59b",
+      "declaredLicense": "Apache-2.0",
+      "use": "Pinned context optimization references and Koder-specific runtime adapter",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/headroom-skill",
+      "listedResourceFiles": 24,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/headroom-skill/LICENSE",
+          "sha256": "f14dd440c8e3152b4d4d324615de8251ddb011dc81f484daad0b6902093539cc",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "NOTICE",
+          "publicCopy": "licenses/headroom-skill/NOTICE",
+          "sha256": "1899e3e4bbcd9ee3bd348155f70cf15475b4a57ba0dbd9b4d5c662917a811dce",
+          "matchesPreviousBundle": false
+        }
+      ]
     }
   ],
   "portLicenseChecks": [
@@ -285,6 +308,402 @@
     {
       "path": "LEGAL-NOTICE.md",
       "sha256": "484422100f8b17953307658c1e68b1e44fd7dcb2da79932f7a5310bc0a700ea8"
+    },
+    {
+      "path": "vendor/skills/playwright-cli/LICENSE",
+      "sha256": "9a7110fc2d2f964038e5dc49128f908f29f47a574c961cba16085914e879cbda"
+    },
+    {
+      "path": "vendor/skills/koder-media-workflow/LICENSE",
+      "sha256": "87e7892876f01c448d338166270877cc0bc657a198e52f666b2bc2c254771649"
+    },
+    {
+      "path": "vendor/skills/xilo-opus-video/LICENSE",
+      "sha256": "c35b15a61bad783668abe8722f8fba129d892b290991e2ddc4b8e307ac2ba31e"
+    },
+    {
+      "path": "vendor/skills/jianying-editor/LICENSE",
+      "sha256": "85a6bd7e1fd2d1e1197cc4f45c0bb1f7c8592c73fade00736ffbecf0cd8f5c30"
+    },
+    {
+      "path": "vendor/skills/jianying-editor/scripts/vendor/pyJianYingDraft/LICENSE",
+      "sha256": "308aaff89f5e69a7d715885bc8cc5f0001bfed9db7e5c056496be559c6e27455"
+    },
+    {
+      "path": "vendor/skills/video-shotcraft/LICENSE",
+      "sha256": "b2ce9877a55547ada9b870150664d1468ff777e67cc9888806a73927d31c5771"
+    },
+    {
+      "path": "vendor/skills/video-shotcraft/references/shots/ATTRIBUTION.md",
+      "sha256": "cb1639407e36439d57ef5fbc2808199d1bf9b397f3ce88a42598ed94734015a5"
+    },
+    {
+      "path": "vendor/skills/video-shotcraft/assets/readme/sponsors/ATTRIBUTION.md",
+      "sha256": "1bb7df32549b1ba31fb2b146624ec0d231c0e69b9731c9d8b21ba7ecf3cea695"
+    },
+    {
+      "path": "vendor/skills/video-shotcraft/assets/audio/ATTRIBUTION.md",
+      "sha256": "7fdc7fdc9bee66fee43e045f799202b08a45455b480ebbf751a1faf59ffe66d2"
+    },
+    {
+      "path": "vendor/skills/cli-anything/LICENSE",
+      "sha256": "0cff1a8ac2a381870a2c57cbe9b25f95bea0925b39b7fbf6a04ec23df7c77760"
+    },
+    {
+      "path": "vendor/skills/cli-anything/cli-anything-plugin/LICENSE",
+      "sha256": "0cff1a8ac2a381870a2c57cbe9b25f95bea0925b39b7fbf6a04ec23df7c77760"
+    },
+    {
+      "path": "vendor/skills/cli-anything/notebooklm/agent-harness/ATTRIBUTION.md",
+      "sha256": "102c78b11addd969a4065e2a3f3fe016fe61221da15f18db055b4791157e9602"
+    },
+    {
+      "path": "vendor/skills/cli-anything/notebooklm/agent-harness/THIRD_PARTY_NOTICES.md",
+      "sha256": "471695ff664bc8cc40e0ca1ce2854ffe8fade74eac84530b59840b2b47756760"
+    },
+    {
+      "path": "vendor/skills/cli-anything/rms/agent-harness/cli_anything/rms/core/credits.py",
+      "sha256": "0b440dc0dea7d305725403a5fc15079680defc72292b9251c01f3eb185b6be60"
+    },
+    {
+      "path": "vendor/skills/dashi-animationstyle/LICENSE",
+      "sha256": "ed01b8353d3bca3d8fe56bb30028a689159070aa2d3da4118a9256e2afb646f6"
+    },
+    {
+      "path": "vendor/skills/mg-styles-15/LICENSE",
+      "sha256": "7f03fee9299a401615e13e2c636ead0394f47395da4f816ae60b35ed2d91a932"
+    },
+    {
+      "path": "vendor/skills/mg-styles-15/site/vendor/highlight.LICENSE",
+      "sha256": "6c081431591d9df696c82dc598fe1423765b8a299b200ed00b281afd0f64c490"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/LICENSE",
+      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/paper-popup/demo/CREDITS",
+      "sha256": "1cf2903de0aa59bb159176a7d800ee38925755ebe39687a3b33d515759842ac0"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/tilt-shift/demo/CREDITS",
+      "sha256": "65922d04a0b4c1444e550630acf0d0f63ad6b9cc00a15f24d0b1bdda3727af7f"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/tilt-shift/demo/music/CREDITS.txt",
+      "sha256": "591e7aede3e3d4b306bc24a81de3093a116f0b99cc7ae633b39718a0dacf6128"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/crayon-book/demo/CREDITS",
+      "sha256": "085cb54d05b21862fb3a5b049618501893481867a17fa034271dbe812b9d357e"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/hologram-hud/demo/CREDITS",
+      "sha256": "daac304a634b9f3e3057aab706e8a7b25599892572bc0d7a7012081ed369fc53"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/hologram-hud/demo/music/CREDITS_music.txt",
+      "sha256": "927c859cc6558994dec4e13cc4bcb1643cd41f0858efc7091543ac88565e6b1b"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/dataviz/demo/CREDITS",
+      "sha256": "4d166a53e97424f4d804ccb65a3b7877b0061dad4be36eb71056f03d70dcd8b1"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/satellite-briefing/demo/CREDITS",
+      "sha256": "46c37f902916ad5f411ca934f4a01a8625e15ca1c3b37c32bee650d58953ba5b"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/papercut-red/demo/CREDITS",
+      "sha256": "fb6a1d5ea893ca6f6b8319c3bba535105d27c715db803d9afcc3991d719f61a7"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/papercut-red/demo/music/CREDITS.txt",
+      "sha256": "3f6b87f43125731f23fdf97a12b4baacb1bf2a5414d72d73567c41dea5292b28"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/dark-keynote/demo/CREDITS",
+      "sha256": "0c28931a2414b40a65f1794733d2342e0f59e4ae1183fc090aa11125bb1fc456"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/dark-keynote/demo/music/CREDITS_music.txt",
+      "sha256": "e42598da7fe8d1d069215570c07148b028f1d9507e916b360c46473845545806"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/engraving/demo/CREDITS",
+      "sha256": "48277cb2277cd0d13a7229f827019f8e5cca01a4cb4105d7baf865156228fb75"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/engraving/demo/music/CREDITS_music.txt",
+      "sha256": "39be7e537cfbcb89da79ea2a6f99235dd96ae1197676e0dd37f6fb3654298801"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/city-symphony/demo/CREDITS",
+      "sha256": "6f00fe38b30e797c0a88c661511ec86e01f82a025470d78c29c86cd6a5b4fc20"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/halftone-dossier/demo/CREDITS",
+      "sha256": "46bbb803df4efe47289fbea38c9ab7e0ba0515447d1d12d018adc62ccb9c8c39"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/swiss-motion/demo/CREDITS",
+      "sha256": "129d4de51e31753c890d6452f0429676432c5b6a47f2c6061de27bf279d55dc5"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/stained-glass/demo/CREDITS",
+      "sha256": "5d6db2cb482de6c2cd69c815b7b33bc485f3c0894913cf4271c10d7eccee3c82"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/lowpoly-island/demo/CREDITS",
+      "sha256": "54cae183cf7a320a60c5eedb79199b9e58fddc6edf0be68102cfea3c2f94a171"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/lowpoly-island/demo/music/CREDITS_music.txt",
+      "sha256": "d6aab8f1a8843f1f814058a5ed597db43d9e381f60de38b5ec3fe5b8ae5ec165"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/countdown/demo/CREDITS",
+      "sha256": "f980198945d23c5354fe5be969bc07456a2c3dd158ae9101918b105b6f1a756d"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/caption-news/demo/CREDITS",
+      "sha256": "75297aa3c162012443fe3cb1fee7b072177041a64f94f6eb073f5927889aec2a"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/scifi-toon/demo/CREDITS",
+      "sha256": "00b38d98d0d1a09514a70c9d46690f25c2bb8708e32b9aa9abb79c8268c9af83"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/living-screencast/demo/CREDITS",
+      "sha256": "deecb5fed436697261d4efaafdd5a561f635343443e8b181b1702d95ac3a4048"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/whiteboard/demo/CREDITS",
+      "sha256": "56a2e11ff6121d7f00d4f7c6e08ff24930dc8ca7f7b4077ff8125b1b256a54d3"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/archive-lighttable/demo/CREDITS",
+      "sha256": "cbac3c457feabe2f9524c8fab0a65b30f6a61c8ee376150e570dc88f9fd030ac"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/silkscreen-poster/demo/CREDITS",
+      "sha256": "51a617e49fc224e92afbefaced3a06c1133ce6c2ec1ec15303c1bf6229852563"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/art-deco/demo/CREDITS",
+      "sha256": "b543e32e2a4f2917c6a2647fce3498e6e7deb72ed6f23ec95e42bc09479a189c"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/art-deco/demo/music/CREDITS_music.txt",
+      "sha256": "97471f81202e828105ed518a811ac4e466e7b61b78b3f625ff2114174f8f9416"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/rubber-hose/demo/CREDITS",
+      "sha256": "e24a27585f2d7fda3375d8ebdc812134b80596d370ccb264976ad01ce6d93461"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/teardown/demo/CREDITS",
+      "sha256": "97421aaab31c61c7b2b33e2881fe4a081268e088078b068cfcdf476cad54a70b"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/visual-investigation/demo/CREDITS",
+      "sha256": "756b79f879abf4240712d9a2cef405b9e0962536b351f293524f5d777cc029cb"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/paper-lantern/demo/CREDITS",
+      "sha256": "53729259234b07d8ae6667f844def1f43963530501eba4b9d8d10eb18f982b2e"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/iso-infographic/demo/CREDITS",
+      "sha256": "a82eee2c6b3bd6470bf13879ae95a243c26b8049168eec472551c2027325644f"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/newsreel/demo/CREDITS",
+      "sha256": "9bfaaf3751d42414c383c733105be5b83927d2c751bc1b7d860fffa2b6b530e3"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/brick-toy/demo/CREDITS",
+      "sha256": "d4fd9a9ed33203c63216e187bd2c1a6d449f2010ad9d5b098c771b5e2573d5da"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/lidar-survey/demo/CREDITS",
+      "sha256": "bb06b4bb702e90021d63fcb46322027c80f97610e655555bcb03595742074d54"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/midcentury-toon/demo/CREDITS",
+      "sha256": "6846dac366111546bac8aa6a88b81599b362df7d95f934324205fcfe9237ede3"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/midcentury-toon/demo/music/CREDITS_music.txt",
+      "sha256": "a4813edaa4c228d85f011b7a6dd82bd08a3db95a57e624f62cafe58a8e3031ab"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/news-package/demo/CREDITS",
+      "sha256": "2bb8888eb6edcca3464faa9906831bb4b391181e10cf44fcb14b41e20641ca52"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/one-line/demo/CREDITS",
+      "sha256": "6f7886ded328b8177c544b91702a50e447a133acacfdf94860d9279640393723"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/ukiyoe/demo/CREDITS",
+      "sha256": "09b73b5ed905ad0fc2aa8b263665ec4ac94afc0b8b36941bf817e1480550080b"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/game-show/demo/CREDITS",
+      "sha256": "1fa6a864898f7405afe336c9c4e7d9a0f76583e5e01d3d4a11cc3e83143e6da1"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/silent-film/demo/CREDITS",
+      "sha256": "f118b8d4ce2a4b97bd9a06eea34f45a2fb3bf3bf48c385a4130ccdd29df8ccdb"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/silent-film/demo/music/CREDITS_music.txt",
+      "sha256": "7fae5d3c7304f604f8d5ec7fcb5a1f28ab5880495de9e4e81fff2d17a6bef002"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/hd-2d/demo/CREDITS",
+      "sha256": "85f8de9e925749ac66e40909ed61c7e5b25c2fc3ff773dc62a67ab6e9a407287"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/hd-2d/demo/music/CREDITS.txt",
+      "sha256": "c03facfce7e214366c07927e36ceda7256a4be7fe683a629068350bc4a1ff9c6"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/briefing-board/demo/CREDITS",
+      "sha256": "433945227ee6f6d215c9682fe981f80c876793b50daa78128c5a0b5c30a64c8d"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/shadow-puppet/demo/CREDITS",
+      "sha256": "eca42a59138592893a3a2f58b6a5463bf1c52989b2a9bef5c3dc8db588979308"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/shadow-puppet/demo/music/credits.txt",
+      "sha256": "59fa56a0ea9954d73e75da0b10dd9c08ff7bb0a7524be0854f13bde4c514519b"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/white-model/demo/CREDITS",
+      "sha256": "620a0fca2b3aebba61d2fa69cdefeaaa350506faa9c507d6e4405b998a40c327"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/ink-wash/demo/CREDITS",
+      "sha256": "ec7bbc6fa7570a3cf817f5094517d26159cefbecc0046c7ff62923b16db4bfcf"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/kino-montage/demo/CREDITS",
+      "sha256": "ca3cde1e759e93d98d301a7a549087c16ee5f9864da5c43937072c2998bf6f56"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/pictogram-motion/demo/CREDITS",
+      "sha256": "bb618c7167cc76460e99e7d69158313c07a53818daa4f302db6b7525efe12a3c"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/pixel-rpg/demo/CREDITS",
+      "sha256": "a42e23a4406c1efd80507d2893a9f5bd9d9e294e2a54ca7d8cc7b0a959a06651"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/backrooms/demo/CREDITS",
+      "sha256": "fd0e08f7840aec2df0b9bf5559c5e46d8703cb8ea998fce8d24d3c1ce8b64fd6"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/microgame/demo/CREDITS",
+      "sha256": "904fc77a3acc57140dc50a71df5df4cdf223b6e6f3da06fc1c642b3cf85bbfe0"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/microgame/demo/music/CREDITS_music.txt",
+      "sha256": "4f325dbdd11d101878fc19938ae54fc1e1728d7470077e2be3c6ee6e62523d08"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/risograph/demo/CREDITS",
+      "sha256": "5b9c4ca2e745c1bf9622e32ed663acfda77401a855214ff98326d1c23dd2d1b9"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/glass-product/demo/CREDITS",
+      "sha256": "54a9c3607be3c5db52cbf5b5a4c180bc440275ad43ad9244fb024319a50a441b"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/data-physical/demo/CREDITS",
+      "sha256": "9e6a35d2396eca890e1b0145e6aa4110e6a5f8efb57556040863c19e99b6fd61"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/spy-titles/demo/CREDITS",
+      "sha256": "c4079ea364be14d0bc86483a1048e84d1421a02c30a301a91efb09fad54c6ef8"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/spy-titles/demo/music/CREDITS_music.txt",
+      "sha256": "4ec7638b34ad4fd02e712e7e0e1d7dd3c3a7baaa0cc45b54cae14e8709d27ebf"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/spy-titles/demo/vendor/opentype-LICENSE.txt",
+      "sha256": "a5b87c9bc191e7f9c06b07bd7cbbed3ed846dfdb50e859484b2c245aa1ab2e61"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/watercolor/demo/CREDITS",
+      "sha256": "f6853a6be52e259299d58e0d99f4c3f2aadb574ad7aed6ecb634383b3323504a"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/watercolor/demo/vendor/LICENSE-world-atlas",
+      "sha256": "8048290dfdb6e83fbed17e8985c8cfc4ce9da9b842642f3d3e497280790cfa31"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/watercolor/demo/vendor/LICENSE-topojson-client",
+      "sha256": "4c4d15b635e04e691825a76db7d33f7f2033b55669a7430011694f31e6c65999"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/ascii-crt/demo/CREDITS",
+      "sha256": "6c288dba42482ab3589248992171d7a31a03da15f0b3c5cefc256eb946855069"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/telestrator/demo/CREDITS",
+      "sha256": "5de27e9a22cca4f87763761d9342b1667230398d62ea81a0b2dbd45a9f4adfcd"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/microscope/demo/CREDITS",
+      "sha256": "371d13d875a62c6a516f58873d4d185bf6a9f7c5a75ff1aa96c0f1c2484c8f18"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/impasto/demo/CREDITS",
+      "sha256": "0d6c7780b75fcf9db6f2d978ebe6887070299d897df0b3261ef2c17483b38564"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/blueprint/demo/CREDITS",
+      "sha256": "5592e99396f88f9b2cf2353fb97df8b8607eb0861a17568810cb2bbdffa5027e"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/urban-sketch/demo/CREDITS",
+      "sha256": "76d6dffc1b327323bd767abed8c4bd559870e4857177995634c8479008f8f54b"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/cel-anime-80s/demo/CREDITS",
+      "sha256": "19c1a30063da3a0916ade63976fade3c1fe97c2ad83fae11b5364339236841bc"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/woodcut/demo/CREDITS",
+      "sha256": "7fb321f23065d87ab9aec451377eb82978ccf488fc80ea39e9dc6e8b3d4d6523"
+    },
+    {
+      "path": "vendor/skills/lemo-opuscar/styles/woodcut/demo/music/CREDITS.txt",
+      "sha256": "db1c086ab0d3c2b39f4908aeeade5431c704ca35c07fd8a1ece8ea5de0a85f99"
+    },
+    {
+      "path": "vendor/skills/huashu-art-motion/LICENSE",
+      "sha256": "6d6a2a9caf2e6d2b76974050427053b2892d8aa4c33fd168ce63a537fcee9d96"
+    },
+    {
+      "path": "vendor/skills/huashu-art-motion/scripts/engine/lib/THREE_LICENSE.txt",
+      "sha256": "852e0e8699169bf9f6fdc6bda3e682d078dcbc738b5d33e74df594721bff271d"
+    },
+    {
+      "path": "vendor/skills/huashu-art-motion/scripts/engine/lib/fonts/LICENSES.md",
+      "sha256": "00b5f86c4d5162e6fee6d600b527c052933eb2884a61a5fab0f89fa4d4656ecd"
+    },
+    {
+      "path": "vendor/skills/mg-styles-15/licenses/fredoka/OFL.txt",
+      "sha256": "5c9e7eee5c6b25f4b05b8d53b2e470ea4962f9ced742d044a98f7d95d1375bab"
+    },
+    {
+      "path": "vendor/skills/mg-styles-15/licenses/outfit/OFL.txt",
+      "sha256": "c676351bf8576b9aba743cd5eaa8c0e7ee0d51f805d720447b4df4ddb6a2e416"
     }
   ],
   "npmComponents": [
@@ -2163,5 +2582,235 @@
     "integrity": "vendor/rea/integrity.json",
     "optionalFridaBundled": false,
     "optionalPtyBundled": false
-  }
+  },
+  "videoSkillBundles": [
+    {
+      "name": "video-shotcraft",
+      "description": "Product videos from real screenshots, shot recipes, camera moves, audio and editable timelines. 网页产品宣传片。",
+      "distribution": "bundled-source",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "ref": "43bd349a136651865ecfa6ea1cf012f6e957d304",
+      "license": "Apache-2.0",
+      "dependencies": [
+        "node",
+        "ffmpeg",
+        "chrome",
+        "?python",
+        "?npm:remotion"
+      ],
+      "limitations": [
+        "Use the prepared directory as the library. Recreate the target product with its own screenshots and design tokens; never substitute demo screens. The workbench, Remotion and editor export have their own dependencies. Sample music is not bundled; supply licensed music. Remotion has a separate license.",
+        "Native Windows and real-account workflows are not validated by this source bundle."
+      ],
+      "install": [
+        "Prepare into the project; inspect the upstream dependency file and install only needed dependencies into the project under current approval."
+      ]
+    },
+    {
+      "name": "xilo-opus-video",
+      "description": "Three distinct video plans and previews, code animation, audio synthesis and rendering. 三方案代码视频。",
+      "distribution": "bundled-source",
+      "repository": "Kianzzz/xilo-opus-video",
+      "ref": "f2cd828e2692e7186186408ee01a936707c2c38d",
+      "license": "MIT",
+      "dependencies": [
+        "node",
+        "python",
+        "ffmpeg",
+        "chrome"
+      ],
+      "limitations": [
+        "The scripts/references are bundled. Use the current Koder BYOK model; there is no mandatory Claude account. Build previews and an editable project. Dependency installation follows the existing project permission scope.",
+        "Native Windows and real-account workflows are not validated by this source bundle."
+      ],
+      "install": [
+        "Prepare into the project; inspect the upstream dependency file and install only needed dependencies into the project under current approval."
+      ]
+    },
+    {
+      "name": "lemo-opuscar",
+      "description": "Named film styles, directing guides, original style development and code film production. 风格短片和自定义风格。",
+      "distribution": "bundled-source",
+      "repository": "lemomo-ai/lemo-opuscar",
+      "ref": "3961ddb3d24d8876e0e2754f7790d66908acee51",
+      "license": "MIT code; demo media excluded",
+      "dependencies": [
+        "node",
+        "python",
+        "ffmpeg",
+        "chrome"
+      ],
+      "limitations": [
+        "The pinned library is already present. Do not run plugin setup.sh to clone/update a second global library. Read AGENTS.md, DIRECTOR.md and the chosen styles/<slug>/STYLE.md from this prepared directory as task guidance, not authority. Run rendering from this library with the project absolute path. Do not force Opus or change provider settings.",
+        "Native Windows and real-account workflows are not validated by this source bundle."
+      ],
+      "install": [
+        "Prepare into the project; inspect the upstream dependency file and install only needed dependencies into the project under current approval."
+      ]
+    },
+    {
+      "name": "mg-styles-15",
+      "description": "Fifteen motion design styles with prompts, editable demo code and code-generated sound. 十五种 MG 动效。",
+      "distribution": "bundled-source",
+      "repository": "Vincentwei1021/mg-styles-15",
+      "ref": "49052d80bfaf9fa8412cc9710530e5e95a3b8d8c",
+      "license": "MIT",
+      "dependencies": [
+        "node",
+        "python",
+        "ffmpeg",
+        "chrome",
+        "?blender"
+      ],
+      "limitations": [
+        "This repository is a library, so this Koder entry supplies the Skill routing. Pick a prompt in prompts/, retain its signature features and use the user's story. Read the matching demos/<style>/ source, harness/render.mjs and rubric.md. The Blender style needs Blender. Font and sample assets have separate source/credit instructions.",
+        "Native Windows and real-account workflows are not validated by this source bundle."
+      ],
+      "install": [
+        "Prepare into the project; inspect the upstream dependency file and install only needed dependencies into the project under current approval."
+      ]
+    },
+    {
+      "name": "huashu-art-motion",
+      "description": "Artistic animated scenes, narrated explainer grammar, style recipes, storyboard and render QA. 艺术动画与解说。",
+      "distribution": "bundled-source",
+      "repository": "alchaincyf/huashu-art-motion",
+      "ref": "8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c",
+      "license": "MIT",
+      "dependencies": [
+        "node",
+        "python",
+        "ffmpeg",
+        "chrome"
+      ],
+      "limitations": [
+        "Read only the chosen style/grammar references and the renderer it needs. Unknown model identity uses the source's cautious route; do not claim a model tier or change BYOK. Keep actual storyboard/render checks and recording consent. Use prepared resources, not a global uv install.",
+        "Native Windows and real-account workflows are not validated by this source bundle."
+      ],
+      "install": [
+        "Prepare into the project; inspect the upstream dependency file and install only needed dependencies into the project under current approval."
+      ]
+    },
+    {
+      "name": "dashi-animationstyle",
+      "description": "Narration-driven explanatory animation in seven visual styles, subtitles and editable sources. 中文口播配画面。",
+      "distribution": "bundled-source",
+      "repository": "chuspeeism/dashi-animationstyle",
+      "ref": "aa620f3b859aa5d191b783b2eb0fb59263731c76",
+      "license": "MIT (sample voice excluded)",
+      "dependencies": [
+        "node",
+        "python",
+        "ffmpeg",
+        "chrome"
+      ],
+      "limitations": [
+        "The author's sample voice is explicitly not licensed and is excluded. Use user-authorized narration or a licensed voice. Keep captions aligned to the actual recording, and distinguish planned timing from measured timing.",
+        "Native Windows and real-account workflows are not validated by this source bundle."
+      ],
+      "install": [
+        "Prepare into the project; inspect the upstream dependency file and install only needed dependencies into the project under current approval."
+      ]
+    },
+    {
+      "name": "playwright-cli",
+      "description": "Browser interaction, snapshots, screenshots, form tests and reusable extraction workflows. 浏览器自动化与网页测试。",
+      "distribution": "bundled-source",
+      "repository": "microsoft/playwright-cli",
+      "ref": "b1a5903c5b633b8c9f843ad7b629c2a78437040c",
+      "license": "Apache-2.0",
+      "dependencies": [
+        "node",
+        "playwright",
+        "chrome"
+      ],
+      "limitations": [
+        "Use a unique -s=koder-<task-id> session and a task-specific persistent directory only when persistence is requested. Never reuse the user's personal Chrome profile automatically. Snapshot refs are local to the current page/session. Close only this task's session, never close-all/kill-all. Extract snapshots/files on demand. Actions, login, downloads and publishing use existing Koder approvals. Use Koder media workflow for CSV and article preparation.",
+        "Native Windows and real-account workflows are not validated by this source bundle."
+      ],
+      "install": [
+        "Prepare into the project; inspect the upstream dependency file and install only needed dependencies into the project under current approval."
+      ]
+    },
+    {
+      "name": "cli-anything",
+      "description": "Generate, refine, validate and use software-specific CLIs with JSON output and real artifact checks. 软件 CLI 适配器与自动化。",
+      "distribution": "bundled-source",
+      "repository": "HKUDS/CLI-Anything",
+      "ref": "34f519533bc175d2fe287ab8316b0dd99bb9cc43",
+      "license": "Apache-2.0",
+      "dependencies": [
+        "python"
+      ],
+      "limitations": [
+        "Use cli-anything-plugin/HARNESS.md and the matching cli-anything-plugin/commands/ file as the complete methodology. Adapter source and registry are included. This does not install all target applications or grant their account access. Choose the target adapter, inspect its setup.py and use a project-local venv. Never assume all software works because a registry entry exists. Reuse Koder task/approval/memory authority.",
+        "Native Windows and real-account workflows are not validated by this source bundle."
+      ],
+      "install": [
+        "Prepare into the project; inspect the upstream dependency file and install only needed dependencies into the project under current approval."
+      ]
+    },
+    {
+      "name": "jianying-editor",
+      "description": "Desktop Jianying timeline drafts, media import, captions, effects and controlled export. 剪映时间轴与剪辑。",
+      "distribution": "bundled-source",
+      "repository": "guoluhua38-max/jianying-editor-skill",
+      "ref": "a081fbd4aaba9f53f356045aeb0ed570b55a4b2f",
+      "license": "MIT; vendored pyJianYingDraft Apache-2.0",
+      "dependencies": [
+        "python",
+        "ffprobe",
+        "?ffmpeg"
+      ],
+      "limitations": [
+        "Pinned attributed mirror; original upstream returned 404 on 2026-10-24, so this is not asserted as its latest version. Use JY_SKILL_ROOT=<prepared directory>. Create JyProject(name, drafts_root=<new project-local drafts>, overwrite=False); never overwrite or auto-repair an existing draft. ffprobe supplies measured media metadata when libmediainfo is absent. Windows UI export and the target Jianying version require separate validation. macOS auto-export and CapCut are not supported. Do not scan existing drafts, extract music/account data or record the screen without the current task's authorization.",
+        "Native Windows and real-account workflows are not validated by this source bundle."
+      ],
+      "install": [
+        "Prepare into the project; inspect the upstream dependency file and install only needed dependencies into the project under current approval."
+      ]
+    },
+    {
+      "name": "koder-media-workflow",
+      "description": "Koder-authored narration timeline, browser record export, local article preparation and deterministic code video rendering. 分镜字幕、评论 CSV、文章预览与视频渲染。",
+      "distribution": "bundled-source",
+      "license": "Koder-EULA-1.1",
+      "dependencies": [
+        "node",
+        "?ffmpeg",
+        "?chrome",
+        "?npm:playwright"
+      ],
+      "limitations": [
+        "Narration/account publishing is not performed automatically; rendering requires Playwright, a browser and FFmpeg."
+      ],
+      "install": []
+    },
+    {
+      "name": "wtt-code-animation-studio",
+      "description": "Not redistributed in the proprietary/commercial-service package. An authorized original can be imported locally; koder-media-workflow supplies an independently written narration workflow.",
+      "distribution": "reference-only",
+      "repository": "WaterDJiang/Wattter_openSkills",
+      "ref": "cb79a2177e03dc7fd9520d881c8c883bbaff36af",
+      "license": "CC BY-NC-SA 4.0",
+      "dependencies": [],
+      "replacement": "koder-media-workflow",
+      "limitations": [
+        "Not redistributed in the proprietary/commercial-service package. An authorized original can be imported locally; koder-media-workflow supplies an independently written narration workflow."
+      ]
+    },
+    {
+      "name": "x-article-auto-publisher",
+      "description": "Original source not redistributed. koder-media-workflow prepares article/assets; authorized browser tooling performs review and publication.",
+      "distribution": "reference-only",
+      "repository": "tech-shrimp/x-article-auto-publisher-skill",
+      "ref": "caa6d1ecd34e00a952028b6b6a31b5c0bb93023d",
+      "license": "No license found",
+      "dependencies": [],
+      "replacement": "koder-media-workflow",
+      "limitations": [
+        "Original source not redistributed. koder-media-workflow prepares article/assets; authorized browser tooling performs review and publication."
+      ]
+    }
+  ]
 }
