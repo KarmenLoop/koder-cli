@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.5 — 2026-10-25
+
+Raise the verified update bundle limit to 512 MiB. Document one-time official-installer migration for older clients. All 0.4.4 features remain. [Release notes](docs/RELEASE-0.4.5.md).
+
 ## 0.4.4 — 2026-10-25
 
 Bundled Windows-MCP, installation recovery, native mailbox sending, persisted inbox alerts and reversible Headroom projections. Windows/macOS installers and eight text tutorials are updated together. [Changes and limits](docs/RELEASE-0.4.4.md).

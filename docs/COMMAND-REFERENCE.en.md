@@ -1,8 +1,8 @@
 # Complete command reference
 
-Koder CLI 0.4.4 · 30 interactive lessons
+Koder CLI 0.4.5 · 30 interactive lessons
 
-Generated from this release’s command definitions. See [installation](INSTALLATION.md), [resident agent](ALWAYS-ON.en.md), [mail inquiries](MAIL-PROACTIVE-INQUIRY.en.md), [Skills](PORTABLE-SKILLS.en.md) and [release limits](RELEASE-0.4.4.md).
+Generated from this release’s command definitions. See [installation](INSTALLATION.md), [resident agent](ALWAYS-ON.en.md), [mail inquiries](MAIL-PROACTIVE-INQUIRY.en.md), [Skills](PORTABLE-SKILLS.en.md) and [release limits](RELEASE-0.4.5.md).
 
 - `--harness <id>`: Select a task harness without changing permissions or the model
 - `--skill <id,name>`: Select local skills for this turn; read on demand, scripts retain approvals

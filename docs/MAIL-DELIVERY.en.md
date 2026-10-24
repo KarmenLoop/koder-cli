@@ -1,6 +1,6 @@
 # Sending mail and receiving background alerts
 
-Applies to Koder CLI 0.4.4. Native Windows and live 163 account acceptance are still pending.
+Applies to Koder CLI 0.4.5. Native Windows and live 163 account acceptance are still pending.
 
 Bind a mailbox in Setup → Mail. A send-capable account verifies both receiving and SMTP connections. For 163, use the IMAP/SMTP client authorization code, never a password pasted into chat. The preset uses IMAP 993 and SMTP 465 with TLS.
 

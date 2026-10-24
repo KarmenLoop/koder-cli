@@ -1,6 +1,6 @@
 # 内置 Windows-MCP
 
-适用：0.4.4。Koder 为原生 Windows 10/11 x64 随包提供 Windows-MCP 0.8.8、CPython 3.14.8 与锁定依赖。无需另外安装 Python、pip 或 uvx。macOS 不启动此 Windows 组件；Windows ARM64 原生运行包尚未提供。
+适用：0.4.5。Koder 为原生 Windows 10/11 x64 随包提供 Windows-MCP 0.8.8、CPython 3.14.8 与锁定依赖。无需另外安装 Python、pip 或 uvx。macOS 不启动此 Windows 组件；Windows ARM64 原生运行包尚未提供。
 
 上游是 [CursorTouch/Windows-MCP](https://github.com/CursorTouch/Windows-MCP)，锁定发布提交 `b74c507d9e709223a0904cf08019edf55f2a75bb`。Windows-MCP 使用 MIT 许可证；Python 和依赖保留各自许可证，不把第三方代码宣传为自研。完整声明与相关依赖源代码归档随包放在 `vendor/windows-mcp/`。
 

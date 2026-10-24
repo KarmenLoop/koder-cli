@@ -1,10 +1,10 @@
 {
-  "version": "0.4.4",
-  "file": "koder-cli-0.4.4.tgz",
-  "sha256": "72a99516d0ef53cfb94ee4bffa50a832d3551a2ee822b4b7d96894c3cc91c2ca",
-  "size": 111893848,
+  "version": "0.4.5",
+  "file": "koder-cli-0.4.5.tgz",
+  "sha256": "7120419af91e089710e1a37492ad6bbc5a6b68b31d672f78c4af9fb487b1176b",
+  "size": 112025525,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-24T18:24:06.636Z",
+  "builtAt": "2026-10-24T18:32:21.629Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,31 +14,27 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "bf57188e8684b3d6d181eaa8c6661f233fa12b008bb8b9900b720ce3a7d0c723"
+      "sha256": "d7952c6a5ebc61cd9f1a770773a3aadeb6bbaeb481321cebd0caba5e07677ebe"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "7eb1b35ef042853f647cb4032183e0364c144f18546c082a84b152a7e37e27c0"
+      "sha256": "f1dd8f13e3b295df770eca2ce25e610c237b15fc5047e10cdc2e8ebbe236b605"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "9040a117ce2c84bcd3cdc2f8d8f677c87a47bb76efe69f427f8782eb0d54c273"
+      "sha256": "e0e377b646b992329dd2abfbaa9b94bf228494565ee95ae35134109673dc1a0e"
     }
   },
   "channel": "stable",
-  "guides": "https://karmenloop.com/cli-guide/",
-  "sourceBaseline": "0.4.4-candidate.5",
+  "sourceBaseline": "0.4.4",
   "changes": [
-    "Bundled Windows-MCP and private Python",
-    "Bounded installation waits and uncertain-result recovery",
-    "Native mail sending and persisted background inbox alerts",
-    "Default-on reversible Headroom projections"
+    "Raise the verified updater manifest size bound to 512 MiB",
+    "Document one-time official-installer migration for old clients",
+    "Retain all 0.4.4 Windows-MCP, mail, Headroom and prior features"
   ],
   "retainedLimits": [
-    "Native Windows 10/11 cold install/update and GUI NOT_RUN",
-    "OS login/reboot/visible notifications NOT_RUN",
-    "Real mailbox and model quality NOT_RUN",
-    "Earlier 8K-context failures retained"
+    "Native Windows GUI/cold install NOT_RUN",
+    "Real mailbox and model quality NOT_RUN"
   ],
-  "publicationAuthorization": "Direct user request on 2026-10-25; incomplete acceptance does not block publication"
+  "publicationAuthorization": "Direct user request 2026-10-25; full native acceptance is not a release gate"
 }

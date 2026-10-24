@@ -1,6 +1,6 @@
 # Bundled Windows-MCP
 
-Koder CLI 0.4.4 includes Windows-MCP 0.8.8, CPython 3.14.8 and pinned dependencies for native Windows 10/11 x64. No global Python, pip or uvx installation is needed. This component does not run on macOS. A native ARM64 bundle is not included.
+Koder CLI 0.4.5 includes Windows-MCP 0.8.8, CPython 3.14.8 and pinned dependencies for native Windows 10/11 x64. No global Python, pip or uvx installation is needed. This component does not run on macOS. A native ARM64 bundle is not included.
 
 The upstream project is [CursorTouch/Windows-MCP](https://github.com/CursorTouch/Windows-MCP), pinned to release commit `b74c507d9e709223a0904cf08019edf55f2a75bb`. Windows-MCP is MIT-licensed. Python and its dependencies retain their own licenses, including the GPL and MPL components identified in `vendor/windows-mcp/NOTICE.md`. Corresponding source archives are included. Koder's proprietary restrictions do not replace those component licenses.
 

@@ -1,6 +1,6 @@
 # Headroom context optimization
 
-Koder CLI 0.4.4 integrates the Headroom Skill with its existing task loop and enables
+Koder CLI 0.4.5 integrates the Headroom Skill with its existing task loop and enables
 it by default. Use koder, koder chat, koder ask or koder run normally. Resident-agent
 tasks use the same Core. There is no separate proxy, model, account or Python requirement.
 

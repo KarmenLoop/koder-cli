@@ -1,6 +1,6 @@
 # Windows installation recovery
 
-Applies to Koder CLI 0.4.4. Start with the [bundled Windows-MCP guide](WINDOWS-MCP-BUNDLED.en.md). Windows x64 already includes its private Python runtime; no global winget or pip installation is necessary.
+Applies to Koder CLI 0.4.5. Start with the [bundled Windows-MCP guide](WINDOWS-MCP-BUNDLED.en.md). Windows x64 already includes its private Python runtime; no global winget or pip installation is necessary.
 
 ## A command timed out
 

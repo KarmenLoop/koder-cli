@@ -1,8 +1,8 @@
 # 完整命令参考
 
-Koder CLI 0.4.4 · 30 课互动教程
+Koder CLI 0.4.5 · 30 课互动教程
 
-由本版实际命令定义生成。另见 [安装](INSTALLATION.md)、[常驻](ALWAYS-ON.zh.md)、[邮件问询](MAIL-PROACTIVE-INQUIRY.zh.md)、[Skills](PORTABLE-SKILLS.zh.md) 和 [验收限制](RELEASE-0.4.4.md)。
+由本版实际命令定义生成。另见 [安装](INSTALLATION.md)、[常驻](ALWAYS-ON.zh.md)、[邮件问询](MAIL-PROACTIVE-INQUIRY.zh.md)、[Skills](PORTABLE-SKILLS.zh.md) 和 [验收限制](RELEASE-0.4.5.md)。
 
 - `--harness <id>`: 本轮选配 Harness；不改变权限或模型
 - `--skill <id,name>`: 本轮指定本机 Skill；正文按需读取，脚本仍走原审批
