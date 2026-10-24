@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.8 — 2026-10-25
+
+Fix the updater scope error when automatic updates are toggled inside chat. Direct requests such as “enable automatic updates” now change local settings and start discovery in that conversation without a model call. Preserve idle installation, read-only modes, environment opt-out and license checks. [Release notes](docs/RELEASE-0.4.8.md).
+
 ## 0.4.7 — 2026-10-25
 
 Add automatic account model discovery and public configuration hints to Setup, with scoped caches, source dates, bounded refresh and explicit selection. Preserve existing features and authorization boundaries. [Release notes](docs/RELEASE-0.4.7.md).

@@ -1,0 +1,484 @@
+Koder CLI 0.4.8
+
+Koder CLI 完整教程（文字版）
+在终端里直接运行 koder learn，可以在练习场里边看边动手。
+这份文字版按「macOS 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 1 课 / 共 30 课 · 开场：欢迎来到 Koder 训练营 ━━
+教练 › 嗨，我是 Koder 教练。接下来分30课，我们在一个一次性的练习场里，把 Koder 从开机到毕业完整走一遍。
+  · 教程会在系统临时目录里生成一个练习场：一个故意留了 bug 的小购物车项目，下课自动删除。
+  · 第一课会识别你用的是 PowerShell、CMD、macOS 还是 Linux，后面的命令都按它来写；也可以输入数字换成别的系统。
+教练 › 全程不用配置模型、不花一分钱：替你干活的是我这个“教练模型”，台词提前写好了，演技有限，请多包涵。但改文件、跑命令都是真的，走的就是 Koder 平时用的那套内核。
+  提示 · 操作方式：回车 = 下一步；b = 回上一课；q = 随时退出（进度会记住）；输入数字 = 跳到那一课。
+  提示 · 复制粘贴用 ⌘C 和 ⌘V。终端里的 Ctrl+C 是“取消”，不是复制，别按混了。
+  提示 · 嫌命令难记？随时输入 koder setup（对话里输入 /setup），用方向键或者鼠标点一点，语言、模型、配色就全配好了。
+  （小声）别紧张，这里没有考试，只有彩蛋。
+
+━━ 第 2 课 / 共 30 课 · 认识开屏和提示符 ━━
+  · （这里会显示开屏：左边是 KARMEN 折光体，右边是 KODER 和 KARMEN LOOP。）
+教练 › 左边这位是 KARMEN 折光体，我们官网上的吉祥物，形状和官网用的是同一条曲面；右边是 KODER 和 KARMEN LOOP，下面列着当前用的模型、引擎、目录和常用命令。它不是装饰——好吧，主要是装饰，但它确实很好看。
+  提示 · 系统自带的“终端”App 用 256 色显示折光体；想看完整的真彩，可以用 iTerm2、Ghostty 或 WezTerm。字体选等宽字体，比如 SF Mono 或 Menlo。
+教练 › 开屏下面是提示符，它会告诉你现在的状态：
+    koder ›
+        在这里直接输入任务，比如：把 README 里的错别字改掉
+    koder[code] ›
+        方括号里是当前模式
+    koder! ›
+        感叹号表示自动确认开着，要格外小心
+教练 › 提示符显示 koder[plan]! › ，下面哪个说法对？
+    1. 计划模式，而且自动确认开着
+    2. 计划模式，刚刚出错了
+    3. 代码模式，感叹号是因为它很兴奋
+  答案：1。满分。方括号是模式，感叹号是自动确认。
+
+━━ 第 3 课 / 共 30 课 · 配置模型：给 Koder 装上大脑 ━━
+  提示 · 模型页现在会自动获取当前账号的最新型号；进入‘当前账号最新型号’选择后才保存。列表不是通行证，工具能力仍请运行 koder model test --tools。自动获取可关闭，也可用 koder model refresh 手动刷新。
+教练 › Koder 自己不会思考，它需要接一个大模型。最省事的是设置界面：
+    koder setup
+        方向键或鼠标选服务商、选型号，再把密钥粘进去；还能一键打开拿密钥的网页
+教练 › 喜欢敲命令也行。密钥建议放进环境变量，配置里只记变量名：
+    echo 'export OPENAI_API_KEY=sk-你的密钥' >> ~/.zshrc
+        写进 zsh 的配置（macOS 默认用 zsh），之后新开的终端都读得到
+    export OPENAI_API_KEY=sk-你的密钥
+        只在当前窗口有效
+    koder model set --preset chatgpt --key-env OPENAI_API_KEY
+        用预设，配置里只记变量名
+    koder model set --preset local --model qwen3:8b
+        用本机 Ollama，不需要密钥
+    KODER_MODEL=… KODER_BASE_URL=… KODER_API_KEY=… koder review
+        在 CI 里直接用环境变量
+  提示 · koder model presets 能查看当前可用预设；koder model show 看当前配置，密钥只露最后四位。
+  （小声）把密钥直接敲进命令要小心：shell 的历史记录（~/.zsh_history、~/.bash_history）记性比你前任还好。所以最推荐在 koder setup 里粘贴——屏幕上只显示末四位，也不进命令历史，但会明文保存在本机配置。环境变量命令也可能进入历史，不要分享含密钥的记录。
+教练 › 今天练习场用的是教练模型，所以这一课只看不做。毕业以后再去配真的。
+  · 可以现场运行 koder model presets 看全部预设。
+
+━━ 第 4 课 / 共 30 课 · 第一个任务：看懂差异，决定写不写 ━━
+教练 › 练习场里的 cart.mjs 算总价时忘了乘数量，测试一直挂着。我们让 Koder 来修。
+教练 › 默认交互模式下，Koder 改文件之前先给你看差异：以 - 开头的红色行会被删掉，以 + 开头的绿色行会加进来。本课需要输入 y 才写入，输入别的就作罢；开启 --yes 会自动批准普通修改。
+  （小声）看差异就像看体检报告：绿色是新长的肌肉，红色是减掉的赘肉，确认没切错地方再签字。
+  提示 · 等会儿 Koder 问“接受这个修改？”时，建议先输入 n 拒绝一次，体验一下反悔的快乐；它会再提一次，那时再输入 y。
+  · 动手：输入任务，教练模型提出修改；先输入 n 拒绝一次，再输入 y 接受，然后亲眼看到文件被改。
+教练 › 练习场采用逐项确认，让你看清每一步。实际使用默认智能判断：低风险命令与普通项目修改自动运行；敏感操作可选择始终允许。/permissions execution status 查看，ask 切回逐项确认，reset 撤销全部设置。
+
+━━ 第 5 课 / 共 30 课 · 命令确认：跑测试，也拦下可疑命令 ━━
+教练 › 改完代码当然要跑测试。运行项目代码属于敏感操作，默认先询问；node --version 这类低风险检查会自动执行。
+  提示 · 判断标准：看得懂、只影响当前项目、能撤销，就放行。rm -rf、curl … | sh、git push --force 这类命令要先确认来源与具体影响；来路不明的脚本直接拒绝。官方安装器也应先核对地址、许可和校验信息。
+  （小声）命令确认这一步，请拿出你核对外卖账单的认真劲儿。
+  · 动手：教练先请求运行 node test.mjs（可以允许），再请求一条 curl … | sh（必须拒绝；就算你误点了 y，教练也会拦下）。
+教练 › 命令的输出会原样交回给模型，它看得到测试结果，再决定下一步。
+
+━━ 第 6 课 / 共 30 课 · 做选择：Koder 也会问你 ━━
+教练 › 遇到必须由你拍板的事，Koder 会停下来出一道选择题。输入选项前面的数字，回车确认；直接回车就是取消这一轮。
+  （小声）千万别回答“都行”。“都行”是世界上最难做的菜。
+  · 动手：教练问要不要加服务费，给出三个选项，输入序号回答；直接回车会取消这一轮。
+
+━━ 第 7 课 / 共 30 课 · 斜杠命令：换挡、刹车和后悔药 ━━
+教练 › Skill 就像工作说明书：Codex、Cursor、WorkBuddy 的 SKILL.md 和资料可以按需读取，脚本仍走 Koder 原审批。先用 /skills list 找到它，用 /skill 名称 选中，/skill clear 取消。清单不是魔法通行证：需要专用工具时仍要先配置。
+教练 › 对话里以 / 开头的是斜杠命令，用来调 Koder 自己，不会发给模型。
+    /mode plan
+        计划模式：只读，只出方案，适合动手前先想清楚
+    /mode code
+        代码模式：先说计划，再动手
+    /yes
+        自动确认开关，提示符会多一个 !
+    /new
+        开一段新会话，之前的对话清空
+    /lang en
+        切到英文，/lang zh 切回中文
+    /review  /fix  /test  /scan
+        在对话里直接用这些命令
+    /help  /learn  /exit
+        看命令、回到教程、退出（Ctrl+D 也行）
+  动手 · 输入 /mode plan 切到计划模式  →  /mode plan
+  动手 · 再输入 /yes 打开自动确认  →  /yes
+  动手 · 好，再输入一次 /yes 把它关掉  →  /yes
+教练 › Koder 正在跑一个你后悔的命令，最快的办法是？
+    1. 按 Ctrl+C 取消这一轮
+    2. 拔掉网线
+    3. 对着屏幕大喊住手
+  答案：1。对。Ctrl+C 是急刹车，Ctrl+D 是礼貌地道别。
+
+━━ 第 8 课 / 共 30 课 · 只读提问、管道和脚本 ━━
+教练 › 只想问问题、不想让它动任何东西？用 ask。它只能列目录、读文件、搜索，改不了文件，也跑不了命令。
+  · 动手：随便问一个问题，教练用只读工具读 package.json 后回答；整个过程不需要你批准，因为它什么都改不了。
+教练 › 在脚本里，Koder 和其他命令行工具一样顺手：
+    git diff | koder ask "总结这次改动"
+        管道里的内容会作为附加材料交给 Koder
+    cat error.log | koder ask "这个报错是什么意思"
+        把一个文件喂给它
+    koder run --yes --json "修好 lint 报错" | jq -r .type
+        --json 每行一个事件，交给 jq 解析（brew install jq 就能装）
+    echo $?
+        看上一条命令的退出码
+教练 › 退出码：0 表示完成；1 表示被取消或检查没过；2 表示用法或模型配置有问题。
+  （小声）退出码 2 的意思是“先检查一下配置”，不是它不努力。
+
+━━ 第 9 课 / 共 30 课 · 代码审查：带着上下文挑毛病 ━━
+教练 › review 不只盯着改动本身。它会读仓库里的规则文件（比如 AGENTS.md）、最近的提交，还会去找被改函数在别处的调用，再让模型带着只读工具核实。
+  · 演示：教练在练习场里加了一个会算出小数分的打折函数，然后真的跑一遍审查流程，输出带级别、文件、行号和建议的结果。
+教练 › 每条问题都有级别（高、中、低）、文件、行号和修改建议。常用写法：
+    koder review
+        审查未提交的改动；没有的话审查当前分支
+    koder review --base main
+        和 main 分支比
+    koder review --format markdown --out review.md
+        生成可以贴进 PR 的评论
+    koder review --fail-on high
+        有高级别问题就返回 1，适合放进 CI
+    koder review --fix --check "npm test"
+        审查、修复、再跑测试，一条龙
+  · 可以选择让 Koder 按审查结果修复，照样先看差异、再输入 y。
+  （小声）被 Koder 挑出毛病不丢人，被线上用户挑出来才丢人。
+
+━━ 第 10 课 / 共 30 课 · 修到测试通过：fix --check ━━
+教练 › fix 是一个循环：先跑检查命令，失败就把输出交给 Koder 修，修完再跑，直到通过或者次数用完（默认 3 次）。
+  提示 · 这次我替你一路按 y，省点手指，你只管看它怎么一轮一轮修。
+  · 演示：练习场里加了一个检查 count 函数的 check.mjs，Koder 第一次修错、第二次修对，你能看到“第 1/3 次修复”和最后的“检查通过”。
+  （小声）它第一次没修对——别笑，你写代码第一次就对过吗？
+    koder fix --check "npm test"
+        修到测试通过为止
+    koder fix "首页按钮点了没反应"
+        没有检查命令时，按描述修一次
+    npm test 2>&1 | koder fix
+        把失败输出直接喂给它
+
+━━ 第 11 课 / 共 30 课 · 流程编排与 CI：让智能体排好队 ━━
+教练 › 把审查、测试、修复写进一份流程文件，本地和 CI 跑同一份。下面是一份小流程，我们直接跑：
+  · 演示：一份四步流程——跑测试、跑检查、让 ask 步骤用 {{步骤.output}} 总结前两步、只有检查通过时才执行的庆祝步骤。
+    type
+        shell、run、ask、review、fix、test 六种步骤
+    when
+        unit.failed、count.passed、always、failure
+    {{步骤.output}}
+        引用前面步骤的输出
+    parallel
+        并行跑只读步骤（shell、ask、review）
+    approve: auto
+        自动确认，适合 CI
+  提示 · 流程里的 shell 步骤交给 sh 执行；同一份流程拿到 Windows 上会交给 CMD。想一份流程到处跑，尽量用 node、npm、git 这些哪儿都有的命令，比如上面的庆祝步骤用的就是 node -e。
+教练 › koder ci init 会生成 GitHub Actions 工作流：PR 一开就自动审查并评论；在 PR 里评论 /koder fix，它会修好并推回分支。只有仓库成员的评论才算数，路人甲喊破喉咙也没用。
+
+━━ 第 12 课 / 共 30 课 · MoA：让几个模型一起想 ━━
+教练 › 遇到难题，一个模型容易钻牛角尖。MoA（Mixture of Agents）的做法是：几个参考模型先各自给意见，当前模型把意见当私下参考，汇总以后再动手。
+    koder model add reference --preset custom --base-url https://your-provider.example/v1 --model YOUR_MODEL --key-env MODEL_API_KEY
+        先登记参考模型，可以登记好几个
+    koder moa set --refs reference
+        建一个 MoA 预设
+    koder --moa "重构支付模块并补测试"
+        用 MoA 跑任务；对话里输入 /moa 随时开关
+    koder moa set --fanout every_step
+        默认每个用户回合问一次参考模型；every_step 每一步都问，更准也更费钱
+教练 › MoA 里的参考模型能不能直接改你的文件？
+    1. 不能。它们只给建议，动手的还是汇总模型，而且照样要你确认
+    2. 能，人多力量大
+    3. 只能改 README
+  答案：1。对。参考模型手里没有任何工具，连一个文件都读不了。
+  （小声）MoA 就像开会：大家都可以发言，但最后拍板的只有一个人——而那个人还得问你同不同意。
+
+━━ 第 13 课 / 共 30 课 · 接入聊天软件：在手机上指挥 Koder ━━
+教练 › Koder 能接入飞书、企业微信、微信、钉钉、Telegram、Slack、Discord 和 WhatsApp。各适配器需要相应平台账号与授权。按 setup 的实际提示连接并检查状态；微信流程由服务端决定。本预览版尚未完成真实账号验收，教程不会发起连接。
+    koder gateway setup feishu
+        接入飞书（企业微信 wecom、钉钉 dingtalk 同理）
+    koder gateway setup weixin
+        按实际账号流程配置微信
+    koder gateway start --background
+        后台收消息
+    koder gateway status
+        看哪些平台在线
+    koder gateway pair K7Q2MX
+        同意一位新用户
+  提示 · 飞书、企业微信、钉钉、Slack、Discord 用长连接，不需要公网地址；WhatsApp 官方接口要把本地端口通过隧道暴露出去。
+  提示 · koder gateway start --background 以后关掉终端也不会停；合上盖子让 Mac 睡着，机器人也会跟着睡。
+教练 › 一个陌生人在微信上给你的机器人发消息，会发生什么？
+    1. 他会收到一个配对码，你在电脑上 koder gateway pair 同意以后才能用
+    2. 机器人直接帮他改代码
+    3. 机器人热情地把你的密钥发给他
+  答案：1。对。默认私聊要配对，群聊默认关闭；改文件、跑命令之前，它还会在聊天里问你，回复「允许」才执行。
+  （小声）从此你可以躺在沙发上用手机修 bug——至于这算不算加班，请自行判断。
+
+━━ 第 14 课 / 共 30 课 · 接入编辑器：Zed、Neovim、Emacs ━━
+教练 › 喜欢在编辑器里干活？Zed、Neovim、Emacs 都能通过 ACP 协议启动 koder acp，在编辑器里对话、看差异、批准修改。比如 Zed 只要这几行：
+  · （这里显示 koder editor zed 的配置片段。）
+    koder editor nvim
+        Neovim（CodeCompanion），配置文件在 ~/.config/nvim/lua/plugins/codecompanion.lua
+    koder editor emacs
+        Emacs（agent-shell），配置文件在 ~/.emacs.d/init.el
+  提示 · Zed 的设置文件在 ~/.config/zed/settings.json。懒得复制？koder setup 里的「编辑器」能一键复制到剪贴板。
+  （小声）Vim 用户请放心，退出 Koder 比退出 Vim 简单多了：Ctrl+D。
+
+━━ 第 15 课 / 共 30 课 · 扫描本机工程，决定下一步 ━━
+教练 › koder scan 会把你在 Koder、Codex、Claude Code、Cursor 里最近做过的项目和任务汇总起来。它只读工作目录、时间和标题，这一步不请求模型；选择后续模型任务时，相关项目和任务材料会进入你配置的模型请求。
+教练 › 列表出来以后，这样选：
+    输入项目前面的序号
+        选中这个项目，回车就是跳过
+    1  审查改动
+        等于 koder review
+    2  跑检查并修复
+        会先猜一个检查命令，比如 npm test，回车就用它
+    3  让 Koder 列出现在最值得做的事
+        会把你在别的工具里最近做过的任务一起交给它参考
+    4  自己输入任务
+  · 可以现场扫一次，只列出项目，不进入选择。
+  （小声）扫完发现自己同时开了十几个项目？很正常，我们都是这样。
+
+━━ 第 16 课 / 共 30 课 · 安装、更新和换引擎 ━━
+教练 › 想把 Koder 装到别的电脑上？先阅读使用许可与授权说明，再按对应系统的命令安装：缺少运行时会下载 Node.js，安装包校验 SHA-256。安装后运行 setup 和 learn。
+    先在浏览器阅读：
+    https://github.com/KarmenLoop/koder-cli/blob/main/EULA.md
+    https://github.com/KarmenLoop/koder-cli/blob/main/ACCEPTANCE.md
+    https://github.com/KarmenLoop/koder-cli/blob/main/LEGAL-NOTICE.md
+        官方团队 KARMENLOOP 官方团队，中国上海。官网 https://karmenloop.com 邮箱 info@karmenloop.com
+        普通安装会在真实终端提示输入 accept 并回车；decline、空回车或 Ctrl+C 取消，取消前不下载。
+    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | bash
+        已阅读并同意的自动部署（不要替未阅读的人预先填写；KODER_EULA_ACCEPT=1 只接受软件许可）：
+    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
+        macOS 11 以上，Apple 芯片或 Intel；装完重开终端。
+    koder version
+    koder setup
+    koder learn
+    koder update --check
+        只检查 GitHub 更新
+    koder update
+        下载校验并安装新版本；preview.6 起的会话自动重启接续，保留配置、记忆和绑定
+        升到 preview.7 请运行上面的普通安装命令，阅读后输入 accept。preview.6 的更新器会在许可校验变化时于下载安装器前停止，KODER_EULA_ACCEPT 不能跳过这道检查。配置、记忆和绑定保留
+    koder uninstall
+        卸载程序，保留配置；需要删除配置时另行选择 --purge
+  提示 · 装在 ~/.koder-cli，启动命令放在 ~/.local/bin/koder，不需要 sudo。第一次用 git 时 macOS 可能弹窗让你装“命令行开发者工具”，点“安装”就行。
+  提示 · 要给别的系统装？koder learn 16 --os powershell（或者 cmd、mac、linux）能看那一套的写法。
+教练 › 安装版每次进入交互对话都会后台检查新版，运行中每六小时检查一次。等任务、排队输入和草稿都处理完，再自动安装、校验并恢复会话。换了使用许可就停下来，请你先读清楚。想自己掌握节奏？输入 /update auto off；重新开启用 /update auto on，或直接说“开启自动更新”，当前窗口立即检查。更新也懂排队，不会抢你的键盘。
+    koder update auto status
+    koder update auto off
+    koder update --check
+    koder update
+教练 › 默认使用内置 Koder 原生接口。备用引擎内部保留，默认关闭并置灰，正常使用无需安装或开启它。先检查当前模型与协议；网络错误不会偷偷切换引擎、密钥或计费地址。
+    koder engine list
+    koder model show
+    koder engine use koder
+  （小声）卸载命令写在这里，不是因为我们希望你用它，而是因为我们相信你不会用它。
+
+━━ 第 17 课 / 共 30 课 · 使用许可与可选授权 ━━
+教练 › 接受协议前，可以先看帮助和本教程文字版。接受使用许可不会开启喜好学习、自动同步、应用连接或电脑执行权限。下面各项由你独立选择；教程不会替你开启。
+    koder eula
+    koder eula accept
+    koder help permissions
+    koder learn --print
+教练 › 授权与数据使用说明
+       
+       使用许可：个人非商业本地使用免费；商用与组织部署须单独书面授权，个人许可不授二次开发或修改自有实现代码的权利；新自有发行版采用专有的 Koder-EULA-1.1，第三方和旧 GPL 权利保留。接受协议只取得软件使用许可，不会开启以下任何可选能力。查看协议：koder eula；明确接受：koder eula accept。
+       
+       模型与网络：任务、选择的文件内容、检索到的记忆及工具结果可能发给你配置的模型/API；自带API费用由服务商收取。本地模型也必须实际安装运行，选择本地预设不等于已离线可用。使用 --key-env 保存变量引用；粘贴到模型配置的密钥是本机明文，界面仅隐藏显示。
+       
+       电脑范围：文件读取/写入/搜索、联网、浏览器、桌面、渠道发文件和技能更新分别检查。完整工作模式覆盖所选可见磁盘根，仍受操作系统权限与实际能力限制。输入GRANT前核对执行程序、目录及远端成员；接受协议或 --yes 不会授予电脑权限。koder permissions revoke 撤销本机Koder的后续电脑工具授权；系统权限仍在系统设置中撤销。已经发生的写入或发送不会被自动追回。
+       
+       跨设备记忆服务：你配置的Core地址
+       登录后，此账号默认共享空间可在已关联的终端、渠道和设备间同步对话与记忆。已关联群的所有成员可使用关联私聊记忆，回复到群的内容会被群成员看到。请只关联允许共享的会话。模型API密钥、电脑执行授权不作为记忆同步。退出本机账号：koder account logout；删除共享空间记忆：koder memory forget。退出不等于删除服务器副本；离线设备需再次同步才应用删除。
+       
+       喜好习惯学习
+       默认关闭。开启后从已授权来源的对话中提炼表达习惯、明确喜好和工作背景，保存带来源的画像，并用于后续回答。一天想喝的饮料不应自动变成永久偏好；你可以查看、纠正或删除记录。
+       关闭: koder memory learning off
+       
+       当天状态
+       默认关闭。单独允许总结当天的心情、临时需求和情境，作为短期状态使用。与长期喜好学习分开选择，不把情绪描述当作诊断。
+       关闭: koder memory daily-state off
+       
+       技能改进
+       默认关闭。允许根据已授权任务和反馈提出技能改进候选；来源、检查和回退记录仍需保留。开启不允许自行提权、安装任意软件、修改系统安全设置或跳过工具批准。
+       关闭: koder memory evolution off
+       
+       主动服务与提醒
+       默认关闭。允许根据已确认的背景主动问候、提出工作问题和提醒，并把你的回复关联到原问题。默认安静时段为本地时间22:00–08:00；当前终端提醒需要进程运行及兼容的Core服务。开启不代表允许给联系人或群自动发消息。
+       关闭: koder memory proactive off
+       
+       每日反思：需已授权来源、已开启的相关选项、有效账号和兼容Core宿主。默认每日模型调用预算为4次；使用已配置的API或本地模型，可能产生费用。缺少宿主/凭据时显示等待状态，不表示已经反思完成。关闭学习会停止相应后续使用，不等于擦除历史；使用 profile forget 或 memory forget 管理记录。
+       
+       本地存储：新Windows记忆目录优先使用可写的D盘，否则使用可写的C盘用户专属目录；已有记忆位置和手动设置会保留。记忆位置与安装位置、密钥存储不同，请以 memory status / memory personalization status 的实际输出为准。灵魂风格可手动编辑与回退，不能赋予权限。普通卸载保留配置；--purge 是删除配置的独立选择，外置记忆和服务器副本需单独处理。
+       
+       应用与 MCP：连接会使用所选服务的 API Key 或浏览器授权；第三方能接收你通过该连接提交的数据，费用和服务条款由该服务决定。同一连接配置可由当前配置范围内的对话与 Agent 复用，外部写入仍走工具批准。stdio MCP 会在本机启动配置的程序；导入默认关闭，启用或 test 会启动连接。可用 koder apps disconnect <id>、koder mcp disable <id> 停用；在服务方撤销授权后才能终止其持有的令牌。
+       
+       更改选择：四项可选功能互不代开；按每项提示输入ENABLE开启、DISABLE关闭，风格保存使用SAVE。只读帮助和 koder learn --print 可在接受协议之前查看。预览版的Windows真机、真实渠道和多设备仍待验收，连接状态与实际结果为准。
+
+━━ 第 18 课 / 共 30 课 · 电脑与文件：查看、授权、撤销 ━━
+教练 › 先检查能力，再选需要的目录和能力。主目录模式用于个人文件；完整工作模式选择本机可见磁盘根。授权时逐项核对执行程序、目录和远端成员，输入 GRANT 后才保存。系统隐私授权、管理员权限和缺失的驱动仍需按系统流程处理。
+    koder permissions status
+    koder permissions request --home
+    koder permissions request --mode full
+    koder permissions revoke
+  提示 · 以上授权命令会改变本机权限记录，不要整段粘贴执行。只运行你选择的一项。撤销阻止后续电脑工具调用，不会撤回已经发送的文件或恢复已覆盖内容；系统设置中的授权单独管理。
+教练 › 文件操作请提供完整路径，带空格的路径用双引号。Windows 的 D: 是盘符相关路径；明确使用 D:\folder\file.txt。遇到“路径离开目录”，先检查工作目录、授权根、网络盘与链接目标，再查看 permissions status，不要关闭目录边界检查。文件发给渠道前，还要确认接收人、群和附件范围。
+
+━━ 第 19 课 / 共 30 课 · 记忆目录、群私聊与多设备 ━━
+教练 › 记忆并不等于把所有聊天塞进一次模型请求。当前任务使用相关记忆与压缩历史，完整记录按已配置范围持久化。新 Windows 用户优先使用可写 D 盘，否则使用可写 C 盘的用户专属目录；已有位置和显式配置保留。安装目录、密钥目录与记忆目录可能不同。
+    koder memory status
+    koder memory personalization status
+    koder memory show
+    koder memory search "项目决定"
+    koder account status
+    koder memory sync
+教练 › 跨设备记忆服务：你们部署并确认可用的 Core 地址
+       登录后，此账号默认共享空间可在已关联的终端、渠道和设备间同步对话与记忆。已关联群的所有成员可使用关联私聊记忆，回复到群的内容会被群成员看到。请只关联允许共享的会话。模型API密钥、电脑执行授权不作为记忆同步。退出本机账号：koder account logout；删除共享空间记忆：koder memory forget。退出不等于删除服务器副本；离线设备需再次同步才应用删除。
+    koder account login --server "https://your-core.example"
+        示例地址，必须换成你实际可用的 Core 服务
+    koder account logout
+        退出此设备，不删除服务器记忆
+    koder memory forget
+        删除当前共享空间记忆，离线设备下次同步时应用
+  提示 · 关联群的所有成员可使用关联私聊记忆；群内回复全员可见。只关联允许这样共享的会话。登录状态不等于同步成功，请检查状态与实际读回。当前预览版尚缺真实多设备和微信、飞书、企业微信账号验收。
+
+━━ 第 20 课 / 共 30 课 · 习惯学习、灵魂、每日反思与主动服务 ━━
+教练 › 四项开关默认关闭，开启其中一项不会代开其他项。打开 koder setup → 记忆与灵魂，先看每项说明再选择；命令行也会先解释用途和费用，输入 ENABLE 才开启，DISABLE 才关闭。
+教练 › 内置 personal-agent-growth 0.3.2 会在相关任务中按需提供预习、查错和复盘方法。koder growth status 查看，show 读方法，off/on 控制下次会话。它像随身的错题本，不会趁你下班偷偷开课：没有新后台服务，不代开下面的画像学习与同步。
+教练 › 喜好习惯学习
+       默认关闭。开启后从已授权来源的对话中提炼表达习惯、明确喜好和工作背景，保存带来源的画像，并用于后续回答。一天想喝的饮料不应自动变成永久偏好；你可以查看、纠正或删除记录。
+       关闭: koder memory learning off
+教练 › 当天状态
+       默认关闭。单独允许总结当天的心情、临时需求和情境，作为短期状态使用。与长期喜好学习分开选择，不把情绪描述当作诊断。
+       关闭: koder memory daily-state off
+教练 › 技能改进
+       默认关闭。允许根据已授权任务和反馈提出技能改进候选；来源、检查和回退记录仍需保留。开启不允许自行提权、安装任意软件、修改系统安全设置或跳过工具批准。
+       关闭: koder memory evolution off
+教练 › 主动服务与提醒
+       默认关闭。允许根据已确认的背景主动问候、提出工作问题和提醒，并把你的回复关联到原问题。默认安静时段为本地时间22:00–08:00；当前终端提醒需要进程运行及兼容的Core服务。开启不代表允许给联系人或群自动发消息。
+       关闭: koder memory proactive off
+    koder memory learning status
+    koder memory daily-state status
+    koder memory evolution status
+    koder memory proactive status
+    koder memory profile show
+    koder memory soul show
+    koder memory reflection run
+  提示 · reflection run 会尝试使用已授权对话与已配置模型，可能产生费用；有效账号、兼容 Core 宿主和相关开关齐备才可执行。默认每日最多4次模型调用。waiting-account-host 是等待条件，不是已总结。主动服务需要运行中的宿主，默认22:00–08:00安静时段；关闭终端或电脑不等于后台持续运行。
+教练 › 学习结果可以查看、纠正和删除。当天心情和临时需求不要当成长期身份；技能改进候选仍需核准才能应用。灵魂设置控制名字、语气和风格，可保存版本与回退；它不增加任何工具权限。关闭学习不会清空旧记录，需删除时使用 profile forget <记录ID> 或 memory forget。
+
+━━ 第 21 课 / 共 30 课 · Gamma、应用连接与 MCP ━━
+教练 › 应用与 MCP：连接会使用所选服务的 API Key 或浏览器授权；第三方能接收你通过该连接提交的数据，费用和服务条款由该服务决定。同一连接配置可由当前配置范围内的对话与 Agent 复用，外部写入仍走工具批准。stdio MCP 会在本机启动配置的程序；导入默认关闭，启用或 test 会启动连接。可用 koder apps disconnect <id>、koder mcp disable <id> 停用；在服务方撤销授权后才能终止其持有的令牌。
+    koder apps
+    koder apps connect gamma --key-env GAMMA_API_KEY
+    koder apps status
+    koder mcp import "mcp-config.json"
+    koder mcp list
+    koder mcp enable my-server
+    koder mcp test my-server
+    koder mcp disable my-server
+    koder apps disconnect gamma
+  提示 · 上面是按需选择的命令，不是要一次全执行。先按第3课的方法在当前系统设置环境变量。浏览器授权按 koder help apps / koder help mcp 的服务配置进行。检查 MCP 的程序路径、参数、服务地址和权限后再启用；test 会建立真实连接。
+教练 › 断线先看连接诊断，区分令牌失效、服务限流、网络和模型工具调用失败。连接可被同一配置下的对话和 Agent 复用；这不表示凭据已跨设备同步。超长工具结果会有限读取或截取，不能把连接成功当成外部任务已经完成。
+
+━━ 第 22 课 / 共 30 课 · API、上下文与更新排障 ━━
+教练 › 开发任务先检索公开 GitHub 候选、核对固定版本许可，再分轮提问并写需求、架构、任务和工具方案。已有项目优先复用，安装工具仍走本轮授权。对话中说“帮我更新 Koder CLI”或输入 /update 可触发版本比较、校验安装和新版入口核验；Ask/计划模式只检查。
+    koder version
+    koder doctor
+    koder model show
+    koder setup
+    koder update --check
+    koder update
+教练 › API 无法连接：核对地址、协议、型号、环境变量和网络；401/403通常需要核对凭据或权限，429检查额度与限流，5xx或超时查看服务方状态。保留具体错误码，分享日志前遮盖密钥与聊天内容。不要反复更换随机接口。
+教练 › 上下文设置在 setup → 上下文与输出。填写当前型号与接口真实支持的窗口；输出上限也占用窗口。客户端会压缩历史、限制工具结果并保留相关记忆，但改一个更大的数字不会扩大服务方的硬上限。单个超大文件应分段读取或检索相关部分；支持更大窗口的模型也要按其实际规格配置。
+教练 › update --check 只检查 GitHub 官方更新；update 下载、校验并安装当前更新通道的新版本，同版不重装、旧版不回退。配置、记忆和渠道绑定保留。preview.6 起启动的会话会在任务保存后自动重启，恢复原会话与待处理输入；运行中的网关先完成任务和回复再重连。旧版进程首次迁移需启动一次新版。更新不代替等待中的批准，也不重放已完成操作。若新版本使用许可变化，先查看并明确接受新许可。升级后用 version 核对；旧版教程毕业后会从新增第17课续学。
+  提示 · 普通 koder uninstall 保留配置。--purge 会删除配置，使用前先备份；外置记忆目录和服务器副本要单独管理。教程与帮助可离线阅读，远端模型、更新、云同步和在线应用需要网络。
+
+━━ 第 23 课 / 共 30 课 · 套餐不串门：阿里与火山的正确入口 ━━
+教练 › 先看门口的牌子：小米 Token Plan、Kimi、DeepSeek、阿里云 Token Plan 和火山接口目前存在已知 Bug，暂时无法使用，菜单已标灰。配置可以留着，但不会发出请求，也不会切到备用引擎。
+教练 › 套餐密钥不是万能门卡。阿里云 Token Plan、Coding Plan 和按量付费是独立通道；火山 Coding Plan 也有单独的地址。Koder 把它们分开列出，不会偷偷换到另一条计费路线。
+    koder model presets
+    koder model models aliyun-token-plan
+    koder model models aliyun-coding-plan
+    koder model models volcano-coding-plan
+    koder model models kimi-code
+  提示 · 设置里先选对应套餐，再选型号，最后输入该套餐的密钥。型号、地区和当前席位必须由你的控制台确认；这里的列表不是赠送额度。
+  （小声）门牌号写对，比对着 401 多喊几声“开门”管用。
+
+━━ 第 24 课 / 共 30 课 · 小米体检：能聊天，还要会交工具作业 ━━
+教练 › 小米 Token Plan 暂时检修，请别拿密钥反复试。下面说明只适用于当前可用的接口；灰色入口会直接提示暂时无法使用。
+教练 › MiMo 的按量付费与 Token Plan 也不能混用密钥。已经配置好模型后，先检查文字，再明确选择工具续答测试。下面命令会真实请求你的 API，可能产生费用；教程只展示，不替你执行。
+    koder model show
+    koder model test
+    koder model test --tools
+  提示 · 旧会话说“你好”只该开启当前问候，不该把几百条历史里的旧任务重新开工。想开始新话题可用 /new；想继续旧任务，请说清楚继续哪一项。原始历史不会因为一次问候被删除。
+
+━━ 第 25 课 / 共 30 课 · 隐私文件带在包里，断网也能看 ━━
+教练 › 隐私不该是一条打不开的链接。CLI 的完整条款、简明声明，以及官网消费者原始全文，都随包提供。CLI 配置文件和桌面加密密钥库不同，说明会分别讲清。
+    koder privacy consumer
+    koder privacy statement
+    koder privacy desktop
+    koder privacy agreement
+    koder privacy sources
+  提示 · 这几条只读取本机文件，不需要 API Key。接受许可不会顺手开启学习、同步、音乐、IP 查询或电脑权限。
+
+━━ 第 26 课 / 共 30 课 · 找得到人：反馈不是把密钥打包寄来 ━━
+教练 › 对话里明确说“我要反馈”或“怎么联系官方”，Koder 会给你邮箱和空白模板。它不会自动发送，也不会把聊天历史、API Key 或私人路径塞进附件。
+    koder feedback
+  （小声）可以吐槽，欢迎复现步骤。密钥就免礼了，我们真不收。
+
+━━ 第 27 课 / 共 30 课 · 六秒钟的快乐，随时可以散场 ━━
+教练 › 代码雨、礼花、烟花、圣诞树、南瓜灯、国庆灯笼、跨年与生日，都在彩蛋菜单里。动画约六秒，任意键立即跳过；不支持动画的终端只显示文字。普通命令、JSON 和脚本输出不会被刷屏。
+    koder celebrate
+    koder celebrate fireworks
+    koder celebrate auto notice
+    koder celebrate auto off
+  提示 · 默认在已收录节日显示一次祝福，选择 auto on 才自动播放动画。地区日历和农历节日按本机日期识别；自己的纪念日可添加，之后每年自动出现。
+    koder celebrate custom --date 03-14 --name "Our day"
+
+━━ 第 28 课 / 共 30 课 · 记住一小格生日，不建立人生档案 ━━
+教练 › 你可以在对话里明确说“记住我的生日是三月十四日”，或使用下面的数字日期。只保存月日，不索要出生年份或年龄。普通提及会先给你选择，他人生日不会变成你的生日。教程不会替你保存示例日期。
+    koder celebrate birthday --date 03-14
+    koder celebrate birthday forget
+  提示 · 生日设置不会自动进入模型或同步。你在普通消息里主动输入的内容，仍按所选模型的正常对话规则处理。
+
+━━ 第 29 课 / 共 30 课 · 生日歌先问一句，语言由你做主 ━━
+教练 › 音乐和 IP 辅助地区默认关闭，分别确认。开启音乐后，生日使用对话时最多自动打开一个浏览器页；本地旋律无需登录。浏览器不让自动播放时，点播放即可。关闭页面不会影响工作。
+    koder celebrate music on
+    koder celebrate music off
+    koder celebrate locale --language en
+    koder celebrate locale --language auto
+    koder celebrate locale --ip
+  提示 · 手动语言优先，其次是你主动开启的本地常用语言计数，IP 只作弱提示。IP 查询会让 ipapi.co 看到公网地址；选外部音乐平台会把访问数据交给该平台。每一步都能回车跳过。
+  （小声）蛋糕可以多切一块。权限按需给就好。
+
+━━ 第 30 课 / 共 30 课 · 毕业典礼 ━━
+教练 › 恭喜毕业！最后送你一张速查表：
+    koder setup
+        设置界面：方向键或鼠标配好一切
+    koder
+        进入对话
+    koder "任务"
+        直接干活
+    koder ask "问题"
+        只读提问
+    koder review
+        代码审查
+    koder fix --check "命令"
+        修到通过
+    koder test 文件
+        补测试
+    koder flow run 流程
+        编排流程
+    koder --moa "任务"
+        几个模型一起想
+    koder gateway setup 平台
+        接入聊天软件
+    koder scan
+        扫描本机工程
+    koder help 命令
+        查任何命令的说明
+    koder learn 数字
+        回到某一课
+教练 › 下一步：先用 koder setup 配好模型，然后在你自己的项目里输入 koder。
+  提示 · 进入你的项目：cd ~/code/my-app，然后输入 koder。
+  （小声）教练下班了。记住：Koder 负责提议，你负责拍板，锅……我们一起背。
+  · 最后可以选择保留练习场，或者直接删除。
+
+新功能速查 · Skills / 输入 / Harness
+koder skills list 查看技能；/skill 选择，/skills 管理。导入技能不会自动执行脚本或授予权限。
+任务运行时可以继续输入补充；Setup 选择 steer（补充当前任务）或 queue（排队）。
+/harness deep-research 选择研究配置；koder harness off 关闭 JIT。Setup 可独立关闭 Skills 和教程学习。
+应用操作优先已连接 Apps/MCP，再用已授权浏览器或桌面。缺少驱动、授权或经验 owner 时会明确提示，不会虚报成功。
+0.4.3 常驻：koder activate 明确开启，koder status 查看，koder deactivate 关闭。Setup 可设置提醒次数、安静时段和来源；默认不读邮箱、日历或浏览历史。
+邮箱在 Setup 绑定，授权码显示星号。/mail model on 和 /mail inquire on 分别授权；选择只起草，发送需预览和确认。后台邮箱还需单独开启可见性。
+https://karmenloop.com/cli-guide/docs/ALWAYS-ON.zh.html
+https://karmenloop.com/cli-guide/docs/ALWAYS-ON.en.html
+https://karmenloop.com/cli-guide/docs/RELEASE-0.4.5.html
+0.4.5：Windows x64 已内置 Windows-MCP 与独立 Python。先用 koder mcp doctor windows-mcp --json 查看，再在 Setup 配置、测试并启用；不必另跑 winget。
+邮箱发送走原生 mail_send/mail_reply，最终内容确认后才发送。/mail monitor on 单独授权后台监控，运行中的常驻宿主默认每 30 秒轮询；安静时段和每日上限仍生效。
+https://karmenloop.com/cli-guide/docs/WINDOWS-MCP-BUNDLED.zh.html
+https://karmenloop.com/cli-guide/docs/MAIL-DELIVERY.zh.html
+本版新增 Headroom：默认在任务中优化可还原的工具结果，保留原文。Setup → 技能可关闭；koder skills show builtin:headroom 查看方法。完整中英文说明随包位于 docs/HEADROOM.zh.md 和 docs/HEADROOM.en.md。

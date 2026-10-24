@@ -1,10 +1,10 @@
 {
-  "version": "0.4.7",
-  "file": "koder-cli-0.4.7.tgz",
-  "sha256": "b40725c5b2bc9b314d594de9048a51f5ab7a0a3901913801680588584fb7ab82",
-  "size": 115699949,
+  "version": "0.4.8",
+  "file": "koder-cli-0.4.8.tgz",
+  "sha256": "14da17fcaeec1354ee3a3c5b5ee404e4324c3fa5f489bf6e130a74229931be06",
+  "size": 115836043,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-24T19:47:21.176Z",
+  "builtAt": "2026-10-24T20:02:24.832Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,28 +14,28 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "bab5e839df7038e88dbb9670499b7b0ce9c24b2213b3cad20da1f993803d5a5e"
+      "sha256": "981d2e5e39d5cd4fa1748200edfce33f052dab821c3b8e76f35f743cdab6b958"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "a68cbc3f9870df130a46e29043c092720742ad67fbc42ba78f062a52332e023c"
+      "sha256": "752c153517739403d582ebb9bb014b8c2d0e49a4b98e1152bcf5ff30cf4cf1e2"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "4b6073e6f08b158242cf472257f8ffc4f017048ff810f8a93149c88fc8319543"
+      "sha256": "0052c2e8304f3d912f7d788e3cf55bc44f0401c9970db5f62686b45b00ecbb09"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.4.6",
+  "sourceBaseline": "0.4.7",
   "changes": [
-    "Automatically discover current account models in Setup",
-    "Cache model metadata per account and endpoint",
-    "Refresh public provider configuration hints with source dates and route guards",
-    "Add manual refresh and automatic-discovery controls"
+    "Fix automatic updater scope when toggled inside chat",
+    "Handle direct automatic-update requests locally without a model",
+    "Start update discovery in the current chat after enabling",
+    "Retain idle input, read-only modes, environment opt-out and license checks"
   ],
   "retainedLimits": [
-    "Native Windows GUI/cold install NOT_RUN",
-    "Real mailbox and model quality NOT_RUN"
+    "Native Windows GUI and cold install NOT_RUN",
+    "Real provider account and model quality NOT_RUN"
   ],
-  "publicationAuthorization": "Direct user request 2026-10-25; full native acceptance is not a release gate"
+  "publicationAuthorization": "Existing direct user authorization; native acceptance is reported separately"
 }
