@@ -1,0 +1,97 @@
+{
+  "version": "0.4.6",
+  "published": true,
+  "github": "https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.6",
+  "releaseTagCommit": "3926a8ebfb0abfab4523af2b90448d40f4b03bb6",
+  "website": "https://karmenloop.com/download.html",
+  "productionDeploy": "6add0527e4d6a6f6b79c72b6",
+  "previousDeploy": "6adcf9e14fce11be3f32568a",
+  "authorization": "Direct user publication request; incomplete native acceptance is disclosed rather than a publication gate",
+  "package": {
+    "tarball": "koder-cli-0.4.6.tgz",
+    "sha256": "fdfc772d42fe311918c54bcaf88b73cce7d2203a21cb83c7459e86283fa89ec2",
+    "size": 115556761,
+    "kernelFilesAfterTests": 5933,
+    "installerTagsAligned": true,
+    "installerSourceEquality": true
+  },
+  "catalog": {
+    "entries": 72,
+    "readable": 68,
+    "disabledPolicy": 2,
+    "excludedLicense": 2,
+    "scope": "All shipped/default instruction entries; not every user-configured server or real workflow"
+  },
+  "selectedRegressions": {
+    "passed": 345,
+    "scope": "185 CLI checks after package-test rerun, one additional catalog-page selection check, 159 kernel checks; overlapping reruns not added",
+    "environmentBlocked": 1,
+    "blocked": "Desktop Electron resource-import UI"
+  },
+  "packagedProbes": {
+    "passed": 6,
+    "scope": "Real extracted SDK SSE, npm local fixture install with scripts disabled, unified Skill reads and failure semantics"
+  },
+  "installerChecks": {
+    "standaloneInstallerFilePassed": 7,
+    "scope": "POSIX fixture and private-Node bootstrap simulation; not native Windows acceptance",
+    "retainedAggregateTimeout": true
+  },
+  "websiteChecks": {
+    "passed": 112,
+    "skipped": 1,
+    "failed": 0
+  },
+  "publicDownloads": {
+    "githubAssets": 20,
+    "websiteAssets": 20,
+    "anonymous": true,
+    "allSha256AndSizesMatch": true
+  },
+  "productionFiles": {
+    "entries": 1554,
+    "contentCompared": 1551,
+    "providerManagedEntries": [
+      "/.netlify/internal/edge-functions/manifest.json",
+      "/.netlify/internal/edge-functions/2d4f4af438386b3d4264e34107f9bb97562d0e829f739bd7abb7d6ed1621742e.tar.gz",
+      "/.netlify/internal/edge-functions/1ff28d1a1bde6704b25d8080d23c2867acb0c79f9addca47539ca4f47b651da5.eszip"
+    ],
+    "mismatched": [],
+    "removed": [],
+    "effectiveConfigurationMatched": true,
+    "backendSourcesUnchanged": true
+  },
+  "liveUpgrade": {
+    "passed": true,
+    "from": "0.4.5",
+    "to": "0.4.6",
+    "origin": "https://karmenloop.com/install",
+    "method": "Actual 0.4.5 updater installs 0.4.6 from the public official feed; disposable HOME and no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 5
+  },
+  "preservation": {
+    "baselineVersion": "0.4.5",
+    "baselineSourceFiles": 26357,
+    "baselineDrift": 0,
+    "removedSourceFiles": 0,
+    "originalSkillResourceOwnerPreservedVerbatim": true,
+    "priorSdkComponentRecordsPreserved": 101,
+    "totalSdkAndInstallerComponents": 297
+  },
+  "retainedFailures": [
+    "Original missing npm, built-in read/selection, legacy SSE and 8K-context failures retained",
+    "Temporary resource-owner overwrite and app-use guidance regression were fixed before final testing",
+    "Aggregate 60-second package/installer timeouts retained; targeted file reruns completed",
+    "Old website 0.4.5 literals failed before exact current-version assertions were updated",
+    "205-entry probe exceeded the unchanged 200-local-Skill safety bound; corrected probe found and fixed built-in selection after page one"
+  ],
+  "limits": [
+    "Windows 10/11 cold install/update, PowerShell 5.1, MCP GUI, UAC/ConPTY/IME NOT_RUN on native client hardware",
+    "Desktop resource-import UI requires Electron, which was not installed in this CLI test environment",
+    "External Skill executables, target apps, live models and third-party cloud/mail accounts are not certified by instruction integrity",
+    "CodeGraphContext upstream runtime and macOS Intel-device checks NOT_RUN for this exact release",
+    "OS login/reboot, keyring and visible notifications remain separate acceptance tracks"
+  ],
+  "rollback": "Restore the matching previous release, feed and website together. Keep configuration, histories and uncertain-effect receipts. Prior artifact and deployment remain available."
+}
