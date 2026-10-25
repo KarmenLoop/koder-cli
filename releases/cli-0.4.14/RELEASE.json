@@ -1,0 +1,46 @@
+{
+  "version": "0.4.14",
+  "file": "koder-cli-0.4.14.tgz",
+  "sha256": "41cb52c7bab4342f00fc0609f8e7f0d6b3a2a71cf3caa8da9fc12556697af16f",
+  "size": 122338222,
+  "node": "^22.21.0 || >=24.0.0",
+  "builtAt": "2026-10-25T21:03:57.988Z",
+  "preview": false,
+  "agreement": {
+    "id": "Koder-EULA-1.1",
+    "version": "1.1",
+    "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+  },
+  "installers": {
+    "sh": {
+      "file": "koder-cli.sh",
+      "sha256": "8da5bb2c88a54f55fd847db8449ff89c2e1d0dd99bf81ed53df3b8dae88c841e"
+    },
+    "ps1": {
+      "file": "koder-cli.ps1",
+      "sha256": "d1727c6b9ffe0e9c03674ea55b99be4897ef17fb7eba84d0bb5ed87a07ea747a"
+    },
+    "cmd": {
+      "file": "koder-cli.cmd",
+      "sha256": "f422a622d002ac1e160fc4a0f529be63863cf5bb7e93820ec5d5e123878f60ac"
+    }
+  },
+  "channel": "stable",
+  "sourceBaseline": "0.4.13",
+  "privateSourceCommit": "18630c48f60c7fa74b339aa064add8cda2925c8c",
+  "changes": [
+    "Model and effort shortcuts and independent FIFO task controls",
+    "Task-completion reminders through existing platform adapters",
+    "Approved CLI-Anything calls and clearer Windows command recovery"
+  ],
+  "courseStatus": {
+    "zh": 180,
+    "en": 30,
+    "expansion": "deferred"
+  },
+  "retainedLimits": [
+    "Windows 10/11 native cold installation and MCP GUI NOT_RUN",
+    "Notification display/click and live account actions remain separately unverified"
+  ],
+  "publicationAuthorization": "Direct user request to publish Windows and macOS now"
+}

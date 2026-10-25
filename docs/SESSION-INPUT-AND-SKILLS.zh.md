@@ -1,6 +1,6 @@
 # 会话输入、技能设置与启动更新检查
 
-基于 0.4.12 的未发布紧凑 Todo/底栏增量见[会话界面指南](SESSION-DOCK.zh.md)。以下输入与权限契约保留；该增量中 /help 与 /todo toggle 也可在工作中即时使用。
+0.4.13 的紧凑 Todo/底栏见[会话界面指南](SESSION-DOCK.zh.md)；0.4.14 候选新增[排队管理、切模型与思考强度](SESSION-CONTROLS.zh.md)。以下输入与权限契约保留。候选中 `/queue`、`/input`、`/model`、`/effort`、`/help` 与 `/todo toggle` 是工作中可即时处理的控制命令；其他命令仍进入原分发流程。
 
 适用版本：**0.4.10**。此功能从 0.4.3 提供，0.4.9 补充输入可靠性修复。原有模型、工具、历史和授权保持；平台及真实账号限制见更新说明。
 
@@ -55,6 +55,8 @@ Agent 思考、输出或运行工具时，输入行继续显示，可以编辑�
 忙碌时也可按 / 打开菜单，选择后仅填草稿，回车按当前引导/排队设置提交。菜单打开时 Esc 先关闭菜单，再按 Esc 可停止任务；Ctrl+C 始终停止当前任务。审批接管输入时菜单暂停，预先排队的文本不算批准。
 
 本地引导等待会话准备完成，并在下一安全模型边界使用。远程引导等待常驻服务实际回执；拒绝显示 STEER_NOT_RUNNING、STEER_TURN_FINISHING、STEER_INBOX_FULL 或 STEER_RECOVERY_ONLY，再排队。接收状态未知显示 AGENTD_STEER_NOT_ACCEPTED，不自动重复提交；核对当前结果后再补充。没有引导端口的外部引擎仅排队，Setup 会说明。
+
+若当前回合有 UNKNOWN shell 回执，引导接收时同时显示 `SHELL_RECONCILIATION_REQUIRED`：补充仍属当前回合，不会解除保护。可继续只读核对，包括 `workspace_preview status/discover`；启动、打开和停止预览仍未执行。核实目标状态并等待本轮结束后，再发新的明确指令。详见 [命令恢复教程](SHELL-RECOVERY.zh.md)。
 
 取消词必须是整行，或后接标点再附后续任务；stop a server 是普通任务。stop, say NEXT 先取消，再将 say NEXT 加到原 FIFO 队列。
 

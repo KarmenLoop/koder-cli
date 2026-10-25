@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.14 — 2026-10-26
+
+Add model and effort shortcuts, independent FIFO controls, task-completion reminders and approved CLI-Anything calls. Improve Windows command recovery with precise uncertainty reasons and read-only preview checks. The existing classroom remains unchanged. [Release notes](docs/RELEASE-0.4.14.md).
+
 ## 0.4.13 — 2026-10-26
 
 Keep a compact, editable input dock visible during work. Add persistent session Todo, a configurable model/status footer, and scrollable shortcut help. Existing steering, queueing, approvals, migration and classroom features remain. See [release notes](docs/RELEASE-0.4.13.md) for scope and remaining platform checks.

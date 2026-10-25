@@ -1,12 +1,12 @@
-> 0.4.13 新增紧凑常驻输入、会话 Todo 和可配置模型底栏。[使用教程](docs/SESSION-DOCK.zh.md) · [180课课堂](docs/courses/index.zh.html) · [更新与范围](docs/RELEASE-0.4.13.zh.md)。
+> 0.4.14 新增模型与思考强度快捷控制、独立排队和任务完成提醒，修复 Windows 命令恢复体验。[本版变化](docs/RELEASE-0.4.14.zh.md)。现有 180 课保留，1800 课扩写暂缓。
 
 [从这里开始：安装、更新与全部功能教程](docs/START-HERE.zh.md)
 
 # Koder CLI
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.13**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.14**
 
-[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13)
+[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.14)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
@@ -16,7 +16,7 @@
 
 Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。
 
-当前版本：**[0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 官网：[karmenloop.com/cli.html](https://karmenloop.com/cli.html)
+当前版本：**[0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.14)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 官网：[karmenloop.com/cli.html](https://karmenloop.com/cli.html)
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
@@ -24,7 +24,7 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 *会话开始 — 官方产品实机截图。*
 
-[下载 0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.4.13.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
+[下载 0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.14) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.4.13.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 ---
 
@@ -49,7 +49,7 @@ Koder 把四件事钉死：
 |---|---|
 | **安装什么** | 官方 Windows / macOS / Linux 安装器分发的版本化 CLI 运行时（Node **^22.21.0 或 ≥24**，复用或下载并校验） |
 | **你自备什么** | 自己的模型 API Key，或受支持的本地模型端点 |
-| **版本** | **0.4.13**（`RELEASE.json`、tag `cli-0.4.13`、stable 通道） |
+| **版本** | **0.4.13**（`RELEASE.json`、tag `cli-0.4.14`、stable 通道） |
 | **本版许可** | **Koder-EULA-1.1** — 当前应用运行时的专有终端用户许可 |
 | **个人使用** | 个人非商业本地使用免费 — **无会员、无邀请码** |
 | **商业 / 组织** | 须事先书面授权（`koder business` / [商业授权](docs/COMMERCIAL-LICENSING.md)） |

@@ -55,7 +55,15 @@ Follow-ups and watches are notes in the current project's original memory. Inspe
 
 System notifications hide private content. macOS uses its notification service, Windows uses Toast, and Linux uses notify-send. Missing desktop sessions, unavailable programs and denied access are recorded honestly. `submitted` means the call was accepted, not that a notification was displayed.
 
-Reliable notification-click resume is not implemented. Run `koder status` and use `resume.workspace` and `resume.session` to reopen the original task; use `koder mail inquiries` for mail.
+For proactive reminders, run `koder status` and use the original `resume.workspace` and `resume.session` to reopen the task; use `koder mail inquiries` for mail. Task-completion reminders have separate continuation records, described below. Their continuation support does not imply clickable activation for every proactive reminder.
+
+## Task-completion reminders
+
+Candidate 0.4.14-candidate.2 adds task lifecycle reminders under `notifications.taskDone`. They share the native notification adapter with proactive reminders, while keeping separate triggers, deduplication records and daily budgets. Foreground tasks do not require resident-agent activation.
+
+Short successful conversations stay quiet by default. The default long-task threshold is two minutes; focus and background status help determine whether to notify. Failure, needs-input and cancellation have separate controls, with cancellation reminders off by default. Quiet hours inherit the proactive setting unless overridden. Up to three recent successful candidates can be retained and collapsed after quiet hours. Needs-input and long failures may bypass quiet hours, but not the feature switch or daily cap.
+
+Use `koder notifications status`, `koder notifications test task-done`, and `koder notifications task-done off` to inspect, test and disable this path. See the [task notification guide](TASK-NOTIFICATIONS.en.md) and [platform acceptance record](TASK-NOTIFICATIONS-ACCEPTANCE.md) for configuration, continuation and the exact validation limits.
 
 Optional private-message fallback requires an explicitly selected, already paired self chat that has received a message during the current connection:
 

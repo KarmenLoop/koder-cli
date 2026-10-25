@@ -1,4 +1,6 @@
-[30课详细教学：手把手与开发者路线](courses/README.zh.md)
+[180 课完整课堂：手把手与开发者路线](courses/index.zh.html)
+
+0.4.14-candidate.1 增量：[排队、快捷切模型与思考强度](SESSION-CONTROLS.zh.md) · [CLI-Anything 应用 CLI](CLI-ANYTHING.zh.md)。下方正式安装入口仍对应已发布的 0.4.13。
 
 # 从这里开始：Koder CLI 0.4.13
 
@@ -6,7 +8,7 @@ Koder 是在终端中执行编程和撰写任务的 Agent，使用你选择的�
 
 ## 1. 安装或升级
 
-从[官网下载页](https://karmenloop.com/download.html)或 [GitHub 正式发行](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13)选择 Windows CMD、PowerShell 或 macOS 安装入口。各入口使用同一份 0.4.13 运行包；CLI 与桌面应用分别下载安装。
+从[官网下载页](https://karmenloop.com/download.html)或 [GitHub 正式发行](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.14)选择 Windows CMD、PowerShell 或 macOS 安装入口。各入口使用同一份 0.4.13 运行包；CLI 与桌面应用分别下载安装。
 
 已有托管安装可运行：
 

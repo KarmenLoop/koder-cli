@@ -2,6 +2,8 @@
 
 Available in Koder CLI 0.4.13 and later. Run `koder update`, then check `koder --version`; changing configuration alone does not upgrade an older installation.
 
+0.4.14-candidate.1 adds model/effort pickers and independent queue controls. [Step-by-step guide](SESSION-CONTROLS.en.md). Candidate features are not a claim about the current public release.
+
 The default layout uses one collapsed Todo row above the editable input and one status row below it. An empty checklist uses no space. The interactive dock omits the old heavy conversation separators.
 
 ## Using the dock
@@ -24,6 +26,8 @@ Keep typing while the model or tools work. Enter steers by default, with the ori
 | Ctrl+C | Cancel active work; idle clears input, a second press exits |
 | Ctrl+D | Exit with empty input |
 | Ctrl+T | Toggle Todo |
+| Ctrl+P | Choose a configured model; busy changes apply next turn |
+| Ctrl+E | Cycle Standard → Deep → Fast → Off; Setup can select picker mode |
 | Ctrl+U | Clear input before the cursor |
 | Up/Down | Input history, or menu navigation |
 | / in empty input | Suggestions, templates and commands |
@@ -46,13 +50,13 @@ Use the existing `~/.koder-cli/config.json` or `KODER_CLI_HOME`; no parallel TUI
     "todoExpanded": false,
     "statusLine": {
       "enabled": true,
-      "items": ["model", "mode", "tasks", "tips"]
+      "items": ["model", "effort", "mode", "tasks", "tips"]
     }
   }
 }
 ```
 
-Slots are model, mode, tasks (queued count), tips, cwd and context. Missing context telemetry is explicitly unknown. This change adds no goal/git slot or executable custom status command. Unknown slot IDs are ignored with one warning per window. An empty items array renders no footer.
+Slots are model, effort (added in the 0.4.14 candidate), mode, tasks (queued count), tips, cwd and context. Missing context telemetry is explicitly unknown. This change adds no goal/git slot or executable custom status command. Unknown slot IDs are ignored with one warning per window. An empty items array renders no footer.
 
 `/reload-tui` reloads preferences without resetting the conversation or draft. Tips rotate about every ten seconds only while idle with empty input. Removing tips stops visible rotation. Model resolution stays with the existing session/command, project and user resolver. Successful model changes refresh the footer; failed changes keep the existing model. Busy display uses the current session's provider metadata.
 

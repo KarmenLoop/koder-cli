@@ -1,3 +1,86 @@
+# Koder CLI 0.4.14
+
+This release combines the reviewed 0.4.14 candidate increments into the Windows and macOS distribution. The existing 180-lesson classroom is retained; the proposed 1,800-lesson expansion is deferred.
+
+## What changed
+
+- Choose a saved model with Ctrl+P and thinking effort with Ctrl+E. Changes during work apply to the next turn; the footer separates active and pending choices. Unsupported provider settings are reported rather than silently claimed.
+- Manage later tasks separately from Todo with `/queue on`, `/queue remove N` and `/queue clear --yes`. Queue receipts preserve ordering, and drafts never approve tool actions.
+- Receive configurable task-completion reminders through the existing Windows Toast, macOS and Linux notification adapters. Short focused successful conversations stay quiet. Task notices have separate daily limits, quiet hours and durable deduplication; submission does not prove a visible banner.
+- Discover and invoke reviewed CLI-Anything adapters through the existing approval and process-control path. The bundled catalog does not automatically install native apps or grant computer access.
+- Recover more clearly from uncertain commands. Narrow read-only PowerShell searches with suppressed read errors report partial results instead of blocking later work after a clean exit. Uncertain writes, timeouts and incomplete cleanup still require reconciliation.
+- Show the original command and uncertainty reason. Read-only preview status/discovery remains available during reconciliation; steering explains that it stays in the same turn. Repeated blocked effects stop with an actionable receipt rather than looping indefinitely.
+- Skip inaccessible search descendants without ignoring root authorization failures, identify missing Skills by exact ID, and suppress duplicate mailbox-network warnings until recovery.
+
+## Install or update
+
+Use the [official downloads](https://karmenloop.com/download.html#cli) or `koder update`, then confirm `koder --version` reports **0.4.14**. Windows CMD and PowerShell and macOS shell installers select the same versioned CLI archive. Desktop and TUI application versions are separate.
+
+Existing conversations, configuration, mail connections, GitHub tools, workspace isolation, permissions and 180 lessons remain. The release does not activate a service, authorize computer control, send email or retry an unresolved external effect on its own.
+
+## Verification and limits
+
+The fixed candidate source passed 357 targeted no-key regressions with zero failures, skips or cancellations. Release-package, installer and public-download checks are recorded separately. Scripted providers and process fixtures do not establish model-quality gains or real-account delivery.
+
+Native Windows 10/11 installation, PowerShell 5.1 cold start, ConPTY/IME, Windows-MCP GUI, real mailbox/API/account operations, and visible notification/click behavior retain their separate NOT_RUN status. The earlier macOS notification command returned submitted with displayVerified=false. The unsigned macOS locked-use prototype is excluded. Publication is authorized without relabeling these outstanding checks as passed.
+
+## Recovery
+
+Run `koder notifications status` for notification diagnostics. An uncertain command receipt remains in history: inspect it and the target state before requesting remaining work. An existing preview URL does not prove that an earlier command succeeded.
+
+Keep the versioned 0.4.13 package for rollback. Do not remove configuration, conversations or UNKNOWN receipts to force retries. Historical candidate notes and failure records remain available.
+
+[Session controls](docs/SESSION-CONTROLS.en.md) · [Task notifications](docs/TASK-NOTIFICATIONS.en.md) · [Command recovery](docs/SHELL-RECOVERY.zh.md) · [CLI-Anything](docs/cli-anything.md)
+
+---
+
+## Historical candidate and release records
+
+# Koder CLI 0.4.14-candidate.4
+
+This isolated candidate retains candidate.3 command-recovery fixes and allows only read-only preview checks during reconciliation. Accepted steering explains that it cannot clear the current turn's restriction. See the [candidate notes](docs/RELEASE-0.4.14-candidate.4.md), [Chinese recovery walkthrough](docs/SHELL-RECOVERY.zh.md) and bundled `docs/shell-recovery-check.mjs`.
+
+Local source regressions and extracted-package checks are separate from native Windows 10/11 acceptance. The latter remains NOT_RUN for this increment. No installed runtime, OS service or production download feed is changed by building this candidate. Original UNKNOWN effects remain protected and previous failure records remain intact.
+
+## Preserved candidate history
+
+# Koder CLI 0.4.14-candidate.1
+
+This unpublished candidate extends the released 0.4.13 session dock. It retains the existing executor, conversations, permissions, Apps/MCP, mail, migration and classroom. It does not replace the desktop app or install itself over another task's runtime.
+
+## What changed
+
+- Manage later tasks separately from the current Todo: `/queue on`, `/queue`, `/queue remove N`, `/queue clear --yes`, and `/queue off`. The compact dock shows up to three previews. Clear/remove operations wait for earlier input receipts, including multiple lines pasted in one packet.
+- Choose a saved model with Ctrl+P or `/model <name>`. Adjust thinking effort with Ctrl+E or `/effort deep|standard|fast|off`. Changes made during work apply next turn. The footer reports the active request and a pending choice separately; choosing never submits a draft.
+- Use Setup to choose the default effort and Ctrl+E's cycle or picker behavior. The same shortcut registry drives help and tips. The existing JSON configuration stores footer preferences; there is no second TOML reader.
+- Keep model and effort truth aligned with the original provider. Unknown capabilities receive a visible standard fallback. External ACP and MOA retain their own model configuration; the picker reports that boundary instead of claiming a switch it cannot perform.
+- Discover, prepare and call CLI-Anything application adapters through existing Koder tools and command approvals. The pinned source library remains in the package. New `cli_anything_discover`, `cli_anything_call` and `/cli-anything` commands connect it to the existing process owner, with readable argv, bounded deadlines and persisted approval metadata.
+- Preserve unresolved effects for reconciliation. Recovered CLI approvals with missing or changed command metadata require a new plan before execution. A process exit is not a claim that the native application performed the intended operation.
+
+## Try the controls
+
+Configure two models in Setup, then open `koder chat`. Press Ctrl+P, select a model, and press Ctrl+E to change effort. Begin a multi-step task and enter `/queue on` while it runs. Send two follow-up tasks, inspect `/queue`, and remove one with `/queue remove 1`. Use Ctrl+T for Todo and `/help` for keys. Queue operations never answer an approval prompt.
+
+`/cli-anything catalog gimp` searches the pinned offline catalog without a model request. `koder skills prepare cli-anything` copies the existing source library into a new project directory. Review the adapter and create the required local environment before registering and invoking it. No source catalog can establish that every listed app is installed or compatible.
+
+## Evidence and remaining scope
+
+The final source regression ran 162 no-key tests with zero failures, cancellations or skips. It includes request-body assertions, generic ACP subprocess behavior, MOA model truth, queue ordering, Todo, input/menu controls, Setup, mail and execution-permission regressions. Independent reviews closed all reported effort, queue, picker and CLI approval findings. Additional kernel checks and package results are retained in the delivery record, without adding overlapping test counts together.
+
+A real owned macOS PTY recorded 12 stages: idle footer, model picker, draft retention, effort, Todo, steering, two queued tasks, help and restored input. An xterm replay checked the visible frames. The model endpoint was a scripted local HTTP server; these results are not a model-quality score.
+
+Native Windows 10/11, PowerShell 5.1/ConPTY/IME, live provider reasoning parameters, real application CLIs and target GUI effects remain NOT_RUN for this increment. Existing Windows and account acceptance records remain historical and are not promoted into new evidence. The unsigned locked-use prototype is excluded. This file is not a publication receipt.
+
+## Learn and roll back
+
+[Chinese control walkthrough](docs/SESSION-CONTROLS.zh.md) · [English control guide](docs/SESSION-CONTROLS.en.md) · [Thinking protocol fields](docs/THINKING-EFFORT.md) · [CLI-Anything guide](docs/cli-anything.md) · [Chinese CLI-Anything walkthrough](docs/CLI-ANYTHING.zh.md) · [180-lesson classroom](docs/courses/index.zh.html).
+
+Use the retained 0.4.13 runtime for rollback. Model/effort quick choices are session-only; optional config fields are additive and task history stays in the original store. Do not erase conversations, credentials or pending external-effect receipts. Keep the candidate in a separate install directory until deliberately selecting it.
+
+---
+
+## Preserved release history
+
 # Koder CLI 0.4.13
 
 ## What changed

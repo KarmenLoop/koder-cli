@@ -1,12 +1,12 @@
-> 0.4.13 adds a compact input dock, persistent session Todo and a configurable model/status footer. [Release notes](docs/RELEASE-0.4.13.md) · [Input and Todo guide](docs/SESSION-DOCK.en.md).
+> 0.4.14 adds model and effort shortcuts, independent queue controls, task-completion reminders and clearer Windows command recovery. [Release notes](docs/RELEASE-0.4.14.md). The existing 180-lesson classroom is unchanged.
 
 [Start here: installation, updates and all workflows](docs/START-HERE.en.md)
 
 # Koder CLI
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.13**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.14**
 
-[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13)
+[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.14)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
@@ -16,7 +16,7 @@
 
 Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
 
-Current release: **[0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Site: [karmenloop.com/cli.html](https://karmenloop.com/cli.html)
+Current release: **[0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.14)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Site: [karmenloop.com/cli.html](https://karmenloop.com/cli.html)
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
@@ -24,7 +24,7 @@ Current release: **[0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag
 
 *Session start — official product capture.*
 
-[Download 0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.4.13.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
+[Download 0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.14) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.4.13.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
 ---
 
@@ -49,7 +49,7 @@ It does **not** claim that local fixtures certify every PC, provider account, or
 |---|---|
 | **What you install** | Versioned CLI runtime via official Windows / macOS / Linux installers (Node **^22.21.0 or ≥24**, reused or downloaded and checksum-verified) |
 | **What you bring** | Your own model API key or a supported local model endpoint |
-| **Version** | **0.4.13** (`RELEASE.json`, release tag `cli-0.4.13`, stable channel) |
+| **Version** | **0.4.13** (`RELEASE.json`, release tag `cli-0.4.14`, stable channel) |
 | **License for this build** | **Koder-EULA-1.1** — proprietary end-user license for the current application runtime |
 | **Personal use** | Free for personal, noncommercial local use — **no membership, no invite code** |
 | **Commercial / org** | Separate prior written authorization (`koder business` / [commercial licensing](docs/COMMERCIAL-LICENSING.md)) |

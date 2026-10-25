@@ -61,7 +61,15 @@ koder agentd wake
 
 原生系统通知隐藏私人正文，仅提示有事项需要处理。macOS 使用系统通知，Windows 使用 Toast，Linux 使用 notify-send；无桌面会话、程序缺失、权限拒绝和结果不明会如实记录。
 
-`submitted` 只表示通知程序接受了调用，**不证明用户看见了通知**。本版尚不支持可靠的通知点击回到会话。看到通知后运行 `koder status`，按 `resume.workspace` 与 `resume.session` 回到原项目；邮件使用 `koder mail inquiries` 查看，再选择、编辑、确认发送。
+`submitted` 只表示通知程序接受了调用，**不证明用户看见了通知**。主动提醒仍可通过 `koder status` 的原会话信息继续处理；邮件使用 `koder mail inquiries` 查看，再选择、编辑、确认发送。任务完成提醒使用独立的续聊记录，见下一节；不能把它的能力推定为所有主动提醒都支持点击。
+
+## 任务完成提醒
+
+候选版本 0.4.14-candidate.2 增加任务生命周期提醒，配置入口是 `notifications.taskDone`。它与定时唤醒的主动提醒共用系统通知适配器，但触发条件、去重记录和每日额度分开。前台任务无需开启常驻服务。
+
+默认短问答不弹窗；当前终端有明确焦点的成功任务也保持安静，除非用户明确要求通知。长任务默认阈值为两分钟，根据耗时、失焦或未知焦点和后台状态进行通知判断。失败、需要输入和取消有各自开关；取消默认不提醒。安静时段默认继承主动提醒设置，最多保留最近三条成功任务，离开安静时段后合并处理。需要输入及长任务失败可突破安静时段，仍受开关和每日额度限制。
+
+运行 `koder notifications status` 查看任务提醒状态，`koder notifications test task-done` 发送一次显式诊断通知，`koder notifications task-done off` 关闭。完整配置、续聊方式和逐平台验收边界见 [任务完成提醒教程](TASK-NOTIFICATIONS.zh.md) 与 [验收记录](TASK-NOTIFICATIONS-ACCEPTANCE.md)。
 
 原生通知明确不可用时，可选择向自己已配对的 gateway 私聊发送一条通用提醒：
 
@@ -106,7 +114,7 @@ Setup →「常驻与主动提醒」可开关常驻、主动提醒、记忆与�
 
 本机回环 IPC 限制单帧 8 MiB、同时连接 32 个。过大的会话输出会明确失败并保留原历史；不静默截断持久记录。守护进程不可达或存储隔离无法确认时不降级泄露凭据。
 
-本版验证包括真实本地 IPC、原 Core 的 JIT/审批、断开取消、多窗口隔离、无终端子进程与受控退出，以及通知与服务计划的隔离端口测试。**未验**：Windows 10/11 登录/重启/原生 Toast、Linux systemd 登录、macOS 实际 LaunchAgent 注册与通知可见性、真实第三方账号与模型。没有向本机注册自启或发送真实通知来替代这些验收。
+常驻功能此前已验证真实本地 IPC、原 Core 的 JIT/审批、断开取消、多窗口隔离、无终端子进程与受控退出，以及通知与服务计划的隔离端口。candidate.2 的实际 macOS 通知命令已返回 submitted；可见性仍未验。Windows/Linux 原生命令验收被 GitHub 账号账单限制挡在作业启动前，未记为通过。Windows 10/11 登录重启、Linux systemd 登录、macOS 实际 LaunchAgent 注册、真实第三方账号与模型仍未验；详见独立任务通知验收表。没有向本机注册自启。
 
 官方平台参考：[Apple LaunchAgents](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html)、[Microsoft 登录触发任务](https://learn.microsoft.com/en-us/powershell/module/scheduledtasks/new-scheduledtasktrigger)、[systemd 服务](https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html)。
 

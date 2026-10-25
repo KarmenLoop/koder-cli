@@ -1,6 +1,6 @@
 # Conversation suggestions and editable drafts
 
-The unreleased [compact session dock](SESSION-DOCK.en.md) keeps these draft/menu rules and adds Todo, a model footer, Ctrl+J multiline input and scrollable /help. Existing installed releases keep their documented behavior until upgraded.
+The 0.4.13 [compact session dock](SESSION-DOCK.en.md) keeps these draft/menu rules and adds Todo, a model footer, Ctrl+J multiline input and scrollable /help. The 0.4.14 candidate adds [explicit queue management, model selection and thinking effort](SESSION-CONTROLS.en.md). Choosing an option still fills an editable draft without sending it.
 
 After a Koder reply, the terminal offers up to three optional next messages based on the current conversation. Explicit choices in the assistant's question take priority. Otherwise local rules combine the recent user goal and the reply stage to suggest a follow-up, such as checking a page preview, refining a plan, or examining an error. A short “continue” message keeps the earlier task in view. These are local suggestions, not another model response; no extra API request is made.
 

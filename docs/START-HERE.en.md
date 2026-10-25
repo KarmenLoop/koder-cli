@@ -1,12 +1,14 @@
 [Detailed 30-lesson course: hands-on and developer tracks](courses/README.en.md)
 
+0.4.14-candidate.1 adds [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md). The public installation instructions below still describe released 0.4.13. The [Chinese classroom](courses/index.zh.html) contains 180 lessons.
+
 # Start with Koder CLI 0.4.13
 
 Koder is a terminal coding and writing agent that uses your selected model API or compatible local model. It can work on project files, run approved commands and use configured Skills, MCP connections and applications. Your provider bills model usage separately. A catalog entry or an enabled setting is not proof of a working account or device connection.
 
 ## 1. Install or update
 
-Use the [official download page](https://karmenloop.com/download.html) or the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13). Choose Windows CMD/PowerShell or macOS Terminal; these installers use the same 0.4.13 runtime. The CLI is a separate download from the desktop application.
+Use the [official download page](https://karmenloop.com/download.html) or the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.14). Choose Windows CMD/PowerShell or macOS Terminal; these installers use the same 0.4.13 runtime. The CLI is a separate download from the desktop application.
 
 For an existing managed installation:
 

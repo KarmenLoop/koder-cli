@@ -1,6 +1,6 @@
 # Session input, Skills and startup updates
 
-For the unreleased compact Todo/footer addition based on 0.4.12, see [Session dock](SESSION-DOCK.en.md). The input and permission contracts below remain in effect; /help and /todo toggle also work immediately during a turn in that addition.
+For the 0.4.13 compact Todo/footer, see [Session dock](SESSION-DOCK.en.md). The 0.4.14 candidate adds [queue, model and effort controls](SESSION-CONTROLS.en.md). The contracts below remain in effect. In the candidate, `/queue`, `/input`, `/model`, `/effort`, `/help` and `/todo toggle` are immediate mid-run controls; other commands retain their existing dispatch behavior.
 
 Applies to **0.4.10**. This workflow was introduced in 0.4.3 and refined in 0.4.9. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
 
@@ -55,6 +55,8 @@ Local terminal and scripted-provider checks do not certify native Windows Consol
 The slash menu stays available during a model turn. Selection fills a draft; the next Enter follows the current steer/queue setting. With a menu open, Escape closes it; another Escape cancels the task. Ctrl+C cancels throughout. Approval prompts suspend the menu and do not consume queued tasks as consent.
 
 Local steering waits for session preparation. Remote steering waits for the daemon receipt. Rejection includes STEER_NOT_RUNNING, STEER_TURN_FINISHING, STEER_INBOX_FULL or STEER_RECOVERY_ONLY before queueing. AGENTD_STEER_NOT_ACCEPTED with an unknown receipt does not retry automatically. Check the result before resubmitting. External engines without a steering port are marked queue-only in Setup.
+
+When the current turn contains an UNKNOWN shell receipt, accepted steering also reports `SHELL_RECONCILIATION_REQUIRED`. The supplement stays in the same turn and does not clear that restriction. Read-only checks remain available, including `workspace_preview status/discover`; starting, opening or stopping a preview remains blocked. Verify the target state and wait for the turn to end before sending an explicit instruction for the remaining work. A new instruction does not change the old receipt or prove that the earlier operation succeeded.
 
 Interrupt words must fill the whole line or precede a punctuation-delimited replacement. “stop a server” is an ordinary task; “stop, say NEXT” cancels and queues “say NEXT”.
 

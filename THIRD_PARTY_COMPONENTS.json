@@ -251,6 +251,23 @@
           "matchesPreviousBundle": false
         }
       ]
+    },
+    {
+      "id": "cli-anything",
+      "repository": "HKUDS/CLI-Anything",
+      "recordedSourceRevision": "34f519533bc175d2fe287ab8316b0dd99bb9cc43",
+      "declaredLicense": "Apache-2.0",
+      "use": "Pinned CLI discovery metadata and Koder adaptation skill; no app runtime",
+      "bundleResourceRoot": "kernel/fusion/ecosystem/resources/cli-anything",
+      "listedResourceFiles": 3,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/cli-anything/LICENSE",
+          "sha256": "0cff1a8ac2a381870a2c57cbe9b25f95bea0925b39b7fbf6a04ec23df7c77760",
+          "matchesPreviousBundle": false
+        }
+      ]
     }
   ],
   "portLicenseChecks": [

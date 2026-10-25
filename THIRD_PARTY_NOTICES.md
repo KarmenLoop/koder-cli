@@ -154,3 +154,17 @@ The Windows-MCP 0.8.8 subprocess and CPython 3.14.8 are bundled for Windows x64.
 ## Private npm installer (0.4.6)
 
 npm 10.9.8 and its pinned bundled dependencies ship only for the existing reviewed MCP installation path. Original package notices are preserved. Supplemental license files are identified in the generated component record; they do not replace upstream notices. The npm registry tarball is verified against the original lockfile SHA-512 integrity. No global npm installation or automatic lifecycle-script execution is authorized by inclusion.
+
+## CLI-Anything — Apache License 2.0
+
+Pinned source: HKUDS/CLI-Anything, revision
+34f519533bc175d2fe287ab8316b0dd99bb9cc43.
+Koder includes the upstream CLI registry and a separately written adaptation skill.
+The existing bundled source library at this same revision remains included;
+source inclusion does not install target applications, prepare runnable application
+environments or execute CLI-Hub's global installer.
+The full upstream license is in `licenses/cli-anything/LICENSE` and in the bundled
+kernel resource directory. The adapter retains Koder's command approvals and
+process owner. Individual target applications and generated CLIs may have their
+own licenses and dependencies; the repository license is not an assertion about
+every catalog entry.
