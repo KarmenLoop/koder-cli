@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "from": "0.4.10",
+  "to": "0.4.11",
+  "caseLimitSeconds": 100,
+  "agreementSha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092",
+  "dependencies": {
+    "windows-no-node-r2.py": "678d880abea327f1a2951aeb59468f3bc1551bef915d74c82863dfa48b9d08aa",
+    "windows-upgrade.py": "cd486ddb8b8364f88d4f286b68be6f4eaed5212b68d2ac0187b96acbe497a8ac"
+  },
+  "releases": {
+    "0.4.10": {
+      "preview": false,
+      "archive": "koder-cli-0.4.10.tgz",
+      "sha256": "50dc4306acf9a6b6ad2a9e369a5120713486d09710016aed214f4a88102577f5",
+      "size": 116288190,
+      "files": {
+        "koder-cli-0.4.10.tgz": {
+          "size": 116288190,
+          "sha256": "50dc4306acf9a6b6ad2a9e369a5120713486d09710016aed214f4a88102577f5"
+        },
+        "koder-cli-0.4.10.json": {
+          "size": 831,
+          "sha256": "f00fe1d0c256f0c3d8d52b251ce4aa171ae024992f056c552d4efb5db274a081"
+        },
+        "koder-cli.sh": {
+          "size": 20660,
+          "sha256": "556a3cd942cd5688aec83b16eb6b40dddee0f8d38d5f59a49247662361e24710"
+        },
+        "koder-cli.ps1": {
+          "size": 35636,
+          "sha256": "7c6fbd87a860d797d87427f2cd8019838bb24045fca8364d852044cf0873674a"
+        },
+        "koder-cli.cmd": {
+          "size": 2461,
+          "sha256": "d901f91ffb18b85dcb47fad7b68af2c68e41ccf5d50664d9b3259288fa1296ea"
+        }
+      }
+    },
+    "0.4.11": {
+      "preview": false,
+      "archive": "koder-cli-0.4.11.tgz",
+      "sha256": "7d56d6520421a301f93dc22d0af4a00bc9bc95cf5613a440ee2ae4def7188136",
+      "size": 118057773,
+      "files": {
+        "koder-cli-0.4.11.tgz": {
+          "size": 118057773,
+          "sha256": "7d56d6520421a301f93dc22d0af4a00bc9bc95cf5613a440ee2ae4def7188136"
+        },
+        "koder-cli-0.4.11.json": {
+          "size": 831,
+          "sha256": "43149443045618763a233b9fa12385672346beaaab9a7ad9bc5f7da253576c91"
+        },
+        "koder-cli.sh": {
+          "size": 20660,
+          "sha256": "c572272a676940b0b69b10c9489c8a0f4b7dc3d5c4a81d4b5bb6c2376dc270e8"
+        },
+        "koder-cli.ps1": {
+          "size": 35636,
+          "sha256": "daacf3a97c8649978bfb086dc0121864abfc2273a28d97343a09d40439a6f3f5"
+        },
+        "koder-cli.cmd": {
+          "size": 2461,
+          "sha256": "49d5fb005117da6c7bca9befc2980dea296417f15686ec63cf9681c49948f65c"
+        }
+      }
+    }
+  }
+}
