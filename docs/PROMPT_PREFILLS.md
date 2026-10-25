@@ -1,5 +1,7 @@
 # Conversation suggestions and editable drafts
 
+The unreleased [compact session dock](SESSION-DOCK.en.md) keeps these draft/menu rules and adds Todo, a model footer, Ctrl+J multiline input and scrollable /help. Existing installed releases keep their documented behavior until upgraded.
+
 After a Koder reply, the terminal offers up to three optional next messages based on the current conversation. Explicit choices in the assistant's question take priority. Otherwise local rules combine the recent user goal and the reply stage to suggest a follow-up, such as checking a page preview, refining a plan, or examining an error. A short “continue” message keeps the earlier task in view. These are local suggestions, not another model response; no extra API request is made.
 
 Type `/prefill 1`, `/prefill 2`, or `/prefill 3` to fill the corresponding draft. `/prefill` opens a picker with the current suggestions first, followed by saved task templates. Choosing fills the line editor; **it does not send**. Edit the draft and press Enter yourself, clear it with Ctrl+U, or ignore all suggestions and type a different message. If you already have draft or queued input, it takes priority.

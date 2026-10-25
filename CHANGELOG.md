@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.13 — 2026-10-26
+
+Keep a compact, editable input dock visible during work. Add persistent session Todo, a configurable model/status footer, and scrollable shortcut help. Existing steering, queueing, approvals, migration and classroom features remain. See [release notes](docs/RELEASE-0.4.13.md) for scope and remaining platform checks.
+
 ## 0.4.12 — 2026-10-25
 
 Add encrypted saved-project migration with a separate destination profile, expand the Chinese classroom to 180 lessons, and fix a masked-input fast-paste race. Keep the original 30 English lessons and existing runtime capabilities. See [release notes](docs/RELEASE-0.4.12.md) for scope, verification and platform limits.

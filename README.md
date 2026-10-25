@@ -1,12 +1,12 @@
-> 0.4.12 adds encrypted device migration, a 180-lesson Chinese classroom, and a masked-input fix. [Release notes](docs/RELEASE-0.4.12.md) · [Migration guide](docs/DEVICE-MIGRATION.en.md).
+> 0.4.13 adds a compact input dock, persistent session Todo and a configurable model/status footer. [Release notes](docs/RELEASE-0.4.13.md) · [Input and Todo guide](docs/SESSION-DOCK.en.md).
 
 [Start here: installation, updates and all workflows](docs/START-HERE.en.md)
 
 # Koder CLI
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.12**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.13**
 
-[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.12)
+[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
@@ -16,7 +16,7 @@
 
 Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
 
-Current release: **[0.4.12](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.12)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Site: [karmenloop.com/cli.html](https://karmenloop.com/cli.html)
+Current release: **[0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Site: [karmenloop.com/cli.html](https://karmenloop.com/cli.html)
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
@@ -24,7 +24,7 @@ Current release: **[0.4.12](https://github.com/KarmenLoop/koder-cli/releases/tag
 
 *Session start — official product capture.*
 
-[Download 0.4.12](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.12) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.4.12.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
+[Download 0.4.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.13) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.4.13.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
 ---
 
@@ -49,7 +49,7 @@ It does **not** claim that local fixtures certify every PC, provider account, or
 |---|---|
 | **What you install** | Versioned CLI runtime via official Windows / macOS / Linux installers (Node **^22.21.0 or ≥24**, reused or downloaded and checksum-verified) |
 | **What you bring** | Your own model API key or a supported local model endpoint |
-| **Version** | **0.4.12** (`RELEASE.json`, release tag `cli-0.4.12`, stable channel) |
+| **Version** | **0.4.13** (`RELEASE.json`, release tag `cli-0.4.13`, stable channel) |
 | **License for this build** | **Koder-EULA-1.1** — proprietary end-user license for the current application runtime |
 | **Personal use** | Free for personal, noncommercial local use — **no membership, no invite code** |
 | **Commercial / org** | Separate prior written authorization (`koder business` / [commercial licensing](docs/COMMERCIAL-LICENSING.md)) |
@@ -218,7 +218,7 @@ koder --version
 koder setup
 ```
 
-`koder --version` should report **0.4.12**. Full platform notes: [Installation](docs/INSTALLATION.md).
+`koder --version` should report **0.4.13**. Full platform notes: [Installation](docs/INSTALLATION.md).
 
 ---
 
@@ -262,7 +262,7 @@ koder --version
 koder
 ```
 
-Expect **0.4.12**. Bare `koder` opens interactive chat. Prefer a short coach first?
+Expect **0.4.13**. Bare `koder` opens interactive chat. Prefer a short coach first?
 
 ```text
 koder learn
@@ -376,7 +376,7 @@ Use `koder review` when you want findings after apply, before a larger follow-up
 
 *Step 6 — review / fix loop after apply.*
 
-**First success** means: version reports 0.4.12, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
+**First success** means: version reports 0.4.13, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
 
 Day-to-day chat: type `/` on an empty prompt for editable choices (Tab fills, Esc closes, Enter sends only after fill). `/setup` opens settings, `/model` manages models, `/new` starts a topic, `/exit` leaves. `/menu` opens settings; Escape leaves.
 
@@ -448,9 +448,9 @@ See [PROVIDERS.md](docs/PROVIDERS.md) and [MIMO.md](docs/MIMO.md) for endpoints 
 
 ---
 
-## What changed in 0.4.12
+## What changed in 0.4.13
 
-Encrypted project migration, 180 Chinese lessons with two learning tracks, and a masked-input timing fix. Existing GitHub, mail, MCP, Skills and session behavior remain. See the [release notes](docs/RELEASE-0.4.12.md) for evidence and limits.
+A compact, always-visible input dock; a collapsible session Todo list; and a configurable model/status footer. Keep typing during work, use `/help` for shortcuts, and adjust the layout in Setup. Read the [input guide](docs/SESSION-DOCK.en.md) and [release notes](docs/RELEASE-0.4.13.md). Existing migration, classroom, GitHub, mail, MCP, Skills and permissions remain.
 
 ---
 
@@ -495,13 +495,13 @@ koder update auto on
 | Troubleshooting | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Stalled install, gray providers, common failures |
 | Distribution & legacy GPL tree | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | Proprietary runtime vs historical public tree |
 | Printable course texts | [docs/tutorials/](docs/tutorials/) | 180 Chinese / 30 English lessons across PowerShell, CMD, macOS and Linux editions |
-| This release | [RELEASE-0.4.12.md](docs/RELEASE-0.4.12.md) | What changed and what remains NOT_RUN |
+| This release | [RELEASE-0.4.13.md](docs/RELEASE-0.4.13.md) | What changed and what remains NOT_RUN |
 
 ---
 
 ## Validation honesty
 
-Release evidence distinguishes **source / fixture checks**, **installed protocol fixtures**, **hosted native Windows**, **real provider accounts**, and **user devices**. Local no-key regressions exercise CLI behavior with scripted providers; they do **not** certify PowerShell 5.1 cold install, ConPTY/IME, Windows-MCP GUI operation, mailbox delivery, or model quality. Those items remain **NOT_RUN** where the [0.4.12 notes](docs/RELEASE-0.4.12.md) and [Windows install checks](docs/WINDOWS-INSTALL-CHECKS.md) say so.
+Release evidence distinguishes **source / fixture checks**, **installed protocol fixtures**, **hosted native Windows**, **real provider accounts**, and **user devices**. Local no-key regressions exercise CLI behavior with scripted providers; they do **not** certify PowerShell 5.1 cold install, ConPTY/IME, Windows-MCP GUI operation, mailbox delivery, or model quality. Those items remain **NOT_RUN** where the [0.4.13 notes](docs/RELEASE-0.4.13.md) and [Windows install checks](docs/WINDOWS-INSTALL-CHECKS.md) say so.
 
 Ready-to-use packages, installers, and checksums ship as **release assets**. New tags may add distribution documentation without publishing proprietary runtime source to this public tree.
 
@@ -518,8 +518,8 @@ Yours. Configure a provider in setup. Koder does not replace your provider’s b
 **Will it change my files without asking?**  
 Recognized low-risk local checks and ordinary project edits may run under smart approval. Sensitive or unknown effects—including deletion, secret paths, and shell side effects—ask first. Review diffs and targets before approving.
 
-**Is the public GitHub source the 0.4.12 runtime?**
-No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.4.12** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
+**Is the public GitHub source the 0.4.13 runtime?**
+No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.4.13** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
 
 **Can my company deploy it?**  
 Contact [info@karmenloop.com](mailto:info@karmenloop.com) or run `koder business`. Stars, downloads, and inquiry emails alone are not commercial authorization.
@@ -547,11 +547,11 @@ If Koder is useful, an optional [GitHub star](https://github.com/KarmenLoop/kode
 
 ## Detailed learning paths
 
-The [180-lesson Chinese classroom](docs/courses/index.zh.html) is organized into 12 units, with explanations, examples, exercises, quizzes, troubleshooting and developer guidance. Notes and progress stay in the browser and can be exported. The [original 30 English lessons](docs/courses/README.en.md) and existing practice project remain available. The classroom ships with 0.4.12; update the installed CLI to use the added lessons. See the [course guide](docs/courses/ACADEMY-GUIDE.zh.md) for the two learning tracks and local classroom controls.
+The [180-lesson Chinese classroom](docs/courses/index.zh.html) is organized into 12 units, with explanations, examples, exercises, quizzes, troubleshooting and developer guidance. Notes and progress stay in the browser and can be exported. The [original 30 English lessons](docs/courses/README.en.md) and existing practice project remain available. The classroom has shipped since 0.4.12; update the installed CLI to use the added lessons. See the [course guide](docs/courses/ACADEMY-GUIDE.zh.md) for the two learning tracks and local classroom controls.
 
 ## Device migration
 
-Version 0.4.12 adds `koder migrate` to Setup and chat. Export an encrypted
+Version 0.4.12 introduced `koder migrate` to Setup and chat. Export an encrypted
 project snapshot, import it into an isolated profile, or send it through an
 already configured SSH connection. The destination keeps its existing data and
 requires fresh credentials and device permissions. This is a data migration, not

@@ -1,5 +1,7 @@
 # Session input, Skills and startup updates
 
+For the unreleased compact Todo/footer addition based on 0.4.12, see [Session dock](SESSION-DOCK.en.md). The input and permission contracts below remain in effect; /help and /todo toggle also work immediately during a turn in that addition.
+
 Applies to **0.4.10**. This workflow was introduced in 0.4.3 and refined in 0.4.9. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
 
 ## Keep typing while Koder works

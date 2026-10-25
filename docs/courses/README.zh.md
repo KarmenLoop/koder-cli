@@ -1,6 +1,6 @@
 # Koder CLI 180课完整课堂
 
-0.4.12版课堂。保留原30课与进度，新增150课中文专题。升级至本版后可在CLI和本课堂学习。
+0.4.13版课堂。保留原30课与进度，新增150课中文专题。升级至本版后可在CLI和本课堂学习。
 
 [进入课堂](index.zh.html) · [使用说明](ACADEMY-GUIDE.zh.md) · [手把手整册](HANDS-ON.zh.md) · [开发者整册](DEVELOPER.zh.md) · [实验手册](../tutorial-labs/academy-labs.md)
 

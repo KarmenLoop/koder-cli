@@ -1,0 +1,41 @@
+{
+  "version": "0.4.13",
+  "file": "koder-cli-0.4.13.tgz",
+  "sha256": "2a46a5e8aa9692cc1cd93c91591bb486c9db8f1a901e81dcd8524e8c7407afdc",
+  "size": 121576547,
+  "node": "^22.21.0 || >=24.0.0",
+  "builtAt": "2026-10-25T17:02:52.102Z",
+  "preview": false,
+  "agreement": {
+    "id": "Koder-EULA-1.1",
+    "version": "1.1",
+    "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+  },
+  "installers": {
+    "sh": {
+      "file": "koder-cli.sh",
+      "sha256": "7d623037ae22234ca5620ab6f4fc7f0b6fb97cf1b89739827b6bb1cc18dca6d8"
+    },
+    "ps1": {
+      "file": "koder-cli.ps1",
+      "sha256": "5c144f55e1333c3bfb0d9ebb012297be6d2e3e31ea95023f09091f0330d7165f"
+    },
+    "cmd": {
+      "file": "koder-cli.cmd",
+      "sha256": "f55d18aba544086997aa74dd65d5b91389ba999a26c022684ac7c8c08c9b9732"
+    }
+  },
+  "channel": "stable",
+  "sourceBaseline": "0.4.12",
+  "changes": [
+    "Compact persistent input during streamed replies and tool work",
+    "Session Todo with stable IDs, restoration and cancellation recovery",
+    "Configurable model and status footer, scrollable help and editable prompt choices"
+  ],
+  "retainedLimits": [
+    "Actual Windows 10/11, PowerShell 5.1 cold install, ConPTY/IME and Windows-MCP GUI NOT_RUN",
+    "Live cross-device SSH migration and target account reconnection NOT_RUN",
+    "Prior unrelated workflow failures retained"
+  ],
+  "publicationAuthorization": "Direct user request to publish Windows and macOS CLI"
+}

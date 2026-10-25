@@ -1,11 +1,11 @@
 # Complete command reference
 
-Koder CLI 0.4.12 · 180 interactive lessons
+Koder CLI 0.4.13 · 30 interactive lessons
 
 Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md)
 
 ```text
-KODER CLI 0.4.12
+KODER CLI 0.4.13
 A lightweight terminal coding agent
 
 Usage
