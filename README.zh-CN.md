@@ -1,5 +1,7 @@
 > 0.4.10 延长长命令等待，明确显示步数上限并保留会话与结果。[实时输入](docs/SESSION-INPUT-AND-SKILLS.zh.md) · [更新及未验范围](docs/RELEASE-0.4.10.zh.md)。
 
+[从这里开始：安装、更新与全部功能教程](docs/START-HERE.zh.md)
+
 # Koder CLI
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.10**
@@ -16,7 +18,7 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 当前版本：**[0.4.10](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.10)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 官网：[karmenloop.com/cli.html](https://karmenloop.com/cli.html)
 
-> 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[升级说明](docs/RELEASE-0.4.10.zh.md)。
+> 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
 ![Koder CLI 会话开始](docs/screenshots/cli-start-en-dark.jpg)
 
@@ -446,16 +448,13 @@ koder model set --model ACTUAL_MODEL_ID --base-url OFFICIAL_API_BASE --protocol 
 
 ---
 
-## 0.4.10 着重什么
+## 0.4.10 的改动
 
-依据 [0.4.10 更新说明](docs/RELEASE-0.4.10.zh.md)——写产品结果，不堆 changelog：
+- 普通前台命令默认等待 5 分钟；识别到的直接安装命令默认 15 分钟；单次可明确申请最多 30 分钟。
+- 明确指定的短时限、已有审批和取消仍有效；curl 命令内部的时限单独生效。
+- 达到工具步数上限会显示 `TASK_STEP_LIMIT`、已用预算及根据已保存结果继续的方式。
 
-- 实时引导等待会话就绪；忙时仍可使用 `/` 选项与可编辑草稿
-- 中断语义区分「停任务」与普通任务文本；队列顺序保留
-- 有界私有运行日志（`koder logs`、doctor），不倾倒任务正文或凭据
-- 被阻断或空结果给出可操作的非零退出，而非静默成功
-
-多窗口、Skills/MCP、Headroom、常驻与邮件等能力仍按原文档保留 — 只开启你明确授权的部分。
+实时引导、预输入菜单、运行日志、多窗口、Skills/MCP、邮件和常驻功能继续保留。测试范围见[更新说明](docs/RELEASE-0.4.10.zh.md)，安装和功能入口见[从这里开始](docs/START-HERE.zh.md)。
 
 ---
 
@@ -469,7 +468,7 @@ koder model set --model ACTUAL_MODEL_ID --base-url OFFICIAL_API_BASE --protocol 
 
 ## 更新
 
-已安装的交互聊天可在后台检查正式更新源（至多每六小时一次），并在任务、队列与草稿空闲后交接。许可变更须重新阅读。
+符合条件的托管交互聊天会在启动时检查正式更新源，运行期间每六小时周期检查，并在任务、队列与草稿空闲后交接。许可变更须重新阅读。
 
 ```text
 koder update --check

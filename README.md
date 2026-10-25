@@ -1,5 +1,7 @@
 > 0.4.10 extends foreground command time limits and preserves a visible checkpoint at the tool-step cap. [Changes and verification limits](docs/RELEASE-0.4.10.md).
 
+[Start here: installation, updates and all workflows](docs/START-HERE.en.md)
+
 # Koder CLI
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.10**
@@ -16,7 +18,7 @@ Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com
 
 Current release: **[0.4.10](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.10)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Site: [karmenloop.com/cli.html](https://karmenloop.com/cli.html)
 
-> Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Migration notes](docs/RELEASE-0.4.10.md).
+> Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
 ![Koder CLI session start](docs/screenshots/cli-start-en-dark.jpg)
 
@@ -446,16 +448,13 @@ See [PROVIDERS.md](docs/PROVIDERS.md) and [MIMO.md](docs/MIMO.md) for endpoints 
 
 ---
 
-## What 0.4.10 emphasizes
+## What changed in 0.4.10
 
-From the [0.4.10 release notes](docs/RELEASE-0.4.10.md)—product outcomes, not a changelog dump:
+- Ordinary foreground commands default to five minutes; recognized direct installs get fifteen minutes. Explicit requests can allow up to thirty minutes.
+- Explicit shorter deadlines, existing approvals and cancellation remain binding. curl's own timeout is independent.
+- Tool-step exhaustion shows `TASK_STEP_LIMIT`, the consumed budget and how to continue from saved results.
 
-- Live steering waits for session preparation; busy chat keeps usable `/` choices and editable drafts
-- Interruptions distinguish exact stop language from ordinary task text; queue order is preserved
-- Bounded private runtime diagnostics (`koder logs`, doctor) without dumping task bodies or credentials
-- Blocked or empty outcomes return actionable nonzero results instead of silent success
-
-Retained multi-window, Skills/MCP, Headroom context optimization, residency, and mail flows remain documented separately — enable only what you authorize.
+Live steering, prompt choices, runtime logs, multi-window sessions, Skills/MCP, mail and residency remain available from earlier releases. See the [release notes](docs/RELEASE-0.4.10.md) for evidence and open platform checks, and [Start here](docs/START-HERE.en.md) for setup and feature navigation.
 
 ---
 
@@ -469,7 +468,7 @@ For company licensing and dedicated private repository delivery: `koder business
 
 ## Updates
 
-Installed interactive chats may check the official update feed in the background (at most every six hours) and install only when tasks, queues, and drafts are clear. A changed license requires manual review.
+Eligible managed interactive chats check the official update feed at startup and periodically every six hours and install only when tasks, queues, and drafts are clear. A changed license requires manual review.
 
 ```text
 koder update --check

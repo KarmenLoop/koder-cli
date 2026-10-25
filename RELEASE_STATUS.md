@@ -33,8 +33,7 @@ Two existing synthetic input-interaction checks also fail on the unchanged
 0.4.9 baseline; their failure records remain open. Native Windows 10/11,
 PowerShell 5.1 cold startup, ConPTY/IME, Windows-MCP GUI and real provider/mailbox
 accounts remain NOT_RUN. Local fixtures are not Windows device acceptance.
-This release follows the user's standing publication instruction. The separate
-unsigned macOS locked-use prototype is retained outside this release.
+The separate unsigned macOS locked-use prototype is not included in this release.
 
 ---
 
@@ -66,7 +65,7 @@ Automatic software/model updates, Skills, MCP, mail, independent windows, author
 
 No-key regression checks exercise actual CLI/readline, the harness, local IPC, temporary files and scripted providers. They do not certify native PowerShell 5.1 cold startup, Windows Console/ConPTY/IME, Windows-MCP GUI operation, real mailbox delivery or model quality. Those items remain NOT_RUN for this release.
 
-[Live input](SESSION-INPUT-AND-SKILLS.en.md) · [Prompt menu](PROMPT_PREFILLS.md) · [Runtime diagnostics](RUNTIME-DIAGNOSTICS.md) · [Automatic updates](AUTO-UPDATE.en.md) · [Installation](INSTALLATION.md)
+[Live input](docs/SESSION-INPUT-AND-SKILLS.en.md) · [Prompt menu](docs/PROMPT_PREFILLS.md) · [Runtime diagnostics](docs/RUNTIME-DIAGNOSTICS.md) · [Automatic updates](docs/AUTO-UPDATE.en.md) · [Installation](docs/INSTALLATION.md)
 
 ---
 
@@ -197,13 +196,13 @@ This compatibility update raises the updater's package-size limit from 100,000,0
 
 ## Upgrading from 0.4.4 or earlier
 
-An old updater may report that the update manifest is invalid. Its local limit cannot be changed by the server. Run the current official installer once to upgrade in place: use the [Windows CMD installer](https://karmenloop.com/install/koder-cli.cmd), [PowerShell installer](https://karmenloop.com/install/koder-cli.ps1) or [macOS installer](https://karmenloop.com/install/koder-cli.sh), following the [installation guide](INSTALLATION.md). Do not uninstall or delete your data. The normal installer preserves separate configuration and history. Read and accept the license when prompted; this does not enable computer or mail permissions.
+An old updater may report that the update manifest is invalid. Its local limit cannot be changed by the server. Run the current official installer once to upgrade in place: use the [Windows CMD installer](https://karmenloop.com/install/koder-cli.cmd), [PowerShell installer](https://karmenloop.com/install/koder-cli.ps1) or [macOS installer](https://karmenloop.com/install/koder-cli.sh), following the [installation guide](docs/INSTALLATION.md). Do not uninstall or delete your data. The normal installer preserves separate configuration and history. Read and accept the license when prompted; this does not enable computer or mail permissions.
 
 Afterward, `koder --version` should report 0.4.5 and `koder update --check` can read the larger package manifest. Version 0.4.5 and later can use the normal update command within the new bound.
 
 ## Included capabilities and guides
 
-[0.4.4 feature notes](RELEASE-0.4.4.md) describe bundled Windows-MCP and private Python, bounded installation recovery, native mailbox sending and background inbox alerts, and default-on Headroom. [English user guide](USER-GUIDE.en.md) · [Chinese user guide](USER-GUIDE.zh.md) · [Mail](MAIL-DELIVERY.en.md) · [Windows-MCP](WINDOWS-MCP-BUNDLED.en.md) · [Headroom](HEADROOM.en.md). Thirty lessons, eight bilingual terminal manuals and the complete command reference remain included.
+[0.4.4 feature notes](docs/RELEASE-0.4.4.md) describe bundled Windows-MCP and private Python, bounded installation recovery, native mailbox sending and background inbox alerts, and default-on Headroom. [English user guide](docs/USER-GUIDE.en.md) · [Chinese user guide](docs/USER-GUIDE.zh.md) · [Mail](docs/MAIL-DELIVERY.en.md) · [Windows-MCP](docs/WINDOWS-MCP-BUNDLED.en.md) · [Headroom](docs/HEADROOM.en.md). Thirty lessons, eight bilingual terminal manuals and the complete command reference remain included.
 
 ## Evidence and limits
 

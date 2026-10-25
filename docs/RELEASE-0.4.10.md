@@ -33,5 +33,4 @@ Two existing synthetic input-interaction checks also fail on the unchanged
 0.4.9 baseline; their failure records remain open. Native Windows 10/11,
 PowerShell 5.1 cold startup, ConPTY/IME, Windows-MCP GUI and real provider/mailbox
 accounts remain NOT_RUN. Local fixtures are not Windows device acceptance.
-This release follows the user's standing publication instruction. The separate
-unsigned macOS locked-use prototype is retained outside this release.
+The separate unsigned macOS locked-use prototype is not included in this release.

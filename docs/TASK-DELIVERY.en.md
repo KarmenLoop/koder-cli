@@ -1,6 +1,6 @@
 # Completing the current request
 
-The unpublished 0.4.1-candidate.3 build adds current-turn delivery checks to the existing native CLI execution loop. The production channel remains 0.4.0.
+Koder CLI 0.4.10 retains the current-turn delivery checks introduced during the 0.4.1 release cycle. These checks run in the existing native CLI execution loop.
 
 ## Coding
 
@@ -28,4 +28,4 @@ The scan is bounded and ignores hidden, dependency, secret and symlink paths. La
 
 ## Acceptance status
 
-Local scripted-provider and fixture checks exercise the actual CLI, file tools, permissions, process receipts and history. They are not paid-provider tests or blind quality grades. Earlier Windows no-Node installation and Server GUI evidence belongs to candidate.2; candidate.3 native/client GUI acceptance is separate. No production website or GitHub release is updated by this document.
+Local scripted-provider and fixture checks exercise the actual CLI, file tools, permissions, process receipts and history. They are not paid-provider tests or blind quality grades. Earlier Windows no-Node installation and Server GUI evidence belongs to candidate.2; candidate.3 native/client GUI acceptance is separate. See the current release notes for the public version and remaining platform checks.

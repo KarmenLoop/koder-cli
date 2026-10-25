@@ -1,6 +1,8 @@
+[Start here: installation, first task and feature navigation](START-HERE.en.md)
+
 Current release: **0.4.10**. Start with [release changes](RELEASE-0.4.10.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
-> Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](RELEASE-0.4.10.md).
+> Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#update).
 
 This release includes default-on [Headroom context optimization](HEADROOM.en.md). The official installers and documentation identify the same release.
 
@@ -250,7 +252,7 @@ Model updates: Setup → Model supports automatic discovery, manual refresh and 
 [Automatic update guide](AUTO-UPDATE.en.md): activation now starts the updater in the current chat; natural-language controls are supported.
 
 
-[0.4.10 live input and diagnostics](RELEASE-0.4.10.md): steering, queueing, cancellation, editable prompt choices and local logs.
+[Live input and diagnostics](SESSION-INPUT-AND-SKILLS.en.md): steering, queueing, cancellation, editable prompt choices and local logs.
 
 
 [Command duration and saved progress](COMMAND-DURATION.md)

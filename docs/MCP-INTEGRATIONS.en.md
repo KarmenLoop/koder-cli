@@ -1,6 +1,6 @@
 # Windows-MCP and code graph setup
 
-From 0.4.4-candidate.3, the Windows x64 package includes Windows-MCP 0.8.8, Python and dependencies, using the bundled runner by default. See the [bundled guide](WINDOWS-MCP-BUNDLED.en.md). CodeGraphContext 0.6.13 remains an optional external runtime. Saving configuration keeps the server disabled and does not change system permissions.
+In 0.4.10, the Windows x64 package includes Windows-MCP 0.8.8, Python and dependencies, using the bundled runner by default. See the [bundled guide](WINDOWS-MCP-BUNDLED.en.md). CodeGraphContext 0.6.13 remains an optional external runtime. Saving configuration keeps the server disabled and does not change system permissions.
 
 Sources checked October 23, 2026: [Windows-MCP](https://github.com/CursorTouch/Windows-MCP), [its package requirements](https://github.com/CursorTouch/Windows-MCP/blob/e28abb5c6934cb3427190bdb970e02644c915ae3/pyproject.toml), [CodeGraphContext](https://github.com/CodeGraphContext/CodeGraphContext), and [its configuration implementation](https://github.com/CodeGraphContext/CodeGraphContext/blob/93c9685bff9151f50a3121e9913e5ba2d27c1191/src/codegraphcontext/cli/config_manager.py). Preset versions are targets; an installed executable's version must be checked separately.
 

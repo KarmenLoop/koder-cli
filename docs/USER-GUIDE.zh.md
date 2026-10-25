@@ -1,8 +1,10 @@
-当前版本：**0.4.10**。先看[本版更新](RELEASE-0.4.10.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+[从这里开始：安装、首个任务和功能导航](START-HERE.zh.md)
 
-> 旧版更新器可能因包超过 100 MB 报“清单无效”。请用官网下载的当前安装器覆盖升级一次，保留配置和历史；详见 [升级说明](RELEASE-0.4.10.zh.md)。
+当前版本：**0.4.10**。先看[本版更新](RELEASE-0.4.10.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
-0.4.10 默认开启 [Headroom 上下文优化](HEADROOM.zh.md)。以下安装入口和教程均对应本次正式发行。
+> 旧版更新器可能因包超过 100 MB 报“清单无效”。请用官网下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
+
+当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)。以下安装入口和教程均对应本次正式发行。
 
 # Koder CLI 完整使用教程
 
@@ -250,7 +252,7 @@ koder project check --kind website --json -w /path/to/site
 [自动更新完整说明](AUTO-UPDATE.zh.md)：修复本窗口开启失败，支持“开启自动更新”。
 
 
-[0.4.10 实时输入与排障](RELEASE-0.4.10.zh.md)：忙时引导、排队、取消、预输入菜单与本地日志。
+[实时输入与排障](SESSION-INPUT-AND-SKILLS.zh.md)：忙时引导、排队、取消、预输入菜单与本地日志。
 
 
-[Command duration and saved progress](COMMAND-DURATION.md)
+[长命令等待与进度保留](COMMAND-DURATION.md)

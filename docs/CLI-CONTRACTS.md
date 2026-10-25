@@ -40,6 +40,6 @@ Linux application connections still require `secret-tool`, DBus and an unlocked 
 
 W01 measures the independently reread primary file delivered in the current turn, falling back to the final reply only when no file is identified. W02 accepts explicit non-increment disclosure in Chinese or English; a later unsupported positive claim still returns 3. Read source snapshots carry hashes and exact line citations; acceptance terms, installed version and release JSON metadata cannot certify new features. W05 records an explicitly named, actually read predecessor file or the preceding answer hash. Unknown pricing can pass; numeric pricing remains conservative until a trusted official-page receipt is integrated. Exit 3 is a writing contract failure, not an API outage. See QUALITY-CHECKS.en.md for bounded source lookup and blind-grading gates.
 
-## Current-turn delivery (unpublished candidate.3)
+## Current-turn delivery
 
 See [the delivery guide](TASK-DELIVERY.en.md). The native loop can request at most two bounded repairs of missing current-turn artifacts or explicit format requirements. Exit 3 also covers `TASK_DELIVERY_INCOMPLETE`, with JSON evidence and a persisted local notice. Existing permissions, cancellation, unknown-effect handling and model-only recovery remain in force. This is not a semantic correctness or model-quality guarantee.

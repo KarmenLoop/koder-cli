@@ -1,6 +1,6 @@
 # Session input, Skills and startup updates
 
-Available in **0.4.3**. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
+Applies to **0.4.10**. This workflow was introduced in 0.4.3 and refined in 0.4.9. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
 
 ## Keep typing while Koder works
 
@@ -56,6 +56,6 @@ Local steering waits for session preparation. Remote steering waits for the daem
 
 Interrupt words must fill the whole line or precede a punctuation-delimited replacement. “stop a server” is an ordinary task; “stop, say NEXT” cancels and queues “say NEXT”.
 
-Check koder --version and koder doctor after upgrading. Version 0.3.0 lacks these modules; settings cannot add them. A new package cannot change an old binary's startup screen. The older 0.4.4-candidate.2 archive does not indicate which version is installed. This change does not install anything on the user's Mac.
+Check koder --version and koder doctor after upgrading. Version 0.3.0 lacks these modules; settings cannot add them. A new package cannot change an old binary's startup screen. Run koder update or use the current official installer, then confirm 0.4.10. An older candidate archive on disk does not tell you which executable your terminal runs.
 
 No-key checks cover real readline, CLI/harness execution and local IPC. Native Windows Console, ConPTY, IME and user-terminal checks remain separate.

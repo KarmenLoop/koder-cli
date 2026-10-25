@@ -1,5 +1,7 @@
 # Automatic updates in the current conversation
 
+Applies to 0.4.10; the original 0.4.8 fix is described below.
+
 0.4.8 fixes `createAutomaticUpdater is not defined` when automatic updates are enabled inside chat. Previously the setting was saved, but the current window could not restart its updater. The same window now checks for a release and installs it when tasks, queued input and drafts are clear, then resumes the conversation.
 
 ## Turn updates on or off
@@ -16,6 +18,6 @@ Software updates and Setup → Model → Automatic model updates are separate se
 
 ## Upgrade an affected copy
 
-Run `koder update` once to obtain the fix, then check that `koder --version` reports 0.4.8. That initial upgrade installs code the affected version does not have; once updated, enabling automatic updates needs no additional manual update. If a 0.4.4-or-earlier updater rejects the larger manifest, run the current official installer in place without deleting settings or history.
+Run `koder update` once to obtain the fix, then check that `koder --version` reports 0.4.10. That initial upgrade installs code the affected version does not have; once updated, enabling automatic updates needs no additional manual update. If a 0.4.4-or-earlier updater rejects the larger manifest, run the current official installer in place without deleting settings or history.
 
 The 57 update regressions cover actual chat routing, natural-language settings, isolated installer subprocesses, toggling, responsive input, changed licenses and conversation recovery. Fixtures do not certify native Windows consoles or physical client installations.
