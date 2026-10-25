@@ -1,0 +1,119 @@
+# 27. 六秒钟的快乐，随时可以散场
+
+建议 20 分钟
+
+**目标**：使用可跳过动画而不打断工作，理解交互展示与脚本输出的区别。
+
+**准备**：使用交互终端；动画不需要模型，也不代表任务成功。敏感场合先关闭自动效果。
+
+## 手把手操作
+
+1. 运行 koder celebrate，先阅读菜单再选fireworks等效果。
+
+   **应看到**：能选择具体效果，不自动执行项目命令。
+
+2. 播放时按任意键跳过。
+
+   **应看到**：立即回到可输入状态，动画不应占住终端。
+
+3. 运行 koder celebrate auto notice，只显示节日祝福；不需要则auto off。
+
+   **应看到**：notice与自动播放不同；普通命令不应刷屏。
+
+4. 在终端不支持颜色或动画时查看文字降级。
+
+   **应看到**：没有残余光标控制；退出后可正常输入。
+
+## 常见问题与恢复
+
+- **动画后输入光标异常**：记录终端、尺寸和复现；优先关闭效果恢复正常输入，不重置所有配置。
+- **节日没出现**：先检查日期、自动模式与收录范围，不承诺所有地区每个节日都已覆盖。
+
+## 作业与自查
+
+播放一次、跳过一次、关闭一次；验证之后/help可用。
+
+**自查标准**：可跳过且不影响后续输入；效果出现不作为成功验收证据。
+
+## 开发者教学
+
+1. 动画必须恢复光标、raw mode和监听器；取消、异常和自然结束都测试。
+
+2. TTY、TERM=dumb、CI与JSON路径分别检查，机器输出不得混入ANSI帧。
+
+3. 节日去重按日期与用户设置处理，不能每次命令都播放。
+
+交件要求：按本课步骤选择自有测试目标，保存前置、实际命令/退出码、产物、正反例、未验和恢复方式。使用 [验收模板](../tutorial-labs/acceptance-template.md)。
+
+## 延伸阅读
+
+- [USER-GUIDE.zh.md](../USER-GUIDE.zh.md)
+- [USER-GUIDE.en.md](../USER-GUIDE.en.md)
+
+<details><summary>powershell · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows PowerShell」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 27 课 / 共 30 课 · 六秒钟的快乐，随时可以散场 ━━
+教练 › 代码雨、礼花、烟花、圣诞树、南瓜灯、国庆灯笼、跨年与生日，都在彩蛋菜单里。动画约六秒，任意键立即跳过；不支持动画的终端只显示文字。普通命令、JSON 和脚本输出不会被刷屏。
+    koder celebrate
+    koder celebrate fireworks
+    koder celebrate auto notice
+    koder celebrate auto off
+  提示 · 默认在已收录节日显示一次祝福，选择 auto on 才自动播放动画。地区日历和农历节日按本机日期识别；自己的纪念日可添加，之后每年自动出现。
+    koder celebrate custom --date 03-14 --name "Our day"
+```
+
+</details>
+
+<details><summary>cmd · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows 命令提示符（CMD）」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 27 课 / 共 30 课 · 六秒钟的快乐，随时可以散场 ━━
+教练 › 代码雨、礼花、烟花、圣诞树、南瓜灯、国庆灯笼、跨年与生日，都在彩蛋菜单里。动画约六秒，任意键立即跳过；不支持动画的终端只显示文字。普通命令、JSON 和脚本输出不会被刷屏。
+    koder celebrate
+    koder celebrate fireworks
+    koder celebrate auto notice
+    koder celebrate auto off
+  提示 · 默认在已收录节日显示一次祝福，选择 auto on 才自动播放动画。地区日历和农历节日按本机日期识别；自己的纪念日可添加，之后每年自动出现。
+    koder celebrate custom --date 03-14 --name "Our day"
+```
+
+</details>
+
+<details><summary>mac · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「macOS 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 27 课 / 共 30 课 · 六秒钟的快乐，随时可以散场 ━━
+教练 › 代码雨、礼花、烟花、圣诞树、南瓜灯、国庆灯笼、跨年与生日，都在彩蛋菜单里。动画约六秒，任意键立即跳过；不支持动画的终端只显示文字。普通命令、JSON 和脚本输出不会被刷屏。
+    koder celebrate
+    koder celebrate fireworks
+    koder celebrate auto notice
+    koder celebrate auto off
+  提示 · 默认在已收录节日显示一次祝福，选择 auto on 才自动播放动画。地区日历和农历节日按本机日期识别；自己的纪念日可添加，之后每年自动出现。
+    koder celebrate custom --date 03-14 --name "Our day"
+```
+
+</details>
+
+<details><summary>linux · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Linux / Ubuntu 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 27 课 / 共 30 课 · 六秒钟的快乐，随时可以散场 ━━
+教练 › 代码雨、礼花、烟花、圣诞树、南瓜灯、国庆灯笼、跨年与生日，都在彩蛋菜单里。动画约六秒，任意键立即跳过；不支持动画的终端只显示文字。普通命令、JSON 和脚本输出不会被刷屏。
+    koder celebrate
+    koder celebrate fireworks
+    koder celebrate auto notice
+    koder celebrate auto off
+  提示 · 默认在已收录节日显示一次祝福，选择 auto on 才自动播放动画。地区日历和农历节日按本机日期识别；自己的纪念日可添加，之后每年自动出现。
+    koder celebrate custom --date 03-14 --name "Our day"
+```
+
+</details>

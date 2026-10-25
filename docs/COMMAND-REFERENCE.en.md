@@ -1,11 +1,11 @@
 # Complete command reference
 
-Koder CLI 0.4.11 · 30 interactive lessons
+Koder CLI 0.4.12 · 180 interactive lessons
 
 Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md)
 
 ```text
-KODER CLI 0.4.11
+KODER CLI 0.4.12
 A lightweight terminal coding agent
 
 Usage
@@ -42,6 +42,7 @@ Toolchain and local projects
   gateway  Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp
 
 Setup and help
+  migrate  Move projects, preferences and local history between devices
   logs     Inspect local runtime diagnostics
   activate Enable the local user agent
   deactivateStop the agent and remove login startup
@@ -73,7 +74,7 @@ Setup and help
   lang     Switch between Chinese and English
   theme    Switch the website's dark or light palette
   help     Show help
-  learn    30-lesson interactive tutorial in a practice project
+  learn    180-lesson interactive tutorial in a practice project
   doctor   Check environment, model and startup time
   banner   Show the prism banner
   version  Show the version and the official updates page
@@ -97,6 +98,20 @@ Global options
   -h, --help                Show help for the command
 
 koder help <command> for details; koder learn for the tutorial; koder lang zh for Chinese.
+```
+
+## migrate
+
+```text
+koder migrate  Move projects, preferences and local history between devices
+Aliases: migration, 迁移
+
+Usage
+  koder migrate | export --output <file> | inspect --file <file> | import --file <file> --yes | send --to user@host --yes | status | open <id> | rollback <id> --yes
+
+The wizard selects Koder Projects by default; use --project to select a folder. The destination uses an isolated profile and requires fresh credentials and permissions. SSH requires an existing login and known host. See docs/DEVICE-MIGRATION.en.md.
+
+Global options: koder help.
 ```
 
 ## github
@@ -1050,16 +1065,17 @@ Global options: koder help.
 ## learn
 
 ```text
-koder learn  30-lesson interactive tutorial in a practice project
+koder learn  180-lesson interactive tutorial in a practice project
 Aliases: 教程, 教学
 
 Usage
-  koder learn [课号] [--print] [--os powershell|cmd|mac|linux]
+  koder learn [课号] [--print] [--track hands-on|developer|all|overview] [--os powershell|cmd|mac|linux]
 
-The coach builds a practice project in a temp folder and walks you through it for real with a scripted coach model: diffs, approving and rejecting edits, command approval, choices, slash commands, review, the fix loop, flows, MoA, chat apps, editors, scanning and installation, plus license and consent, computer scope, shared memory, learning and soul, apps/MCP, and API/context recovery. Old graduates resume at new lesson 17. No model setup and no cost. Each system gets its own edition: environment variables, pipes, exit codes, copy and paste, dangerous commands, installation and config paths are written for PowerShell, CMD, macOS or Linux; lesson 1 says which one was detected and lets you switch. Enter for next, b for back, q to quit; progress is saved. Without a terminal it prints the text edition.
+The coach builds a practice project in a temp folder and walks you through it for real with a scripted coach model: diffs, approving and rejecting edits, command approval, choices, slash commands, review, the fix loop, flows, MoA, chat apps, editors, scanning and installation, plus license and consent, computer scope, shared memory, learning and soul, apps/MCP, and API/context recovery. Old graduates resume at new lesson 17. The built-in coach needs no model setup or paid API calls. Extended hands-on and developer assignments are optional; live models and external services may incur charges. Each system gets its own edition: environment variables, pipes, exit codes, copy and paste, dangerous commands, installation and config paths are written for PowerShell, CMD, macOS or Linux; lesson 1 says which one was detected and lets you switch. Enter for next, b for back, q to quit; progress is saved. Without a terminal it prints the text edition.
 
 Options
   --print                       Print the whole tutorial as text instead
+  --track <路线>                hands-on, developer, all, or overview for the original coach. Interactive defaults to hands-on; text defaults to all
   --os <系统>                   Which system to teach for: powershell, cmd, mac or linux; detected by default
 
 Examples

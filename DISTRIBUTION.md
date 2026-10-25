@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed release is **0.4.11**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.4.12**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -40,6 +40,6 @@ Windows CMD/PowerShell and macOS CLI installers use the same 0.4.3 archive, chec
 
 Windows and macOS installers share the 0.4.5 archive and checksum feed. The archive also carries a Windows-only x64 MCP/Python runtime and its license/source notices; macOS does not execute it. Native-device and account limits are stated in the release notes.
 
-## Version 0.4.11
+## Version 0.4.12
 
-Windows and macOS installers share the 0.4.11 archive. The package adds the pinned private npm installer and preserves upstream license files and source references. MCP and Skill checks and remaining native limitations are documented in [the release notes](docs/RELEASE-0.4.11.md) and [inventory](docs/MCP-SKILL-INVENTORY.md).
+Windows and macOS installers share the 0.4.12 archive. The package adds the pinned private npm installer and preserves upstream license files and source references. MCP and Skill checks and remaining native limitations are documented in [the release notes](docs/RELEASE-0.4.12.md) and [inventory](docs/MCP-SKILL-INVENTORY.md).

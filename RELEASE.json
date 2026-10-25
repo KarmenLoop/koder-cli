@@ -1,10 +1,10 @@
 {
-  "version": "0.4.11",
-  "file": "koder-cli-0.4.11.tgz",
-  "sha256": "7d56d6520421a301f93dc22d0af4a00bc9bc95cf5613a440ee2ae4def7188136",
-  "size": 118057773,
+  "version": "0.4.12",
+  "file": "koder-cli-0.4.12.tgz",
+  "sha256": "9179f6bda3349ee7158e2ea208547c9ec578ef4e6865c9f8e410a442f41f407b",
+  "size": 120917836,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-25T09:27:20.370Z",
+  "builtAt": "2026-10-25T14:52:37.569Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,27 +14,28 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "c572272a676940b0b69b10c9489c8a0f4b7dc3d5c4a81d4b5bb6c2376dc270e8"
+      "sha256": "3e9f93b4063bd53698bff1f3f7fb13c960bca004d40a016a07ecefcc22947b07"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "daacf3a97c8649978bfb086dc0121864abfc2273a28d97343a09d40439a6f3f5"
+      "sha256": "a28370c65878436bd2fe5f918bb10bd9ca02c2bed4e7764fd441ef308aa259f3"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "49d5fb005117da6c7bca9befc2980dea296417f15686ec63cf9681c49948f65c"
+      "sha256": "36dcf421f8d70c2cd41e5e3047ac04de88700753e8f292fc58b01685d2db01d9"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.4.10",
+  "sourceBaseline": "0.4.11",
   "changes": [
-    "Protected GitHub PAT binding through Setup and native CLI tools",
-    "Selected-file atomic commits, private repository creation, repository copy and draft pull requests",
-    "Interrupted-write reconciliation and confirmed remote-delivery receipts"
+    "Encrypted saved-project and local-session migration with a separate target profile",
+    "180-lesson Chinese classroom with hands-on and developer tracks; original 30 English lessons retained",
+    "Disable terminal echo before displaying masked secret prompts"
   ],
   "retainedLimits": [
-    "Native Windows GUI, PowerShell 5.1 cold install, ConPTY and IME NOT_RUN",
-    "Real GitHub PAT and organization writes, provider/mail accounts and native credentials NOT_RUN"
+    "Actual Windows 10/11, PowerShell 5.1 cold install, ConPTY/IME and Windows-MCP GUI NOT_RUN",
+    "Live cross-device SSH migration and target account reconnection NOT_RUN",
+    "Prior unrelated workflow failures retained"
   ],
-  "publicationAuthorization": "Standing direct user authorization; no global installation in this task"
+  "publicationAuthorization": "Direct user request to publish Windows and macOS CLI"
 }

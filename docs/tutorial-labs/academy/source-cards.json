@@ -1,0 +1,11 @@
+{
+ "synthetic": true,
+ "product": "课堂演示工具 StudyNote（虚构）",
+ "verifiedFacts": [
+  {"id":"F1","claim":"可将本地Markdown转为HTML","source":"合成需求书第1条"},
+  {"id":"F2","claim":"输出保存在用户选择的目录","source":"合成需求书第2条"},
+  {"id":"F3","claim":"未提供云同步","source":"合成范围说明第1条"}
+ ],
+ "unknown": ["新版本增量","真实价格","真实用户数量","竞品性能"],
+ "assignment": "写介绍、无变更清单的更新邮件、比较表和压缩稿。不得把虚构案例当Koder实际能力或上线事实。"
+}

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.12 — 2026-10-25
+
+Add encrypted saved-project migration with a separate destination profile, expand the Chinese classroom to 180 lessons, and fix a masked-input fast-paste race. Keep the original 30 English lessons and existing runtime capabilities. See [release notes](docs/RELEASE-0.4.12.md) for scope, verification and platform limits.
+
 ## 0.4.11 — 2026-10-25
 
 Add protected GitHub PAT binding, repository reads, private repository creation, selected-file commits, description/homepage updates and draft PRs. Writes require explicit approval and retain uncertain receipts for reconciliation. Preserve existing CLI and permission behavior. [Setup](docs/GITHUB-PROJECTS.en.md) · [Verification and limits](docs/RELEASE-0.4.11.md).

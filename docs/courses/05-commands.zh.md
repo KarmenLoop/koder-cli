@@ -1,0 +1,114 @@
+# 05. 命令确认：跑测试，也拦下可疑命令
+
+建议 25 分钟
+
+**目标**：区分普通检查、敏感操作和系统权限；会拒绝危险命令，也会处理长任务。
+
+**准备**：只使用一次性练习目录。阅读命令时同时看工作路径、目标地址、输入输出文件，不能只看命令开头。
+
+## 手把手操作
+
+1. 让Koder运行项目测试，阅读“准备运行命令”下的完整命令。
+
+   **应看到**：知道要执行什么、在哪里执行、是否会写入或访问网络。
+
+2. 批准本次测试；遇到下载后直接执行的陌生脚本时拒绝。
+
+   **应看到**：拒绝不是任务失败；原文件与授权范围保持不变。
+
+3. 在 Setup 查看审批策略；运行 koder permissions status 看电脑授权。
+
+   **应看到**：full审批和系统权限是两层；--yes不会代开电脑、发信或GitHub写入确认。
+
+4. 长任务先确认合理等待时限；超时后核对进程、日志和产物，再决定继续或取消。
+
+   **应看到**：超时不是已回滚；后台 started 也不等于安装完成。
+
+## 常见问题与恢复
+
+- **EXECUTION_PERMISSIONS_INVALID**：先看Koder权限与工作区状态；不是见到PowerShell就全局放开执行策略。
+- **确认窗口无法输入**：保留版本和终端类型；取消本次操作，使用交互终端重试，不通过聊天文本绕过批准。
+
+## 作业与自查
+
+给三条操作分类：读取README、删目录、发邮件。写出各自目标、权限、确认与结果证据。
+
+**自查标准**：读取不等于删除授权；删目录需明确对象与必要授权；发信须最终内容确认与提交回执。
+
+## 开发者教学
+
+1. 用本地合成文件验证 allow/deny/cancel 三条路径。拒绝和取消不得执行未批准的写入。
+
+2. 区分工具超时、任务预算和服务商诊断超时；不能统一无限延长。
+
+3. 结果未知按UNKNOWN保留，重试前对账；shell输出文字不能自行升级为外部成功回执。
+
+交件要求：按本课步骤选择自有测试目标，保存前置、实际命令/退出码、产物、正反例、未验和恢复方式。使用 [验收模板](../tutorial-labs/acceptance-template.md)。
+
+## 延伸阅读
+
+- [COMMAND-DURATION.md](../COMMAND-DURATION.md)
+- [CLI-CONTRACTS.md](../CLI-CONTRACTS.md)
+- [AUTO-UPDATE.zh.md](../AUTO-UPDATE.zh.md)
+
+<details><summary>powershell · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows PowerShell」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 5 课 / 共 30 课 · 命令确认：跑测试，也拦下可疑命令 ━━
+教练 › 改完代码当然要跑测试。运行项目代码属于敏感操作，默认先询问；node --version 这类低风险检查会自动执行。
+  提示 · 判断标准：看得懂、只影响当前项目、能撤销，就放行。Remove-Item -Recurse -Force、rd /s /q、del /s /q、irm … | iex、git push --force 这类命令要先确认来源与具体影响；来路不明的脚本直接拒绝。官方安装器也应先核对地址、许可和校验信息。
+  提示 · 在 Windows 上，Koder 替你跑的命令交给 CMD 执行，不是 PowerShell。要用 PowerShell 的写法，就写成 powershell -NoProfile -Command "…"。
+  （小声）命令确认这一步，请拿出你核对外卖账单的认真劲儿。
+  · 动手：教练先请求运行 node test.mjs（可以允许），再请求一条 irm … | iex（必须拒绝；就算你误点了 y，教练也会拦下）。
+教练 › 命令的输出会原样交回给模型，它看得到测试结果，再决定下一步。
+```
+
+</details>
+
+<details><summary>cmd · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows 命令提示符（CMD）」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 5 课 / 共 30 课 · 命令确认：跑测试，也拦下可疑命令 ━━
+教练 › 改完代码当然要跑测试。运行项目代码属于敏感操作，默认先询问；node --version 这类低风险检查会自动执行。
+  提示 · 判断标准：看得懂、只影响当前项目、能撤销，就放行。Remove-Item -Recurse -Force、rd /s /q、del /s /q、irm … | iex、git push --force 这类命令要先确认来源与具体影响；来路不明的脚本直接拒绝。官方安装器也应先核对地址、许可和校验信息。
+  提示 · 在 Windows 上，Koder 替你跑的命令交给 CMD 执行，不是 PowerShell。要用 PowerShell 的写法，就写成 powershell -NoProfile -Command "…"。
+  （小声）命令确认这一步，请拿出你核对外卖账单的认真劲儿。
+  · 动手：教练先请求运行 node test.mjs（可以允许），再请求一条 irm … | iex（必须拒绝；就算你误点了 y，教练也会拦下）。
+教练 › 命令的输出会原样交回给模型，它看得到测试结果，再决定下一步。
+```
+
+</details>
+
+<details><summary>mac · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「macOS 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 5 课 / 共 30 课 · 命令确认：跑测试，也拦下可疑命令 ━━
+教练 › 改完代码当然要跑测试。运行项目代码属于敏感操作，默认先询问；node --version 这类低风险检查会自动执行。
+  提示 · 判断标准：看得懂、只影响当前项目、能撤销，就放行。rm -rf、curl … | sh、git push --force 这类命令要先确认来源与具体影响；来路不明的脚本直接拒绝。官方安装器也应先核对地址、许可和校验信息。
+  （小声）命令确认这一步，请拿出你核对外卖账单的认真劲儿。
+  · 动手：教练先请求运行 node test.mjs（可以允许），再请求一条 curl … | sh（必须拒绝；就算你误点了 y，教练也会拦下）。
+教练 › 命令的输出会原样交回给模型，它看得到测试结果，再决定下一步。
+```
+
+</details>
+
+<details><summary>linux · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Linux / Ubuntu 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 5 课 / 共 30 课 · 命令确认：跑测试，也拦下可疑命令 ━━
+教练 › 改完代码当然要跑测试。运行项目代码属于敏感操作，默认先询问；node --version 这类低风险检查会自动执行。
+  提示 · 判断标准：看得懂、只影响当前项目、能撤销，就放行。rm -rf、curl … | sh、git push --force 这类命令要先确认来源与具体影响；来路不明的脚本直接拒绝。官方安装器也应先核对地址、许可和校验信息。
+  （小声）命令确认这一步，请拿出你核对外卖账单的认真劲儿。
+  · 动手：教练先请求运行 node test.mjs（可以允许），再请求一条 curl … | sh（必须拒绝；就算你误点了 y，教练也会拦下）。
+教练 › 命令的输出会原样交回给模型，它看得到测试结果，再决定下一步。
+```
+
+</details>

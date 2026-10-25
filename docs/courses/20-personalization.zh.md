@@ -1,0 +1,186 @@
+# 20. 习惯学习、灵魂、每日反思与主动服务
+
+建议 45 分钟
+
+**目标**：把自主学习、任务Harness、常驻和邮箱提醒分开配置，并知道各自何时真正运行。
+
+**准备**：从最小可见面开始。后台服务是显式选择，邮件/日历/浏览历史不会因安装就自动开放。
+
+## 手把手操作
+
+1. 运行 koder growth status、koder harness status，在Setup查看Skills总控与单项开关。
+
+   **应看到**：方法Skill可用不代表后台已运行；关闭项在下次适用任务生效。
+
+2. 在Setup了解“不会就学”：优先已连接Apps/MCP，再浏览器、桌面；未知流程查官方帮助。
+
+   **应看到**：network或GUI缺授权时应说明；学习步骤附来源，不能编造操作。
+
+3. 需要关终端后提醒时，明确运行 koder activate，再用 koder status 核对。
+
+   **应看到**：只有running才表示宿主在运行；安静时段、每日上限和来源设置仍有效。
+
+4. 邮箱按Setup绑定后，用 koder mail monitor on 单独授权，再查看 koder mail monitor status。
+
+   **应看到**：绑定、后台监控、模型读信、自主回复四层独立；目前默认轮询，非瞬时推送。
+
+## 常见问题与恢复
+
+- **后台无提醒**：检查running、邮箱可见性、安静时段、额度和网络；休眠期间不保证检查。
+- **想停止提醒但保留绑定**：用mail monitor off停止邮箱检查；deactivate关闭整个常驻，不等于解绑邮箱。
+
+## 作业与自查
+
+画出绑定→监控→读信→起草→发送的五个状态，写清每步输入和确认；只启用自己需要的部分。
+
+**自查标准**：提醒不要求把全文交给模型；起草不等于发送；SMTP接受也不等于对方已读。
+
+## 开发者教学
+
+1. JIT只选择可序列化种子配置，沿原provider、预算、权限和取消路径执行。
+
+2. 经验写入需cue、lesson、evidence和结果；一次模型自评不能证明可复用。
+
+3. 主动事件测试notify/silence、安静时段、去重、未知回执与撤权；不要用固定定时推送冒充相关性判断。
+
+交件要求：按本课步骤选择自有测试目标，保存前置、实际命令/退出码、产物、正反例、未验和恢复方式。使用 [验收模板](../tutorial-labs/acceptance-template.md)。
+
+## 延伸阅读
+
+- [ALWAYS-ON.zh.md](../ALWAYS-ON.zh.md)
+- [ALWAYS-ON.en.md](../ALWAYS-ON.en.md)
+- [HARNESS-JIT.md](../HARNESS-JIT.md)
+- [APP-USE-AND-LEARN.zh.md](../APP-USE-AND-LEARN.zh.md)
+- [MAIL-DELIVERY.zh.md](../MAIL-DELIVERY.zh.md)
+
+<details><summary>powershell · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows PowerShell」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 20 课 / 共 30 课 · 习惯学习、灵魂、每日反思与主动服务 ━━
+教练 › 四项开关默认关闭，开启其中一项不会代开其他项。打开 koder setup → 记忆与灵魂，先看每项说明再选择；命令行也会先解释用途和费用，输入 ENABLE 才开启，DISABLE 才关闭。
+教练 › 内置 personal-agent-growth 0.3.2 会在相关任务中按需提供预习、查错和复盘方法。koder growth status 查看，show 读方法，off/on 控制下次会话。它像随身的错题本，不会趁你下班偷偷开课：没有新后台服务，不代开下面的画像学习与同步。
+教练 › 喜好习惯学习
+       默认关闭。开启后从已授权来源的对话中提炼表达习惯、明确喜好和工作背景，保存带来源的画像，并用于后续回答。一天想喝的饮料不应自动变成永久偏好；你可以查看、纠正或删除记录。
+       关闭: koder memory learning off
+教练 › 当天状态
+       默认关闭。单独允许总结当天的心情、临时需求和情境，作为短期状态使用。与长期喜好学习分开选择，不把情绪描述当作诊断。
+       关闭: koder memory daily-state off
+教练 › 技能改进
+       默认关闭。允许根据已授权任务和反馈提出技能改进候选；来源、检查和回退记录仍需保留。开启不允许自行提权、安装任意软件、修改系统安全设置或跳过工具批准。
+       关闭: koder memory evolution off
+教练 › 主动服务与提醒
+       默认关闭。允许根据已确认的背景主动问候、提出工作问题和提醒，并把你的回复关联到原问题。默认安静时段为本地时间22:00–08:00；当前终端提醒需要进程运行及兼容的Core服务。开启不代表允许给联系人或群自动发消息。
+       关闭: koder memory proactive off
+    koder memory learning status
+    koder memory daily-state status
+    koder memory evolution status
+    koder memory proactive status
+    koder memory profile show
+    koder memory soul show
+    koder memory reflection run
+  提示 · reflection run 会尝试使用已授权对话与已配置模型，可能产生费用；有效账号、兼容 Core 宿主和相关开关齐备才可执行。默认每日最多4次模型调用。waiting-account-host 是等待条件，不是已总结。主动服务需要运行中的宿主，默认22:00–08:00安静时段；关闭终端或电脑不等于后台持续运行。
+教练 › 学习结果可以查看、纠正和删除。当天心情和临时需求不要当成长期身份；技能改进候选仍需核准才能应用。灵魂设置控制名字、语气和风格，可保存版本与回退；它不增加任何工具权限。关闭学习不会清空旧记录，需删除时使用 profile forget <记录ID> 或 memory forget。
+```
+
+</details>
+
+<details><summary>cmd · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows 命令提示符（CMD）」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 20 课 / 共 30 课 · 习惯学习、灵魂、每日反思与主动服务 ━━
+教练 › 四项开关默认关闭，开启其中一项不会代开其他项。打开 koder setup → 记忆与灵魂，先看每项说明再选择；命令行也会先解释用途和费用，输入 ENABLE 才开启，DISABLE 才关闭。
+教练 › 内置 personal-agent-growth 0.3.2 会在相关任务中按需提供预习、查错和复盘方法。koder growth status 查看，show 读方法，off/on 控制下次会话。它像随身的错题本，不会趁你下班偷偷开课：没有新后台服务，不代开下面的画像学习与同步。
+教练 › 喜好习惯学习
+       默认关闭。开启后从已授权来源的对话中提炼表达习惯、明确喜好和工作背景，保存带来源的画像，并用于后续回答。一天想喝的饮料不应自动变成永久偏好；你可以查看、纠正或删除记录。
+       关闭: koder memory learning off
+教练 › 当天状态
+       默认关闭。单独允许总结当天的心情、临时需求和情境，作为短期状态使用。与长期喜好学习分开选择，不把情绪描述当作诊断。
+       关闭: koder memory daily-state off
+教练 › 技能改进
+       默认关闭。允许根据已授权任务和反馈提出技能改进候选；来源、检查和回退记录仍需保留。开启不允许自行提权、安装任意软件、修改系统安全设置或跳过工具批准。
+       关闭: koder memory evolution off
+教练 › 主动服务与提醒
+       默认关闭。允许根据已确认的背景主动问候、提出工作问题和提醒，并把你的回复关联到原问题。默认安静时段为本地时间22:00–08:00；当前终端提醒需要进程运行及兼容的Core服务。开启不代表允许给联系人或群自动发消息。
+       关闭: koder memory proactive off
+    koder memory learning status
+    koder memory daily-state status
+    koder memory evolution status
+    koder memory proactive status
+    koder memory profile show
+    koder memory soul show
+    koder memory reflection run
+  提示 · reflection run 会尝试使用已授权对话与已配置模型，可能产生费用；有效账号、兼容 Core 宿主和相关开关齐备才可执行。默认每日最多4次模型调用。waiting-account-host 是等待条件，不是已总结。主动服务需要运行中的宿主，默认22:00–08:00安静时段；关闭终端或电脑不等于后台持续运行。
+教练 › 学习结果可以查看、纠正和删除。当天心情和临时需求不要当成长期身份；技能改进候选仍需核准才能应用。灵魂设置控制名字、语气和风格，可保存版本与回退；它不增加任何工具权限。关闭学习不会清空旧记录，需删除时使用 profile forget <记录ID> 或 memory forget。
+```
+
+</details>
+
+<details><summary>mac · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「macOS 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 20 课 / 共 30 课 · 习惯学习、灵魂、每日反思与主动服务 ━━
+教练 › 四项开关默认关闭，开启其中一项不会代开其他项。打开 koder setup → 记忆与灵魂，先看每项说明再选择；命令行也会先解释用途和费用，输入 ENABLE 才开启，DISABLE 才关闭。
+教练 › 内置 personal-agent-growth 0.3.2 会在相关任务中按需提供预习、查错和复盘方法。koder growth status 查看，show 读方法，off/on 控制下次会话。它像随身的错题本，不会趁你下班偷偷开课：没有新后台服务，不代开下面的画像学习与同步。
+教练 › 喜好习惯学习
+       默认关闭。开启后从已授权来源的对话中提炼表达习惯、明确喜好和工作背景，保存带来源的画像，并用于后续回答。一天想喝的饮料不应自动变成永久偏好；你可以查看、纠正或删除记录。
+       关闭: koder memory learning off
+教练 › 当天状态
+       默认关闭。单独允许总结当天的心情、临时需求和情境，作为短期状态使用。与长期喜好学习分开选择，不把情绪描述当作诊断。
+       关闭: koder memory daily-state off
+教练 › 技能改进
+       默认关闭。允许根据已授权任务和反馈提出技能改进候选；来源、检查和回退记录仍需保留。开启不允许自行提权、安装任意软件、修改系统安全设置或跳过工具批准。
+       关闭: koder memory evolution off
+教练 › 主动服务与提醒
+       默认关闭。允许根据已确认的背景主动问候、提出工作问题和提醒，并把你的回复关联到原问题。默认安静时段为本地时间22:00–08:00；当前终端提醒需要进程运行及兼容的Core服务。开启不代表允许给联系人或群自动发消息。
+       关闭: koder memory proactive off
+    koder memory learning status
+    koder memory daily-state status
+    koder memory evolution status
+    koder memory proactive status
+    koder memory profile show
+    koder memory soul show
+    koder memory reflection run
+  提示 · reflection run 会尝试使用已授权对话与已配置模型，可能产生费用；有效账号、兼容 Core 宿主和相关开关齐备才可执行。默认每日最多4次模型调用。waiting-account-host 是等待条件，不是已总结。主动服务需要运行中的宿主，默认22:00–08:00安静时段；关闭终端或电脑不等于后台持续运行。
+教练 › 学习结果可以查看、纠正和删除。当天心情和临时需求不要当成长期身份；技能改进候选仍需核准才能应用。灵魂设置控制名字、语气和风格，可保存版本与回退；它不增加任何工具权限。关闭学习不会清空旧记录，需删除时使用 profile forget <记录ID> 或 memory forget。
+```
+
+</details>
+
+<details><summary>linux · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Linux / Ubuntu 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 20 课 / 共 30 课 · 习惯学习、灵魂、每日反思与主动服务 ━━
+教练 › 四项开关默认关闭，开启其中一项不会代开其他项。打开 koder setup → 记忆与灵魂，先看每项说明再选择；命令行也会先解释用途和费用，输入 ENABLE 才开启，DISABLE 才关闭。
+教练 › 内置 personal-agent-growth 0.3.2 会在相关任务中按需提供预习、查错和复盘方法。koder growth status 查看，show 读方法，off/on 控制下次会话。它像随身的错题本，不会趁你下班偷偷开课：没有新后台服务，不代开下面的画像学习与同步。
+教练 › 喜好习惯学习
+       默认关闭。开启后从已授权来源的对话中提炼表达习惯、明确喜好和工作背景，保存带来源的画像，并用于后续回答。一天想喝的饮料不应自动变成永久偏好；你可以查看、纠正或删除记录。
+       关闭: koder memory learning off
+教练 › 当天状态
+       默认关闭。单独允许总结当天的心情、临时需求和情境，作为短期状态使用。与长期喜好学习分开选择，不把情绪描述当作诊断。
+       关闭: koder memory daily-state off
+教练 › 技能改进
+       默认关闭。允许根据已授权任务和反馈提出技能改进候选；来源、检查和回退记录仍需保留。开启不允许自行提权、安装任意软件、修改系统安全设置或跳过工具批准。
+       关闭: koder memory evolution off
+教练 › 主动服务与提醒
+       默认关闭。允许根据已确认的背景主动问候、提出工作问题和提醒，并把你的回复关联到原问题。默认安静时段为本地时间22:00–08:00；当前终端提醒需要进程运行及兼容的Core服务。开启不代表允许给联系人或群自动发消息。
+       关闭: koder memory proactive off
+    koder memory learning status
+    koder memory daily-state status
+    koder memory evolution status
+    koder memory proactive status
+    koder memory profile show
+    koder memory soul show
+    koder memory reflection run
+  提示 · reflection run 会尝试使用已授权对话与已配置模型，可能产生费用；有效账号、兼容 Core 宿主和相关开关齐备才可执行。默认每日最多4次模型调用。waiting-account-host 是等待条件，不是已总结。主动服务需要运行中的宿主，默认22:00–08:00安静时段；关闭终端或电脑不等于后台持续运行。
+教练 › 学习结果可以查看、纠正和删除。当天心情和临时需求不要当成长期身份；技能改进候选仍需核准才能应用。灵魂设置控制名字、语气和风格，可保存版本与回退；它不增加任何工具权限。关闭学习不会清空旧记录，需删除时使用 profile forget <记录ID> 或 memory forget。
+```
+
+</details>

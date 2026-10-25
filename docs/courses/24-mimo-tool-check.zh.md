@@ -1,0 +1,115 @@
+# 24. 小米体检：能聊天，还要会交工具作业
+
+建议 25 分钟
+
+**目标**：理解工具调用是完整往返：提出调用、执行、回传、模型续答。
+
+**准备**：本版MiMo Token Plan入口停用时只做离线理解；真实测试选择当前可用且已授权的服务。
+
+## 手把手操作
+
+1. 先运行 koder model show，确认实际模型与协议。
+
+   **应看到**：文字测试与工具测试必须是同一配置，否则无法对照。
+
+2. 在可用入口运行一次model test，再明确运行model test --tools。
+
+   **应看到**：记录两次结果与时间，工具测试使用无业务副作用的检查。
+
+3. 读错误细节：是工具格式、缺少结果、空回复，还是HTTP拒绝。
+
+   **应看到**：MODEL_PROTOCOL不是自动等于网络断开。
+
+4. 新会话做简短对照，保留旧会话；继续旧任务时明确指出未完成项。
+
+   **应看到**：不把问候当重放旧任务的指令。
+
+## 常见问题与恢复
+
+- **能聊天但不能执行**：把工具诊断结果交给反馈，不反复修改系统权限来解决协议错误。
+- **旧历史太大**：新会话隔离复现，使用相关摘要与产物引用；不删除所有记忆。
+
+## 作业与自查
+
+画出一次工具往返的四步，标出每步需要的真实证据。
+
+**自查标准**：工具声明只证明可见；执行回执证明调用结果；最终续答必须依据该结果。
+
+## 开发者教学
+
+1. 用脚本模型构造工具名、参数、call ID与结果配对的正反例；保留实际HTTP错误体的脱敏原因。
+
+2. 分别测试空content但有tool_calls、流式分片、缺少结果和重复call ID。
+
+3. 真实MiMo验收缺Key时写NOT_RUN，不能用兼容桩冒真实套餐通过。
+
+交件要求：按本课步骤选择自有测试目标，保存前置、实际命令/退出码、产物、正反例、未验和恢复方式。使用 [验收模板](../tutorial-labs/acceptance-template.md)。
+
+## 延伸阅读
+
+- [MIMO.md](../MIMO.md)
+- [PROVIDER-WRITING-INPUT.md](../PROVIDER-WRITING-INPUT.md)
+
+<details><summary>powershell · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows PowerShell」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 24 课 / 共 30 课 · 小米体检：能聊天，还要会交工具作业 ━━
+教练 › 小米 Token Plan 暂时检修，请别拿密钥反复试。下面说明只适用于当前可用的接口；灰色入口会直接提示暂时无法使用。
+教练 › MiMo 的按量付费与 Token Plan 也不能混用密钥。已经配置好模型后，先检查文字，再明确选择工具续答测试。下面命令会真实请求你的 API，可能产生费用；教程只展示，不替你执行。
+    koder model show
+    koder model test
+    koder model test --tools
+  提示 · 旧会话说“你好”只该开启当前问候，不该把几百条历史里的旧任务重新开工。想开始新话题可用 /new；想继续旧任务，请说清楚继续哪一项。原始历史不会因为一次问候被删除。
+```
+
+</details>
+
+<details><summary>cmd · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows 命令提示符（CMD）」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 24 课 / 共 30 课 · 小米体检：能聊天，还要会交工具作业 ━━
+教练 › 小米 Token Plan 暂时检修，请别拿密钥反复试。下面说明只适用于当前可用的接口；灰色入口会直接提示暂时无法使用。
+教练 › MiMo 的按量付费与 Token Plan 也不能混用密钥。已经配置好模型后，先检查文字，再明确选择工具续答测试。下面命令会真实请求你的 API，可能产生费用；教程只展示，不替你执行。
+    koder model show
+    koder model test
+    koder model test --tools
+  提示 · 旧会话说“你好”只该开启当前问候，不该把几百条历史里的旧任务重新开工。想开始新话题可用 /new；想继续旧任务，请说清楚继续哪一项。原始历史不会因为一次问候被删除。
+```
+
+</details>
+
+<details><summary>mac · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「macOS 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 24 课 / 共 30 课 · 小米体检：能聊天，还要会交工具作业 ━━
+教练 › 小米 Token Plan 暂时检修，请别拿密钥反复试。下面说明只适用于当前可用的接口；灰色入口会直接提示暂时无法使用。
+教练 › MiMo 的按量付费与 Token Plan 也不能混用密钥。已经配置好模型后，先检查文字，再明确选择工具续答测试。下面命令会真实请求你的 API，可能产生费用；教程只展示，不替你执行。
+    koder model show
+    koder model test
+    koder model test --tools
+  提示 · 旧会话说“你好”只该开启当前问候，不该把几百条历史里的旧任务重新开工。想开始新话题可用 /new；想继续旧任务，请说清楚继续哪一项。原始历史不会因为一次问候被删除。
+```
+
+</details>
+
+<details><summary>linux · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Linux / Ubuntu 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 24 课 / 共 30 课 · 小米体检：能聊天，还要会交工具作业 ━━
+教练 › 小米 Token Plan 暂时检修，请别拿密钥反复试。下面说明只适用于当前可用的接口；灰色入口会直接提示暂时无法使用。
+教练 › MiMo 的按量付费与 Token Plan 也不能混用密钥。已经配置好模型后，先检查文字，再明确选择工具续答测试。下面命令会真实请求你的 API，可能产生费用；教程只展示，不替你执行。
+    koder model show
+    koder model test
+    koder model test --tools
+  提示 · 旧会话说“你好”只该开启当前问候，不该把几百条历史里的旧任务重新开工。想开始新话题可用 /new；想继续旧任务，请说清楚继续哪一项。原始历史不会因为一次问候被删除。
+```
+
+</details>

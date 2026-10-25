@@ -1,0 +1,7 @@
+id,date,project,amount_cents,status
+A1,2026-10-01,Demo A,1200,complete
+A2,2026-10-02,Demo B,800,pending
+A3,2026-10-03,Demo A,500,complete
+A3,2026-10-03,Demo A,500,complete
+A4,2026-10-04,Demo C,,complete
+A5,2026-10-05,Demo B,0,complete

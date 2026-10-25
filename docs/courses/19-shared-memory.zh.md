@@ -1,0 +1,156 @@
+# 19. 记忆目录、群私聊与多设备
+
+建议 35 分钟
+
+**目标**：理解工作区、会话与共享记忆边界，安全地多窗口运行和恢复。
+
+**准备**：准备两个测试目录和不同的合成暗号；不使用真实个人秘密测试隔离。
+
+## 手把手操作
+
+1. 在项目A运行 koder memory status，记录范围与存储位置。
+
+   **应看到**：知道记录归属，而不是假设所有内容都在项目目录。
+
+2. 在A告诉Koder合成标记；切到B询问A的标记，不提供答案。
+
+   **应看到**：B不应自动读到A的任务事实。
+
+3. 回到A继续；同项目另开命名会话用于独立排障。
+
+   **应看到**：原任务可续，新会话单独归属；显式共享笔记另按范围说明。
+
+4. 查看要删除的具体记录，先确认范围再执行forget类命令。
+
+   **应看到**：退出账号、关闭学习和删除记忆不同；同步需要实际Core和读回证据。
+
+## 常见问题与恢复
+
+- **不同窗口仍相互串话**：记录目录、版本、session与共享笔记配置；先隔离复现，不清库掩盖。
+- **登录显示成功但未同步**：检查账号、设备和同步状态，真实多设备需两端读回。
+
+## 作业与自查
+
+做A→B→A三步隔离检查，填写每次可见内容与预期。
+
+**自查标准**：B无A私有标记，回A仍可续；未测试远端同步则标NOT_RUN。
+
+## 开发者教学
+
+1. 身份、存储键、检索过滤和缓存都要带相同工作区/会话范围。
+
+2. 并发测试覆盖同工程不同任务与不同工程；旧占用锁恢复需判断实际拥有者，不用盲删锁。
+
+3. Headroom压缩仅影响模型视图，原始证据仍须可检索；压缩不是删除授权。
+
+交件要求：按本课步骤选择自有测试目标，保存前置、实际命令/退出码、产物、正反例、未验和恢复方式。使用 [验收模板](../tutorial-labs/acceptance-template.md)。
+
+## 延伸阅读
+
+- [MULTI-WINDOW.md](../MULTI-WINDOW.md)
+- [HEADROOM.zh.md](../HEADROOM.zh.md)
+- [HEADROOM.en.md](../HEADROOM.en.md)
+
+<details><summary>powershell · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows PowerShell」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 19 课 / 共 30 课 · 记忆目录、群私聊与多设备 ━━
+教练 › 记忆并不等于把所有聊天塞进一次模型请求。当前任务使用相关记忆与压缩历史，完整记录按已配置范围持久化。新 Windows 用户优先使用可写 D 盘，否则使用可写 C 盘的用户专属目录；已有位置和显式配置保留。安装目录、密钥目录与记忆目录可能不同。
+    koder memory status
+    koder memory personalization status
+    koder memory show
+    koder memory search "项目决定"
+    koder account status
+    koder memory sync
+教练 › 跨设备记忆服务：你们部署并确认可用的 Core 地址
+       登录后，此账号默认共享空间可在已关联的终端、渠道和设备间同步对话与记忆。已关联群的所有成员可使用关联私聊记忆，回复到群的内容会被群成员看到。请只关联允许共享的会话。模型API密钥、电脑执行授权不作为记忆同步。退出本机账号：koder account logout；删除共享空间记忆：koder memory forget。退出不等于删除服务器副本；离线设备需再次同步才应用删除。
+    koder account login --server "https://your-core.example"
+        示例地址，必须换成你实际可用的 Core 服务
+    koder account logout
+        退出此设备，不删除服务器记忆
+    koder memory forget
+        删除当前共享空间记忆，离线设备下次同步时应用
+  提示 · 关联群的所有成员可使用关联私聊记忆；群内回复全员可见。只关联允许这样共享的会话。登录状态不等于同步成功，请检查状态与实际读回。当前预览版尚缺真实多设备和微信、飞书、企业微信账号验收。
+```
+
+</details>
+
+<details><summary>cmd · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Windows 命令提示符（CMD）」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 19 课 / 共 30 课 · 记忆目录、群私聊与多设备 ━━
+教练 › 记忆并不等于把所有聊天塞进一次模型请求。当前任务使用相关记忆与压缩历史，完整记录按已配置范围持久化。新 Windows 用户优先使用可写 D 盘，否则使用可写 C 盘的用户专属目录；已有位置和显式配置保留。安装目录、密钥目录与记忆目录可能不同。
+    koder memory status
+    koder memory personalization status
+    koder memory show
+    koder memory search "项目决定"
+    koder account status
+    koder memory sync
+教练 › 跨设备记忆服务：你们部署并确认可用的 Core 地址
+       登录后，此账号默认共享空间可在已关联的终端、渠道和设备间同步对话与记忆。已关联群的所有成员可使用关联私聊记忆，回复到群的内容会被群成员看到。请只关联允许共享的会话。模型API密钥、电脑执行授权不作为记忆同步。退出本机账号：koder account logout；删除共享空间记忆：koder memory forget。退出不等于删除服务器副本；离线设备需再次同步才应用删除。
+    koder account login --server "https://your-core.example"
+        示例地址，必须换成你实际可用的 Core 服务
+    koder account logout
+        退出此设备，不删除服务器记忆
+    koder memory forget
+        删除当前共享空间记忆，离线设备下次同步时应用
+  提示 · 关联群的所有成员可使用关联私聊记忆；群内回复全员可见。只关联允许这样共享的会话。登录状态不等于同步成功，请检查状态与实际读回。当前预览版尚缺真实多设备和微信、飞书、企业微信账号验收。
+```
+
+</details>
+
+<details><summary>mac · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「macOS 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 19 课 / 共 30 课 · 记忆目录、群私聊与多设备 ━━
+教练 › 记忆并不等于把所有聊天塞进一次模型请求。当前任务使用相关记忆与压缩历史，完整记录按已配置范围持久化。新 Windows 用户优先使用可写 D 盘，否则使用可写 C 盘的用户专属目录；已有位置和显式配置保留。安装目录、密钥目录与记忆目录可能不同。
+    koder memory status
+    koder memory personalization status
+    koder memory show
+    koder memory search "项目决定"
+    koder account status
+    koder memory sync
+教练 › 跨设备记忆服务：你们部署并确认可用的 Core 地址
+       登录后，此账号默认共享空间可在已关联的终端、渠道和设备间同步对话与记忆。已关联群的所有成员可使用关联私聊记忆，回复到群的内容会被群成员看到。请只关联允许共享的会话。模型API密钥、电脑执行授权不作为记忆同步。退出本机账号：koder account logout；删除共享空间记忆：koder memory forget。退出不等于删除服务器副本；离线设备需再次同步才应用删除。
+    koder account login --server "https://your-core.example"
+        示例地址，必须换成你实际可用的 Core 服务
+    koder account logout
+        退出此设备，不删除服务器记忆
+    koder memory forget
+        删除当前共享空间记忆，离线设备下次同步时应用
+  提示 · 关联群的所有成员可使用关联私聊记忆；群内回复全员可见。只关联允许这样共享的会话。登录状态不等于同步成功，请检查状态与实际读回。当前预览版尚缺真实多设备和微信、飞书、企业微信账号验收。
+```
+
+</details>
+
+<details><summary>linux · 原教练讲解与命令</summary>
+
+```text
+这份文字版按「Linux / Ubuntu 终端」来写；换别的系统：koder learn --print --os powershell|cmd|mac|linux
+
+━━ 第 19 课 / 共 30 课 · 记忆目录、群私聊与多设备 ━━
+教练 › 记忆并不等于把所有聊天塞进一次模型请求。当前任务使用相关记忆与压缩历史，完整记录按已配置范围持久化。新 Windows 用户优先使用可写 D 盘，否则使用可写 C 盘的用户专属目录；已有位置和显式配置保留。安装目录、密钥目录与记忆目录可能不同。
+    koder memory status
+    koder memory personalization status
+    koder memory show
+    koder memory search "项目决定"
+    koder account status
+    koder memory sync
+教练 › 跨设备记忆服务：你们部署并确认可用的 Core 地址
+       登录后，此账号默认共享空间可在已关联的终端、渠道和设备间同步对话与记忆。已关联群的所有成员可使用关联私聊记忆，回复到群的内容会被群成员看到。请只关联允许共享的会话。模型API密钥、电脑执行授权不作为记忆同步。退出本机账号：koder account logout；删除共享空间记忆：koder memory forget。退出不等于删除服务器副本；离线设备需再次同步才应用删除。
+    koder account login --server "https://your-core.example"
+        示例地址，必须换成你实际可用的 Core 服务
+    koder account logout
+        退出此设备，不删除服务器记忆
+    koder memory forget
+        删除当前共享空间记忆，离线设备下次同步时应用
+  提示 · 关联群的所有成员可使用关联私聊记忆；群内回复全员可见。只关联允许这样共享的会话。登录状态不等于同步成功，请检查状态与实际读回。当前预览版尚缺真实多设备和微信、飞书、企业微信账号验收。
+```
+
+</details>

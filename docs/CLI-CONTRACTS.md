@@ -43,3 +43,18 @@ W01 measures the independently reread primary file delivered in the current turn
 ## Current-turn delivery
 
 See [the delivery guide](TASK-DELIVERY.en.md). The native loop can request at most two bounded repairs of missing current-turn artifacts or explicit format requirements. Exit 3 also covers `TASK_DELIVERY_INCOMPLETE`, with JSON evidence and a persisted local notice. Existing permissions, cancellation, unknown-effect handling and model-only recovery remain in force. This is not a semantic correctness or model-quality guarantee.
+
+## Device migration (source candidate)
+
+`migrate export`, `inspect`, `import`, `send`, `status`, `open`, and `rollback`
+share the existing CLI, config and session runtime. Import/send/rollback require
+explicit `--yes` or the wizard confirmation. Invalid command syntax exits 2;
+authentication, transport and restoration failures exit nonzero. A successful
+import returns `MIGRATION_IMPORTED_REAUTHORIZE`, not proof of a working remote
+model, mailbox or desktop driver. Lost remote receipts remain UNKNOWN. The
+receiver validates content before staging, and imports never resume old effects.
+Existing destination configuration is untouched. `open` enters the isolated
+profile with a verified destination EULA receipt where one already exists.
+
+See [migration tutorial](DEVICE-MIGRATION.zh.md) for the complete transfer scope
+and [English guide](DEVICE-MIGRATION.en.md) for prerequisites and limitations.

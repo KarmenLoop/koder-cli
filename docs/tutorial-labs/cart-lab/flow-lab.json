@@ -1,0 +1,9 @@
+{
+  "name": "Cart checks",
+  "approve": "ask",
+  "steps": [
+    {"id":"unit","type":"shell","run":"node --test cart.test.mjs"},
+    {"id":"ready","type":"shell","run":"node -e \"console.log('CHECKS_PASSED: ready for review, not published')\"","when":"unit.passed"},
+    {"id":"blocked","type":"shell","run":"node -e \"console.log('CHECKS_FAILED: inspect the failing tests')\"","when":"unit.failed"}
+  ]
+}

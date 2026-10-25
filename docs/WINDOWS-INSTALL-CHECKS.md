@@ -1,8 +1,10 @@
 # Windows CLI verification
 
-Current CLI beta: **0.4.0-preview.30**. This page scopes the CLI checks for the test team. It does not define a whole-product QA program or decide when the team ships a beta.
+Current published CLI baseline: **0.4.11**. The [October 25 acceptance record](ACCEPTANCE-0.4.11-20261025.md) documents six native install/update cases and an actual Windows Server GUI run. Windows 11 ARM64 install/update passed; Windows 10/11 x64 client GUI remains untested. Source repairs described there are unreleased.
 
-## What the local evidence establishes
+The procedures and earlier candidate evidence below remain historical records. A later pass does not erase an earlier failure or establish full product acceptance.
+
+## Earlier local evidence
 
 The current development host is macOS. Local checks exercise CMD/bootstrap source contracts, the exact Windows extraction JavaScript under an ESM temporary directory with Chinese characters and spaces, workspace permission recovery, private-memory boundaries, ACP stdio, startup and update/restart subprocess behavior. These are source and macOS process checks. They do not execute Windows PowerShell 5.1, CMD, ConPTY, Windows ACLs or Windows replacement-file semantics.
 

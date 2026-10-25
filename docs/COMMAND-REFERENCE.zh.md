@@ -1,11 +1,11 @@
 # 完整命令参考
 
-Koder CLI 0.4.11 · 30 课互动教程
+Koder CLI 0.4.12 · 180 课互动教程
 
 根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md)
 
 ```text
-KODER CLI 0.4.11
+KODER CLI 0.4.12
 轻量即用的终端编程代理
 
 用法
@@ -42,6 +42,7 @@ KODER CLI 0.4.11
   gateway  一键接入飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp  网关、接入
 
 设置与帮助
+  migrate  加密迁移项目、配置与本地历史  migration、迁移
   logs     查看本机运行日志
   activate 显式开启用户级常驻
   deactivate关闭常驻并取消自启
@@ -73,7 +74,7 @@ KODER CLI 0.4.11
   lang     切换中文或英文  语言
   theme    切换官网深色或浅色配色  主题
   help     查看命令说明  帮助
-  learn    30 课互动教程：在练习场里边学边动手  教程、教学
+  learn    180 课互动教程：在练习场里边学边动手  教程、教学
   doctor   检查环境、模型和启动耗时  体检
   banner   显示折光体开屏  开屏
   version  显示版本，以及官网更新页  版本
@@ -97,6 +98,20 @@ KODER CLI 0.4.11
   -h, --help                显示该命令的说明
 
 koder help <命令> 看详细说明；koder learn 跟着教程走；koder lang en 切换英文。
+```
+
+## migrate
+
+```text
+koder migrate  加密迁移项目、配置与本地历史
+别名: migration, 迁移
+
+用法
+  koder migrate | export --output <file> | inspect --file <file> | import --file <file> --yes | send --to user@host --yes | status | open <id> | rollback <id> --yes
+
+迁移向导默认选择 Koder Projects；--project 可指定目录。目标使用独立配置，凭据和权限重新授权。SSH 需要已有登录与已知主机。参阅 docs/DEVICE-MIGRATION.zh.md。
+
+通用选项见 koder help。
 ```
 
 ## github
@@ -1050,16 +1065,17 @@ koder help  查看命令说明
 ## learn
 
 ```text
-koder learn  30 课互动教程：在练习场里边学边动手
+koder learn  180 课互动教程：在练习场里边学边动手
 别名: 教程, 教学
 
 用法
-  koder learn [课号] [--print] [--os powershell|cmd|mac|linux]
+  koder learn [课号] [--print] [--track hands-on|developer|all|overview] [--os powershell|cmd|mac|linux]
 
-教练会在临时目录里建一个练习场，用写好台词的教练模型带你真实地走一遍：看差异、批准或拒绝修改、确认命令、做选择、斜杠命令、审查、修复循环、流程编排、MoA、聊天软件、编辑器、扫描和安装，并新增使用许可、电脑权限、共享记忆、学习与灵魂、应用/MCP、API与上下文排障。旧版已毕业用户从新增第17课续学。不需要配置模型，也不产生任何费用。每个系统一套教程：PowerShell、CMD、macOS、Linux 的环境变量、管道、退出码、复制粘贴、危险命令、安装和配置文件位置都按各自的写法来讲；第一课会告诉你识别到的是哪套，也可以换。回车下一步，b 回上一课，q 退出，进度会记住。没有终端时自动输出文字版。
+教练会在临时目录里建一个练习场，用写好台词的教练模型带你真实地走一遍：看差异、批准或拒绝修改、确认命令、做选择、斜杠命令、审查、修复循环、流程编排、MoA、聊天软件、编辑器、扫描和安装，并新增使用许可、电脑权限、共享记忆、学习与灵魂、应用/MCP、API与上下文排障。旧版已毕业用户从新增第17课续学。内置教练不需要配置模型，也不调用付费 API。扩展手把手和开发者作业按说明自行执行，真实模型与外部账号可能计费。每个系统一套教程：PowerShell、CMD、macOS、Linux 的环境变量、管道、退出码、复制粘贴、危险命令、安装和配置文件位置都按各自的写法来讲；第一课会告诉你识别到的是哪套，也可以换。回车下一步，b 回上一课，q 退出，进度会记住。没有终端时自动输出文字版。
 
 选项
   --print                       不进入互动，直接输出完整的文字版教程
+  --track <路线>                hands-on 手把手；developer 开发者；all 全部；overview 原教练速览。互动默认 hands-on，文字默认 all
   --os <系统>                   按哪个系统讲：powershell、cmd、mac、linux；默认自动识别
 
 例子

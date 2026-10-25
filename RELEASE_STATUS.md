@@ -1,3 +1,31 @@
+# Koder CLI 0.4.12
+
+## What changed
+
+- Move saved projects and recognizable local conversations with `koder migrate`, also available in Setup and as `/migrate`. Export a passphrase-encrypted archive, import it into a separate destination profile, or send it over an already configured SSH connection. The source stays intact; target credentials and computer permissions require setup on the new device.
+- Learn through a 180-lesson Chinese classroom with 12 units, step-by-step and developer tracks, practical examples, assignments, quizzes and local notes. The original 30 English lessons remain available. New lessons 31–180 are in Chinese.
+- Fix a fast-paste race in the masked secret prompt: terminal echo is disabled before the authorization-code or passphrase prompt appears.
+
+The release also carries forward the candidate fixes for case-insensitive GitHub owner/repository matching during reconciliation and compact Skill metadata in small context windows. Existing GitHub integration, mail, MCP, Skills, provider routes, independent sessions, interactive input, cancellation and permission checks remain in the package. Migration does not transfer running processes, replay pending operations, or grant destination permissions.
+
+## Install or update
+
+Windows CMD and PowerShell and macOS use the same versioned CLI runtime through their platform installers. Use the [official download page](https://karmenloop.com/download.html#cli), or run `koder update`, then confirm `koder --version` reports **0.4.12**. This release updates the CLI; desktop application versions are separate.
+
+[Migration guide](docs/DEVICE-MIGRATION.en.md) · [Chinese classroom](docs/courses/index.zh.html) · [Complete guide](docs/USER-GUIDE.en.md) · [GitHub setup](docs/GITHUB-PROJECTS.en.md)
+
+## Evidence and remaining limits
+
+The migration candidate passed 56 distinct targeted no-key checks, including a real macOS PTY export and the actual receiver subprocess. The classroom candidate passed 20 curriculum/configuration checks, eight DOM-simulation checks and six teaching-lab checks. Release package and publication checks are recorded separately; these counts are not a full-product certification.
+
+Real Windows 10/11, PowerShell 5.1 cold startup, ConPTY/IME, Windows-MCP GUI, live Windows-to-macOS migration, real SSH transfer and target account reconnection remain NOT_RUN. The SSH test uses a controlled transport adapter. Classroom DOM checks do not establish real-browser visual or accessibility acceptance. Previous workflow failures and platform HOLD records are retained. The unsigned macOS locked-use prototype is not included.
+
+Migration limits include 20,000 files, 64 MiB per file, 128 MiB of content and a 200 MiB encrypted archive. Dependencies, Git history, protected credentials, browser sessions, pending jobs and native-key-encrypted personal stores are excluded. Inspect the migration report and keep the source device until target verification is complete. Imported custom Skills remain disabled for review.
+
+---
+
+## Preserved release history
+
 # Koder CLI 0.4.11
 
 Connect your own GitHub account from Setup or koder github connect. The built-in connection can list and read repositories, create private repositories, commit selected project files, edit repository descriptions and homepages, and open draft pull requests on existing branches.
@@ -15,6 +43,8 @@ Windows CMD/PowerShell and macOS installers use the same versioned runtime. Run 
 The release retains 0.4.10 command deadlines, recovery, mail, MCP, Skills, model routes, input controls, independent sessions and permission boundaries. All 30 lessons and eight text tutorial editions remain.
 
 ## Verification and limits
+
+Follow-up dated October 25: see the [0.4.11 acceptance record](docs/ACCEPTANCE-0.4.11-20261025.md) for six native Windows install/update passes, an actual Windows Server MCP GUI pass and real GitHub operations. That record also covers isolated, unreleased repairs. The original release-time evidence below is retained for provenance.
 
 The final source regressions passed 72 CLI checks and 23 GitHub/kernel checks. They use loopback responses, a protected-storage test port and a scripted provider; they do not prove live GitHub PAT, organization or model acceptance. Actual package checks are recorded separately in the handoff.
 
