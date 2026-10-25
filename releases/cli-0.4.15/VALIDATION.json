@@ -65,5 +65,57 @@
     "Real mail/GitHub account effects",
     "All 1800 practical course exercises"
   ],
-  "history": "Earlier missing-module installation failure and prior fixture failures are retained in the local evidence directory; subsequent passes do not erase them."
+  "history": "Earlier missing-module installation failure and prior fixture failures are retained in the local evidence directory; subsequent passes do not erase them.",
+  "publication": {
+    "github": {
+      "isDraft": false,
+      "isPrerelease": false,
+      "publishedAt": "2026-10-25T23:22:54Z",
+      "tagName": "cli-0.4.15",
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.15",
+      "commit": "2b233d375747700e0815454d831d30c24326f7f8",
+      "releaseTagCommit": "e167fe4d0c57be9e84e87332e737239f9b2bd898",
+      "published": true,
+      "assets": 22
+    },
+    "website": {
+      "version": "0.4.15",
+      "siteId": "d935cbc4-5449-4e93-a793-5cfe8d8c347d",
+      "deployId": "6ade8d5a877a5e972dabc65e",
+      "previousDeployId": "6ade7557f7d41ed011bd2aa6",
+      "url": "https://karmenloop.com",
+      "publishedAt": "2026-10-25T23:22:58.432Z",
+      "functionsUnchanged": true
+    },
+    "publicHttp": {
+      "origin": "https://karmenloop.com",
+      "passed": true,
+      "lessons": 1800,
+      "runtimeSha256": "be9d464d2af47c2c8855ca3c5d208158a43a2f7f6c0fc9e0829dce4827a4c6df"
+    },
+    "publicHttpChecks": 25,
+    "publicMacUpgrade": {
+      "passed": true,
+      "from": "0.4.14",
+      "to": "0.4.15",
+      "origin": "https://karmenloop.com/install",
+      "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+      "userSettingsSentinelPreserved": true,
+      "commands": 7
+    },
+    "githubDownload": {
+      "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.4.15/koder-cli-0.4.15.tgz",
+      "bytes": 154499752,
+      "sha256": "be9d464d2af47c2c8855ca3c5d208158a43a2f7f6c0fc9e0829dce4827a4c6df",
+      "passed": true
+    },
+    "productionManifestAudit": {
+      "actualFiles": 5108,
+      "plannedFiles": 5108,
+      "mismatch": [],
+      "extra": [],
+      "allPassed": true
+    }
+  },
+  "uiBoundary": "Direct file:// browser inspection was rejected by the browser URL policy and was not bypassed. Source/VM and earlier bounded browser checks are recorded separately; publication verification used authorized HTTPS reads."
 }
