@@ -1,0 +1,63 @@
+{
+  "version": "0.4.10",
+  "baseline": "0.4.9",
+  "checks": [
+    {
+      "group": "kernel regression",
+      "pass": 41,
+      "fail": 0
+    },
+    {
+      "group": "final command duration including legacy and Windows contracts",
+      "pass": 4,
+      "fail": 0,
+      "overlapsPriorGroup": true
+    },
+    {
+      "group": "CLI regression",
+      "pass": 66,
+      "fail": 2
+    },
+    {
+      "group": "unchanged baseline input comparison",
+      "pass": 18,
+      "fail": 2
+    },
+    {
+      "group": "candidate installer and docs",
+      "pass": 11,
+      "fail": 0
+    },
+    {
+      "group": "stable package regression",
+      "pass": 28,
+      "fail": 0
+    }
+  ],
+  "realMacCommand": {
+    "elapsedMs": 45058.492834,
+    "ok": true,
+    "content": "42\n退出码 0",
+    "output": "42\n",
+    "exitCode": 0,
+    "signal": null,
+    "timedOut": false,
+    "aborted": false,
+    "truncated": false,
+    "cleanupComplete": true,
+    "resultUnverified": false
+  },
+  "retainedFailures": [
+    "session-input-terminal: busy steer exit after draft",
+    "session-input: busy composer prompt rendering"
+  ],
+  "notRun": [
+    "Native Windows 10/11",
+    "PowerShell 5.1 cold install",
+    "ConPTY/IME/UAC",
+    "Windows-MCP GUI",
+    "real provider and mailbox accounts"
+  ],
+  "publicationBasis": "Direct user standing instruction to publish new releases while retaining all limits",
+  "lockedUsePrototype": "Separate unsigned candidate retained, not integrated"
+}

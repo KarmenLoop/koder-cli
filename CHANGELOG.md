@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.10 — 2026-10-25
+
+Extend foreground command defaults to five minutes and direct installs to fifteen minutes. Preserve explicit deadlines and cancellations. Persist a visible checkpoint at the step limit; keep prior results and avoid replay. Native Windows acceptance and the two baseline input failures remain open. [Release notes](docs/RELEASE-0.4.10.md).
+
 ## 0.4.9 — 2026-10-25
 
 Fix steering during task preparation and require real agentd receipts. Keep editable slash choices available while busy, with readable terminal fallbacks. Preserve FIFO across asynchronous rejection receipts. Add bounded private runtime diagnostics and actionable nonzero results for unresolved permission failures or empty replies. [Release notes](docs/RELEASE-0.4.9.md).
