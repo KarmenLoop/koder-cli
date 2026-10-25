@@ -1,24 +1,129 @@
 # 完整命令参考
 
-Koder CLI 0.4.5 · 30 课互动教程
+Koder CLI 0.4.11 · 30 课互动教程
 
-由本版实际命令定义生成。另见 [安装](INSTALLATION.md)、[常驻](ALWAYS-ON.zh.md)、[邮件问询](MAIL-PROACTIVE-INQUIRY.zh.md)、[Skills](PORTABLE-SKILLS.zh.md) 和 [验收限制](RELEASE-0.4.5.md)。
+根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md)
 
-- `--harness <id>`: 本轮选配 Harness；不改变权限或模型
-- `--skill <id,name>`: 本轮指定本机 Skill；正文按需读取，脚本仍走原审批
-- `--stdin`: 将标准输入附加到显式提示词；没有提示词时自动读取
-- `--stdin-timeout <秒>`: 完整输入的等待上限，默认 5 秒，范围 0.01–3600 秒
-- `-w, --workspace <目录>`: 工作区，默认当前目录
-- `-y, --yes`: 自动接受文件修改和命令；仍不回答提问、不收集密码、不代开学习或电脑权限
-- `--approval auto|ask|full|deny`: 本次审批模式；--yes 不会覆盖显式 deny
-- `--json`: 每行输出一个 JSON 事件，方便脚本解析
-- `--lang zh|en`: 这一次用中文或英文
-- `--mode <模式>`: standard、code、minimal、plan、execute、report、enhance
-- `--provider <文件>`: 临时使用另一份模型 JSON
-- `--moa`: 这一次用 MoA：参考模型先给意见，当前模型汇总执行
-- `--engine <名称>`: 默认 koder；内部备用引擎默认禁用并置灰，不自动切换
-- `--no-color`: 关闭颜色
-- `-h, --help`: 显示该命令的说明
+```text
+KODER CLI 0.4.11
+轻量即用的终端编程代理
+
+用法
+  koder [命令] [选项]
+  koder "<任务>"
+
+开始干活
+  project  新建、打开与查看独立项目文件夹  项目
+  chat     进入交互对话（直接输入 koder 即可）  对话
+  run      执行任务：智能审批、可保存许可  运行、做
+  ask      只读提问：不改文件、不跑命令  提问、问
+
+审查、修复、测试
+  review   上下文感知的代码审查，可直接修复  审查、评审
+  fix      运行检查，失败就修，修完再查  修复
+  test     为改动或指定文件生成测试  测试、补测试
+
+自动化与编排
+  flow     按流程文件编排多个智能体与检查步骤  流程、编排
+  ci       生成 GitHub Actions 工作流，处理 /koder 评论  流水线
+  moa      Mixture of Agents：多个模型先给意见，当前模型汇总执行  混合
+
+接入工具链与本机工程
+  github   绑定 GitHub 令牌、托管项目和编辑仓库
+  netlify  绑定自己的 Netlify 站点并授权预览部署
+  reverse  Koder 自研静态逆向引擎（预览）
+  rea      内置 REA 逆向分析工具  逆向
+  apps     应用连接与状态  应用
+  mcp      添加、导入和验证 MCP
+  acp      通过 ACP 协议在标准输入输出上提供 Koder  协议
+  editor   显示 Zed、Neovim、Emacs 的接入配置  编辑器
+  scan     扫描本机 Koder、Codex、Claude Code、Cursor 的项目与任务  扫描
+  connect  连接聊天应用并启动收发消息  连接
+  gateway  一键接入飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp  网关、接入
+
+设置与帮助
+  logs     查看本机运行日志
+  activate 显式开启用户级常驻
+  deactivate关闭常驻并取消自启
+  status   查看常驻、提醒和网关状态
+  agentd   常驻诊断与主动提醒设置
+  harness  按任务选配执行配置
+  visuals  三方向浏览器评审、图示抉择与项目 H5 结构图
+  mail     绑定邮箱、收信分类与独立授权回复
+  preview  在旁边浏览器实时预览当前网页或 Web APP
+  growth   内置自主学习 Skill：状态、方法与开关  自主学习
+  resources资料库：远程按需检索，或导入自己的私有合集  资料、资源库
+  business 公司商业授权与专用私有仓库洽询  商业授权、企业服务
+  star     自愿为 Koder 点一颗 GitHub Star  点星
+  privacy  离线查看完整消费者隐私条款与声明  隐私
+  feedback 官方反馈邮箱与空白模板  反馈、投诉
+  celebrate可跳过的六秒彩蛋、节日与生日设置  彩蛋
+  eula     查看使用许可、授权与数据说明，或明确接受许可
+  account  跨设备记忆账号、登录与退出  账号、帳號
+  prompts  根据对话预选下一句，也可使用常用模板  prefill、预填词、预填
+  skills   发现、导入并调用 Codex、Cursor 和 WorkBuddy 兼容技能  skill、技能
+  permissions智能审批、始终允许、全面开放与电脑授权  权限
+  setup    设置界面：方向键或鼠标就能配好全部选项  设置、配置、settings、config
+  onboard  同 koder setup，安装脚本装完会自动打开  向导、初始化
+  engine   切换引擎：内置 Koder 内核或 Python 版 Hermes（ACP）  引擎
+  update   更新到最新版  更新
+  uninstall卸载 Koder CLI（--purge 同时删除配置）  卸载
+  memory   查看、检索和管理本地与共享记忆  记忆
+  model    配置模型与真实上下文窗口  模型
+  lang     切换中文或英文  语言
+  theme    切换官网深色或浅色配色  主题
+  help     查看命令说明  帮助
+  learn    30 课互动教程：在练习场里边学边动手  教程、教学
+  doctor   检查环境、模型和启动耗时  体检
+  banner   显示折光体开屏  开屏
+  version  显示版本，以及官网更新页  版本
+  about    按官网介绍 Koder 是谁做的，并给出更新页  关于、官网
+
+通用选项
+  --harness <id>            本轮选配 Harness；不改变权限或模型
+  --skill <id,name>         本轮指定本机 Skill；正文按需读取，脚本仍走原审批
+  --stdin                   将标准输入附加到显式提示词；没有提示词时自动读取
+  --stdin-timeout <秒>      完整输入的等待上限，默认 5 秒，范围 0.01–3600 秒
+  -w, --workspace <目录>    工作区，默认当前目录
+  -y, --yes                 自动接受文件修改和命令；仍不回答提问、不收集密码、不代开学习或电脑权限
+  --approval auto|ask|full|deny 本次审批模式；--yes 不会覆盖显式 deny
+  --json                    每行输出一个 JSON 事件，方便脚本解析
+  --lang zh|en              这一次用中文或英文
+  --mode <模式>             standard、code、minimal、plan、execute、report、enhance
+  --provider <文件>         临时使用另一份模型 JSON
+  --moa                     这一次用 MoA：参考模型先给意见，当前模型汇总执行
+  --engine <名称>           默认 koder；内部备用引擎默认禁用并置灰，不自动切换
+  --no-color                关闭颜色
+  -h, --help                显示该命令的说明
+
+koder help <命令> 看详细说明；koder learn 跟着教程走；koder lang en 切换英文。
+```
+
+## github
+
+```text
+koder github  绑定 GitHub 令牌、托管项目和编辑仓库
+
+用法
+  koder github connect | status | repos | read owner/repo README.md | create name | commit owner/repo file... | edit owner/repo --description text | pr owner/repo --head branch --title text | reconcile owner/repo | disconnect
+
+Setup → 应用与 MCP → GitHub。受保护输入令牌，或 --key-env 变量名；不把令牌写进命令。新仓库默认私有，提交仅包含列出的文本文件，写入需本地确认；不删除仓库或强制推送。
+
+通用选项见 koder help。
+```
+
+## logs
+
+```text
+koder logs  查看本机运行日志
+
+用法
+  koder logs [--tail 100] [--path] [--json]
+
+只读查看有界事件与错误码，不记录任务正文或凭据，不自动上传。
+
+通用选项见 koder help。
+```
 
 ## activate
 
@@ -863,7 +968,7 @@ koder model  配置模型与真实上下文窗口
 别名: 模型
 
 用法
-  koder model show [名称] | test [名称] | context [名称] | presets | set | add <名称> | list | use <名称> | remove <名称> | clear
+  koder model show [名称] | test [名称] | context [名称] | models | refresh [名称] | catalog-refresh | presets | set | add <名称> | list | use <名称> | remove <名称> | clear
 
 配置保存在 ~/.koder-cli/provider.json，权限 600。直接粘贴的密钥是明文保存的，推荐改用 --key-env。CI 里可以只设 KODER_MODEL、KODER_BASE_URL、KODER_API_KEY 环境变量。
 
@@ -1019,8 +1124,3 @@ koder about  按官网介绍 Koder 是谁做的，并给出更新页
 
 通用选项见 koder help。
 ```
-
-
-## logs
-
-查看本机运行元数据：koder logs --tail 100；--path 显示路径，--json 输出结构化信息；不存在的日志返回 0。参见 [运行日志](RUNTIME-DIAGNOSTICS.md)。

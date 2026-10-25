@@ -1,10 +1,10 @@
-# Start with Koder CLI 0.4.10
+# Start with Koder CLI 0.4.11
 
 Koder is a terminal coding and writing agent that uses your selected model API or compatible local model. It can work on project files, run approved commands and use configured Skills, MCP connections and applications. Your provider bills model usage separately. A catalog entry or an enabled setting is not proof of a working account or device connection.
 
 ## 1. Install or update
 
-Use the [official download page](https://karmenloop.com/download.html) or the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.10). Choose Windows CMD/PowerShell or macOS Terminal; these installers use the same 0.4.10 runtime. The CLI is a separate download from the desktop application.
+Use the [official download page](https://karmenloop.com/download.html) or the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.11). Choose Windows CMD/PowerShell or macOS Terminal; these installers use the same 0.4.11 runtime. The CLI is a separate download from the desktop application.
 
 For an existing managed installation:
 
@@ -13,7 +13,7 @@ koder update
 koder --version
 ```
 
-Expect `koder 0.4.10`. If an updater from 0.4.4 or earlier rejects the manifest, run the current official installer in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS.
+Expect `koder 0.4.11`. If an updater from 0.4.4 or earlier rejects the manifest, run the current official installer in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS.
 
 ## 2. Configure a model and try a task
 
@@ -32,7 +32,7 @@ Start in a dedicated project directory. Ask Koder to inspect an existing project
 
 In interactive chat, `/` opens editable suggestions, templates and commands. A selected choice fills a draft; it does not send automatically. Setup lets you choose steering (the default) or FIFO queueing during a task. Esc/Ctrl+C cancel; queued text cannot approve a later permission prompt. See [Session input and Skills](SESSION-INPUT-AND-SKILLS.en.md) for fallback reasons and terminal limitations.
 
-In 0.4.10, ordinary commands have five minutes by default and recognized direct installs have fifteen minutes. An explicit request may allow up to thirty minutes. A short explicit deadline or curl's own limit still applies. `TASK_STEP_LIMIT` means the tool-step budget was reached; the history and earlier results remain. See [Command duration and recovery](COMMAND-DURATION.md).
+In 0.4.11, ordinary commands have five minutes by default and recognized direct installs have fifteen minutes. An explicit request may allow up to thirty minutes. A short explicit deadline or curl's own limit still applies. `TASK_STEP_LIMIT` means the tool-step budget was reached; the history and earlier results remain. See [Command duration and recovery](COMMAND-DURATION.md).
 
 ## 4. Find a workflow
 
@@ -60,4 +60,8 @@ Mail monitoring requires explicit authorization and a running host; polling, sle
 
 Eligible managed chat installations check for updates at startup and periodically, then install only while tasks, queues and drafts are idle. `koder update auto off` disables this; `koder update --check` only inspects the feed.
 
-[0.4.10 release notes](RELEASE-0.4.10.md) distinguish this release's changes from retained features. Two input-interaction checks remain open, as do native Windows client, PowerShell 5.1 cold startup, ConPTY/IME, Windows-MCP GUI and live account/model acceptance. Installation and local checks do not certify every device or service.
+[0.4.11 release notes](RELEASE-0.4.11.md) distinguish this release's changes from retained features. Two input-interaction checks remain open, as do native Windows client, PowerShell 5.1 cold startup, ConPTY/IME, Windows-MCP GUI and live account/model acceptance. Installation and local checks do not certify every device or service.
+
+## Connect GitHub and host a project
+
+Run koder github connect, or choose Setup → Apps / MCP → GitHub. Bind your own token to read repositories, create a private repository, commit selected files, edit README or repository copy, and open a draft PR. Each write needs approval; uncertain results require reconciliation. Follow the [complete guide](GITHUB-PROJECTS.en.md).

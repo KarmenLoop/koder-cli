@@ -1,12 +1,12 @@
-> 0.4.10 延长长命令等待，明确显示步数上限并保留会话与结果。[实时输入](docs/SESSION-INPUT-AND-SKILLS.zh.md) · [更新及未验范围](docs/RELEASE-0.4.10.zh.md)。
+> 0.4.11 新增 GitHub 令牌绑定、选定文件提交与仓库文案编辑。[完整教程](docs/GITHUB-PROJECTS.zh.md) · [更新及未验范围](docs/RELEASE-0.4.11.zh.md)。
 
 [从这里开始：安装、更新与全部功能教程](docs/START-HERE.zh.md)
 
 # Koder CLI
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.10**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.11**
 
-[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.10)
+[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.11)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
@@ -16,7 +16,7 @@
 
 Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。
 
-当前版本：**[0.4.10](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.10)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 官网：[karmenloop.com/cli.html](https://karmenloop.com/cli.html)
+当前版本：**[0.4.11](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.11)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 官网：[karmenloop.com/cli.html](https://karmenloop.com/cli.html)
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
@@ -24,7 +24,7 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 *会话开始 — 官方产品实机截图。*
 
-[下载 0.4.10](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.10) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.4.10.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
+[下载 0.4.11](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.11) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.4.11.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 ---
 
@@ -49,7 +49,7 @@ Koder 把四件事钉死：
 |---|---|
 | **安装什么** | 官方 Windows / macOS / Linux 安装器分发的版本化 CLI 运行时（Node **^22.21.0 或 ≥24**，复用或下载并校验） |
 | **你自备什么** | 自己的模型 API Key，或受支持的本地模型端点 |
-| **版本** | **0.4.10**（`RELEASE.json`、tag `cli-0.4.10`、stable 通道） |
+| **版本** | **0.4.11**（`RELEASE.json`、tag `cli-0.4.11`、stable 通道） |
 | **本版许可** | **Koder-EULA-1.1** — 当前应用运行时的专有终端用户许可 |
 | **个人使用** | 个人非商业本地使用免费 — **无会员、无邀请码** |
 | **商业 / 组织** | 须事先书面授权（`koder business` / [商业授权](docs/COMMERCIAL-LICENSING.md)） |
@@ -218,7 +218,7 @@ koder --version
 koder setup
 ```
 
-`koder --version` 应显示 **0.4.10**。平台细节见 [安装教程](docs/INSTALLATION.md)。
+`koder --version` 应显示 **0.4.11**。平台细节见 [安装教程](docs/INSTALLATION.md)。
 
 ---
 
@@ -262,7 +262,7 @@ koder --version
 koder
 ```
 
-应看到 **0.4.10**。直接 `koder` 进入交互聊天。想先走短教程？
+应看到 **0.4.11**。直接 `koder` 进入交互聊天。想先走短教程？
 
 ```text
 koder learn
@@ -376,7 +376,7 @@ koder review --format json
 
 *步骤 6 — 落地后的审查 / 修复闭环。*
 
-**第一次成功**的标志：版本显示 0.4.10、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
+**第一次成功**的标志：版本显示 0.4.11、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
 
 日常聊天：空提示符输入 `/` 打开可编辑选项（Tab 填入，Esc 关闭，填入后再 Enter 发送）。`/setup` 打开设置，`/model` 管理模型，`/new` 新话题，`/exit` 离开。`/menu` 也可打开设置。
 
@@ -448,13 +448,13 @@ koder model set --model ACTUAL_MODEL_ID --base-url OFFICIAL_API_BASE --protocol 
 
 ---
 
-## 0.4.10 的改动
+## 0.4.11 的改动
 
-- 普通前台命令默认等待 5 分钟；识别到的直接安装命令默认 15 分钟；单次可明确申请最多 30 分钟。
-- 明确指定的短时限、已有审批和取消仍有效；curl 命令内部的时限单独生效。
-- 达到工具步数上限会显示 `TASK_STEP_LIMIT`、已用预算及根据已保存结果继续的方式。
+- 在 Setup 或 CLI 的专用保护输入框绑定 GitHub 令牌。
+- 读取仓库、创建私有仓库、提交选定文件、修改仓库文案和创建草稿 PR。
+- 写入前核对目标和内容，断线后根据保存的回执先对账。
 
-实时引导、预输入菜单、运行日志、多窗口、Skills/MCP、邮件和常驻功能继续保留。测试范围见[更新说明](docs/RELEASE-0.4.10.zh.md)，安装和功能入口见[从这里开始](docs/START-HERE.zh.md)。
+保留 0.4.10 的命令时限与进度恢复，以及实时引导、预输入菜单、运行日志、多窗口、Skills/MCP、邮件和常驻功能。见 [GitHub 教程](docs/GITHUB-PROJECTS.zh.md)、[更新说明](docs/RELEASE-0.4.11.zh.md)和[从这里开始](docs/START-HERE.zh.md)。
 
 ---
 
@@ -499,13 +499,13 @@ koder update auto on
 | 排障 | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | 安装卡住、灰色提供商、常见失败 |
 | 分发与历史 GPL 树 | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | 专有运行时 vs 历史公开树 |
 | 30 课可打印文本 | [docs/tutorials/](docs/tutorials/) | 中英 × PowerShell/CMD/mac/linux 离线版 |
-| 本版发行 | [RELEASE-0.4.10.zh.md](docs/RELEASE-0.4.10.zh.md) | 改了什么、哪些仍为 NOT_RUN |
+| 本版发行 | [RELEASE-0.4.11.zh.md](docs/RELEASE-0.4.11.zh.md) | 改了什么、哪些仍为 NOT_RUN |
 
 ---
 
 ## 验收边界（诚实写明）
 
-发行证据区分：**源码/fixture 检查**、**已安装协议 fixture**、**托管原生 Windows**、**真实服务商账号**、**用户设备**。无密钥本地回归用脚本化提供商验证 CLI 行为；**不能**证明 PowerShell 5.1 冷启动安装、ConPTY/IME、Windows-MCP GUI、邮箱投递或模型质量。这些项在 [0.4.10 说明](docs/RELEASE-0.4.10.zh.md) 与 [Windows 安装检查](docs/WINDOWS-INSTALL-CHECKS.md) 标为 **NOT_RUN** 处保持未验。
+发行证据区分：**源码/fixture 检查**、**已安装协议 fixture**、**托管原生 Windows**、**真实服务商账号**、**用户设备**。无密钥本地回归用脚本化提供商验证 CLI 行为；**不能**证明 PowerShell 5.1 冷启动安装、ConPTY/IME、Windows-MCP GUI、邮箱投递或模型质量。这些项在 [0.4.11 说明](docs/RELEASE-0.4.11.zh.md) 与 [Windows 安装检查](docs/WINDOWS-INSTALL-CHECKS.md) 标为 **NOT_RUN** 处保持未验。
 
 可用安装包、安装器与校验和作为 **Release 资产** 发布。新 tag 可增加分发文档，而不把专有运行时源码公开到本仓库树。
 
@@ -522,8 +522,8 @@ koder update auto on
 **会不会不经询问就改我的文件？**  
 可识别的低风险本地检查与普通工程改动可按智能审批执行。敏感或未知效果——含删除、密钥路径、Shell 副作用——会先询问。批准前请看清 Diff 与目标。
 
-**公开 GitHub 源码就是 0.4.10 运行时吗？**  
-不是。公开树保留历史 GPL **0.3.1** 材料。**0.4.10** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
+**公开 GitHub 源码就是 0.4.11 运行时吗？**
+不是。公开树保留历史 GPL **0.3.1** 材料。**0.4.11** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
 
 **公司能否部署？**  
 联系 [info@karmenloop.com](mailto:info@karmenloop.com) 或运行 `koder business`。点星、下载与咨询邮件本身不构成商业授权。

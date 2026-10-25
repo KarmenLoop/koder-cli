@@ -1,6 +1,6 @@
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current release: **0.4.10**. Start with [release changes](RELEASE-0.4.10.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current release: **0.4.11**. Start with [release changes](RELEASE-0.4.11.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
@@ -8,7 +8,7 @@ This release includes default-on [Headroom context optimization](HEADROOM.en.md)
 
 # Koder CLI complete user guide
 
-Version: **0.4.10**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.4.11**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -178,14 +178,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.4.10-en-cmd.txt](tutorials/koder-cli-0.4.10-en-cmd.txt)
-- [koder-cli-0.4.10-en-linux.txt](tutorials/koder-cli-0.4.10-en-linux.txt)
-- [koder-cli-0.4.10-en-mac.txt](tutorials/koder-cli-0.4.10-en-mac.txt)
-- [koder-cli-0.4.10-en-powershell.txt](tutorials/koder-cli-0.4.10-en-powershell.txt)
-- [koder-cli-0.4.10-zh-cmd.txt](tutorials/koder-cli-0.4.10-zh-cmd.txt)
-- [koder-cli-0.4.10-zh-linux.txt](tutorials/koder-cli-0.4.10-zh-linux.txt)
-- [koder-cli-0.4.10-zh-mac.txt](tutorials/koder-cli-0.4.10-zh-mac.txt)
-- [koder-cli-0.4.10-zh-powershell.txt](tutorials/koder-cli-0.4.10-zh-powershell.txt)
+- [koder-cli-0.4.11-en-cmd.txt](tutorials/koder-cli-0.4.11-en-cmd.txt)
+- [koder-cli-0.4.11-en-linux.txt](tutorials/koder-cli-0.4.11-en-linux.txt)
+- [koder-cli-0.4.11-en-mac.txt](tutorials/koder-cli-0.4.11-en-mac.txt)
+- [koder-cli-0.4.11-en-powershell.txt](tutorials/koder-cli-0.4.11-en-powershell.txt)
+- [koder-cli-0.4.11-zh-cmd.txt](tutorials/koder-cli-0.4.11-zh-cmd.txt)
+- [koder-cli-0.4.11-zh-linux.txt](tutorials/koder-cli-0.4.11-zh-linux.txt)
+- [koder-cli-0.4.11-zh-mac.txt](tutorials/koder-cli-0.4.11-zh-mac.txt)
+- [koder-cli-0.4.11-zh-powershell.txt](tutorials/koder-cli-0.4.11-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
@@ -224,15 +224,15 @@ Read [Windows-MCP and Code Graph setup](MCP-INTEGRATIONS.en.md) for current-term
 
 Use `koder skills list` and `/skill` for portable methods. Add input while the agent works; Setup selects steer or queue. Use `/harness deep-research` for research, or `koder harness off` for baseline behavior. App operations keep existing grants and driver limits. Missing persistent experience owners produce NO_ENTRY.
 
-[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.10.md)
+[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.11.md)
 
 ## Residency and mail inquiries
 
-After installation, verify `koder --version` reports 0.4.10, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
+After installation, verify `koder --version` reports 0.4.11, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
 
 Bind mail in Setup using masked authorization-code input. Separately enable `/mail model on` and `/mail inquire on` with their consent phrases. Related incoming mail can offer choices; a choice creates a draft, and sending still requires final preview and confirmation. Background mail checks also require mail visibility in resident settings. Advertisements and verification codes are excluded from inquiries.
 
-[Complete resident guide](ALWAYS-ON.en.md) · [Complete mail guide](MAIL-PROACTIVE-INQUIRY.en.md) · [Changes and unverified paths](RELEASE-0.4.10.md). All 30 lessons and eight text editions remain; start with `koder learn`.
+[Complete resident guide](ALWAYS-ON.en.md) · [Complete mail guide](MAIL-PROACTIVE-INQUIRY.en.md) · [Changes and unverified paths](RELEASE-0.4.11.md). All 30 lessons and eight text editions remain; start with `koder learn`.
 
 ## Existing workflow guides
 
@@ -243,7 +243,7 @@ Bind mail in Setup using masked authorization-code input. Separately enable `/ma
 
 ## MCP and Skill compatibility
 
-[Catalog, switches, dependency checks and transport setup](MCP-SKILL-COMPATIBILITY.en.md) · [Inventory](MCP-SKILL-INVENTORY.md) · [0.4.10 changes](RELEASE-0.4.10.md).
+[Catalog, switches, dependency checks and transport setup](MCP-SKILL-COMPATIBILITY.en.md) · [Inventory](MCP-SKILL-INVENTORY.md) · [0.4.11 changes](RELEASE-0.4.11.md).
 
 
 Model updates: Setup → Model supports automatic discovery, manual refresh and an off switch. [Complete guide](MODEL-DISCOVERY.en.md).
@@ -256,3 +256,7 @@ Model updates: Setup → Model supports automatic discovery, manual refresh and 
 
 
 [Command duration and saved progress](COMMAND-DURATION.md)
+
+## Connect GitHub and host a project
+
+Run koder github connect, or choose Setup → Apps / MCP → GitHub. Bind your own token to read repositories, create a private repository, commit selected files, edit README or repository copy, and open a draft PR. Each write needs approval; uncertain results require reconciliation. Follow the [complete guide](GITHUB-PROJECTS.en.md).

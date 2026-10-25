@@ -1,24 +1,129 @@
 # Complete command reference
 
-Koder CLI 0.4.5 · 30 interactive lessons
+Koder CLI 0.4.11 · 30 interactive lessons
 
-Generated from this release’s command definitions. See [installation](INSTALLATION.md), [resident agent](ALWAYS-ON.en.md), [mail inquiries](MAIL-PROACTIVE-INQUIRY.en.md), [Skills](PORTABLE-SKILLS.en.md) and [release limits](RELEASE-0.4.5.md).
+Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md)
 
-- `--harness <id>`: Select a task harness without changing permissions or the model
-- `--skill <id,name>`: Select local skills for this turn; read on demand, scripts retain approvals
-- `--stdin`: Attach stdin to an explicit prompt; read it automatically when there is no prompt
-- `--stdin-timeout <秒>`: Complete-input deadline, default 5 seconds, range 0.01–3600 seconds
-- `-w, --workspace <目录>`: Workspace folder, default: current directory
-- `-y, --yes`: Auto-accept edits and commands; never answers questions, collects passwords or enables learning or computer grants
-- `--approval auto|ask|full|deny`: Approval mode for this run; --yes never overrides explicit deny
-- `--json`: One JSON event per line, for scripts
-- `--lang zh|en`: Use Chinese or English for this run
-- `--mode <模式>`: standard, code, minimal, plan, execute, report, enhance
-- `--provider <文件>`: Use another model JSON for this run
-- `--moa`: Use MoA for this run: references advise, the current model acts
-- `--engine <名称>`: Koder is the default; the internal fallback is disabled and gray, with no automatic switch
-- `--no-color`: Disable colors
-- `-h, --help`: Show help for the command
+```text
+KODER CLI 0.4.11
+A lightweight terminal coding agent
+
+Usage
+  koder [command] [options]
+  koder "<task>"
+
+Get work done
+  project  Create, open and inspect isolated project folders
+  chat     Interactive session (just type koder)
+  run      Run tasks with smart approval and saved permissions
+  ask      Read-only question: no edits, no commands
+
+Review, fix, test
+  review   Context-aware code review, with optional fix
+  fix      Run a check, fix failures, re-check
+  test     Generate tests for changed or given files
+
+Automation and orchestration
+  flow     Orchestrate agent and check steps from a flow file
+  ci       GitHub Actions workflow and /koder comment triggers
+  moa      Mixture of Agents: several models advise, the current one acts
+
+Toolchain and local projects
+  github   Connect GitHub, host projects and edit repositories
+  netlify  Connect your Netlify site and authorize draft deployments
+  reverse  First-party Koder static reverse engineering (preview)
+  rea      Use bundled REA reverse-engineering tools
+  apps     Application connections and status
+  mcp      Add, import and verify MCP servers
+  acp      Serve Koder over ACP on stdio
+  editor   Show Zed, Neovim and Emacs setup
+  scan     Scan projects and tasks from Koder, Codex, Claude Code and Cursor
+  connect  Connect chat apps and start receiving messages
+  gateway  Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp
+
+Setup and help
+  logs     Inspect local runtime diagnostics
+  activate Enable the local user agent
+  deactivateStop the agent and remove login startup
+  status   Inspect the resident agent
+  agentd   Resident-agent diagnostics and notification settings
+  harness  Choose a task harness
+  visuals  Review three directions, compare visual choices and export the project H5 map
+  mail     Bind mail, classify messages and authorize replies
+  preview  Open a live companion browser for a website or Web app
+  growth   Built-in autonomous learning Skill: status, method and controls
+  resourcesReferences: official remote workflows or your optional private collections
+  business Company licensing and dedicated private repository inquiries
+  star     An optional GitHub star for Koder
+  privacy  Read full consumer privacy terms and notices offline
+  feedback Official feedback address and blank template
+  celebrateSkippable six-second effects, holidays, and birthday settings
+  eula     Read the license and consent guide, or explicitly accept the license
+  account  Account, sign-in and sign-out for cross-device memory
+  prompts  Choose a contextual next message or a saved template
+  skills   Discover and import Codex, Cursor and WorkBuddy-compatible skills
+  permissionsSmart approval, saved permissions, full access and computer grants
+  setup    Settings screen: configure everything with arrow keys or the mouse
+  onboard  Same as koder setup; the installers open it after installing
+  engine   Switch engine: built-in Koder kernel or Python Hermes (ACP)
+  update   Update to the latest version
+  uninstallUninstall Koder CLI (--purge also removes settings)
+  memory   Inspect, search and manage local and shared memory
+  model    Configure models and actual context windows
+  lang     Switch between Chinese and English
+  theme    Switch the website's dark or light palette
+  help     Show help
+  learn    30-lesson interactive tutorial in a practice project
+  doctor   Check environment, model and startup time
+  banner   Show the prism banner
+  version  Show the version and the official updates page
+  about    Introduce Koder from the official site, with the updates page
+
+Global options
+  --harness <id>            Select a task harness without changing permissions or the model
+  --skill <id,name>         Select local skills for this turn; read on demand, scripts retain approvals
+  --stdin                   Attach stdin to an explicit prompt; read it automatically when there is no prompt
+  --stdin-timeout <sec>     Complete-input deadline, default 5 seconds, range 0.01–3600 seconds
+  -w, --workspace <dir>     Workspace folder, default: current directory
+  -y, --yes                 Auto-accept edits and commands; never answers questions, collects passwords or enables learning or computer grants
+  --approval auto|ask|full|deny Approval mode for this run; --yes never overrides explicit deny
+  --json                    One JSON event per line, for scripts
+  --lang zh|en              Use Chinese or English for this run
+  --mode <mode>             standard, code, minimal, plan, execute, report, enhance
+  --provider <file>         Use another model JSON for this run
+  --moa                     Use MoA for this run: references advise, the current model acts
+  --engine <name>           Koder is the default; the internal fallback is disabled and gray, with no automatic switch
+  --no-color                Disable colors
+  -h, --help                Show help for the command
+
+koder help <command> for details; koder learn for the tutorial; koder lang zh for Chinese.
+```
+
+## github
+
+```text
+koder github  Connect GitHub, host projects and edit repositories
+
+Usage
+  koder github connect | status | repos | read owner/repo README.md | create name | commit owner/repo file... | edit owner/repo --description text | pr owner/repo --head branch --title text | reconcile owner/repo | disconnect
+
+Setup → Applications and MCP → GitHub. Enter a token through the protected prompt or use --key-env VARIABLE. New repositories default to private; commits include only listed text files and require local confirmation. No repository deletion or force push.
+
+Global options: koder help.
+```
+
+## logs
+
+```text
+koder logs  Inspect local runtime diagnostics
+
+Usage
+  koder logs [--tail 100] [--path] [--json]
+
+Read bounded events and error codes. Prompts and credentials are not recorded; nothing is uploaded.
+
+Global options: koder help.
+```
 
 ## activate
 
@@ -863,7 +968,7 @@ koder model  Configure models and actual context windows
 Aliases: 模型
 
 Usage
-  koder model show [name] | test [name] | context [name] | presets | set | add <name> | list | use <name> | remove <name> | clear
+  koder model show [name] | test [name] | context [name] | models | refresh [name] | catalog-refresh | presets | set | add <name> | list | use <name> | remove <name> | clear
 
 Saved to ~/.koder-cli/provider.json with mode 600. A pasted key is stored in plain text; prefer --key-env. In CI just set KODER_MODEL, KODER_BASE_URL and KODER_API_KEY.
 
@@ -1019,8 +1124,3 @@ Matches the website's about, updates and download pages: written by KARMEN LOOP,
 
 Global options: koder help.
 ```
-
-
-## logs
-
-Read local runtime metadata with koder logs --tail 100. --path shows its location; --json returns structured metadata. A missing log returns exit 0. See [runtime diagnostics](RUNTIME-DIAGNOSTICS.md).

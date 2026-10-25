@@ -1,12 +1,12 @@
-> 0.4.10 extends foreground command time limits and preserves a visible checkpoint at the tool-step cap. [Changes and verification limits](docs/RELEASE-0.4.10.md).
+> 0.4.11 adds protected GitHub connections, selected-file commits and repository editing. [Setup and limits](docs/GITHUB-PROJECTS.en.md) · [Release notes](docs/RELEASE-0.4.11.md).
 
 [Start here: installation, updates and all workflows](docs/START-HERE.en.md)
 
 # Koder CLI
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.10**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.11**
 
-[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.10)
+[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.11)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
@@ -16,7 +16,7 @@
 
 Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
 
-Current release: **[0.4.10](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.10)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Site: [karmenloop.com/cli.html](https://karmenloop.com/cli.html)
+Current release: **[0.4.11](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.11)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Site: [karmenloop.com/cli.html](https://karmenloop.com/cli.html)
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
@@ -24,7 +24,7 @@ Current release: **[0.4.10](https://github.com/KarmenLoop/koder-cli/releases/tag
 
 *Session start — official product capture.*
 
-[Download 0.4.10](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.10) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.4.10.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
+[Download 0.4.11](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.11) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.4.11.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
 ---
 
@@ -49,7 +49,7 @@ It does **not** claim that local fixtures certify every PC, provider account, or
 |---|---|
 | **What you install** | Versioned CLI runtime via official Windows / macOS / Linux installers (Node **^22.21.0 or ≥24**, reused or downloaded and checksum-verified) |
 | **What you bring** | Your own model API key or a supported local model endpoint |
-| **Version** | **0.4.10** (`RELEASE.json`, release tag `cli-0.4.10`, stable channel) |
+| **Version** | **0.4.11** (`RELEASE.json`, release tag `cli-0.4.11`, stable channel) |
 | **License for this build** | **Koder-EULA-1.1** — proprietary end-user license for the current application runtime |
 | **Personal use** | Free for personal, noncommercial local use — **no membership, no invite code** |
 | **Commercial / org** | Separate prior written authorization (`koder business` / [commercial licensing](docs/COMMERCIAL-LICENSING.md)) |
@@ -218,7 +218,7 @@ koder --version
 koder setup
 ```
 
-`koder --version` should report **0.4.10**. Full platform notes: [Installation](docs/INSTALLATION.md).
+`koder --version` should report **0.4.11**. Full platform notes: [Installation](docs/INSTALLATION.md).
 
 ---
 
@@ -262,7 +262,7 @@ koder --version
 koder
 ```
 
-Expect **0.4.10**. Bare `koder` opens interactive chat. Prefer a short coach first?
+Expect **0.4.11**. Bare `koder` opens interactive chat. Prefer a short coach first?
 
 ```text
 koder learn
@@ -376,7 +376,7 @@ Use `koder review` when you want findings after apply, before a larger follow-up
 
 *Step 6 — review / fix loop after apply.*
 
-**First success** means: version reports 0.4.10, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
+**First success** means: version reports 0.4.11, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
 
 Day-to-day chat: type `/` on an empty prompt for editable choices (Tab fills, Esc closes, Enter sends only after fill). `/setup` opens settings, `/model` manages models, `/new` starts a topic, `/exit` leaves. `/menu` opens settings; Escape leaves.
 
@@ -448,13 +448,13 @@ See [PROVIDERS.md](docs/PROVIDERS.md) and [MIMO.md](docs/MIMO.md) for endpoints 
 
 ---
 
-## What changed in 0.4.10
+## What changed in 0.4.11
 
-- Ordinary foreground commands default to five minutes; recognized direct installs get fifteen minutes. Explicit requests can allow up to thirty minutes.
-- Explicit shorter deadlines, existing approvals and cancellation remain binding. curl's own timeout is independent.
-- Tool-step exhaustion shows `TASK_STEP_LIMIT`, the consumed budget and how to continue from saved results.
+- Connect a GitHub token through a protected prompt in Setup or the CLI.
+- Read repositories, create a private repository, commit selected files, edit repository copy and open draft PRs.
+- Review each write before approval and reconcile interrupted operations from saved receipts.
 
-Live steering, prompt choices, runtime logs, multi-window sessions, Skills/MCP, mail and residency remain available from earlier releases. See the [release notes](docs/RELEASE-0.4.10.md) for evidence and open platform checks, and [Start here](docs/START-HERE.en.md) for setup and feature navigation.
+The command deadlines and saved progress introduced in 0.4.10 remain. Live steering, prompt choices, runtime logs, multi-window sessions, Skills/MCP, mail and residency are retained. See the [GitHub guide](docs/GITHUB-PROJECTS.en.md), [release notes](docs/RELEASE-0.4.11.md) and [Start here](docs/START-HERE.en.md).
 
 ---
 
@@ -499,13 +499,13 @@ koder update auto on
 | Troubleshooting | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Stalled install, gray providers, common failures |
 | Distribution & legacy GPL tree | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | Proprietary runtime vs historical public tree |
 | Printable 30-lesson texts | [docs/tutorials/](docs/tutorials/) | Offline EN/ZH × PowerShell/CMD/mac/linux editions |
-| This release | [RELEASE-0.4.10.md](docs/RELEASE-0.4.10.md) | What changed and what remains NOT_RUN |
+| This release | [RELEASE-0.4.11.md](docs/RELEASE-0.4.11.md) | What changed and what remains NOT_RUN |
 
 ---
 
 ## Validation honesty
 
-Release evidence distinguishes **source / fixture checks**, **installed protocol fixtures**, **hosted native Windows**, **real provider accounts**, and **user devices**. Local no-key regressions exercise CLI behavior with scripted providers; they do **not** certify PowerShell 5.1 cold install, ConPTY/IME, Windows-MCP GUI operation, mailbox delivery, or model quality. Those items remain **NOT_RUN** where the [0.4.10 notes](docs/RELEASE-0.4.10.md) and [Windows install checks](docs/WINDOWS-INSTALL-CHECKS.md) say so.
+Release evidence distinguishes **source / fixture checks**, **installed protocol fixtures**, **hosted native Windows**, **real provider accounts**, and **user devices**. Local no-key regressions exercise CLI behavior with scripted providers; they do **not** certify PowerShell 5.1 cold install, ConPTY/IME, Windows-MCP GUI operation, mailbox delivery, or model quality. Those items remain **NOT_RUN** where the [0.4.11 notes](docs/RELEASE-0.4.11.md) and [Windows install checks](docs/WINDOWS-INSTALL-CHECKS.md) say so.
 
 Ready-to-use packages, installers, and checksums ship as **release assets**. New tags may add distribution documentation without publishing proprietary runtime source to this public tree.
 
@@ -522,8 +522,8 @@ Yours. Configure a provider in setup. Koder does not replace your provider’s b
 **Will it change my files without asking?**  
 Recognized low-risk local checks and ordinary project edits may run under smart approval. Sensitive or unknown effects—including deletion, secret paths, and shell side effects—ask first. Review diffs and targets before approving.
 
-**Is the public GitHub source the 0.4.10 runtime?**  
-No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.4.10** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
+**Is the public GitHub source the 0.4.11 runtime?**
+No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.4.11** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
 
 **Can my company deploy it?**  
 Contact [info@karmenloop.com](mailto:info@karmenloop.com) or run `koder business`. Stars, downloads, and inquiry emails alone are not commercial authorization.
