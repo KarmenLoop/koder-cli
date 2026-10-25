@@ -2,7 +2,7 @@
 
 Current release: **0.4.10**. Start with [release changes](RELEASE-0.4.10.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
-> Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#update).
+> Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
 This release includes default-on [Headroom context optimization](HEADROOM.en.md). The official installers and documentation identify the same release.
 
