@@ -2,7 +2,7 @@
 
 [从这里开始：安装、首个任务和功能导航](START-HERE.zh.md)
 
-当前版本：**0.4.14**。先看[本版更新 ](RELEASE-0.4.14.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.4.15**。先看[本版更新 ](RELEASE-0.4.15.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 > 旧版更新器可能因包超过 100 MB 报“清单无效”。请用官网下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
@@ -10,7 +10,7 @@
 
 # Koder CLI 完整使用教程
 
-版本：**0.4.14**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.4.15**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -180,14 +180,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.4.14-en-cmd.txt](tutorials/koder-cli-0.4.14-en-cmd.txt)
-- [koder-cli-0.4.14-en-linux.txt](tutorials/koder-cli-0.4.14-en-linux.txt)
-- [koder-cli-0.4.14-en-mac.txt](tutorials/koder-cli-0.4.14-en-mac.txt)
-- [koder-cli-0.4.14-en-powershell.txt](tutorials/koder-cli-0.4.14-en-powershell.txt)
-- [koder-cli-0.4.14-zh-cmd.txt](tutorials/koder-cli-0.4.14-zh-cmd.txt)
-- [koder-cli-0.4.14-zh-linux.txt](tutorials/koder-cli-0.4.14-zh-linux.txt)
-- [koder-cli-0.4.14-zh-mac.txt](tutorials/koder-cli-0.4.14-zh-mac.txt)
-- [koder-cli-0.4.14-zh-powershell.txt](tutorials/koder-cli-0.4.14-zh-powershell.txt)
+- [koder-cli-0.4.15-en-cmd.txt](tutorials/koder-cli-0.4.15-en-cmd.txt)
+- [koder-cli-0.4.15-en-linux.txt](tutorials/koder-cli-0.4.15-en-linux.txt)
+- [koder-cli-0.4.15-en-mac.txt](tutorials/koder-cli-0.4.15-en-mac.txt)
+- [koder-cli-0.4.15-en-powershell.txt](tutorials/koder-cli-0.4.15-en-powershell.txt)
+- [koder-cli-0.4.15-zh-cmd.txt](tutorials/koder-cli-0.4.15-zh-cmd.txt)
+- [koder-cli-0.4.15-zh-linux.txt](tutorials/koder-cli-0.4.15-zh-linux.txt)
+- [koder-cli-0.4.15-zh-mac.txt](tutorials/koder-cli-0.4.15-zh-mac.txt)
+- [koder-cli-0.4.15-zh-powershell.txt](tutorials/koder-cli-0.4.15-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 
@@ -226,15 +226,15 @@ koder project check --kind website --json -w /path/to/site
 
 `koder skills list` 查看技能；聊天中 `/skill` 选择技能。执行中可继续输入补充，Setup 可选择 steer 或 queue。`/harness deep-research` 选择研究配置，`koder harness off` 关闭 JIT。应用操作沿用已授权的 Apps/MCP、浏览器和桌面；缺权限或驱动会明确提示。持久经验 owner 未接入时返回 NO_ENTRY。
 
-[技能教程](PORTABLE-SKILLS.zh.md) · [输入与设置](SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](APP-USE-AND-LEARN.zh.md) · [Harness 配置](HARNESS-JIT.md) · [更新与已知限制](RELEASE-0.4.13.md)
+[技能教程](PORTABLE-SKILLS.zh.md) · [输入与设置](SESSION-INPUT-AND-SKILLS.zh.md) · [应用操作](APP-USE-AND-LEARN.zh.md) · [Harness 配置](HARNESS-JIT.md) · [更新与已知限制](RELEASE-0.4.15.md)
 
 ## 常驻与邮件问询
 
-安装后先 `koder --version` 核对 0.4.13，再 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
+安装后先 `koder --version` 核对 0.4.15，再 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
 
 邮箱在 Setup 绑定，授权码以星号显示。分别开启 `/mail model on` 与 `/mail inquire on` 并确认后，相关来信可以提出选项；选择只生成草稿，发送仍需最终预览和确认。后台查收还需在常驻页打开邮箱可见性。广告和验证码不参与问询。
 
-[常驻完整教程](ALWAYS-ON.zh.md) · [邮箱完整教程](MAIL-PROACTIVE-INQUIRY.zh.md) · [本版更新与未验项](RELEASE-0.4.13.md)。30 课和八套中英文教程仍在，运行 `koder learn` 开始。
+[常驻完整教程](ALWAYS-ON.zh.md) · [邮箱完整教程](MAIL-PROACTIVE-INQUIRY.zh.md) · [本版更新与未验项](RELEASE-0.4.15.md)。30 课和八套中英文教程仍在，运行 `koder learn` 开始。
 
 ## 已有功能导航
 
@@ -245,7 +245,7 @@ koder project check --kind website --json -w /path/to/site
 
 ## MCP 与 Skill 适配
 
-[统一目录、开关、依赖诊断和协议设置](MCP-SKILL-COMPATIBILITY.zh.md) · [逐项清单](MCP-SKILL-INVENTORY.md) · [0.4.13 更新说明](RELEASE-0.4.13.zh.md)。
+[统一目录、开关、依赖诊断和协议设置](MCP-SKILL-COMPATIBILITY.zh.md) · [逐项清单](MCP-SKILL-INVENTORY.md) · [0.4.15 更新说明](RELEASE-0.4.15.zh.md)。
 
 
 模型自动更新：Setup → 模型，可自动获取、手动刷新或关闭；[完整教程](MODEL-DISCOVERY.zh.md)。
@@ -269,6 +269,6 @@ koder project check --kind website --json -w /path/to/site
 运行 `koder migrate` 或 Setup → 设备迁移。按[迁移教程](DEVICE-MIGRATION.zh.md)导出、导入、核对并在新设备重绑账号。[进入180课课堂](courses/index.zh.html)，选择手把手或开发者路线；学习记录在浏览器本地保存，可导出。
 
 
-## 0.4.13：紧凑常驻输入与 Todo
+## 0.4.15：紧凑常驻输入与 Todo
 
 输入区默认只占两行，有 Todo 时为三行。执行时继续输入；Enter 按当前引导/排队设置提交。Ctrl+T 展开清单，`/todo` 看全表，`/help` 查看快捷键；空输入按 `/` 后 Tab 只填草稿。Setup → 会话界面可调整底栏，`/reload-tui` 立即加载。[完整手把手与开发说明](SESSION-DOCK.zh.md)。

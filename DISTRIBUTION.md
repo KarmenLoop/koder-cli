@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed release is **0.4.14**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.4.15**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -51,3 +51,7 @@ Windows CMD, PowerShell and macOS installers use the same 0.4.13 runtime archive
 ## Version 0.4.14
 
 Windows CMD, PowerShell and macOS installers select the same 0.4.14 runtime archive and verified SHA-256 feed. Existing license terms and third-party notices remain. [Changes and remaining native checks](docs/RELEASE-0.4.14.md).
+
+## Version 0.4.15
+
+Windows CMD, PowerShell and macOS installers use the same versioned archive and SHA-256 feed. This release adds unlimited task rounds by default, shared optional cost budgets, tool-enabled subagents and the 1,800-lesson Chinese classroom. See [release notes](docs/RELEASE-0.4.15.md) and [task orchestration](docs/TASK-ORCHESTRATION.en.md).

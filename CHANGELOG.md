@@ -1,74 +1,89 @@
 # Changelog
 
+## 0.4.15 — 2026-10-26
+
+Remove the default task-round limit while retaining cancellation, approvals and optional cash budgets. Add tool-enabled subagents, approved Skill retrieval and a 1,800-lesson Chinese classroom. [Changes and verification scope](docs/RELEASE-0.4.15.md).
+
 ## 0.4.14 — 2026-10-26
 
-Add model and effort shortcuts, independent FIFO controls, task-completion reminders and approved CLI-Anything calls. Improve Windows command recovery with precise uncertainty reasons and read-only preview checks. The existing classroom remains unchanged. [Release notes](docs/RELEASE-0.4.14.md).
+Model and effort shortcuts, independent FIFO task controls, task-completion reminders, approved CLI-Anything calls, and clearer Windows command recovery. Keep read-only preview checks available during reconciliation and retain uncertain-effect receipts. Existing 180 lessons are unchanged. See [release notes](docs/RELEASE-0.4.14.md) for verification and platform limits.
+
+## 0.4.14-candidate.4 — unpublished candidate
+
+- Keep `workspace_preview status/discover` available for readback after an UNKNOWN shell result. The model sees only those actions; the executor still blocks starting, opening or stopping previews. An existing preview URL does not prove that the earlier command succeeded.
+- Explain that accepted steering stays in the current turn and cannot clear reconciliation. The same receipt reaches local chat and remote agentd chat through the existing IPC path.
+- Reject linked preview directories before reading package metadata. Retain candidate.3 partial-search handling, detailed command reasons and bounded blocked-call recovery.
+- Include a package self-check for preview readback and restricted steering. [Recovery guide](docs/SHELL-RECOVERY.zh.md) · [Candidate notes](docs/RELEASE-0.4.14-candidate.4.md).
+
+## 0.4.14-candidate.3 — unpublished candidate
+
+- Recognize a narrow, literal read-only PowerShell pipeline after a clean process exit. Suppressed read errors produce a partial-results warning without blocking later commands. Suppressed writes, timeouts and uncertain cleanup still require reconciliation.
+- Show the original command's call ID, uncertainty reasons, exit status and readback steps. Stop repeated blocked effect requests with exit 3, preserving receipts in conversation history and JSON output.
+- Continue authorized searches past inaccessible descendants, allow an explicit search directory, and accept in-workspace absolute paths for listing and reading. Root denial, revoked grants and path-identity failures remain errors.
+- Show partial-search warnings and an exact-ID discovery route for missing Skills. Normalize background mailbox error codes so a recurring code-less network failure is reported once until recovery.
+- Preserve candidate.2 notifications and candidate.1 controls, queue, Todo, model selection and CLI-Anything integration. [Recovery guide](docs/SHELL-RECOVERY.zh.md) and [acceptance notes](docs/RELEASE-0.4.14-candidate.3.md) distinguish local fixtures from native Windows testing.
+
+## 0.4.14-candidate.2 — unpublished candidate
+
+- Add task-completion reminders through the existing Windows Toast, Linux notify-send and macOS notification adapters. Short successful conversations stay quiet by default; longer or background work uses configurable attention and outcome rules.
+- Keep task notices separate from proactive reminders, with their own daily budget, quiet backlog and durable cross-process deduplication. Unknown delivery is retained without automatic resend.
+- Add private continuation records and notification diagnostics. Native receipts distinguish submission, refusal, unavailability and uncertainty; none promises that a user saw the banner.
+- Retain candidate.1 session controls, queue, Todo, model and effort selection, and CLI-Anything integration. Add bilingual notification walkthroughs and an isolated package acceptance script.
+
+See [candidate notes](docs/RELEASE-0.4.14-candidate.2.md) and [platform acceptance](docs/TASK-NOTIFICATIONS-ACCEPTANCE.md). This candidate does not certify native Windows 10/11 display or cross-platform click behavior.
+
+## 0.4.14-candidate.1 — unpublished candidate
+
+- Choose a saved model with Ctrl+P or `/model`, and set thinking effort with Ctrl+E or `/effort`. Busy changes apply next turn; the footer distinguishes current and pending settings. Unsupported effort falls back visibly.
+- Manage independent FIFO tasks with `/queue on`, `/queue remove N` and `/queue clear --yes`; inspect up to three previews above the persistent input. Queue deletion waits for earlier input receipts before confirming completion.
+- Include pinned CLI-Anything discovery, a bundled adaptation skill and approved workspace CLI execution through the existing executor. Readable argv and bounded deadlines remain attached to approval and recovery records.
+- Preserve the compact Todo/input layout, workspace history, mail and computer permission boundaries. Add bilingual session-control and local application CLI guides.
+
+Validation and remaining native-device limits are recorded in [candidate notes](docs/RELEASE-0.4.14-candidate.1.md). This entry does not certify native applications or live provider behavior.
 
 ## 0.4.13 — 2026-10-26
 
-Keep a compact, editable input dock visible during work. Add persistent session Todo, a configurable model/status footer, and scrollable shortcut help. Existing steering, queueing, approvals, migration and classroom features remain. See [release notes](docs/RELEASE-0.4.13.md) for scope and remaining platform checks.
+- Keep an editable input line visible while replies stream and tools run, with visible steer and queue receipts.
+- Track multi-step work in a session Todo list that restores with the conversation and collapses to one row by default.
+- Show the current model and task state in a compact, configurable footer; reload preferences without losing the conversation.
+- Open a scrollable shortcut guide and fill editable drafts from the slash menu while work continues. [Guide](docs/SESSION-DOCK.en.md).
 
-## 0.4.12 — 2026-10-25
-
-Add encrypted saved-project migration with a separate destination profile, expand the Chinese classroom to 180 lessons, and fix a masked-input fast-paste race. Keep the original 30 English lessons and existing runtime capabilities. See [release notes](docs/RELEASE-0.4.12.md) for scope, verification and platform limits.
-
-## 0.4.11 — 2026-10-25
-
-Add protected GitHub PAT binding, repository reads, private repository creation, selected-file commits, description/homepage updates and draft PRs. Writes require explicit approval and retain uncertain receipts for reconciliation. Preserve existing CLI and permission behavior. [Setup](docs/GITHUB-PROJECTS.en.md) · [Verification and limits](docs/RELEASE-0.4.11.md).
-
-## 0.4.10 — 2026-10-25
-
-Extend foreground command defaults to five minutes and direct installs to fifteen minutes. Preserve explicit deadlines and cancellations. Persist a visible checkpoint at the step limit; keep prior results and avoid replay. Native Windows acceptance and the two baseline input failures remain open. [Release notes](docs/RELEASE-0.4.10.md).
-
-## 0.4.9 — 2026-10-25
-
-Fix steering during task preparation and require real agentd receipts. Keep editable slash choices available while busy, with readable terminal fallbacks. Preserve FIFO across asynchronous rejection receipts. Add bounded private runtime diagnostics and actionable nonzero results for unresolved permission failures or empty replies. [Release notes](docs/RELEASE-0.4.9.md).
-
-## 0.4.8 — 2026-10-25
-
-Fix the updater scope error when automatic updates are toggled inside chat. Direct requests such as “enable automatic updates” now change local settings and start discovery in that conversation without a model call. Preserve idle installation, read-only modes, environment opt-out and license checks. [Release notes](docs/RELEASE-0.4.8.md).
-
-## 0.4.7 — 2026-10-25
-
-Add automatic account model discovery and public configuration hints to Setup, with scoped caches, source dates, bounded refresh and explicit selection. Preserve existing features and authorization boundaries. [Release notes](docs/RELEASE-0.4.7.md).
-
-## 0.4.6 — 2026-10-25
-
-Unify shipped Skill access and switches, include the private MCP npm installer, preserve explicit SSE transports and reduce unrelated method text in small contexts. Preserve existing features and authorization boundaries. [Release notes](docs/RELEASE-0.4.6.md).
+Built on 0.4.12. See [release notes](docs/RELEASE-0.4.13.md) for validation scope and remaining native-device limits.
 
 ## 0.4.5 — 2026-10-25
 
-Raise the verified update bundle limit to 512 MiB. Document one-time official-installer migration for older clients. All 0.4.4 features remain. [Release notes](docs/RELEASE-0.4.5.md).
+Support verified bundles up to 512 MiB and document one-time installer migration for older clients.
 
 ## 0.4.4 — 2026-10-25
 
-Bundled Windows-MCP, installation recovery, native mailbox sending, persisted inbox alerts and reversible Headroom projections. Windows/macOS installers and eight text tutorials are updated together. [Changes and limits](docs/RELEASE-0.4.4.md).
+Bundled Windows-MCP, bounded installation recovery, native mailbox sending and persisted inbox monitoring, and reversible Headroom projections. [Changes and limits](docs/RELEASE-0.4.4.md).
 
 ## 0.4.3 — 2026-10-24
 
-Opt-in resident agent, scoped reminders, masked mail input and authorized inquiries, preview ownership and idle updates. Windows and macOS installers, manifests and tutorials match. See [changes and limits](docs/RELEASE-0.4.3.md).
+Opt-in resident agent, scoped reminders, masked mail input and authorized inquiries, shared foreground/background task ownership, preview ownership and idle update continuity. [Release notes](docs/RELEASE-0.4.3.md) retain platform and account limits.
 
-## 0.4.2 — 2026-10-24
+## 0.4.3-candidate.2 — unpublished
 
-Portable Skills, live steer/queue input, application-use learning, Setup controls and task harness profiles. Windows CMD/PowerShell and macOS/Linux installers use matching release and update metadata. See [release notes](docs/RELEASE-0.4.2.md) for the retained test limits.
+Adds opt-in resident-agent hosting through the existing Core, scoped proactive reminders, authenticated local IPC and OS user-service adapters. Retains candidate.1 mailbox input and inquiry fixes. Foreground windows keep separate sessions and approvals. Native login, notification visibility, Windows installation and real-account acceptance remain open. See docs/ALWAYS-ON.zh.md.
 
-## 0.4.1 — 2026-10-24
+# Koder CLI 0.4.0-preview.28 Beta
 
-Task-specific coding and writing methods, contextual revisions, release-source repairs, current-task delivery checks and Windows credential handling. Windows CMD/PowerShell and macOS/Linux installers use matching release and update metadata. See [release notes](docs/RELEASE-0.4.1.md) for the retained test limits.
+This beta adds optional Windows-MCP and CodeGraphContext integration presets through the existing MCP host. Upstream Python executables and dependencies are not bundled.
 
-## 0.4.0 — 2026-10-24
+- mcp presets and mcp doctor inspect catalog/platform/launcher data without opening the connection host or running the upstream program. Launcher presence is not native acceptance.
+- The Windows-MCP target is 0.8.8, serve entry, native Windows 10/11 and Python 3.14+. Python stdio is UTF-8, upstream anonymized telemetry is off. No elevation, PowerShell-policy change or login task is added.
+- CodeGraphContext targets 0.6.13. The preset binds cwd/allowed roots to the workspace and separates runtime HOME and graph paths per project. Agent discovery, calls and protocol reads filter other known preset workspaces.
+- Agent guidance discovers actual graph schemas and checks indexed roots/freshness before relationship queries and source reads. Stale or unavailable graphs fall back to source search. Indexing, watching, arbitrary Cypher, deletion and desktop actions retain original approvals; graph results are not test evidence.
+- /setup provides current-terminal integration entries. Saving configuration keeps the server disabled. The optional pinned uvx runner can download its target package and Python only when explicitly started.
+- Explicit MCP add --enable or enable returns nonzero when connection fails instead of reporting configuration as successful connectivity.
 
-Formal distribution of the published preview.30 baseline. Windows CMD and PowerShell and macOS shell installers now use matching stable version, consent and update metadata. All 30 lessons and multiwindow fixes remain. See [release notes](docs/RELEASE-0.4.0.md) for acceptance scope and remaining native-client limitations.
+## Verification and limits
 
-# 0.4.0-preview.30 Beta
+The existing 12 benchmark prompts remain unchanged. Real MCP SDK tests use an owned stdio fixture to check discovery, approval, calls, durable results, same-turn continuation, workspace guards and failed-connection semantics. The fixture is not either upstream binary. This development Mac installs no Python dependencies and uses no paid model key. Native Windows UI actions, actual upstream binaries and a real graph database require separate acceptance. Existing unavailable model routes remain disabled. No new model capability score or competitor result is claimed.
 
-Fix default-session contention with older processes, cancel orphaned workers and recognize the current process instance after PID reuse. Active task ownership and previous features remain intact. See [release notes](docs/RELEASE-preview.30.md) for verification boundaries.
+Installers and complete bilingual manuals: https://karmenloop.com/cli.html#install
 
-# 0.4.0-preview.29 Beta
-
-MiniMax content-review diagnostics, contextual slash input, native concurrent session ownership, bounded long-context carryover and writing evidence are updated. Harness²-style local artifact comparisons and scoped first-party reverse workflows are included from the retained candidates. Read [the full notes](docs/RELEASE-preview.29.md) for exact behavior and open Windows, provider and independent-QA checks. No new model score or stable-platform certification is claimed.
-
-## Earlier release records
+## Earlier release record
 
 # Koder CLI 0.4.0-preview.27 Beta
 

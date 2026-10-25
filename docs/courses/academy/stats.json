@@ -1,13 +1,37 @@
 {
-  "lessons": 180,
-  "modules": 12,
-  "newChineseLessons": 150,
+  "lessons": 1800,
+  "modules": 120,
+  "newChineseLessons": 1620,
+  "preservedChineseLessons": 180,
   "preservedEnglishLessons": 30,
-  "steps": 1024,
-  "quizzes": 180,
-  "assignments": 180,
-  "minutes": 6110,
-  "sourceCharacters": 114841,
-  "generatedLessonCharacters": 314263,
-  "accountActionsExecuted": 0
+  "authoredTopics": 180,
+  "authoredCases": 1620,
+  "authoredTopicCharacters": 428402,
+  "steps": 9484,
+  "quizzes": 1800,
+  "quizCounts": {
+    "choice": 189,
+    "selfCheck": 1611
+  },
+  "assignments": 1800,
+  "minutes": 63530,
+  "generatedLessonCharacters": 6140252,
+  "lessonCharacters": {
+    "minimum": {
+      "number": 104,
+      "characters": 2085
+    },
+    "median": {
+      "number": 340,
+      "characters": 3162
+    },
+    "maximum": {
+      "number": 16,
+      "characters": 7213
+    }
+  },
+  "localProgramCases": 72,
+  "accountActionsExecuted": 0,
+  "learnerExercisesExecutedByBuild": 0,
+  "qualityValidation": "Structural checks and source preservation only; learner exercise outcomes require separate evidence"
 }

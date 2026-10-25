@@ -4,13 +4,15 @@ Available in Koder CLI 0.4.13 and later. Run `koder update`, then check `koder -
 
 0.4.14-candidate.1 adds model/effort pickers and independent queue controls. [Step-by-step guide](SESSION-CONTROLS.en.md). Candidate features are not a claim about the current public release.
 
+The current source adds dependency-aware Todo plans, paging, unlimited default model rounds, and shared cost accounting. See [task orchestration](TASK-ORCHESTRATION.en.md). The older version notes above identify the interface's origin, not availability of every later change in an older installed package.
+
 The default layout uses one collapsed Todo row above the editable input and one status row below it. An empty checklist uses no space. The interactive dock omits the old heavy conversation separators.
 
 ## Using the dock
 
 Start `koder chat`. The footer shows the resolved model or “Not configured · /setup”. During a multi-step task the built-in agent can call `todo_set`; ordinary questions need no checklist.
 
-Ctrl+T expands or collapses Todo without changing the draft. Expansion uses at most six rows; short terminals retain the summary and prioritize input. `/todo` prints the complete list. `/todo toggle` is the alternative when the terminal reserves Ctrl+T. Active items use the theme accent.
+Ctrl+T expands or collapses Todo without changing the draft. Expansion uses at most six rows; short terminals retain the summary and prioritize input. `/todo`, `/todo 2`, and later pages expose the complete saved list. In the expanded dock, PgUp/PgDn or `/todo next` and `/todo prev` changes pages. `/todo toggle` is the alternative when the terminal reserves Ctrl+T. Active items use the theme accent.
 
 Keep typing while the model or tools work. Enter steers by default, with the original receipt and safe-boundary semantics. Queue mode remains FIFO. A receipt acknowledges intake, not retroactive modification of an in-flight model request. Unknown remote receipts are not retried automatically. Most slash commands remain queued during work; `/help` and `/todo toggle` are immediate interface actions.
 
@@ -62,7 +64,7 @@ Slots are model, effort (added in the 0.4.14 candidate), mode, tasks (queued cou
 
 ## Persistence and boundaries
 
-Todo stores items with stable id, single-line title, status, createdAt and updatedAt, plus list revisedAt. The limit is 64 items. Symbols are [ ] pending, [>] in_progress, [x] completed and [-] cancelled.
+Todo has no 64-item total limit. `todo_set` supports replacement, incremental `upsert`, removal, reordering, dependency changes, replanning, and paginated reads. Items retain a stable id, single-line title, status, `dependsOn`, priority, order, assignee, notes, createdAt, and updatedAt. The list records `revision` and revisedAt. Stale revisions, missing dependencies, and dependency cycles are rejected. Symbols are [ ] pending, [>] in_progress, [x] completed, [-] cancelled, [!] blocked, and [x!] failed.
 
 The existing workspace/session/window memory owner persists it. Reopening that same session restores it. Cancellation and interrupted recovery return active items to pending while preserving completed entries. Koder currently has no /undo; this change adds no file rollback.
 

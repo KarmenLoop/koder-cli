@@ -1,33 +1,121 @@
 (function(){
  'use strict';
- const data=window.KODER_ACADEMY,S=window.AcademyState,$=id=>document.getElementById(id);
+ const data=window.KODER_ACADEMY,S=window.AcademyState,N=window.AcademyNavigation,$=id=>document.getElementById(id);
+ const total=data.lessons.length,indexed=N.index(data.lessons),modules=new Map(data.modules.map(m=>[m.id,m]));
  const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const paragraphs=text=>String(text).split(/\n\n+/).filter(Boolean).map(p=>'<p class="prose">'+esc(p)+'</p>').join('');
  let storage;try{storage=window.localStorage;}catch{storage=null;}
- const loaded=S.load(storage);let state=loaded.state,current=1,track='all',persistent=loaded.persistent;
+ const loaded=S.load(storage);
+ let state=loaded.state,current=1,navPage=1,persistent=loaded.persistent;
  const status=t=>{$('status').textContent=t+(!persistent&&!/导出/.test(t)?' 当前环境无法持久保存，请导出记录。':'');};
+ function updateTotals(){
+  const x=S.summary(state);
+  const scored=data.lessons.filter(l=>l.quiz.mode!=='self-check'&&state.lessons[l.number]?.quiz).length;
+  $('readcount').textContent=x.read;$('quizcount').textContent=scored;$('labcount').textContent=x.lab;
+  $('progressfill').style.width=(x.read/total*100)+'%';$('progressbar').setAttribute('aria-valuenow',String(x.read));
+ }
  function persist(){persistent=S.save(storage,state);if(!persistent)status('当前环境无法持久保存，请用“导出进度与笔记”保存到文件。');updateTotals();}
  function entry(n){return state.lessons[n]||(state.lessons[n]={read:false,quiz:false,lab:false,note:''});}
- function updateTotals(){const x=S.summary(state);$('readcount').textContent=x.read;$('quizcount').textContent=x.quiz;$('labcount').textContent=x.lab;$('progressfill').style.width=(x.read/180*100)+'%';$('progressbar').setAttribute('aria-valuenow',String(x.read));}
- function nav(){const q=$('search').value.trim().toLocaleLowerCase(),filter=$('filter').value;let count=0;const markup=data.modules.map(m=>{const list=data.lessons.filter(l=>l.module===m.id&&(!q||(l.title+' '+l.goal+' '+l.explain+' '+l.tags).toLocaleLowerCase().includes(q))&&(filter!=='unread'||!state.lessons[l.number]?.read)&&(filter!=='notes'||!!state.lessons[l.number]?.note));count+=list.length;if(!list.length)return '';return `<details class="navmodule" ${q||list.some(l=>l.number===current)?'open':''}><summary>${String(m.id).padStart(2,'0')} ${esc(m.title)} <span class="small">${list.length}课</span></summary>${list.map(l=>`<a href="#lesson-${l.number}" ${l.number===current?'aria-current="page"':''}><span class="n">${String(l.number).padStart(3,'0')}</span>${state.lessons[l.number]?.read?'✓ ':''}${esc(l.title)}</a>`).join('')}</details>`;}).join('');$('course-nav').innerHTML=markup||'<p>没有匹配课程，请换关键词或筛选条件。</p>';$('searchcount').textContent=`找到 ${count} / 180 课`;}
- function render(n,focus=false){if(!Number.isInteger(n)||n<1||n>180)n=1;current=n;state.last=n;const l=data.lessons[n-1],m=data.modules[l.module-1],e=entry(n);persist();
- $('lesson').innerHTML=`<div class="eyebrow">UNIT ${String(m.id).padStart(2,'0')} / LESSON ${String(n).padStart(3,'0')}</div><h1 id="lesson-title" tabindex="-1">${esc(l.title)}</h1><p class="meta">建议 ${l.minutes} 分钟，含自行练习 · 前置：${l.prerequisite.map(k=>`<a href="#lesson-${k}">第${k}课</a>`).join('、')||'无需前置'} · ${n<=30?'原基础教练保留':'新增中文专题课'}</p><div class="objective"><strong>学完这一课，你应能</strong><p>${esc(l.goal)}</p></div><section class="lessonpart"><h2>先把原理讲清楚</h2><p>${esc(l.explain)}</p><details class="answer"><summary>本单元贯穿项目与学习方法</summary><p>${esc(m.description)}</p><p>本单元最终交件：${esc(m.project)}。先完成本课最小练习，再把已验证部分合并到单元作业。每课都记录一个实际观察和一个仍不确定的问题；遇到缺少账号、设备或运行时，保留演练与NOT_RUN，不把猜测当成功。</p></details></section><section class="lessonpart"><h2>开始前准备</h2><p>${esc(l.prepare)}</p><p class="notice">课程内容基于 ${esc(data.version)} 隔离候选。180课与新增路线尚未因此自动进入你的安装包。查看本机 koder --version 和 koder help；这里的示例由你选择执行。</p></section><section class="lessonpart"><h2>示例与解读</h2><div class="codebox"><pre id="example-code">${esc(l.example)}</pre><button class="copy" id="copy-example">复制示例</button></div><p class="codehint">示例可能是命令、配置、伪代码或任务提示；先阅读说明。复制不会执行，OWNER/REPO、地址与路径须自行替换。</p><p>${esc(l.result)}</p><p>对照时先检查对象、输入和环境是否一致，再检查结果。结果不同先保留输出，不为了与教材一致而修改记录；示例是判断方法，实际回执才是执行证据。</p></section><section class="lessonpart hands-on"><h2>手把手操作</h2><ol>${l.steps.map(s=>`<li class="step"><strong>${esc(s.action)}</strong><div class="expected">应看到：${esc(s.expected)}</div><span class="small">在笔记写下实际看到什么；若不一致，记下第一处分歧再继续排查。</span></li>`).join('')}</ol><h3>常见问题与恢复</h3>${l.issues.map(x=>`<details class="answer"><summary>${esc(x.symptom)}</summary><p>${esc(x.recovery)}</p></details>`).join('')}</section><section class="lessonpart developer"><h2>开发者课堂</h2>${l.developer.split('\n').map(p=>`<p>${esc(p)}</p>`).join('')}<h3>实现与验证记录</h3><ol><li>接口：写明输入、输出、错误状态和权限检查位置。</li><li>正例：用本课最小样本验证预期结果，保存命令与退出码。</li><li>反例：选择本课常见问题中的一个，确认它会被正确拒绝或诊断。</li><li>回归：保留旧行为与断言，说明平台、账号、模型的未验范围。</li></ol></section><section class="lessonpart"><h2>课堂自测</h2><p>${esc(l.quiz.question)}</p><div class="quiz-options">${l.quiz.options.map((x,i)=>`<button type="button" data-option="${i}" aria-pressed="false">${'ABC'[i]}. ${esc(x)}</button>`).join('')}</div><p id="quiz-feedback" role="status" aria-live="polite">${e.quiz?'这道自测已有正确作答记录，可再次练习。':'选一项查看解释；这不会执行任何命令。'}</p><details class="answer"><summary>思考题：怎样证明你确实完成了这一课？</summary><p>${esc(l.answer)}</p><p>参考回答需要与自己的实际文件、日志或来源对应；直接复制答案不能替代实操。</p></details></section><section class="lessonpart"><h2>作业与自查</h2><p>${esc(l.exercise)}</p><div class="rubric"><strong>自评标准（每项0–2分，共10分）</strong><ol><li>产物：0无产物；1有草稿；2可打开或运行。</li><li>正确性：0未核对；1只测正常路径；2含边界或失败路径。</li><li>证据：0只有自述；1部分记录；2版本、步骤与结果可追溯。</li><li>范围：0混入未授权动作；1范围不清；2权限与未验项明确。</li><li>交接：0别人无法继续；1有部分说明；2入口、恢复与下一步清楚。</li></ol><p class="small">这是自评量表，不是认证成绩；没有实际环境的项目保留NOT_RUN。</p></div><details class="answer"><summary>展开参考验收</summary><p>${esc(l.answer)}</p></details><p><a href="../tutorial-labs/acceptance-template.md">验收模板</a> · <a href="../tutorial-labs/academy-labs.md">单元实验手册</a> · <a href="lessons/${String(n).padStart(3,'0')}.md" download>下载本课讲义</a></p></section><section class="lessonpart note-area"><h2>我的课堂笔记</h2><label for="note">记录关键认识、实际输出、问题与下一步（只在本浏览器保存，勿填密码或Key）</label><textarea id="note" maxlength="10000" placeholder="我实际完成了……\n证据在……\n还不确定……"></textarea><div class="toggles"><label><input id="mark-read" type="checkbox" ${e.read?'checked':''}> 已阅读本课</label><label><input id="mark-lab" type="checkbox" ${e.lab?'checked':''}> 我已完成并自查实操作业</label></div><p class="small">阅读、自测、实操分别统计，不因打开页面自动判定完成；浏览器进度不写入CLI配置。</p></section><section><h2>进一步查阅</h2><ul>${l.refs.map(f=>`<li><a href="../${esc(f)}">${esc(f)}</a></li>`).join('')}</ul>${n<=30?'<p>原有中英双语教练与四种Shell讲义仍在教材包中保留。</p>':'<p>本课为新增中文课程，未宣称已完成英文翻译。</p>'}</section>`;
- $('note').value=e.note;$('note').addEventListener('input',()=>{entry(n).note=$('note').value;persist();if($('filter').value==='notes')nav();});
- $('mark-read').addEventListener('change',()=>{entry(n).read=$('mark-read').checked;persist();nav();});$('mark-lab').addEventListener('change',()=>{entry(n).lab=$('mark-lab').checked;persist();});
- document.querySelectorAll('[data-option]').forEach(b=>b.addEventListener('click',()=>{const correct=Number(b.dataset.option)===l.quiz.answer;document.querySelectorAll('[data-option]').forEach(x=>{x.removeAttribute('data-result');x.setAttribute('aria-pressed',String(x===b));});b.dataset.result=correct?'right':'wrong';$('quiz-feedback').textContent=(correct?'回答正确。':'再想一想。')+l.quiz.explanation;if(correct){entry(n).quiz=true;persist();}}));
- $('copy-example').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(l.example);status('示例已复制；没有执行。请先检查占位符与授权。');}catch{const sel=window.getSelection(),range=document.createRange();range.selectNodeContents($('example-code'));sel.removeAllRanges();sel.addRange(range);status('剪贴板不可用，已选中示例，请使用系统复制快捷键。');}});
- $('prev').disabled=n===1;$('next').disabled=n===180;$('position').textContent=`${n} / 180`;
- document.title=`${String(n).padStart(3,'0')} ${l.title} · Koder课堂`;nav();if(focus)$('lesson-title').focus({preventScroll:false});
+ function matching(){return N.select(indexed,{query:$('search').value,filter:$('filter').value,module:$('module-filter').value,progress:state.lessons});}
+ function nav(followCurrent=false){
+  const matches=matching();
+  if(followCurrent)navPage=N.pageContaining(matches,current)||navPage;
+  const p=N.page(matches,navPage);navPage=p.page;
+  let previousModule=null;
+  $('course-nav').innerHTML=p.items.map(l=>{
+   const m=modules.get(l.module),heading=l.module!==previousModule?'<h2>'+esc(m.title)+'</h2>':'';
+   previousModule=l.module;
+   return heading+'<a href="#lesson-'+l.number+'" '+(l.number===current?'aria-current="page"':'')+'><span class="n">'+String(l.number).padStart(3,'0')+'</span>'+(state.lessons[l.number]?.read?'✓ ':'')+esc(l.title)+'</a>';
+  }).join('')||'<p>没有匹配课程，请换关键词或筛选条件。</p>';
+  $('searchcount').textContent='找到 '+p.total+' / '+total+' 课 · 当前显示 '+p.start+'–'+p.end;
+  $('nav-position').textContent='目录 '+p.page+' / '+p.pages+' 页';
+  $('nav-prev').disabled=p.page===1;$('nav-next').disabled=p.page===p.pages;
  }
- function navigate(n){location.hash='lesson-'+n;}
- function download(name,text){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type:'application/json;charset=utf-8'}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+ function quizMarkup(l,e){
+  if(l.quiz.mode==='self-check')return '<section class="lessonpart"><h2>课堂自测 · 人工自查</h2>'+paragraphs(l.quiz.question)+'<p class="notice">'+esc(l.quiz.grading)+'</p><details class="answer"><summary>写出自己的结果后，再展开参考与核对依据</summary>'+paragraphs(l.quiz.explanation)+'</details></section>';
+  return '<section class="lessonpart"><h2>课堂自测</h2>'+paragraphs(l.quiz.question)+'<div class="quiz-options">'+l.quiz.options.map((x,i)=>'<button type="button" data-option="'+i+'" aria-pressed="false">'+('ABC'[i])+'. '+esc(x)+'</button>').join('')+'</div><p id="quiz-feedback" role="status" aria-live="polite">'+(e.quiz?'这道自测已有正确作答记录，可再次练习。':'选一项查看解释；答对自测不会标记实操作业完成。')+'</p></section>';
+ }
+ function render(number,focus=false){
+  const n=N.number(number,total);if(n===null){status('课号应为 1–'+total+' 的整数。');return false;}
+  current=n;state.last=n;
+  const l=data.lessons[n-1],m=modules.get(l.module),e=entry(n);persist();
+  const lineage=l.baseNumber?'原第 <a href="#lesson-'+l.baseNumber+'">'+l.baseNumber+' 课</a> · 第 '+(l.stage+1)+' 个独立案例':n<=30?'原基础教练保留':'原专题课保留并增加补充讲解';
+  const parts=[
+   '<div class="eyebrow">UNIT '+String(m.id).padStart(2,'0')+' / LESSON '+String(n).padStart(3,'0')+'</div>',
+   '<h1 id="lesson-title" tabindex="-1">'+esc(l.title)+'</h1>',
+   '<p class="meta">建议 '+l.minutes+' 分钟，含自行练习 · 前置：'+(l.prerequisite.map(k=>'<a href="#lesson-'+k+'">第'+k+'课</a>').join('、')||'无需前置')+' · '+lineage+'</p>',
+   '<div class="objective"><strong>学完这一课，你应能</strong>'+paragraphs(l.goal)+'</div>',
+   '<section class="lessonpart"><h2>先把原理讲清楚</h2>'+paragraphs(l.explain)+'<details class="answer"><summary>本单元贯穿项目</summary>'+paragraphs(m.description)+'<p>单元交件：'+esc(m.project)+'</p></details></section>',
+   '<section class="lessonpart"><h2>开始前准备</h2>'+paragraphs(l.prepare)+'<p class="notice">教材与 '+esc(data.version)+' 源码配套。查看本机 koder --version 和 koder help，核对实际可用命令。阅读和复制示例不会执行操作。</p></section>',
+   '<section class="lessonpart"><h2>'+(l.input?'合成输入与示例':'示例与解读')+'</h2><div class="codebox"><pre id="example-code">'+esc(l.input||l.example)+'</pre><button class="copy" id="copy-example">'+(l.program?'复制 case.mjs 程序':'复制本课输入')+'</button></div><p class="codehint">先读输入说明。代码、配置、状态记录与写作素材各有用途；涉及占位路径或地址时，请按本课步骤替换。</p>'+(l.operation?'<h3>本课任务</h3>'+paragraphs(l.operation):'')+paragraphs(l.result)+'</section>',
+   '<section class="lessonpart hands-on"><h2>手把手操作</h2><ol>'+l.steps.map(s=>'<li class="step"><div class="step-action">'+esc(s.action)+'</div><div class="expected"><strong>应看到：</strong>'+esc(s.expected)+'</div>'+(s.why?'<div class="why"><strong>为什么：</strong>'+esc(s.why)+'</div>':'')+'</li>').join('')+'</ol><h3>常见问题与恢复</h3>'+l.issues.map(x=>'<details class="answer"><summary>'+esc(x.symptom)+'</summary>'+paragraphs(x.recovery)+'</details>').join('')+'</section>',
+   '<section class="lessonpart developer"><h2>开发者课堂</h2>'+paragraphs(l.developer)+'</section>',
+   quizMarkup(l,e),
+   '<section class="lessonpart"><h2>作业与自查</h2>'+paragraphs(l.exercise)+'<details class="answer"><summary>展开参考答案与验收</summary>'+paragraphs(l.answer)+'</details><p class="notice">'+esc(l.evidenceBoundary||'分别记录实际操作、合成演练与未验部分。教材答案不替代你自己的输出；真实账号、模型、设备和发布需另有实际证据。')+'</p>'+(l.deepLessons?'<p>继续本主题的九个独立案例：'+l.deepLessons.map(k=>'<a href="#lesson-'+k+'">第'+k+'课</a>').join(' · ')+'</p>':'')+'<p><a href="../tutorial-labs/acceptance-template.md">验收模板</a> · <a href="lessons/'+String(n).padStart(3,'0')+'.md" download>下载本课讲义</a></p></section>',
+   '<section class="lessonpart note-area"><h2>我的课堂笔记</h2><label for="note">记录关键认识、实际输出、问题与下一步（只在本浏览器保存，勿填密码或 Key）</label><textarea id="note" maxlength="10000" placeholder="我实际完成了……&#10;证据在……&#10;还不确定……"></textarea><div class="toggles"><label><input id="mark-read" type="checkbox" '+(e.read?'checked':'')+'> 已阅读本课</label><label><input id="mark-lab" type="checkbox" '+(e.lab?'checked':'')+'> 我已完成并自查实操作业</label></div><p class="small">阅读、自测、实操分别统计。打开课程不自动标记完成；浏览器记录不写入 CLI 配置。</p></section>',
+   '<section><h2>进一步查阅</h2><ul>'+l.refs.map(f=>'<li><a href="../'+esc(f)+'">'+esc(f)+'</a></li>').join('')+'</ul><p class="small">'+(n<=30?'原 30 课保留中英双语教练与四种 Shell 讲义。':'本课为中文课程，英文教材仍为原 30 课。')+'</p></section>'
+  ];
+  $('lesson').innerHTML=parts.join('');
+  $('note').value=e.note;
+  $('note').oninput=()=>{e.note=$('note').value;persist();if($('filter').value==='notes')nav();};
+  $('mark-read').onchange=()=>{e.read=$('mark-read').checked;persist();nav();};
+  $('mark-lab').onchange=()=>{e.lab=$('mark-lab').checked;persist();};
+  $('copy-example').onclick=async()=>{try{await navigator.clipboard.writeText(l.program||l.input||l.example);status('本课输入已复制，请按步骤选择使用。');}catch{status('当前环境无法自动复制，请选中示例文本复制。');}};
+  document.querySelectorAll('[data-option]').forEach(b=>b.onclick=()=>{
+   const correct=Number(b.dataset.option)===l.quiz.answer;
+   document.querySelectorAll('[data-option]').forEach(x=>{x.setAttribute('aria-pressed',String(x===b));delete x.dataset.result;});
+   b.dataset.result=correct?'right':'wrong';
+   $('quiz-feedback').textContent=(correct?'答对了。':'再想一想。')+l.quiz.explanation;
+   if(correct){e.quiz=true;persist();}
+  });
+  $('prev').disabled=n===1;$('next').disabled=n===total;$('position').textContent=n+' / '+total;
+  document.title='第 '+n+' 课 · '+l.title+' · Koder 课堂';
+  nav(true);if(focus)$('lesson-title').focus({preventScroll:false});
+  return true;
+ }
+ function navigate(value){
+  const n=N.number(value,total);
+  if(n===null){status('课号应为 1–'+total+' 的整数。');return false;}
+  if(location.hash==='#lesson-'+n)render(n,true);else location.hash='lesson-'+n;
+  return true;
+ }
+ function download(name,text){
+  const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type:'application/json;charset=utf-8'}));
+  a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ }
+ $('module-filter').innerHTML='<option value="all">全部单元</option>'+data.modules.map(m=>'<option value="'+m.id+'">'+m.id+'. '+esc(m.title)+'（'+m.start+'–'+m.end+'）</option>').join('');
  $('prev').onclick=()=>navigate(current-1);$('next').onclick=()=>navigate(current+1);$('resume').onclick=()=>navigate(state.last);
- $('search').oninput=nav;$('filter').onchange=nav;
- document.querySelectorAll('button[data-track]').forEach(b=>b.onclick=()=>{track=b.dataset.track;document.body.dataset.track=track;document.querySelectorAll('button[data-track]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));});
+ $('search').oninput=()=>{navPage=1;nav();};
+ for(const id of ['filter','module-filter'])$(id).onchange=()=>{navPage=1;nav();};
+ $('nav-prev').onclick=()=>{navPage--;nav();};$('nav-next').onclick=()=>{navPage++;nav();};
+ $('jump-form').onsubmit=e=>{e.preventDefault();navigate($('jump').value.trim());};
+ document.querySelectorAll('button[data-track]').forEach(b=>b.onclick=()=>{
+  document.body.dataset.track=b.dataset.track;
+  document.querySelectorAll('button[data-track]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+ });
  $('export').onclick=()=>download('koder-academy-progress.json',JSON.stringify(S.validate(state),null,2));
- $('import').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{if(f.size>2200000)throw Error('文件过大');const incoming=S.validate(JSON.parse(await f.text()));state=S.merge(state,incoming);persist();render(state.last);location.hash='lesson-'+state.last;status('已合并导入进度；不会执行文件中的任何命令。');}catch(err){status('导入失败：'+err.message);}finally{e.target.value='';}};
- $('clear').onclick=()=>{if(window.confirm('清除本浏览器的课堂进度与笔记？请先导出备份。此操作不影响CLI会话。')){state=S.blank();persist();render(1);location.hash='lesson-1';status('本浏览器课堂记录已清除。');}};
+ $('import').onchange=async e=>{
+  const f=e.target.files[0];if(!f)return;
+  try{
+   if(f.size>64*1024*1024)throw Error('文件超过 64 MiB');
+   const incoming=S.validate(JSON.parse(await f.text()));state=S.merge(state,incoming);persist();
+   render(state.last);location.hash='lesson-'+state.last;status('已合并导入进度；原有笔记和完成记录保留。');
+  }catch(err){status('导入失败：'+err.message);}finally{e.target.value='';}
+ };
+ $('clear').onclick=()=>{
+  if(window.confirm('清除本浏览器的课堂进度与笔记？请先导出备份。此操作不影响 CLI 会话。')){
+   state=S.blank();persist();render(1);location.hash='lesson-1';status('本浏览器课堂记录已清除。');
+  }
+ };
  $('print').onclick=()=>window.print();
- window.addEventListener('hashchange',()=>{const m=/^#lesson-(\d+)$/.exec(location.hash);render(m?Number(m[1]):state.last,true);});
- const match=/^#lesson-(\d+)$/.exec(location.hash);render(match?Number(match[1]):state.last);if(!loaded.persistent)status('浏览器存储不可用；笔记仍可编辑，请及时导出。');
+ function fromHash(focus=false){
+  const match=/^#lesson-([1-9]\d*)$/.exec(location.hash);
+  if(!location.hash)return render(state.last,focus);
+  if(location.hash==='#lesson')return render(state.last,true);
+  if(!match||N.number(match[1],total)===null){status('链接中的课号无效。可跳转至 1–'+total+' 课。');if(!$('lesson').children.length)render(state.last,focus);return;}
+  render(Number(match[1]),focus);
+ }
+ window.addEventListener('hashchange',()=>fromHash(true));fromHash();
+ if(!loaded.persistent)status('浏览器存储不可用；笔记仍可编辑，请及时导出。');
  window.__academy={getState:()=>S.validate(state),navigate,render};
 })();

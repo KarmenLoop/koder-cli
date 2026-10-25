@@ -14,7 +14,7 @@ koder skills show my-skill --path references/details.md
 koder run "Complete this task with the selected method" --skill my-skill
 ```
 
-Use an ID from the list when two packages have the same name. Koder reports `SKILL_AMBIGUOUS` rather than silently choosing one. Up to four explicit names or IDs can be comma-separated after `--skill`. Selection requires the Agent to read the method before applying it; it does not execute a script by itself. A known `$my-skill` token in a task also selects it. Use single quotes in PowerShell or Unix shells to preserve `$` literally.
+Use an ID from the list when two packages have the same name. Koder reports `SKILL_AMBIGUOUS` rather than silently choosing one. The current source has no four-selection total limit; separate explicit names or IDs after `--skill` with commas. A short metadata projection does not discard other selected methods, which remain accessible through paginated catalog and resource reads. Selection requires the Agent to read the method before applying it; it does not execute a script by itself. A known `$my-skill` token in a task also selects it. Use single quotes in PowerShell or Unix shells to preserve `$` literally.
 
 In the current chat:
 
@@ -77,7 +77,11 @@ Host-specific Hooks, forked subagents, scheduling, accounts, connectors, plugin 
 
 `allowed-tools` is preserved as source metadata; it neither grants permissions nor replaces Koder's tool restrictions. Koder does not emulate a source host's per-Skill permission policy. Ask remains read-only, explicit deny remains deny, and cancellation and execution receipts stay with the existing Core. Importing a Skill is not permission to install its dependencies or follow untrusted instructions.
 
-Discovery is bounded to 200 methods, 4,000 directory nodes and six package nesting levels. Manifests are capped at 256 KiB; metadata summaries have a fixed prompt budget. ZIP import permits at most 16 MiB compressed, 32 MiB unpacked, 512 files and 32 manifests. Resource reads are paginated. Limits produce diagnostics; unsupported host configuration is not executed.
+The current source no longer truncates discovery at 200 methods, 4,000 directory nodes, or six nesting levels, and has no four-selection or 32-manifest total limit. `skills list` returns 50 entries by default; use `--offset` and `--limit` to continue, with at most 200 entries per page. JSON results include `total` and `nextOffset`. Manifests retain their 256 KiB limit, and metadata summaries retain a prompt budget. Local ZIP import retains its 16 MiB compressed, 32 MiB unpacked, and 512-file safeguards. Resource reads are paginated; byte, path, and link checks still apply. Unsupported host configuration is not executed.
+
+## Find a missing method
+
+Search the local catalog first with `koder skills list --query "category" --json`. With the computer owner's `network` and `skills.update` grants, `koder skills seek "public category" --json` finds candidates. Fetch using the returned full ID and pinned 40-character commit: `koder skills fetch <id> --ref <ref>`, then read with `skills show <installed-id>`. Downloaded resources remain inert. Original tools and approvals still govern the unfinished task. See [task orchestration](TASK-ORCHESTRATION.en.md) for the complete workflow, diagnostics, and acceptance boundaries.
 
 ## Verification and troubleshooting
 

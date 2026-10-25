@@ -1,0 +1,69 @@
+{
+  "version": "0.4.15",
+  "runtime": {
+    "file": "koder-cli-0.4.15.tgz",
+    "bytes": 154499752,
+    "sha256": "be9d464d2af47c2c8855ca3c5d208158a43a2f7f6c0fc9e0829dce4827a4c6df"
+  },
+  "sourceCommit": "9b01b3dc67714bf861249e601395262b815ed035",
+  "sourceChecks": [
+    {
+      "log": "orchestration-regression-v1.log",
+      "passed": 144,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    {
+      "log": "subagent-boundaries-review-final.tap",
+      "passed": 6,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    {
+      "log": "bundle-classroom-final.tap",
+      "passed": 31,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    {
+      "log": "installer-regression-0.4.15-fixed.tap",
+      "passed": 7,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    {
+      "log": "packaged-runtime-regression.tap",
+      "passed": 34,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  ],
+  "packageCheck": {
+    "passed": true,
+    "kernelHashes": 5947,
+    "kernelMatchesSource": true,
+    "sourceDocsFiles": 2530
+  },
+  "isolatedMacUpgrade": {
+    "passed": true,
+    "from": "0.4.14",
+    "to": "0.4.15",
+    "origin": "http://127.0.0.1:53594",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 7
+  },
+  "notRun": [
+    "Native Windows 10/11 cold installation, PowerShell 5.1, ConPTY/IME",
+    "Windows-MCP GUI actions",
+    "Real provider quality and 180 concurrent paid model jobs",
+    "Real mail/GitHub account effects",
+    "All 1800 practical course exercises"
+  ],
+  "history": "Earlier missing-module installation failure and prior fixture failures are retained in the local evidence directory; subsequent passes do not erase them."
+}

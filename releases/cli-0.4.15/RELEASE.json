@@ -1,0 +1,46 @@
+{
+  "version": "0.4.15",
+  "file": "koder-cli-0.4.15.tgz",
+  "sha256": "be9d464d2af47c2c8855ca3c5d208158a43a2f7f6c0fc9e0829dce4827a4c6df",
+  "size": 154499752,
+  "node": "^22.21.0 || >=24.0.0",
+  "builtAt": "2026-10-25T23:09:13.176Z",
+  "preview": false,
+  "agreement": {
+    "id": "Koder-EULA-1.1",
+    "version": "1.1",
+    "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+  },
+  "installers": {
+    "sh": {
+      "file": "koder-cli.sh",
+      "sha256": "3b223bfd2955f171acf1418ac5fa4c3f5854496e047caa9d8d949218a1009024"
+    },
+    "ps1": {
+      "file": "koder-cli.ps1",
+      "sha256": "b435b96ca43e859bf6bb615dee38069fef32ac13c5437cbb2940d682beab65e2"
+    },
+    "cmd": {
+      "file": "koder-cli.cmd",
+      "sha256": "e69933e144eef15c0557ebbc9dea7d2b4b1ea4ee870ee90d3ad8417fc35c5131"
+    }
+  },
+  "channel": "stable",
+  "sourceBaseline": "0.4.14",
+  "privateSourceCommit": "9b01b3dc67714bf861249e601395262b815ed035",
+  "changes": [
+    "Unlimited task rounds by default; cancellation and optional shared cash budgets",
+    "Tool-enabled subagents and approved Skill retrieval",
+    "1800 Chinese classroom lessons with original 180 retained"
+  ],
+  "courseStatus": {
+    "zh": 1800,
+    "en": 30,
+    "originalZhRetained": 180
+  },
+  "retainedLimits": [
+    "Windows 10/11 native cold installation and MCP GUI NOT_RUN",
+    "Real-provider quality, 180 paid concurrent jobs and external-account actions NOT_RUN"
+  ],
+  "publicationAuthorization": "Direct user request to publish Windows, macOS, GitHub and official site"
+}

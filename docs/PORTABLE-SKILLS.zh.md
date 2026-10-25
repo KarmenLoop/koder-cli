@@ -13,7 +13,7 @@ koder skills show my-skill --path references/details.md
 koder run "按所选方法完成这个任务" --skill my-skill
 ```
 
-把 `my-skill` 换成列表里的名称。同名包不会合并：使用列表里的完整 `local:...` ID 选择，避免读错。`--skill` 最多指定四项，用英文逗号分隔。指定后 Agent 先读取方法，再根据当前任务执行；指定本身不运行脚本。
+把 `my-skill` 换成列表里的名称。同名包不会合并：使用列表里的完整 `local:...` ID 选择，避免读错。当前源码的 `--skill` 没有四项总数上限，多项用英文逗号分隔。指定后 Agent 先读取方法，再根据当前任务执行；指定本身不运行脚本。有限的目录摘要不表示其他已选择的方法被删除，可用目录和正文分页读取。
 
 也可在任务里写已发现的 `$my-skill`。PowerShell、macOS 和 Linux 命令行中用单引号包住任务，防止 Shell 提前展开 `$`；CMD 直接用双引号即可。
 
@@ -74,7 +74,11 @@ koder skills enable local:列表里的完整ID
 
 `allowed-tools` 作为来源信息保留，不扩大权限，也不模拟原宿主独立的每 Skill 权限策略。Ask 仍只读，明确拒绝仍拒绝，工具执行与收据仍归原 Core。Skill 是工作说明书，不是管理员通行证。
 
-发现范围上限为 200 个方法、4,000 个目录节点、六层分类。清单上限 256 KiB；ZIP 最大压缩 16 MiB、解压 32 MiB、512 文件、32 个清单。文本资源分页读取，不支持的内容保留诊断。
+当前源码不再按 200 个方法、4,000 个目录节点或六层分类截断发现结果，也不设四项选择或 32 个清单总数限制。`skills list` 默认一页 50 项，可用 `--offset` 和 `--limit` 接续，单页最多 200 项；`--json` 返回 `total` 和 `nextOffset`。清单上限 256 KiB；本地 ZIP 导入仍保留压缩 16 MiB、解压 32 MiB 和 512 文件保护。文本资源分页读取，路径、符号链接和字节检查继续生效，不支持的内容保留诊断。
+
+## 遇到缺失方法时
+
+先搜索本机 `koder skills list --query "类别" --json`。在电脑 owner 批准 `network` 和 `skills.update` 后，`koder skills seek "公开类别" --json` 可查候选；用其完整 ID 和固定 40 位提交 `ref` 执行 `koder skills fetch <id> --ref <ref>`，再用 `skills show <安装后ID>` 阅读。资源保持未执行，接下来仍由原工具、原审批处理原任务。完整步骤、错误处理和验收边界见[任务编排指南](TASK-ORCHESTRATION.zh.md)。
 
 ## 验证范围
 

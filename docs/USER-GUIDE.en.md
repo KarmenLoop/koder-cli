@@ -2,7 +2,7 @@
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current release: **0.4.14**. Start with [release changes](RELEASE-0.4.13.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current release: **0.4.15**. Start with [release changes](RELEASE-0.4.15.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
@@ -10,7 +10,7 @@ This release includes default-on [Headroom context optimization](HEADROOM.en.md)
 
 # Koder CLI complete user guide
 
-Version: **0.4.14**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.4.15**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -180,14 +180,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.4.14-en-cmd.txt](tutorials/koder-cli-0.4.14-en-cmd.txt)
-- [koder-cli-0.4.14-en-linux.txt](tutorials/koder-cli-0.4.14-en-linux.txt)
-- [koder-cli-0.4.14-en-mac.txt](tutorials/koder-cli-0.4.14-en-mac.txt)
-- [koder-cli-0.4.14-en-powershell.txt](tutorials/koder-cli-0.4.14-en-powershell.txt)
-- [koder-cli-0.4.14-zh-cmd.txt](tutorials/koder-cli-0.4.14-zh-cmd.txt)
-- [koder-cli-0.4.14-zh-linux.txt](tutorials/koder-cli-0.4.14-zh-linux.txt)
-- [koder-cli-0.4.14-zh-mac.txt](tutorials/koder-cli-0.4.14-zh-mac.txt)
-- [koder-cli-0.4.14-zh-powershell.txt](tutorials/koder-cli-0.4.14-zh-powershell.txt)
+- [koder-cli-0.4.15-en-cmd.txt](tutorials/koder-cli-0.4.15-en-cmd.txt)
+- [koder-cli-0.4.15-en-linux.txt](tutorials/koder-cli-0.4.15-en-linux.txt)
+- [koder-cli-0.4.15-en-mac.txt](tutorials/koder-cli-0.4.15-en-mac.txt)
+- [koder-cli-0.4.15-en-powershell.txt](tutorials/koder-cli-0.4.15-en-powershell.txt)
+- [koder-cli-0.4.15-zh-cmd.txt](tutorials/koder-cli-0.4.15-zh-cmd.txt)
+- [koder-cli-0.4.15-zh-linux.txt](tutorials/koder-cli-0.4.15-zh-linux.txt)
+- [koder-cli-0.4.15-zh-mac.txt](tutorials/koder-cli-0.4.15-zh-mac.txt)
+- [koder-cli-0.4.15-zh-powershell.txt](tutorials/koder-cli-0.4.15-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
@@ -226,15 +226,15 @@ Read [Windows-MCP and Code Graph setup](MCP-INTEGRATIONS.en.md) for current-term
 
 Use `koder skills list` and `/skill` for portable methods. Add input while the agent works; Setup selects steer or queue. Use `/harness deep-research` for research, or `koder harness off` for baseline behavior. App operations keep existing grants and driver limits. Missing persistent experience owners produce NO_ENTRY.
 
-[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.13.md)
+[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.15.md)
 
 ## Residency and mail inquiries
 
-After installation, verify `koder --version` reports 0.4.13, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
+After installation, verify `koder --version` reports 0.4.15, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
 
 Bind mail in Setup using masked authorization-code input. Separately enable `/mail model on` and `/mail inquire on` with their consent phrases. Related incoming mail can offer choices; a choice creates a draft, and sending still requires final preview and confirmation. Background mail checks also require mail visibility in resident settings. Advertisements and verification codes are excluded from inquiries.
 
-[Complete resident guide](ALWAYS-ON.en.md) · [Complete mail guide](MAIL-PROACTIVE-INQUIRY.en.md) · [Changes and unverified paths](RELEASE-0.4.13.md). All 30 lessons and eight text editions remain; start with `koder learn`.
+[Complete resident guide](ALWAYS-ON.en.md) · [Complete mail guide](MAIL-PROACTIVE-INQUIRY.en.md) · [Changes and unverified paths](RELEASE-0.4.15.md). All 30 lessons and eight text editions remain; start with `koder learn`.
 
 ## Existing workflow guides
 
@@ -245,7 +245,7 @@ Bind mail in Setup using masked authorization-code input. Separately enable `/ma
 
 ## MCP and Skill compatibility
 
-[Catalog, switches, dependency checks and transport setup](MCP-SKILL-COMPATIBILITY.en.md) · [Inventory](MCP-SKILL-INVENTORY.md) · [0.4.13 changes](RELEASE-0.4.13.md).
+[Catalog, switches, dependency checks and transport setup](MCP-SKILL-COMPATIBILITY.en.md) · [Inventory](MCP-SKILL-INVENTORY.md) · [0.4.15 changes](RELEASE-0.4.15.md).
 
 
 Model updates: Setup → Model supports automatic discovery, manual refresh and an off switch. [Complete guide](MODEL-DISCOVERY.en.md).
@@ -266,9 +266,9 @@ Run koder github connect, or choose Setup → Apps / MCP → GitHub. Bind your o
 
 ## Move devices and learn
 
-Run `koder migrate` or use Setup. Follow the [migration guide](DEVICE-MIGRATION.en.md), verify the imported profile, then reconnect accounts. Open the [180-lesson Chinese classroom](courses/index.zh.html) for hands-on and developer tracks; the original 30 English lessons remain available. Browser notes can be exported.
+Run `koder migrate` or use Setup. Follow the [migration guide](DEVICE-MIGRATION.en.md), verify the imported profile, then reconnect accounts. Open the [1,800-lesson Chinese classroom](courses/index.zh.html) for hands-on and developer tracks; the original 30 English lessons remain available. Browser notes can be exported.
 
 
-## 0.4.13: compact input and session Todo
+## 0.4.15: compact input and session Todo
 
 The default dock uses two rows, or three with a Todo summary. Keep typing while work runs; Enter uses the selected steer/queue mode. Ctrl+T expands Todo, `/todo` prints the full list, and `/help` opens shortcuts. Press `/` in empty input and Tab to fill a draft. Adjust the footer in Setup → Session interface and apply changes with `/reload-tui`. [User and developer guide](SESSION-DOCK.en.md).
