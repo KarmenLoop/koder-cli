@@ -135,6 +135,21 @@ koder harness budget 1 USD "YOUR_CHILD_MODEL_ID" 1 4
 
 用 `ids` 固定一个子任务，再用 `receiptOffset` 和 `receiptLimit:1` 定位某条长回执，按其 `nextContentOffset` 继续读；`null` 表示该部分已读完。这些是模型工具参数，`/subagents status [page]` 只提供状态列表分页。收集已释放结果仍可回读，不会重复工具操作。
 
+### 0.4.16：计划交接与独立查询
+
+委派时提供 `todoIds:["a"]`，子任务会得到 a 的完整计划项，而不只是一个标签。分配集合内部的依赖保留；集合外的前置项必须已 completed，作为前置计划信息传入，不能当作执行证据。重复分配尚未释放的项目返回 `SUBAGENT_TODO_CONFLICT`，前置未就绪返回 `SUBAGENT_TODO_BLOCKED`。父 Todo 的负责人变为 `sub:<id>`，状态不会随着子任务自报完成而自动完成。
+
+收集工具增加 `todoOffset`、`todoLimit`，每项返回 `todoTotal`、`nextTodoOffset`。默认每页 20 项；保留完整计划，按游标取下一页。
+
+另开终端只读查看已保存的同项目、同会话检查点：
+
+```sh
+koder subagents status -w "/path/to/project" --session default --json
+koder subagents status -w "/path/to/project" --session default --offset 20 --limit 20 --json
+```
+
+请替换路径和会话名。输出 `source:saved-checkpoint`、`live:false`；保存的 running 状态显示 unconfirmed，不能据此判断进程存活。命令不抢占原窗口、不执行任务、不取消。实时操作请回到原聊天运行 `/subagents status` 或 `/subagents cancel <id>`。
+
 ## 实操三：缺 Skill 时查找、固定版本、学习再继续
 
 先用现有本机目录：
@@ -162,7 +177,9 @@ koder skills show "INSTALLED_ID_FROM_FETCH" --json
 
 Agent 路径对应 `skill_seek → skill_fetch → skill_read → 重试原来尚未完成的一步`。先读 `SKILL.md` 及相关资源，再用当前真实工具和原审批执行。下载内容是来源资料，不能授权新账号、扩大工具范围、覆盖用户限制或解除 UNKNOWN。
 
-若缺的是 CLI，`tool_seek` 可查询公开候选；核对官方固定版本说明、许可证、命令与目标目录后，`tool_bootstrap` 沿用原 shell 审批、等待和取消流程。工作区外目标还要电脑写入范围授权；审批返回后再次检查授权。`--yes` 不绕过 `network`、`skills.update` 或电脑 owner 的拒绝。权限拒绝、取消或来源问题应报告实际卡点。
+若缺的是 CLI，先运行 `koder tools seek node --local --json` 练习本机发现；再把 node 换成真实命令名。`local.found` 只表示找到文件，`runtimeVerified:false`、`executed:false` 表示未执行验证。多词公开查询可用 `koder tools seek "PDF processing" --command pdftotext --json`：先找指定命令，未找到才走原网络授权。无明确命令名时 `local.checked:false`，不能声称本机不存在相关工具。
+
+聊天中可用 `/tools seek`，`/skill seek` 与 `/skills seek` 均可用；`fetch` 后技能目录会刷新。`tool_seek` 可查询公开候选；核对官方固定版本说明、许可证、命令与目标目录后，`tool_bootstrap` 沿用原 shell 审批、等待和取消流程。工作区外目标还要电脑写入范围授权；审批返回后再次检查授权。`--yes` 不绕过 `network`、`skills.update` 或电脑 owner 的拒绝。权限拒绝、取消或来源问题应报告实际卡点。
 
 Agent 的自寻工具连续三次使用相同参数、得到相同错误且没有新信息时，下一次相同尝试返回 `SELF_FETCH_NEEDS_DECISION`。可改用有依据的新候选/参数，或由用户明确要求“继续找”。这是重复失败保护，不是整项任务只能尝试三次；明确继续也不会解除权限、金额预算或 UNKNOWN 保护。
 
@@ -197,3 +214,7 @@ node --test koder-cli/test/self-fetch.test.mjs koder-cli/test/subagents.test.mjs
 ```
 
 Windows 原生终端、macOS 原生交互、真实模型自主规划质量、生产费用准确性、真实账号效果和线上发布仍需分别验收。本指南不把源码、夹具或本地 IPC 结果算作这些项目的通过。
+
+## 0.4.16 接线回归
+
+本轮 139/139 源码检查通过；包含实际子 Core 接收 Todo、读写指定文件和回传计划，以及持有原会话锁时的只读检查点查询。参见[保留清单与证据](ORCHESTRATION-ACCEPTANCE.md)。历史回归与失败保持原记录。

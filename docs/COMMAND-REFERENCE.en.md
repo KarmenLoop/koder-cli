@@ -1,11 +1,11 @@
 # Complete command reference
 
-Koder CLI 0.4.13 · 30 interactive lessons
+Koder CLI 0.4.16 · 1,800 Chinese lessons; original 30 English lessons
 
-Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md)
+Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md) · [Task orchestration](TASK-ORCHESTRATION.en.md)
 
 ```text
-KODER CLI 0.4.13
+KODER CLI 0.4.16
 A lightweight terminal coding agent
 
 Usage
@@ -42,6 +42,11 @@ Toolchain and local projects
   gateway  Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp
 
 Setup and help
+  tools    Check local tools before searching public candidates
+  subagentsInspect saved subagent checkpoints for a workspace session
+  notificationsTask notifications, tests and receipts
+  open     Open the original session from a notification
+  cli-anythingDiscover, register and approve local app CLIs
   migrate  Move projects, preferences and local history between devices
   logs     Inspect local runtime diagnostics
   activate Enable the local user agent
@@ -74,7 +79,7 @@ Setup and help
   lang     Switch between Chinese and English
   theme    Switch the website's dark or light palette
   help     Show help
-  learn    180-lesson interactive tutorial in a practice project
+  learn    1800-lesson interactive tutorial in a practice project
   doctor   Check environment, model and startup time
   banner   Show the prism banner
   version  Show the version and the official updates page
@@ -98,6 +103,71 @@ Global options
   -h, --help                Show help for the command
 
 koder help <command> for details; koder learn for the tutorial; koder lang zh for Chinese.
+```
+
+## tools
+
+```text
+koder tools  Check local tools before searching public candidates
+
+Usage
+  koder tools seek <public query> [--command executable-name] [--local] [--page N] [--json]
+
+Reads PATH metadata without executing files. A local match skips remote search; --local always stays local. Remote searches require network permission; task installations use tool_bootstrap and existing approvals.
+
+Global options: koder help.
+```
+
+## subagents
+
+```text
+koder subagents  Inspect saved subagent checkpoints for a workspace session
+
+Usage
+  koder subagents status [--session name] [-w workspace] [--thread ID] [--offset N] [--limit N] [--json]
+
+Reads the original session store without resuming or replaying work. A saved running state is reported as unconfirmed. Use /subagents status|cancel in the original chat for live controls.
+
+Global options: koder help.
+```
+
+## notifications
+
+```text
+koder notifications  Task notifications, tests and receipts
+
+Usage
+  koder notifications status | test task-done | task-done on|off | flush | register
+
+Short interactive replies stay quiet. Long tasks, failures and actual input requests follow your settings. Tests call the native adapter; submitted means submitted, not visibly displayed. Register explicitly adds the current-user continuation handler on Windows. Setup → Task notifications controls the threshold and quiet hours.
+
+Global options: koder help.
+```
+
+## open
+
+```text
+koder open  Open the original session from a notification
+
+Usage
+  koder open <opaque-token>
+
+Checks the current account, original workspace and persisted session. Opens chat without submitting a message or replaying a task.
+
+Global options: koder help.
+```
+
+## cli-anything
+
+```text
+koder cli-anything  Discover, register and approve local app CLIs
+
+Usage
+  koder cli-anything catalog [query] | register <manifest> | list | inspect <id> | invoke <id> [-- args...] | install <id> [--yes]
+
+Pinned catalog entries are not installed apps. Register workspace executables; execution uses the existing command approval and process receipts.
+
+Global options: koder help.
 ```
 
 ## migrate
@@ -198,7 +268,7 @@ Global options: koder help.
 koder harness  Choose a task harness
 
 Usage
-  koder harness status|list|on|off|use <id|auto>|default <id>|archive <on|off>
+  koder harness status|list|on|off|use <id|auto>|default <id>|archive <on|off>|steps <unlimited|N>|budget <amount> <USD|CNY> <model> <input-per-million> <output-per-million>|budget off
 
 Reuses existing tools, budgets, permissions and experience ports. Setup → Skills → Task harness. Disabling restores baseline ReAct.
 
@@ -1065,7 +1135,7 @@ Global options: koder help.
 ## learn
 
 ```text
-koder learn  180-lesson interactive tutorial in a practice project
+koder learn  1800-lesson interactive tutorial in a practice project
 Aliases: 教程, 教学
 
 Usage

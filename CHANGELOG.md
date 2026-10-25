@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.16 — 2026-10-26
+
+Check local executables before remote discovery, pass assigned Todo plans to child execution, expose paged child plans and read-only checkpoint status, and refresh fetched Skills in chat. Preserve unlimited task rounds, cancellation and shared optional budgets. [Changes and verification scope](docs/RELEASE-0.4.16.md).
+
 ## 0.4.15 — 2026-10-26
 
 Remove the default task-round limit while retaining cancellation, approvals and optional cash budgets. Add tool-enabled subagents, approved Skill retrieval and a 1,800-lesson Chinese classroom. [Changes and verification scope](docs/RELEASE-0.4.15.md).

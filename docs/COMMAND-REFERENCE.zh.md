@@ -1,11 +1,11 @@
 # 完整命令参考
 
-Koder CLI 0.4.13 · 180 课互动教程
+Koder CLI 0.4.16 · 1800 课中文课堂；原 30 课英文教程
 
-根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md)
+根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md) · [长任务与子任务操作](TASK-ORCHESTRATION.zh.md)
 
 ```text
-KODER CLI 0.4.13
+KODER CLI 0.4.16
 轻量即用的终端编程代理
 
 用法
@@ -42,6 +42,11 @@ KODER CLI 0.4.13
   gateway  一键接入飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp  网关、接入
 
 设置与帮助
+  tools    先查本机工具，再找公开候选
+  subagents查看当前项目会话的子 Agent 检查点
+  notifications任务完成通知、测试与回执
+  open     用通知编号打开原会话
+  cli-anything发现、注册并审批调用本机应用 CLI
   migrate  加密迁移项目、配置与本地历史  migration、迁移
   logs     查看本机运行日志
   activate 显式开启用户级常驻
@@ -74,7 +79,7 @@ KODER CLI 0.4.13
   lang     切换中文或英文  语言
   theme    切换官网深色或浅色配色  主题
   help     查看命令说明  帮助
-  learn    180 课互动教程：在练习场里边学边动手  教程、教学
+  learn    1800 课互动教程：在练习场里边学边动手  教程、教学
   doctor   检查环境、模型和启动耗时  体检
   banner   显示折光体开屏  开屏
   version  显示版本，以及官网更新页  版本
@@ -98,6 +103,71 @@ KODER CLI 0.4.13
   -h, --help                显示该命令的说明
 
 koder help <命令> 看详细说明；koder learn 跟着教程走；koder lang en 切换英文。
+```
+
+## tools
+
+```text
+koder tools  先查本机工具，再找公开候选
+
+用法
+  koder tools seek <public query> [--command executable-name] [--local] [--page N] [--json]
+
+只读检查 PATH，不执行文件。找到本机工具时默认不联网；--local 仅查本机。远程搜索仍需 network；安装由任务中的 tool_bootstrap 走原审批。
+
+通用选项见 koder help。
+```
+
+## subagents
+
+```text
+koder subagents  查看当前项目会话的子 Agent 检查点
+
+用法
+  koder subagents status [--session name] [-w workspace] [--thread ID] [--offset N] [--limit N] [--json]
+
+读取原会话存储，不恢复或重做任务。检查点中的 running 只显示为 unconfirmed；实时状态和取消在原聊天使用 /subagents status|cancel。
+
+通用选项见 koder help。
+```
+
+## notifications
+
+```text
+koder notifications  任务完成通知、测试与回执
+
+用法
+  koder notifications status | test task-done | task-done on|off | flush | register
+
+短对话默认安静；长任务、失败与真实待确认按设置提醒。测试实际调用系统适配器；submitted 只证明已提交。register 仅在 Windows 显式注册本用户继续会话入口。Setup → 任务完成提醒可调整阈值和安静时段。
+
+通用选项见 koder help。
+```
+
+## open
+
+```text
+koder open  用通知编号打开原会话
+
+用法
+  koder open <opaque-token>
+
+核实当前账号、原项目和原会话后打开；不自动发送消息或重做任务。
+
+通用选项见 koder help。
+```
+
+## cli-anything
+
+```text
+koder cli-anything  发现、注册并审批调用本机应用 CLI
+
+用法
+  koder cli-anything catalog [query] | register <manifest> | list | inspect <id> | invoke <id> [-- args...] | install <id> [--yes]
+
+固定上游目录不代表已安装。只注册工作区内的可执行文件；执行复用原命令审批和进程回执。
+
+通用选项见 koder help。
 ```
 
 ## migrate
@@ -198,7 +268,7 @@ koder agentd  常驻诊断与主动提醒设置
 koder harness  按任务选配执行配置
 
 用法
-  koder harness status|list|on|off|use <id|auto>|default <id>|archive <on|off>
+  koder harness status|list|on|off|use <id|auto>|default <id>|archive <on|off>|steps <unlimited|N>|budget <amount> <USD|CNY> <model> <input-per-million> <output-per-million>|budget off
 
 复用原工具、预算、权限与经验接口；Setup → 技能 → 任务 Harness。关闭时保持默认 ReAct。
 
@@ -1065,7 +1135,7 @@ koder help  查看命令说明
 ## learn
 
 ```text
-koder learn  180 课互动教程：在练习场里边学边动手
+koder learn  1800 课互动教程：在练习场里边学边动手
 别名: 教程, 教学
 
 用法

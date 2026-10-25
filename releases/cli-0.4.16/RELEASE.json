@@ -1,0 +1,46 @@
+{
+  "version": "0.4.16",
+  "file": "koder-cli-0.4.16.tgz",
+  "sha256": "d49a0a7e6ef754111e73acb1453ecc34c48d6cf71a0fe09a4e541bc310ce3b88",
+  "size": 170059241,
+  "node": "^22.21.0 || >=24.0.0",
+  "builtAt": "2026-10-25T23:55:35.327Z",
+  "preview": false,
+  "agreement": {
+    "id": "Koder-EULA-1.1",
+    "version": "1.1",
+    "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
+  },
+  "installers": {
+    "sh": {
+      "file": "koder-cli.sh",
+      "sha256": "3b223bfd2955f171acf1418ac5fa4c3f5854496e047caa9d8d949218a1009024"
+    },
+    "ps1": {
+      "file": "koder-cli.ps1",
+      "sha256": "b435b96ca43e859bf6bb615dee38069fef32ac13c5437cbb2940d682beab65e2"
+    },
+    "cmd": {
+      "file": "koder-cli.cmd",
+      "sha256": "e69933e144eef15c0557ebbc9dea7d2b4b1ea4ee870ee90d3ad8417fc35c5131"
+    }
+  },
+  "channel": "stable",
+  "sourceBaseline": "0.4.15",
+  "privateSourceCommit": "3b23caf8e8770a80eaac1b725d329edd908b358f",
+  "changes": [
+    "Local executable lookup before remote discovery",
+    "Assigned child Todo plans and paged collection",
+    "Checkpoint-only subagent status and Skill command integration"
+  ],
+  "courseStatus": {
+    "zh": 1800,
+    "en": 30,
+    "originalZhRetained": 180
+  },
+  "retainedLimits": [
+    "Windows 10/11 native cold installation and MCP GUI NOT_RUN",
+    "Real-provider quality, 180 paid concurrent jobs and external-account actions NOT_RUN"
+  ],
+  "publicationAuthorization": "Direct user request to update GitHub and the official site"
+}

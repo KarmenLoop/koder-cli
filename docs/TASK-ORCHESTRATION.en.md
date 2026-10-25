@@ -191,3 +191,13 @@ node --test koder-cli/test/self-fetch.test.mjs koder-cli/test/subagents.test.mjs
 ```
 
 Native Windows terminals, native macOS interaction, autonomous planning quality, production billing accuracy, real-account effects, and public deployment require separate acceptance. Source, fixture, and local IPC results do not establish those outcomes.
+
+## Added in 0.4.16: local discovery and plan handoff
+
+`koder tools seek node --local --json` checks local executable metadata without a network request or execution. Replace `node` with the command you need. For a multiword query, use `koder tools seek "PDF processing" --command pdftotext --json`; a missing local executable follows the existing network-authorization path. `runtimeVerified:false` distinguishes file presence from a successful tool invocation. Without a specific command, `local.checked:false` does not claim that no relevant tools are installed.
+
+Children assigned `todoIds` receive the selected plan items and internal dependencies. External prerequisites must be completed and are supplied as plan metadata, not execution proof. Duplicate active assignment returns `SUBAGENT_TODO_CONFLICT`; unfinished prerequisites return `SUBAGENT_TODO_BLOCKED`. The parent's assignee changes, but its completion status requires parent verification. Collection accepts `todoOffset` and `todoLimit`, returning `todoTotal` and `nextTodoOffset` without dropping the full saved plan.
+
+Use `koder subagents status -w "/path/to/project" --session default --json` from a separate terminal to inspect saved state. It does not claim the session lock or run children. `source:saved-checkpoint`, `live:false` and `unconfirmed` distinguish saved running entries from actual liveness. Use `/subagents status` and `/subagents cancel <id>` in the original chat for current operations. Status pages accept `--offset` and `--limit`.
+
+`/skill seek` and `/skills seek` both route to discovery; fetching refreshes the chat library. The 0.4.16 source suite passed 139 checks, including child plan handoff and checkpoint reads while another owner holds the conversation lease. See the [verification matrix](ORCHESTRATION-ACCEPTANCE.md) for retained platform limits.

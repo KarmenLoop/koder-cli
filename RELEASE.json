@@ -1,10 +1,10 @@
 {
-  "version": "0.4.15",
-  "file": "koder-cli-0.4.15.tgz",
-  "sha256": "be9d464d2af47c2c8855ca3c5d208158a43a2f7f6c0fc9e0829dce4827a4c6df",
-  "size": 154499752,
+  "version": "0.4.16",
+  "file": "koder-cli-0.4.16.tgz",
+  "sha256": "d49a0a7e6ef754111e73acb1453ecc34c48d6cf71a0fe09a4e541bc310ce3b88",
+  "size": 170059241,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-25T23:09:13.176Z",
+  "builtAt": "2026-10-25T23:55:35.327Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -26,12 +26,12 @@
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.4.14",
-  "privateSourceCommit": "9b01b3dc67714bf861249e601395262b815ed035",
+  "sourceBaseline": "0.4.15",
+  "privateSourceCommit": "3b23caf8e8770a80eaac1b725d329edd908b358f",
   "changes": [
-    "Unlimited task rounds by default; cancellation and optional shared cash budgets",
-    "Tool-enabled subagents and approved Skill retrieval",
-    "1800 Chinese classroom lessons with original 180 retained"
+    "Local executable lookup before remote discovery",
+    "Assigned child Todo plans and paged collection",
+    "Checkpoint-only subagent status and Skill command integration"
   ],
   "courseStatus": {
     "zh": 1800,
@@ -42,5 +42,5 @@
     "Windows 10/11 native cold installation and MCP GUI NOT_RUN",
     "Real-provider quality, 180 paid concurrent jobs and external-account actions NOT_RUN"
   ],
-  "publicationAuthorization": "Direct user request to publish Windows, macOS, GitHub and official site"
+  "publicationAuthorization": "Direct user request to update GitHub and the official site"
 }
