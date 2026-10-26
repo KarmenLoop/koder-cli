@@ -1,4 +1,4 @@
-> 0.4.23 默认接入网站设计与跨平台开发 Skill，新增持续项目锚点，支持新站、改版和旧站修复。[更新说明](docs/RELEASE-0.4.23.zh.md)。
+> 0.4.24 内置 PageIndex 文档目录、PDF 原文回读与引用核验，默认沿现有模型自动调度。[更新说明](docs/RELEASE-0.4.24.zh.md)。
 
 [从这里开始：安装、更新与全部功能教程](docs/START-HERE.zh.md)
 
@@ -576,3 +576,8 @@ KARMENLOOP 官方团队 · 中国上海 · [karmenloop.com](https://karmenloop.c
 ## 网站项目与标准锚点 · 0.4.23
 
 默认通过 Fullstack Web Delivery 了解需求，再围绕稳定项目方向实施、测试和预览。新项目单独建目录；旧站修复保留原目录、编号与已知需求。改变中心思想先列出差异，根据真实用户决定后通过原审批保存。Setup 可单独关闭。[中文手把手教程](docs/WEBSITE-PROJECTS.zh.md) · [English](docs/WEBSITE-PROJECTS.en.md)。
+
+
+## 文档问答 · 0.4.24
+
+本地 Markdown/文本/PDF 先看目录，再选章节、读原文、核对引用。PDFium 随包携带，无需 Python 或新云账号。Setup → Skills 可关闭；保留原项目、费用预算、取消和权限。扫描件需 OCR，不代表上游 Flash/cloud 或付费模型盲测通过。[中文手把手教程](docs/PAGEINDEX.zh.md) · [English](docs/PAGEINDEX.en.md)。

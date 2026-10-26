@@ -1,0 +1,67 @@
+{
+  "version": "0.4.24",
+  "privateSourceCommit": "8bf10e4e6c54940001e7aab1bfe359bdf44a6468",
+  "sourceRegression": {
+    "tests": 138,
+    "pass": 138,
+    "fail": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 36.034894375
+  },
+  "installerRegression": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 126.55307708400001
+  },
+  "packagedRegression": {
+    "tests": 150,
+    "pass": 150,
+    "fail": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 36.31417918205261
+  },
+  "package": {
+    "runtimeSha256": "9cab5e59d282df728b9e868c7f00baa44b7dd79ee40064efcb9b1b963b6b0cdf",
+    "runtimeBytes": 355927025,
+    "kernelHashes": 6007,
+    "kernelMatchesSource": true,
+    "sourceDocsFiles": 2673
+  },
+  "packageSmokeCommands": 31,
+  "installerUpgrade": {
+    "passed": true,
+    "from": "0.4.23",
+    "to": "0.4.24",
+    "origin": "http://127.0.0.1:64266",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 16
+  },
+  "actualLocalInvocation": [
+    "parse real compressed PDF bytes in bundled PDFium WASM",
+    "preserve nested bookmarks and physical page ranges",
+    "build Markdown heading tree and page original sections",
+    "validate source hash, project, range and exact quote",
+    "reject stale/fabricated/cross-project citations",
+    "cancel parser worker and enforce deadline",
+    "existing Core invokes document tools and retains child receipts",
+    "Setup disables automatic routing"
+  ],
+  "testDoubles": [
+    "model choices and final text",
+    "synthetic documents"
+  ],
+  "notRun": [
+    "paid-model autonomous document reasoning quality",
+    "native Windows GUI and cold install",
+    "upstream PageIndex Flash/cloud OCR",
+    "private production documents",
+    "native Windows/macOS GUI, live mail and account writes"
+  ],
+  "distribution": "GitHub only; official website unchanged"
+}

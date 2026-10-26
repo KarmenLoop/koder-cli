@@ -297,3 +297,8 @@ koder project check --kind website --json -w /path/to/site
 ## 0.4.23：网站交付与项目锚点
 
 默认使用 Fullstack Web Delivery 探讨需求、沿用项目方向，再实现或修复网站。[手把手教程](WEBSITE-PROJECTS.zh.md).
+
+
+## 0.4.24：文档问答
+
+默认 PageIndex Skill 会按目录选择章节、回读原文并核对引用，沿用现有模型和项目权限。[手把手教程](PAGEINDEX.zh.md).

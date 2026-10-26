@@ -297,3 +297,8 @@ Default website intake, 84 offline reference documents, original approval and im
 ## 0.4.23: Website delivery and project anchors
 
 Use the default Fullstack Web Delivery Skill to clarify requirements, retain project direction and implement or repair a website. [Hands-on guide](WEBSITE-PROJECTS.en.md).
+
+
+## 0.4.24: Document questions
+
+Use the default PageIndex Skill to navigate local documents, read selected sections and verify citations. [Hands-on guide](PAGEINDEX.en.md).

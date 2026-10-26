@@ -1,9 +1,9 @@
-# Release status — 0.4.23
+# Release status — 0.4.24
 
-This increment adds Fullstack Web Delivery 0.9.1 as an unchanged 29-file package and separate Koder integration for website creation, redesign and repair. Project anchors retain identity, direction, prior revisions and notes; proposals use the existing edit approval path. Each new project remains in its own directory. Existing-project repair does not silently fork a site.
+PageIndex now runs through the existing CLI/Core as a read-only document tool and default Skill. It reuses the Markdown outline, adds offline PDFium WebAssembly text extraction, returns bookmark/physical-page trees and validates source-bound citations. Tree selection and answer synthesis use the existing configured model. Setup and command switches disable automatic routing. Read-only child tasks inherit document access only within their existing parent/tool scope.
 
-Integrated source regression: 138 passed. Tests cover actual local Skill reads, ask_user and approved file writes, a repaired CSS file with a real Node test, scope/assumption behavior, directory isolation, original design/preview workflows, permissions, context, mail and MCP. Model decisions are deterministic fixtures. Earlier failures and corrections remain in the task evidence, including missing-parent handling and test expectations for an unchanged delivery gate.
+Integrated source regression: 138 passed. Actual local parsing and filesystem checks cover compressed PDF streams, bookmarks, text lines, pagination, source versions, exact quotes, project boundaries, malformed/empty files, resource limits and worker cancellation. The original Core, Skill settings, project anchors, unlimited task rounds, subagent boundaries, mail and MCP regressions are retained. Automated model choices are deterministic fixtures, not paid-model performance evidence. Earlier failing tests are preserved in the local evidence.
 
-Package, installer/update and GitHub readback receipts are recorded separately in ACCEPTANCE-RESULTS.json and the local handoff. Native Windows is beta-owned NOT_RUN here; paid-model website quality and native browser visual/keyboard acceptance are NOT_RUN. Existing account, GUI, residency and unsigned locked-use limits remain. No official website files or deployments are included.
+Package, installer/update and GitHub readback receipts are recorded separately in ACCEPTANCE-RESULTS.json and the local handoff. Windows device acceptance is beta-owned NOT_RUN here; paid-model answer quality, upstream Flash/cloud OCR and private production documents are NOT_RUN. Existing GUI, account, residency and unsigned locked-use limits remain. GitHub only; no official website edits or deployments.
 
-[Guide](docs/WEBSITE-PROJECTS.en.md) · [中文教程](docs/WEBSITE-PROJECTS.zh.md) · [Previous status](docs/history/RELEASE-STATUS-0.4.22.md).
+[Guide](docs/PAGEINDEX.en.md) · [中文教程](docs/PAGEINDEX.zh.md) · [Previous status](docs/history/RELEASE-STATUS-0.4.23.md).

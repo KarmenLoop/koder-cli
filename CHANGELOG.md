@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.24 — 2026-10-26
+
+Add native PageIndex document navigation, offline PDFium parsing, source-bound readback and exact-quote verification. Route document tasks through the existing Core, with Setup/off controls and read-only subagent support. Preserve model budgets, cancellation, permissions and existing project workflows. [Release notes](docs/RELEASE-0.4.24.md).
+
 ## 0.4.23 — 2026-10-26
 
 Use Fullstack Web Delivery for website creation, redesign and repair. Preserve the original 29-file Skill package, add project anchors with reviewable direction changes, reuse established requirements and create separate folders for explicit new projects. Existing approvals, budgets and platform limits remain. [Release notes](docs/RELEASE-0.4.23.md).

@@ -97,3 +97,7 @@ Awesome LLM Apps provides offline text references and adapted Koder methods. Rea
 0.4.23 integrates the exact Fullstack Web Delivery 0.9.1 Skill and a separate Koder host adapter. The original custom license and notices remain. Anchor proposals do not write or grant permission; edits and commands use the existing Core. Local scripted execution is not paid-model quality or native Windows/browser acceptance.
 
 默认用于新站、改版和旧站修复。新项目独立建目录；锚点保留编号、方向、历史与笔记，改中心思想先对照提案和真实用户决定。模型决策夹具不代表真实模型表现。
+
+## PageIndex / 文档目录与原文问答
+
+0.4.24: real local Markdown and compressed PDF parsing, bookmark/page navigation, readback and exact citation verification. Scripted model choices exercise the existing Core and read-only subagents without a new model service. Source regression: 138 passed; package and upgrade results are separate receipts. Native Windows beta, paid-model document reasoning quality, upstream Flash/cloud OCR and private production documents remain NOT_RUN. Existing platform/account limitations are retained.

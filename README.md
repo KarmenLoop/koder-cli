@@ -1,4 +1,4 @@
-> 0.4.23 adds the Fullstack Web Delivery workflow and durable project anchors for new websites and existing-site repairs. [Release notes](docs/RELEASE-0.4.23.md).
+> 0.4.24 adds local PageIndex document trees, PDF text readback and source-bound citation checks. [Release notes](docs/RELEASE-0.4.24.md).
 
 [Start here: installation, updates and all workflows](docs/START-HERE.en.md)
 
@@ -600,3 +600,7 @@ Build from a clear goal, audience and primary action. Koder now bundles 84 compl
 ## Website delivery and project anchors
 
 Discuss missing requirements, keep a stable project purpose and build through the existing implementation and preview tools. The original Fullstack Web Delivery 0.9.1 Skill is bundled unchanged and enabled by default. Each new project has its own folder and PROJECT-ANCHOR.md; old-site repairs retain their directory and decisions. [Hands-on guide](docs/WEBSITE-PROJECTS.en.md) · [中文教程](docs/WEBSITE-PROJECTS.zh.md).
+
+## Document questions with PageIndex
+
+Navigate local Markdown, text and PDF trees with the existing Koder model. Read original sections and verify file versions, page/line ranges and exact quotes before answering. The PDF parser ships in the runtime; no Python or new cloud account is required. Enabled by default for document tasks and configurable in Setup. [Hands-on guide](docs/PAGEINDEX.en.md) · [中文教程](docs/PAGEINDEX.zh.md).

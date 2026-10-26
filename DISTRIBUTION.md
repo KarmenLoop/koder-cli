@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed release is **0.4.23**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.4.24**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -79,3 +79,7 @@ Windows and macOS installers use the same versioned runtime. This release adds t
 ## Version 0.4.23
 
 Windows and macOS installers share the new versioned runtime. Fullstack Web Delivery and project anchors are included; original platform payloads remain. GitHub is the only publication destination. [Release notes](docs/RELEASE-0.4.23.md).
+
+## Version 0.4.24
+
+Windows and macOS installers share the new versioned runtime with PageIndex and local PDFium WASM. Existing Windows-MCP, CAD, Skills and project features remain bundled. GitHub is the publication destination. [Release notes](docs/RELEASE-0.4.24.md).

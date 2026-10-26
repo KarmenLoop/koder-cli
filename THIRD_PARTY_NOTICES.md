@@ -188,3 +188,10 @@ The Windows x64 and macOS universal command-line executables are redistributed u
 ## Fullstack Web Delivery
 
 [KarmenLoop/fullstack-web-delivery](https://github.com/KarmenLoop/fullstack-web-delivery), version 0.9.1 at `72e05993c485210e255c1e950f424a53fb05be49`, is included as an exact 29-file Skill package. The original [Source-Available No-Modification License 1.0](licenses/fullstack-web-delivery/LICENSE) and [NOTICE](licenses/fullstack-web-delivery/NOTICE) are preserved. This custom license is not OSI open source. Koder's task routing and project-anchor adapter are separately implemented; they do not modify the upstream files, execute their scripts automatically, grant computer access or imply third-party endorsement. Independently produced project outputs are governed by the original license's output clause.
+
+
+## PageIndex and PDFium
+
+[VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex), revision `e38b40ebaeea26d2c7206b80ce7bc9bf2935cdec`, supplies the MIT-licensed structure-first retrieval design and Markdown tree extraction/assembly adapted by Koder. Selected original Python source is retained as non-executed reference. [Original license](licenses/pageindex/LICENSE).
+
+The text-PDF adapter bundles unmodified `@embedpdf/pdfium` 2.15.1 JavaScript and WebAssembly from the pinned npm archive. [Wrapper MIT license](licenses/embedpdf-pdfium/LICENSE) and [original PDFium notices](licenses/embedpdf-pdfium/LICENSE.pdfium) are preserved. The JavaScript file is renamed from index.js to index.mjs without changing its bytes. The runtime uses only local parsing APIs; no form/JavaScript action is executed and no CDN is contacted. The release does not claim upstream cloud OCR, PageIndex Flash equivalence, benchmark scores or endorsement. These component licenses remain independent of Koder's application license.

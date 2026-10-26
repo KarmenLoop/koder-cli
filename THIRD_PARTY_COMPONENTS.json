@@ -327,6 +327,46 @@
       "declaredLicense": "LicenseRef-KarmenLoop-Source-Available-No-Modification-1.0",
       "bundleResourceRoot": "kernel/fusion/methods/fullstack-web-delivery/upstream",
       "listedResourceFiles": 29
+    },
+    {
+      "id": "pageindex",
+      "repository": "VectifyAI/PageIndex",
+      "recordedSourceRevision": "e38b40ebaeea26d2c7206b80ce7bc9bf2935cdec",
+      "declaredLicense": "MIT",
+      "use": "PageIndex local tree navigation and offline PDF text extraction; existing Koder model and permissions",
+      "bundleResourceRoot": "kernel/fusion/methods/pageindex/upstream",
+      "listedResourceFiles": 3,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/pageindex/LICENSE",
+          "sha256": "bca9c3d401fdfd0965a2a2224f7dcf9945b512eaf5802b91d312ba739dbe9584",
+          "matchesPreviousBundle": false
+        }
+      ]
+    },
+    {
+      "id": "embedpdf-pdfium",
+      "repository": "embedpdf/embed-pdf-viewer",
+      "recordedSourceRevision": "@embedpdf/pdfium@2.15.1",
+      "declaredLicense": "MIT and original PDFium notices",
+      "use": "PageIndex local tree navigation and offline PDF text extraction; existing Koder model and permissions",
+      "bundleResourceRoot": "kernel/fusion/methods/pageindex/vendor/pdfium",
+      "listedResourceFiles": 5,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/embedpdf-pdfium/LICENSE",
+          "sha256": "f5031b66adba8ef5ef57666deff980a7f2ccff5c8a8c22a8117e854d2b8dfcd3",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "LICENSE.pdfium",
+          "publicCopy": "licenses/embedpdf-pdfium/LICENSE.pdfium",
+          "sha256": "b033ffb8fc19c23ca81f7e98019ab658cc6f4cf14587c7c6a2a67fb0f6ac0f5a",
+          "matchesPreviousBundle": false
+        }
+      ]
     }
   ],
   "portLicenseChecks": [
