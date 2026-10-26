@@ -1,9 +1,9 @@
 # Koder 终端用户许可协议 / End-User License Agreement
 
-协议标识：**Koder-EULA-1.1**
-发布日期：2026-10-20
-许可方：KARMEN / Koder 中有权授予相关软件许可的版权方
-联系：[info@karmenloop.com](mailto:info@karmenloop.com)
+协议标识：**Koder-EULA-1.1**  
+发布日期：2026-10-20  
+许可方：KARMEN / Koder 中有权授予相关软件许可的版权方  
+联系：[info@karmenloop.com](mailto:info@karmenloop.com)  
 元信息修订：2026-10-20
 
 官方发布与维护团队：KARMENLOOP 官方团队。所在地：中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
