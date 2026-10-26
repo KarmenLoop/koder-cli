@@ -24,7 +24,7 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 ![Koder CLI 会话开始](docs/screenshots/cli-start-0.5.3-en-dark.png)
 
-*会话开始 — 官方产品实机截图。*
+*0.5.3 启动输出来自隔离的 macOS PTY，由 ANSI 记录转为图片；各终端字体显示可能不同。*
 
 [下载 0.5.3](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.3) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.5.2.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
@@ -161,7 +161,7 @@ flowchart LR
 | 步骤 | 你做什么 | 截图 |
 |---|---|---|
 | 1 | 跑安装器，在 EULA 提示处输入 `accept` | [`cli-install-en-dark.jpg`](docs/screenshots/cli-install-en-dark.jpg) |
-| 2 | 新开终端，核对版本，进入会话 | [`cli-start-en-dark.jpg`](docs/screenshots/cli-start-0.5.3-en-dark.png) |
+| 2 | 新开终端，核对版本，进入会话 | [`cli-start-0.5.3-en-dark.png`](docs/screenshots/cli-start-0.5.3-en-dark.png) |
 | 3 | 完成 `koder setup`，打开项目 / TUI 主页 | [`tui-home-en-dark.jpg`](docs/screenshots/tui-home-en-dark.jpg) |
 | 4 | 下达首个任务，审阅 CLI Diff | [`cli-diff-en-dark.jpg`](docs/screenshots/cli-diff-en-dark.jpg) |
 | 5 | 可选：在 TUI Diff 里再看同一处改动 | [`tui-diff-en-dark.jpg`](docs/screenshots/tui-diff-en-dark.jpg) |
