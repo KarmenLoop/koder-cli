@@ -1,6 +1,6 @@
 # MCP 与 Skill 兼容使用指南
 
-适用于 Koder CLI 0.4.6。Skill 是工作方法，MCP 是工具连接；能读到方法不代表目标软件、账号或渲染器已经可用。两者都复用原任务、权限、取消和回执系统。
+适用于 Koder CLI 0.4.17。Skill 是工作方法，MCP 是工具连接；能读到方法不代表目标软件、账号或渲染器已经可用。两者都复用原任务、权限、取消和回执系统。
 
 ## 查询、读取与选择
 
@@ -15,7 +15,7 @@ koder skills enable ecosystem:agent-browser:core
 koder skills doctor builtin:做表单
 ```
 
-对话内使用 `/skills list`、`/skill <id或名称>`，用 `/skill clear` 清除选择。最多可选四个，用逗号分隔。重名时优先使用准确 ID；项目内方法与随包方法同名时，项目方法保持优先。
+对话内使用 `/skills list`、`/skill <id或名称>`，用 `/skill clear` 清除选择。可用逗号分隔多个选择；不再设四项总上限，仍受实际模型窗口与资源预算约束。重名时优先使用准确 ID；项目内方法与随包方法同名时，项目方法保持优先。
 
 Setup、CLI 和 Agent 共用原技能定义与开关。关闭后不再自动调用，也不能用手动选择绕过。关闭全部不会删除文件；自主学习、个性化、电脑访问仍分别授权。
 
@@ -81,4 +81,4 @@ Windows-MCP 0.8.8 在 Windows 使用随包的私有 Python，macOS 不运行这�
 - MCP 连不上：核对传输类型、地址、凭据和启动程序。已配置不等于已连接。
 - 写操作结果未知：先核对原回执，不盲目重试；连接关闭不代表远程操作没发生。
 
-本轮验证包括真实本地 SDK stdio/HTTP/SSE 会话、关闭安装脚本的本地 npm 包安装、技能读写入口、权限和打包隔离。模型回复使用脚本桩，不能冒充真实模型能力验收。Windows 图形操作、系统凭据与真实账号仍需单独验证。详见[逐项清单](MCP-SKILL-INVENTORY.md)、[接入教程](MCP-INTEGRATIONS.zh.md)和[更新说明](RELEASE-0.4.6.zh.md)。
+本轮验证包括真实本地 SDK stdio/HTTP/SSE 会话、关闭安装脚本的本地 npm 包安装、技能读写入口、权限和打包隔离。模型回复使用脚本桩，不能冒充真实模型能力验收。Windows 图形操作、系统凭据与真实账号仍需单独验证。详见[逐项清单](MCP-SKILL-INVENTORY.md)、[接入教程](MCP-INTEGRATIONS.zh.md)和[更新说明](RELEASE-0.4.17.zh.md)。

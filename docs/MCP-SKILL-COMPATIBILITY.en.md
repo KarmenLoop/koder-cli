@@ -1,6 +1,6 @@
 # MCP and Skill compatibility
 
-Koder CLI 0.4.6 uses the existing task executor, permissions, connected Apps and MCP host. A Skill is an instruction package, not an executable connector or an authorization grant. A readable Skill does not prove that its external application, renderer or account works on your computer.
+Koder CLI 0.4.17 uses the existing task executor, permissions, connected Apps and MCP host. A Skill is an instruction package, not an executable connector or an authorization grant. A readable Skill does not prove that its external application, renderer or account works on your computer.
 
 ## Find, read and choose Skills
 
@@ -17,7 +17,7 @@ koder skills enable ecosystem:agent-browser:core
 koder skills doctor builtin:做表单
 ```
 
-In a conversation, use `/skills list` and `/skill <id-or-name>`. Use `/skill clear` to clear the selection. Choose up to four comma-separated Skills with `--skill`. Exact IDs avoid duplicate names. A project Skill keeps precedence over a shipped Skill with the same short name. Disabled methods cannot be selected or read by the Agent.
+In a conversation, use `/skills list` and `/skill <id-or-name>`. Use `/skill clear` to clear the selection. Select comma-separated Skills with `--skill`; the previous four-Skill cap is removed. The actual model context window and resource budget still apply. Exact IDs avoid duplicate names. A project Skill keeps precedence over a shipped Skill with the same short name. Disabled methods cannot be selected or read by the Agent.
 
 Setup's Skills switches use the same configuration owners. The all-off control also covers shipped and compatible local Skills; it does not delete their files. Growth, personalization and computer authorization remain separate.
 
@@ -83,4 +83,4 @@ Windows-MCP 0.8.8 uses the bundled private Python on Windows. It does not run on
 - MCP connection error: check transport, endpoint, required credentials and the server's executable. A configured entry is not a connected server.
 - Unknown or canceled write: inspect the saved receipt before retrying. Closing a transport does not prove that a remote write did not happen.
 
-Local regression covers real SDK stdio/HTTP/SSE sessions, a local npm package installation with scripts disabled, Skill resource reads, selection/switches, approvals and packaged runtime isolation. Scripted model responses are fixtures, not live-provider quality evidence. Native Windows GUI, OS credentials/notifications and real third-party accounts require separate checks. See the [inventory](MCP-SKILL-INVENTORY.md), [integration guide](MCP-INTEGRATIONS.en.md) and [release notes](RELEASE-0.4.6.md).
+Local regression covers real SDK stdio/HTTP/SSE sessions, a local npm package installation with scripts disabled, Skill resource reads, selection/switches, approvals and packaged runtime isolation. Scripted model responses are fixtures, not live-provider quality evidence. Native Windows GUI, OS credentials/notifications and real third-party accounts require separate checks. See the [inventory](MCP-SKILL-INVENTORY.md), [integration guide](MCP-INTEGRATIONS.en.md) and [release notes](RELEASE-0.4.17.md).

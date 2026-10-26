@@ -1,12 +1,12 @@
-> 0.4.16 补齐本机工具发现、子任务 Todo 交接、检查点查询与 Skill 命令；默认不限轮次，保留取消和共享费用预算。[本版变化](docs/RELEASE-0.4.16.zh.md)。
+> 0.4.17 修复任务误判、旧会话恢复、长任务回执累计与小上下文预算，完善价格来源核对、执行观察和安装更新。默认不限工具轮次，保留取消与费用预算。[本版变化](docs/RELEASE-0.4.17.zh.md)。
 
 [从这里开始：安装、更新与全部功能教程](docs/START-HERE.zh.md)
 
 # Koder CLI
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.16**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.4.17**
 
-[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.16)
+[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.17)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
@@ -16,7 +16,7 @@
 
 Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。
 
-当前版本：**[0.4.16](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.16)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 官网：[karmenloop.com/cli.html](https://karmenloop.com/cli.html)
+当前版本：**[0.4.17](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.17)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 官网：[karmenloop.com/cli.html](https://karmenloop.com/cli.html)
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
@@ -24,7 +24,7 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 *会话开始 — 官方产品实机截图。*
 
-[下载 0.4.16](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.16) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.4.16.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
+[下载 0.4.17](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.17) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.4.17.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 ---
 
@@ -49,13 +49,13 @@ Koder 把四件事钉死：
 |---|---|
 | **安装什么** | 官方 Windows / macOS / Linux 安装器分发的版本化 CLI 运行时（Node **^22.21.0 或 ≥24**，复用或下载并校验） |
 | **你自备什么** | 自己的模型 API Key，或受支持的本地模型端点 |
-| **版本** | **0.4.16**（`RELEASE.json`、tag `cli-0.4.16`、stable 通道） |
+| **版本** | **0.4.17**（`RELEASE.json`、tag `cli-0.4.17`、stable 通道） |
 | **本版许可** | **Koder-EULA-1.1** — 当前应用运行时的专有终端用户许可 |
 | **个人使用** | 个人非商业本地使用免费 — **无会员、无邀请码** |
 | **商业 / 组织** | 须事先书面授权（`koder business` / [商业授权](docs/COMMERCIAL-LICENSING.md)） |
 | **项目** | 新建网站 / 演示稿 / 应用默认进入 **Koder Projects**；`-w` 或已有工程优先 |
 | **历史** | 任务历史与自动捕获事实按**工作区隔离**；`default` 表示*该工作区*的默认会话 |
-| **互动教程** | `koder learn` — 30 课，中英，PowerShell / CMD / macOS / Linux；临时练习工程；**不调用付费模型** |
+| **互动教程** | `koder learn` — 中文 1800 课，含原 30 课离线教练与英文版；PowerShell / CMD / macOS / Linux；阅读与教练不调用付费模型 |
 | **可选能力** | Portable Skills、Harness、常驻、邮件问询、Windows-MCP / 代码图谱、彩蛋动画等 |
 | **公开仓库树** | 保留历史 **GPL 0.3.1** 源码；**不能**用该树构建本专有安装包（[源码状态](SOURCE-STATUS.md)） |
 
@@ -218,7 +218,7 @@ koder --version
 koder setup
 ```
 
-`koder --version` 应显示 **0.4.16**。平台细节见 [安装教程](docs/INSTALLATION.md)。
+`koder --version` 应显示 **0.4.17**。平台细节见 [安装教程](docs/INSTALLATION.md)。
 
 ---
 
@@ -262,7 +262,7 @@ koder --version
 koder
 ```
 
-应看到 **0.4.16**。直接 `koder` 进入交互聊天。想先走短教程？
+应看到 **0.4.17**。直接 `koder` 进入交互聊天。想先走短教程？
 
 ```text
 koder learn
@@ -376,7 +376,7 @@ koder review --format json
 
 *步骤 6 — 落地后的审查 / 修复闭环。*
 
-**第一次成功**的标志：版本显示 0.4.16、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
+**第一次成功**的标志：版本显示 0.4.17、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
 
 日常聊天：空提示符输入 `/` 打开可编辑选项（Tab 填入，Esc 关闭，填入后再 Enter 发送）。`/setup` 打开设置，`/model` 管理模型，`/new` 新话题，`/exit` 离开。`/menu` 也可打开设置。
 
@@ -448,11 +448,11 @@ koder model set --model ACTUAL_MODEL_ID --base-url OFFICIAL_API_BASE --protocol 
 
 ---
 
-## 0.4.16 的改动
+## 0.4.17 的改动
 
 紧凑常驻输入区默认两行起，有 Todo 时为三行；执行中可继续输入。Ctrl+T 展开任务清单，底栏显示当前模型和状态，`/help` 查看可翻页快捷键，Setup 可配置界面。
 
-保留原有引导、排队、取消与审批，以及1800课课堂、迁移、GitHub、邮箱和MCP/Skills。[手把手教程](docs/SESSION-DOCK.zh.md) · [更新与范围](docs/RELEASE-0.4.16.zh.md)。
+保留原有引导、排队、取消与审批，以及1800课课堂、迁移、GitHub、邮箱和MCP/Skills。[手把手教程](docs/SESSION-DOCK.zh.md) · [更新与范围](docs/RELEASE-0.4.17.zh.md)。
 
 ---
 
@@ -497,13 +497,13 @@ koder update auto on
 | 排障 | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | 安装卡住、灰色提供商、常见失败 |
 | 分发与历史 GPL 树 | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | 专有运行时 vs 历史公开树 |
 | 30 课可打印文本 | [docs/tutorials/](docs/tutorials/) | 中英 × PowerShell/CMD/mac/linux 离线版 |
-| 本版发行 | [RELEASE-0.4.16.zh.md](docs/RELEASE-0.4.16.zh.md) | 改了什么、哪些仍为 NOT_RUN |
+| 本版发行 | [RELEASE-0.4.17.zh.md](docs/RELEASE-0.4.17.zh.md) | 改了什么、哪些仍为 NOT_RUN |
 
 ---
 
 ## 验收边界（诚实写明）
 
-发行证据区分：**源码/fixture 检查**、**已安装协议 fixture**、**托管原生 Windows**、**真实服务商账号**、**用户设备**。无密钥本地回归用脚本化提供商验证 CLI 行为；**不能**证明 PowerShell 5.1 冷启动安装、ConPTY/IME、Windows-MCP GUI、邮箱投递或模型质量。这些项在 [0.4.16 说明](docs/RELEASE-0.4.16.zh.md) 与 [Windows 安装检查](docs/WINDOWS-INSTALL-CHECKS.md) 标为 **NOT_RUN** 处保持未验。
+发行证据区分：**源码/fixture 检查**、**已安装协议 fixture**、**托管原生 Windows**、**真实服务商账号**、**用户设备**。无密钥本地回归用脚本化提供商验证 CLI 行为；**不能**证明 PowerShell 5.1 冷启动安装、ConPTY/IME、Windows-MCP GUI、邮箱投递或模型质量。这些项在 [0.4.17 说明](docs/RELEASE-0.4.17.zh.md) 与 [Windows 安装检查](docs/WINDOWS-INSTALL-CHECKS.md) 标为 **NOT_RUN** 处保持未验。
 
 可用安装包、安装器与校验和作为 **Release 资产** 发布。新 tag 可增加分发文档，而不把专有运行时源码公开到本仓库树。
 
@@ -520,8 +520,8 @@ koder update auto on
 **会不会不经询问就改我的文件？**  
 可识别的低风险本地检查与普通工程改动可按智能审批执行。敏感或未知效果——含删除、密钥路径、Shell 副作用——会先询问。批准前请看清 Diff 与目标。
 
-**公开 GitHub 源码就是 0.4.16 运行时吗？**
-不是。公开树保留历史 GPL **0.3.1** 材料。**0.4.16** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
+**公开 GitHub 源码就是 0.4.17 运行时吗？**
+不是。公开树保留历史 GPL **0.3.1** 材料。**0.4.17** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
 
 **公司能否部署？**  
 联系 [info@karmenloop.com](mailto:info@karmenloop.com) 或运行 `koder business`。点星、下载与咨询邮件本身不构成商业授权。

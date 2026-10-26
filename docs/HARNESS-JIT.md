@@ -71,9 +71,9 @@ The CLI calls the existing Skill maintenance owner only after its local completi
 
 A completed task by itself is `NO_ENTRY` with `comparison-required`. A recommendation needs an original Core task binding to a tested candidate, the existing `skill_compare` result choosing that candidate, valid source/context hashes, passing regressions, zero probe side effects, and current owner authorization. Source/runtime/model/profile/context changes or owner revocation invalidate adoption. Existing baseline artifacts and Skill versions remain intact.
 
-**The standalone CLI currently has no default persistent Skill maintenance owner.** In that environment, the result reports `NO_ENTRY: experience-port-unavailable` and no second database is created. The existing `io.skillMaintenance` host integration can supply the owner; its `recordHarnessProfile` and `recommendHarnessProfile` methods use the original encrypted Skill version store and CAS. Growth disabled or archive disabled prevents both archival and recommendation reads. The source tests exercise that original port using isolated artifact comparisons, not paid model self-assessments.
+The standalone CLI records successful task observations in the existing workspace/session checkpoint. Run `koder harness experiences --json` to inspect profile and input hashes, step counts, measured or owner-priced cost when known, and the explicit `NO_ENTRY: comparison-required` verdict. It retains the latest 512 observations in that conversation; completed tool calls have no 24-step archival ceiling. Archive off, growth off, failed or cancelled tasks do not create a success observation. The original memory commands retain, reset or delete these records with their conversation, and account/epoch checks apply to inspection.
 
-This release does not claim production cross-task evolution when that port is absent. Turning on the UI switch alone does not create an authorization or a verified winner.
+Observation capture does **not** activate a new method. Verified cross-task adoption still requires the original `io.skillMaintenance` owner, paired execution evidence, `skill_compare`, current permissions and CAS. No second database, model self-score, fabricated cost, or background paid probe is introduced. Without those prerequisites the baseline remains selected. A UI switch alone cannot produce a verified winner.
 
 ## CLI acceptance checklist
 
@@ -94,4 +94,4 @@ Fixture tests verify orchestration contracts. Native Windows/macOS GUI operation
 
 深度调研默认只提供读取与研究能力。办公/应用操作仍按 Apps/MCP → 浏览器 → 桌面调用原工具；不会用时是否查教程由通用应用 Skill 的独立开关决定。找不到驱动或缺少授权时如实提示。
 
-修复最多两次，暂停审批和中途补充不会重置额度。发送、发布、已拒绝或结果未知的操作不会自动重放。成功记录不直接变成经验：缺少真实回执或对照时保留 `NO_ENTRY`。独立 CLI 尚无默认持久经验 owner，需现有宿主接入；开关开启不表示已经获得学习权限或验收通过。
+修复最多两次，暂停审批和中途补充不会重置额度。发送、发布、已拒绝或结果未知的操作不会自动重放。独立 CLI 会把成功执行的观察保存在原会话检查点，用 `koder harness experiences --json` 查看；每个会话保留最近 512 条，关闭归档或成长后不再新增。成功观察仍是 `NO_ENTRY: comparison-required`，不直接变成已证实的经验。跨任务采用新方法仍需现有宿主的经验 owner、配对执行、对比结果和当前授权；开关开启不代表已经得到这些证据。
