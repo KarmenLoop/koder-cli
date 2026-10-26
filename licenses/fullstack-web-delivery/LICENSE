@@ -1,0 +1,68 @@
+KarmenLoop Source-Available No-Modification License 1.0
+SPDX-License-Identifier: LicenseRef-KarmenLoop-Source-Available-No-Modification-1.0
+
+Copyright (c) 2026 KarmenLoop. All rights reserved except as expressly granted below.
+
+1. Covered materials
+This license applies to original KarmenLoop skill instructions, documentation,
+example source, diagrams, screenshots, and other first-party materials in this
+repository (the Materials), except files expressly offered under another license.
+Third-party materials and dependencies retain their own terms.
+
+2. Limited permission
+You may view, download, make exact copies of, install, and use the unmodified
+Materials, including using the unmodified skill in personal or commercial project
+work and running the unmodified example locally. You may redistribute exact,
+unmodified copies if you include this entire license and preserve all copyright,
+attribution, authorship, and other legal notices. Copies must identify KarmenLoop
+as the source and must not imply endorsement or official maintenance.
+Normal installation, dependency installation, execution, and external environment
+or host configuration do not constitute modification of the Materials when the
+original files remain unchanged. Local operational data is not part of the
+Materials. Credentials and private project data must not be redistributed.
+
+3. No modification or derivative distribution
+Except for rights that cannot be excluded by applicable law, you may not modify,
+adapt, translate, rebrand, remove notices from, or create derivative versions of
+the Materials without prior written permission from KarmenLoop. You may not
+publish modified forks, patches, repackaged variants, or derivative distributions
+without that permission. No sublicense of the Materials is granted.
+
+4. Independently created outputs
+Using the unmodified skill to plan and create your own website, application,
+content, or project does not, by itself, make those outputs subject to this
+license. This license claims no rights over independently created outputs that
+do not reproduce substantial protected portions of the Materials. You may edit,
+use, and distribute those independently created outputs under terms you choose.
+Copying or adapting the included example source is not an independently created
+output and requires prior written permission under Section 3.
+
+5. Third-party and platform rights
+This license does not replace, restrict, or relicense third-party software,
+licenses, copyright notices, or rights previously granted under other terms.
+The rights to view and fork a public repository under GitHub's Terms of Service
+are not restricted by this license. Such platform rights do not grant additional
+permission to modify or distribute the Materials outside those terms.
+Nothing in this license restricts rights that cannot lawfully be excluded.
+
+6. Trademarks and ownership
+Ownership remains with the respective rights holders. No trademark license,
+endorsement, partnership, or right to present a derivative as an official product
+is granted. Preserve the KarmenLoop copyright and source attribution in permitted
+copies. Reference brands are used only to identify research sources.
+
+7. Warranty and liability
+THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE AUTHORS AND RIGHTS
+HOLDERS ARE NOT LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM
+THE MATERIALS OR THEIR USE.
+
+8. Termination and separate permission
+The permissions in this license terminate if you materially breach its terms.
+A separate written agreement may grant additional rights. Requests may be sent
+to info@karmenloop.com. This license does not revoke permissions previously
+granted for an earlier release under a different applicable license.
+
+This is a custom source-available license. It is not an OSI-approved open-source
+license because it restricts modification and derivative works.

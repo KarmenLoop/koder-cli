@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.23 — 2026-10-26
+
+Use Fullstack Web Delivery for website creation, redesign and repair. Preserve the original 29-file Skill package, add project anchors with reviewable direction changes, reuse established requirements and create separate folders for explicit new projects. Existing approvals, budgets and platform limits remain. [Release notes](docs/RELEASE-0.4.23.md).
+
 ## 0.4.22 — 2026-10-26
 
 Integrate 84 pinned DESIGN.md references with website requirements, project design decisions and the existing implementation/preview workflow. Add offline catalog/read/verify commands and a Setup switch. Load design and AI-app schemas only for relevant tasks. Keep Koder-specific landing-page requirements out of unrelated sites. [Release notes](docs/RELEASE-0.4.22.md).

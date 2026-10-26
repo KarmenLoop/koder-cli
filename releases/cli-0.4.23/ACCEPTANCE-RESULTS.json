@@ -1,0 +1,78 @@
+{
+  "version": "0.4.23",
+  "privateSourceCommit": "64abe6c660b278f97eec1789b3240614ac8857dd",
+  "sourceRegression": {
+    "tests": 138,
+    "pass": 138,
+    "fail": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 35.936021834
+  },
+  "installerRegression": {
+    "tests": 26,
+    "pass": 26,
+    "fail": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 101.7315105
+  },
+  "packagedRegression": {
+    "tests": 123,
+    "pass": 123,
+    "fail": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 35.75465703010559
+  },
+  "package": {
+    "runtimeSha256": "08572e163925f139a51e8280753f16618b767c0b89e94d681067bad0f3b432d1",
+    "runtimeBytes": 345872841,
+    "kernelHashes": 5994,
+    "kernelMatchesSource": true,
+    "sourceDocsFiles": 2659
+  },
+  "packageSmokeCommands": 26,
+  "installerUpgrade": {
+    "passed": true,
+    "from": "0.4.22",
+    "to": "0.4.23",
+    "origin": "http://127.0.0.1:51805",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 12
+  },
+  "actualLocalInvocation": [
+    "read original Skill resources",
+    "requirements prompt and response through ask_user",
+    "original approval before anchor write",
+    "repair actual website CSS while retaining anchor and directory",
+    "run Node website tests",
+    "fetch local HTTP preview",
+    "generate H5 project map"
+  ],
+  "optionalSpecGenerator": {
+    "generatorVersion": "0.8.0",
+    "upstreamSkillVersion": "0.9.1",
+    "exitCode": 0,
+    "outputFiles": 18,
+    "hashesVerified": 17,
+    "overwriteAttempt": {
+      "exitCode": 2,
+      "stderr": "Specification generation stopped: Output already exists. Use a new revision directory; preserve authored documents.\n",
+      "filesUnchanged": true
+    }
+  },
+  "testDoubles": [
+    "model decisions",
+    "browser-opening adapter",
+    "owner consent in automated fixtures"
+  ],
+  "notRun": [
+    "paid-model autonomous website quality",
+    "native Windows GUI and cold install",
+    "native browser visual, touch and keyboard checks",
+    "production account writes"
+  ],
+  "distribution": "GitHub only; official website unchanged"
+}

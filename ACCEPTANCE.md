@@ -1,8 +1,8 @@
 # Koder CLI — 使用前与授权说明 / Before you enable features
 
-适用于 0.4.22；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
+适用于 0.4.23；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
 
-For 0.4.22; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+For 0.4.23; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
 
 授权与数据使用说明
 
@@ -91,3 +91,9 @@ Awesome LLM Apps provides offline text references and adapted Koder methods. Rea
 0.4.22 bundles MIT-licensed design text for offline reference. The default method asks about missing website requirements; supplied facts and assumptions are distinguished. It does not authorize copying brand assets, installing dependencies, network access or publishing. Existing file and command approvals remain. Disable the method in Setup Skills or koder design off.
 
 随包设计原文可离线阅读。默认建站询问缺失需求；用户可跳过可选问题，缺项须标为假设。设计参考不授予商标/图片/字体许可、联网、安装或发布权限；原文件与命令审批继续生效。可在 Setup Skills 或 koder design off 关闭。
+
+## Website project anchors / 网站项目锚点
+
+0.4.23 integrates the exact Fullstack Web Delivery 0.9.1 Skill and a separate Koder host adapter. The original custom license and notices remain. Anchor proposals do not write or grant permission; edits and commands use the existing Core. Local scripted execution is not paid-model quality or native Windows/browser acceptance.
+
+默认用于新站、改版和旧站修复。新项目独立建目录；锚点保留编号、方向、历史与笔记，改中心思想先对照提案和真实用户决定。模型决策夹具不代表真实模型表现。

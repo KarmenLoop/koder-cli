@@ -183,3 +183,8 @@ The Windows x64 and macOS universal command-line executables are redistributed u
 ## Awesome DESIGN.md
 
 [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) at `3b605329240ce735b510037cca322f1831fdd7f8` supplies 84 design analyses, preserved as original text with per-file hashes. The [MIT license](licenses/awesome-design-md/LICENSE-MIT.txt) and copyright notice are included. Koder adds its own requirements, design-document and implementation workflow on the existing Core. The analyses are community references, not official brand standards or endorsements. Fonts, trademarks, logos, screenshots and external-site assets are not distributed or licensed by this snapshot. Koder's application license does not replace these component terms.
+
+
+## Fullstack Web Delivery
+
+[KarmenLoop/fullstack-web-delivery](https://github.com/KarmenLoop/fullstack-web-delivery), version 0.9.1 at `72e05993c485210e255c1e950f424a53fb05be49`, is included as an exact 29-file Skill package. The original [Source-Available No-Modification License 1.0](licenses/fullstack-web-delivery/LICENSE) and [NOTICE](licenses/fullstack-web-delivery/NOTICE) are preserved. This custom license is not OSI open source. Koder's task routing and project-anchor adapter are separately implemented; they do not modify the upstream files, execute their scripts automatically, grant computer access or imply third-party endorsement. Independently produced project outputs are governed by the original license's output clause.

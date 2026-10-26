@@ -305,6 +305,28 @@
           "sha256": "6d4bdc9a9cf30e7beb593475fdcdbf29f981ea6bd7923f202866145409f87b44"
         }
       ]
+    },
+    {
+      "id": "fullstack-web-delivery",
+      "repository": "https://github.com/KarmenLoop/fullstack-web-delivery",
+      "version": "0.9.1",
+      "use": "Exact upstream Skill and references; separate Koder host workflow and project anchors",
+      "licenseAndNoticeCopies": [
+        {
+          "sha256": "766ddcc28af256c520d87321e633ce3780bc0e227a08d737a2544f1364d7082c",
+          "publicCopy": "licenses/fullstack-web-delivery/LICENSE",
+          "upstreamPath": "LICENSE"
+        },
+        {
+          "sha256": "04a9808e01d05ead68468081c22d21769485e2795efad0145295572db7e44753",
+          "publicCopy": "licenses/fullstack-web-delivery/NOTICE",
+          "upstreamPath": "NOTICE"
+        }
+      ],
+      "recordedSourceRevision": "72e05993c485210e255c1e950f424a53fb05be49",
+      "declaredLicense": "LicenseRef-KarmenLoop-Source-Available-No-Modification-1.0",
+      "bundleResourceRoot": "kernel/fusion/methods/fullstack-web-delivery/upstream",
+      "listedResourceFiles": 29
     }
   ],
   "portLicenseChecks": [
