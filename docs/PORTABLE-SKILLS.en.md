@@ -1,5 +1,11 @@
 # Local Agent Skills
 
+## Downloaded Skills in 0.4.18
+
+After fetching a pinned GitHub Skill, use its unique short name with `--skill`, `$name`, or `skills show`. The Agent receives its full canonical ID and uses that ID for `skill_read`. Local packages and built-in Skills keep their existing short-name priority; use the full `github:` ID to choose a downloaded package explicitly.
+
+Downloaded packages now appear in Setup → Skills. Individual switches and “disable all” use the existing configuration, and disabled packages remain visible in Setup for re-enabling. Re-enabling an installed package does not download it again or grant network, script, or computer permissions.
+
 Available in **0.4.3**. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
 
 Koder reads local Codex, Cursor and WorkBuddy/CodeBuddy Skill packages through its existing `skill_catalog` and `skill_read` tools. Instructions can guide the current Agent; scripts run through the existing execution tools and approvals. The current model and BYOK settings stay in use.

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.18 — 2026-10-26
+
+Raise approved MCP operation deadlines while preserving cancellation and uncertain-effect receipts. Replay and acknowledge durable foreground mail alerts, including a full backlog. Connect downloaded GitHub Skills to short-name selection, Setup and CLI enable/disable controls. [Release notes](docs/RELEASE-0.4.18.md).
+
+## 0.4.17 — 2026-10-26
 
 This release repairs execution and delivery paths found by checking the current CLI against its documented contracts. Windows CMD, PowerShell and macOS shell installers select the same versioned runtime archive. Run `koder update`, restart the CLI, and check `koder --version` for `0.4.17`.
 

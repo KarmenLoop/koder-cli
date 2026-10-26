@@ -1,5 +1,11 @@
 # Windows-MCP 与 Code Graph 接入
 
+## 0.4.18 的工具调用等待
+
+已获批的 MCP 工具调用默认最多等待 180 秒。连接初始化与工具发现继续采用较短的诊断超时，外层工作进程与本地桥接会多留时间接收最终回执。实际运行 33 秒的无害调用已能跨过原来的 20/30 秒截断点并返回结果。
+
+显式更短的超时和用户取消仍生效。远端副作用结果无法确认时仍记为 UNKNOWN，不因延长等待而重放。任务总轮次不限，不等于单个失联工具可以永久等待。该回归使用真实本地 MCP 子进程和脚本模型响应；Windows 图形操作验收另行记录。
+
 0.4.10 的 Windows x64 包内置 Windows-MCP 0.8.8 与 Python/依赖，默认选择 bundled 启动器，详见[内置教程](WINDOWS-MCP-BUNDLED.zh.md)。CodeGraphContext 0.6.13 仍为外部可选预设。保存配置保持停用，不改变系统权限。
 
 2026 年 10 月 23 日核对的上游资料：[Windows-MCP](https://github.com/CursorTouch/Windows-MCP)、[其 Python 要求](https://github.com/CursorTouch/Windows-MCP/blob/e28abb5c6934cb3427190bdb970e02644c915ae3/pyproject.toml)、[CodeGraphContext](https://github.com/CodeGraphContext/CodeGraphContext)、[图谱配置实现](https://github.com/CodeGraphContext/CodeGraphContext/blob/93c9685bff9151f50a3121e9913e5ba2d27c1191/src/codegraphcontext/cli/config_manager.py)。这里记录的是预设目标版本，已有程序的实际版本还要在本机核对。

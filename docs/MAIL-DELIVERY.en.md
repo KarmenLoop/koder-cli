@@ -1,6 +1,12 @@
 # Sending mail and receiving background alerts
 
-Applies to Koder CLI 0.4.5. Native Windows and live 163 account acceptance are still pending.
+Applies to Koder CLI 0.4.18. Native Windows and live 163 account acceptance are tracked separately.
+
+## Recovering pending alerts
+
+Foreground `koder chat` and `koder mail watch` consume saved notification events, including events left by a previous process. A busy chat queues them and acknowledges them only after printing. A failed display or queued item remains recoverable after restart. The existing encrypted store owns the events; no second inbox or credential store is created.
+
+If the 1,000-event backlog is full, polling preserves the cursor while pending alerts drain, then resumes new arrivals on the next check. This is still polling, not instant push. When the authorized daemon owns mail monitoring, its existing notification path remains the owner. Current automatic-reply outcomes remain visible; recovery never resends a message.
 
 Bind a mailbox in Setup → Mail. A send-capable account verifies both receiving and SMTP connections. For 163, use the IMAP/SMTP client authorization code, never a password pasted into chat. The preset uses IMAP 993 and SMTP 465 with TLS.
 
