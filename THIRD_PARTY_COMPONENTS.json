@@ -192,11 +192,10 @@
     {
       "id": "personal-agent-growth",
       "repository": "KarmenLoop/personal-agent-growth",
-      "recordedSourceRevision": "bfe713595ee22808d5a9148508369966ca71035e",
       "declaredLicense": "AGPL-3.0-only",
-      "use": "Unmodified KARMEN LOOP task-learning method, references and optional offline handoff checker; separate from the host runtime.",
+      "use": "Unmodified KARMEN LOOP task-learning method, references and optional offline handoff/comparison source; separately licensed resources that use the original host permissions and version store.",
       "bundleResourceRoot": "kernel/fusion/ecosystem/resources/personal-agent-growth",
-      "listedResourceFiles": 8,
+      "listedResourceFiles": 10,
       "licenseAndNoticeCopies": [
         {
           "upstreamPath": "LICENSE",
@@ -210,7 +209,26 @@
           "sha256": "a40bb7e087f8bb67fc2b843ab3714648db4c73329ac62384341c576fd9e95e4f",
           "matchesPreviousBundle": false
         }
-      ]
+      ],
+      "previousSourceRevision": "bfe713595ee22808d5a9148508369966ca71035e",
+      "version": "0.4.1",
+      "recordedSourceSnapshot": {
+        "kind": "delivery-archive",
+        "status": "local_candidate",
+        "buildId": "0.4.1-bundle.1",
+        "archive": {
+          "name": "personal-agent-growth-delivery-0.4.1-bundle.1.zip",
+          "bytes": 429570,
+          "sha256": "1375852797329c2b3ee577153ba7c4ce09c52a64aeec0ba17129c1326c1eb456"
+        },
+        "deliveryManifestSha256": "b672557e26ff0eeea74ea5a22488acfc40e26ec3b682add2e35733b680bc9d37",
+        "coreArchive": {
+          "path": "downloads/personal-agent-growth-0.4.1.zip",
+          "sha256": "bc7945fd3d1da9d874b5a59d9a57646391ed381083a742632aea7ba2d9406862"
+        },
+        "coreManifestSha256": "41005889d79aa85736f884b6624b55a39d4dd2cca3622d40219a5e6731a5e713",
+        "contentSha256": "985ff94f6daf574358a68f3dcf9bb3108745d968c2266f38008d4c4c8c25f10f"
+      }
     },
     {
       "id": "agent-browser",

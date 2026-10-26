@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.5 — 2026-10-27
+
+- Save local Markdown task memory by default, with account/workspace storage and separate session task records. Resume the same task with its saved decisions and next steps while preserving existing explicit notes.
+- Expose the same learning controls in Setup, CLI commands and chat. Honor existing off choices, the growth master switch and disabled Skills; disabling learning preserves saved files.
+- Run bounded local review while the CLI is open or at the next task, using the existing session lifecycle. Keep profile learning, synchronization, network permissions and daemon activation separate.
+- Integrate personal-agent-growth 0.4.1 guidance through the original Agent and tool permission flow. Completion claims remain `pending_verification` until supported by evidence; missing usage remains unknown.
+- Preserve existing Harness experiences and native maintenance/adoption gates. Learning notes cannot authorize tools, install or adopt a global Skill, or convert a self-assessment into verified success.
+
+[Markdown task memory guide](docs/MARKDOWN-LEARNING.en.md) · [Release notes](docs/RELEASE-0.5.5.md).
+
 ## 0.5.4 — 2026-10-27
 
 - Show reasoning levels supported by the selected model, official endpoint and wire protocol. Preserve legacy aliases and existing model settings; unsupported choices do not silently increase effort.

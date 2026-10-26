@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed release is **0.5.4**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+Version **0.5.5** uses the existing Windows and macOS/Linux installers and a single versioned runtime archive. The release attachment `ACCEPTANCE-RESULTS.json` records validation for that exact archive. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -99,3 +99,10 @@ The startup refractor, shared terminal frames and narrow pickers receive a visua
 ## Version 0.5.4
 
 Windows CMD/PowerShell and macOS installers share the same versioned runtime and SHA-256 feed. Thinking controls and output recovery are covered by local protocol, task, persistence and installer checks; paid-provider and native Windows acceptance remain separately identified. [Release notes](docs/RELEASE-0.5.4.md).
+
+
+## Version 0.5.5
+
+The same versioned runtime is used by the existing Windows CMD/PowerShell and macOS/Linux installers. It adds default local Markdown task memory and review, respects previous off choices and retains personal-agent-growth 0.4.1 guidance through the original Core. Local reviews add no model calls, new scheduler or daemon activation. Original notes, task/session isolation, pending verification and unknown-usage accounting remain.
+
+The full bilingual [task memory guides](docs/MARKDOWN-LEARNING.en.md) and [中文指南](docs/MARKDOWN-LEARNING.zh.md) accompany the existing full guides and tutorial editions. The source, archive, upgrade and published asset receipts remain separate. See the exact release acceptance attachment and SHA-256 manifest; Windows native acceptance remains beta-owned NOT_RUN. Legal bytes and existing provider/account/device limits are retained. GitHub is the only publication destination; website content and deployment are excluded. [Release notes](docs/RELEASE-0.5.5.md).

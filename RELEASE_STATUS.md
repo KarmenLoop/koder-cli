@@ -1,7 +1,9 @@
-# Koder CLI 0.5.4
+# Koder CLI 0.5.5
 
-Model-specific thinking controls and bounded prose continuation are integrated into the existing runtime. Local fixture results, package checks, isolated macOS installation/update, and GitHub artifact readback are recorded separately in the release acceptance receipt. Windows 10/11 native Console/ConPTY/IME, cold installation/update, Windows-MCP GUI, paid-provider acceptance and private-account writes remain NOT_RUN here and require the beta/device owners.
+Local Markdown task memory is enabled by default through the existing Agent and session lifecycle, with personal-agent-growth 0.4.1 guidance. Existing off choices, separate task sessions, original explicit notes, Core permissions, cancellation and cost budgets remain in effect. `pending_verification` requires evidence; missing usage stays unknown.
 
-The macOS locked-use helper remains an unsigned candidate on HOLD. Existing EULA, third-party attribution, Core permissions, cancellation, cost budgets, context controls, project isolation, unlimited default task rounds and persistent input are retained. Distribution is GitHub only; no website changes or deployments.
+The release attachment `ACCEPTANCE-RESULTS.json` separates source checks, packaged execution and isolated macOS installation/update results. GitHub publication is verified against the same runtime digest; the installer manifest identifies the installed version. Windows 10/11 native Console/ConPTY/IME, cold installation/update, Windows-MCP GUI, paid-provider acceptance and private-account writes remain NOT_RUN here and require their respective owners. The macOS locked-use helper remains an unsigned candidate on HOLD.
 
-[Release notes](docs/RELEASE-0.5.4.md) · [中文说明](docs/RELEASE-0.5.4.zh.md) · [Thinking and output guide](docs/MODEL-EFFORT-AND-OUTPUT.en.md).
+Task-local review does not enable profile learning, synchronization, network access, background residency, or global Skill installation/adoption. Existing model-specific effort and bounded answer continuation remain. EULA and third-party attribution are retained. Distribution is GitHub only; website changes and deployments are excluded.
+
+[Release notes](docs/RELEASE-0.5.5.md) · [中文说明](docs/RELEASE-0.5.5.zh.md) · [Task memory guide](docs/MARKDOWN-LEARNING.en.md).

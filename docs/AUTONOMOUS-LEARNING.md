@@ -1,4 +1,31 @@
-# Built-in autonomous learning
+# Built-in learning in Koder CLI 0.5.5
+
+Koder includes personal-agent-growth 0.4.1 guidance and default local Markdown task memory. The existing Agent reads relevant task notes, performs the requested work, records decisions and checkpoints, and reviews local evidence. No separate runtime or extra paid comparison run is started by this default.
+
+```sh
+koder growth status --json
+koder learning status --json
+koder learning off
+koder learning on
+```
+
+Run these commands in the workspace you want to inspect. `learning status` reports its scoped library without creating one. The first eligible task initializes the library; account, workspace and default task-session boundaries remain separate. Existing off choices take precedence. `growth off` also pauses the local integration; turning growth back on does not erase a separate learning opt-out. In chat, `/learning on|off` and `/growth on|off` apply on the next turn while retaining the conversation.
+
+The model's completion proposal remains `pending_verification`. Explicit owner completion requires evidence. Daily and weekly reviews summarize the current account/workspace library; model recall remains task-scoped. Reviews use local records and no extra model call. A closed CLI does not acquire a new wake service from this feature. Profile learning, synchronization, skill adoption and computer permissions retain their separate controls.
+
+The embedded method is pinned to the immutable local delivery snapshot `delivery:0.4.1-bundle.1`; this is not an upstream Git release tag. Its ten core files retain AGPL-3.0-only and the original LICENSE/NOTICE. Source records are included with the package. No private experience seed or personal task evidence is bundled.
+
+Read the current [English task-memory guide](MARKDOWN-LEARNING.en.md), [中文手把手指南](MARKDOWN-LEARNING.zh.md) and [0.5.5 release notes](RELEASE-0.5.5.md) for setup, recovery, cost records and platform limits.
+
+## 中文说明
+
+0.5.5 默认把任务进度、决策和经验候选保存到本地 Markdown；已有关闭选择继续生效。使用原 Agent 与权限模型，按账号、工作区、任务隔离。会话中 `/learning off` 暂停学习，关闭不会删除文件。日周复盘汇总当前账号与工作区库，模型召回仍限当前任务；不额外调用模型，也不代开画像、同步、后台常驻或全局技能采纳。
+
+## Earlier behavior, retained for reference
+
+The following preview.22 notes describe the earlier method-only integration. Version numbers, controls and resource counts below are historical; use the current instructions above for 0.5.5.
+
+# Historical reference: preview.22 / method 0.3.2
 
 Koder CLI preview.22 includes KARMEN LOOP's `personal-agent-growth` 0.3.2. Its eight released files are pinned and read locally through the existing `skill_read` tool. No separate download is required.
 

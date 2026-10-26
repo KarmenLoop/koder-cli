@@ -1,8 +1,12 @@
 # Koder CLI — 使用前与授权说明 / Before you enable features
 
-适用于 0.5.4；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
+适用于 0.5.5；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
 
-For 0.5.4; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+For 0.5.5; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+
+0.5.5 本地任务记忆默认开启，原关闭选择保留；这与下面默认关闭的画像学习等独立授权选项不同。请查看本文件末尾“本地 Markdown 任务记忆”及 `koder learning status`。
+
+Local task memory is on by default in 0.5.5 and respects existing off choices. Profile learning and the other separately authorized features below retain their defaults. See “Local Markdown task memory” at the end and `koder learning status`.
 
 授权与数据使用说明
 
@@ -112,3 +116,20 @@ Local OCR, professional child-task roles, FIFO admission and headless completion
 `koder mcp capabilities` reports the scope and provenance of built-in capabilities. `tool_inventory` lists the tools mounted in the current task; neither command grants permission or certifies an external service. Native JS/TS source navigation is a bounded lexical analysis and does not execute target code. Hashes and dependency candidates must be checked against source.
 
 Windows-MCP, REA, SolidCraft and the MCP SDK retain their upstream attribution and license obligations. CodeGraphContext remains an optional service for broader language and graph operations. Existing account scopes, write confirmations, cancellation, budgets and UNKNOWN reconciliation apply. Native Windows device checks remain beta-owned; local fixture results are not Windows GUI, mailbox or provider-account acceptance.
+
+
+## Local Markdown task memory · 0.5.5 / 本地 Markdown 任务记忆
+
+Task memory is enabled by default when the growth method and Skills are enabled. Existing feature, growth, all-Skills and selected-library off choices are retained. Use `koder learning status` to inspect the current account/workspace location and effective setting; Setup, `koder learning on|off` and `/learning on|off` control the same feature. `koder growth off` pauses the integration. Turning a switch off preserves saved files. Status does not initialize a new library.
+
+Records use local Markdown documents under the selected account/workspace scope, with a separate default project per task session. They retain goals, decisions, checkpoints, next steps and bounded task evidence; they do not replace explicit notes or grant access to another conversation. Selected relevant records may enter your existing task's model context under the original model and data permissions. Local review itself makes no additional model call. Reviews run while the CLI session is open or at a later task; no new OS scheduler or background service is installed.
+
+Profile learning, daily state, proactive service, skill evolution, synchronization and agentd activation keep their separate controls and existing off defaults. This feature grants no network, account, computer-tool or global Skill installation/adoption permission. The original Harness experience store and native maintenance verification gates remain authoritative. A completion claim stays `pending_verification` until required evidence is present; the model's own rating cannot confirm it. Missing usage/cost stays unknown rather than zero.
+
+本地任务记忆在成长方法与 Skills 启用时默认开启，已有单项、成长总开关、全部 Skills 或所选库关闭选择继续保留。用 `koder learning status` 查看当前账号/工作区位置和实际状态；Setup、`koder learning on|off` 与 `/learning on|off` 控制同一功能，`koder growth off` 一并暂停。关闭保留文件，只读状态查询不创建学习库。
+
+Markdown 记录按账号、工作区和默认任务会话隔离，保存目标、决策、进度和下一步，保留原明确笔记。相关内容可按原模型与数据权限进入当前任务上下文；本地复盘不额外调用模型，只在现有 CLI 会话中或下次任务时运行，不安装新的操作系统调度器或后台服务。画像学习、当天状态、主动服务、技能演化、同步与常驻仍独立控制，不授予联网、外部账号、电脑工具或全局 Skill 安装/采纳权限。模型自评不能将 `pending_verification` 变成已核实成功；未知用量与费用不计为零。
+
+Source checks, packaged execution and installer/update checks for 0.5.5 are recorded separately in the release attachment `ACCEPTANCE-RESULTS.json`; public readback is checked against that runtime digest. Local scripted checks are not live paid-provider, private-account, native Windows or model-quality acceptance. Windows remains beta-owned NOT_RUN; the unsigned macOS locked-use helper remains HOLD. This update excludes website changes and deployment.
+
+源码检查、实际包执行和安装升级结果分别记录于发行附件 `ACCEPTANCE-RESULTS.json`；公开读回按同一运行包摘要核对。本地脚本化验证不代表付费模型、真实账号、Windows 真机或模型质量验收；Windows 保持 beta/NOT_RUN，未签名 macOS 锁定组件保持 HOLD。本次不更新或发布官网。

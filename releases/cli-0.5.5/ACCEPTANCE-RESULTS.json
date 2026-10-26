@@ -1,0 +1,96 @@
+{
+  "version": "0.5.5",
+  "privateSourceCommit": "5fe55e675b2177ca1278a7724f7a7f966e0e6052",
+  "sourceBaseline": "a43dbab10843623265126fd5ef5048437f4765c9",
+  "runtime": {
+    "file": "koder-cli-0.5.5.tgz",
+    "sha256": "4b7a08d3914d99aec4404646df1c31df725866d773504983d1f8d6d0eb23f582",
+    "bytes": 488698371
+  },
+  "validation": {
+    "sourceRegression": {
+      "tests": 424,
+      "pass": 424,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "testFiles": 47,
+      "terminal": "xterm-256color"
+    },
+    "providerAndHarnessUsage": {
+      "tests": 23,
+      "pass": 23,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "scope": "Actual loopback HTTP and native harness, not paid-provider acceptance"
+    },
+    "packagedTests": {
+      "tests": 146,
+      "pass": 146,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "kernelResolvedInsideArchive": true,
+      "copiedTestsModified": false
+    },
+    "packagedCommands": {
+      "passed": 61,
+      "kernelHashesChecked": 6287,
+      "sourceAndDocumentFilesChecked": 2786,
+      "kernelMatchesSource": true
+    },
+    "macOSInstallUpgrade": {
+      "passed": true,
+      "commands": 26,
+      "from": "0.5.4",
+      "to": "0.5.5",
+      "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+      "learningOptOutPreserved": true,
+      "privateLearningSentinelPreserved": true,
+      "priorRuntimeRetained": true,
+      "kernelHashesChecked": 6287
+    },
+    "independentReview": {
+      "scope": [
+        "Midturn account switch blocks stale writes, final checkpoints and idle review",
+        "8K context and disabled compaction preserve original task and raw receipts",
+        "Actual native learning tool calls and later recall",
+        "Missing provider usage remains unknown; real zero is preserved"
+      ],
+      "sourceReceiptsRetained": true
+    },
+    "growthMethod": {
+      "version": "0.4.1",
+      "snapshot": "delivery:0.4.1-bundle.1",
+      "status": "local delivery snapshot, not an upstream Git tag",
+      "license": "AGPL-3.0-only",
+      "privateExperienceSeedImported": false
+    }
+  },
+  "retainedFailures": [
+    "Initial source run: 385 passed, 3 failed. Two context regressions were repaired; original logs retained.",
+    "A final combined run reached the test-runner 120-second file deadline in context-memory (419 assertions passed, one file cancelled). The unchanged test assertions were rerun with a 240-second runner window; the earlier log is retained.",
+    "The unchanged baseline session-input TTY test fails under TERM=dumb; the supported xterm-256color control passes. No assertion was removed.",
+    "Initial account-switch and small-window field probes failed before fixes; original failure records remain.",
+    "The initial provider usage test assumed undefined totals, but the existing harness starts with estimate totals of zero. Corrected test preserves that baseline and checks unknown receipt fields separately."
+  ],
+  "notRun": [
+    "Native Windows 10/11 installation, Console/ConPTY/IME and Windows-MCP GUI; beta-owner track",
+    "Native Linux desktop and notification behavior",
+    "Paid-provider task quality and claimed learning improvement",
+    "Private mail, app, GitHub-account writes and multi-device library synchronization",
+    "Network-filesystem and multi-host learning-store concurrency"
+  ],
+  "hold": [
+    "Unsigned macOS locked-use helper remains a separate candidate"
+  ],
+  "publication": {
+    "destination": "GitHub Releases only",
+    "websiteChanged": false,
+    "readback": "Performed after draft upload against these fixed runtime bytes and recorded separately; this prepublication attachment is not itself proof of publication"
+  },
+  "rollback": "Turn learning off; retain the Markdown library and reinstall the prior 0.5.4 runtime. Do not overwrite a newer bound library with an older copy."
+}

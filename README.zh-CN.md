@@ -1,3 +1,5 @@
+> 0.5.5 默认保存本地 Markdown 任务记忆，并在 CLI 会话内或下次任务时复盘。已有关闭选择继续生效；可在 Setup 或 `koder learning off` 单独关闭，`koder growth off` 一并暂停。[更新说明](docs/RELEASE-0.5.5.zh.md) · [任务记忆指南](docs/MARKDOWN-LEARNING.zh.md)。
+
 > 0.5.4 按模型、接口与协议提供思考档位，修复子任务强度继承，并保留达到输出上限的正文；符合条件时最多进行两次纯文本续答，取消与费用预算继续生效。[更新说明](docs/RELEASE-0.5.4.zh.md) · [操作指南](docs/MODEL-EFFORT-AND-OUTPUT.zh.md)。
 
 > 0.5.3 细化启动折光体、统一细蓝边框，并修复窄终端菜单宽度；常驻输入、引导和排队保持原有行为。[更新说明](docs/RELEASE-0.5.3.zh.md)。
@@ -8,9 +10,9 @@
 
 # Koder CLI
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.5.4**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.5.5**
 
-[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.4)
+[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.5)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
@@ -20,7 +22,7 @@
 
 Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。
 
-当前版本：**[0.5.4](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.4)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
+当前版本：**[0.5.5](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.5)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
@@ -28,7 +30,7 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 *0.5.3 启动输出来自隔离的 macOS PTY，由 ANSI 记录转为图片；各终端字体显示可能不同。*
 
-[下载 0.5.4](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.4) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.5.4.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
+[下载 0.5.5](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.5) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.5.5.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 ---
 
@@ -53,12 +55,13 @@ Koder 把四件事钉死：
 |---|---|
 | **安装什么** | 官方 Windows / macOS / Linux 安装器分发的版本化 CLI 运行时（Node **^22.21.0 或 ≥24**，复用或下载并校验） |
 | **你自备什么** | 自己的模型 API Key，或受支持的本地模型端点 |
-| **版本** | **0.5.4**（`RELEASE.json`、tag `cli-0.5.4`、stable 通道） |
+| **版本** | **0.5.5**（`RELEASE.json`、tag `cli-0.5.5`、stable 通道） |
 | **本版许可** | **Koder-EULA-1.1** — 当前应用运行时的专有终端用户许可 |
 | **个人使用** | 个人非商业本地使用免费 — **无会员、无邀请码** |
 | **商业 / 组织** | 须事先书面授权（`koder business` / [商业授权](docs/COMMERCIAL-LICENSING.md)） |
 | **项目** | 新建网站 / 演示稿 / 应用默认进入 **Koder Projects**；`-w` 或已有工程优先 |
 | **历史** | 任务历史与自动捕获事实按**工作区隔离**；`default` 表示*该工作区*的默认会话 |
+| **任务记忆** | 默认开启本地 Markdown 记录，按账号、工作区与任务会话隔离；`koder learning status` 查看，`koder learning off` 暂停 |
 | **互动教程** | `koder learn` — 中文 1800 课，含原 30 课离线教练与英文版；PowerShell / CMD / macOS / Linux；阅读与教练不调用付费模型 |
 | **可选能力** | Portable Skills、Harness、常驻、邮件问询、Windows-MCP / 代码图谱、彩蛋动画等 |
 | **公开仓库树** | 保留历史 **GPL 0.3.1** 源码；**不能**用该树构建本专有安装包（[源码状态](SOURCE-STATUS.md)） |
@@ -191,14 +194,14 @@ flowchart LR
 
 请使用匹配的 **Windows 10/11**、**macOS**、**Linux** 或 **WSL** 终端。正常安装**不需要**管理员权限。输入 `accept` 前请阅读 [EULA](EULA.md)、[同意与数据说明](ACCEPTANCE.md)、[版权声明](LEGAL-NOTICE.md) 与 [CLI 隐私](docs/privacy/consumer-privacy.zh.md)。
 
-只选**一条**命令。等到 `accept / decline:`，输入 `accept` 并回车。`decline` 或 Ctrl+C 取消。Windows 上空回车会再问 — **不会**接受许可。接受许可**不会**开启电脑、邮件、学习、同步、生日、音乐或国家查询等可选项。
+只选**一条**命令。等到 `accept / decline:`，输入 `accept` 并回车。`decline` 或 Ctrl+C 取消。Windows 上空回车会再问 — **不会**接受许可。接受许可**不会**开启电脑、邮件、画像学习、同步、生日、音乐或国家查询等可选项。
 
 对应截图见 [手把手第 1 步](#1-安装并接受-eula)。
 
 ### Windows PowerShell
 
 ```powershell
-$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.4/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
+$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.5/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
 ```
 
 ### Windows Command Prompt (CMD)
@@ -206,7 +209,7 @@ $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.Serv
 请在 **CMD** 提示符粘贴完整一行（不要贴进 PowerShell）：
 
 ```bat
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.4/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.5/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
 ```
 
 ### macOS / Linux / WSL
@@ -222,7 +225,7 @@ koder --version
 koder setup
 ```
 
-`koder --version` 应显示 **0.5.4**。平台细节见 [安装教程](docs/INSTALLATION.md)。
+`koder --version` 应显示 **0.5.5**。平台细节见 [安装教程](docs/INSTALLATION.md)。
 
 ---
 
@@ -266,7 +269,7 @@ koder --version
 koder
 ```
 
-应看到 **0.5.4**。直接 `koder` 进入交互聊天。想先走短教程？
+应看到 **0.5.5**。直接 `koder` 进入交互聊天。想先走短教程？
 
 ```text
 koder learn
@@ -380,7 +383,7 @@ koder review --format json
 
 *步骤 6 — 落地后的审查 / 修复闭环。*
 
-**第一次成功**的标志：版本显示 0.5.4、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
+**第一次成功**的标志：版本显示 0.5.5、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
 
 日常聊天：空提示符输入 `/` 打开可编辑选项（Tab 填入，Esc 关闭，填入后再 Enter 发送）。`/setup` 打开设置，`/model` 管理模型，`/new` 新话题，`/exit` 离开。`/menu` 也可打开设置。
 
@@ -499,7 +502,8 @@ koder update auto on
 | 排障 | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | 安装卡住、灰色提供商、常见失败 |
 | 分发与历史 GPL 树 | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | 专有运行时 vs 历史公开树 |
 | 中文 1800 课 / 英文 30 课文本 | [docs/tutorials/](docs/tutorials/) | 中英 × PowerShell/CMD/mac/linux 离线版 |
-| 本版发行 | [RELEASE-0.5.4.zh.md](docs/RELEASE-0.5.4.zh.md) | 改了什么、哪些仍为 NOT_RUN |
+| 本地任务记忆（默认开） | [MARKDOWN-LEARNING.zh.md](docs/MARKDOWN-LEARNING.zh.md) | 范围、实际开关、复盘与关闭方法 |
+| 本版发行 | [RELEASE-0.5.5.zh.md](docs/RELEASE-0.5.5.zh.md) | 改了什么、哪些仍为 NOT_RUN |
 
 ---
 
@@ -513,28 +517,28 @@ koder update auto on
 
 ## 常见问题
 
-**安装需要邀请码或付费会员吗？**  
+**安装需要邀请码或付费会员吗？**\
 不需要。个人非商业本地使用在 Koder-EULA-1.1 下免费，无须会员。商业与组织使用须另行书面授权。
 
-**Koder 用谁的模型 API？**  
+**Koder 用谁的模型 API？**\
 用你的。在 setup 里配置服务商。Koder 不替代服务商计费。部分目录条目暂时灰色并阻断（见 [模型与服务商](#模型与服务商)）。
 
-**会不会不经询问就改我的文件？**  
+**会不会不经询问就改我的文件？**\
 可识别的低风险本地检查与普通工程改动可按智能审批执行。敏感或未知效果——含删除、密钥路径、Shell 副作用——会先询问。批准前请看清 Diff 与目标。
 
-**公开 GitHub 源码就是 0.5.4 运行时吗？**
-不是。公开树保留历史 GPL **0.3.1** 材料。**0.5.4** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
+**公开 GitHub 源码就是 0.5.5 运行时吗？**
+不是。公开树保留历史 GPL **0.3.1** 材料。**0.5.5** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
 
-**公司能否部署？**  
+**公司能否部署？**\
 联系 [info@karmenloop.com](mailto:info@karmenloop.com) 或运行 `koder business`。点星、下载与咨询邮件本身不构成商业授权。
 
-**项目和私有历史放在哪里？**  
+**项目和私有历史放在哪里？**\
 新建任务默认进入用户主目录下的 **Koder Projects**，除非指定 `-w` 或继续已有工程。私有会话记录在用户 Koder 配置区，按工作区与会话索引 — 不会放进将来上传的公开网站目录。
 
-**什么时候该跑 `koder review`？**  
+**什么时候该跑 `koder review`？**\
 落地后需要结构化发现时、大改动跟进前，或门禁必须区分干净解析与 `REVIEW_UNPARSED`（退出码 3）时。它**不能**替代首次批准前阅读 Diff。
 
-**手把手教程在哪？**  
+**手把手教程在哪？**\
 就在本页：[手把手上手](#手把手上手)（配齐六张截图）。完整深度：[USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · `koder learn`。
 
 ---
@@ -552,7 +556,7 @@ KARMENLOOP 官方团队 · 中国上海 · [karmenloop.com](https://karmenloop.c
 
 ## 1800课深度跟做课堂
 
-课堂版 2026.10.26.1：120个单元、1800份工作簿、12类实操指南和开发者加练。原课号与学习进度保留。先读[跟做指南](docs/courses/PRACTICE-GUIDE.zh.html)，再进入[完整课堂](docs/courses/index.zh.html)。[完整离线教材](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.4/koder-academy-0.5.4.zip)含逐课空白工作簿；无需重装CLI，结构检查不代替答案核对。
+课堂版 2026.10.26.1：120个单元、1800份工作簿、12类实操指南和开发者加练。原课号与学习进度保留。先读[跟做指南](docs/courses/PRACTICE-GUIDE.zh.html)，再进入[完整课堂](docs/courses/index.zh.html)。[完整离线教材](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.5/koder-academy-0.5.5.zip)含逐课空白工作簿；无需重装CLI，结构检查不代替答案核对。
 
 
 ## SolidCraft 参数化 CAD

@@ -1,10 +1,10 @@
 {
-  "version": "0.5.4",
-  "file": "koder-cli-0.5.4.tgz",
-  "sha256": "4f390ac3b4372fe08bf37c8db968b75ecfc13eb04e59439b17693764c05492b6",
-  "size": 480836334,
+  "version": "0.5.5",
+  "file": "koder-cli-0.5.5.tgz",
+  "sha256": "4b7a08d3914d99aec4404646df1c31df725866d773504983d1f8d6d0eb23f582",
+  "size": 488698371,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-26T18:17:23.407Z",
+  "builtAt": "2026-10-26T19:41:49.742Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -26,12 +26,12 @@
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.3",
-  "privateSourceCommit": "a43dbab10843623265126fd5ef5048437f4765c9",
+  "sourceBaseline": "0.5.4",
+  "privateSourceCommit": "5fe55e675b2177ca1278a7724f7a7f966e0e6052",
   "changes": [
-    "Model- and endpoint-specific reasoning controls with retained provider settings",
-    "Explicit parent and child reasoning effort with per-model validation",
-    "Persisted partial answers and at most two text-only continuations under existing budgets"
+    "Local Markdown task memory and review enabled by default with independent opt-out and growth master control",
+    "Task learning uses the existing Agent, tool permissions, workspace and account scope",
+    "Personal-agent-growth 0.4.1 resources with bounded local review and retained native maintenance boundaries"
   ],
   "retainedLimits": [
     "Windows 10/11 native terminal, ConPTY, IME, cold install and update: beta-owned",
@@ -49,7 +49,13 @@
     "Real mailbox delivery and authenticated external account writes",
     "Native Windows 10/11 no-Node cold install/update, ConPTY/IME, Windows-MCP graphical operations and notifications; beta-owned",
     "Linux desktop notifications and physical GUI acceptance",
-    "Signed macOS locked-use helper, Apple notarization and dedicated lock-screen acceptance"
+    "Signed macOS locked-use helper, Apple notarization and dedicated lock-screen acceptance",
+    "Native Windows 10/11 installation, Console/ConPTY/IME and Windows-MCP GUI; beta-owner track",
+    "Native Linux desktop and notification behavior",
+    "Paid-provider task quality and claimed learning improvement",
+    "Private mail, app, GitHub-account writes and multi-device library synchronization",
+    "Network-filesystem and multi-host learning-store concurrency",
+    "Unsigned macOS locked-use helper remains a separate candidate"
   ],
   "publicationAuthorization": "GitHub only; website excluded",
   "courseStatus": {
