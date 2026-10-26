@@ -37,13 +37,15 @@ Keep typing while the model or tools work. Enter steers by default, with the ori
 | Ctrl+D | Exit with empty input |
 | Ctrl+T | Toggle Todo |
 | Ctrl+P | Choose a configured model; busy changes apply next turn |
-| Ctrl+E | Cycle Standard → Deep → Fast → Off; Setup can select picker mode |
+| Ctrl+E | Cycle the selected model's supported effort levels; Setup can select picker mode |
 | Ctrl+U | Clear input before the cursor |
 | Up/Down | Input history, or menu navigation |
 | / in empty input | Suggestions, templates and commands |
 | Tab | Fill an editable draft, without sending |
 
 Help scrolls with arrows or PgUp/PgDn and closes with Esc, q or Enter. If Enter and Ctrl+J have identical terminal encodings, configure distinct encodings or paste multiline text. Shift+Enter and Ctrl+S are not advertised as implemented shortcuts.
+
+From 0.5.4, effort choices depend on the model, endpoint and request protocol. The earlier Standard/Deep/Fast/Off names remain compatible configuration aliases; they are not four universal capabilities. Without an explicit selection, Koder retains the model's configured setting or provider default. The footer shows a verified native level, “Existing model setting” for an unverified legacy setting, or “Provider default” when no effort override is active. See [model effort and output limits](MODEL-EFFORT-AND-OUTPUT.en.md) for examples, delegation and long-reply recovery.
 
 An approval temporarily owns the prompt. Existing queued tasks and drafts cannot approve it. Exact stop words and replacement-after-cancellation retain their existing behavior.
 

@@ -1,0 +1,257 @@
+{
+  "version": "0.5.4",
+  "privateSourceCommit": "a43dbab10843623265126fd5ef5048437f4765c9",
+  "sourceBaseline": "9d928f263ffa13869944826cd5d2ebc89d2e1782",
+  "distribution": "GitHub Releases only; website excluded",
+  "runtime": {
+    "file": "koder-cli-0.5.4.tgz",
+    "bytes": 480836334,
+    "sha256": "4f390ac3b4372fe08bf37c8db968b75ecfc13eb04e59439b17693764c05492b6"
+  },
+  "localRegression": {
+    "receipt": "final-regression-2.tap",
+    "tests": 387,
+    "pass": 383,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 4,
+    "sha256": "5e99c20fba9cb2ad50e5f96c904dc85801238a2c1e538c43ab050314e8caf4b1",
+    "exitCode": 0,
+    "scope": "Actual CLI/harness with scripted or owned loopback providers; no paid API, real mailbox, or external account writes"
+  },
+  "supplementalRegression": [
+    {
+      "receipt": "effort-legacy-notice-green.tap",
+      "tests": 21,
+      "pass": 21,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "sha256": "6b9ab399d08b1eb13b7b5041c5a54bd9122124b309e064f75e170ab69abf6c57",
+      "exitCode": 0,
+      "overlapsBroadSuite": true
+    },
+    {
+      "receipt": "child-transient-effort-green.tap",
+      "tests": 12,
+      "pass": 12,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "sha256": "6495f1adf441a421766be806eb5ce87eabd7a1adcc6dcf3a95a4e158e15ab5e8",
+      "exitCode": 0,
+      "overlapsBroadSuite": true
+    }
+  ],
+  "packaged": {
+    "passed": true,
+    "kernelFilesVerified": 6285,
+    "kernelMatchesFixedSource": true,
+    "sourceAndDocsFilesCompared": 2748,
+    "smokeCommands": 44,
+    "coreTests": {
+      "receipt": "package-core-tests.log",
+      "tests": 65,
+      "pass": 65,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "sha256": "677dfad4141d60d9dd8936d533cdb9e70bbaf8bd53b67e1baeba0e941715fb4b",
+      "exitCode": 0,
+      "kernelOrigin": "extracted archive only",
+      "siblingSourcePresent": false,
+      "testsModified": false
+    }
+  },
+  "macosTerminal": {
+    "passed": true,
+    "transport": "real macOS PTY, scripted fetch, disposable HOME",
+    "observed": [
+      "MiniMax five native effort choices",
+      "max selected and shown in /model show",
+      "two subsequent serialized requests retained max"
+    ],
+    "paidProvider": "NOT_RUN",
+    "windows": "NOT_RUN",
+    "restart": "NOT_RUN; separate Setup persistence tests passed"
+  },
+  "localInstallUpdate": {
+    "passed": true,
+    "from": "0.5.3",
+    "to": "0.5.4",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "installStateSentinelPreserved": true,
+    "priorVersionRetained": true,
+    "installedKernelHashes": 6285,
+    "installedKernelMatchesCheckedPackage": true,
+    "windowsAcceptance": "NOT_RUN",
+    "commands": 24
+  },
+  "retainedFailures": [
+    {
+      "receipt": "final-regression.tap",
+      "tests": 390,
+      "pass": 385,
+      "fail": 0,
+      "cancelled": 1,
+      "skipped": 4,
+      "sha256": "a7768107ac34201c51b45d18dc4adf6ba593128672a2cabeb50fb79a46ec5f2b",
+      "exitCode": 1,
+      "reason": "installer test file reached 120-second test-runner deadline; not an all-green run"
+    },
+    {
+      "receipt": "installer-final.tap",
+      "tests": 3,
+      "pass": 2,
+      "fail": 0,
+      "cancelled": 1,
+      "skipped": 0,
+      "sha256": "b25bc5361a956240d49cdcd3bd223b7a55dbfbbb01afffa65d31d95855c84d69",
+      "exitCode": 1,
+      "reason": "installer test file reached 240-second test-runner deadline; two completed assertions passed, later checks not completed in this run"
+    },
+    "Original RED and failed intermediate fixture records remain in the private task handoff; no failed record was relabeled."
+  ],
+  "notRun": [
+    "Live paid MiniMax/OpenAI/Anthropic/Gemini/DeepSeek/GLM/Kimi/Grok/Qwen model calls and billing",
+    "Real mailbox delivery and authenticated external account writes",
+    "Native Windows 10/11 no-Node cold install/update, ConPTY/IME, Windows-MCP graphical operations and notifications; beta-owned",
+    "Linux desktop notifications and physical GUI acceptance"
+  ],
+  "hold": [
+    "Signed macOS locked-use helper, Apple notarization and dedicated lock-screen acceptance"
+  ],
+  "limits": [
+    "Official model/endpoint/protocol capability mapping is not account entitlement or paid-provider acceptance",
+    "Held provider presets remain held",
+    "At most two text-only output continuations; original cancellation, permissions, task/cost budgets and unknown-effect safeguards retained",
+    "Default tool-step count remains unbounded; incomplete tool arguments are never executed"
+  ],
+  "rollback": "Keep 0.5.3 release and prior installed version directory; user state survives the isolated upgrade; do not delete history or replay unknown operations",
+  "isolatedInstallerDiagnostics": [
+    {
+      "receipt": "installer-third-diagnostic.tap",
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "sha256": "95f2d5c5d32531c3acd52805df2062d5affce087a635a6431823434cbaed5371",
+      "exitCode": 0,
+      "seconds": 134.27,
+      "sourceTestBodyUnchanged": true,
+      "fixedPackageReused": true,
+      "phases": [
+        {
+          "phase": 1,
+          "seconds": 116.24,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 2,
+          "seconds": 0.363,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 3,
+          "seconds": 0.148,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 4,
+          "seconds": 0.593,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 5,
+          "seconds": 13.538,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 6,
+          "seconds": 2.838,
+          "exitCode": 0,
+          "timedOut": false
+        }
+      ],
+      "scope": "Separate macOS fixture execution with original test assertions; not a single full-suite pass. Private Node mirror is simulated and does not establish Windows no-Node acceptance."
+    },
+    {
+      "receipt": "installer-remaining-diagnostic.tap",
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "sha256": "85397b9e37049367c47d66257b4658ff95d9730d83d3813399382de4a24f376e",
+      "exitCode": 0,
+      "seconds": 24.96,
+      "sourceTestBodyUnchanged": true,
+      "fixedPackageReused": true,
+      "phases": [
+        {
+          "phase": 1,
+          "seconds": 2.569,
+          "exitCode": 1,
+          "timedOut": false
+        },
+        {
+          "phase": 2,
+          "seconds": 9.226,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 3,
+          "seconds": 0.331,
+          "exitCode": 1,
+          "timedOut": false
+        },
+        {
+          "phase": 4,
+          "seconds": 0.392,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 5,
+          "seconds": 0.316,
+          "exitCode": 1,
+          "timedOut": false
+        },
+        {
+          "phase": 6,
+          "seconds": 0.053,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 7,
+          "seconds": 10.477,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 8,
+          "seconds": 0.364,
+          "exitCode": 0,
+          "timedOut": false
+        },
+        {
+          "phase": 9,
+          "seconds": 0.489,
+          "exitCode": 1,
+          "timedOut": false
+        }
+      ],
+      "scope": "Separate macOS fixture execution with original test assertions; not a single full-suite pass. Private Node mirror is simulated and does not establish Windows no-Node acceptance."
+    }
+  ],
+  "installerTimeoutDiagnosis": "The original 120/240-second whole-file deadlines expired during large-package work. With the fixed package reused, the third original test completed in 134.27 seconds (first installation: 116.24 seconds) and the remaining four tests passed in 24.96 seconds. No command timed out or left an owned child in these diagnostic runs."
+}

@@ -1,11 +1,7 @@
-# Release status — 0.5.3
+# Koder CLI 0.5.4
 
-The startup refractor retains its three-lobed ring with finer translucent shading and edges. Startup, Setup and pickers share thin blue frames with brighter corners. Narrow pickers fit the terminal width, and startup honors reduced-motion environment settings.
+Model-specific thinking controls and bounded prose continuation are integrated into the existing runtime. Local fixture results, package checks, isolated macOS installation/update, and GitHub artifact readback are recorded separately in the release acceptance receipt. Windows 10/11 native Console/ConPTY/IME, cold installation/update, Windows-MCP GUI, paid-provider acceptance and private-account writes remain NOT_RUN here and require the beta/device owners.
 
-The focused UI regression passed 97 checks. The actual CLI passed the local macOS PTY fixture's 12 stages in both truecolor and NO_COLOR modes. Source rendering checks, local PTY interaction, packaged runtime, installation/upgrade and GitHub readback are separate evidence layers in ACCEPTANCE-RESULTS.json. Scripted providers are deterministic fixtures, not paid-model performance evidence. This version does not reuse 0.5.2 test counts.
+The macOS locked-use helper remains an unsigned candidate on HOLD. Existing EULA, third-party attribution, Core permissions, cancellation, cost budgets, context controls, project isolation, unlimited default task rounds and persistent input are retained. Distribution is GitHub only; no website changes or deployments.
 
-Windows Console/ConPTY/IME, native GUI and cold installation/update remain beta-owned NOT_RUN here. Real private mail delivery, authenticated external account writes and Linux/Windows notification display require separate acceptance. The unsigned macOS locked-use component remains HOLD. Advanced CodeGraphContext, Windows-MCP, REA, SolidCraft and the MCP SDK retain their upstream coverage limits and attribution.
-
-GitHub only; no official website edits or deployments. Existing Core, permissions, cancellation, budgets, context controls, project history and the compact persistent input are retained.
-
-[Release notes](docs/RELEASE-0.5.3.md) · [中文说明](docs/RELEASE-0.5.3.zh.md) · [Terminal guide](docs/SESSION-DOCK.en.md).
+[Release notes](docs/RELEASE-0.5.4.md) · [中文说明](docs/RELEASE-0.5.4.zh.md) · [Thinking and output guide](docs/MODEL-EFFORT-AND-OUTPUT.en.md).

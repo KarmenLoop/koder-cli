@@ -1,13 +1,13 @@
 # Koder CLI installer for Windows 10 / 11. ASCII-only wrapper around the UTF-8 script.
-# PowerShell:  irm https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.3/koder-cli.ps1 | iex
-# CMD:         powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.3/koder-cli.ps1 | iex"
+# PowerShell:  irm https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.4/koder-cli.ps1 | iex
+# CMD:         powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.4/koder-cli.ps1 | iex"
 # Versioned release path. Keep the installer and manifest pinned to the same release. Current install commands are on https://karmenloop.com.
 $KoderInstaller = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String((
 'IyBLb2RlciBDTEkgaW5zdGFsbGVyIChXaW5kb3dzIDEwIC8gMTE7IFdpbmRvd3MgUG93ZXJTaGVsbCA1LjEgb3IgUG93ZXJTaGVs' +
 'bCA3KToKIyAgIFBvd2VyU2hlbGw6ICBpcm0gaHR0cHM6Ly9naXRodWIuY29tL0thcm1lbkxvb3Ava29kZXItY2xpL3JlbGVhc2Vz' +
-'L2Rvd25sb2FkL2NsaS0wLjUuMy9rb2Rlci1jbGkucHMxIHwgaWV4CiMgICBDTUQ6ICAgICAgICAgcG93ZXJzaGVsbCAtTm9Qcm9m' +
+'L2Rvd25sb2FkL2NsaS0wLjUuNC9rb2Rlci1jbGkucHMxIHwgaWV4CiMgICBDTUQ6ICAgICAgICAgcG93ZXJzaGVsbCAtTm9Qcm9m' +
 'aWxlIC1FeGVjdXRpb25Qb2xpY3kgQnlwYXNzIC1Db21tYW5kICJpcm0gaHR0cHM6Ly9naXRodWIuY29tL0thcm1lbkxvb3Ava29k' +
-'ZXItY2xpL3JlbGVhc2VzL2Rvd25sb2FkL2NsaS0wLjUuMy9rb2Rlci1jbGkucHMxIHwgaWV4IgojIEEgbm9ybWFsIHRlcm1pbmFs' +
+'ZXItY2xpL3JlbGVhc2VzL2Rvd25sb2FkL2NsaS0wLjUuNC9rb2Rlci1jbGkucHMxIHwgaWV4IgojIEEgbm9ybWFsIHRlcm1pbmFs' +
 'IGFza3MgZm9yIGFjY2VwdC4gVW5hdHRlbmRlZCB1c2UgYWZ0ZXIgcmVhZGluZyB0aGUgbGljZW5zZSBzZXRzIEtPREVSX0VVTEFf' +
 'QUNDRVBUPTEgZmlyc3QuCiMgVmVyc2lvbmVkIHJlbGVhc2UgcGF0aC4gS2VlcCB0aGUgaW5zdGFsbGVyIGFuZCBtYW5pZmVzdCBw' +
 'aW5uZWQgdG8gdGhlIHNhbWUgcmVsZWFzZS4KIyBDdXJyZW50IGluc3RhbGwgY29tbWFuZHMgYXJlIG9uIGh0dHBzOi8va2FybWVu' +
@@ -21,7 +21,7 @@ $KoderInstaller = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String((
 'bCA9IFtOZXQuU2VydmljZVBvaW50TWFuYWdlcl06OlNlY3VyaXR5UHJvdG9jb2wgLWJvciBbTmV0LlNlY3VyaXR5UHJvdG9jb2xU' +
 'eXBlXTo6VGxzMTIgfSBjYXRjaCB7fQoKJEJhc2UgPSBpZiAoJGVudjpLT0RFUl9JTlNUQUxMX0JBU0UpIHsgJGVudjpLT0RFUl9J' +
 'TlNUQUxMX0JBU0UuVHJpbUVuZCgnLycpIH0gZWxzZSB7ICdodHRwczovL2dpdGh1Yi5jb20vS2FybWVuTG9vcC9rb2Rlci1jbGkv' +
-'cmVsZWFzZXMvZG93bmxvYWQvY2xpLTAuNS4zJyB9CiRLb2RlckhvbWUgPSBpZiAoJGVudjpLT0RFUl9JTlNUQUxMX0hPTUUpIHsg' +
+'cmVsZWFzZXMvZG93bmxvYWQvY2xpLTAuNS40JyB9CiRLb2RlckhvbWUgPSBpZiAoJGVudjpLT0RFUl9JTlNUQUxMX0hPTUUpIHsg' +
 'JGVudjpLT0RFUl9JTlNUQUxMX0hPTUUgfSBlbHNlIHsgSm9pbi1QYXRoICRlbnY6TE9DQUxBUFBEQVRBICdrb2Rlci1jbGknIH0K' +
 'JEJpbkRpciA9IEpvaW4tUGF0aCAkS29kZXJIb21lICdiaW4nCiROb2RlRGlzdCA9IGlmICgkZW52OktPREVSX05PREVfRElTVCkg' +
 'eyAkZW52OktPREVSX05PREVfRElTVCB9IGVsc2UgeyAnaHR0cHM6Ly9ub2RlanMub3JnL2Rpc3QnIH0KJE5vZGVWZXJzaW9uID0g' +
@@ -85,7 +85,7 @@ $KoderInstaller = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String((
 'aW1lIGJ5dGVzLiBLZWVwIGV4cGxpY2l0CiMgY3VzdG9tIGJhc2VzIHVuY2hhbmdlZCBhbmQgbmV2ZXIgcmV0cnkgYSBjaGVja3N1' +
 'bSBmYWlsdXJlIGFnYWluc3QgYW5vdGhlciBob3N0LgpmdW5jdGlvbiBGZXRjaCgkdXJsLCAkZmlsZSwgJHpoLCAkZW4pIHsKICAk' +
 'c291cmNlcyA9IEAoJHVybCkKICBpZiAoLW5vdCAkZW52OktPREVSX0lOU1RBTExfQkFTRSAtYW5kICR1cmwuU3RhcnRzV2l0aCgi' +
-'JEJhc2UvIikpIHsKICAgICRtaXJyb3IgPSAiaHR0cHM6Ly9rYXJtZW5sb29wLmNvbS9pbnN0YWxsL2NsaS0wLjUuMyIgKyAkdXJs' +
+'JEJhc2UvIikpIHsKICAgICRtaXJyb3IgPSAiaHR0cHM6Ly9rYXJtZW5sb29wLmNvbS9pbnN0YWxsL2NsaS0wLjUuNCIgKyAkdXJs' +
 'LlN1YnN0cmluZygkQmFzZS5MZW5ndGgpCiAgICAkc291cmNlcyA9IEAoJG1pcnJvciwgJHVybCkKICB9IGVsc2VpZiAoLW5vdCAk' +
 'ZW52OktPREVSX05PREVfRElTVCAtYW5kICR1cmwuU3RhcnRzV2l0aCgnaHR0cHM6Ly9ub2RlanMub3JnL2Rpc3QvJykpIHsKICAg' +
 'ICRtaXJyb3IgPSAnaHR0cHM6Ly9rYXJtZW5sb29wLmNvbS9pbnN0YWxsL25vZGUnICsgJHVybC5TdWJzdHJpbmcoJ2h0dHBzOi8v' +

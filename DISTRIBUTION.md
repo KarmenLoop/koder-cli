@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed release is **0.5.3**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.5.4**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -95,3 +95,7 @@ Native JS/TS navigation reuses Koder Reverse. Existing Windows-MCP, CodeGraphCon
 ## Version 0.5.3
 
 The startup refractor, shared terminal frames and narrow pickers receive a visual update. Existing Windows and macOS installers select the same versioned runtime and checksum feed. GitHub is the publication destination; no website content or deployment is included. Native Windows terminal acceptance remains beta-owned and distinct from local PTY fixtures. [Release notes](docs/RELEASE-0.5.3.md).
+
+## Version 0.5.4
+
+Windows CMD/PowerShell and macOS installers share the same versioned runtime and SHA-256 feed. Thinking controls and output recovery are covered by local protocol, task, persistence and installer checks; paid-provider and native Windows acceptance remain separately identified. [Release notes](docs/RELEASE-0.5.4.md).

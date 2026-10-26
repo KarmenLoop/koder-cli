@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.4 — 2026-10-27
+
+- Show reasoning levels supported by the selected model, official endpoint and wire protocol. Preserve legacy aliases and existing model settings; unsupported choices do not silently increase effort.
+- Carry explicit and inherited thinking settings into child tasks without changing provider routing, permissions or shared cost accounting.
+- Retain text and reported usage when a provider reaches its output ceiling. Continue prose at most twice with tools disabled and the original budget; never execute truncated tool arguments or replay completed effects.
+- Preserve joined continuation text in saved conversations. Distinguish output, context, transport and content-review failures.
+- Preserve complete signed thinking and tool-use groups through the Office context boundary; reject incomplete SSE termination.
+
+[Thinking and output guide](docs/MODEL-EFFORT-AND-OUTPUT.en.md) · [Release notes](docs/RELEASE-0.5.4.md).
+
 ## 0.5.3 — 2026-10-27
 
 - Refine the startup refractor's translucent surface, edge coverage and restrained spectral highlights while retaining its three-lobed ring shape.

@@ -2,15 +2,15 @@
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current version: **0.5.3**. Start with [release changes](RELEASE-0.5.3.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.5.4**. Start with [release changes](RELEASE-0.5.4.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.3; check GitHub Releases for publication status and available downloads.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.4; check GitHub Releases for publication status and available downloads.
 
 # Koder CLI complete user guide
 
-Version: **0.5.3**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.5.4**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -213,14 +213,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.5.3-en-cmd.txt](tutorials/koder-cli-0.5.3-en-cmd.txt)
-- [koder-cli-0.5.3-en-linux.txt](tutorials/koder-cli-0.5.3-en-linux.txt)
-- [koder-cli-0.5.3-en-mac.txt](tutorials/koder-cli-0.5.3-en-mac.txt)
-- [koder-cli-0.5.3-en-powershell.txt](tutorials/koder-cli-0.5.3-en-powershell.txt)
-- [koder-cli-0.5.3-zh-cmd.txt](tutorials/koder-cli-0.5.3-zh-cmd.txt)
-- [koder-cli-0.5.3-zh-linux.txt](tutorials/koder-cli-0.5.3-zh-linux.txt)
-- [koder-cli-0.5.3-zh-mac.txt](tutorials/koder-cli-0.5.3-zh-mac.txt)
-- [koder-cli-0.5.3-zh-powershell.txt](tutorials/koder-cli-0.5.3-zh-powershell.txt)
+- [koder-cli-0.5.4-en-cmd.txt](tutorials/koder-cli-0.5.4-en-cmd.txt)
+- [koder-cli-0.5.4-en-linux.txt](tutorials/koder-cli-0.5.4-en-linux.txt)
+- [koder-cli-0.5.4-en-mac.txt](tutorials/koder-cli-0.5.4-en-mac.txt)
+- [koder-cli-0.5.4-en-powershell.txt](tutorials/koder-cli-0.5.4-en-powershell.txt)
+- [koder-cli-0.5.4-zh-cmd.txt](tutorials/koder-cli-0.5.4-zh-cmd.txt)
+- [koder-cli-0.5.4-zh-linux.txt](tutorials/koder-cli-0.5.4-zh-linux.txt)
+- [koder-cli-0.5.4-zh-mac.txt](tutorials/koder-cli-0.5.4-zh-mac.txt)
+- [koder-cli-0.5.4-zh-powershell.txt](tutorials/koder-cli-0.5.4-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
@@ -340,3 +340,5 @@ Use the default PageIndex Skill to navigate local documents, read selected secti
 ## 0.5.0: Invocation, OCR and professional roles
 
 Read the [complete execution guide](FRAMEWORK-0.5.en.md). It covers installation checks, local OCR, role selection, FIFO concurrency, headless completion and platform limits.
+
+[Model-specific thinking and output limits](MODEL-EFFORT-AND-OUTPUT.en.md)

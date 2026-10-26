@@ -1,10 +1,10 @@
 {
-  "version": "0.5.3",
-  "file": "koder-cli-0.5.3.tgz",
-  "sha256": "a4afa725c214a782317cf728e1310b92e68f85d381834bb06f0e0538df860b5f",
-  "size": 473016529,
+  "version": "0.5.4",
+  "file": "koder-cli-0.5.4.tgz",
+  "sha256": "4f390ac3b4372fe08bf37c8db968b75ecfc13eb04e59439b17693764c05492b6",
+  "size": 480836334,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-26T17:17:10.163Z",
+  "builtAt": "2026-10-26T18:17:23.407Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,24 +14,24 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "eece03207db72b72b79ee271e4c4cb2d75e3a2a69fa153a3d6a21b08e9e29b64"
+      "sha256": "18b39d1828756e5e897892170ff035914ba83de10f045b085df7c6d34537ace1"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "d487f3d5e4973b83bc2006ed7653c595376cc3a6a481604edafcc47da9ab3ed9"
+      "sha256": "39e484c528513bd7bebe3ac781c7ac6dd8c6742b7a02fe2146aa95ec6a223949"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "333765924f0fc928b318318b2a4816987c19b8d9afa2a62e74b1ba0b0e23e53c"
+      "sha256": "6cfef366e7369bcb83009878f96ac17dd4eebb8361cecdc4d5167c9fb77ffb89"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.2",
-  "privateSourceCommit": "9d928f263ffa13869944826cd5d2ebc89d2e1782",
+  "sourceBaseline": "0.5.3",
+  "privateSourceCommit": "a43dbab10843623265126fd5ef5048437f4765c9",
   "changes": [
-    "Finer startup refractor sampling and glass highlights",
-    "Shared thin blue frames and narrow-terminal menu sizing",
-    "Reduced-motion startup support and lighter chat separators"
+    "Model- and endpoint-specific reasoning controls with retained provider settings",
+    "Explicit parent and child reasoning effort with per-model validation",
+    "Persisted partial answers and at most two text-only continuations under existing budgets"
   ],
   "retainedLimits": [
     "Windows 10/11 native terminal, ConPTY, IME, cold install and update: beta-owned",
@@ -44,7 +44,12 @@
     "Live private mail and authenticated external account writes",
     "Independent replacements for full Windows GUI, CAD geometry, REA disassembly and advanced CodeGraphContext analysis are not delivered",
     "Existing outside-workspace homeRead and computerDriver capture/act cancellation propagation remains an independent follow-up; no complete desktop cancellation parity claim",
-    "Windows bundle license mapping audit found aiofile LICENCE naming and fastmcp-slim mapping gaps; original vendor bytes and supplied notices retained, not a claim of complete license clearance"
+    "Windows bundle license mapping audit found aiofile LICENCE naming and fastmcp-slim mapping gaps; original vendor bytes and supplied notices retained, not a claim of complete license clearance",
+    "Live paid MiniMax/OpenAI/Anthropic/Gemini/DeepSeek/GLM/Kimi/Grok/Qwen model calls and billing",
+    "Real mailbox delivery and authenticated external account writes",
+    "Native Windows 10/11 no-Node cold install/update, ConPTY/IME, Windows-MCP graphical operations and notifications; beta-owned",
+    "Linux desktop notifications and physical GUI acceptance",
+    "Signed macOS locked-use helper, Apple notarization and dedicated lock-screen acceptance"
   ],
   "publicationAuthorization": "GitHub only; website excluded",
   "courseStatus": {
