@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.22 — 2026-10-26
+
+Integrate 84 pinned DESIGN.md references with website requirements, project design decisions and the existing implementation/preview workflow. Add offline catalog/read/verify commands and a Setup switch. Load design and AI-app schemas only for relevant tasks. Keep Koder-specific landing-page requirements out of unrelated sites. [Release notes](docs/RELEASE-0.4.22.md).
+
 ## 0.4.21 — 2026-10-26
 
 Fix repository-qualified Skill search results and prevent unrelated fallback searches for an explicitly selected source. Share the product effort levels between session controls, delegated model selection and tool schemas. Verify 180 tool-enabled child readers, pinned public Skill download/read/write continuation, and distinct child model/effort requests through the existing HTTP provider and shared budget. [Release notes](docs/RELEASE-0.4.21.md).

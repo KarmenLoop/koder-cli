@@ -289,6 +289,22 @@
           "sha256": "b7e68c341497f987ad8c7cae168c4789ed6f7e1aa17db828f7dfa2ac4c804a35"
         }
       ]
+    },
+    {
+      "id": "awesome-design-md",
+      "repository": "VoltAgent/awesome-design-md",
+      "recordedSourceRevision": "3b605329240ce735b510037cca322f1831fdd7f8",
+      "declaredLicense": "MIT",
+      "use": "Pinned design-system analyses and a Koder website-intake workflow; no upstream code, fonts or media executed or installed",
+      "bundleResourceRoot": "kernel/fusion/methods/awesome-design-md/library",
+      "listedResourceFiles": 170,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE",
+          "publicCopy": "licenses/awesome-design-md/LICENSE-MIT.txt",
+          "sha256": "6d4bdc9a9cf30e7beb593475fdcdbf29f981ea6bd7923f202866145409f87b44"
+        }
+      ]
     }
   ],
   "portLicenseChecks": [

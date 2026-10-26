@@ -1,0 +1,65 @@
+{
+  "version": "0.4.22",
+  "privateSourceCommit": "648803b2ef05b259f54105545686363c48ccbc2d",
+  "sourceRegression": {
+    "tests": 121,
+    "pass": 121,
+    "fail": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 36.54913975
+  },
+  "installerRegression": {
+    "tests": 26,
+    "pass": 26,
+    "fail": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 112.594065458
+  },
+  "packagedRegression": {
+    "tests": 106,
+    "pass": 106,
+    "fail": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 35.77324295043945
+  },
+  "package": {
+    "runtimeSha256": "58d0f1817a3f1ab56717c75578306f161f23d113cc388e3e50bca48bf809d737",
+    "runtimeBytes": 338011184,
+    "kernelHashes": 5962,
+    "kernelMatchesSource": true,
+    "sourceDocsFiles": 2646
+  },
+  "packageSmokeCommands": 22,
+  "installerUpgrade": {
+    "passed": true,
+    "from": "0.4.21",
+    "to": "0.4.22",
+    "origin": "http://127.0.0.1:61936",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 11
+  },
+  "actualLocalInvocation": [
+    "requirement prompt and response through ask_user",
+    "original approval and cancellation",
+    "write actual website files",
+    "run two Node tests",
+    "fetch local HTTP preview",
+    "generate H5 project map"
+  ],
+  "testDoubles": [
+    "model decisions",
+    "browser-opening adapter",
+    "owner consent in automated fixtures"
+  ],
+  "notRun": [
+    "paid-model autonomous design quality",
+    "native Windows UI and cold install",
+    "native browser visual and keyboard checks",
+    "production account writes"
+  ],
+  "distribution": "GitHub only; no official website deployment"
+}

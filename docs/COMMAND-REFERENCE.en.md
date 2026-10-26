@@ -1,11 +1,11 @@
 # Complete command reference
 
-Koder CLI 0.4.21 · 1,800 Chinese lessons; original 30 English lessons
+Koder CLI 0.4.22 · 1,800 Chinese lessons; original 30 English lessons
 
 Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md) · [Task orchestration](TASK-ORCHESTRATION.en.md)
 
 ```text
-KODER CLI 0.4.21
+KODER CLI 0.4.22
 A lightweight terminal coding agent
 
 Usage
@@ -42,6 +42,7 @@ Toolchain and local projects
   gateway  Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp
 
 Setup and help
+  design   Website briefs and bundled design references
   llm-apps Bundled AI app references and Koder workflows
   tools    Check local tools before searching public candidates
   subagentsInspect saved subagent checkpoints for a workspace session
@@ -105,6 +106,20 @@ Global options
   -h, --help                Show help for the command
 
 koder help <command> for details; koder learn for the tutorial; koder lang zh for Chinese.
+```
+
+## design
+
+```text
+koder design  Website briefs and bundled design references
+Aliases: awesome-design-md
+
+Usage
+  koder design status|list|read|verify|on|off [id] [--query text] [--offset N] [--limit N] [--json]
+
+Enabled for website creation and redesign. Clarify missing requirements, read offline DESIGN.md references, then use existing variants, implementation and preview tools. Disable in Setup → Skills. Headless tasks and explicit no-question requests continue with stated assumptions.
+
+Global options: koder help.
 ```
 
 ## llm-apps

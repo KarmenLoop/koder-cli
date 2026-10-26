@@ -1,10 +1,10 @@
 {
-  "version": "0.4.21",
-  "file": "koder-cli-0.4.21.tgz",
-  "sha256": "58c1c5ef9934da09e67bf901a7dbdd82ef9a7df409f87cc848212265cc9a1bf4",
-  "size": 329546517,
+  "version": "0.4.22",
+  "file": "koder-cli-0.4.22.tgz",
+  "sha256": "58d0f1817a3f1ab56717c75578306f161f23d113cc388e3e50bca48bf809d737",
+  "size": 338011184,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-26T07:42:41.822Z",
+  "builtAt": "2026-10-26T08:58:20.393Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,26 +14,27 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "03f3e26a75d874040c906d0b710d01faf678544aafe18e1050b360cc42133476"
+      "sha256": "9267ad37f6115010c60377bbbbce8e05f6988c0c6855f7468c2a838f4215f271"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "0dc486ff07d9b386e5dadf164a5fbcf52358264b2af6d37fc8ad4f52d1db08a7"
+      "sha256": "9199a7079c1d1cfa23658101c14b298cee466b9c53eebfc6c41ba19fb4a8bc3b"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "e04e72c30998d3faa0c9213d3a68d7de6a94820b8c62ddf64bd2debe64da4a3b"
+      "sha256": "28bd0f8100c595fba89bbb76a5c42c8ae70bda16ccf2c9d8c901fc3f1743e778"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.4.20",
-  "privateSourceCommit": "9354c78814ffdaa8765eac046d684e83b5ca2567",
+  "sourceBaseline": "0.4.21",
+  "privateSourceCommit": "648803b2ef05b259f54105545686363c48ccbc2d",
   "changes": [
-    "Fix repository-qualified Skill lookup in fresh and cached results",
-    "Share effort levels across session controls, child matching and tool schemas",
-    "Verify pinned public Skill acquisition and same-task local continuation",
-    "Verify 180 child readers, owned writes, model/effort HTTP routing and shared budgeting",
-    "Retain unlimited default rounds, permissions, cancellation, UNKNOWN receipts and prior integrations"
+    "Bundle 84 pinned DESIGN.md references with MIT attribution",
+    "Clarify missing website requirements and retain explicit assumptions",
+    "Merge project design decisions through original approved editing",
+    "Continue into implementation, preview, tests and H5 delivery",
+    "Load design and AI-app schemas by task to preserve small contexts",
+    "Keep Koder-specific content out of unrelated landing pages"
   ],
   "courseStatus": {
     "zh": 1800,
@@ -41,9 +42,10 @@
     "originalZhRetained": 180
   },
   "retainedLimits": [
-    "Model and consent decisions in invocation tests are deterministic fixtures",
-    "Real paid-model autonomy and provider billing reconciliation NOT_RUN",
-    "Windows x64 and Intel Mac native acceptance remains with beta team",
+    "paid-model autonomous design quality",
+    "native Windows UI and cold install",
+    "native browser visual and keyboard checks",
+    "production account writes",
     "Existing GUI, account, residency and unsigned locked-use limits remain"
   ],
   "publicationAuthorization": "GitHub only; official website changes and deployments excluded"

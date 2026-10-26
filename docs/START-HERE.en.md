@@ -2,15 +2,15 @@
 
 [Detailed 30-lesson course: hands-on and developer tracks](courses/README.en.md)
 
-0.4.20 adds [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
+Retained since 0.4.20: [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
 
-# Start with Koder CLI 0.4.20
+# Start with Koder CLI 0.4.22
 
 Koder is a terminal coding and writing agent that uses your selected model API or compatible local model. It can work on project files, run approved commands and use configured Skills, MCP connections and applications. Your provider bills model usage separately. A catalog entry or an enabled setting is not proof of a working account or device connection.
 
 ## 1. Install or update
 
-Use the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.20). Choose Windows CMD/PowerShell or macOS Terminal; these installers use the same 0.4.20 runtime. The CLI is a separate download from the desktop application.
+Use the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.22). Choose Windows CMD/PowerShell or macOS Terminal; these installers use the same 0.4.22 runtime. The CLI is a separate download from the desktop application.
 
 For an existing managed installation:
 
@@ -19,7 +19,7 @@ koder update
 koder --version
 ```
 
-Expect `koder 0.4.20`. If an updater from 0.4.4 or earlier rejects the manifest, run the current GitHub installer in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS.
+Expect `koder 0.4.22`. If an updater from 0.4.4 or earlier rejects the manifest, run the current GitHub installer in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS.
 
 ## 2. Configure a model and try a task
 
@@ -67,7 +67,7 @@ Mail monitoring requires explicit authorization and a running host; polling, sle
 
 Eligible managed chat installations check for updates at startup and periodically, then install only while tasks, queues and drafts are idle. `koder update auto off` disables this; `koder update --check` only inspects the feed.
 
-[0.4.20 release notes](RELEASE-0.4.20.md) distinguish new AI-app workflow behavior from retained features. Native Windows client, PowerShell 5.1 cold startup, ConPTY/IME, Windows-MCP GUI and live account/model acceptance remain separate device and beta checks. SolidCraft native modeling was exercised on Apple silicon; Windows and Intel Mac execution remain NOT_RUN here. Installation and local checks do not certify every device or service.
+[0.4.22 release notes](RELEASE-0.4.22.md) distinguish the new website design workflow from retained features. Native Windows client, PowerShell 5.1 cold startup, ConPTY/IME, Windows-MCP GUI and live account/model acceptance remain separate device and beta checks. SolidCraft native modeling was exercised on Apple silicon; Windows and Intel Mac execution remain NOT_RUN here. Installation and local checks do not certify every device or service.
 
 ## Connect GitHub and host a project
 
@@ -87,3 +87,8 @@ The default dock uses two rows, or three with a Todo summary. Keep typing while 
 ## 0.4.21: Skill discovery and child execution
 
 [Walk through discovery and delegation](SELF-FETCH-AND-SUBAGENTS.en.md): source-scoped search, pinned installation, same-task continuation, model and effort selection, shared budgets and cancellation.
+
+
+## 0.4.22: Website requirements and design
+
+Default website intake, 84 offline reference documents, original approval and implementation workflow. [Hands-on guide](AWESOME-DESIGN-MD.en.md).

@@ -1,8 +1,8 @@
 # Koder CLI — 使用前与授权说明 / Before you enable features
 
-适用于 0.4.21；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
+适用于 0.4.22；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
 
-For 0.4.21; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+For 0.4.22; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
 
 授权与数据使用说明
 
@@ -85,3 +85,9 @@ SolidCraft 随包提供，但需对每个项目单独开启。测试或任务调
 ## Bundled AI application references
 
 Awesome LLM Apps provides offline text references and adapted Koder methods. Reading the library is local; selected source excerpts and project evidence can enter the existing model context when used in an Agent task. This does not grant new network, account, filesystem or execution permissions. External example dependencies and accounts are not automatically installed or bound. Disable the integration with koder llm-apps off or Setup → Skills.
+
+## Website design references / 网站设计参考
+
+0.4.22 bundles MIT-licensed design text for offline reference. The default method asks about missing website requirements; supplied facts and assumptions are distinguished. It does not authorize copying brand assets, installing dependencies, network access or publishing. Existing file and command approvals remain. Disable the method in Setup Skills or koder design off.
+
+随包设计原文可离线阅读。默认建站询问缺失需求；用户可跳过可选问题，缺项须标为假设。设计参考不授予商标/图片/字体许可、联网、安装或发布权限；原文件与命令审批继续生效。可在 Setup Skills 或 koder design off 关闭。

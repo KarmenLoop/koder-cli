@@ -96,3 +96,8 @@ The Windows x64 and macOS universal command-line executables are redistributed u
 ## Awesome LLM Apps
 
 [Shubhamsaboo/awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps) at 6c16b23f1bacd0fdf240bb5141ef45e59e82c306 supplies the pinned text references. Its original text, copyright notices and per-file hashes are retained in the compressed library. The root [Apache-2.0 license](licenses/awesome-llm-apps/LICENSE-APACHE-2.0.txt), [snapshot notice](licenses/awesome-llm-apps/NOTICE.txt) and subtree licenses are included. Koder supplies separately adapted methods and local retrieval/verification tools; it does not execute upstream services, install dependencies or imply upstream endorsement. Binary/media/data assets and lockfiles are excluded. The Koder application license does not replace these component terms.
+
+
+## Awesome DESIGN.md
+
+[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) at `3b605329240ce735b510037cca322f1831fdd7f8` supplies 84 design analyses, preserved as original text with per-file hashes. The [MIT license](licenses/awesome-design-md/LICENSE-MIT.txt) and copyright notice are included. Koder adds its own requirements, design-document and implementation workflow on the existing Core. The analyses are community references, not official brand standards or endorsements. Fonts, trademarks, logos, screenshots and external-site assets are not distributed or licensed by this snapshot. Koder's application license does not replace these component terms.

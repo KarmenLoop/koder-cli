@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed release is **0.4.21**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.4.22**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -71,3 +71,7 @@ GitHub-only release of the existing Windows/macOS installers and runtime with th
 ## Version 0.4.21
 
 Windows and macOS installers share the versioned runtime and verified update manifest. This patch fixes source-scoped Skill discovery, shares product effort definitions, and adds execution-level evidence for 180 child readers and model/effort routing. GitHub is the only publication destination. [Release notes](docs/RELEASE-0.4.21.md).
+
+## Version 0.4.22
+
+Windows and macOS installers use the same versioned runtime. This release adds the offline Awesome DESIGN.md library and requirements-led website workflow, retaining existing platform payloads and permission boundaries. GitHub is the only publication destination. [Release notes](docs/RELEASE-0.4.22.md).

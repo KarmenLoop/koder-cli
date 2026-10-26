@@ -1,11 +1,11 @@
 # 完整命令参考
 
-Koder CLI 0.4.21 · 1800 课中文课堂；原 30 课英文教程
+Koder CLI 0.4.22 · 1800 课中文课堂；原 30 课英文教程
 
 根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md) · [长任务与子任务操作](TASK-ORCHESTRATION.zh.md)
 
 ```text
-KODER CLI 0.4.21
+KODER CLI 0.4.22
 轻量即用的终端编程代理
 
 用法
@@ -42,6 +42,7 @@ KODER CLI 0.4.21
   gateway  一键接入飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp  网关、接入
 
 设置与帮助
+  design   网站需求问询与内置设计参考  awesome-design-md
   llm-apps 内置 AI 应用参考与 Koder 工作流  awesome-llm-apps
   tools    先查本机工具，再找公开候选
   subagents查看当前项目会话的子 Agent 检查点
@@ -105,6 +106,20 @@ KODER CLI 0.4.21
   -h, --help                显示该命令的说明
 
 koder help <命令> 看详细说明；koder learn 跟着教程走；koder lang en 切换英文。
+```
+
+## design
+
+```text
+koder design  网站需求问询与内置设计参考
+别名: awesome-design-md
+
+用法
+  koder design status|list|read|verify|on|off [id] [--query text] [--offset N] [--limit N] [--json]
+
+默认随建站/改版任务询问缺失需求；离线查阅 DESIGN.md，沿原三方案、代码和预览完成网站。Setup → Skills 可关闭。无交互或要求直接做时明确假设并继续。
+
+通用选项见 koder help。
 ```
 
 ## llm-apps
