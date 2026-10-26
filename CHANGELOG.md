@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.5.6 — 2026-10-27
+
+- Require a useful final answer and evidence for requested artifacts. Empty final answers receive at most two tool-free repair requests under the existing budget; unresolved delivery is reported as incomplete.
+- Stop repeated unchanged failures without imposing a lifetime tool-count limit. Preserve cancellation, explicit cost budgets and unknown-effect reconciliation.
+- Load the bundled Fullstack Web Delivery workflow for website tasks, retaining its original resources and existing opt-outs. Check current source, applicable plans and layout decisions, owned preview readiness and the actual handoff URL.
+- Resume the nearest unfinished website task from verified file hashes; finish missing preview work without replaying completed writes. Respect requests not to launch a browser or not to provide a preview.
+- Keep current notebook constraints and task carry-over within small model windows. Discover ancillary tools on demand while retaining native code, document, resource and connected-app entry points when relevant.
+- Correct local learning review and recall consistency, refresh stale packs after writes, and reject installer targets that do not match the packaged version.
+
+[Task results](docs/task-results.md) · [Website delivery](docs/website-delivery.md) · [Release notes](docs/RELEASE-0.5.6.md).
+
 ## 0.5.5 — 2026-10-27
 
 - Save local Markdown task memory by default, with account/workspace storage and separate session task records. Resume the same task with its saved decisions and next steps while preserving existing explicit notes.
