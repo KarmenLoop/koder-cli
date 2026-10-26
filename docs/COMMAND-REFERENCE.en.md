@@ -1,11 +1,11 @@
 # Complete command reference
 
-Koder CLI 0.4.16 · 1,800 Chinese lessons; original 30 English lessons
+Koder CLI 0.4.19 · 1,800 Chinese lessons; original 30 English lessons
 
 Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md) · [Task orchestration](TASK-ORCHESTRATION.en.md)
 
 ```text
-KODER CLI 0.4.16
+KODER CLI 0.4.19
 A lightweight terminal coding agent
 
 Usage
@@ -46,6 +46,7 @@ Setup and help
   subagentsInspect saved subagent checkpoints for a workspace session
   notificationsTask notifications, tests and receipts
   open     Open the original session from a notification
+  cad      Parametric 3D CAD with SolidCraft
   cli-anythingDiscover, register and approve local app CLIs
   migrate  Move projects, preferences and local history between devices
   logs     Inspect local runtime diagnostics
@@ -153,6 +154,20 @@ Usage
   koder open <opaque-token>
 
 Checks the current account, original workspace and persisted session. Opens chat without submitting a message or replaying a task.
+
+Global options: koder help.
+```
+
+## cad
+
+```text
+koder cad  Parametric 3D CAD with SolidCraft
+Aliases: solidcraft
+
+Usage
+  koder cad status|enable|disable|test|verify [-w <dir>] [--command <absolute-cli-path>]
+
+Bundled on Windows x64 and macOS. Enable per workspace; each turn gets an isolated headless design. Modeling uses the existing MCP approval path. Save designs before finishing. test verifies handshake, not geometry.
 
 Global options: koder help.
 ```
@@ -268,7 +283,7 @@ Global options: koder help.
 koder harness  Choose a task harness
 
 Usage
-  koder harness status|list|on|off|use <id|auto>|default <id>|archive <on|off>|steps <unlimited|N>|budget <amount> <USD|CNY> <model> <input-per-million> <output-per-million>|budget off
+  koder harness status|list|experiences [--offset N --limit N]|on|off|use <id|auto>|default <id>|archive <on|off>|steps <unlimited|N>|budget <amount> <USD|CNY> <model> <input-per-million> <output-per-million>|budget off
 
 Reuses existing tools, budgets, permissions and experience ports. Setup → Skills → Task harness. Disabling restores baseline ReAct.
 

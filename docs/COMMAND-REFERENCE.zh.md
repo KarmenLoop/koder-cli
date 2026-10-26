@@ -1,11 +1,11 @@
 # 完整命令参考
 
-Koder CLI 0.4.16 · 1800 课中文课堂；原 30 课英文教程
+Koder CLI 0.4.19 · 1800 课中文课堂；原 30 课英文教程
 
 根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md) · [长任务与子任务操作](TASK-ORCHESTRATION.zh.md)
 
 ```text
-KODER CLI 0.4.16
+KODER CLI 0.4.19
 轻量即用的终端编程代理
 
 用法
@@ -46,6 +46,7 @@ KODER CLI 0.4.16
   subagents查看当前项目会话的子 Agent 检查点
   notifications任务完成通知、测试与回执
   open     用通知编号打开原会话
+  cad      SolidCraft 参数化三维建模  solidcraft
   cli-anything发现、注册并审批调用本机应用 CLI
   migrate  加密迁移项目、配置与本地历史  migration、迁移
   logs     查看本机运行日志
@@ -153,6 +154,20 @@ koder open  用通知编号打开原会话
   koder open <opaque-token>
 
 核实当前账号、原项目和原会话后打开；不自动发送消息或重做任务。
+
+通用选项见 koder help。
+```
+
+## cad
+
+```text
+koder cad  SolidCraft 参数化三维建模
+别名: solidcraft
+
+用法
+  koder cad status|enable|disable|test|verify [-w <dir>] [--command <absolute-cli-path>]
+
+Windows x64 与 macOS 内置 CLI。按项目开启，每回合独立设计实例；经原 MCP 审批建模、测量、保存与导出。test 仅验证握手，实际尺寸另行核对。
 
 通用选项见 koder help。
 ```
@@ -268,7 +283,7 @@ koder agentd  常驻诊断与主动提醒设置
 koder harness  按任务选配执行配置
 
 用法
-  koder harness status|list|on|off|use <id|auto>|default <id>|archive <on|off>|steps <unlimited|N>|budget <amount> <USD|CNY> <model> <input-per-million> <output-per-million>|budget off
+  koder harness status|list|experiences [--offset N --limit N]|on|off|use <id|auto>|default <id>|archive <on|off>|steps <unlimited|N>|budget <amount> <USD|CNY> <model> <input-per-million> <output-per-million>|budget off
 
 复用原工具、预算、权限与经验接口；Setup → 技能 → 任务 Harness。关闭时保持默认 ReAct。
 

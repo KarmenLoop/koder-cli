@@ -2,7 +2,7 @@
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current release: **0.4.18**. Start with [release changes](RELEASE-0.4.18.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current release: **0.4.19**. Start with [release changes](RELEASE-0.4.19.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
@@ -10,11 +10,11 @@ This release includes default-on [Headroom context optimization](HEADROOM.en.md)
 
 # Koder CLI complete user guide
 
-Version: **0.4.18**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.4.19**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
-Use the matching Windows PowerShell, CMD, macOS, Linux or WSL instructions in [Installation](INSTALLATION.md). Download only from [the official website](https://karmenloop.com/download.html) or [KarmenLoop/koder-cli](https://github.com/KarmenLoop/koder-cli). Read the installed EULA and privacy documents before accepting. Personal noncommercial use is free; commercial use and organizational distribution need separate written authorization.
+Use the matching Windows PowerShell, CMD, macOS, Linux or WSL instructions in [Installation](INSTALLATION.md). Download this release from [KarmenLoop/koder-cli on GitHub](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.19). Read the installed EULA and privacy documents before accepting. Personal noncommercial use is free; commercial use and organizational distribution need separate written authorization.
 
 Normal installation does not require changing the machine-wide PowerShell execution policy or disabling security software. `accept` accepts the license; it grants no optional computer, messaging, learning or synchronization authority. A network delay, a canceled installation and an OS policy rejection are different conditions. The installer reports its stage and download progress; keep the exact error for diagnosis.
 
@@ -180,14 +180,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.4.18-en-cmd.txt](tutorials/koder-cli-0.4.18-en-cmd.txt)
-- [koder-cli-0.4.18-en-linux.txt](tutorials/koder-cli-0.4.18-en-linux.txt)
-- [koder-cli-0.4.18-en-mac.txt](tutorials/koder-cli-0.4.18-en-mac.txt)
-- [koder-cli-0.4.18-en-powershell.txt](tutorials/koder-cli-0.4.18-en-powershell.txt)
-- [koder-cli-0.4.18-zh-cmd.txt](tutorials/koder-cli-0.4.18-zh-cmd.txt)
-- [koder-cli-0.4.18-zh-linux.txt](tutorials/koder-cli-0.4.18-zh-linux.txt)
-- [koder-cli-0.4.18-zh-mac.txt](tutorials/koder-cli-0.4.18-zh-mac.txt)
-- [koder-cli-0.4.18-zh-powershell.txt](tutorials/koder-cli-0.4.18-zh-powershell.txt)
+- [koder-cli-0.4.19-en-cmd.txt](tutorials/koder-cli-0.4.19-en-cmd.txt)
+- [koder-cli-0.4.19-en-linux.txt](tutorials/koder-cli-0.4.19-en-linux.txt)
+- [koder-cli-0.4.19-en-mac.txt](tutorials/koder-cli-0.4.19-en-mac.txt)
+- [koder-cli-0.4.19-en-powershell.txt](tutorials/koder-cli-0.4.19-en-powershell.txt)
+- [koder-cli-0.4.19-zh-cmd.txt](tutorials/koder-cli-0.4.19-zh-cmd.txt)
+- [koder-cli-0.4.19-zh-linux.txt](tutorials/koder-cli-0.4.19-zh-linux.txt)
+- [koder-cli-0.4.19-zh-mac.txt](tutorials/koder-cli-0.4.19-zh-mac.txt)
+- [koder-cli-0.4.19-zh-powershell.txt](tutorials/koder-cli-0.4.19-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
@@ -226,15 +226,15 @@ Read [Windows-MCP and Code Graph setup](MCP-INTEGRATIONS.en.md) for current-term
 
 Use `koder skills list` and `/skill` for portable methods. Add input while the agent works; Setup selects steer or queue. Use `/harness deep-research` for research, or `koder harness off` for baseline behavior. App operations keep existing grants and driver limits. Missing persistent experience owners produce NO_ENTRY.
 
-[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.18.md)
+[Skills](PORTABLE-SKILLS.en.md) · [Input and Setup](SESSION-INPUT-AND-SKILLS.en.md) · [App use](APP-USE-AND-LEARN.en.md) · [Harness](HARNESS-JIT.md) · [Changes and limits](RELEASE-0.4.19.md)
 
 ## Residency and mail inquiries
 
-After installation, verify `koder --version` reports 0.4.18, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
+After installation, verify `koder --version` reports 0.4.19, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
 
 Bind mail in Setup using masked authorization-code input. Separately enable `/mail model on` and `/mail inquire on` with their consent phrases. Related incoming mail can offer choices; a choice creates a draft, and sending still requires final preview and confirmation. Background mail checks also require mail visibility in resident settings. Advertisements and verification codes are excluded from inquiries.
 
-[Complete resident guide](ALWAYS-ON.en.md) · [Complete mail guide](MAIL-PROACTIVE-INQUIRY.en.md) · [Changes and unverified paths](RELEASE-0.4.18.md). All 30 lessons and eight text editions remain; start with `koder learn`.
+[Complete resident guide](ALWAYS-ON.en.md) · [Complete mail guide](MAIL-PROACTIVE-INQUIRY.en.md) · [Changes and unverified paths](RELEASE-0.4.19.md). All 30 lessons and eight text editions remain; start with `koder learn`.
 
 ## Existing workflow guides
 
@@ -245,7 +245,7 @@ Bind mail in Setup using masked authorization-code input. Separately enable `/ma
 
 ## MCP and Skill compatibility
 
-[Catalog, switches, dependency checks and transport setup](MCP-SKILL-COMPATIBILITY.en.md) · [Inventory](MCP-SKILL-INVENTORY.md) · [0.4.18 changes](RELEASE-0.4.18.md).
+[Catalog, switches, dependency checks and transport setup](MCP-SKILL-COMPATIBILITY.en.md) · [Inventory](MCP-SKILL-INVENTORY.md) · [0.4.19 changes](RELEASE-0.4.19.md).
 
 
 Model updates: Setup → Model supports automatic discovery, manual refresh and an off switch. [Complete guide](MODEL-DISCOVERY.en.md).
@@ -269,6 +269,11 @@ Run koder github connect, or choose Setup → Apps / MCP → GitHub. Bind your o
 Run `koder migrate` or use Setup. Follow the [migration guide](DEVICE-MIGRATION.en.md), verify the imported profile, then reconnect accounts. Open the [1,800-lesson Chinese classroom](courses/index.zh.html) for hands-on and developer tracks; the original 30 English lessons remain available. Browser notes can be exported.
 
 
-## 0.4.18: compact input and session Todo
+## 0.4.19: compact input and session Todo
 
 The default dock uses two rows, or three with a Todo summary. Keep typing while work runs; Enter uses the selected steer/queue mode. Ctrl+T expands Todo, `/todo` prints the full list, and `/help` opens shortcuts. Press `/` in empty input and Tab to fill a draft. Adjust the footer in Setup → Session interface and apply changes with `/reload-tui`. [User and developer guide](SESSION-DOCK.en.md).
+
+
+## SolidCraft CAD
+
+Run `koder cad enable`, `koder cad verify` and `koder cad test` in the project, then start chat. Save the editable design each turn and reopen it explicitly next time. See the [SolidCraft tutorial](SOLIDCRAFT.en.md) for dimensions, exports, permissions, recovery and platform status.

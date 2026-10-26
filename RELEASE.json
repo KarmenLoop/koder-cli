@@ -1,10 +1,10 @@
 {
-  "version": "0.4.18",
-  "file": "koder-cli-0.4.18.tgz",
-  "sha256": "02d0ec344bf90863479e16ed81a2cee459acd32e89bd59e9e564c5c7d542c32d",
-  "size": 187033266,
+  "version": "0.4.19",
+  "file": "koder-cli-0.4.19.tgz",
+  "sha256": "469b25be19a245b7be992b1064db78efaa1aebca734a3ab27816ee3d2af525ad",
+  "size": 311491047,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-26T04:09:08.560Z",
+  "builtAt": "2026-10-26T05:38:46.632Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,25 +14,26 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "a308f5640be482df8a0a8c93939ca07007fb410ea146c729521f6a97e3c5b155"
+      "sha256": "5ba64908e3d24e890230a6059d43060c7bde0244ee4532259a27c692d55fb479"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "0741991861493023e88162b0291fb217b2c02295b2a738c4cb6da7e9487d16f6"
+      "sha256": "039353c402d4dfea57a20b6631fda97982a1a9d2c0a2dc9e7515e11a6f50ed13"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "d6b22183ac1fe8bfc26d1982122596d323918cb24a8f52584e66d59bd7a97e67"
+      "sha256": "58f4d55c705242612efe32177372b295e13888f89a4c7cd5d2d88e6862fd62aa"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.4.17",
-  "privateSourceCommit": "8587167110c6a7db440f85c150e0c8f50b8bb437",
+  "sourceBaseline": "0.4.18",
+  "privateSourceCommit": "a17cb3556e72e77470d4f69c0719193e33f44836",
   "changes": [
-    "Let approved MCP calls run for up to 180 seconds while retaining short discovery deadlines and cancellation",
-    "Recover and acknowledge pending foreground mail alerts after restart",
-    "Include downloaded GitHub Skills in Setup switches and resolve unique short-name selections",
-    "Retain unlimited task rounds, cost limits, approvals and existing installation behavior"
+    "Bundle pinned SolidCraft 0.23.0 for Windows x64 and universal macOS",
+    "Add project-scoped CAD commands, Setup and built-in modeling Skill",
+    "Keep each headless design under its Core client and original approvals",
+    "Verify saved CAD artifacts and post-edit measurements",
+    "Publish this release on GitHub only"
   ],
   "courseStatus": {
     "zh": 1800,
@@ -40,8 +41,9 @@
     "originalZhRetained": 180
   },
   "retainedLimits": [
-    "Windows 10/11 native cold installation and MCP GUI NOT_RUN",
-    "Real-provider quality, 180 paid concurrent jobs and external-account actions NOT_RUN"
+    "Windows x64 and Intel Mac SolidCraft native runs NOT_RUN here",
+    "Paid-model quality and manufacturing fitness NOT_RUN",
+    "Existing real-account, Windows GUI and unsigned locked-use limitations remain"
   ],
-  "publicationAuthorization": "Direct user request to update GitHub and the official site; native Windows beta is owned by product testers and does not block publication"
+  "publicationAuthorization": "Latest direct user instruction authorizes GitHub only and excludes official website changes and deployments"
 }

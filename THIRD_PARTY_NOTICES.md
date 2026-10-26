@@ -168,3 +168,9 @@ kernel resource directory. The adapter retains Koder's command approvals and
 process owner. Individual target applications and generated CLIs may have their
 own licenses and dependencies; the repository license is not an assertion about
 every catalog entry.
+
+## SolidCraft 0.23.0
+
+The Windows x64 and macOS universal command-line executables are redistributed unmodified from [Tangency Labs SolidCraft](https://github.com/tangency-labs/solidcraft/releases/tag/v0.23.0), revision `7770f8982de8bf00cabfe421b7f563b34c7af90f`, under MIT OR Apache-2.0. Koder runs the headless MCP entry point and supplies its own integration Skill, project-scoped configuration, and Core lifecycle adapter. The upstream desktop application and client-configuration installer are not bundled.
+
+[MIT](licenses/solidcraft/LICENSE-MIT), [Apache-2.0](licenses/solidcraft/LICENSE-APACHE), and [upstream notice](licenses/solidcraft/NOTICE) are preserved. Dependency notices from each binary distribution are retained in `licenses/solidcraft/` and beside the executables. These components keep their own licenses; their inclusion does not change the Koder application license or imply endorsement by Tangency Labs.

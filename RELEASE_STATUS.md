@@ -1,9 +1,9 @@
-# Release status — 0.4.18
+# Release status — 0.4.19
 
-Publication is authorized for Windows and macOS. Native Windows beta testing is owned by the product team and does not block publication. This file distinguishes implementation checks from device/account acceptance; it does not assert that all platforms or external services were tested.
+This release adds SolidCraft CAD through Koder's existing Core MCP and Skill paths. Publication is authorized on GitHub only; no official website files or deployments are part of this release.
 
-See [release notes](docs/RELEASE-0.4.18.md), [中文说明](docs/RELEASE-0.4.18.zh.md), and the [invocation audit](docs/INVOCATION-AUDIT-0.4.18.md). Local regression, packaged-byte, upgrade and production-download receipts are kept by the release task. The original failed audit remains retained.
+Native Apple-silicon tests exercise real SolidCraft modeling, measurement, reopen/edit, STEP/STL export and CPU PNG with a scripted provider. Configuration, approval refusal, workspace revocation, parallel model isolation and Core cleanup/recovery are tested separately. These checks do not establish paid-model performance or manufacturing accuracy.
 
-The unsigned macOS locked-use component remains a candidate. Current Windows GUI/IME, native notifications, login restart and real external-account results remain separate beta acceptance. Historical acceptance documents describe their original tested builds and are not evidence for 0.4.18 devices.
+Windows x64 and macOS Intel executables are bundled and hash-verified; target-device execution remains NOT_RUN here and belongs to the beta team. Linux has no bundled SolidCraft executable. The unsigned macOS locked-use component remains a candidate. Existing real-account, GUI, login-restart and notification limits are not upgraded by this CAD release.
 
-The complete prior status, including failures and holds, is preserved without edits in [the 0.4.17 historical record](docs/history/RELEASE-STATUS-0.4.17.md).
+See [release notes](docs/RELEASE-0.4.19.md), [中文说明](docs/RELEASE-0.4.19.zh.md) and [CAD tutorial](docs/SOLIDCRAFT.en.md). Initial failed tests remain in the local task evidence. The previous status is preserved in [the 0.4.18 record](docs/history/RELEASE-STATUS-0.4.18.md).

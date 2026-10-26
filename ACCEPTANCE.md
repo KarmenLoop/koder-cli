@@ -1,8 +1,8 @@
 # Koder CLI — 使用前与授权说明 / Before you enable features
 
-适用于 0.4.18；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
+适用于 0.4.19；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
 
-For 0.4.18; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+For 0.4.19; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
 
 授权与数据使用说明
 
@@ -75,3 +75,9 @@ Local storage: new Windows memory prefers a writable D drive, falling back to a 
 Applications and MCP use the selected service’s API key or browser authorization. That service receives data submitted through the connection and sets its own fees and terms. Chats and agents in the same configured profile can reuse a connection; external writes still require tool approval. A stdio MCP server starts a local program. Imports are disabled by default; enable or test starts a connection. Use koder apps disconnect <id> or koder mcp disable <id> to stop use; revoke access with the provider to invalidate its tokens.
 
 Changing choices: the four optional features do not enable one another. Type ENABLE to turn one on, DISABLE to turn it off, and SAVE for a manual style edit. Read-only help and koder learn --print are available before agreement acceptance. Native Windows, live channels and multiple physical devices remain unverified for this preview; rely on observed connection states and results.
+
+## SolidCraft CAD
+
+SolidCraft is included but its connection is enabled separately per project with `koder cad enable`. This launches an isolated local headless MCP process when tested or used. It does not attach to a desktop window, grant computer permissions or authorize a third-party cloud account. The existing model provider can receive task text, tool results and selected design information. Saved designs belong to the project; private recovery files remain in the CLI data folder.
+
+SolidCraft 随包提供，但需对每个项目单独开启。测试或任务调用会启动本机无界面 MCP 进程，不自动接管桌面、不代开电脑权限、不绑定云账号。模型仍使用现有 BYOK 路由，任务及工具结果可能发给所选服务商。设计保存到项目，恢复文件保留在 CLI 私有目录。

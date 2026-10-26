@@ -1,0 +1,36 @@
+SolidCraft
+Copyright (c) 2026 SolidCraft contributors.
+Licensed under the MIT License or the Apache License, Version 2.0, at your option
+(LICENSE-MIT, LICENSE-APACHE).
+
+Third-party material
+
+Software dependencies are listed in Cargo.lock; their licences are in THIRD-PARTY-LICENSES.txt
+(`cargo xtask licences`), which the programs also carry (Help > About > Licences,
+`solidcraft-cli licences`). The geometry kernel builds on the truck crates
+(truck-modeling, truck-shapeops, truck-meshalgo, truck-stepio, truck-topology and their
+dependencies, https://github.com/ricosjp/truck), licensed under the Apache License 2.0 and used
+as libraries. truck-shapeops 0.4.0 is vendored in vendor/truck-shapeops with SolidCraft
+modifications (listed in vendor/README.md and marked in the source); its licence is in
+vendor/truck-shapeops/LICENSE. Copyright (c) RICOS Co. Ltd.
+
+Some code is adapted from sibling projects in the storytold family (CADCraft, GridCraft), which are
+licensed MIT OR Apache-2.0; ATTRIBUTION.md lists the files.
+The release packaging (.github/workflows/release.yml, packaging/) is adapted from PhotoCraft
+(https://github.com/storytold/photocraft), licensed under the Apache License 2.0.
+
+The incremental Radiance RGBE row adapter in crates/render/src/lighting/hdr.rs adapts
+decoding state machines from image 0.25.10 (https://github.com/image-rs/image),
+MIT OR Apache-2.0. ATTRIBUTION.md describes the bounded/cancellable changes; the
+original licence texts are included in THIRD-PARTY-LICENSES.txt.
+
+Most bundled assets are drawn in code or contributed originally; third-party fonts (Liberation Sans
+for sketch text, BIZ UDPGothic for web Japanese display) are licensed under SIL OFL 1.1. The
+per-file list is in ATTRIBUTION.md.
+
+SolidCraft is an independent project and is not affiliated with, sponsored by or endorsed by
+Autodesk, Dassault Systèmes, PTC, Siemens, Blender or any other CAD vendor. Fusion, AutoCAD,
+Inventor, Alias and Tinkercad are trademarks of Autodesk, Inc.; SolidWorks is a trademark of
+Dassault Systèmes; Onshape and Creo are trademarks of PTC; Blender is a trademark of the Blender
+Foundation. Product names appear only to describe compatibility, such as the mouse navigation
+presets in Preferences › Navigation and file formats from public specifications.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.19 — 2026-10-26
+
+Bundle SolidCraft 0.23.0 for Windows x64 and universal macOS. Add a project-scoped CAD connection, Setup controls and a built-in modeling Skill using the existing Core, approvals and model provider. Isolate mutable models per turn and client, preserve cleanup uncertainty, and check saved CAD artifacts and post-edit measurements. Publish installers, documentation and update metadata on GitHub. [Release notes](docs/RELEASE-0.4.19.md).
+
 ## 0.4.18 — 2026-10-26
 
 Raise approved MCP operation deadlines while preserving cancellation and uncertain-effect receipts. Replay and acknowledge durable foreground mail alerts, including a full backlog. Connect downloaded GitHub Skills to short-name selection, Setup and CLI enable/disable controls. [Release notes](docs/RELEASE-0.4.18.md).

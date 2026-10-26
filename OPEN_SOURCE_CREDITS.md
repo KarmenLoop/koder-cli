@@ -86,3 +86,9 @@ The Jianying source is an attributed mirror of luoluoluo22, not a claimed latest
 WTT Code Animation Studio (CC BY-NC-SA) and the X article publisher (no repository license found) are reference-only entries; their code is not included. The independently written `koder-media-workflow` provides local timeline/SRT, record conversion, article preview and rendering helpers. It is not an exact redistribution or complete implementation of either upstream.
 
 Demo videos, author voice tracks, sample music and binary reference assets are not bundled. Fonts/media may have separate terms; use the user's authorized assets or install permitted assets deliberately. Some renderers require Remotion, Blender, native apps, paid services or platform-specific packages under their own terms. Source availability does not establish runtime or account compatibility.
+
+## SolidCraft 0.23.0
+
+The Windows x64 and macOS universal command-line executables are redistributed unmodified from [Tangency Labs SolidCraft](https://github.com/tangency-labs/solidcraft/releases/tag/v0.23.0), revision `7770f8982de8bf00cabfe421b7f563b34c7af90f`, under MIT OR Apache-2.0. Koder runs the headless MCP entry point and supplies its own integration Skill, project-scoped configuration, and Core lifecycle adapter. The upstream desktop application and client-configuration installer are not bundled.
+
+[MIT](licenses/solidcraft/LICENSE-MIT), [Apache-2.0](licenses/solidcraft/LICENSE-APACHE), and [upstream notice](licenses/solidcraft/NOTICE) are preserved. Dependency notices from each binary distribution are retained in `licenses/solidcraft/` and beside the executables. These components keep their own licenses; their inclusion does not change the Koder application license or imply endorsement by Tangency Labs.

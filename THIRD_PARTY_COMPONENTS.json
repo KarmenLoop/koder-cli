@@ -721,6 +721,26 @@
     {
       "path": "vendor/skills/mg-styles-15/licenses/outfit/OFL.txt",
       "sha256": "c676351bf8576b9aba743cd5eaa8c0e7ee0d51f805d720447b4df4ddb6a2e416"
+    },
+    {
+      "path": "licenses/solidcraft/LICENSE-APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "path": "licenses/solidcraft/LICENSE-MIT",
+      "sha256": "1a26c1e94401d5d221896c74dd1c58d227edc64516da95aaac6f675567c8af63"
+    },
+    {
+      "path": "licenses/solidcraft/NOTICE",
+      "sha256": "09464b0c8f495c9e3c80d93fccf667056d1c2c306445d66101e4bed49494c54d"
+    },
+    {
+      "path": "licenses/solidcraft/darwin-universal-THIRD-PARTY-LICENSES.txt",
+      "sha256": "e97519baf3b1f9eef34f918b2e197b61f0f4f8e421726bbf8f4177a8eb5fe04d"
+    },
+    {
+      "path": "licenses/solidcraft/win32-x64-THIRD-PARTY-LICENSES.txt",
+      "sha256": "824f61c08c03084ed008f92c180e1c0eb79c126054aa6212f92a61c5a76b0e99"
     }
   ],
   "npmComponents": [
@@ -2828,6 +2848,18 @@
       "limitations": [
         "Original source not redistributed. koder-media-workflow prepares article/assets; authorized browser tooling performs review and publication."
       ]
+    }
+  ],
+  "nativeBundles": [
+    {
+      "id": "solidcraft",
+      "version": "0.23.0",
+      "repository": "https://github.com/tangency-labs/solidcraft",
+      "recordedSourceRevision": "7770f8982de8bf00cabfe421b7f563b34c7af90f",
+      "declaredLicense": "MIT OR Apache-2.0",
+      "bundleRoot": "vendor/solidcraft",
+      "use": "Unmodified headless CAD CLI for Windows x64 and macOS universal; no desktop installer or other-client registration",
+      "inventory": "scripts/solidcraft-assets.json"
     }
   ]
 }
