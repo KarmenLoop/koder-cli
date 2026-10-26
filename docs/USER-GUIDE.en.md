@@ -2,19 +2,19 @@
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current release: **0.5.0**. Start with [release changes](RELEASE-0.5.0.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.5.1**. Start with [release changes](RELEASE-0.5.1.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This release includes default-on [Headroom context optimization](HEADROOM.en.md). The official installers and documentation identify the same release.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.1; check GitHub Releases for publication status and available downloads.
 
 # Koder CLI complete user guide
 
-Version: **0.5.0**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.5.1**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
-Use the matching Windows PowerShell, CMD, macOS, Linux or WSL instructions in [Installation](INSTALLATION.md). Download this release from [KarmenLoop/koder-cli on GitHub](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.23). Read the installed EULA and privacy documents before accepting. Personal noncommercial use is free; commercial use and organizational distribution need separate written authorization.
+Use the matching Windows PowerShell, CMD, macOS, Linux or WSL instructions in [Installation](INSTALLATION.md). Download this release from [KarmenLoop/koder-cli on GitHub](https://github.com/KarmenLoop/koder-cli/releases). Read the installed EULA and privacy documents before accepting. Personal noncommercial use is free; commercial use and organizational distribution need separate written authorization.
 
 Normal installation does not require changing the machine-wide PowerShell execution policy or disabling security software. `accept` accepts the license; it grants no optional computer, messaging, learning or synchronization authority. A network delay, a canceled installation and an OS policy rejection are different conditions. The installer reports its stage and download progress; keep the exact error for diagnosis.
 
@@ -33,6 +33,23 @@ koder model test --tools
 Supply `MY_PROVIDER_KEY` through your shell's protected secret input or CI secrets; the example names a variable, not a key. `--key-stdin` is a separate configuration path that saves the supplied key in the local model profile. Do not use that path if you require an environment-only key. Never paste a key into a task, command argument, screenshot or issue. A one-shot environment configuration can use `KODER_MODEL`, `KODER_BASE_URL`, `KODER_PROTOCOL`, `KODER_API_KEY`, `KODER_CONTEXT_WINDOW` and `KODER_MAX_OUTPUT`; use limits the provider actually supports.
 
 `model test` has a ten-second overall diagnostic budget and no inference retries; it checks text or a harmless tool round trip. A normal task has a different inference budget. A diagnostic failure cannot establish whether an account's plan is valid without a real authorized account check.
+
+### Context limits and automatic compaction (0.5.1)
+
+Open `koder setup` or `/setup` and choose **Context and output**. **Model window and output limit** asks for the window, then the output ceiling, preserving the model, endpoint and credentials. Use the limits actually supported by your model, endpoint and account. Separate menu items control automatic compaction, trigger and target percentages, preferred recent turns, and reset. Compaction preferences are available before a model is configured.
+
+```text
+koder context status
+koder context set --trigger-percent 85 --target-percent 60 --keep-turns 6
+koder context set --context-window 128000 --max-output 8192
+koder context off
+koder context on
+koder context reset
+```
+
+The window values above are examples. Automatic compaction defaults to on, with an 80% trigger, a 60% target and four preferred recent turns. Recent turns remain subject to the model window. In chat, use the matching `/context` commands to change settings and inspect the last request's estimate. Estimates include input, tool definitions and output reserve; they are not billed tokens.
+
+`reset` restores only compaction preferences, retaining model limits and Headroom settings. `off` keeps history for requests while Headroom and necessary protocol restoration remain independent. Requests that cannot fit the hard window report `CONTEXT_BUDGET_EXCEEDED` and retain saved history and original receipts. See [Context limits and automatic compaction](CONTEXT-CONTROLS.en.md) for the full walkthrough, named models, environment variables, last-request fields and save failures.
 
 ## 3. Keep every project in its own folder
 
@@ -180,14 +197,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.5.0-en-cmd.txt](tutorials/koder-cli-0.5.0-en-cmd.txt)
-- [koder-cli-0.5.0-en-linux.txt](tutorials/koder-cli-0.5.0-en-linux.txt)
-- [koder-cli-0.5.0-en-mac.txt](tutorials/koder-cli-0.5.0-en-mac.txt)
-- [koder-cli-0.5.0-en-powershell.txt](tutorials/koder-cli-0.5.0-en-powershell.txt)
-- [koder-cli-0.5.0-zh-cmd.txt](tutorials/koder-cli-0.5.0-zh-cmd.txt)
-- [koder-cli-0.5.0-zh-linux.txt](tutorials/koder-cli-0.5.0-zh-linux.txt)
-- [koder-cli-0.5.0-zh-mac.txt](tutorials/koder-cli-0.5.0-zh-mac.txt)
-- [koder-cli-0.5.0-zh-powershell.txt](tutorials/koder-cli-0.5.0-zh-powershell.txt)
+- [koder-cli-0.5.1-en-cmd.txt](tutorials/koder-cli-0.5.1-en-cmd.txt)
+- [koder-cli-0.5.1-en-linux.txt](tutorials/koder-cli-0.5.1-en-linux.txt)
+- [koder-cli-0.5.1-en-mac.txt](tutorials/koder-cli-0.5.1-en-mac.txt)
+- [koder-cli-0.5.1-en-powershell.txt](tutorials/koder-cli-0.5.1-en-powershell.txt)
+- [koder-cli-0.5.1-zh-cmd.txt](tutorials/koder-cli-0.5.1-zh-cmd.txt)
+- [koder-cli-0.5.1-zh-linux.txt](tutorials/koder-cli-0.5.1-zh-linux.txt)
+- [koder-cli-0.5.1-zh-mac.txt](tutorials/koder-cli-0.5.1-zh-mac.txt)
+- [koder-cli-0.5.1-zh-powershell.txt](tutorials/koder-cli-0.5.1-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 

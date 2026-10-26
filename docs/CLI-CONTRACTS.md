@@ -1,6 +1,6 @@
 # Scriptable CLI contracts
 
-These contracts describe **0.4.0**. Local fixture checks are separate from a native Windows installation, real provider account or whole-product release. Do not infer a live service from a visible preset or method Skill.
+These contracts include retained behavior and the **0.5.1** context controls. Local fixture checks are separate from a native Windows installation, real provider account or whole-product release. Do not infer a live service from a visible preset or method Skill.
 
 ## Commands and failure results
 
@@ -58,3 +58,13 @@ profile with a verified destination EULA receipt where one already exists.
 
 See [migration tutorial](DEVICE-MIGRATION.zh.md) for the complete transfer scope
 and [English guide](DEVICE-MIGRATION.en.md) for prerequisites and limitations.
+
+## Context controls (0.5.1)
+
+`koder context` and chat `/context` share Setup's settings. Automatic compaction defaults on with an 80% trigger, 60% soft target and preference for four recent turns. Model window and output limits remain in the original model record; changing a project-selected model must not overwrite another profile. Changing limits does not expand the provider's actual supported window.
+
+`context off` disables lossy automatic history projection. If the complete request cannot fit, `CONTEXT_BUDGET_EXCEEDED` stops before contacting the provider; this is a local error, not an API outage. Headroom's reversible tool-result view remains independently configurable, and protocol restoration may still convert older frames lacking required private provider state. Full disk history is retained.
+
+Current root instructions and steering stay together. Pending and unknown tool groups cannot be discarded to meet a target. Signed protocol groups stay intact below the hard window. With compaction enabled, a complete returned signed group may be atomically represented as quoted visible receipts only when the hard window would otherwise overflow: call identities, arguments and results remain, opaque state is omitted together, and no old call is replayed. The target and recent-turn preference may yield to the hard model window; protected content that cannot fit causes an explicit error. Carryover is quoted original text, not newly verified facts or permission. Headroom, receipts, costs, cancellation and provider-reported billing remain separate.
+
+The final JSON result’s `context` field and `/context status` expose request estimates including tool schemas and output reserve. They are not exact tokenizer counts or billed usage. `context status --json` outside a live session reports configuration with `lastRequest:null`. External ACP engines own their own context policy; these controls do not claim to override an external process. [Guide](CONTEXT-CONTROLS.en.md).

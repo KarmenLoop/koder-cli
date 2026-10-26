@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.1 — 2026-10-26
+
+- Add `koder context` and `/context` controls for model limits, automatic compaction, trigger/target percentages and preferred recent turns. Setup exposes the same settings; project-selected and explicitly selected models retain their own limits and credentials.
+- Apply one compaction policy to foreground sessions, agentd tasks, child agents and MoA requests. Remove the earlier child-history trim and fixed advisor text clipping. Turning compaction off reports a local context-limit error rather than silently dropping history.
+- Preserve current task instructions, steering, unresolved receipts and signed protocol groups. Keep full local history; use quoted extracts rather than invented summary facts. Show estimated request and compaction statistics separately from billed usage.
+- Retain Core permissions, cancellation, optional cost budgets, provider routing and independent Headroom controls. Native device and paid-model acceptance are reported separately.
+
+[Context guide](docs/CONTEXT-CONTROLS.en.md) · [Release notes](docs/RELEASE-0.5.1.md).
+
+
 ## 0.5.0 — 2026-10-26
 
 Bundle local Tesseract.js OCR with English and simplified Chinese data; route scan tasks through the existing Core and document permissions. Add 90 professional child-task roles in 25 groups, FIFO child admission and a configurable concurrency limit. Add capability inspection and explicit terminal JSON results for headless preflight failures. Keep small-model context available by loading unrelated method guidance on demand. Preserve the existing executor, BYOK, budgets, cancellation and project isolation. [Release notes](docs/RELEASE-0.5.0.md).

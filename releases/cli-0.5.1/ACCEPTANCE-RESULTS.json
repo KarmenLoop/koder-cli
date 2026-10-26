@@ -1,0 +1,104 @@
+{
+  "version": "0.5.1",
+  "privateSourceCommit": "1b4c089dc47a0e6a1b02873e03e8aa878e06a0d9",
+  "sourceBaseline": "0a53562fce5c20ed6e593cfc12ecb22c9583ee76",
+  "sourceRegression": {
+    "tests": 1630,
+    "pass": 1609,
+    "fail": 0,
+    "skipped": 21,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 285.11892912499997
+  },
+  "finalContextRegression": {
+    "tests": 163,
+    "pass": 163,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 17.260830332999998
+  },
+  "sourceRegressionScope": "Broad CLI suite followed by final focused context, JSON-document classification and MoA/provider regression; final package checked independently",
+  "crossPlatformFixtureRegression": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 146.17532391700001
+  },
+  "installerRegression": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 151.575107334
+  },
+  "kernelRegression": {
+    "tests": 45,
+    "pass": 45,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 1.6971265
+  },
+  "packagedRegression": {
+    "tests": 275,
+    "pass": 275,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 37.00657892227173
+  },
+  "package": {
+    "runtimeSha256": "6e01874d1772858ec22cb04164bc1bd892b57b640fb1832a21c13c52cea68fe8",
+    "runtimeBytes": 457242036,
+    "kernelHashes": 6284,
+    "kernelMatchesSource": true,
+    "sourceDocsFiles": 2709
+  },
+  "packageSmokeCommands": 43,
+  "installerUpgrade": {
+    "passed": true,
+    "from": "0.5.0",
+    "to": "0.5.1",
+    "origin": "http://127.0.0.1:63424",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 23
+  },
+  "actualLocalInvocation": [
+    "CLI and Setup settings persistence in disposable HOME",
+    "Main, child and MoA requests through scripted models and local HTTP provider endpoints",
+    "Disabled compaction overflow stops before provider request; saved history retained",
+    "Live chat changes retain current no-memory conversation and next-request policy",
+    "Packaged runtime command smoke checks including OCR, PageIndex, role and Skill inventory",
+    "Actual macOS installer and updater from 0.5.0 with retained fixture data"
+  ],
+  "notRun": [
+    "Paid-model long-context answer quality and token-billing comparisons",
+    "Windows 10/11 native cold installation, update and MCP GUI operations: beta-owned",
+    "Linux/Windows notification display and click activation",
+    "Live private mail and authenticated external account writes"
+  ],
+  "hold": [
+    "Unsigned macOS locked-use helper: signing and dedicated test Mac unavailable"
+  ],
+  "priorFailuresPreserved": [
+    "First complete source run: context event-stream compatibility, artifact view, 8K release evidence, signed state projection and versioned guide failures; repaired with original regression assertions",
+    "First complete source run: two 240-second packaging fixture timeouts; rerun separately with 600-second test allowance, product command timeouts unchanged"
+  ],
+  "preserved": [
+    "Core/provider/BYOK, permissions, cancellation, budgets and workspace history",
+    "Original tool receipts and prior FAIL/NOT_RUN/HOLD records",
+    "Existing 1800 Chinese and 30 English lessons; new context guide added, no course expansion"
+  ],
+  "distribution": "GitHub only; official website unchanged"
+}

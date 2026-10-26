@@ -1,11 +1,11 @@
 # Complete command reference
 
-Koder CLI 0.4.22 · 1,800 Chinese lessons; original 30 English lessons
+Koder CLI 0.5.1 · 1,800 Chinese lessons; original 30 English lessons
 
 Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md) · [Task orchestration](TASK-ORCHESTRATION.en.md)
 
 ```text
-KODER CLI 0.4.22
+KODER CLI 0.5.1
 A lightweight terminal coding agent
 
 Usage
@@ -42,10 +42,12 @@ Toolchain and local projects
   gateway  Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp
 
 Setup and help
+  ocr      Read images and scanned PDFs locally
   design   Website briefs and bundled design references
+  pageindexNavigate document trees and verify source citations
   llm-apps Bundled AI app references and Koder workflows
   tools    Check local tools before searching public candidates
-  subagentsInspect saved subagent checkpoints for a workspace session
+  subagentsProfessional role catalog and saved child-task checkpoints
   notificationsTask notifications, tests and receipts
   open     Open the original session from a notification
   cad      Parametric 3D CAD with SolidCraft
@@ -78,6 +80,7 @@ Setup and help
   update   Update to the latest version
   uninstallUninstall Koder CLI (--purge also removes settings)
   memory   Inspect, search and manage local and shared memory
+  context  Context limits and automatic compaction
   model    Configure models and actual context windows
   lang     Switch between Chinese and English
   theme    Switch the website's dark or light palette
@@ -108,6 +111,19 @@ Global options
 koder help <command> for details; koder learn for the tutorial; koder lang zh for Chinese.
 ```
 
+## ocr
+
+```text
+koder ocr  Read images and scanned PDFs locally
+
+Usage
+  koder ocr status|on|off | read <file> [--page N] [--language eng|chi_sim|eng+chi_sim] [--sha SHA256] [--json]
+
+English and simplified Chinese data and WebAssembly ship offline, enabled by default. Returns source SHA, text and confidence per page. No Python or cloud OCR account. Disable in Setup → Skills. Verify the image; Agent use can send extracted text to your selected model.
+
+Global options: koder help.
+```
+
 ## design
 
 ```text
@@ -118,6 +134,19 @@ Usage
   koder design status|list|read|verify|on|off [id] [--query text] [--offset N] [--limit N] [--json]
 
 Enabled for website creation and redesign. Clarify missing requirements, read offline DESIGN.md references, then use existing variants, implementation and preview tools. Disable in Setup → Skills. Headless tasks and explicit no-question requests continue with stated assumptions.
+
+Global options: koder help.
+```
+
+## pageindex
+
+```text
+koder pageindex  Navigate document trees and verify source citations
+
+Usage
+  koder pageindex status|index|tree|search|read|export|check|on|off [file] [--node id] [--sha sha256] [--query text] [--json]
+
+Enabled by default for document tasks: local Markdown/text/PDF trees, section readback and exact-quote checks. No Python or new cloud account. Disable in Setup → Skills. Scans require OCR; PDF citations use physical pages. Indexes are not persisted automatically.
 
 Global options: koder help.
 ```
@@ -142,7 +171,7 @@ Global options: koder help.
 koder tools  Check local tools before searching public candidates
 
 Usage
-  koder tools seek <public query> [--command executable-name] [--local] [--page N] [--json]
+  koder tools status|audit [--json] | seek <public query> [--command executable-name] [--local] [--page N] [--json]
 
 Reads PATH metadata without executing files. A local match skips remote search; --local always stays local. Remote searches require network permission; task installations use tool_bootstrap and existing approvals.
 
@@ -152,12 +181,12 @@ Global options: koder help.
 ## subagents
 
 ```text
-koder subagents  Inspect saved subagent checkpoints for a workspace session
+koder subagents  Professional role catalog and saved child-task checkpoints
 
 Usage
-  koder subagents status [--session name] [-w workspace] [--thread ID] [--offset N] [--limit N] [--json]
+  koder subagents roles [--query text] [--group id] | role <id> | match <task> [--role id] | status [--session name] [-w workspace] [--thread ID] [--offset N] [--limit N] [--json]
 
-Reads the original session store without resuming or replaying work. A saved running state is reported as unconfirmed. Use /subagents status|cancel in the original chat for live controls.
+90 roles across 25 groups. 180 is a task-slot ceiling; four child executions run at once by default, configurable in Setup. Reads the original session store without resuming or replaying work. A saved running state is reported as unconfirmed. Use /subagents status|cancel in the original chat for live controls.
 
 Global options: koder help.
 ```
@@ -331,9 +360,9 @@ koder project  Create, open and inspect isolated project folders
 Aliases: 项目
 
 Usage
-  koder project create <name> [--kind website|slides|app|project] | open <path> | list | status | check [--kind project|website|service|generator]
+  koder project create <name> [--kind website|slides|app|project] | open <path> | list | status | anchor | check [--kind project|website|service|generator]
 
-New projects live in the users Koder Projects folder. /project create or open switches the current chat and its session. Use -w for an existing workspace. Automatic task history is isolated by project and session. project check inspects file structure only; missing items return 3. It never runs scripts.
+New projects live in the users Koder Projects folder. /project create or open switches the current chat and its session. Use -w for an existing workspace. Automatic task history is isolated by project and session. project anchor reads the stable identity, purpose and acceptance criteria; new projects get a draft, and changes preserve history through original approval. project check inspects file structure only; missing items return 3. It never runs scripts.
 
 Global options: koder help.
 ```
@@ -1087,6 +1116,32 @@ Usage
   koder memory status | sync | personalization status | reflection run | show | search <内容> | add <记忆> | remove <id> | clear | forget | learning on|off | daily-state on|off | evolution on|off | proactive on|off | profile show|remember|identity|forget | soul show|preview|save|rollback
 
 History continues within the same workspace and session. Use --session <name> to separate tasks, --new for a fresh conversation, and --no-memory to disable automatic save/restore for this invocation. clear starts fresh while keeping explicit notes; When signed into shared memory, forget forgets the current shared space; offline devices apply it on sync. learning, daily-state, evolution and proactive each support on/off/status and default off; disabling retains history. profile forget takes record IDs. See koder eula and lessons 17–22.
+
+Global options: koder help.
+```
+
+## context
+
+```text
+koder context  Context limits and automatic compaction
+
+Usage
+  koder context status|set|on|off|reset [name] [--json]
+
+Automatic compaction defaults to on, with an 80% trigger, 60% target and four preferred recent turns. Usage estimates include input, tools and output reserve. on/off/reset change only compaction preferences; reset preserves model limits, credentials and Headroom. With compaction off, oversized requests report CONTEXT_BUDGET_EXCEEDED. Also available through /context and Setup → Context and output. Compaction settings require no model. Change environment-model limits with KODER_CONTEXT_WINDOW / KODER_MAX_OUTPUT.
+
+Options
+  --context-window <tokens>     Context window for the active or named saved model
+  --max-output <tokens>         Output ceiling, counted within the model window
+  --trigger-percent <1–99>      Automatic compaction trigger; must exceed the target
+  --target-percent <1–99>       Compaction target; must be below the trigger
+  --keep-turns <0–100>          Preferred recent turns, subject to the model window
+
+Examples
+  koder context set --trigger-percent 85 --target-percent 60 --keep-turns 6
+    Adjust automatic compaction preferences
+  koder context set work --context-window 128000 --max-output 8192
+    Change limits for the saved work model
 
 Global options: koder help.
 ```

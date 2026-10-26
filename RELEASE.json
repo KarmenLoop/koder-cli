@@ -1,10 +1,10 @@
 {
-  "version": "0.5.0",
-  "file": "koder-cli-0.5.0.tgz",
-  "sha256": "2b62131cfd67c02ce23bde8f20d60d8a793a5a36d381e727e1948c0eeeca56d1",
-  "size": 449432971,
+  "version": "0.5.1",
+  "file": "koder-cli-0.5.1.tgz",
+  "sha256": "6e01874d1772858ec22cb04164bc1bd892b57b640fb1832a21c13c52cea68fe8",
+  "size": 457242036,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-26T12:34:57.015Z",
+  "builtAt": "2026-10-26T15:48:56.135Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,27 +14,26 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "b8c96f7224f2aa8bfdc232d7256212a2979a9f4c9a4c8b73fa5e5abdcce752d4"
+      "sha256": "4eee2898ce6af39f11fa0eb16538dc23acc1b3d7eaf08d96a9bc03ad7e700b20"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "3975a6cfae6ae7a8b20537fd71756fc2a60bdfe86878b0b79cdb7ad090957779"
+      "sha256": "aaa717bfab05be080f698e6e266ad2c61fd1ccc6572657b4dfe6cdc328a484f6"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "e9b2939702a886ae63a2a487ce1d6bf1b298e8ef53fafa1fa5b7bf911c44a4e8"
+      "sha256": "ffb69f2907a683b1b3ba20c250fb3f8f89c122fa752596c728f3a89af32c3b81"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.4.24",
-  "privateSourceCommit": "0a53562fce5c20ed6e593cfc12ecb22c9583ee76",
+  "sourceBaseline": "0.5.0",
+  "privateSourceCommit": "1b4c089dc47a0e6a1b02873e03e8aa878e06a0d9",
   "changes": [
-    "Bundled offline Tesseract OCR for image and PDF-page text",
-    "90 professional child-task contracts in 25 groups",
-    "FIFO child admission with configurable default concurrency four",
-    "Capability inventory and local resource audit",
-    "Terminal JSON completion contracts for headless preflight and tasks",
-    "Small-context method guidance loaded on demand"
+    "Configurable model context window and response reserve",
+    "Automatic compaction controls in Setup, CLI and chat",
+    "Shared context policy across main sessions, child agents and MoA",
+    "Estimated usage and compaction details in final JSON and chat status",
+    "Original local history and execution receipts retained"
   ],
   "courseStatus": {
     "zh": 1800,
@@ -42,12 +41,11 @@
     "originalZhRetained": 180
   },
   "retainedLimits": [
-    "Windows 10/11 native cold installation, update and GUI operations: beta-owned",
-    "Linux desktop notification display and Windows Toast display",
-    "actual private customer mail delivery and authenticated external account writes",
-    "paid-model autonomous reasoning quality and provider concurrency",
-    "professional legal/clinical/financial/engineering accuracy",
-    "unsigned macOS locked-use helper: company signing and dedicated test Mac unavailable"
+    "Paid-model long-context answer quality and token-billing comparisons",
+    "Windows 10/11 native cold installation, update and MCP GUI operations: beta-owned",
+    "Linux/Windows notification display and click activation",
+    "Live private mail and authenticated external account writes",
+    "Unsigned macOS locked-use helper: signing and dedicated test Mac unavailable"
   ],
   "publicationAuthorization": "GitHub only; no official website changes or deployments"
 }

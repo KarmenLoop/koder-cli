@@ -2,19 +2,19 @@
 
 [从这里开始：安装、首个任务和功能导航](START-HERE.zh.md)
 
-当前版本：**0.5.0**。先看[本版更新 ](RELEASE-0.5.0.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.5.1**。先看[本版更新](RELEASE-0.5.1.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 > 旧版更新器可能因包超过 100 MB 报“清单无效”。请用 GitHub Release 下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
-当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)。以下安装入口和教程均对应本次正式发行。
+当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南与下方八份终端文字教程对应 0.5.1；实际发布和可下载文件以 GitHub Releases 为准。
 
 # Koder CLI 完整使用教程
 
-版本：**0.5.0**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.5.1**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
-Windows PowerShell、CMD、macOS、Linux 和 WSL 的命令不能混用。完整安装命令见 [安装教程](INSTALLATION.md)，本版下载见 [GitHub 0.4.23](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.23)。先阅读许可与隐私全文。个人非商业使用免费；商业使用与组织部署须另行取得书面授权。
+Windows PowerShell、CMD、macOS、Linux 和 WSL 的命令不能混用。完整安装命令见 [安装教程](INSTALLATION.md)，本版下载见 [GitHub Releases](https://github.com/KarmenLoop/koder-cli/releases)。先阅读许可与隐私全文。个人非商业使用免费；商业使用与组织部署须另行取得书面授权。
 
 正常安装不需要全局放开 PowerShell 执行策略，也不需要关闭安全软件。输入 `accept` 只接受许可，不会开启电脑、邮件、自主学习或同步权限。网络等待、主动取消和系统策略拦截是三回事；排查时保留实际阶段与最后几行报错。
 
@@ -33,6 +33,23 @@ koder model test --tools
 先通过安全输入或 CI secrets 提供 `MY_PROVIDER_KEY`；这里是变量名，不是密钥。`--key-stdin` 是另一种配置方式，会把输入的 Key 保存到本机模型配置；要求只在环境中使用密钥时不要选择它。不要把 Key 放进任务、命令参数、截图或反馈。临时环境配置支持 `KODER_MODEL`、`KODER_BASE_URL`、`KODER_PROTOCOL`、`KODER_API_KEY`、`KODER_CONTEXT_WINDOW`、`KODER_MAX_OUTPUT`，窗口必须是模型实际支持的大小。
 
 `model test` 总诊断上限为十秒，不套用普通推理的多次重试；`--tools` 还检查无副作用的工具调用与续答。文字通了不等于整套任务能力已经验收。真实套餐、余额和权限仍须用获授权的账号核实。
+
+### 上下文窗口与自动压缩（0.5.1）
+
+在 `koder setup` 或 `/setup` 中选择“上下文与输出”。“模型窗口与输出上限”依次填写窗口和输出数值，保留原模型、接口和密钥；请使用服务商对当前型号、接口和账号实际支持的额度。其余菜单项可单独开启压缩、调整触发与目标占比、设置近期轮次或恢复压缩默认值。没有配置模型时，也能调整压缩偏好。
+
+```text
+koder context status
+koder context set --trigger-percent 85 --target-percent 60 --keep-turns 6
+koder context set --context-window 128000 --max-output 8192
+koder context off
+koder context on
+koder context reset
+```
+
+窗口命令中的数值仅为示例。默认自动压缩开启，触发占比 80%、目标 60%、优先保留最近 4 轮；近期轮次受模型窗口限制。聊天中使用对应的 `/context` 命令，还可查看上次请求的估算。估算包括输入、工具定义与输出预留，不是账单 token。
+
+`reset` 只恢复压缩偏好，不改模型窗口或 Headroom。`off` 保留历史用于请求，Headroom 和必要的协议恢复仍独立生效；硬窗口容纳不下时报告 `CONTEXT_BUDGET_EXCEEDED`，保留磁盘历史与原始回执。详细步骤、命名模型、环境变量、上次请求字段和保存失败处理见[上下文窗口与自动压缩](CONTEXT-CONTROLS.zh.md)。
 
 ## 3. 每个项目都有自己的文件夹
 
@@ -180,14 +197,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.5.0-en-cmd.txt](tutorials/koder-cli-0.5.0-en-cmd.txt)
-- [koder-cli-0.5.0-en-linux.txt](tutorials/koder-cli-0.5.0-en-linux.txt)
-- [koder-cli-0.5.0-en-mac.txt](tutorials/koder-cli-0.5.0-en-mac.txt)
-- [koder-cli-0.5.0-en-powershell.txt](tutorials/koder-cli-0.5.0-en-powershell.txt)
-- [koder-cli-0.5.0-zh-cmd.txt](tutorials/koder-cli-0.5.0-zh-cmd.txt)
-- [koder-cli-0.5.0-zh-linux.txt](tutorials/koder-cli-0.5.0-zh-linux.txt)
-- [koder-cli-0.5.0-zh-mac.txt](tutorials/koder-cli-0.5.0-zh-mac.txt)
-- [koder-cli-0.5.0-zh-powershell.txt](tutorials/koder-cli-0.5.0-zh-powershell.txt)
+- [koder-cli-0.5.1-en-cmd.txt](tutorials/koder-cli-0.5.1-en-cmd.txt)
+- [koder-cli-0.5.1-en-linux.txt](tutorials/koder-cli-0.5.1-en-linux.txt)
+- [koder-cli-0.5.1-en-mac.txt](tutorials/koder-cli-0.5.1-en-mac.txt)
+- [koder-cli-0.5.1-en-powershell.txt](tutorials/koder-cli-0.5.1-en-powershell.txt)
+- [koder-cli-0.5.1-zh-cmd.txt](tutorials/koder-cli-0.5.1-zh-cmd.txt)
+- [koder-cli-0.5.1-zh-linux.txt](tutorials/koder-cli-0.5.1-zh-linux.txt)
+- [koder-cli-0.5.1-zh-mac.txt](tutorials/koder-cli-0.5.1-zh-mac.txt)
+- [koder-cli-0.5.1-zh-powershell.txt](tutorials/koder-cli-0.5.1-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 

@@ -37,6 +37,12 @@ Those excerpts are separate from Headroom's reversible stage. Retrieve the relev
 original text before treating an excerpt as complete evidence. No second memory
 store or shared .headroom-cache is created.
 
+## Relationship to history compaction
+
+Koder CLI 0.5.1 adds separate history-compaction settings in Setup → Context and output and `/context`. Defaults are on, an 80% trigger, a 60% target and four preferred recent turns, subject to the model window. History compaction may excerpt older content for a request while retaining the original history on disk. Headroom provides reversible tool-result representations. `/context off` leaves the Headroom setting unchanged; disabling Headroom leaves the history-compaction setting unchanged.
+
+With history compaction off, necessary protocol restoration still handles missing private model state. Input that cannot fit the hard window produces an error and retains saved history. See [Context limits and automatic compaction](CONTEXT-CONTROLS.en.md) for setup steps, model limits, last-request estimates and recovery.
+
 ## Settings
 Open Setup -> Skills -> Headroom context optimization. Toggle automatic optimization
 and redundant-output guidance separately. Disable-all includes Headroom and retains

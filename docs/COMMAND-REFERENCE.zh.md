@@ -1,11 +1,11 @@
 # 完整命令参考
 
-Koder CLI 0.4.22 · 1800 课中文课堂；原 30 课英文教程
+Koder CLI 0.5.1 · 1800 课中文课堂；原 30 课英文教程
 
 根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md) · [长任务与子任务操作](TASK-ORCHESTRATION.zh.md)
 
 ```text
-KODER CLI 0.4.22
+KODER CLI 0.5.1
 轻量即用的终端编程代理
 
 用法
@@ -42,10 +42,12 @@ KODER CLI 0.4.22
   gateway  一键接入飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp  网关、接入
 
 设置与帮助
+  ocr      离线识别图片与扫描 PDF
   design   网站需求问询与内置设计参考  awesome-design-md
+  pageindex按文档目录回读原文与核对引用
   llm-apps 内置 AI 应用参考与 Koder 工作流  awesome-llm-apps
   tools    先查本机工具，再找公开候选
-  subagents查看当前项目会话的子 Agent 检查点
+  subagents专业角色目录与子 Agent 检查点
   notifications任务完成通知、测试与回执
   open     用通知编号打开原会话
   cad      SolidCraft 参数化三维建模  solidcraft
@@ -78,6 +80,7 @@ KODER CLI 0.4.22
   update   更新到最新版  更新
   uninstall卸载 Koder CLI（--purge 同时删除配置）  卸载
   memory   查看、检索和管理本地与共享记忆  记忆
+  context  上下文窗口与自动压缩设置
   model    配置模型与真实上下文窗口  模型
   lang     切换中文或英文  语言
   theme    切换官网深色或浅色配色  主题
@@ -108,6 +111,19 @@ KODER CLI 0.4.22
 koder help <命令> 看详细说明；koder learn 跟着教程走；koder lang en 切换英文。
 ```
 
+## ocr
+
+```text
+koder ocr  离线识别图片与扫描 PDF
+
+用法
+  koder ocr status|on|off | read <file> [--page N] [--language eng|chi_sim|eng+chi_sim] [--sha SHA256] [--json]
+
+中英文 OCR 数据与 WebAssembly 随包，默认启用。按页返回源 SHA、文字与置信度；无需 Python 或 OCR 云账号。Setup → Skills 可关。OCR 需核对原图；Agent 模式的文字仍会进入已选模型。
+
+通用选项见 koder help。
+```
+
 ## design
 
 ```text
@@ -118,6 +134,19 @@ koder design  网站需求问询与内置设计参考
   koder design status|list|read|verify|on|off [id] [--query text] [--offset N] [--limit N] [--json]
 
 默认随建站/改版任务询问缺失需求；离线查阅 DESIGN.md，沿原三方案、代码和预览完成网站。Setup → Skills 可关闭。无交互或要求直接做时明确假设并继续。
+
+通用选项见 koder help。
+```
+
+## pageindex
+
+```text
+koder pageindex  按文档目录回读原文与核对引用
+
+用法
+  koder pageindex status|index|tree|search|read|export|check|on|off [file] [--node id] [--sha sha256] [--query text] [--json]
+
+默认自动调度：本地 Markdown/文本/PDF 目录、章节回读、逐字引用核验。无需 Python 或新云账号。Setup → Skills 可关闭。扫描件需 OCR，PDF 使用实际页码；索引不自动持久化。
 
 通用选项见 koder help。
 ```
@@ -142,7 +171,7 @@ koder llm-apps  内置 AI 应用参考与 Koder 工作流
 koder tools  先查本机工具，再找公开候选
 
 用法
-  koder tools seek <public query> [--command executable-name] [--local] [--page N] [--json]
+  koder tools status|audit [--json] | seek <public query> [--command executable-name] [--local] [--page N] [--json]
 
 只读检查 PATH，不执行文件。找到本机工具时默认不联网；--local 仅查本机。远程搜索仍需 network；安装由任务中的 tool_bootstrap 走原审批。
 
@@ -152,12 +181,12 @@ koder tools  先查本机工具，再找公开候选
 ## subagents
 
 ```text
-koder subagents  查看当前项目会话的子 Agent 检查点
+koder subagents  专业角色目录与子 Agent 检查点
 
 用法
-  koder subagents status [--session name] [-w workspace] [--thread ID] [--offset N] [--limit N] [--json]
+  koder subagents roles [--query text] [--group id] | role <id> | match <task> [--role id] | status [--session name] [-w workspace] [--thread ID] [--offset N] [--limit N] [--json]
 
-读取原会话存储，不恢复或重做任务。检查点中的 running 只显示为 unconfirmed；实时状态和取消在原聊天使用 /subagents status|cancel。
+90 个角色、25 个领域；180 是任务槽位，默认 4 个子任务同时执行，可在 Setup 调整。读取原会话存储，不恢复或重做任务。检查点中的 running 只显示为 unconfirmed；实时状态和取消在原聊天使用 /subagents status|cancel。
 
 通用选项见 koder help。
 ```
@@ -331,9 +360,9 @@ koder project  新建、打开与查看独立项目文件夹
 别名: 项目
 
 用法
-  koder project create <name> [--kind website|slides|app|project] | open <path> | list | status | check [--kind project|website|service|generator]
+  koder project create <name> [--kind website|slides|app|project] | open <path> | list | status | anchor | check [--kind project|website|service|generator]
 
-新项目统一放在用户的 Koder Projects 文件夹。/project create 或 open 在当前聊天切换项目并重建会话；已有工程可用 -w。默认任务历史按项目与会话隔离。project check 只检查文件结构，缺项退出3，不运行脚本。
+新项目统一放在用户的 Koder Projects 文件夹。/project create 或 open 在当前聊天切换项目并重建会话；已有工程可用 -w。默认任务历史按项目与会话隔离。project anchor 读取项目身份、中心思想与验收锚点；新项目自动建草稿，方向变更保留历史并经原审批。project check 只检查文件结构，缺项退出3，不运行脚本。
 
 通用选项见 koder help。
 ```
@@ -1087,6 +1116,32 @@ koder memory  查看、检索和管理本地与共享记忆
   koder memory status | sync | personalization status | reflection run | show | search <内容> | add <记忆> | remove <id> | clear | forget | learning on|off | daily-state on|off | evolution on|off | proactive on|off | profile show|remember|identity|forget | soul show|preview|save|rollback
 
 同一工作目录和会话自动衔接历史。--session <名称> 可分开任务，--new 开始新会话，--no-memory 停用本次自动保存与恢复。clear 开始新会话并保留明确记忆；登录共享账号时，forget 会忘记当前共享空间；离线设备需再次同步才应用。learning、daily-state、evolution、proactive 分别可用 on/off/status，默认关闭；关闭不删除历史。profile forget 需要记录ID。详见 koder eula 和教程17–22。
+
+通用选项见 koder help。
+```
+
+## context
+
+```text
+koder context  上下文窗口与自动压缩设置
+
+用法
+  koder context status|set|on|off|reset [name] [--json]
+
+默认开启自动压缩，触发 80%、目标 60%、优先保留最近 4 轮。占用为输入、工具和输出预留的估算。on/off/reset 只修改压缩偏好，reset 保留模型窗口、凭据和 Headroom。关闭压缩后，超窗请求报告 CONTEXT_BUDGET_EXCEEDED。也可用 /context 或 Setup → 上下文与输出；无需模型即可设置压缩。环境变量模型的窗口请修改 KODER_CONTEXT_WINDOW / KODER_MAX_OUTPUT。
+
+选项
+  --context-window <tokens>     当前模型或指定已保存模型的窗口
+  --max-output <tokens>         输出上限，也占用模型窗口
+  --trigger-percent <1–99>      自动压缩触发占比，必须大于目标占比
+  --target-percent <1–99>       压缩目标占比，必须小于触发占比
+  --keep-turns <0–100>          优先保留近期轮次；仍受模型窗口限制
+
+例子
+  koder context set --trigger-percent 85 --target-percent 60 --keep-turns 6
+    调整自动压缩偏好
+  koder context set work --context-window 128000 --max-output 8192
+    修改已保存的 work 模型窗口
 
 通用选项见 koder help。
 ```
