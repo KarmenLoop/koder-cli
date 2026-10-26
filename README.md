@@ -547,7 +547,9 @@ If Koder is useful, an optional [GitHub star](https://github.com/KarmenLoop/kode
 
 ## Detailed learning paths
 
-The [1,800-lesson Chinese classroom](docs/courses/index.zh.html) is organized into 12 units, with explanations, examples, exercises, quizzes, troubleshooting and developer guidance. Notes and progress stay in the browser and can be exported. The [original 30 English lessons](docs/courses/README.en.md) and existing practice project remain available. The classroom has shipped since 0.4.12; update the installed CLI to use the added lessons. See the [course guide](docs/courses/ACADEMY-GUIDE.zh.md) for the two learning tracks and local classroom controls.
+Classroom edition **2026.10.26.1** adds 1,800 downloadable practice workbooks, twelve domain guides, and an offline exercise helper. Start with the [hands-on guide](https://karmenloop.com/academy/docs/courses/PRACTICE-GUIDE.zh.html) or [download the complete classroom](https://karmenloop.com/academy/releases/academy-2026.10.26.1/koder-academy-2026.10.26.1.zip). This course revision is separate from CLI 0.4.16.
+
+The [1,800-lesson Chinese classroom](docs/courses/index.zh.html) is organized into 120 units, with explanations, examples, exercises, quizzes, troubleshooting and developer guidance. Notes and progress stay in the browser and can be exported. The [original 30 English lessons](docs/courses/README.en.md) and existing practice project remain available. The classroom has shipped since 0.4.12; update the installed CLI to use the added lessons. See the [course guide](docs/courses/ACADEMY-GUIDE.zh.md) for the two learning tracks and local classroom controls.
 
 ## Device migration
 

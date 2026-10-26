@@ -1,4 +1,7 @@
 {
+  "courseEdition": "2026.10.26.1",
+  "workbooks": 1800,
+  "practicalGuides": 12,
   "lessons": 1800,
   "modules": 120,
   "newChineseLessons": 1620,
@@ -15,19 +18,19 @@
   },
   "assignments": 1800,
   "minutes": 63530,
-  "generatedLessonCharacters": 6140252,
+  "generatedLessonCharacters": 7957093,
   "lessonCharacters": {
     "minimum": {
-      "number": 104,
-      "characters": 2085
+      "number": 69,
+      "characters": 3110
     },
     "median": {
-      "number": 340,
-      "characters": 3162
+      "number": 442,
+      "characters": 4181
     },
     "maximum": {
       "number": 16,
-      "characters": 7213
+      "characters": 8261
     }
   },
   "localProgramCases": 72,

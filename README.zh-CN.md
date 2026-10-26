@@ -546,3 +546,8 @@ koder update auto on
 KARMENLOOP 官方团队 · 中国上海 · [karmenloop.com](https://karmenloop.com) · [info@karmenloop.com](mailto:info@karmenloop.com)
 
 如果觉得有用，欢迎自愿 [点个星](https://github.com/KarmenLoop/koder-cli)；跳过完全不影响安装与已授权功能。
+
+
+## 1800课深度跟做课堂
+
+课堂版 2026.10.26.1：120个单元、1800份工作簿、12类实操指南和开发者加练。原课号与学习进度保留。先读[跟做指南](https://karmenloop.com/academy/docs/courses/PRACTICE-GUIDE.zh.html)，再进入[完整课堂](https://karmenloop.com/academy/docs/courses/index.zh.html)。[完整离线教材](https://karmenloop.com/academy/releases/academy-2026.10.26.1/koder-academy-2026.10.26.1.zip)含逐课空白工作簿；无需重装CLI，结构检查不代替答案核对。

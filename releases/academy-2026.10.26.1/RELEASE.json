@@ -1,0 +1,14 @@
+{
+  "edition": "2026.10.26.1",
+  "name": "koder-academy-2026.10.26.1.zip",
+  "bytes": 66349641,
+  "sha256": "6ae6c4334bc4f55c494e3fca4da76d812fc91dbfadee7a21ac0fcb47c22fce86",
+  "files": 4124,
+  "lessons": 1800,
+  "workbooks": 1800,
+  "units": 120,
+  "kind": "classroom",
+  "runtimeVersion": "0.4.16",
+  "replacesRuntime": false,
+  "download": "https://karmenloop.com/academy/releases/academy-2026.10.26.1/koder-academy-2026.10.26.1.zip"
+}

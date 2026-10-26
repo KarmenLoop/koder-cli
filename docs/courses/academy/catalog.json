@@ -1,6 +1,7 @@
 {
   "schema": 2,
   "version": "0.4.16",
+  "courseEdition": "2026.10.26.1",
   "status": "built-curriculum",
   "language": "zh",
   "lessonCount": 1800,

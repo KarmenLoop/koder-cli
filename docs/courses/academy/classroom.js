@@ -35,6 +35,11 @@
   if(l.quiz.mode==='self-check')return '<section class="lessonpart"><h2>课堂自测 · 人工自查</h2>'+paragraphs(l.quiz.question)+'<p class="notice">'+esc(l.quiz.grading)+'</p><details class="answer"><summary>写出自己的结果后，再展开参考与核对依据</summary>'+paragraphs(l.quiz.explanation)+'</details></section>';
   return '<section class="lessonpart"><h2>课堂自测</h2>'+paragraphs(l.quiz.question)+'<div class="quiz-options">'+l.quiz.options.map((x,i)=>'<button type="button" data-option="'+i+'" aria-pressed="false">'+('ABC'[i])+'. '+esc(x)+'</button>').join('')+'</div><p id="quiz-feedback" role="status" aria-live="polite">'+(e.quiz?'这道自测已有正确作答记录，可再次练习。':'选一项查看解释；答对自测不会标记实操作业完成。')+'</p></section>';
  }
+ function practiceMarkup(l){
+  if(!window.AcademyPractice)return '';
+  const p=window.AcademyPractice.plan(l),d=p.domain;
+  return '<section class="lessonpart hands-on"><h2>从文件开始跟做</h2><p>工作目录：<code>Koder Projects/'+esc(p.name)+'</code>。交件：'+esc(p.deliverable)+'。</p><div class="actions"><button id="download-workbook" type="button">下载本课工作簿</button><button id="copy-coaching" type="button">复制分步辅导提示词</button><a href="PRACTICE-GUIDE.zh.html#domain-'+d.number+'">查看本专题实操指南</a></div><p class="small">工作簿不预填答案。复制提示词不会发送任务；自行提交到 Koder 后可能产生模型费用。</p><details class="answer"><summary>按文件走完本课：四段跟做与核对点</summary><ol>'+d.route.map(s=>'<li class="step"><h3>'+esc(s[0])+'</h3>'+paragraphs(s[1])+'<div class="expected"><strong>检查点：</strong>'+esc(s[2])+'</div></li>').join('')+'</ol><p>本课任务：'+esc(p.task)+'</p><p>独立变式：'+esc(p.variant)+'</p></details><details class="answer"><summary>交件自评表：每项 0–2 分，逐项写依据</summary><p>0：缺失或与输入矛盾；1：有结果但缺依据；2：结果、依据和复做记录齐全。自评不等于自动认证。</p><ol>'+d.criteria.map(c=>'<li>'+esc(c)+'</li>').join('')+'</ol><p>基准、变式、失败排查与交件分别记录，再与本课参考对照。</p></details></section>';
+ }
  function render(number,focus=false){
   const n=N.number(number,total);if(n===null){status('课号应为 1–'+total+' 的整数。');return false;}
   current=n;state.last=n;
@@ -47,6 +52,7 @@
    '<div class="objective"><strong>学完这一课，你应能</strong>'+paragraphs(l.goal)+'</div>',
    '<section class="lessonpart"><h2>先把原理讲清楚</h2>'+paragraphs(l.explain)+'<details class="answer"><summary>本单元贯穿项目</summary>'+paragraphs(m.description)+'<p>单元交件：'+esc(m.project)+'</p></details></section>',
    '<section class="lessonpart"><h2>开始前准备</h2>'+paragraphs(l.prepare)+'<p class="notice">教材与 '+esc(data.version)+' 源码配套。查看本机 koder --version 和 koder help，核对实际可用命令。阅读和复制示例不会执行操作。</p></section>',
+   practiceMarkup(l),
    '<section class="lessonpart"><h2>'+(l.input?'合成输入与示例':'示例与解读')+'</h2><div class="codebox"><pre id="example-code">'+esc(l.input||l.example)+'</pre><button class="copy" id="copy-example">'+(l.program?'复制 case.mjs 程序':'复制本课输入')+'</button></div><p class="codehint">先读输入说明。代码、配置、状态记录与写作素材各有用途；涉及占位路径或地址时，请按本课步骤替换。</p>'+(l.operation?'<h3>本课任务</h3>'+paragraphs(l.operation):'')+paragraphs(l.result)+'</section>',
    '<section class="lessonpart hands-on"><h2>手把手操作</h2><ol>'+l.steps.map(s=>'<li class="step"><div class="step-action">'+esc(s.action)+'</div><div class="expected"><strong>应看到：</strong>'+esc(s.expected)+'</div>'+(s.why?'<div class="why"><strong>为什么：</strong>'+esc(s.why)+'</div>':'')+'</li>').join('')+'</ol><h3>常见问题与恢复</h3>'+l.issues.map(x=>'<details class="answer"><summary>'+esc(x.symptom)+'</summary>'+paragraphs(x.recovery)+'</details>').join('')+'</section>',
    '<section class="lessonpart developer"><h2>开发者课堂</h2>'+paragraphs(l.developer)+'</section>',
@@ -61,6 +67,10 @@
   $('mark-read').onchange=()=>{e.read=$('mark-read').checked;persist();nav();};
   $('mark-lab').onchange=()=>{e.lab=$('mark-lab').checked;persist();};
   $('copy-example').onclick=async()=>{try{await navigator.clipboard.writeText(l.program||l.input||l.example);status('本课输入已复制，请按步骤选择使用。');}catch{status('当前环境无法自动复制，请选中示例文本复制。');}};
+  if(window.AcademyPractice){
+   $('download-workbook').onclick=()=>download('lesson-'+String(n).padStart(4,'0')+'-workbook.md',window.AcademyPractice.worksheet(l),'text/markdown;charset=utf-8');
+   $('copy-coaching').onclick=async()=>{try{await navigator.clipboard.writeText(window.AcademyPractice.plan(l).prompt);status('辅导提示词已复制；请先阅读并编辑，再自行提交到本课练习目录。');}catch{status('无法自动复制。可下载离线教材，用练习工具创建 coaching-prompt.txt 后手动复制。');}};
+  }
   document.querySelectorAll('[data-option]').forEach(b=>b.onclick=()=>{
    const correct=Number(b.dataset.option)===l.quiz.answer;
    document.querySelectorAll('[data-option]').forEach(x=>{x.setAttribute('aria-pressed',String(x===b));delete x.dataset.result;});
@@ -79,8 +89,8 @@
   if(location.hash==='#lesson-'+n)render(n,true);else location.hash='lesson-'+n;
   return true;
  }
- function download(name,text){
-  const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type:'application/json;charset=utf-8'}));
+ function download(name,text,type='application/json;charset=utf-8'){
+  const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type}));
   a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
  }
  $('module-filter').innerHTML='<option value="all">全部单元</option>'+data.modules.map(m=>'<option value="'+m.id+'">'+m.id+'. '+esc(m.title)+'（'+m.start+'–'+m.end+'）</option>').join('');
