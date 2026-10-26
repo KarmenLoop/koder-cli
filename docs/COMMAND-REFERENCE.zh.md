@@ -1,11 +1,11 @@
 # 完整命令参考
 
-Koder CLI 0.4.19 · 1800 课中文课堂；原 30 课英文教程
+Koder CLI 0.4.20 · 1800 课中文课堂；原 30 课英文教程
 
 根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md) · [长任务与子任务操作](TASK-ORCHESTRATION.zh.md)
 
 ```text
-KODER CLI 0.4.19
+KODER CLI 0.4.20
 轻量即用的终端编程代理
 
 用法
@@ -42,6 +42,7 @@ KODER CLI 0.4.19
   gateway  一键接入飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp  网关、接入
 
 设置与帮助
+  llm-apps 内置 AI 应用参考与 Koder 工作流  awesome-llm-apps
   tools    先查本机工具，再找公开候选
   subagents查看当前项目会话的子 Agent 检查点
   notifications任务完成通知、测试与回执
@@ -104,6 +105,20 @@ KODER CLI 0.4.19
   -h, --help                显示该命令的说明
 
 koder help <命令> 看详细说明；koder learn 跟着教程走；koder lang en 切换英文。
+```
+
+## llm-apps
+
+```text
+koder llm-apps  内置 AI 应用参考与 Koder 工作流
+别名: awesome-llm-apps
+
+用法
+  koder llm-apps status|list|read|plan|retrieve|check|verify|on|off [id] [--query text] [--path file] [--json]
+
+默认启用：离线目录、固定提交源码、Koder 方法适配、本地词法检索及引文核验。Setup → Skills 可关闭主技能或单项方法。不会自动安装或运行上游应用；外部账号、服务及依赖需按项目实际配置。
+
+通用选项见 koder help。
 ```
 
 ## tools

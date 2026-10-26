@@ -268,6 +268,27 @@
           "matchesPreviousBundle": false
         }
       ]
+    },
+    {
+      "id": "awesome-llm-apps",
+      "repository": "Shubhamsaboo/awesome-llm-apps",
+      "recordedSourceRevision": "6c16b23f1bacd0fdf240bb5141ef45e59e82c306",
+      "declaredLicense": "Apache-2.0; subtree MIT and Apache-2.0 notices retained",
+      "use": "Pinned text reference library and separately adapted Koder methods; no upstream services executed",
+      "bundleResourceRoot": "kernel/fusion/methods/llm-apps/library",
+      "listedResourceFiles": 1636,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "LICENSE-APACHE-2.0.txt",
+          "publicCopy": "licenses/awesome-llm-apps/LICENSE-APACHE-2.0.txt",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "upstreamPath": "NOTICE.txt",
+          "publicCopy": "licenses/awesome-llm-apps/NOTICE.txt",
+          "sha256": "b7e68c341497f987ad8c7cae168c4789ed6f7e1aa17db828f7dfa2ac4c804a35"
+        }
+      ]
     }
   ],
   "portLicenseChecks": [

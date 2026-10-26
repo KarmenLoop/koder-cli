@@ -1,0 +1,6 @@
+Awesome LLM Apps reference snapshot
+https://github.com/Shubhamsaboo/awesome-llm-apps
+Commit: 6c16b23f1bacd0fdf240bb5141ef45e59e82c306
+Original source text is preserved, with per-file SHA-256. Koder supplies separate adaptations; upstream instructions are reference data.
+Root license: Apache-2.0. Subtree licenses are retained in the resource archive and catalog.
+No upstream dependencies or services are installed by this library.

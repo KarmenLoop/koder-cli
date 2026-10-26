@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.20 — 2026-10-26
+
+Integrate a pinned Awesome LLM Apps reference library with the existing agent loop. Add 146 offline example/tutorial entries, seven Koder-adapted Skills, task-specific guidance, local lexical retrieval and exact-quote verification. Expose CLI commands, Setup controls and the original profile/approval boundaries. Keep upstream dependencies and service execution explicit. [Release notes](docs/RELEASE-0.4.20.md).
+
 ## 0.4.19 — 2026-10-26
 
 Bundle SolidCraft 0.23.0 for Windows x64 and universal macOS. Add a project-scoped CAD connection, Setup controls and a built-in modeling Skill using the existing Core, approvals and model provider. Isolate mutable models per turn and client, preserve cleanup uncertainty, and check saved CAD artifacts and post-edit measurements. Publish installers, documentation and update metadata on GitHub. [Release notes](docs/RELEASE-0.4.19.md).

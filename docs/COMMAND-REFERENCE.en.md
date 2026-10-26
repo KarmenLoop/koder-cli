@@ -1,11 +1,11 @@
 # Complete command reference
 
-Koder CLI 0.4.19 · 1,800 Chinese lessons; original 30 English lessons
+Koder CLI 0.4.20 · 1,800 Chinese lessons; original 30 English lessons
 
 Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md) · [Task orchestration](TASK-ORCHESTRATION.en.md)
 
 ```text
-KODER CLI 0.4.19
+KODER CLI 0.4.20
 A lightweight terminal coding agent
 
 Usage
@@ -42,6 +42,7 @@ Toolchain and local projects
   gateway  Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp
 
 Setup and help
+  llm-apps Bundled AI app references and Koder workflows
   tools    Check local tools before searching public candidates
   subagentsInspect saved subagent checkpoints for a workspace session
   notificationsTask notifications, tests and receipts
@@ -104,6 +105,20 @@ Global options
   -h, --help                Show help for the command
 
 koder help <command> for details; koder learn for the tutorial; koder lang zh for Chinese.
+```
+
+## llm-apps
+
+```text
+koder llm-apps  Bundled AI app references and Koder workflows
+Aliases: awesome-llm-apps
+
+Usage
+  koder llm-apps status|list|read|plan|retrieve|check|verify|on|off [id] [--query text] [--path file] [--json]
+
+Enabled by default: offline catalog, pinned source, adapted Koder methods, local lexical retrieval and quote verification. Disable the parent or individual methods in Setup → Skills. Upstream apps are not installed or run automatically; configure external accounts, services and dependencies for the selected project.
+
+Global options: koder help.
 ```
 
 ## tools

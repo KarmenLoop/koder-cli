@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed release is **0.4.19**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.4.20**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -63,3 +63,7 @@ Windows and macOS installers include local-first tool discovery, child Todo hand
 ## Version 0.4.19
 
 GitHub-only publication includes Windows and macOS installers, the versioned runtime, update manifests, tutorials and SolidCraft license notices. Official website content and deployments are outside this release. SolidCraft 0.23.0 uses client-scoped headless connections under the existing Core. See [release notes](docs/RELEASE-0.4.19.md) for measured results and untested platforms.
+
+## Version 0.4.20
+
+GitHub-only release of the existing Windows/macOS installers and runtime with the pinned Awesome LLM Apps library, native Koder methods and evidence tools. No website deployment is included. See [release notes](docs/RELEASE-0.4.20.md).
