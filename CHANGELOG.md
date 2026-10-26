@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.3 — 2026-10-27
+
+- Refine the startup refractor's translucent surface, edge coverage and restrained spectral highlights while retaining its three-lobed ring shape.
+- Use thin blue frames with brighter corners across the startup panel, Setup and pickers. Keep conversation dividers light and the persistent composer compact.
+- Fit picker frames to narrow terminal widths instead of forcing a 42-column minimum.
+- Honor `KODER_REDUCED_MOTION=1` and `REDUCED_MOTION=1` during startup, alongside the existing animation controls. Retain dark/light themes, reduced-color output and ASCII fallback.
+
+[Terminal guide](docs/SESSION-DOCK.en.md#startup-and-frame-appearance) · [Release notes](docs/RELEASE-0.5.3.md).
+
 ## 0.5.2 — 2026-10-27
 
 - Query JS/TS dependencies, dependents and symbol candidates with the native `code_graph` tool. Reuse Koder Reverse in a cancellable worker without Python, a graph database or an MCP process.

@@ -8,6 +8,14 @@ The current source adds dependency-aware Todo plans, paging, unlimited default m
 
 The default layout uses one collapsed Todo row above the editable input and one status row below it. An empty checklist uses no space. The interactive dock omits the old heavy conversation separators.
 
+## Startup and frame appearance
+
+Version 0.5.3 keeps the three-lobed refractor at startup and refines its translucent shading, edges and small spectral highlights. The startup panel, Setup and pickers share thin blue rails with brighter corners. The regular chat composer remains compact and editable while work runs; the new frame style does not add a permanent box around the conversation.
+
+Picker frames now fit terminals narrower than 42 columns. Text still follows the existing wrapping and clipping rules. Dark and light themes, reduced-color terminals, no-color output and the ASCII fallback remain available; a terminal's font and color support determine how much of the effect is visible.
+
+To inspect the startup image without animation, run `koder banner --no-anim`. Use `koder banner --ascii --no-anim` for the classic-console fallback. Existing Setup animation preferences and `KODER_NO_ANIM` continue to apply. For startup with reduced motion, set `KODER_REDUCED_MOTION=1` or `REDUCED_MOTION=1` in the environment before launching Koder. These switches change presentation only.
+
 ## Using the dock
 
 Start `koder chat`. The footer shows the resolved model or “Not configured · /setup”. During a multi-step task the built-in agent can call `todo_set`; ordinary questions need no checklist.

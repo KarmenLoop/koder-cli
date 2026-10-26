@@ -2,15 +2,15 @@
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current version: **0.5.2**. Start with [release changes](RELEASE-0.5.2.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.5.3**. Start with [release changes](RELEASE-0.5.3.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.2; check GitHub Releases for publication status and available downloads.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.3; check GitHub Releases for publication status and available downloads.
 
 # Koder CLI complete user guide
 
-Version: **0.5.2**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.5.3**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -171,7 +171,7 @@ Koder Reverse is a first-party static subset with explicit coverage, not an acce
 
 Context suggestions are optional editable drafts. Choose one, change it or type your own; selection is not submission. `/prefill`, `/prompts` and `/suggest off` remain available. See [Prompt prefills](PROMPT_PREFILLS.md).
 
-### Native capabilities and MCP commands (0.5.2)
+### Native capabilities and MCP commands (since 0.5.2)
 
 Use the capability inventory to distinguish Koder implementations, third-party runtimes and remote services, then inspect the tools your project needs:
 
@@ -213,14 +213,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.5.2-en-cmd.txt](tutorials/koder-cli-0.5.2-en-cmd.txt)
-- [koder-cli-0.5.2-en-linux.txt](tutorials/koder-cli-0.5.2-en-linux.txt)
-- [koder-cli-0.5.2-en-mac.txt](tutorials/koder-cli-0.5.2-en-mac.txt)
-- [koder-cli-0.5.2-en-powershell.txt](tutorials/koder-cli-0.5.2-en-powershell.txt)
-- [koder-cli-0.5.2-zh-cmd.txt](tutorials/koder-cli-0.5.2-zh-cmd.txt)
-- [koder-cli-0.5.2-zh-linux.txt](tutorials/koder-cli-0.5.2-zh-linux.txt)
-- [koder-cli-0.5.2-zh-mac.txt](tutorials/koder-cli-0.5.2-zh-mac.txt)
-- [koder-cli-0.5.2-zh-powershell.txt](tutorials/koder-cli-0.5.2-zh-powershell.txt)
+- [koder-cli-0.5.3-en-cmd.txt](tutorials/koder-cli-0.5.3-en-cmd.txt)
+- [koder-cli-0.5.3-en-linux.txt](tutorials/koder-cli-0.5.3-en-linux.txt)
+- [koder-cli-0.5.3-en-mac.txt](tutorials/koder-cli-0.5.3-en-mac.txt)
+- [koder-cli-0.5.3-en-powershell.txt](tutorials/koder-cli-0.5.3-en-powershell.txt)
+- [koder-cli-0.5.3-zh-cmd.txt](tutorials/koder-cli-0.5.3-zh-cmd.txt)
+- [koder-cli-0.5.3-zh-linux.txt](tutorials/koder-cli-0.5.3-zh-linux.txt)
+- [koder-cli-0.5.3-zh-mac.txt](tutorials/koder-cli-0.5.3-zh-mac.txt)
+- [koder-cli-0.5.3-zh-powershell.txt](tutorials/koder-cli-0.5.3-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 

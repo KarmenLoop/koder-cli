@@ -1,0 +1,97 @@
+{
+  "version": "0.5.3",
+  "privateSourceCommit": "9d928f263ffa13869944826cd5d2ebc89d2e1782",
+  "sourceBaseline": "ce1d6db1023de1a2bca3d8d741b1b19ae85a5c54",
+  "sourceRegression": {
+    "tests": 97,
+    "pass": 97,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "installerPlatformRegression": {
+    "tests": 16,
+    "pass": 16,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "packagedRegression": {
+    "tests": 97,
+    "pass": 97,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "pty": [
+    {
+      "mode": "NO_COLOR",
+      "stages": 12,
+      "exitCode": 0,
+      "elapsed": 5.689657917,
+      "scope": "Actual local macOS PTY and scripted model adapter; no private account or paid model"
+    },
+    {
+      "mode": "truecolor",
+      "stages": 12,
+      "exitCode": 0,
+      "elapsed": 5.576506792,
+      "scope": "Actual local macOS PTY and scripted model adapter; no private account or paid model"
+    }
+  ],
+  "package": {
+    "runtimeSha256": "a4afa725c214a782317cf728e1310b92e68f85d381834bb06f0e0538df860b5f",
+    "runtimeBytes": 473016529,
+    "kernelHashes": 6285,
+    "kernelMatchesSource": true,
+    "sourceDocsFiles": 2734
+  },
+  "packageSmokeCommands": 44,
+  "installerUpgrade": {
+    "passed": true,
+    "from": "0.5.2",
+    "to": "0.5.3",
+    "origin": "http://127.0.0.1:57459",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 24
+  },
+  "actualCommands": [
+    "TERM=xterm-256color node --test --test-concurrency=2 test/scan-banner.test.mjs test/session-dock.test.mjs test/session-input.test.mjs test/session-controls.test.mjs test/slash-menu-terminal.test.mjs test/terminal-frame.test.mjs test/setup.test.mjs test/setup-skills-input.test.mjs test/prefill.test.mjs test/prefill-terminal.test.mjs test/task-notification-setup.test.mjs",
+    "node --test --test-concurrency=2 test/release-docs-consistency.test.mjs test/cross-platform.test.mjs test/installer.test.mjs",
+    "python3 test/fixtures/session-controls-pty.py NODE FIXTURE OWNED_EVIDENCE",
+    "koder banner --no-anim --lang en",
+    "node scripts/pack.mjs --out OWNED_DIST",
+    "koder update (isolated HOME, version 0.5.2 -> 0.5.3)"
+  ],
+  "notRun": [
+    "Windows 10/11 native terminal, ConPTY, IME, cold install and update: beta-owned",
+    "Windows MCP GUI and Linux/Windows visible notifications",
+    "Paid-model task quality, private mailbox delivery and authenticated account writes"
+  ],
+  "hold": [
+    "Unsigned macOS locked-use helper: signing and dedicated test Mac unavailable"
+  ],
+  "priorFailuresPreserved": [
+    "TERM=dumb inherited into TTY fixtures: initial frame run had 3 failures; explicit xterm-256color rerun passed without weakening assertions",
+    "Initial root UI run overlapped title paint update and inherited TERM=dumb: 4 failures retained; final coherent source run passed all 97",
+    "Banner capture before accepting the EULA in the disposable HOME returned exit 2; guard retained; explicit fixture acceptance then rendered successfully"
+  ],
+  "preserved": [
+    "Compact persistent input, steering, FIFO queue, cancellation, approvals, Core and provider routing",
+    "Existing advanced MCP coverage limits and third-party attribution",
+    "Original three-lobed refractor geometry",
+    "Original tutorials and historical release evidence",
+    "Website unchanged; GitHub only"
+  ],
+  "inheritedKnownLimits": [
+    "Paid-model task quality and billing comparison",
+    "Windows 10/11 native cold installation, update and MCP GUI: beta-owned",
+    "Linux/Windows notification display and click activation",
+    "Live private mail and authenticated external account writes",
+    "Independent replacements for full Windows GUI, CAD geometry, REA disassembly and advanced CodeGraphContext analysis are not delivered",
+    "Existing outside-workspace homeRead and computerDriver capture/act cancellation propagation remains an independent follow-up; no complete desktop cancellation parity claim",
+    "Windows bundle license mapping audit found aiofile LICENCE naming and fastmcp-slim mapping gaps; original vendor bytes and supplied notices retained, not a claim of complete license clearance",
+    "Unsigned macOS locked-use helper: signing and dedicated test Mac unavailable"
+  ]
+}
