@@ -1,0 +1,284 @@
+{
+  "engine": {
+    "repository": "https://github.com/naptha/tesseract.js",
+    "revision": "a1ca80d9e31c34512d0ded75ff8821ddcf3f2f91",
+    "version": "7.0.0",
+    "starsObserved": 38794,
+    "observedOn": "2026-10-26"
+  },
+  "wasm": {
+    "repository": "https://github.com/naptha/tesseract.js-core",
+    "revision": "acffef2b66eb44a31df297e11d905f4b39001068",
+    "version": "7.0.0",
+    "artifact": "npm distribution, not a local C++ rebuild"
+  },
+  "packages": [
+    {
+      "name": "bmp-js",
+      "version": "0.1.0",
+      "declaredLicense": "MIT",
+      "licenseFiles": [
+        "bmp-js-LICENSE"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/shaozilee/bmp-js"
+      }
+    },
+    {
+      "name": "idb-keyval",
+      "version": "6.3.0",
+      "declaredLicense": "Apache-2.0",
+      "licenseFiles": [
+        "idb-keyval-LICENCE"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jakearchibald/idb-keyval.git"
+      }
+    },
+    {
+      "name": "is-url",
+      "version": "1.2.4",
+      "declaredLicense": "MIT",
+      "licenseFiles": [
+        "is-url-LICENSE-MIT"
+      ],
+      "repository": "https://github.com/segmentio/is-url"
+    },
+    {
+      "name": "node-fetch",
+      "version": "2.7.0",
+      "declaredLicense": "MIT",
+      "licenseFiles": [
+        "node-fetch-LICENSE.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/bitinn/node-fetch.git"
+      }
+    },
+    {
+      "name": "opencollective-postinstall",
+      "version": "2.0.3",
+      "declaredLicense": "MIT",
+      "licenseFiles": [
+        "opencollective-postinstall-LICENSE"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/opencollective/opencollective-postinstall.git"
+      }
+    },
+    {
+      "name": "regenerator-runtime",
+      "version": "0.13.11",
+      "declaredLicense": "MIT",
+      "licenseFiles": [
+        "regenerator-runtime-LICENSE"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/facebook/regenerator/tree/main/packages/runtime"
+      }
+    },
+    {
+      "name": "tesseract.js",
+      "version": "7.0.0",
+      "declaredLicense": "Apache-2.0",
+      "licenseFiles": [
+        "tesseract.js-LICENSE.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/naptha/tesseract.js.git"
+      }
+    },
+    {
+      "name": "tesseract.js-core",
+      "version": "7.0.0",
+      "declaredLicense": "Apache-2.0",
+      "licenseFiles": [
+        "tesseract.js-core-LICENSE"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/naptha/tesseract.js-core.git"
+      }
+    },
+    {
+      "name": "tr46",
+      "version": "0.0.3",
+      "declaredLicense": "MIT",
+      "licenseFiles": [],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Sebmaster/tr46.js.git"
+      }
+    },
+    {
+      "name": "wasm-feature-detect",
+      "version": "1.9.0",
+      "declaredLicense": "Apache-2.0",
+      "licenseFiles": [
+        "wasm-feature-detect-LICENSE"
+      ],
+      "repository": "GoogleChromeLabs/wasm-feature-detect"
+    },
+    {
+      "name": "webidl-conversions",
+      "version": "3.0.1",
+      "declaredLicense": "BSD-2-Clause",
+      "licenseFiles": [
+        "webidl-conversions-LICENSE.md"
+      ],
+      "repository": "jsdom/webidl-conversions"
+    },
+    {
+      "name": "whatwg-url",
+      "version": "5.0.0",
+      "declaredLicense": "MIT",
+      "licenseFiles": [
+        "whatwg-url-LICENSE.txt"
+      ],
+      "repository": "jsdom/whatwg-url"
+    },
+    {
+      "name": "zlibjs",
+      "version": "0.3.1",
+      "declaredLicense": "MIT",
+      "licenseFiles": [
+        "zlibjs-LICENSE"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/imaya/zlib.js.git"
+      }
+    },
+    {
+      "name": "@tesseract.js-data/chi_sim",
+      "version": "1.0.0",
+      "declaredLicense": "MIT",
+      "licenseFiles": [],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/naptha/tessdata.git"
+      }
+    },
+    {
+      "name": "@tesseract.js-data/eng",
+      "version": "1.0.0",
+      "declaredLicense": "MIT",
+      "licenseFiles": [],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/naptha/tessdata.git"
+      }
+    }
+  ],
+  "upstreamLicenseSources": [
+    {
+      "id": "traineddata",
+      "repository": "naptha/tessdata",
+      "revision": "806cd9adc8c6e8abc11c782db1818c990576bebc",
+      "upstreamPath": "LICENSE",
+      "url": "https://raw.githubusercontent.com/naptha/tessdata/806cd9adc8c6e8abc11c782db1818c990576bebc/LICENSE",
+      "bytes": 11357
+    },
+    {
+      "id": "leptonica",
+      "repository": "DanBloomberg/leptonica",
+      "revision": "4af068b56a9674da915debea4ed7e1b9885b17e8",
+      "upstreamPath": "leptonica-license.txt",
+      "url": "https://raw.githubusercontent.com/DanBloomberg/leptonica/4af068b56a9674da915debea4ed7e1b9885b17e8/leptonica-license.txt",
+      "bytes": 1521
+    },
+    {
+      "id": "libjpeg",
+      "repository": "LuaDist/libjpeg",
+      "revision": "6c0fcb8ddee365e7abc4d332662b06900612e923",
+      "upstreamPath": "README",
+      "url": "https://raw.githubusercontent.com/LuaDist/libjpeg/6c0fcb8ddee365e7abc4d332662b06900612e923/README",
+      "bytes": 19110
+    },
+    {
+      "id": "giflib",
+      "repository": "mirrorer/giflib",
+      "revision": "fa37672085ce4b3d62c51627ab3c8cf2dda8009a",
+      "upstreamPath": "COPYING",
+      "url": "https://raw.githubusercontent.com/mirrorer/giflib/fa37672085ce4b3d62c51627ab3c8cf2dda8009a/COPYING",
+      "bytes": 1088
+    },
+    {
+      "id": "libpng",
+      "repository": "glennrp/libpng",
+      "revision": "a37d4836519517bdce6cb9d956092321eca3e73b",
+      "upstreamPath": "LICENSE",
+      "url": "https://raw.githubusercontent.com/glennrp/libpng/a37d4836519517bdce6cb9d956092321eca3e73b/LICENSE",
+      "bytes": 5345
+    },
+    {
+      "id": "libtiff",
+      "repository": "libsdl-org/libtiff",
+      "revision": "b51bb157123264e26d34c09cc673d213aea61fc7",
+      "upstreamPath": "COPYRIGHT",
+      "url": "https://raw.githubusercontent.com/libsdl-org/libtiff/b51bb157123264e26d34c09cc673d213aea61fc7/COPYRIGHT",
+      "bytes": 1146
+    },
+    {
+      "id": "libwebp",
+      "repository": "webmproject/libwebp",
+      "revision": "20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c",
+      "upstreamPath": "COPYING",
+      "url": "https://raw.githubusercontent.com/webmproject/libwebp/20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c/COPYING",
+      "bytes": 1496
+    },
+    {
+      "id": "zlib",
+      "repository": "madler/zlib",
+      "revision": "21767c654d31d2dccdde4330529775c6c5fd5389",
+      "upstreamPath": "README",
+      "url": "https://raw.githubusercontent.com/madler/zlib/21767c654d31d2dccdde4330529775c6c5fd5389/README",
+      "bytes": 5368
+    },
+    {
+      "id": "tesseract",
+      "repository": "Balearica/tesseract",
+      "revision": "2a9c1c49c360462733c386d2a44fcd22c4e21411",
+      "upstreamPath": "LICENSE",
+      "url": "https://raw.githubusercontent.com/Balearica/tesseract/2a9c1c49c360462733c386d2a44fcd22c4e21411/LICENSE",
+      "bytes": 11358
+    },
+    {
+      "id": "openlibm",
+      "repository": "JuliaMath/openlibm",
+      "revision": "ae2d91698508701c83cab83714d42a1146dccf85",
+      "upstreamPath": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/JuliaMath/openlibm/ae2d91698508701c83cab83714d42a1146dccf85/LICENSE.md",
+      "bytes": 5857
+    },
+    {
+      "id": "idb-keyval",
+      "repository": "jakearchibald/idb-keyval",
+      "revision": "17a69a1165bef486d88950cb47d3913744f038ac",
+      "upstreamPath": "LICENCE",
+      "url": "https://raw.githubusercontent.com/jakearchibald/idb-keyval/17a69a1165bef486d88950cb47d3913744f038ac/LICENCE",
+      "bytes": 555
+    },
+    {
+      "id": "tr46",
+      "repository": "jsdom/tr46",
+      "revision": "6d09104f21991d496aa2a8535d21bdea91a9c216",
+      "upstreamPath": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/jsdom/tr46/6d09104f21991d496aa2a8535d21bdea91a9c216/LICENSE.md",
+      "bytes": 1076,
+      "note": "npm 0.0.3 omits a license file; original package MIT declaration and upstream MIT notice for Sebastian Mayr retained. Current source is not bundled."
+    }
+  ],
+  "notes": [
+    "Original npm files retained without executing lifecycle scripts. Local byte hashes and registry integrity are recorded in manifest and lockfile.",
+    "Language npm packages declare MIT; their linked trained-data repository is Apache-2.0. Both declarations and the repository license are retained; this does not relicense third-party data.",
+    "WASM submodule license copies come from the source revision recorded by the npm core distribution. They are attribution, not a reproducible binary build claim.",
+    "Koder converts BMP bytes in its adapter; the upstream BMP implementation is not modified. No CDN, document upload or additional model account is used."
+  ]
+}

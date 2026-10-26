@@ -1,4 +1,4 @@
-> 0.4.24 内置 PageIndex 文档目录、PDF 原文回读与引用核验，默认沿现有模型自动调度。[更新说明](docs/RELEASE-0.4.24.zh.md)。
+> 0.5.0 内置离线 OCR、90 个专业子任务角色、并发队列和可检查的无头执行结果。[更新说明](docs/RELEASE-0.5.0.zh.md)。
 
 [从这里开始：安装、更新与全部功能教程](docs/START-HERE.zh.md)
 
@@ -581,3 +581,8 @@ KARMENLOOP 官方团队 · 中国上海 · [karmenloop.com](https://karmenloop.c
 ## 文档问答 · 0.4.24
 
 本地 Markdown/文本/PDF 先看目录，再选章节、读原文、核对引用。PDFium 随包携带，无需 Python 或新云账号。Setup → Skills 可关闭；保留原项目、费用预算、取消和权限。扫描件需 OCR，不代表上游 Flash/cloud 或付费模型盲测通过。[中文手把手教程](docs/PAGEINDEX.zh.md) · [English](docs/PAGEINDEX.en.md)。
+
+
+## 真实调用与专业角色 · 0.5.0
+
+用 koder tools audit 检查工具、Skill、权限和本地资源；通过原 Core 执行并核对回执。Tesseract.js 中英文 OCR 随包携带，无需 Python 或云 OCR 账号。90 个角色覆盖 25 个领域，默认 4 个子任务同时执行，额外 FIFO 排队；180 是任务槽位，不是付费并发保证。headless JSON 会给出明确终态。保留旧 Core、模型/BYOK、取消、费用和项目隔离。[完整操作教程](docs/FRAMEWORK-0.5.zh.md) · [OCR](docs/OCR.zh.md) · [角色目录](docs/SUBAGENT-ROLE-CATALOG.zh.md)。Windows 实机由 beta 验证，专业角色不等于执业资质或已验证的内容质量。

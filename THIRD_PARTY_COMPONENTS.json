@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedOn": "2026-10-23",
+  "checkedOn": "2026-10-26",
   "scope": "Attribution inventory, not a complete dependency SBOM or legal clearance",
   "inspectedInstallerVersion": "0.3.0",
   "inspectedInstallerSha256": "281e31d96ce1764a0da8c7fbd08633118b21a04b595703f81d304a7f60f78f94",
@@ -364,6 +364,161 @@
           "upstreamPath": "LICENSE.pdfium",
           "publicCopy": "licenses/embedpdf-pdfium/LICENSE.pdfium",
           "sha256": "b033ffb8fc19c23ca81f7e98019ab658cc6f4cf14587c7c6a2a67fb0f6ac0f5a",
+          "matchesPreviousBundle": false
+        }
+      ]
+    },
+    {
+      "id": "local-ocr",
+      "repository": "naptha/tesseract.js",
+      "recordedSourceRevision": "a1ca80d9e31c34512d0ded75ff8821ddcf3f2f91",
+      "declaredLicense": "Apache-2.0; dependencies retain their own licenses (see licenses/ocr/SOURCE.json)",
+      "use": "Offline OCR engine, English and simplified Chinese trained data, and retained WASM dependency notices",
+      "bundleResourceRoot": "kernel/fusion/methods/ocr",
+      "listedResourceFiles": 270,
+      "licenseAndNoticeCopies": [
+        {
+          "upstreamPath": "licenses/bmp-js-LICENSE",
+          "publicCopy": "licenses/ocr/bmp-js-LICENSE",
+          "sha256": "9f165f5bd2b462122cacb8c6dc32028be1abb4d8ad0322e9a332f30b2ebdb833",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/giflib-LICENSE",
+          "publicCopy": "licenses/ocr/giflib-LICENSE",
+          "sha256": "0c9b7990ecdca88b676db232c226548ac408b279f550d424d996f0d83591dd8e",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/idb-keyval-LICENCE",
+          "publicCopy": "licenses/ocr/idb-keyval-LICENCE",
+          "sha256": "20c27d6339619eeb3113cb865d4e98a3f559e52964fc75caea9cb5fa72674565",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/idb-keyval-LICENSE",
+          "publicCopy": "licenses/ocr/idb-keyval-LICENSE",
+          "sha256": "20c27d6339619eeb3113cb865d4e98a3f559e52964fc75caea9cb5fa72674565",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/is-url-LICENSE-MIT",
+          "publicCopy": "licenses/ocr/is-url-LICENSE-MIT",
+          "sha256": "80957b522b0ea4ce24290953d74d818220c804d1f42cad02b8d7da1c12ce1fc1",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/leptonica-LICENSE",
+          "publicCopy": "licenses/ocr/leptonica-LICENSE",
+          "sha256": "87829abb5bbb00b55a107365da89e9a33f86c4250169e5a1e5588505be7d5806",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/libjpeg-LICENSE",
+          "publicCopy": "licenses/ocr/libjpeg-LICENSE",
+          "sha256": "c791da525733040e622ed257c7b096b8f5191b332604ead0c6bc2b54cbd8e0d1",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/libpng-LICENSE",
+          "publicCopy": "licenses/ocr/libpng-LICENSE",
+          "sha256": "33ba4e187d8b0c8d7ab2bc2e522bb095219e03089e9aa0122b4fb9eb2b7de82b",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/libtiff-LICENSE",
+          "publicCopy": "licenses/ocr/libtiff-LICENSE",
+          "sha256": "fbd6fed7938541d2c809c0826225fc85e551fdbfa8732b10f0c87e0847acafd7",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/libwebp-LICENSE",
+          "publicCopy": "licenses/ocr/libwebp-LICENSE",
+          "sha256": "5aec868f669e384a22372a4e8a1a6cd7d44c64cd451f960ca69cc170d1e13acf",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/node-fetch-LICENSE.md",
+          "publicCopy": "licenses/ocr/node-fetch-LICENSE.md",
+          "sha256": "84eaa985e1ef71b8c630e8aba73404c219ff425c6fdb45c62e998b58d4fbdc8e",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/opencollective-postinstall-LICENSE",
+          "publicCopy": "licenses/ocr/opencollective-postinstall-LICENSE",
+          "sha256": "86641df2e1c0c0e655d7eb9962a28e850e80c97c62a29500f2f93ab142c3c8f2",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/openlibm-LICENSE",
+          "publicCopy": "licenses/ocr/openlibm-LICENSE",
+          "sha256": "b1843fbf5b03f519a5f0a44fce751bdd1022ae7148614923f9d6293e17a18b17",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/regenerator-runtime-LICENSE",
+          "publicCopy": "licenses/ocr/regenerator-runtime-LICENSE",
+          "sha256": "51887a3d47051ac2fce1210562e5b9fe0830a8a8fabeb272c2d586eeb18a05fd",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/tesseract-LICENSE",
+          "publicCopy": "licenses/ocr/tesseract-LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/tesseract.js-LICENSE.md",
+          "publicCopy": "licenses/ocr/tesseract.js-LICENSE.md",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/tesseract.js-core-LICENSE",
+          "publicCopy": "licenses/ocr/tesseract.js-core-LICENSE",
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/tr46-LICENSE",
+          "publicCopy": "licenses/ocr/tr46-LICENSE",
+          "sha256": "499d6d466d064e0460427967a344e2a32fcb86ea8c6cd1a285ec4f1fa03fba67",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/traineddata-LICENSE",
+          "publicCopy": "licenses/ocr/traineddata-LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/wasm-feature-detect-LICENSE",
+          "publicCopy": "licenses/ocr/wasm-feature-detect-LICENSE",
+          "sha256": "bcf29b4fd3ec2cb5f9d40a0866da446f6da62170d2ccedf4aeca9cf9406dd20c",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/webidl-conversions-LICENSE.md",
+          "publicCopy": "licenses/ocr/webidl-conversions-LICENSE.md",
+          "sha256": "a889cc4dbee2ae172c179856b25d75b0b7a5a136e1b97109b9b590b2ff1a879c",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/whatwg-url-LICENSE.txt",
+          "publicCopy": "licenses/ocr/whatwg-url-LICENSE.txt",
+          "sha256": "6b7a1792144374d84dc5ed3655b8bbe2754d06f4f1f64a9fb8b9de2d6f448b85",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/zlib-LICENSE",
+          "publicCopy": "licenses/ocr/zlib-LICENSE",
+          "sha256": "fc2c3368901700f0acdeb1d8afeaca5923296768ec6824ecdf627aac396001fd",
+          "matchesPreviousBundle": false
+        },
+        {
+          "upstreamPath": "licenses/zlibjs-LICENSE",
+          "publicCopy": "licenses/ocr/zlibjs-LICENSE",
+          "sha256": "131afe3f7bdce1698beb292fb8de1a968de01bce876122a60ef5db230471c866",
           "matchesPreviousBundle": false
         }
       ]

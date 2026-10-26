@@ -1,4 +1,4 @@
-> 0.4.24 adds local PageIndex document trees, PDF text readback and source-bound citation checks. [Release notes](docs/RELEASE-0.4.24.md).
+> 0.5.0 adds bundled offline OCR, professional child-task roles, bounded child concurrency and explicit headless task results. [Release notes](docs/RELEASE-0.5.0.md).
 
 [Start here: installation, updates and all workflows](docs/START-HERE.en.md)
 
@@ -604,3 +604,7 @@ Discuss missing requirements, keep a stable project purpose and build through th
 ## Document questions with PageIndex
 
 Navigate local Markdown, text and PDF trees with the existing Koder model. Read original sections and verify file versions, page/line ranges and exact quotes before answering. The PDF parser ships in the runtime; no Python or new cloud account is required. Enabled by default for document tasks and configurable in Setup. [Hands-on guide](docs/PAGEINDEX.en.md) · [中文教程](docs/PAGEINDEX.zh.md).
+
+## Check capabilities and delegate with evidence
+
+Run `koder tools audit --json` to inspect mounted channels, permissions, Skill text and parser resources. Scan images and PDF pages with bundled Tesseract.js: `koder ocr read invoice.png --json`. The 90 professional child-task roles specify inputs, deliverables and checks; they reuse the existing Core and provider. Four children execute concurrently by default, with FIFO admission; 180 task slots are not a paid-provider quota. Headless tasks return explicit completion states, including preflight failures. [Execution guide](docs/FRAMEWORK-0.5.en.md) · [中文手把手教程](docs/FRAMEWORK-0.5.zh.md).

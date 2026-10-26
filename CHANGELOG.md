@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 — 2026-10-26
+
+Bundle local Tesseract.js OCR with English and simplified Chinese data; route scan tasks through the existing Core and document permissions. Add 90 professional child-task roles in 25 groups, FIFO child admission and a configurable concurrency limit. Add capability inspection and explicit terminal JSON results for headless preflight failures. Keep small-model context available by loading unrelated method guidance on demand. Preserve the existing executor, BYOK, budgets, cancellation and project isolation. [Release notes](docs/RELEASE-0.5.0.md).
+
 ## 0.4.24 — 2026-10-26
 
 Add native PageIndex document navigation, offline PDFium parsing, source-bound readback and exact-quote verification. Route document tasks through the existing Core, with Setup/off controls and read-only subagent support. Preserve model budgets, cancellation, permissions and existing project workflows. [Release notes](docs/RELEASE-0.4.24.md).

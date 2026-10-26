@@ -2,15 +2,15 @@
 
 [Detailed 30-lesson course: hands-on and developer tracks](courses/README.en.md)
 
-Retained since 0.4.20: [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
+Retained since 0.5.0: [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
 
-# Start with Koder CLI 0.4.23
+# Start with Koder CLI 0.5.0
 
 Koder is a terminal coding and writing agent that uses your selected model API or compatible local model. It can work on project files, run approved commands and use configured Skills, MCP connections and applications. Your provider bills model usage separately. A catalog entry or an enabled setting is not proof of a working account or device connection.
 
 ## 1. Install or update
 
-Use the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.23). Choose Windows CMD/PowerShell or macOS Terminal; these installers use the same 0.4.23 runtime. The CLI is a separate download from the desktop application.
+Use the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.0). Choose Windows CMD/PowerShell or macOS Terminal; these installers use the same 0.5.0 runtime. The CLI is a separate download from the desktop application.
 
 For an existing managed installation:
 
@@ -102,3 +102,8 @@ Use the default Fullstack Web Delivery Skill to clarify requirements, retain pro
 ## 0.4.24: Document questions
 
 Use the default PageIndex Skill to navigate local documents, read selected sections and verify citations. [Hands-on guide](PAGEINDEX.en.md).
+
+
+## 0.5.0: Invocation, OCR and professional roles
+
+Read the [complete execution guide](FRAMEWORK-0.5.en.md). It covers installation checks, local OCR, role selection, FIFO concurrency, headless completion and platform limits.

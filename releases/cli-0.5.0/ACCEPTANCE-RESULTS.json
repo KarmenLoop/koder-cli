@@ -1,0 +1,186 @@
+{
+  "version": "0.5.0",
+  "privateSourceCommit": "0a53562fce5c20ed6e593cfc12ecb22c9583ee76",
+  "sourceBaseline": "8bf10e4e6c54940001e7aab1bfe359bdf44a6468",
+  "sourceRegression": {
+    "tests": 1583,
+    "pass": 1562,
+    "fail": 0,
+    "skipped": 21,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 354.592870833
+  },
+  "childRuntimeRegression": {
+    "tests": 19,
+    "pass": 19,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 0.8109415409999999
+  },
+  "packagedRegression": {
+    "tests": 211,
+    "pass": 211,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 47.90136408805847
+  },
+  "package": {
+    "runtimeSha256": "2b62131cfd67c02ce23bde8f20d60d8a793a5a36d381e727e1948c0eeeca56d1",
+    "runtimeBytes": 449432971,
+    "kernelHashes": 6284,
+    "kernelMatchesSource": true,
+    "sourceDocsFiles": 2694
+  },
+  "packageSmokeCommands": 37,
+  "installerUpgrade": {
+    "passed": true,
+    "from": "0.4.24",
+    "to": "0.5.0",
+    "origin": "http://127.0.0.1:63412",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 20
+  },
+  "localInvocations": [
+    {
+      "label": "audit",
+      "argv": [
+        "tools",
+        "audit",
+        "--json"
+      ],
+      "exitCode": 0,
+      "seconds": 3.261115542,
+      "platform": "darwin",
+      "isolatedHome": true,
+      "ok": true,
+      "checks": 86,
+      "roles": {
+        "count": 90,
+        "groups": [
+          "legal",
+          "tender",
+          "hr",
+          "software",
+          "operations",
+          "data",
+          "design",
+          "writing",
+          "finance",
+          "health",
+          "education",
+          "research",
+          "manufacturing",
+          "construction",
+          "supply-chain",
+          "marketing",
+          "sales",
+          "retail",
+          "hospitality",
+          "agriculture",
+          "environment",
+          "public-service",
+          "media",
+          "management",
+          "general"
+        ],
+        "qualityVerified": false
+      },
+      "unavailable": [
+        "apps-host"
+      ]
+    },
+    {
+      "label": "notification",
+      "argv": [
+        "notifications",
+        "test",
+        "task-done",
+        "--json"
+      ],
+      "exitCode": 0,
+      "seconds": 0.3096307089999999,
+      "platform": "darwin",
+      "isolatedHome": true,
+      "receipt": {
+        "state": "submitted",
+        "reason": "NOTIFICATION_SUBMITTED",
+        "displayVerified": false,
+        "clickSupported": false,
+        "channels": [
+          {
+            "name": "os-notification",
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false
+          }
+        ],
+        "diagnostic": {
+          "state": "submitted",
+          "reasonCode": "NOTIFICATION_SUBMITTED",
+          "displayVerified": false,
+          "channels": [
+            {
+              "name": "os-notification",
+              "state": "submitted",
+              "reasonCode": "NOTIFICATION_SUBMITTED",
+              "displayVerified": false,
+              "clickSupported": false
+            }
+          ],
+          "clickSupported": false,
+          "at": 1793018126071
+        }
+      },
+      "displayObserved": false
+    }
+  ],
+  "actualLocalInvocation": [
+    "English image and image-only PDF recognition in bundled Tesseract WASM",
+    "Chinese image recognition using bundled eng+chi_sim data",
+    "PDF render worker, OCR deadline and cancellation",
+    "original Core child reads contract and writes review with role evidence",
+    "FIFO child admission, queued cancellation and durable-receipt failure stop",
+    "180 child task slots with original shared cost and write ownership contracts",
+    "held-open stdin subprocess exits with explicit task, terminal JSON preflight failures",
+    "mail TLS loopback send/receive and proactive-inquiry flows",
+    "MCP stdio subprocess discovery and app_call, Skill read/selection",
+    "macOS notification submitted receipt; display and click not verified"
+  ],
+  "testDoubles": [
+    "model choices and text are scripted, no paid inference",
+    "synthetic documents and role-domain material",
+    "local TLS mail accounts, MCP child fixtures",
+    "Windows/Linux notification and installation platform branches"
+  ],
+  "notRun": [
+    "Windows 10/11 native cold installation, update and GUI operations: beta-owned",
+    "Linux desktop notification display and Windows Toast display",
+    "actual private customer mail delivery and authenticated external account writes",
+    "paid-model autonomous reasoning quality and provider concurrency",
+    "professional legal/clinical/financial/engineering accuracy"
+  ],
+  "blockedInIsolatedEnvironment": [
+    {
+      "capability": "native Apps host",
+      "reason": "PERSONALIZATION_PROTECTED_KEY_REQUIRED",
+      "surfaceCode": "APP_HOST_START_FAILED",
+      "evidence": "Actual original host startup under disposable HOME; protected credentials unavailable. MCP subprocess tests use an isolated credential fixture. Unlock protected storage before native account acceptance."
+    }
+  ],
+  "hold": [
+    "unsigned macOS locked-use helper: company signing and dedicated test Mac unavailable"
+  ],
+  "preserved": [
+    "original Core/provider/BYOK, approvals/permissions, cancellation and budgets",
+    "project histories, memory and Skills; existing CAD, design, app-library and PageIndex paths",
+    "prior FAIL, NOT_RUN and HOLD receipts; no assertion lowered to simulate device acceptance"
+  ],
+  "distribution": "GitHub only; official website unchanged"
+}

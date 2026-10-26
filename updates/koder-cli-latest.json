@@ -1,10 +1,10 @@
 {
-  "version": "0.4.24",
-  "file": "koder-cli-0.4.24.tgz",
-  "sha256": "9cab5e59d282df728b9e868c7f00baa44b7dd79ee40064efcb9b1b963b6b0cdf",
-  "size": 355927025,
+  "version": "0.5.0",
+  "file": "koder-cli-0.5.0.tgz",
+  "sha256": "2b62131cfd67c02ce23bde8f20d60d8a793a5a36d381e727e1948c0eeeca56d1",
+  "size": 449432971,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-26T10:59:59.316Z",
+  "builtAt": "2026-10-26T12:34:57.015Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,15 +14,15 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "5d3cd4b4267f585548d600371bd8c59c6d6c6ef0bd595c9842356331681a94cf"
+      "sha256": "b8c96f7224f2aa8bfdc232d7256212a2979a9f4c9a4c8b73fa5e5abdcce752d4"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "c7e5ad6c12b74fb0acf87de4b1c8035d06ee1d84848fb7ffd9db98c60a646519"
+      "sha256": "3975a6cfae6ae7a8b20537fd71756fc2a60bdfe86878b0b79cdb7ad090957779"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "c45c84a10954b56c40554328f3a9474054396dd662a7db38ff4a8c2957c99a3b"
+      "sha256": "e9b2939702a886ae63a2a487ce1d6bf1b298e8ef53fafa1fa5b7bf911c44a4e8"
     }
   }
 }

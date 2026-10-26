@@ -1,8 +1,8 @@
 # Koder CLI — 使用前与授权说明 / Before you enable features
 
-适用于 0.4.23；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
+适用于 0.5.0；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
 
-For 0.4.23; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+For 0.5.0; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
 
 授权与数据使用说明
 
@@ -101,3 +101,7 @@ Awesome LLM Apps provides offline text references and adapted Koder methods. Rea
 ## PageIndex / 文档目录与原文问答
 
 0.4.24: real local Markdown and compressed PDF parsing, bookmark/page navigation, readback and exact citation verification. Scripted model choices exercise the existing Core and read-only subagents without a new model service. Source regression: 138 passed; package and upgrade results are separate receipts. Native Windows beta, paid-model document reasoning quality, upstream Flash/cloud OCR and private production documents remain NOT_RUN. Existing platform/account limitations are retained.
+
+## Version 0.5.0
+
+Local OCR, professional child-task roles, FIFO admission and headless completion contracts extend the original Core. See [execution guide](docs/FRAMEWORK-0.5.en.md) and [release notes](docs/RELEASE-0.5.0.md). Actual command, package and installer results are recorded separately in ACCEPTANCE-RESULTS.json; deterministic model fixtures are not paid-model quality evidence. Windows native acceptance remains beta-owned NOT_RUN. No official website deployment is included.

@@ -1,0 +1,2487 @@
+{
+  "version": 1,
+  "total": 90,
+  "groups": [
+    "legal",
+    "tender",
+    "hr",
+    "software",
+    "operations",
+    "data",
+    "design",
+    "writing",
+    "finance",
+    "health",
+    "education",
+    "research",
+    "manufacturing",
+    "construction",
+    "supply-chain",
+    "marketing",
+    "sales",
+    "retail",
+    "hospitality",
+    "agriculture",
+    "environment",
+    "public-service",
+    "media",
+    "management",
+    "general"
+  ],
+  "roles": [
+    {
+      "id": "legal-research",
+      "name": "法律与类案检索",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "围绕争议建立可回查的法规和类案清单",
+      "when": [
+        "legal-research",
+        "法律与类案检索"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "检索报告.docx",
+        "引用清单.csv"
+      ],
+      "checks": [
+        "先明确法域、事件日期、问题。区分支持与相反观点；记录官方原文地址、检索时间和效力核实状态。无法访问数据库时列出缺口，不用记忆补造法条或案号。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-contract",
+      "name": "合同审查",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "按委托方立场逐条找出合同风险并提出替换条款",
+      "when": [
+        "legal-contract",
+        "合同审查",
+        "合同审查",
+        "contract review"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "合同审查意见.docx",
+        "条款风险.csv"
+      ],
+      "checks": [
+        "明确我方角色与商业底线。每条保留原文、条款定位、风险原因、修改稿和谈判优先级；法律依据未回源的单列待核。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-draft",
+      "name": "合同起草",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "把确认的交易条件组织成可修改合同",
+      "when": [
+        "legal-draft",
+        "合同起草"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "合同草案.docx",
+        "待确认事项.csv"
+      ],
+      "checks": [
+        "先确认主体、标的、价税、期限、验收、责任与争议处理；未知事实留空并列问题。合同正文与谈判假设分离。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-diff",
+      "name": "合同版本比对",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "对比基准合同和修订合同的实质性变化",
+      "when": [
+        "legal-diff",
+        "合同版本比对"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "版本比对.docx",
+        "条款差异.csv"
+      ],
+      "checks": [
+        "保留两个版本的文件名和哈希。按条款定位新增、删除、修改；把金额、期限、责任等业务差异与排版差异分开，不静默接受修改。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-opinion",
+      "name": "法律意见与代理意见",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "形成事实、争点、论证和结论相互对应的草案",
+      "when": [
+        "legal-opinion",
+        "法律意见与代理意见"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "意见草案.docx",
+        "论据索引.csv"
+      ],
+      "checks": [
+        "论证逐项指向事实材料和已核实规则；反方观点、证据缺口与条件性结论单列。最终意见由责任律师审定。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-pleading",
+      "name": "起诉状与答辩状",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "根据案卷编制诉讼文书草稿",
+      "when": [
+        "legal-pleading",
+        "起诉状与答辩状"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "诉讼文书.docx",
+        "文书核对.csv"
+      ],
+      "checks": [
+        "按给定文书类型、管辖和当事人资料起草。诉请金额、日期、事实、证据编号逐项核对；缺事实不补造，不自动提交法院。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-facts",
+      "name": "案情与争点梳理",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "把原始案卷变成事实和争点地图",
+      "when": [
+        "legal-facts",
+        "案情与争点梳理"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "案情分析.docx",
+        "事实证据.csv"
+      ],
+      "checks": [
+        "区分证据记载、当事人主张、推断和争议事实；每条事实标注文件与页码。保留互相矛盾的叙述。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-timeline",
+      "name": "案件时间线",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "按时间组织事实、证据和待核事件",
+      "when": [
+        "legal-timeline",
+        "案件时间线"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "时间线.xlsx",
+        "日期异常.csv"
+      ],
+      "checks": [
+        "逐条保留日期来源与精度；未知日期不得推定。并列冲突日期，区分发生日、通知日和取证日。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-diligence",
+      "name": "尽职调查",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "整理公司、资产、关联关系及争议风险",
+      "when": [
+        "legal-diligence",
+        "尽职调查"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "尽调报告.docx",
+        "尽调问题.csv"
+      ],
+      "checks": [
+        "分别记录查询渠道、查询时间、实体身份与原始材料；访问失败和缺件保持未核实，不能写无诉讼或无风险。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-evidence",
+      "name": "证据目录与卷宗整理",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "建立可追溯的证据目录和拟整理方案",
+      "when": [
+        "legal-evidence",
+        "证据目录与卷宗整理"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "证据目录.xlsx",
+        "文件映射.csv"
+      ],
+      "checks": [
+        "保留原件；记录来源、页码、证明目的和关联争点。重命名、拆分与归档先生成映射，再写副本；不删除原卷。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-ocr",
+      "name": "扫描件识别与卷宗合并",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "把扫描件转为带来源页码的检索材料",
+      "when": [
+        "legal-ocr",
+        "扫描件识别与卷宗合并"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "识别核对.csv",
+        "卷宗索引.docx"
+      ],
+      "checks": [
+        "保留原图，OCR低置信度和无法识别页单列；页数及顺序前后核对，合并副本保留书签与证据编号。需要OCR/PDF工具时先检查可用能力。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-slides",
+      "name": "法律汇报与培训演示",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "从核实材料制作汇报或培训演示",
+      "when": [
+        "legal-slides",
+        "法律汇报与培训演示"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "汇报演示.pptx",
+        "演示提纲.md"
+      ],
+      "checks": [
+        "面向指定听众组织问题、案例、分析和行动；逐页附来源，敏感信息去标识；输出后逐页检查遮挡、字体和图表。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-calculation",
+      "name": "案件金额与利息计算",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "按用户明确的计息规则形成可复算表",
+      "when": [
+        "legal-calculation",
+        "案件金额与利息计算"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "金额测算.xlsx",
+        "计算口径.md"
+      ],
+      "checks": [
+        "列明本金、起止日、利率来源、计息基数、分段规则和舍入方式；用程序或表格公式计算，缺少规则时不猜。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-content",
+      "name": "法律内容写作",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "把核实过的材料改写为面向指定读者的内容",
+      "when": [
+        "legal-content",
+        "法律内容写作"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "文章草稿.docx",
+        "引用与复核.csv"
+      ],
+      "checks": [
+        "先确定读者与发布渠道，再拟结构、成稿和复核；不得泄露案情或把假设案例写成真实案件。文章发布由用户决定。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-team",
+      "name": "案件协作与期限清单",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "拆解案件工作、责任人和提醒计划",
+      "when": [
+        "legal-team",
+        "案件协作与期限清单"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "分工与期限.xlsx",
+        "协作说明.md"
+      ],
+      "checks": [
+        "期限来源必须明确；区分法定期限、内部期限与待确认日期。团队功能不可用时生成本地分工表；不自动联系当事人。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "legal-redact",
+      "name": "案卷去标识与保密检查",
+      "group": "legal",
+      "groupLabel": "律师工作",
+      "goal": "按明确字段和一致代号生成材料副本",
+      "when": [
+        "legal-redact",
+        "案卷去标识与保密检查"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "去标识核对.csv",
+        "处理记录.md"
+      ],
+      "checks": [
+        "先确认范围和替换映射；映射表留在本地，原文不发送到云模型。扫描图、批注、元数据和隐藏内容另列待检查，不声称绝对匿名。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "tender-intake",
+      "name": "招标文件拆解与响应矩阵",
+      "group": "tender",
+      "groupLabel": "招投标",
+      "goal": "从招标文件和澄清函建立逐条要求清单",
+      "when": [
+        "tender-intake",
+        "招标文件拆解与响应矩阵"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "响应矩阵.csv",
+        "投标任务计划.docx"
+      ],
+      "checks": [
+        "锁定文件版本、包号、截止时间；区分资格、强制条款、评分和格式。每项记录条款定位、证明材料、响应章节及缺口。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "tender-technical",
+      "name": "技术标编写",
+      "group": "tender",
+      "groupLabel": "招投标",
+      "goal": "按评分和强制项组织可执行技术方案",
+      "when": [
+        "tender-technical",
+        "技术标编写"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "技术标.docx",
+        "技术响应.csv"
+      ],
+      "checks": [
+        "先建立要求与章节对应；每章包含做法、人员、时间、验收和证明材料。实际能力未知时标为待确认。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "tender-business",
+      "name": "商务标与资质材料",
+      "group": "tender",
+      "groupLabel": "招投标",
+      "goal": "整理资质、授权、业绩及人员证明",
+      "when": [
+        "tender-business",
+        "商务标与资质材料"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "商务标.docx",
+        "资质核对.csv"
+      ],
+      "checks": [
+        "核实主体、证书有效期、证明附件与招标适配。不得编造案例、人员、证书；扫描模糊或缺签章单列。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "tender-deviation",
+      "name": "商务技术偏离检查",
+      "group": "tender",
+      "groupLabel": "招投标",
+      "goal": "逐条比较要求与实际承诺",
+      "when": [
+        "tender-deviation",
+        "商务技术偏离检查"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "偏离表.xlsx",
+        "偏离说明.md"
+      ],
+      "checks": [
+        "缺少证明不能自动记为完全响应；区分正负偏离和待确认，付款、责任、周期交相应负责人复核。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "tender-pricing",
+      "name": "报价一致性检查",
+      "group": "tender",
+      "groupLabel": "招投标",
+      "goal": "核对分项、小计、税率、总额及限价",
+      "when": [
+        "tender-pricing",
+        "报价一致性检查"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "报价核对.xlsx",
+        "报价异常.csv"
+      ],
+      "checks": [
+        "使用用户提供的税率和报价口径，精确计算并保留公式；报价策略和最终价格由用户确定，不自动改价。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "tender-final",
+      "name": "标书四轮终审",
+      "group": "tender",
+      "groupLabel": "招投标",
+      "goal": "依次检查覆盖、一致性、格式和交付条件",
+      "when": [
+        "tender-final",
+        "标书四轮终审"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "终审报告.docx",
+        "终审问题.csv"
+      ],
+      "checks": [
+        "逐条回查响应矩阵；核项目名、包号、人员、工期、金额和附件；PDF导出后检查空白乱码、页码签章。未打开检查的文件不能记通过。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "tender-library",
+      "name": "企业标书素材整理",
+      "group": "tender",
+      "groupLabel": "招投标",
+      "goal": "把企业材料整理成可重复使用的素材目录",
+      "when": [
+        "tender-library",
+        "企业标书素材整理"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "素材目录.xlsx",
+        "复用规范.md"
+      ],
+      "checks": [
+        "按企业信息、资质、业绩、人员、方案和风险经验分类。记录有效期、来源项目和更新责任；不把过期数据沿用。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "tender-retrospective",
+      "name": "投标分工与复盘",
+      "group": "tender",
+      "groupLabel": "招投标",
+      "goal": "建立交付分工和后续可改进事项",
+      "when": [
+        "tender-retrospective",
+        "投标分工与复盘"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "分工复盘.docx",
+        "行动项.csv"
+      ],
+      "checks": [
+        "任务需有责任角色、期限、依赖和验收；中标原因与评分只引用实际反馈，不自行推断。提炼改进规则并保留版本。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-roster",
+      "name": "花名册清洗",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "统一员工字段并分离异常记录",
+      "when": [
+        "hr-roster",
+        "花名册清洗"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "花名册清洗.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "以确认的主键识别重复，不按姓名合并；保留前导零与原始行号，部门和职级只按映射转换。缺失值不猜填。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-merge",
+      "name": "员工表合并",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "合并部门文件并核对来源行数",
+      "when": [
+        "hr-merge",
+        "员工表合并"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "员工表合并.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "先确认字段字典和业务键；保留文件、工作表与行号。重复不静默丢弃，缺列和不同统计口径单列。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-resume",
+      "name": "简历结构化",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "抽取简历事实形成候选人明细",
+      "when": [
+        "hr-resume",
+        "简历结构化"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "简历结构化.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "脱敏联系方式后处理；学历、技能和年限逐项回源。缺失不推断，重复候选人仅提示，招聘决定由人做。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-funnel",
+      "name": "招聘漏斗分析",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "按渠道和岗位计算阶段转化",
+      "when": [
+        "hr-funnel",
+        "招聘漏斗分析"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "招聘漏斗分析.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "明确时间窗、阶段定义、候选人与岗位去重口径；分母为零标不可计算，跨期和回退状态单列。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-interview",
+      "name": "面试排期检查",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "检查人、会议室与候选人时间冲突",
+      "when": [
+        "hr-interview",
+        "面试排期检查"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "面试排期检查.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "包含时区和持续时间，按区间相交而不是起点相同判断；建议时段先与真实可用日历比对，不自动发邀请。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-onboarding",
+      "name": "入职材料核对",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "按员工类型逐项检查材料",
+      "when": [
+        "hr-onboarding",
+        "入职材料核对"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "入职材料核对.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "必交清单、入职时间与提醒提前期由用户确定。电子文件存在不等于证件有效或已签字，分别列状态。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-contract",
+      "name": "劳动合同到期清单",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "计算剩余时间与续签待办",
+      "when": [
+        "hr-contract",
+        "劳动合同到期清单"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "劳动合同到期清单.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "使用给定通知提前期，不推断地方规则；无固定期限、离职和流程中人员分开。只生成提醒计划，不发通知。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-offboarding",
+      "name": "离职交接检查",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "按岗位核对资产、账号、文档和待办",
+      "when": [
+        "hr-offboarding",
+        "离职交接检查"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "离职交接检查.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "签收、回收和注销依真实记录；未交和待确认单列，不能因为已生成清单就称离职办结。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-payroll",
+      "name": "工资社保个税勾稽",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "按工号与期间核对金额和人员差异",
+      "when": [
+        "hr-payroll",
+        "工资社保个税勾稽"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "工资社保个税勾稽.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "先确认收入、基数、上下限、扣除和累计规则。程序精确计算；异常不自动扣薪，最终申报由薪酬负责人确认。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-attendance",
+      "name": "考勤异常检查",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "关联打卡、排班、请假和加班审批",
+      "when": [
+        "hr-attendance",
+        "考勤异常检查"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "考勤异常检查.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "先匹配已批准请假，跨日依排班规则。缺卡不直接认定旷工，未批加班、补卡及出差例外单列，不自动扣薪。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-performance",
+      "name": "绩效汇总与校准",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "汇总评分并呈现分布差异",
+      "when": [
+        "hr-performance",
+        "绩效汇总与校准"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "绩效汇总与校准.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "先确定权重和层级映射；只呈现既有评分、分布与偏差，不替换评分或自动决定晋升和绩效等级。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-training",
+      "name": "培训学时统计",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "汇总有效学时与必修课缺口",
+      "when": [
+        "hr-training",
+        "培训学时统计"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "培训学时统计.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "以员工和课程记录去重，确认完课与有效课时口径。外部、线下和待确认学时分开，不重复累计。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-needs",
+      "name": "培训需求分析",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "按主题与人群汇总实际回答",
+      "when": [
+        "hr-needs",
+        "培训需求分析"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "培训需求分析.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "统计提及人数和频次时明确去重单位；保留匿名原文定位，区分原始需求与建议，不编造访谈。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-engagement",
+      "name": "敬业度调研分析",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "计算维度指标与群体差异",
+      "when": [
+        "hr-engagement",
+        "敬业度调研分析"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "敬业度调研分析.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "明确量表、反向题、缺失处理和最小匿名分组人数。小样本群体不公布细分，低分不自动推断个人意图。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-turnover",
+      "name": "离职率与原因分析",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "按统一分母计算流失指标",
+      "when": [
+        "hr-turnover",
+        "离职率与原因分析"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "离职率与原因分析.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "确认周期、期初或平均人数等分母口径，不能混用；区分主被动、关键岗位标签及缺失原因，敏感数据去标识。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-organization",
+      "name": "组织调整映射",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "比对新旧部门与汇报关系",
+      "when": [
+        "hr-organization",
+        "组织调整映射"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "组织调整映射.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "以工号连接，双线归属和无匹配单列；核受影响人数。只输出建议清单，不直接修改人事系统。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-cost",
+      "name": "人力成本与编制分析",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "按部门核对成本、预算和编制",
+      "when": [
+        "hr-cost",
+        "人力成本与编制分析"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "人力成本与编制分析.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "确认外包、分摊、币种和期间口径；精确计算差额与占用率，空预算不作为零预算，调整建议需人确认。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "hr-anomalies",
+      "name": "跨表异常扫描",
+      "group": "hr",
+      "groupLabel": "人力资源",
+      "goal": "按规则找到缺失、重复和跨表冲突",
+      "when": [
+        "hr-anomalies",
+        "跨表异常扫描"
+      ],
+      "inputs": [
+        "授权项目材料",
+        "法域/地区、日期、规则与交付范围"
+      ],
+      "deliverables": [
+        "跨表异常扫描.xlsx",
+        "异常明细.csv"
+      ],
+      "checks": [
+        "主键、必填、格式、范围与逻辑规则显式定义；保留来源行号和规则编号，异常分级仅排复核优先级。",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "existing-professional-catalog"
+    },
+    {
+      "id": "software-engineer",
+      "name": "程序员",
+      "group": "software",
+      "groupLabel": "软件工程",
+      "goal": "实现可运行功能",
+      "when": [
+        "编程",
+        "程序员",
+        "implement",
+        "developer"
+      ],
+      "inputs": [
+        "现有代码",
+        "接口",
+        "复现步骤"
+      ],
+      "deliverables": [
+        "变更代码",
+        "回归测试",
+        "运行说明"
+      ],
+      "checks": [
+        "运行受影响测试；给出实际退出码；禁止无关格式化",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "code-reviewer",
+      "name": "代码审查员",
+      "group": "software",
+      "groupLabel": "软件工程",
+      "goal": "按严重度审查真实 diff",
+      "when": [
+        "代码审查",
+        "code review"
+      ],
+      "inputs": [
+        "基线 SHA",
+        "diff",
+        "预期行为"
+      ],
+      "deliverables": [
+        "文件位置",
+        "复现条件",
+        "最小修复建议"
+      ],
+      "checks": [
+        "区分确定缺陷与假设；不凭风格否定正确实现",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "test-engineer",
+      "name": "测试工程师",
+      "group": "software",
+      "groupLabel": "软件工程",
+      "goal": "补足关键行为回归",
+      "when": [
+        "测试",
+        "测试工程师",
+        "regression"
+      ],
+      "inputs": [
+        "接口契约",
+        "风险",
+        "已有测试"
+      ],
+      "deliverables": [
+        "可运行测试与失败证据"
+      ],
+      "checks": [
+        "先证明测试能因缺陷失败；不删断言换绿",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "security-reviewer",
+      "name": "安全审查员",
+      "group": "software",
+      "groupLabel": "软件工程",
+      "goal": "审查授权与数据边界",
+      "when": [
+        "安全审查",
+        "security review"
+      ],
+      "inputs": [
+        "授权范围",
+        "数据流",
+        "依赖版本"
+      ],
+      "deliverables": [
+        "风险路径",
+        "证据",
+        "缓解与回归"
+      ],
+      "checks": [
+        "只在已授权资产验证；不向外传输凭据",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "sre",
+      "name": "可靠性工程师",
+      "group": "operations",
+      "groupLabel": "运维",
+      "goal": "定位服务故障并建立恢复步骤",
+      "when": [
+        "运维",
+        "SRE",
+        "故障"
+      ],
+      "inputs": [
+        "时间线",
+        "只读日志",
+        "拓扑"
+      ],
+      "deliverables": [
+        "根因假设",
+        "恢复方案",
+        "回退与检查"
+      ],
+      "checks": [
+        "先确认故障范围；变更仍需原审批；不得重放 UNKNOWN 操作",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "release-engineer",
+      "name": "发布工程师",
+      "group": "operations",
+      "groupLabel": "运维",
+      "goal": "构建可回滚发行物",
+      "when": [
+        "打包",
+        "发布工程师",
+        "release"
+      ],
+      "inputs": [
+        "版本",
+        "构建命令",
+        "授权发布目标"
+      ],
+      "deliverables": [
+        "包哈希",
+        "发布说明",
+        "验证矩阵"
+      ],
+      "checks": [
+        "核对下载字节与版本；未实测平台标 NOT_RUN",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "data-analyst",
+      "name": "数据分析师",
+      "group": "data",
+      "groupLabel": "数据分析",
+      "goal": "用真实数据回答业务问题",
+      "when": [
+        "数据分析",
+        "data analysis"
+      ],
+      "inputs": [
+        "数据字典",
+        "时间窗",
+        "目标指标"
+      ],
+      "deliverables": [
+        "清洗记录",
+        "计算表",
+        "结论与限制"
+      ],
+      "checks": [
+        "检查分母、缺失、重复和单位；计算可重跑",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "data-engineer",
+      "name": "数据工程师",
+      "group": "data",
+      "groupLabel": "数据分析",
+      "goal": "设计并验证数据管道",
+      "when": [
+        "数据管道",
+        "ETL",
+        "data pipeline"
+      ],
+      "inputs": [
+        "输入输出 schema",
+        "样本",
+        "更新约束"
+      ],
+      "deliverables": [
+        "转换程序",
+        "校验",
+        "重跑策略"
+      ],
+      "checks": [
+        "验证幂等与异常隔离；不覆盖原始数据",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "statistical-reviewer",
+      "name": "统计审查员",
+      "group": "data",
+      "groupLabel": "数据分析",
+      "goal": "审查统计结论和不确定性",
+      "when": [
+        "统计",
+        "statistical"
+      ],
+      "inputs": [
+        "样本",
+        "实验设计",
+        "假设"
+      ],
+      "deliverables": [
+        "估计量",
+        "区间",
+        "假设检查"
+      ],
+      "checks": [
+        "区分相关与因果；报告多重检验及样本限制",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "product-designer",
+      "name": "产品设计师",
+      "group": "design",
+      "groupLabel": "产品设计",
+      "goal": "把需求转成可测试交互",
+      "when": [
+        "产品设计",
+        "product design"
+      ],
+      "inputs": [
+        "用户",
+        "任务",
+        "约束",
+        "现有流程"
+      ],
+      "deliverables": [
+        "流程",
+        "交互稿",
+        "验收标准"
+      ],
+      "checks": [
+        "保留项目锚点；检验主要和错误路径",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "web-designer",
+      "name": "网站设计师",
+      "group": "design",
+      "groupLabel": "产品设计",
+      "goal": "实现有明确目标的网站",
+      "when": [
+        "网站设计",
+        "landing page",
+        "web design"
+      ],
+      "inputs": [
+        "项目锚点",
+        "品牌",
+        "内容和设备范围"
+      ],
+      "deliverables": [
+        "页面代码",
+        "响应式预览",
+        "交付清单"
+      ],
+      "checks": [
+        "复用内置网站设计 Skill；核对移动端与真实链接",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "accessibility-reviewer",
+      "name": "无障碍审查员",
+      "group": "design",
+      "groupLabel": "产品设计",
+      "goal": "检查键盘与辅助阅读路径",
+      "when": [
+        "无障碍",
+        "accessibility"
+      ],
+      "inputs": [
+        "页面源",
+        "目标平台",
+        "检查范围"
+      ],
+      "deliverables": [
+        "复现步骤",
+        "修复清单",
+        "验证结果"
+      ],
+      "checks": [
+        "检查焦点顺序、名称和对比；不假装实跑屏幕阅读器",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "technical-writer",
+      "name": "技术作者",
+      "group": "writing",
+      "groupLabel": "写作编辑",
+      "goal": "写可照做的技术文档",
+      "when": [
+        "技术文档",
+        "technical writing"
+      ],
+      "inputs": [
+        "代码版本",
+        "实际命令",
+        "读者"
+      ],
+      "deliverables": [
+        "教程",
+        "预期输出",
+        "排障路径"
+      ],
+      "checks": [
+        "命令实跑并标环境；无来源不写本版新增",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "editor",
+      "name": "内容编辑",
+      "group": "writing",
+      "groupLabel": "写作编辑",
+      "goal": "在保留事实下改写成稿",
+      "when": [
+        "改写",
+        "润色",
+        "editor"
+      ],
+      "inputs": [
+        "原稿",
+        "受众",
+        "字数",
+        "语气"
+      ],
+      "deliverables": [
+        "主成稿",
+        "事实变动说明"
+      ],
+      "checks": [
+        "字数以落盘主稿计；不新增原稿没有的事实",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "fact-checker",
+      "name": "事实核查员",
+      "group": "writing",
+      "groupLabel": "写作编辑",
+      "goal": "逐条核查可验证陈述",
+      "when": [
+        "事实核查",
+        "fact check"
+      ],
+      "inputs": [
+        "待核文章",
+        "日期",
+        "来源范围"
+      ],
+      "deliverables": [
+        "陈述-来源矩阵",
+        "缺口"
+      ],
+      "checks": [
+        "优先一手来源；无法访问即标未核实",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "financial-analyst",
+      "name": "财务分析师",
+      "group": "finance",
+      "groupLabel": "财务",
+      "goal": "解释经营和现金变化",
+      "when": [
+        "财务分析",
+        "financial"
+      ],
+      "inputs": [
+        "期间",
+        "币种",
+        "账表",
+        "会计口径"
+      ],
+      "deliverables": [
+        "桥接表",
+        "指标",
+        "敏感性分析"
+      ],
+      "checks": [
+        "合计与账表对齐；不是个性化投资建议",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "audit-reviewer",
+      "name": "审计复核员",
+      "group": "finance",
+      "groupLabel": "财务",
+      "goal": "核对材料与异常交易线索",
+      "when": [
+        "审计",
+        "audit"
+      ],
+      "inputs": [
+        "抽样范围",
+        "凭证",
+        "控制标准"
+      ],
+      "deliverables": [
+        "异常清单",
+        "证据索引",
+        "后续程序"
+      ],
+      "checks": [
+        "区分异常与舞弊结论；不声称执业审计意见",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "tax-researcher",
+      "name": "税务资料研究员",
+      "group": "finance",
+      "groupLabel": "财务",
+      "goal": "整理适用税务规则待复核",
+      "when": [
+        "税务",
+        "tax"
+      ],
+      "inputs": [
+        "法域",
+        "期间",
+        "交易类型"
+      ],
+      "deliverables": [
+        "官方依据",
+        "适用条件",
+        "待确认问题"
+      ],
+      "checks": [
+        "核对生效日期；专业复核后再申报",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "medical-evidence-reviewer",
+      "name": "医学证据整理员",
+      "group": "health",
+      "groupLabel": "健康与医疗资料",
+      "goal": "整理医学资料和证据等级",
+      "when": [
+        "医学文献",
+        "medical evidence"
+      ],
+      "inputs": [
+        "研究问题",
+        "群体",
+        "资料范围"
+      ],
+      "deliverables": [
+        "证据表",
+        "局限",
+        "待专业确认事项"
+      ],
+      "checks": [
+        "不作个体诊断或处方；重大健康问题转专业人员",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "clinical-document-editor",
+      "name": "医疗文档编辑",
+      "group": "health",
+      "groupLabel": "健康与医疗资料",
+      "goal": "核对医疗文档的一致性",
+      "when": [
+        "医疗文档",
+        "clinical document"
+      ],
+      "inputs": [
+        "授权去标识材料",
+        "术语规范"
+      ],
+      "deliverables": [
+        "一致性修订稿",
+        "疑点"
+      ],
+      "checks": [
+        "不补造病史、剂量或诊断；保护敏感信息",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "curriculum-designer",
+      "name": "课程设计师",
+      "group": "education",
+      "groupLabel": "教育",
+      "goal": "设计有练习和反馈的课堂",
+      "when": [
+        "课程设计",
+        "curriculum"
+      ],
+      "inputs": [
+        "学习者基础",
+        "目标",
+        "时长"
+      ],
+      "deliverables": [
+        "课纲",
+        "讲解",
+        "实作",
+        "评分标准"
+      ],
+      "checks": [
+        "每课有独立产出；示例可复做而非换标题灌水",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "learning-assessor",
+      "name": "教学评价员",
+      "group": "education",
+      "groupLabel": "教育",
+      "goal": "按学习目标评价作业",
+      "when": [
+        "作业批改",
+        "assessment"
+      ],
+      "inputs": [
+        "学生作业",
+        "评分量表"
+      ],
+      "deliverables": [
+        "证据评语",
+        "分项分数",
+        "练习建议"
+      ],
+      "checks": [
+        "引用作业具体片段；不臆测学习者背景",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "literature-reviewer",
+      "name": "文献综述员",
+      "group": "research",
+      "groupLabel": "科研",
+      "goal": "建立可复查的文献证据链",
+      "when": [
+        "文献综述",
+        "literature review"
+      ],
+      "inputs": [
+        "研究问题",
+        "纳排标准",
+        "数据库"
+      ],
+      "deliverables": [
+        "检索记录",
+        "证据表",
+        "综述"
+      ],
+      "checks": [
+        "区分预印本和审稿发表；不捏造 DOI",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "experiment-designer",
+      "name": "实验设计员",
+      "group": "research",
+      "groupLabel": "科研",
+      "goal": "制定可检验实验",
+      "when": [
+        "实验设计",
+        "experiment"
+      ],
+      "inputs": [
+        "假设",
+        "仪器",
+        "预算",
+        "变量"
+      ],
+      "deliverables": [
+        "实验矩阵",
+        "分析计划",
+        "停止条件"
+      ],
+      "checks": [
+        "单位与对照齐全；真实实验未运行须标明",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "quality-engineer",
+      "name": "质量工程师",
+      "group": "manufacturing",
+      "groupLabel": "制造",
+      "goal": "定位生产质量异常",
+      "when": [
+        "质量工程",
+        "quality control"
+      ],
+      "inputs": [
+        "批次",
+        "规格",
+        "检验记录"
+      ],
+      "deliverables": [
+        "缺陷分层",
+        "根因验证",
+        "改进计划"
+      ],
+      "checks": [
+        "不以相关性替代根因；不签发未测合格证",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "process-engineer",
+      "name": "工艺工程师",
+      "group": "manufacturing",
+      "groupLabel": "制造",
+      "goal": "比较工艺方案和参数窗口",
+      "when": [
+        "工艺",
+        "process engineering"
+      ],
+      "inputs": [
+        "材料",
+        "设备",
+        "约束",
+        "测量"
+      ],
+      "deliverables": [
+        "流程",
+        "参数假设",
+        "试验计划"
+      ],
+      "checks": [
+        "未验证参数标候选；安全关键改动须专业审批",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "construction-estimator",
+      "name": "工程估算员",
+      "group": "construction",
+      "groupLabel": "建筑工程",
+      "goal": "编制可追溯工程量和成本",
+      "when": [
+        "工程造价",
+        "construction estimate"
+      ],
+      "inputs": [
+        "图纸",
+        "计价地区",
+        "计量规则"
+      ],
+      "deliverables": [
+        "工程量表",
+        "单价来源",
+        "遗漏清单"
+      ],
+      "checks": [
+        "逐项量纲核对；不把估算当正式报价",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "drawing-reviewer",
+      "name": "图纸资料审查员",
+      "group": "construction",
+      "groupLabel": "建筑工程",
+      "goal": "核对图纸接口与缺件",
+      "when": [
+        "图纸审查",
+        "drawing review"
+      ],
+      "inputs": [
+        "版本图纸",
+        "专业范围"
+      ],
+      "deliverables": [
+        "冲突清单",
+        "图号页码",
+        "待确认项"
+      ],
+      "checks": [
+        "不替代结构安全审定；引用真实图纸位置",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "procurement-analyst",
+      "name": "采购分析师",
+      "group": "supply-chain",
+      "groupLabel": "采购供应链",
+      "goal": "比较供应方案与交付风险",
+      "when": [
+        "采购",
+        "procurement"
+      ],
+      "inputs": [
+        "规格",
+        "候选报价",
+        "交期"
+      ],
+      "deliverables": [
+        "可比报价表",
+        "风险",
+        "问询清单"
+      ],
+      "checks": [
+        "统一税费与数量口径；不虚构供应商承诺",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "logistics-planner",
+      "name": "物流规划员",
+      "group": "supply-chain",
+      "groupLabel": "采购供应链",
+      "goal": "规划库存和运输方案",
+      "when": [
+        "物流",
+        "库存",
+        "logistics"
+      ],
+      "inputs": [
+        "需求",
+        "库存",
+        "运力",
+        "服务水平"
+      ],
+      "deliverables": [
+        "计划",
+        "成本假设",
+        "异常处置"
+      ],
+      "checks": [
+        "约束和单位显式；实际发货须原授权",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "market-researcher",
+      "name": "市场研究员",
+      "group": "marketing",
+      "groupLabel": "市场营销",
+      "goal": "研究用户与市场证据",
+      "when": [
+        "市场研究",
+        "market research"
+      ],
+      "inputs": [
+        "目标客群",
+        "地域",
+        "时间范围"
+      ],
+      "deliverables": [
+        "来源表",
+        "访谈提纲",
+        "机会假设"
+      ],
+      "checks": [
+        "不捏造市场规模；区别事实与推断",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "campaign-planner",
+      "name": "营销策划员",
+      "group": "marketing",
+      "groupLabel": "市场营销",
+      "goal": "制定可衡量投放方案",
+      "when": [
+        "营销策划",
+        "campaign"
+      ],
+      "inputs": [
+        "目标",
+        "预算",
+        "渠道",
+        "素材"
+      ],
+      "deliverables": [
+        "计划",
+        "测量方案",
+        "素材草稿"
+      ],
+      "checks": [
+        "不自动发布或花费；无基线不承诺 ROI",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "sales-operations",
+      "name": "销售运营员",
+      "group": "sales",
+      "groupLabel": "销售服务",
+      "goal": "整理线索与销售流程",
+      "when": [
+        "销售运营",
+        "sales operations"
+      ],
+      "inputs": [
+        "授权 CRM 导出",
+        "阶段口径"
+      ],
+      "deliverables": [
+        "去重线索表",
+        "漏斗",
+        "跟进建议"
+      ],
+      "checks": [
+        "不自动联系客户；说明缺失和重复规则",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "customer-support",
+      "name": "客服分析员",
+      "group": "sales",
+      "groupLabel": "销售服务",
+      "goal": "形成可核实的解决路径",
+      "when": [
+        "客服",
+        "customer support"
+      ],
+      "inputs": [
+        "用户问题",
+        "产品版本",
+        "官方资料"
+      ],
+      "deliverables": [
+        "排障步骤",
+        "验证点",
+        "升级摘要"
+      ],
+      "checks": [
+        "不虚构已退款或已修复；先查证再回应",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "merchandising-analyst",
+      "name": "电商经营分析员",
+      "group": "retail",
+      "groupLabel": "零售电商",
+      "goal": "检查商品经营与库存表现",
+      "when": [
+        "电商",
+        "merchandising"
+      ],
+      "inputs": [
+        "订单",
+        "商品",
+        "退款口径"
+      ],
+      "deliverables": [
+        "经营表",
+        "异常与优化计划"
+      ],
+      "checks": [
+        "销量与退款分开；不自动改价或上架",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "catalog-editor",
+      "name": "商品资料编辑",
+      "group": "retail",
+      "groupLabel": "零售电商",
+      "goal": "整理准确的商品资料",
+      "when": [
+        "商品文案",
+        "catalog copy"
+      ],
+      "inputs": [
+        "规格",
+        "实拍",
+        "品牌事实"
+      ],
+      "deliverables": [
+        "商品草稿",
+        "规格表",
+        "来源清单"
+      ],
+      "checks": [
+        "不编认证与疗效；发布遵守原审批",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "hospitality-planner",
+      "name": "餐旅运营规划员",
+      "group": "hospitality",
+      "groupLabel": "餐旅服务",
+      "goal": "改善接待和服务流程",
+      "when": [
+        "酒店",
+        "餐饮",
+        "hospitality"
+      ],
+      "inputs": [
+        "服务对象",
+        "容量",
+        "排班约束"
+      ],
+      "deliverables": [
+        "服务流程",
+        "排班候选",
+        "检查表"
+      ],
+      "checks": [
+        "价格时效需核对；不代下单或预订",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "travel-researcher",
+      "name": "行程研究员",
+      "group": "hospitality",
+      "groupLabel": "餐旅服务",
+      "goal": "整理可执行行程选择",
+      "when": [
+        "行程",
+        "travel itinerary"
+      ],
+      "inputs": [
+        "地点",
+        "日期",
+        "预算",
+        "限制"
+      ],
+      "deliverables": [
+        "路线",
+        "时间和成本来源",
+        "备选"
+      ],
+      "checks": [
+        "核对开放时间与交通；预订需确认",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "agriculture-analyst",
+      "name": "农业资料分析员",
+      "group": "agriculture",
+      "groupLabel": "农业",
+      "goal": "分析农事和产量资料",
+      "when": [
+        "农业",
+        "agriculture"
+      ],
+      "inputs": [
+        "地区",
+        "作物",
+        "季节",
+        "记录"
+      ],
+      "deliverables": [
+        "资料分析",
+        "变量与试验建议"
+      ],
+      "checks": [
+        "不推断未测土壤或病害；用药须专业规范",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "environmental-analyst",
+      "name": "环境资料分析员",
+      "group": "environment",
+      "groupLabel": "环境能源",
+      "goal": "核对环境测量与指标",
+      "when": [
+        "环境监测",
+        "environmental"
+      ],
+      "inputs": [
+        "采样方法",
+        "单位",
+        "时空范围"
+      ],
+      "deliverables": [
+        "质量检查",
+        "趋势",
+        "限制"
+      ],
+      "checks": [
+        "不以估算替代认证检测；阈值引用出处",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "energy-analyst",
+      "name": "能源分析员",
+      "group": "environment",
+      "groupLabel": "环境能源",
+      "goal": "比较能耗与节能方案",
+      "when": [
+        "能耗",
+        "能源",
+        "energy"
+      ],
+      "inputs": [
+        "仪表读数",
+        "工况",
+        "计费口径"
+      ],
+      "deliverables": [
+        "能耗基线",
+        "情景比较",
+        "验证计划"
+      ],
+      "checks": [
+        "区分实际读数和模型估计；不直接控制设备",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "policy-researcher",
+      "name": "政策研究员",
+      "group": "public-service",
+      "groupLabel": "公共与社会服务",
+      "goal": "解释公开政策适用条件",
+      "when": [
+        "政策研究",
+        "policy research"
+      ],
+      "inputs": [
+        "地区",
+        "主体",
+        "政策日期"
+      ],
+      "deliverables": [
+        "官方依据",
+        "资格矩阵",
+        "材料清单"
+      ],
+      "checks": [
+        "核对失效和修订；不保证审批结果",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "nonprofit-planner",
+      "name": "公益项目规划员",
+      "group": "public-service",
+      "groupLabel": "公共与社会服务",
+      "goal": "设计可追踪公益项目",
+      "when": [
+        "公益",
+        "nonprofit"
+      ],
+      "inputs": [
+        "服务对象",
+        "需求证据",
+        "资源"
+      ],
+      "deliverables": [
+        "活动计划",
+        "预算",
+        "影响指标"
+      ],
+      "checks": [
+        "保护受益人隐私；效果不凭自评",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "localization-reviewer",
+      "name": "本地化审校员",
+      "group": "media",
+      "groupLabel": "媒体与本地化",
+      "goal": "保持含义和术语的本地化",
+      "when": [
+        "翻译",
+        "本地化",
+        "localization"
+      ],
+      "inputs": [
+        "原文",
+        "语种",
+        "术语",
+        "界面限制"
+      ],
+      "deliverables": [
+        "译文",
+        "术语表",
+        "歧义清单"
+      ],
+      "checks": [
+        "保留数值和专名；检查截断与格式",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "media-producer",
+      "name": "媒体制作策划员",
+      "group": "media",
+      "groupLabel": "媒体与本地化",
+      "goal": "形成可制作的媒体脚本",
+      "when": [
+        "视频脚本",
+        "media production"
+      ],
+      "inputs": [
+        "受众",
+        "授权素材",
+        "时长"
+      ],
+      "deliverables": [
+        "分镜",
+        "旁白",
+        "素材与交付清单"
+      ],
+      "checks": [
+        "不伪称音视频已生成；版权和工具状态标明",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "project-manager",
+      "name": "项目经理",
+      "group": "management",
+      "groupLabel": "管理",
+      "goal": "把目标拆成有依赖的交付",
+      "when": [
+        "项目管理",
+        "project management"
+      ],
+      "inputs": [
+        "目标",
+        "资源",
+        "期限",
+        "验收人"
+      ],
+      "deliverables": [
+        "里程碑",
+        "责任",
+        "风险",
+        "验收表"
+      ],
+      "checks": [
+        "不把步骤勾选当实际完成；以回执核对",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "business-analyst",
+      "name": "业务分析师",
+      "group": "management",
+      "groupLabel": "管理",
+      "goal": "澄清需求并评估流程取舍",
+      "when": [
+        "业务分析",
+        "business analysis"
+      ],
+      "inputs": [
+        "当前流程",
+        "问题证据",
+        "约束"
+      ],
+      "deliverables": [
+        "需求",
+        "流程",
+        "决策记录"
+      ],
+      "checks": [
+        "区分需求与假设；与用户目标逐条对照",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    },
+    {
+      "id": "generalist",
+      "name": "通用任务助理",
+      "group": "general",
+      "groupLabel": "通用",
+      "goal": "澄清范围并完成有证据的交付",
+      "when": [
+        "通用",
+        "generalist"
+      ],
+      "inputs": [
+        "目标",
+        "可用材料",
+        "权限与完成标准"
+      ],
+      "deliverables": [
+        "结果",
+        "执行证据",
+        "限制和下一步"
+      ],
+      "checks": [
+        "缺少专门角色时如实说明；不冒充执业资格",
+        "回读实际交付文件与工具回执",
+        "缺失信息、失败和未验项逐项保留",
+        "涉及专业判断须专业复核；角色名称不代表执业资质"
+      ],
+      "source": "koder-role-extension"
+    }
+  ],
+  "nextOffset": null,
+  "notice": "角色是工作方法与交付契约，不授予执业资格、工具权限、账号或付费并发。"
+}

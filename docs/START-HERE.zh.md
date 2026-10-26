@@ -2,15 +2,15 @@
 
 [1800 课完整课堂：手把手与开发者路线](courses/index.zh.html)
 
-保留 0.4.20 的 [Awesome LLM Apps 工作流](AWESOME-LLM-APPS.zh.md)，保留 [SolidCraft 参数化 CAD](SOLIDCRAFT.zh.md)；原有[排队、快捷切模型与思考强度](SESSION-CONTROLS.zh.md)及 [CLI-Anything 应用 CLI](CLI-ANYTHING.zh.md)继续保留。
+保留 0.5.0 的 [Awesome LLM Apps 工作流](AWESOME-LLM-APPS.zh.md)，保留 [SolidCraft 参数化 CAD](SOLIDCRAFT.zh.md)；原有[排队、快捷切模型与思考强度](SESSION-CONTROLS.zh.md)及 [CLI-Anything 应用 CLI](CLI-ANYTHING.zh.md)继续保留。
 
-# 从这里开始：Koder CLI 0.4.23
+# 从这里开始：Koder CLI 0.5.0
 
 Koder 是在终端中执行编程和撰写任务的 Agent，使用你选择的模型 API 或兼容本地模型。它可以处理项目文件、运行获批命令，并按需调用已配置的 Skills、MCP 和应用。模型费用由服务商单独结算；目录中有一个选项，不代表该账号或设备已连接成功。
 
 ## 1. 安装或升级
 
-从 [GitHub 正式发行](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.23)选择 Windows CMD、PowerShell 或 macOS 安装入口。各入口使用同一份 0.4.23 运行包；CLI 与桌面应用分别下载安装。
+从 [GitHub 正式发行](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.0)选择 Windows CMD、PowerShell 或 macOS 安装入口。各入口使用同一份 0.5.0 运行包；CLI 与桌面应用分别下载安装。
 
 已有托管安装可运行：
 
@@ -102,3 +102,8 @@ koder
 ## 0.4.24：文档问答
 
 默认 PageIndex Skill 会按目录选择章节、回读原文并核对引用，沿用现有模型和项目权限。[手把手教程](PAGEINDEX.zh.md).
+
+
+## 0.5.0：真实调用、OCR 与专业角色
+
+[完整操作教程](FRAMEWORK-0.5.zh.md) · [OCR 逐步操作](OCR.zh.md) · [角色与队列](SUBAGENT-ROLES.zh.md) · [无头/CI](HEADLESS-0.5.zh.md)。先检查可用通道和权限，再执行并核对回执。

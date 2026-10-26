@@ -1,9 +1,11 @@
-# Release status — 0.4.24
+# Release status — 0.5.0
 
-PageIndex now runs through the existing CLI/Core as a read-only document tool and default Skill. It reuses the Markdown outline, adds offline PDFium WebAssembly text extraction, returns bookmark/physical-page trees and validates source-bound citations. Tree selection and answer synthesis use the existing configured model. Setup and command switches disable automatic routing. Read-only child tasks inherit document access only within their existing parent/tool scope.
+The original Core now hosts local OCR, professional child-task roles, FIFO admission and explicit headless completion results. It remains the authority for providers, permissions, approval, cancellation, cost and history.
 
-Integrated source regression: 138 passed. Actual local parsing and filesystem checks cover compressed PDF streams, bookmarks, text lines, pagination, source versions, exact quotes, project boundaries, malformed/empty files, resource limits and worker cancellation. The original Core, Skill settings, project anchors, unlimited task rounds, subagent boundaries, mail and MCP regressions are retained. Automated model choices are deterministic fixtures, not paid-model performance evidence. Earlier failing tests are preserved in the local evidence.
+Source, real offline invocation, packaged runtime, installation/upgrade and GitHub readback evidence are recorded separately in ACCEPTANCE-RESULTS.json. Historical failures remain in the local handoff. Model decisions in automated tests are deterministic fixtures, not a paid-model performance claim.
 
-Package, installer/update and GitHub readback receipts are recorded separately in ACCEPTANCE-RESULTS.json and the local handoff. Windows device acceptance is beta-owned NOT_RUN here; paid-model answer quality, upstream Flash/cloud OCR and private production documents are NOT_RUN. Existing GUI, account, residency and unsigned locked-use limits remain. GitHub only; no official website edits or deployments.
+Windows native GUI/cold installation is beta-owned NOT_RUN here. Linux desktop notification display, production customer mail, authenticated external writes, paid concurrency and professional quality need separate receipts. The unsigned macOS locked-use component remains HOLD. Configured or mounted capabilities are not declared business successes.
 
-[Guide](docs/PAGEINDEX.en.md) · [中文教程](docs/PAGEINDEX.zh.md) · [Previous status](docs/history/RELEASE-STATUS-0.4.23.md).
+GitHub only; no official website edits or deployments.
+
+[Execution guide](docs/FRAMEWORK-0.5.en.md) · [中文教程](docs/FRAMEWORK-0.5.zh.md) · [Previous status](docs/history/RELEASE-STATUS-0.4.24.md).

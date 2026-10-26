@@ -1,6 +1,6 @@
 # Distribution and release records
 
-The current distributed release is **0.4.24**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+The current distributed release is **0.5.0**. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 
@@ -83,3 +83,7 @@ Windows and macOS installers share the new versioned runtime. Fullstack Web Deli
 ## Version 0.4.24
 
 Windows and macOS installers share the new versioned runtime with PageIndex and local PDFium WASM. Existing Windows-MCP, CAD, Skills and project features remain bundled. GitHub is the publication destination. [Release notes](docs/RELEASE-0.4.24.md).
+
+## Version 0.5.0
+
+Local OCR, professional child-task roles, FIFO admission and headless completion contracts extend the original Core. See [execution guide](docs/FRAMEWORK-0.5.en.md) and [release notes](docs/RELEASE-0.5.0.md). Actual command, package and installer results are recorded separately in ACCEPTANCE-RESULTS.json; deterministic model fixtures are not paid-model quality evidence. Windows native acceptance remains beta-owned NOT_RUN. No official website deployment is included.
