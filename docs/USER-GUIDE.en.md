@@ -2,15 +2,15 @@
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current version: **0.5.1**. Start with [release changes](RELEASE-0.5.1.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.5.2**. Start with [release changes](RELEASE-0.5.2.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.1; check GitHub Releases for publication status and available downloads.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.2; check GitHub Releases for publication status and available downloads.
 
 # Koder CLI complete user guide
 
-Version: **0.5.1**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.5.2**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -171,6 +171,22 @@ Koder Reverse is a first-party static subset with explicit coverage, not an acce
 
 Context suggestions are optional editable drafts. Choose one, change it or type your own; selection is not submission. `/prefill`, `/prompts` and `/suggest off` remain available. See [Prompt prefills](PROMPT_PREFILLS.md).
 
+### Native capabilities and MCP commands (0.5.2)
+
+Use the capability inventory to distinguish Koder implementations, third-party runtimes and remote services, then inspect the tools your project needs:
+
+```text
+koder mcp capabilities --json
+koder reverse status
+koder reverse project ./src --json
+koder mcp presets --json
+koder mcp doctor codegraph
+```
+
+Replace `./src` with your project's JS/TS source directory. The Agent can also use native `code_graph` for imports, imported_by and symbols, then read the source to check the candidates. This path reuses the Koder Reverse Worker without starting another MCP service, installing a graph database or executing target code. It provides bounded lexical navigation, not a complete call graph. Python and advanced Cypher remain with optional CodeGraphContext.
+
+`mcp capabilities` does not connect an account or establish which tools are mounted and authorized in the current task. Windows-MCP, REA, SolidCraft, the official MCP SDK and remote services retain their own ownership. The 23 related local tests passed, including a scripted model's graph→source read→continuation path. No paid model or Windows GUI was run in this round. See [Capabilities and MCP boundaries](NATIVE-MCP-CAPABILITIES.en.md) for the complete scope.
+
 ## 16. Updates, recovery and privacy
 
 Installed interactive chats check the official feed in the background and wait for an idle, verified handoff. Active tasks and unfinished drafts delay replacement. A changed license needs review. `koder update auto status|on|off` controls automatic checks. A failed preparation keeps the current conversation available; do not run a second installer over an active update.
@@ -197,14 +213,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.5.1-en-cmd.txt](tutorials/koder-cli-0.5.1-en-cmd.txt)
-- [koder-cli-0.5.1-en-linux.txt](tutorials/koder-cli-0.5.1-en-linux.txt)
-- [koder-cli-0.5.1-en-mac.txt](tutorials/koder-cli-0.5.1-en-mac.txt)
-- [koder-cli-0.5.1-en-powershell.txt](tutorials/koder-cli-0.5.1-en-powershell.txt)
-- [koder-cli-0.5.1-zh-cmd.txt](tutorials/koder-cli-0.5.1-zh-cmd.txt)
-- [koder-cli-0.5.1-zh-linux.txt](tutorials/koder-cli-0.5.1-zh-linux.txt)
-- [koder-cli-0.5.1-zh-mac.txt](tutorials/koder-cli-0.5.1-zh-mac.txt)
-- [koder-cli-0.5.1-zh-powershell.txt](tutorials/koder-cli-0.5.1-zh-powershell.txt)
+- [koder-cli-0.5.2-en-cmd.txt](tutorials/koder-cli-0.5.2-en-cmd.txt)
+- [koder-cli-0.5.2-en-linux.txt](tutorials/koder-cli-0.5.2-en-linux.txt)
+- [koder-cli-0.5.2-en-mac.txt](tutorials/koder-cli-0.5.2-en-mac.txt)
+- [koder-cli-0.5.2-en-powershell.txt](tutorials/koder-cli-0.5.2-en-powershell.txt)
+- [koder-cli-0.5.2-zh-cmd.txt](tutorials/koder-cli-0.5.2-zh-cmd.txt)
+- [koder-cli-0.5.2-zh-linux.txt](tutorials/koder-cli-0.5.2-zh-linux.txt)
+- [koder-cli-0.5.2-zh-mac.txt](tutorials/koder-cli-0.5.2-zh-mac.txt)
+- [koder-cli-0.5.2-zh-powershell.txt](tutorials/koder-cli-0.5.2-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 

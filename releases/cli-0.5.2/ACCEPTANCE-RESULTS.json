@@ -1,0 +1,122 @@
+{
+  "version": "0.5.2",
+  "privateSourceCommit": "ce1d6db1023de1a2bca3d8d741b1b19ae85a5c54",
+  "sourceBaseline": "1b4c089dc47a0e6a1b02873e03e8aa878e06a0d9",
+  "sourceRegression": {
+    "tests": 1652,
+    "pass": 1630,
+    "fail": 1,
+    "skipped": 21,
+    "cancelled": 0,
+    "exitCode": 1,
+    "seconds": 499.944411625
+  },
+  "releaseChannelFollowup": {
+    "tests": 3,
+    "pass": 3,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 152.484281667
+  },
+  "finalContextRegression": {
+    "tests": 81,
+    "pass": 81,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 26.460025041999998
+  },
+  "sourceRegressionScope": "Broad CLI regression followed by final focused small-context and graph regression; packaged bytes checked independently",
+  "crossPlatformFixtureRegression": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 281.143132708
+  },
+  "installerRegression": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 264.318690542
+  },
+  "kernelRegression": {
+    "tests": 56,
+    "pass": 56,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 8.114984791000001
+  },
+  "packagedRegression": {
+    "tests": 303,
+    "pass": 303,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "seconds": 99.0315990447998
+  },
+  "package": {
+    "runtimeSha256": "4e643d44ad7293574401fe72280c60495872e24fed68f1f52cfc09705593d36e",
+    "runtimeBytes": 465062502,
+    "kernelHashes": 6285,
+    "kernelMatchesSource": true,
+    "sourceDocsFiles": 2722
+  },
+  "packageSmokeCommands": 44,
+  "installerUpgrade": {
+    "passed": true,
+    "from": "0.5.1",
+    "to": "0.5.2",
+    "origin": "http://127.0.0.1:54663",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "commands": 24
+  },
+  "actualLocalInvocation": [
+    "Native JS/TS Worker -> graph result -> source read -> scripted model continuation at 8K and 64K",
+    "CLI MCP commands -> real local shared Core -> stdio protocol fixture, including long aliases and workspace filters",
+    "Optional service failure isolation and Twilio reference-only routing through local fixtures",
+    "Packaged CLI commands including native capability inventory, OCR image and PageIndex PDF",
+    "Actual macOS installer/updater from 0.5.1 with retained fixture data"
+  ],
+  "notRun": [
+    "Paid-model task quality and billing comparison",
+    "Windows 10/11 native cold installation, update and MCP GUI: beta-owned",
+    "Linux/Windows notification display and click activation",
+    "Live private mail and authenticated external account writes",
+    "Independent replacements for full Windows GUI, CAD geometry, REA disassembly and advanced CodeGraphContext analysis are not delivered"
+  ],
+  "knownGaps": [
+    "Existing outside-workspace homeRead and computerDriver capture/act cancellation propagation remains an independent follow-up; no complete desktop cancellation parity claim",
+    "Windows bundle license mapping audit found aiofile LICENCE naming and fastmcp-slim mapping gaps; original vendor bytes and supplied notices retained, not a claim of complete license clearance"
+  ],
+  "hold": [
+    "Unsigned macOS locked-use helper: signing and dedicated test Mac unavailable"
+  ],
+  "priorFailuresPreserved": [
+    "Second broad CLI: release-channel pack fixture exceeded 180-second subprocess and 240-second test limits; original failures retained, build-only allowances raised to 600/900 seconds and all channel assertions retained",
+    "Initial broad CLI: small-context overflow/constraint loss after adding native definitions; repaired without weakening memory assertions",
+    "Initial review tool allowlist omitted new read-only code_graph; expected list updated, mutation prohibition retained",
+    "MCP route fixture lacked injected shared Core credentials; isolated fixture repaired without changing product credential gates",
+    "Stale-workspace long alias could bypass tool filter; actual ID/name deny mapping and mismatch guards added",
+    "Unbounded graph keyword matched paragraph; word boundaries corrected with negative cases",
+    "Runtime-only routing policy was deferred into a readable-Skill hint; replaced by always-present thin policy"
+  ],
+  "preserved": [
+    "Existing Core, provider/BYOK, approvals, budgets, workspace history and UNKNOWN receipts",
+    "All upstream attribution; native scope is not full MCP/server parity",
+    "Existing 1800 Chinese and 30 English lessons and historical guides",
+    "Website untouched; GitHub is the distribution destination"
+  ]
+}

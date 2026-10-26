@@ -1,13 +1,13 @@
-# Release status — 0.5.1
+# Release status — 0.5.2
 
-0.5.1 adds user-configurable context windows and automatic compaction in the existing request path. Foreground sessions, agentd tasks, child agents and MoA share the policy. Local OCR, professional child-task roles, FIFO admission and explicit headless completion results remain available. It remains the authority for providers, permissions, approval, cancellation, cost and history.
+Native JS/TS source navigation reuses the existing Koder Reverse worker. Runtime tool discovery identifies scoped native alternatives without representing a mounted tool as permission or successful execution. Long MCP alias compatibility and optional-service failure isolation are repaired.
 
-Source, real offline invocation, packaged runtime, installation/upgrade and GitHub readback evidence are recorded separately in ACCEPTANCE-RESULTS.json. Historical failures remain in the local handoff. Model decisions in automated tests are deterministic fixtures, not a paid-model performance claim.
+Windows-MCP, advanced CodeGraphContext, REA, SolidCraft and the official MCP SDK remain attributed upstream integrations. Native wrappers do not replace an external service, account or full upstream engine.
 
-Windows native GUI/cold installation is beta-owned NOT_RUN here. Linux desktop notification display, production customer mail, authenticated external writes, paid concurrency and professional quality need separate receipts. The unsigned macOS locked-use component remains HOLD. Configured or mounted capabilities are not declared business successes.
+Source regression, actual local Worker and protocol execution, packaged runtime, installer/upgrade and GitHub readback are recorded separately in ACCEPTANCE-RESULTS.json. Scripted providers are deterministic fixtures, not paid-model performance evidence. Original failures are retained in the local handoff.
 
-GitHub only; no official website edits or deployments.
+Windows 10/11 GUI and cold installation/update remain beta-owned NOT_RUN here. Real private mail delivery, authenticated external account writes and Linux/Windows notification display require separate acceptance. The unsigned macOS locked-use component remains HOLD.
 
-[Execution guide](docs/FRAMEWORK-0.5.en.md) · [中文教程](docs/FRAMEWORK-0.5.zh.md) · [Previous status](docs/history/RELEASE-STATUS-0.4.24.md).
+GitHub only; no official website edits or deployments. Existing Core, permissions, cancellation, budgets, context controls and project history are retained.
 
-[Context controls](docs/CONTEXT-CONTROLS.en.md) · [中文教程](docs/CONTEXT-CONTROLS.zh.md).
+[Native capability guide](docs/NATIVE-MCP-CAPABILITIES.en.md) · [中文说明](docs/NATIVE-MCP-CAPABILITIES.zh.md) · [Context controls](docs/CONTEXT-CONTROLS.en.md).

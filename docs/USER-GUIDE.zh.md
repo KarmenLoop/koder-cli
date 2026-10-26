@@ -2,15 +2,15 @@
 
 [从这里开始：安装、首个任务和功能导航](START-HERE.zh.md)
 
-当前版本：**0.5.1**。先看[本版更新](RELEASE-0.5.1.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.5.2**。先看[本版更新](RELEASE-0.5.2.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 > 旧版更新器可能因包超过 100 MB 报“清单无效”。请用 GitHub Release 下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
-当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南与下方八份终端文字教程对应 0.5.1；实际发布和可下载文件以 GitHub Releases 为准。
+当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南与下方八份终端文字教程对应 0.5.2；实际发布和可下载文件以 GitHub Releases 为准。
 
 # Koder CLI 完整使用教程
 
-版本：**0.5.1**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.5.2**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -171,6 +171,22 @@ Koder Reverse 是有明确覆盖边界的自研静态子集，不等于已经完
 
 上下文预选词只是可编辑草稿。可以选、改、清空或自由输入，选中不等于发送。`/prefill`、`/prompts`、`/suggest off` 保留。见 [预填词说明](PROMPT_PREFILLS.md)。
 
+### 原生能力与 MCP 命令（0.5.2）
+
+先用能力清单区分 Koder 自己实现的操作、第三方运行时和远程服务，再查看当前项目需要的工具：
+
+```text
+koder mcp capabilities --json
+koder reverse status
+koder reverse project ./src --json
+koder mcp presets --json
+koder mcp doctor codegraph
+```
+
+`./src` 是项目内示例路径，请换成自己的 JS/TS 源目录。Agent 也可通过原生 `code_graph` 查 imports、imported_by 和 symbols，再用文件读取核实候选；这条链路复用 Koder Reverse Worker，不启动额外 MCP 服务或图数据库，不执行目标源码。它是受限的词法导航，不是完整调用图，Python 和高级 Cypher 继续保留可选 CodeGraphContext。
+
+`mcp capabilities` 不连接账号，也不代表本次任务的全部工具已经挂载或获授权。Windows-MCP、REA、SolidCraft、官方 MCP SDK 与远程服务保留各自归属。已有 23 项本地相关测试通过，包括脚本模型驱动的图谱→读源码→续答链路；真实付费模型和 Windows GUI 未在本轮运行。完整范围见[原生能力与 MCP 边界](NATIVE-MCP-CAPABILITIES.zh.md)。
+
 ## 16. 更新、恢复和完整隐私文本
 
 已安装的交互聊天会后台检查正式更新，等任务、队列和草稿空闲后才交接。许可变化需重新阅读。`koder update auto status|on|off` 管理自动检查。准备失败时当前会话继续可用，不要在更新中叠加启动另一份安装。
@@ -197,14 +213,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.5.1-en-cmd.txt](tutorials/koder-cli-0.5.1-en-cmd.txt)
-- [koder-cli-0.5.1-en-linux.txt](tutorials/koder-cli-0.5.1-en-linux.txt)
-- [koder-cli-0.5.1-en-mac.txt](tutorials/koder-cli-0.5.1-en-mac.txt)
-- [koder-cli-0.5.1-en-powershell.txt](tutorials/koder-cli-0.5.1-en-powershell.txt)
-- [koder-cli-0.5.1-zh-cmd.txt](tutorials/koder-cli-0.5.1-zh-cmd.txt)
-- [koder-cli-0.5.1-zh-linux.txt](tutorials/koder-cli-0.5.1-zh-linux.txt)
-- [koder-cli-0.5.1-zh-mac.txt](tutorials/koder-cli-0.5.1-zh-mac.txt)
-- [koder-cli-0.5.1-zh-powershell.txt](tutorials/koder-cli-0.5.1-zh-powershell.txt)
+- [koder-cli-0.5.2-en-cmd.txt](tutorials/koder-cli-0.5.2-en-cmd.txt)
+- [koder-cli-0.5.2-en-linux.txt](tutorials/koder-cli-0.5.2-en-linux.txt)
+- [koder-cli-0.5.2-en-mac.txt](tutorials/koder-cli-0.5.2-en-mac.txt)
+- [koder-cli-0.5.2-en-powershell.txt](tutorials/koder-cli-0.5.2-en-powershell.txt)
+- [koder-cli-0.5.2-zh-cmd.txt](tutorials/koder-cli-0.5.2-zh-cmd.txt)
+- [koder-cli-0.5.2-zh-linux.txt](tutorials/koder-cli-0.5.2-zh-linux.txt)
+- [koder-cli-0.5.2-zh-mac.txt](tutorials/koder-cli-0.5.2-zh-mac.txt)
+- [koder-cli-0.5.2-zh-powershell.txt](tutorials/koder-cli-0.5.2-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 

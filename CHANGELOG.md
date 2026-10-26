@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.2 — 2026-10-27
+
+- Query JS/TS dependencies, dependents and symbol candidates with the native `code_graph` tool. Reuse Koder Reverse in a cancellable worker without Python, a graph database or an MCP process.
+- Discover scoped native alternatives with `tool_inventory` and `koder mcp capabilities`; retain upstream services when the operation exceeds native coverage.
+- Preserve long MCP alias identity and workspace scope, repair legacy bindings by server ID, and reject duplicate preset bindings.
+- Keep unrelated application discovery usable when an optional REA, Reverse or CAD startup fails. Twilio documentation opens as documentation instead of being registered as an MCP server.
+- Preserve third-party attribution and existing permissions, cancellation, budgets and UNKNOWN receipts.
+
+[Capability guide](docs/NATIVE-MCP-CAPABILITIES.en.md) · [Release notes](docs/RELEASE-0.5.2.md).
+
 ## 0.5.1 — 2026-10-26
 
 - Add `koder context` and `/context` controls for model limits, automatic compaction, trigger/target percentages and preferred recent turns. Setup exposes the same settings; project-selected and explicitly selected models retain their own limits and credentials.

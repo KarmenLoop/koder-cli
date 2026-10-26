@@ -1,10 +1,10 @@
 {
-  "version": "0.5.1",
-  "file": "koder-cli-0.5.1.tgz",
-  "sha256": "6e01874d1772858ec22cb04164bc1bd892b57b640fb1832a21c13c52cea68fe8",
-  "size": 457242036,
+  "version": "0.5.2",
+  "file": "koder-cli-0.5.2.tgz",
+  "sha256": "4e643d44ad7293574401fe72280c60495872e24fed68f1f52cfc09705593d36e",
+  "size": 465062502,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-26T15:48:56.135Z",
+  "builtAt": "2026-10-26T16:39:43.188Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,26 +14,26 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "4eee2898ce6af39f11fa0eb16538dc23acc1b3d7eaf08d96a9bc03ad7e700b20"
+      "sha256": "ba4383ef0b346de544cb34bd4ae7781701e7acd66f8a5fabc683a731163c5d22"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "aaa717bfab05be080f698e6e266ad2c61fd1ccc6572657b4dfe6cdc328a484f6"
+      "sha256": "891c2944bb9f62a5a9ec10b42ba7bcb4ef9d056ea123bc7af1151765f6844e67"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "ffb69f2907a683b1b3ba20c250fb3f8f89c122fa752596c728f3a89af32c3b81"
+      "sha256": "31fd3db430b6117264b16f94a7589f83bafad0d0789019403f2503e1a062086d"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.0",
-  "privateSourceCommit": "1b4c089dc47a0e6a1b02873e03e8aa878e06a0d9",
+  "sourceBaseline": "0.5.1",
+  "privateSourceCommit": "ce1d6db1023de1a2bca3d8d741b1b19ae85a5c54",
   "changes": [
-    "Configurable model context window and response reserve",
-    "Automatic compaction controls in Setup, CLI and chat",
-    "Shared context policy across main sessions, child agents and MoA",
-    "Estimated usage and compaction details in final JSON and chat status",
-    "Original local history and execution receipts retained"
+    "Native JS/TS source navigation using the existing Koder Reverse Worker",
+    "Current-task discovery of scoped native MCP alternatives",
+    "Long alias reconciliation, duplicate protection and stale-workspace isolation",
+    "Optional engine failure isolation and documentation-only Twilio routing",
+    "Small-window on-demand graph schemas with retained history constraints"
   ],
   "courseStatus": {
     "zh": 1800,
@@ -41,10 +41,13 @@
     "originalZhRetained": 180
   },
   "retainedLimits": [
-    "Paid-model long-context answer quality and token-billing comparisons",
-    "Windows 10/11 native cold installation, update and MCP GUI operations: beta-owned",
+    "Paid-model task quality and billing comparison",
+    "Windows 10/11 native cold installation, update and MCP GUI: beta-owned",
     "Linux/Windows notification display and click activation",
     "Live private mail and authenticated external account writes",
+    "Independent replacements for full Windows GUI, CAD geometry, REA disassembly and advanced CodeGraphContext analysis are not delivered",
+    "Existing outside-workspace homeRead and computerDriver capture/act cancellation propagation remains an independent follow-up; no complete desktop cancellation parity claim",
+    "Windows bundle license mapping audit found aiofile LICENCE naming and fastmcp-slim mapping gaps; original vendor bytes and supplied notices retained, not a claim of complete license clearance",
     "Unsigned macOS locked-use helper: signing and dedicated test Mac unavailable"
   ],
   "publicationAuthorization": "GitHub only; no official website changes or deployments"

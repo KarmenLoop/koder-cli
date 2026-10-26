@@ -1,8 +1,8 @@
 # Koder CLI — 使用前与授权说明 / Before you enable features
 
-适用于 0.5.1；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
+适用于 0.5.2；保留已有能力的授权说明。此文件解释功能与授权，不替代或修改 EULA.md，不代表用户已接受或开启任何功能。版权、下载与国际用户说明见 LEGAL-NOTICE.md。官方团队：KARMENLOOP 官方团队，中国上海。官网：https://karmenloop.com。邮箱：info@karmenloop.com。
 
-For 0.5.1; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+For 0.5.2; existing feature-consent guidance is retained. This guide explains features and consent; it does not replace or amend EULA.md or record acceptance. Copyright, download and international-use information is in LEGAL-NOTICE.md. Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
 
 授权与数据使用说明
 
@@ -105,3 +105,10 @@ Awesome LLM Apps provides offline text references and adapted Koder methods. Rea
 ## Version 0.5.0
 
 Local OCR, professional child-task roles, FIFO admission and headless completion contracts extend the original Core. See [execution guide](docs/FRAMEWORK-0.5.en.md) and [release notes](docs/RELEASE-0.5.0.md). Actual command, package and installer results are recorded separately in ACCEPTANCE-RESULTS.json; deterministic model fixtures are not paid-model quality evidence. Windows native acceptance remains beta-owned NOT_RUN. No official website deployment is included.
+
+
+## Native capability routing · 0.5.2
+
+`koder mcp capabilities` reports the scope and provenance of built-in capabilities. `tool_inventory` lists the tools mounted in the current task; neither command grants permission or certifies an external service. Native JS/TS source navigation is a bounded lexical analysis and does not execute target code. Hashes and dependency candidates must be checked against source.
+
+Windows-MCP, REA, SolidCraft and the MCP SDK retain their upstream attribution and license obligations. CodeGraphContext remains an optional service for broader language and graph operations. Existing account scopes, write confirmations, cancellation, budgets and UNKNOWN reconciliation apply. Native Windows device checks remain beta-owned; local fixture results are not Windows GUI, mailbox or provider-account acceptance.
