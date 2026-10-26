@@ -82,3 +82,8 @@ koder
 ## 保留：紧凑常驻输入与 Todo
 
 输入区默认只占两行，有 Todo 时为三行。执行时继续输入；Enter 按当前引导/排队设置提交。Ctrl+T 展开清单，`/todo` 看全表，`/help` 查看快捷键；空输入按 `/` 后 Tab 只填草稿。Setup → 会话界面可调整底栏，`/reload-tui` 立即加载。[完整手把手与开发说明](SESSION-DOCK.zh.md)。
+
+
+## 0.4.21：自寻与子任务调用
+
+[手把手操作](SELF-FETCH-AND-SUBAGENTS.zh.md)：指定 GitHub 仓库查找、固定提交安装、读取后续做原任务、子任务模型与思考强度、费用与取消。

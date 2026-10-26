@@ -201,3 +201,8 @@ Children assigned `todoIds` receive the selected plan items and internal depende
 Use `koder subagents status -w "/path/to/project" --session default --json` from a separate terminal to inspect saved state. It does not claim the session lock or run children. `source:saved-checkpoint`, `live:false` and `unconfirmed` distinguish saved running entries from actual liveness. Use `/subagents status` and `/subagents cancel <id>` in the original chat for current operations. Status pages accept `--offset` and `--limit`.
 
 `/skill seek` and `/skills seek` both route to discovery; fetching refreshes the chat library. The 0.4.16 source suite passed 139 checks, including child plan handoff and checkpoint reads while another owner holds the conversation lease. See the [verification matrix](ORCHESTRATION-ACCEPTANCE.md) for retained platform limits.
+
+
+## 0.4.21 invocation follow-up
+
+The existing contracts remain. See the [step-by-step exercise](SELF-FETCH-AND-SUBAGENTS.en.md) and [layered evidence](ORCHESTRATION-ACCEPTANCE.md) for scoped discovery, 180 real child Core reads, two HTTP model/effort bindings and shared budgeting. Model decisions were fixtures; paid-model autonomy was not tested.

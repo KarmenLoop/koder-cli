@@ -2,7 +2,7 @@
 
 [从这里开始：安装、首个任务和功能导航](START-HERE.zh.md)
 
-当前版本：**0.4.20**。先看[本版更新 ](RELEASE-0.4.20.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.4.21**。先看[本版更新 ](RELEASE-0.4.20.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 > 旧版更新器可能因包超过 100 MB 报“清单无效”。请用官网下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
@@ -10,7 +10,7 @@
 
 # Koder CLI 完整使用教程
 
-版本：**0.4.20**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.4.21**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -282,3 +282,8 @@ koder project check --kind website --json -w /path/to/site
 ## Awesome LLM Apps
 
 [默认内置 AI 应用工作流手把手教程](AWESOME-LLM-APPS.zh.md)：146 个离线参考条目、7 项改写方法、项目词法检索与引文核验。运行 koder llm-apps status；可在 Setup → Skills 关闭。示例依赖和账号需按项目单独配置。
+
+
+## 0.4.21：自寻与子任务调用
+
+[手把手操作](SELF-FETCH-AND-SUBAGENTS.zh.md)：指定 GitHub 仓库查找、固定提交安装、读取后续做原任务、子任务模型与思考强度、费用与取消。

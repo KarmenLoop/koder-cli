@@ -2,7 +2,7 @@
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current release: **0.4.20**. Start with [release changes](RELEASE-0.4.20.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current release: **0.4.21**. Start with [release changes](RELEASE-0.4.20.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
@@ -10,7 +10,7 @@ This release includes default-on [Headroom context optimization](HEADROOM.en.md)
 
 # Koder CLI complete user guide
 
-Version: **0.4.20**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.4.21**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -282,3 +282,8 @@ Run `koder cad enable`, `koder cad verify` and `koder cad test` in the project, 
 ## Awesome LLM Apps
 
 [AI application workflow tutorial](AWESOME-LLM-APPS.en.md): 146 pinned offline references, seven adapted methods, local retrieval and quote verification. Run koder llm-apps status. Disable through Setup → Skills. Example dependencies and accounts require project-specific configuration.
+
+
+## 0.4.21: Skill discovery and child execution
+
+[Walk through discovery and delegation](SELF-FETCH-AND-SUBAGENTS.en.md): source-scoped search, pinned installation, same-task continuation, model and effort selection, shared budgets and cancellation.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.21 — 2026-10-26
+
+Fix repository-qualified Skill search results and prevent unrelated fallback searches for an explicitly selected source. Share the product effort levels between session controls, delegated model selection and tool schemas. Verify 180 tool-enabled child readers, pinned public Skill download/read/write continuation, and distinct child model/effort requests through the existing HTTP provider and shared budget. [Release notes](docs/RELEASE-0.4.21.md).
+
 ## 0.4.20 — 2026-10-26
 
 Integrate a pinned Awesome LLM Apps reference library with the existing agent loop. Add 146 offline example/tutorial entries, seven Koder-adapted Skills, task-specific guidance, local lexical retrieval and exact-quote verification. Expose CLI commands, Setup controls and the original profile/approval boundaries. Keep upstream dependencies and service execution explicit. [Release notes](docs/RELEASE-0.4.20.md).

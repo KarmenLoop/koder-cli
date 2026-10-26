@@ -1,10 +1,10 @@
 {
-  "version": "0.4.20",
-  "file": "koder-cli-0.4.20.tgz",
-  "sha256": "d6717af21fac4c69c1591f3aa8785f5e3e008814858e70e8c2bba9d76b402939",
-  "size": 321751090,
+  "version": "0.4.21",
+  "file": "koder-cli-0.4.21.tgz",
+  "sha256": "58c1c5ef9934da09e67bf901a7dbdd82ef9a7df409f87cc848212265cc9a1bf4",
+  "size": 329546517,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-26T06:48:49.882Z",
+  "builtAt": "2026-10-26T07:42:41.822Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,26 +14,26 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "fc8e97517b38561b60eee55b62cf0a747dd4f8f7932ed739c62afb17dd644803"
+      "sha256": "03f3e26a75d874040c906d0b710d01faf678544aafe18e1050b360cc42133476"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "e9195d5fe75795fb48a24382195fd144d6703812c7ffd66eefa841aa8820827d"
+      "sha256": "0dc486ff07d9b386e5dadf164a5fbcf52358264b2af6d37fc8ad4f52d1db08a7"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "230a4a714cb7822c1f9f1630a8ca1fd2bec07ea8231944e91d1ce07baf4ac92d"
+      "sha256": "e04e72c30998d3faa0c9213d3a68d7de6a94820b8c62ddf64bd2debe64da4a3b"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.4.19",
-  "privateSourceCommit": "04763177bb8d6a3fe863cd0157c0e8bc59f0ed8a",
+  "sourceBaseline": "0.4.20",
+  "privateSourceCommit": "9354c78814ffdaa8765eac046d684e83b5ca2567",
   "changes": [
-    "Integrate pinned Awesome LLM Apps references into the existing agent loop",
-    "Add 146 offline entries and seven native Koder method adaptations",
-    "Add local lexical retrieval and exact-source quote checks",
-    "Reuse provider, permissions, budget, cancellation, profiles and Setup switches",
-    "Publish runtime, Windows/macOS installers and bilingual guides on GitHub only"
+    "Fix repository-qualified Skill lookup in fresh and cached results",
+    "Share effort levels across session controls, child matching and tool schemas",
+    "Verify pinned public Skill acquisition and same-task local continuation",
+    "Verify 180 child readers, owned writes, model/effort HTTP routing and shared budgeting",
+    "Retain unlimited default rounds, permissions, cancellation, UNKNOWN receipts and prior integrations"
   ],
   "courseStatus": {
     "zh": 1800,
@@ -41,9 +41,10 @@
     "originalZhRetained": 180
   },
   "retainedLimits": [
-    "Upstream app/service/SDK and real model acceptance NOT_RUN",
+    "Model and consent decisions in invocation tests are deterministic fixtures",
+    "Real paid-model autonomy and provider billing reconciliation NOT_RUN",
     "Windows x64 and Intel Mac native acceptance remains with beta team",
     "Existing GUI, account, residency and unsigned locked-use limits remain"
   ],
-  "publicationAuthorization": "Latest direct user instruction authorizes GitHub only and excludes official website changes and deployments"
+  "publicationAuthorization": "GitHub only; official website changes and deployments excluded"
 }

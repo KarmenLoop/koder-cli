@@ -1,11 +1,13 @@
-# Release status — 0.4.20
+# Release status — 0.4.21
 
-This release integrates Awesome LLM Apps references and Koder-native methods into the existing runtime. Publication is authorized on GitHub only; no official website files or deployments are part of this release.
+This increment fixes repository-qualified Skill discovery and unifies the effort levels used by session controls, model matching and delegated tool schemas. It retains the existing Core, unlimited default task rounds, dependency-aware Todo list, 180-child cap, shared cost ledger, permission gates and cancellation.
 
-The integration is on by default for relevant tasks and can be disabled through its CLI or existing Setup controls. Local reference inspection and retrieval require no model. Agent operations retain the existing provider, approval, workspace, budget and cancellation owners.
+The final integrated CLI regression passed 127 tests; the kernel regression passed 76; a separate context/budget check passed 13. These suites overlap and are not a count of unique product features. A discovered test hang came from a simulated model with an undeclared context window. The fixture now declares its window and bounds its wait; the product context protection is unchanged. The original failure and the repository-query red test remain in delivery evidence.
 
-The CLI compatibility suite passed 125 tests. After correcting a pre-existing provenance expectation without changing product provenance, the kernel suite passed 56 tests; original failures remain in local evidence. Final targeted checks passed 13 tests, including parent-off plugin registration and model-free retrieval/check commands. Release artifacts undergo source/hash checks and isolated installer/update verification separately.
+Actual invocation covered ten public GitHub requests followed by pinned installation, Skill reading and local artifact write/readback. An isolated CLI/Core run executed 180 child readers and collected all receipts; the 181st slot was refused. A real loopback HTTP provider exercised two model/effort bindings, owned file writes/reads and one parent cost ledger. An approved local bootstrap fixture created a command and invoked it through the original shell approval path.
 
-Upstream dependencies, accounts, UIs and paid-model quality are NOT_RUN. Windows and Intel Mac native execution remain beta acceptance. Existing GUI, account, resident-service and unsigned locked-use limits remain; inclusion of the reference library does not close them. SolidCraft binaries from 0.4.19 are retained.
+Model decisions, billing rates and owner consent in these checks were deterministic fixtures. Real paid-model autonomy, account billing reconciliation and production account effects are NOT_RUN. Windows and Intel Mac native execution remain beta acceptance. Existing GUI, resident-service and unsigned locked-use limits remain; the locked-use candidate is excluded.
 
-See [release notes](docs/RELEASE-0.4.20.md), [中文说明](docs/RELEASE-0.4.20.zh.md) and [the hands-on guide](docs/AWESOME-LLM-APPS.en.md). Initial failures remain in the local task evidence. The previous status is preserved in [the 0.4.19 record](docs/history/RELEASE-STATUS-0.4.19.md).
+Publication is authorized on GitHub only. Runtime archive integrity, packaged invocation and disposable macOS installer/update checks are recorded separately from source tests. No official website files or deployments are included.
+
+[Release notes](docs/RELEASE-0.4.21.md) · [中文更新说明](docs/RELEASE-0.4.21.zh.md) · [Hands-on guide](docs/SELF-FETCH-AND-SUBAGENTS.en.md) · [Evidence matrix](docs/ORCHESTRATION-ACCEPTANCE.md). The previous status remains in [the 0.4.20 record](docs/history/RELEASE-STATUS-0.4.20.md).

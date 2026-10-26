@@ -1,11 +1,11 @@
 # 完整命令参考
 
-Koder CLI 0.4.20 · 1800 课中文课堂；原 30 课英文教程
+Koder CLI 0.4.21 · 1800 课中文课堂；原 30 课英文教程
 
 根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md) · [长任务与子任务操作](TASK-ORCHESTRATION.zh.md)
 
 ```text
-KODER CLI 0.4.20
+KODER CLI 0.4.21
 轻量即用的终端编程代理
 
 用法

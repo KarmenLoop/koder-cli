@@ -1,11 +1,11 @@
 # Complete command reference
 
-Koder CLI 0.4.20 · 1,800 Chinese lessons; original 30 English lessons
+Koder CLI 0.4.21 · 1,800 Chinese lessons; original 30 English lessons
 
 Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md) · [Task orchestration](TASK-ORCHESTRATION.en.md)
 
 ```text
-KODER CLI 0.4.20
+KODER CLI 0.4.21
 A lightweight terminal coding agent
 
 Usage

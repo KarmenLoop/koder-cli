@@ -1,0 +1,593 @@
+{
+  "schema": 1,
+  "updatedAt": "2026-10-24T19:40:35.379Z",
+  "providers": [
+    {
+      "id": "zhipu",
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "protocol": "openai",
+      "source": "https://docs.bigmodel.cn/cn/guide/models/text/glm-5.3",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "glm-5.3",
+        "glm-5.3-flash"
+      ],
+      "limits": {
+        "glm-5.3": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        },
+        "glm-5.3-flash": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "qwen",
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "protocol": "openai",
+      "source": "https://help.aliyun.com/en/model-studio/qwen3-8-max",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "qwen3.8-max",
+        "qwen3.8-flash"
+      ],
+      "limits": {
+        "qwen3.8-flash": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        },
+        "qwen3.8-max": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "kimi",
+      "baseUrl": "https://api.moonshot.cn/v1",
+      "protocol": "openai",
+      "source": "https://platform.moonshot.cn/docs/intro",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "kimi-k3",
+        "kimi-k2.7-code",
+        "kimi-k2.6"
+      ],
+      "limits": {
+        "kimi-k2.6": {
+          "contextWindow": 262144,
+          "maxOutput": 32768
+        },
+        "kimi-k2.7-code": {
+          "contextWindow": 262144,
+          "maxOutput": 32768
+        },
+        "kimi-k3": {
+          "contextWindow": 1048576,
+          "maxOutput": 32768
+        }
+      }
+    },
+    {
+      "id": "doubao",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "protocol": "openai",
+      "source": "https://docs.volcengine.com/docs/ark/model-list?lang=zh",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "doubao-seed-2-1-pro-260915",
+        "doubao-seed-2-1-lite-260915"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "hunyuan",
+      "baseUrl": "https://api.hunyuan.cloud.tencent.com/v1",
+      "protocol": "openai",
+      "source": "https://cloud.tencent.com/document/product/1729/111007",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "hunyuan-turbos-latest",
+        "hunyuan-t1-latest"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "stepfun",
+      "baseUrl": "https://api.stepfun.com/v1",
+      "protocol": "openai",
+      "source": "https://static.stepfun.com/blog/step-3.7-flash/",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "step-3.7-flash",
+        "step-3.5-flash"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "baichuan",
+      "baseUrl": "https://api.baichuan-ai.com/v1",
+      "protocol": "openai",
+      "source": "https://platform.baichuan-ai.com/docs/",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "Baichuan4-Turbo",
+        "Baichuan4-Air",
+        "Baichuan4"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "spark",
+      "baseUrl": "https://spark-api-open.xf-yun.com/v1",
+      "protocol": "openai",
+      "source": "https://www.xfyun.cn/doc/spark/HTTP%E8%B0%83%E7%94%A8%E6%96%87%E6%A1%A3.html",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "4.0Ultra",
+        "generalv3.5"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "qianfan",
+      "baseUrl": "https://qianfan.baidubce.com/v2",
+      "protocol": "openai",
+      "source": "https://intl.cloud.baidu.com/en/doc/qianfan/s/7m95lyy43-intl-en",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "ernie-5.0"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "minimax",
+      "baseUrl": "https://api.minimax.io/v1",
+      "protocol": "openai",
+      "source": "https://platform.minimax.io/docs/guides/models-intro",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "MiniMax-M3.1-Flash",
+        "MiniMax-M3",
+        "MiniMax-M2.7"
+      ],
+      "limits": {
+        "MiniMax-M3": {
+          "contextWindow": 1048576,
+          "maxOutput": 32768
+        },
+        "MiniMax-M2.7": {
+          "contextWindow": 204800,
+          "maxOutput": 8192
+        },
+        "MiniMax-M3.1-Flash": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "minimax-cn",
+      "baseUrl": "https://api.minimax.cn/v1",
+      "protocol": "openai",
+      "source": "https://platform.minimax.cn/docs/api-reference/text-openai-api",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "MiniMax-M3.1-Flash",
+        "MiniMax-M3",
+        "MiniMax-M2.7"
+      ],
+      "limits": {
+        "MiniMax-M3": {
+          "contextWindow": 1048576,
+          "maxOutput": 32768
+        },
+        "MiniMax-M2.7": {
+          "contextWindow": 204800,
+          "maxOutput": 8192
+        },
+        "MiniMax-M3.1-Flash": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "deepseek",
+      "baseUrl": "https://api.deepseek.com/v1",
+      "protocol": "openai",
+      "source": "https://api-docs.deepseek.com/quick_start/pricing",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "deepseek-v4-pro",
+        "deepseek-flash"
+      ],
+      "limits": {
+        "deepseek-flash": {
+          "contextWindow": 1000000,
+          "maxOutput": 32768
+        },
+        "deepseek-v4-pro": {
+          "contextWindow": 1000000,
+          "maxOutput": 32768
+        }
+      }
+    },
+    {
+      "id": "chatgpt",
+      "baseUrl": "https://api.openai.com/v1",
+      "protocol": "responses",
+      "source": "https://developers.openai.com/api/docs/guides/latest-model",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "gpt-6.1-sol",
+        "gpt-6-astra",
+        "gpt-6-luna",
+        "gpt-6-sol"
+      ],
+      "limits": {
+        "gpt-6-astra": {
+          "contextWindow": 272000,
+          "maxOutput": 8192
+        },
+        "gpt-6-luna": {
+          "contextWindow": 272000,
+          "maxOutput": 8192
+        },
+        "gpt-6-sol": {
+          "contextWindow": 272000,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "claude",
+      "baseUrl": "https://api.anthropic.com/v1",
+      "protocol": "anthropic",
+      "source": "https://platform.claude.com/docs/en/models/overview",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "claude-opus-5-5",
+        "claude-fable-5-1",
+        "claude-sonnet-5-5",
+        "claude-haiku-5-5"
+      ],
+      "limits": {
+        "claude-fable-5-1": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        },
+        "claude-opus-5-5": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "gemini",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "protocol": "openai",
+      "source": "https://ai.google.dev/gemini-api/docs/models",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "gemini-4-argon",
+        "gemini-3.8-flash",
+        "gemini-3.6-flash"
+      ],
+      "limits": {
+        "gemini-3.6-flash": {
+          "contextWindow": 1048576,
+          "maxOutput": 8192
+        },
+        "gemini-3.8-flash": {
+          "contextWindow": 1048576,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "grok",
+      "baseUrl": "https://api.x.ai/v1",
+      "protocol": "openai",
+      "source": "https://docs.x.ai/developers/models",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "grok-4.7"
+      ],
+      "limits": {
+        "grok-4.7": {
+          "contextWindow": 500000,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "mistral",
+      "baseUrl": "https://api.mistral.ai/v1",
+      "protocol": "openai",
+      "source": "https://docs.mistral.ai/models/mistral-large-4-0",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "mistral-large-4",
+        "mistral-medium-3-5",
+        "devstral-latest",
+        "mistral-small-latest"
+      ],
+      "limits": {
+        "devstral-latest": {
+          "contextWindow": 262144,
+          "maxOutput": 8192
+        },
+        "mistral-small-latest": {
+          "contextWindow": 256000,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "groq",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "protocol": "openai",
+      "source": "https://console.groq.com/docs/models",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "openai/gpt-oss-120b",
+        "openai/gpt-oss-20b",
+        "llama-3.3-70b-versatile"
+      ],
+      "limits": {
+        "llama-3.3-70b-versatile": {
+          "contextWindow": 131072,
+          "maxOutput": 8192
+        },
+        "openai/gpt-oss-120b": {
+          "contextWindow": 131072,
+          "maxOutput": 8192
+        },
+        "openai/gpt-oss-20b": {
+          "contextWindow": 131072,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "cerebras",
+      "baseUrl": "https://api.cerebras.ai/v1",
+      "protocol": "openai",
+      "source": "https://inference-docs.cerebras.ai/models/overview",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "qwen-3.8-27b",
+        "gpt-oss-120b"
+      ],
+      "limits": {
+        "gpt-oss-120b": {
+          "contextWindow": 131072,
+          "maxOutput": 8192
+        },
+        "qwen-3.8-27b": {
+          "contextWindow": 65536,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "nvidia",
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "protocol": "openai",
+      "source": "https://integrate.api.nvidia.com/v1/models",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "deepseek-ai/deepseek-v4.1-flash",
+        "z-ai/glm-5.3",
+        "nvidia/nemotron-3.5-super-vl-120b-a12b"
+      ],
+      "limits": {
+        "z-ai/glm-5.3": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "huggingface",
+      "baseUrl": "https://router.huggingface.co/v1",
+      "protocol": "openai",
+      "source": "https://router.huggingface.co/v1/models",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "openai/gpt-oss-120b",
+        "moonshotai/Kimi-K3",
+        "Qwen/Qwen3.8-27B"
+      ],
+      "limits": {
+        "Qwen/Qwen3.8-27B": {
+          "contextWindow": 262144,
+          "maxOutput": 8192
+        },
+        "moonshotai/Kimi-K3": {
+          "contextWindow": 1000000,
+          "maxOutput": 8192
+        },
+        "openai/gpt-oss-120b": {
+          "contextWindow": 131072,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "siliconflow",
+      "baseUrl": "https://api.siliconflow.cn/v1",
+      "protocol": "openai",
+      "source": "https://api-docs.siliconflow.cn/docs/api/models-get",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "deepseek-ai/DeepSeek-V4-Flash"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "openrouter",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "protocol": "openai",
+      "source": "https://openrouter.ai/api/v1/models",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "openai/gpt-6.1-sol",
+        "anthropic/claude-sonnet-5.5",
+        "google/gemini-4-argon",
+        "deepseek/deepseek-v4.1-flash"
+      ],
+      "limits": {
+        "deepseek/deepseek-v4.1-flash": {
+          "contextWindow": 1048576,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "together",
+      "baseUrl": "https://api.together.xyz/v1",
+      "protocol": "openai",
+      "source": "https://docs.together.ai/docs/serverless/models",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "moonshotai/Kimi-K3",
+        "openai/gpt-oss-120b"
+      ],
+      "limits": {
+        "moonshotai/Kimi-K3": {
+          "contextWindow": 1048576,
+          "maxOutput": 8192
+        },
+        "openai/gpt-oss-120b": {
+          "contextWindow": 131072,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "fireworks",
+      "baseUrl": "https://api.fireworks.ai/inference/v1",
+      "protocol": "openai",
+      "source": "https://docs.fireworks.ai/getting-started/quickstart",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "accounts/fireworks/models/kimi-k3",
+        "accounts/fireworks/models/gpt-oss-120b"
+      ],
+      "limits": {
+        "accounts/fireworks/models/gpt-oss-120b": {
+          "contextWindow": 131072,
+          "maxOutput": 8192
+        },
+        "accounts/fireworks/models/kimi-k3": {
+          "contextWindow": 1048576,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "perplexity",
+      "baseUrl": "https://api.perplexity.ai/v1",
+      "protocol": "responses",
+      "source": "https://docs.perplexity.ai/docs/agent-api/models",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "openai/gpt-6.1-sol",
+        "google/gemini-4-argon"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "hunyuan-tokenhub",
+      "baseUrl": "https://tokenhub-intl.tencentcloudmaas.com/v1",
+      "protocol": "openai",
+      "source": "https://intl.cloud.tencent.com/zh/document/product/1300/80695",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "hy4-preview"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "aliyun-token-plan",
+      "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+      "protocol": "openai",
+      "source": "https://help.aliyun.com/zh/model-studio/token-plan-personal-overview",
+      "checkedAt": "2026-10-21",
+      "models": [
+        "qwen3.8-max",
+        "qwen3.8-flash",
+        "qwen3.7-max",
+        "qwen3.7-plus",
+        "qwen3.6-flash",
+        "deepseek-v4.1-flash",
+        "deepseek-v4.1-flash-1017",
+        "deepseek-v4-pro",
+        "deepseek-v4-pro-0813",
+        "deepseek-v4-flash-0731",
+        "glm-5.3",
+        "glm-5.2",
+        "auto"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "aliyun-coding-plan",
+      "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+      "protocol": "openai",
+      "source": "https://help.aliyun.com/zh/model-studio/coding-plan",
+      "checkedAt": "2026-10-21",
+      "models": [
+        "qwen3.7-plus",
+        "qwen3.6-plus",
+        "kimi-k2.5",
+        "glm-5",
+        "MiniMax-M2.5",
+        "qwen3-coder-next",
+        "qwen3-coder-plus"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "volcano-coding-plan",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/coding/v3",
+      "protocol": "openai",
+      "source": "https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-get-started",
+      "checkedAt": "2026-10-21",
+      "models": [
+        "ark-code-latest",
+        "doubao-seed-2.1-pro",
+        "doubao-seed-2.1-lite",
+        "doubao-seed-evolving",
+        "doubao-seed-2.0-mini",
+        "glm-5.3",
+        "glm-5.3-flash",
+        "deepseek-v4.1-flash",
+        "deepseek-v4.1-flash-economy",
+        "deepseek-v4-flash",
+        "deepseek-v4-pro",
+        "kimi-k3",
+        "kimi-k2.8-preview"
+      ],
+      "limits": {}
+    },
+    {
+      "id": "kimi-code",
+      "baseUrl": "https://api.kimi.com/coding/v1",
+      "protocol": "responses",
+      "source": "https://www.kimi.com/code/docs/en/",
+      "checkedAt": "2026-10-20",
+      "models": [
+        "k3-256k",
+        "k3",
+        "kimi-for-coding",
+        "kimi-for-coding-highspeed"
+      ],
+      "limits": {}
+    }
+  ]
+}

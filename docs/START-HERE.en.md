@@ -82,3 +82,8 @@ Run `koder migrate` or use Setup. Follow the [migration guide](DEVICE-MIGRATION.
 ## Retained: compact input and session Todo
 
 The default dock uses two rows, or three with a Todo summary. Keep typing while work runs; Enter uses the selected steer/queue mode. Ctrl+T expands Todo, `/todo` prints the full list, and `/help` opens shortcuts. Press `/` in empty input and Tab to fill a draft. Adjust the footer in Setup → Session interface and apply changes with `/reload-tui`. [User and developer guide](SESSION-DOCK.en.md).
+
+
+## 0.4.21: Skill discovery and child execution
+
+[Walk through discovery and delegation](SELF-FETCH-AND-SUBAGENTS.en.md): source-scoped search, pinned installation, same-task continuation, model and effort selection, shared budgets and cancellation.

@@ -1,5 +1,42 @@
 # Task orchestration: retention and verification
 
+## 0.4.21 actual invocation follow-up
+
+Retained baseline: 0.4.20, private source `04763177bb8d6a3fe863cd0157c0e8bc59f0ed8a`. The three user-supplied 0.4.14 plans were compared with this newer implementation rather than replacing it. The local delivery is `CK-20261026-cli-self-fetch-invocation`.
+
+| Requirement | Retained location and increment | Executed evidence |
+| --- | --- | --- |
+| Seek, fetch, learn, retry | CLI `self-fetch.mjs`; existing `fusion/skill-library.mjs` and `self-fetch-tools.mjs`; fixes `repo:` filtering and fallback scope | `self-fetch.test.mjs`: approval, revocation, fixed hashes, same-task read/write; public `invoke-public-skill.mjs`: ten real requests, exit 0 |
+| Actual command bootstrap | Original shell approval and execution path | `self-fetch.test.mjs`: install an owned `fixture-cli.cjs`, invoke it, read stdout 42; revoked permission prevents execution |
+| Unlimited rounds | Existing `task-budget.mjs` and task/profile settings | `task-step-budget.test.mjs`; 180-child invocation retains `maxSteps:null` |
+| 180 unreleased children | Original `subagent-runtime.mjs`; no second worker engine | `subagent-invocation.test.mjs`: 180 real child readers, 360 scripted child model steps, 180 collected receipts, 181st refused |
+| Models and four effort levels | `harness/thinking-efforts.mjs` now shared by CLI controls, matcher and schemas | Identity/schema regression plus real loopback HTTP: two child IDs, high/low protocol fields, 9 total requests |
+| One cost ledger | Original root reservation and settlement | HTTP fixture verifies spent amount from supplied token usage and prices; boundary tests cover unknown usage and cancellation |
+| Dependency Todo and ownership | Existing `session-todo.mjs`, child write-path and prerequisite checks | Todo/subagent suites retain DAG, pagination, parent plan, ownership and conflict assertions |
+| Input and Setup | Existing Ctrl+P/E/T, steer/queue and independent enable switches | Session/Setup tests retained; two model fixtures now declare 64K context and use a bounded wait; no production limit change |
+| Prior features | Existing mail, Apps/MCP, Skill loader, SolidCraft, Awesome LLM Apps and migration | Integrated CLI and later extracted-package checks; no source replacement or account effects |
+
+Final source commands (run in an isolated HOME with the private kernel selected):
+
+```text
+python3 work/run-tests.py cli integration-regression-v2 test/self-fetch.test.mjs test/subagent-invocation.test.mjs test/subagents.test.mjs test/subagent-boundaries-review.test.mjs test/task-step-budget.test.mjs test/orchestration-commands.test.mjs test/thinking-effort.test.mjs test/session-controls.test.mjs test/setup-skills-input.test.mjs test/session-todo.test.mjs test/session-input.test.mjs test/session-dock.test.mjs test/portable-skills-cli.test.mjs test/builtin-skills-cli.test.mjs test/mail-delivery-regression.test.mjs test/app-use-mcp.test.mjs test/llm-apps.test.mjs test/solidcraft.test.mjs
+# exit 0; 127 passed, 0 failed, 0 cancelled, 0 skipped
+python3 work/run-tests.py desktop kernel-regression test/subagent-runtime.test.mjs test/subagent-match.test.mjs test/todo-orchestration.test.mjs test/skill-library.test.mjs test/task-cost-budget.test.mjs test/harness-jit.test.mjs test/harness.test.mjs
+# exit 0; 76 passed
+python3 work/run-tests.py desktop context-regression test/context-keep.test.mjs test/context-slack.test.mjs test/harness-context-retention.test.mjs test/task-cost-budget.test.mjs
+# exit 0; 13 passed
+```
+
+The suites overlap. Exact argv, duration, stdout and exit codes are in `evidence/*.json` and `*.tap`. The original `red-qualified-seek` failure and `integration-regression` timeout remain preserved. `dock-diagnostic` identifies the fixture's 8192-token fallback and `CONTEXT_BUDGET_EXCEEDED`; `dock-green` passes 12 tests after fixture repair. No context assertion or production guard was weakened.
+
+Public invocation source: `anthropics/skills`, commit `dbd4588f9e1033efb41dad4bef2f7947c8993d44`, Skill `algorithmic-art`. `public-skill-network.json` records each actual URL/status; `learned-skill.json` is an owned local readback artifact. Downloaded upstream scripts were not executed or added to Koder's distribution. The repository API license field was null; no redistribution permission is inferred from it.
+
+The model response sequence and owner consent were deterministic fixtures; public transport, loopback HTTP and local tool effects actually ran. Real-model autonomous learning, 180 simultaneous paid calls, real billing reconciliation, Windows GUI/cold install and production-account operations are NOT_RUN. Package, installer, publication and native-device evidence remain separate. Parent-only MCP/GUI/mail effects and exclusive shell ownership are retained compatibility boundaries, not a claim of unconstrained child access.
+
+[中文操作课](SELF-FETCH-AND-SUBAGENTS.zh.md) · [English guide](SELF-FETCH-AND-SUBAGENTS.en.md). Roll back with pinned 0.4.20 while retaining user data and uncertain receipts.
+
+## Historical 0.4.16 evidence (retained)
+
 Baseline: published 0.4.15, private source `9b01b3dc67714bf861249e601395262b815ed035`. The 0.4.16 increment keeps the same Core, provider routing, conversation store, permissions and installer. It does not introduce a second executor or budget authority.
 
 | Requirement | Retained implementation and increment | Actual source regression |
