@@ -14,7 +14,7 @@ $r.before=@{type=$p.GetType().FullName;setting=[string]$p.Setting};try{$r.getter
 $p=[Windows.UI.Notifications.ToastNotifier]$p;
 $r.after=@{type=$p.GetType().FullName;setting=[string]$p.Setting};try{$r.getterAfter=[string]$p.get_Setting()}catch{$r.getterAfterErrors=@(ErrorRow $_)};
 $registration='HKCU:\\Software\\Classes\\AppUserModelId\\KarmenLoop.Koder';
-if(-not(Test-Path $registration)){New-Item -Path $registration -Force>$null;New-ItemProperty -Path $registration -Name DisplayName -Value 'Koder' -PropertyType String>$null;New-ItemProperty -Path $registration -Name ShowInSettings -Value 1 -PropertyType DWord>$null};
+if(-not(Test-Path $registration)){New-Item -Path $registration -Force > $null;New-ItemProperty -Path $registration -Name DisplayName -Value 'Koder' -PropertyType String > $null;New-ItemProperty -Path $registration -Name ShowInSettings -Value 1 -PropertyType DWord > $null};
 $p=[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('KarmenLoop.Koder');
 try{$r.registeredSetting=[string]$p.get_Setting()}catch{$r.registeredErrors=@(ErrorRow $_)};
 [Windows.Data.Xml.Dom.XmlDocument,Windows.Data.Xml.Dom.XmlDocument,ContentType=WindowsRuntime]>$null;

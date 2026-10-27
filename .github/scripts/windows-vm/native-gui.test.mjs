@@ -22,17 +22,17 @@ test('Koder MCP transport snapshots, types and clicks an owned native Windows fo
   $label=New-Object Windows.Forms.Label;$label.Location=New-Object Drawing.Point(30,145);$label.Size=New-Object Drawing.Size(400,30);$label.Text='Waiting for input';
   $f.Controls.AddRange(@($inputBox,$button,$label));
   $button.Add_Click({[IO.File]::WriteAllText((Join-Path $env:KODER_GUI_ROOT 'saved.txt'),$inputBox.Text);$label.Text='Saved '+$inputBox.Text});
-  $f.Add_Shown({$f.Activate();$i=$inputBox.PointToScreen((New-Object Drawing.Point(20,12)));$b=$button.PointToScreen((New-Object Drawing.Point(70,16)));@{title=$f.Text;pid=$PID;input=@($i.X,$i.Y);button=@($b.X,$b.Y)}|ConvertTo-Json -Compress|Set-Content (Join-Path $env:KODER_GUI_ROOT 'ready.json')});
+  $f.Add_Shown({$f.Activate();$i=$inputBox.PointToScreen((New-Object Drawing.Point(20,12)));$b=$button.PointToScreen((New-Object Drawing.Point(70,16)));@{title=$f.Text;pid=$PID;visible=$f.Visible;inputVisible=$inputBox.Visible;input=@($i.X,$i.Y);button=@($b.X,$b.Y)}|ConvertTo-Json -Compress|Set-Content (Join-Path $env:KODER_GUI_ROOT 'ready.json')});
   $timer=New-Object Windows.Forms.Timer;$timer.Interval=100;$timer.Add_Tick({if(Test-Path (Join-Path $env:KODER_GUI_ROOT 'close')){$f.Close()}});$timer.Start();
   try{[Windows.Forms.Application]::Run($f)}finally{$timer.Dispose();$f.Dispose()}`;
-  const child=spawn(path.join(process.env.SystemRoot,'System32/WindowsPowerShell/v1.0/powershell.exe'),['-NoProfile','-NonInteractive','-STA','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')],{env:{...process.env,KODER_GUI_ROOT:root,KODER_GUI_TITLE:title},windowsHide:true,stdio:['ignore','pipe','pipe']});
+  const child=spawn(path.join(process.env.SystemRoot,'System32/WindowsPowerShell/v1.0/powershell.exe'),['-NoProfile','-NonInteractive','-STA','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')],{env:{...process.env,KODER_GUI_ROOT:root,KODER_GUI_TITLE:title},windowsHide:false,stdio:['ignore','pipe','pipe']});
   let stderr='';child.stderr.on('data',d=>stderr=(stderr+d).slice(-6000));
   const ended=new Promise(resolve=>child.once('exit',(code,signal)=>resolve({code,signal})));let client;
   try {
     const ready=path.join(root,'ready.json');
     for(let i=0;i<100&&!fs.existsSync(ready)&&child.exitCode===null;i++)await delay(100);
     assert(fs.existsSync(ready),'Owned GUI did not become ready: '+stderr);
-    const state=JSON.parse(fs.readFileSync(ready,'utf8').replace(/^\uFEFF/,''));assert.equal(state.pid,child.pid);assert.equal(state.title,title);evidence.window=state;save();
+    const state=JSON.parse(fs.readFileSync(ready,'utf8').replace(/^\uFEFF/,''));assert.equal(state.pid,child.pid);assert.equal(state.title,title);assert.equal(state.visible,true);assert.equal(state.inputVisible,true);evidence.window=state;save();
     client=connectStdio({...bundledWindowsMcp(),env:{SystemRoot:process.env.SystemRoot,PATH:path.join(process.env.SystemRoot,'System32'),ANONYMIZED_TELEMETRY:'false',PYTHONUTF8:'1'}});
     await client.request('initialize',{});
     async function call(name,args) {
