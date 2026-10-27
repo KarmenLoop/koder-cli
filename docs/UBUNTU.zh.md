@@ -1,8 +1,38 @@
 # Ubuntu 24.04：从安装到完成第一个任务
 
-[返回 GitHub 首页](../README.zh-CN.md) · [English](UBUNTU.md) · [下载 0.5.12](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.12)
+使用新系统？[Ubuntu 26.04.1 Desktop amd64 独立教程](UBUNTU-26.04.zh.md)。本页继续保留 24.04 说明。
 
-本教程对应 **Koder CLI 0.5.12**，适用于 Ubuntu **24.04 LTS / 24.04.x** 的 x64 和 ARM64。Linux 包保留当前平台支持的运行功能、Skills、自主学习及现行课堂。Windows-MCP、macOS 锁屏组件只用于各自系统；Ubuntu 使用 Linux AT-SPI 图形驱动。Ubuntu 24.10 不在当前适配范围。
+[返回 GitHub 首页](../README.zh-CN.md) · [English](UBUNTU.md) · [下载 0.5.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.13)
+
+本教程对应 **Koder CLI 0.5.13**，适用于 Ubuntu **24.04 LTS / 24.04.x** 的 x64 和 ARM64。Linux 包保留当前平台支持的运行功能、Skills、自主学习及现行课堂。Windows-MCP、macOS 锁屏组件只用于各自系统；Ubuntu 使用 Linux AT-SPI 图形驱动。Ubuntu 24.10 不在当前适配范围。
+
+## 先解决“安装好了，但进不去”
+
+如果屏幕已经显示“安装完成”，不用重新下载。在 **Ubuntu 系统终端**（提示符类似 `karmen@电脑名:~$`）逐条执行：
+
+```bash
+"$HOME/.local/bin/koder" --version
+"$HOME/.local/bin/koder"
+```
+
+第二条直接启动对话，不依赖 PATH。如果尚未配置模型，先运行下面的向导，保存退出后再运行上一条启动命令：
+
+```bash
+"$HOME/.local/bin/koder" setup
+```
+
+默认路径如上；自定义安装时使用安装器末尾打印的实际完整路径。看到 **`koder >`** 才是在 Koder 对话里；看到 `用户名@电脑名:~$` 仍是系统终端。
+
+| 你看到的界面 | 含义 | 下一步 |
+| --- | --- | --- |
+| `accept / decline:` | 软件许可确认 | 阅读后同意才输入 `accept`；这不是任务输入框。 |
+| 模型服务商、Key、模型等菜单 | 首次配置 | 按第 4 节填写并保存。不要在这里输入任务。 |
+| `输入 activate…` | 可选后台常驻 | 只想先聊天，直接回车跳过；需要后台常驻才输入 `activate`。 |
+| 一大段 `taskDone` / `service` JSON | 旧版激活或状态命令的输出 | 不是聊天，也不能单凭这些字段判断激活成功；看 `running`，然后单独启动 `koder`。 |
+| `karmen@电脑名:~$` | 系统等待下一条命令 | 输入完整路径启动，或修复 PATH 后输入 `koder`。 |
+| `koder >` | Koder 已准备接收任务 | 输入自然语言任务并回车。 |
+
+**“安装完成”“模型已配置”“后台常驻”“进入对话”是四个独立步骤。** 常驻成功不会替你打开前台聊天；跳过常驻也能正常聊天。
 
 第一次使用按 1–5 节操作；已有安装看第 9 节。下载或任务卡住看第 10 节，不必先卸载或清空历史。
 
@@ -50,13 +80,13 @@ command -v curl
 ### A. 已有 wget（Ubuntu 推荐入口）
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 ### B. 已有 curl
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 ### C. 两个工具都找不到
@@ -68,14 +98,16 @@ sudo apt update
 sudo apt install curl ca-certificates
 ```
 
-apt 正被系统更新占用时等它完成，不要删除锁文件。也可用浏览器下载[Ubuntu 安装脚本](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh)，但运行脚本时仍需要 curl 或 wget。
+apt 正被系统更新占用时等它完成，不要删除锁文件。也可用浏览器下载[Ubuntu 安装脚本](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-24.04.sh)，但运行脚本时仍需要 curl 或 wget。
 
 ### 安装器询问时怎么选
 
 1. 阅读 [EULA](../EULA.md) 和[数据与同意说明](../ACCEPTANCE.md)。同意后输入小写 `accept` 并回车；不同意输入 `decline` 或按 Ctrl+C。
 2. 安装器自动选择 Linux 包，复用兼容 Node，或下载并校验托管 Node。**不要求先安装 npm 或自行选 Node 架构。**
-3. 等待下载、校验、解压及激活完成。出现配置向导时按提示操作，也可稍后运行 `koder setup`。
-4. **新开一个终端窗口**，按第 3 节确认结果。不要使用 `sudo bash /tmp/koder-ubuntu-install.sh` 或 `sudo koder`。
+3. 等待下载、SHA-256 校验和解压。下载到 100% 后仍要等安装完成；不要在解压过程中再运行一次安装。
+4. 出现配置向导时，按第 4 节选择模型并保存。想稍后配置，可按向导返回/跳过，再运行完整路径加 `setup`。
+5. 出现“输入 activate…”时，**直接回车是跳过后台常驻，不是取消安装**。输入 `activate` 是安装用户级后台服务，不是进入聊天。
+6. 等安装器退出，回到 `用户名@电脑名:~$`。按第 3 节的完整路径命令启动。不要使用 `sudo bash /tmp/koder-ubuntu-install.sh` 或 `sudo koder`。
 
 接受软件许可不自动授予电脑、邮箱、GitHub 或常驻权限。个人非商业本地使用免费；模型请求由服务商计费，商业/组织使用按许可另行授权。
 
@@ -89,26 +121,51 @@ apt 正被系统更新占用时等它完成，不要删除锁文件。也可用�
 正在校验下载内容（SHA-256）……
 ```
 
-未知总量会显示“总大小未知”。0.5.12 Linux 运行包约 **150.2 MB**，首次安装还可能下载 Node；总下载量和解压后的磁盘占用会更大。下载完成不等于全部安装完成，后面还有校验、解压和激活。
+未知总量会显示“总大小未知”。0.5.13 Linux 运行包约 **150 MB**，首次安装还可能下载 Node；总下载量和解压后的磁盘占用会更大。下载完成不等于全部安装完成，后面还有校验、解压和激活。
 
 断网或 Ctrl+C 后，重新运行第 2 节同一条命令即可恢复。可恢复下载保存在 `~/.koder-cli/cache/downloads`，校验通过才启用，不必手动拼包或删除缓存。
 
-新开终端执行：
+### 3.1 立刻启动，不必重装
+
+在安装所在的同一个终端逐条执行：
 
 ```bash
-koder --version
-koder --help
+"$HOME/.local/bin/koder" --version
+"$HOME/.local/bin/koder" --help
+"$HOME/.local/bin/koder"
 ```
 
-本版应显示 `koder 0.5.12`。若找不到命令，在当前终端执行：
+前两条分别显示版本和帮助；第三条进入对话。应显示 `koder 0.5.13`。旧版 0.5.12 已装好时完整路径也适用，先进入或升级即可，不必删除历史。
+
+### 3.2 让当前终端识别简短的 koder 命令
+
+安装脚本作为子进程运行，不能改变已打开的父终端 PATH。安装器写入启动文件后，新终端可读取；当前终端先执行：
 
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
 hash -r
-koder --version
+command -v koder
+koder
 ```
 
-这只调整当前终端 PATH；安装器会提示已写入的 shell 配置或所需设置。若还是旧版，用 `type -a koder` 查出多个启动入口，先确认路径，不要盲删配置目录。
+`command -v` 应输出 `/home/你的用户名/.local/bin/koder`。`export` 这一行只在当前终端生效；0.5.13 安装器还会更新 Bash 的 `.profile`、`.bashrc` 和已有登录配置，并按需处理 zsh。使用 `--no-modify-path` 的高级用户需自行配置。自定义 bin 路径请使用安装器打印的实际命令。
+
+### 3.3 后台状态 JSON 怎么看
+
+0.5.12 在输入 `activate` 后可能打印完整 JSON；0.5.13 交互激活改为简短说明，`--json` 仍供脚本使用。系统终端中检查：
+
+```bash
+"$HOME/.local/bin/koder" status
+```
+
+- `activated` 是保存的常驻意图，`running` 才表示这次检查能否连接后台进程。两者不要混淆。
+- `service: "systemd-user"` 表示使用当前用户服务。
+- `taskDone.policy.enabled: true` 是完成提醒开关；`dailyCount: 0` 是今天还没有该类推送，不是任务失败。
+- `unavailableSources` 包含 calendar/browserHistory 等时，表示这些来源没有接入；不影响基本聊天。
+- `TASK_PROTOCOL_PLATFORM_UNSUPPORTED` 或 `notificationClickSupported: false` 表示通知点击续聊不可用，不代表 Koder 命令不可用。手动进入终端继续即可。
+- `displayVerified: false` 表示没有验证用户真的看见通知，不能改写成“提醒已读”。
+
+后台没运行也可以先用前台 `koder`。若确实需要常驻，按第 8 节排查，不要反复安装覆盖。
 
 <a id="model"></a>
 ## 4. 配置模型，完成首次连接
@@ -122,7 +179,8 @@ koder setup
 1. 选择实际购买的服务商、地区和 API 产品。网页聊天会员不等于 API 额度。
 2. 在密钥输入处填写 Key，不贴进任务、截图或示例文件。
 3. 选择该接口可用的模型和思考档位。置灰项不能强行选用，参见[服务商说明](PROVIDERS.md)。
-4. 保存并退出向导。先测试连接，再按需测试工具调用：
+4. 保存并退出向导。回到系统终端提示符时，配置已结束，但聊天还没有打开。
+5. 先测试连接，再按需测试工具调用：
 
 ```bash
 koder model test
@@ -130,6 +188,8 @@ koder model test --tools
 ```
 
 测试会真实请求所选模型，可能产生少量费用。连接通过不等于所有工具已授权；工具测试用于确认模型接口能够表达工具调用。
+
+测试通过后，运行 `koder`；若命令还未被 PATH 识别，运行 `"$HOME/.local/bin/koder"`。先输入“只回复连接成功，不做其他操作”，确认实际回复，再做文件任务。未配置、密钥错误、服务商拒绝和没有电脑权限属于不同问题，分别按提示修复。
 
 Linux 保存受保护凭据需要当前用户的 Secret Service（密钥环）。若提示存储不可用，看第 8、10 节；不要改用 root 或把密钥明文写入项目。
 
@@ -160,7 +220,19 @@ cat "$HOME/Koder Projects/ubuntu-first-task/HELLO.md"
 
 验收是文件实际存在、内容符合要求；只有“我可以帮你”或计划文本不算完成。若未完成，记录最后原因码和项目路径，不把同一命令连续提交多次。
 
-### 再做网站
+### 5.1 认识任务执行和交付
+
+| 阶段 | 你要看什么 | 不符合时怎么做 |
+| --- | --- | --- |
+| 已提交 | 输入框出现工作中/等待模型提示 | 不重复提交；超过期限保留原因码。 |
+| 请求补充 | Koder 问用途、内容或目标 | 回答缺失信息；忙时补充默认进入当前任务。 |
+| 请求审批 | 明确文件、命令或外部目标 | 同意才允许；排队文字不能代替审批。 |
+| 工具执行 | 有具体工具结果或保存路径 | 只有计划没有工具结果，不能算交付。 |
+| 结束 | 有成果位置、核对结果和未完成事项 | 让它基于已有结果继续，避免重复外部动作。 |
+
+需要暂停时按 Esc；Ctrl+C 也用于取消。取消不能撤回已经发生的发信或文件改动，先读回结果。想退出聊天，在空闲输入框输入 `/exit`；回到系统提示符后再运行系统命令。
+
+### 5.2 再做网站
 
 在这个练习项目的 Koder 对话中输入：
 
@@ -342,7 +414,7 @@ koder --version
 | 下载中断 / 长时间 0 MB/s | 检查网络，重跑安装器续传；不关闭 TLS 校验、不用 `curl -k`。 |
 | SHA-256 校验失败 | 坏包不会启用，重试官方源并保留原因码；不跳过校验。 |
 | 找不到 koder / 版本旧 | 新开终端，检查 `$HOME/.local/bin` 和 `type -a koder`。 |
-| 提交后一直等 | 核对 0.5.12 和每 10 秒等待提示；单独检测模型连接，见下方时限说明。 |
+| 提交后一直等 | 核对 0.5.13 和每 10 秒等待提示；单独检测模型连接，见下方时限说明。 |
 | `API_HEADERS_TIMEOUT` | 服务商可能仍在生成，不连发同一任务；确认模型/网络后决定是否调长等待。 |
 | 密钥环 / 凭据存储失败 | 检查 secret-tool、用户 D-Bus、密钥环解锁；不用 sudo 绕过。 |
 | `COMPUTER_NO_DESKTOP_SESSION` | 从已登录桌面终端运行；无桌面服务器使用 CLI 文件任务。 |
@@ -353,9 +425,35 @@ koder --version
 | 通知 submitted 但没看到 | 查通知中心、勿扰和应用设置；submitted 不是已读。 |
 | 别的设备打不开预览 | 127.0.0.1 指向运行预览的机器，使用 SSH 转发或另行批准部署。 |
 
-### 区分模型等待、命令等待和下载等待
+### 10.1 command not found：逐层定位
 
-0.5.12 任务模型的响应头默认等 **180 秒**，正文还有独立空闲/总请求期限。Shell、curl 下载、model test 快速诊断各有时限，一个参数不能调整全部。
+先在系统终端运行：
+
+```bash
+ls -l "$HOME/.local/bin/koder"
+"$HOME/.local/bin/koder" --version
+type -a koder
+```
+
+- 完整路径能显示版本，但 `koder` 找不到：安装文件在，按第 3.2 节修复当前 PATH。不要重新下载整包。
+- `ls` 也说文件不存在：核对安装器末尾的实际路径、当前用户名及是否用了自定义目录。只下载 `.tgz` 没有运行安装器，不算安装完成。
+- 完整路径存在但启动报 Node/文件错误：保留原文，运行官方安装器修复同一用户安装。不要手工把目录拷到 `/usr/bin`。
+- `type -a` 列出多个版本：完整路径先确认目标版本，检查旧 alias/启动文件；不要删除整个用户配置。
+- 新终端仍找不到：确认使用 Bash 还是 zsh（`printf '%s\n' "$SHELL"`），有自定义启动文件时查它是否重置 PATH。0.5.13 会保留旧内容并补准确路径。
+
+### 10.2 解压出现 LIBARCHIVE.xattr.com.apple.provenance
+
+旧包在 macOS 制作时带了 Apple 扩展属性，Ubuntu 的 GNU tar 不认识这些元数据，会反复打印“忽略未知的扩展头关键字”。若后面明确出现安装完成且完整路径能显示版本，这些行本身不是安装失败。
+
+0.5.13 的打包步骤排除 Apple 扩展属性、ACL 和文件标志；程序、Skills 和教程文件保留。若看到 `Unexpected EOF`、`No space left on device`、校验失败或安装中止，那是另一类实际错误，不能当成上述提示忽略。
+
+### 10.3 activate 后没有进入聊天
+
+`activate` 只开启后台常驻。输出状态后回到系统终端是该命令结束，不是闪退。随后运行 `koder` 或完整路径；只有出现 `koder >` 才开始输入任务。想关闭后台用 `koder deactivate`，不需要卸载 CLI。
+
+### 10.4 区分模型等待、命令等待和下载等待
+
+0.5.13 任务模型的响应头默认等 **180 秒**，正文还有独立空闲/总请求期限。Shell、curl 下载、model test 快速诊断各有时限，一个参数不能调整全部。
 
 确认模型确实需要更久时，在**启动 Koder 前**设置（毫秒，最大 600000）：
 
@@ -387,11 +485,11 @@ ssh -L 8080:127.0.0.1:实际预览端口 用户名@服务器地址
 
 保持 SSH 连接，在本机打开 `http://127.0.0.1:8080`。这不会把网站公开上线。
 
-开发者核对手动下载包：从同一 Release 下载 `SHA256SUMS` 和 `koder-cli-0.5.12-linux.tgz` 至同一目录：
+开发者核对手动下载包：从同一 Release 下载 `SHA256SUMS` 和 `koder-cli-0.5.13-linux.tgz` 至同一目录：
 
 ```bash
-sha256sum koder-cli-0.5.12-linux.tgz
-grep 'koder-cli-0.5.12-linux.tgz' SHA256SUMS
+sha256sum koder-cli-0.5.13-linux.tgz
+grep 'koder-cli-0.5.13-linux.tgz' SHA256SUMS
 ```
 
 两行摘要须完全相同。`.tgz` 是运行归档，不是 `.deb` 或双击安装程序；一般用户仍使用第 2 节安装器。
@@ -399,12 +497,27 @@ grep 'koder-cli-0.5.12-linux.tgz' SHA256SUMS
 <a id="evidence"></a>
 ## 12. 验证范围与进一步学习
 
-[0.5.12 Ubuntu 任务验证](https://github.com/KarmenLoop/koder-cli/actions/runs/40555216774)：x64、ARM64 runner 的真实 PTY 运行最终包，本地 API 延迟 20 秒，确认单次请求、等待提示和回复。它不代替真实供应商质量或用户网络验收。
+本版验收以 [0.5.13 发行附件 ACCEPTANCE-RESULTS.json](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/ACCEPTANCE-RESULTS.json) 中的包 SHA-256、任务链接和平台结果为准。安装/重装、PATH、实际归档元数据、PTY 慢响应、AT-SPI 控件操作与通知分别记录，不用旧包测试替代新版验收。
 
-[安装与图形矩阵](https://github.com/KarmenLoop/koder-cli/actions/runs/40555225654)检查包哈希、托管 Node、重装配置保留、GTK 输入/点击/重新观察、通知及无桌面降级。文档更新时 ARM64 X11/Wayland、x64 X11 已通过，x64 Wayland 仍在执行；最终状态看该次 run。[发布时原始验收记录](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/ACCEPTANCE-RESULTS.json)保留当时状态。
+0.5.12 的 [x64/ARM64 任务测试](https://github.com/KarmenLoop/koder-cli/actions/runs/40555216774) 和 [安装/图形矩阵](https://github.com/KarmenLoop/koder-cli/actions/runs/40555225654) 是历史对照；后者首次 x64 Wayland 依赖下载超时，重跑该 job 后四组均通过，原失败保留。它们不是 0.5.13 的结果。
 
 Xvfb/无头 Sway 不等于物理 GNOME、重启自启、全部显卡和每个应用均验收。0.5.8 草稿的 GI 文本接口冲突失败记录保留；修复后使用明确 Text 接口，保留空输入、文字及密码隐藏回归。对照结果须核对包 SHA-256，不能混用不同构建。
 
 进一步学习：[教程总入口](START-HERE.zh.md) · [1800 课课堂说明](courses/README.zh.md) · [用户指南](USER-GUIDE.zh.md) · [命令参考](COMMAND-REFERENCE.zh.md) · [下载恢复与包组成](DOWNLOADS.zh.md)。GitHub 文件页不直接运行 HTML 课堂；本地课堂用 `koder learn` 或按课堂说明打开下载后的文件。
 
 系统资料：[Ubuntu 官方桌面文档](https://documentation.ubuntu.com/desktop/) · [Ubuntu 发行维护周期](https://ubuntu.com/about/release-cycle)。
+
+## 13. 练习路线：每一步都检查实际结果
+
+| 顺序 | 实际练习 | 完成标准 |
+| --- | --- | --- |
+| 1 | 安装、跳过常驻、用完整路径启动 | 出现 `koder >`，版本正确。 |
+| 2 | 配模型，发送一句测试问题 | 有真实模型回复，未暴露密钥。 |
+| 3 | 在独立目录保存 HELLO.md | 用另一个终端读取到同一文件。 |
+| 4 | 制作网站并回答需求 | 文件存在，给出的预览地址可打开，手机宽度检查通过。 |
+| 5 | 执行时补充、排队、取消 | 看见对应状态；不重复已执行动作。 |
+| 6 | 授权桌面并操作空白编辑器 | 实际出现文字，重新读取一致。 |
+| 7 | 可选邮箱/GitHub | 分别验证只读、写入、提醒；不把绑定当作全部通过。 |
+| 8 | 退出、重开同一项目、升级 | 项目文件和已保存设置仍在，版本按预期变化。 |
+
+完成前四项即可日常使用，不必一次开完全部权限。更深入的 1800 课、专业角色、OCR、文档问答和开发者练习按上方教程入口继续；各课对应的外部账号、系统依赖和验收标准仍分别适用。

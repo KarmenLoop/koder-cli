@@ -1,5 +1,7 @@
 # Smaller downloads, complete runtime
 
+[Ubuntu 26.04.1 Desktop amd64 tutorial and installer](UBUNTU-26.04.md#2-choose-one-installation-route)
+
 Ubuntu 24.04 users: follow the [complete walkthrough](UBUNTU.md) for installation, desktop operations and troubleshooting.
 
 Koder 0.5.10 chooses a platform archive automatically. A macOS download contains the macOS SolidCraft binary and does not contain Windows Python/MCP or Windows SolidCraft executables. A Linux download excludes those foreign binaries. Linux retains its existing external SolidCraft connection path; this release does not invent a Linux SolidCraft binary. Windows keeps the complete archive and its bundled Windows MCP.
@@ -36,16 +38,16 @@ Connection attempts default to 20 seconds and stalled transfers to 60 seconds. T
 
 ## Complete offline archive
 
-GitHub Releases also retains `koder-cli-0.5.12.tgz`, including all platform payloads and historical tutorial exports. The smaller files are `koder-cli-0.5.12-darwin.tgz` and `koder-cli-0.5.12-linux.tgz`. macOS Intel and Apple Silicon use the same archive; Linux x64 and ARM64 use the same JavaScript/Wasm runtime and select their own Node build. SHA-256 and sizes are in `koder-cli-0.5.12.json`. For the full archive through the installer, use `KODER_INSTALL_FULL_PACKAGE=1 bash /tmp/koder-install.sh`. This is optional.
+GitHub Releases also retains `koder-cli-0.5.13.tgz`, including all platform payloads and historical tutorial exports. The smaller files are `koder-cli-0.5.13-darwin.tgz` and `koder-cli-0.5.13-linux.tgz`. macOS Intel and Apple Silicon use the same archive; Linux x64 and ARM64 use the same JavaScript/Wasm runtime and select their own Node build. SHA-256 and sizes are in `koder-cli-0.5.13.json`. For the full archive through the installer, use `KODER_INSTALL_FULL_PACKAGE=1 bash /tmp/koder-install.sh`. This is optional.
 
 Download resilience tests use interrupted loopback transfers, Range refusal, corruption, cancellation and a later installer invocation. They do not promise a fixed speed on every Internet connection. Native Windows and physical Ubuntu GNOME checks remain separate beta acceptance.
 
 ## Dedicated Ubuntu 24.04 entry
 
-[Ubuntu 24.04 installer](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh) · [Complete Ubuntu / Linux runtime](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-cli-0.5.12-linux.tgz). Ubuntu 24.04.x on x64 and ARM64 uses the same entry; Node is selected for the processor.
+[Ubuntu 24.04 installer](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-24.04.sh) · [Complete Ubuntu / Linux runtime](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-cli-0.5.13-linux.tgz). Ubuntu 24.04.x on x64 and ARM64 uses the same entry; Node is selected for the processor.
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 This entry is generated from the shared installer. Download recovery, checksums, licensing and permissions use the same implementation. It does not install a reduced kernel.

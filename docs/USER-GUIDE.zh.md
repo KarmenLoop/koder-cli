@@ -1,24 +1,42 @@
+## 第一次使用：先认清自己在哪个输入框
+
+[Ubuntu 全过程手把手教程](UBUNTU.zh.md)覆盖从缺 curl 到完整任务交付。通用步骤是：**安装 → 模型配置 → 单独启动聊天 → 输入任务 → 核对成果**。
+
+- 系统提示符 `用户名@电脑名:~$`、`PS C:\...>`：运行安装、`koder setup`、`koder` 等命令。
+- `accept / decline:`：阅读软件许可后选择；不是任务输入框。
+- `activate` 提示：可选后台服务。直接回车跳过不影响聊天；激活也不会自动进入聊天。
+- `koder >`：此时才输入自然语言任务，或使用 `/` 菜单。
+
+Ubuntu/macOS 安装后可立即用完整路径，不必等 PATH 更新：
+
+```bash
+"$HOME/.local/bin/koder" setup
+"$HOME/.local/bin/koder"
+```
+
+第一条配置过即可跳过。第二条才是启动聊天。后台输出 JSON 后回到系统终端时也执行第二条。Windows 新开 PowerShell 后使用 `koder setup`、`koder`。[安装步骤与 command not found 排查](INSTALLATION.md#3-finish-setup-then-open-koder)。
+
 本版补强任务结果与网站交付检查，见[任务结果与恢复](task-results.md)和[网站开发流程](website-delivery.md)。网站 Skill 默认按适用的需求、规划、布局、开发与验证阶段接入；已有关闭选择保持有效。
 
 [1,800课中文手把手与开发者教程](courses/README.zh.md) · [浏览器课堂](courses/index.zh.html) · [配套练习](tutorial-labs/README.zh.md)
 
 [从这里开始：安装、首个任务和功能导航](START-HERE.zh.md)
 
-当前版本：**0.5.9**。先看[本版更新](RELEASE-0.5.9.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.5.13**。先看[本版更新](RELEASE-0.5.13.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 > 旧版更新器可能因包超过 100 MB 报“清单无效”。请用 GitHub Release 下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
-当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南与下方八份终端文字教程对应 0.5.9；实际发布和可下载文件以 GitHub Releases 为准。
+当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南对应 0.5.13；下方八份 0.5.9 终端文字导出保留为历史资料，最新启动步骤以本指南与安装页为准。实际可下载版本以 GitHub Releases 为准。
 
 # Koder CLI 完整使用教程
 
-版本：**0.5.9**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.5.13**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
 Windows PowerShell、CMD、macOS、Linux 和 WSL 的命令不能混用。完整安装命令见 [安装教程](INSTALLATION.md)，本版下载见 [GitHub Releases](https://github.com/KarmenLoop/koder-cli/releases)。先阅读许可与隐私全文。个人非商业使用免费；商业使用与组织部署须另行取得书面授权。
 
-正常安装不需要全局放开 PowerShell 执行策略，也不需要关闭安全软件。输入 `accept` 只接受许可，不会开启电脑、邮件、自主学习或同步权限。网络等待、主动取消和系统策略拦截是三回事；排查时保留实际阶段与最后几行报错。
+正常安装不需要全局放开 PowerShell 执行策略，也不需要关闭安全软件。输入 `accept` 只接受许可，不会授予电脑、邮箱或同步权限；默认本地任务记忆与可选外部访问分别控制。网络等待、主动取消和系统策略拦截是三回事；排查时保留实际阶段与最后几行报错。
 
 ## 2. 配置自己的模型
 

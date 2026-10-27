@@ -1,14 +1,16 @@
-# Koder CLI 0.5.12
+# Koder CLI 0.5.13
+
+Default learning startup now batches directory syncs within durable transaction phases. Individual document and journal syncs, recovery and all capabilities remain intact. Exact package and platform results are recorded in the release acceptance attachment.
 
 This release addresses slow model responses, visible installer progress and broad file-scope authorization. Exact-package Ubuntu VM results and retained limitations are recorded in the release acceptance attachment. Deterministic provider and owned GUI fixtures are distinct from live account or physical desktop acceptance. GitHub only; no website deployment.
 
-See [release notes](docs/RELEASE-0.5.12.md).
+See [release notes](docs/RELEASE-0.5.13.md).
 
 ## Earlier releases
 
 # Koder CLI 0.5.11
 
-This release includes a fix for avoidable Windows task-completion delays. The dedicated Windows VM workflow preserves failures and tests the exact package. Native mail fixtures are not a real provider account; accepted Toast submissions are not proof that the user saw a notification. Physical Windows 10/11 validation remains with beta specialists. No website deployment is included.
+The release candidate includes a fix for avoidable Windows task-completion delays. The dedicated Windows VM workflow preserves failures and tests the exact package. Native mail fixtures are not a real provider account; accepted Toast submissions are not proof that the user saw a notification. Physical Windows 10/11 validation remains with beta specialists. No website deployment is included.
 
 See [release notes](docs/RELEASE-0.5.11.md) and the release acceptance attachment for exact results.
 
@@ -31,7 +33,7 @@ Under small context budgets, complete saved constraint and prohibition sections 
 
 Run `koder growth status` and `koder learning status` to inspect the bundled method and local task memory. `koder growth off` disables the method and learning path; `koder learning off` disables task-memory access independently. Existing off choices, no-memory mode and account/workspace/session isolation remain effective. See [the learning guide](docs/MARKDOWN-LEARNING.en.md) and [method integration](docs/AUTONOMOUS-LEARNING.md).
 
-Windows, macOS and Ubuntu 24.04 use the same complete runtime. Run `koder update`, then check for `koder 0.5.9`. Fresh Ubuntu machines may lack `curl`; the [Ubuntu guide](docs/UBUNTU.md) now includes package-manager prerequisites and a download-to-file installation path. Installer or model credentials are never part of learning records.
+Windows, macOS and Ubuntu 24.04 use the same complete runtime. Run `koder update`, then check for `koder 0.5.13`. Fresh Ubuntu machines may lack `curl`; the [Ubuntu guide](docs/UBUNTU.md) now includes package-manager prerequisites and a download-to-file installation path. Installer or model credentials are never part of learning records.
 
 ## Evidence and limits
 

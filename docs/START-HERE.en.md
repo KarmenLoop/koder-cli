@@ -1,12 +1,26 @@
 > Context controls: [window, compaction and request estimates](CONTEXT-CONTROLS.en.md).
 
+[Ubuntu 26.04.1 Desktop amd64 walkthrough](UBUNTU-26.04.md)
+
 [Unlimited task rounds, budgets, subagents and Skill retrieval](TASK-ORCHESTRATION.en.md)
 
 [Detailed 30-lesson course: hands-on and developer tracks](courses/README.en.md)
 
 Retained since 0.5.0: [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
 
-# Start with Koder CLI 0.5.12
+# Start with Koder CLI 0.5.13
+
+## Open Koder after installation
+
+Ubuntu / macOS: run these in the system terminal. Skip setup if the model is already configured.
+
+```bash
+"$HOME/.local/bin/koder" setup
+"$HOME/.local/bin/koder"
+```
+
+Enter tasks only after `koder >` appears. `activate` enables a background service; it does not open chat. If the full path works but `koder` does not, follow the [PATH walkthrough](UBUNTU.md) rather than downloading again. Use the actual installer path for custom installations.
+
 
 Koder is a terminal coding and writing agent that uses your selected model API or compatible local model. It can work on project files, run approved commands and use configured Skills, MCP connections and applications. Your provider bills model usage separately. A catalog entry or an enabled setting is not proof of a working account or device connection.
 
@@ -14,7 +28,7 @@ Koder is a terminal coding and writing agent that uses your selected model API o
 
 **On Ubuntu, start with the [24.04 walkthrough](UBUNTU.md) for downloads, model setup, permissions, desktop operations and troubleshooting. [中文教程](UBUNTU.zh.md).**
 
-Use the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.12). Choose Windows CMD/PowerShell, macOS Terminal or Ubuntu 24.04; the installers select the matching platform package for the same release. The CLI is a separate download from the desktop application.
+Use the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.13). Choose Windows CMD/PowerShell, macOS Terminal or Ubuntu 24.04; the installers select the matching platform package for the same release. The CLI is a separate download from the desktop application.
 
 For an existing managed installation:
 
@@ -23,7 +37,7 @@ koder update
 koder --version
 ```
 
-Expect `koder 0.5.12`. If an updater from 0.4.4 or earlier rejects the manifest, run the current GitHub installer in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
+Expect `koder 0.5.13`. If an updater from 0.4.4 or earlier rejects the manifest, run the current GitHub installer in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
 
 ## 2. Configure a model and try a task
 

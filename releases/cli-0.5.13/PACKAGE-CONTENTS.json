@@ -1,0 +1,84 @@
+{
+  "version": "0.5.13",
+  "baselineBytes": 519985103,
+  "full": {
+    "file": "koder-cli-0.5.13.tgz",
+    "bytes": 482359741,
+    "sha256": "0bf28f017c53bddb2d30bd6fab3e5a28592a4346ef93502835fed6d236415f33",
+    "files": 28316
+  },
+  "platforms": {
+    "darwin": {
+      "file": "koder-cli-0.5.13-darwin.tgz",
+      "bytes": 226538584,
+      "sha256": "5645d34cf9f4197578538c30da497b831c934d9ff561d2d8279c415282fb3349",
+      "reductionPercent": 56.43,
+      "files": 21752,
+      "excludedPrefixes": [
+        "vendor/windows-mcp/win32-x64/",
+        "vendor/solidcraft/win32-x64/",
+        "docs/tutorials/"
+      ],
+      "onlyDeclaredExclusions": true,
+      "allRetainedFilesEqualFullArchive": true,
+      "unchangedSkillAndMethodFiles": 5792,
+      "growthResourcesUnchanged": 61,
+      "selectedOcrModelsUnchanged": true,
+      "currentClassroomRetained": true
+    },
+    "linux": {
+      "file": "koder-cli-0.5.13-linux.tgz",
+      "bytes": 148720882,
+      "sha256": "65f5c27c9a35e99e51a99b22c43fd353ddcf77b2da630fb11379367ed0ba353c",
+      "reductionPercent": 71.4,
+      "files": 21748,
+      "excludedPrefixes": [
+        "vendor/windows-mcp/win32-x64/",
+        "vendor/solidcraft/win32-x64/",
+        "docs/tutorials/",
+        "vendor/solidcraft/darwin-universal/"
+      ],
+      "onlyDeclaredExclusions": true,
+      "allRetainedFilesEqualFullArchive": true,
+      "unchangedSkillAndMethodFiles": 5792,
+      "growthResourcesUnchanged": 61,
+      "selectedOcrModelsUnchanged": true,
+      "currentClassroomRetained": true
+    }
+  },
+  "priorFullArchive": {
+    "version": "0.5.12",
+    "sha256": "ca93cedb5ead0a13319d33a2c3dca40fb833c388e6a8ef31d38bce3a2dd070ff",
+    "filesRemoved": 0,
+    "modifiedPaths": [
+      "RELEASE_STATUS.md",
+      "CHANGELOG.md",
+      "README.md",
+      "package.json",
+      "README.zh-CN.md",
+      "DISTRIBUTION.md",
+      "src/version.mjs",
+      "src/linux-desktop.py",
+      "src/commands/setup.mjs",
+      "src/commands/agentd.mjs",
+      "src/learning/store.mjs",
+      "kernel/MANIFEST.json",
+      "docs/DOWNLOADS.zh.md",
+      "docs/UBUNTU.md",
+      "docs/UBUNTU.zh.md",
+      "docs/START-HERE.zh.md",
+      "docs/START-HERE.en.md",
+      "docs/USER-GUIDE.zh.md",
+      "docs/USER-GUIDE.en.md",
+      "docs/DOWNLOADS.md",
+      "docs/INSTALLATION.md"
+    ],
+    "addedPaths": [
+      "docs/RELEASE-0.5.13.md",
+      "docs/RELEASE-0.5.13.zh.md",
+      "docs/UBUNTU-26.04.md",
+      "docs/UBUNTU-26.04.zh.md"
+    ],
+    "allOtherFileHashesUnchanged": true
+  }
+}

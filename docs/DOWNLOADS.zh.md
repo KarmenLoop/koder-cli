@@ -1,5 +1,7 @@
 # 安装更简单，功能完整保留
 
+[Ubuntu 26.04.1 Desktop amd64 完整教程和独立安装入口](UBUNTU-26.04.zh.md#install)
+
 Ubuntu 24.04 用户：[完整手把手教程](UBUNTU.zh.md)，包含首次安装、图形操作和故障处理。
 
 0.5.10 安装器会自动选择 macOS 或 Linux 包；Windows 继续使用包含内置 Windows MCP 的完整包。用户不需要手动选依赖或拼包。macOS Intel 与 Apple Silicon 共用 macOS 包，Linux x64 / ARM64 共用运行包并自动选择各自的 Node。
@@ -34,16 +36,16 @@ Ctrl+C 可取消，断点保存在 `~/.koder-cli/cache/downloads`。重新运行
 
 ## 完整离线包和历史记录
 
-GitHub Release 同时保留 `koder-cli-0.5.12.tgz` 全平台完整包，以及较小的 `koder-cli-0.5.12-darwin.tgz` / `koder-cli-0.5.12-linux.tgz`。清单列出各包大小和 SHA-256。确实需要全部平台与历史导出时，可运行 `KODER_INSTALL_FULL_PACKAGE=1 bash /tmp/koder-install.sh`。旧版本源码、文档和回退记录没有删除。
+GitHub Release 同时保留 `koder-cli-0.5.13.tgz` 全平台完整包，以及较小的 `koder-cli-0.5.13-darwin.tgz` / `koder-cli-0.5.13-linux.tgz`。清单列出各包大小和 SHA-256。确实需要全部平台与历史导出时，可运行 `KODER_INSTALL_FULL_PACKAGE=1 bash /tmp/koder-install.sh`。旧版本源码、文档和回退记录没有删除。
 
 安装优化不代表所有真实网络或设备已经验收。故障注入、实际包安装、Ubuntu CI 与 Windows beta 实机结果分别记录在发布回执中。
 
 ## Ubuntu 24.04 独立入口
 
-[Ubuntu 24.04 安装器](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh) · [Ubuntu / Linux 完整功能包](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-cli-0.5.12-linux.tgz)。Ubuntu 24.04.x、x64 与 ARM64 共用这个入口，Node 按处理器自动选择。
+[Ubuntu 24.04 安装器](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-24.04.sh) · [Ubuntu / Linux 完整功能包](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-cli-0.5.13-linux.tgz)。Ubuntu 24.04.x、x64 与 ARM64 共用这个入口，Node 按处理器自动选择。
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 Ubuntu 入口从同一份安装器生成，恢复、校验、许可、权限规则保持一致，没有额外的精简版内核。

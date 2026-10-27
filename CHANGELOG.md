@@ -1,3 +1,15 @@
+# 0.5.13
+
+- Add an Ubuntu 26.04.1 Desktop amd64 installer and complete walkthrough while retaining Ubuntu 24.04 support.
+- Normalize Windows extended-length directory identities before committing learning transactions.
+
+- Make post-install chat entry explicit and repair Bash PATH setup for fresh and existing profiles.
+- Exclude Apple archive attributes while preserving runtime content, and expand Ubuntu onboarding and recovery documentation.
+
+- Batch repeated directory syncs during learning transactions while preserving every document and journal file sync.
+- Recover interrupted staging and already-published outputs before committing the journal.
+- Add durability, interruption and I/O-error regression coverage without disabling default learning or removing bundled resources.
+
 # 0.5.12
 
 - Allow slow model response headers without duplicate timeout retries; show elapsed waiting status.

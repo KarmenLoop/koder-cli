@@ -1,10 +1,10 @@
 {
-  "version": "0.5.12",
-  "file": "koder-cli-0.5.12.tgz",
-  "sha256": "ca93cedb5ead0a13319d33a2c3dca40fb833c388e6a8ef31d38bce3a2dd070ff",
-  "size": 484337363,
+  "version": "0.5.13",
+  "file": "koder-cli-0.5.13.tgz",
+  "sha256": "0bf28f017c53bddb2d30bd6fab3e5a28592a4346ef93502835fed6d236415f33",
+  "size": 482359741,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-27T17:54:54.086Z",
+  "builtAt": "2026-10-27T19:25:01.800Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,36 +14,42 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "f3a19570617b8f28c68c7bc2d29cbd510e3815294f4cba17687d6821a7a5583e"
+      "sha256": "9385300de6ec239c08e9b25920268910cacce636689a428043314d47de157ad2"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "e4e67e6b01afe71da48d3f4bac65687c54fe5e58fcb17dcb6b0d515be9e82091"
+      "sha256": "6c16e50ced26c59d57dd3751adf758a7e7ba0874ca9d986e04f5ee22a614d246"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "48f53f3356cafdd704fc1e20ce04ae326fffd1bb0187592d81a26fbb256954db"
+      "sha256": "2232d5a682b643363c26b7ec716ff39a441785b01aa72fa2885ff9296b2d2072"
     },
     "ubuntu": {
       "file": "koder-ubuntu-24.04.sh",
-      "sha256": "40f6361a1708d5413c64f2d979388bd8d8ed4a660b896dada6f75400705a1603"
+      "sha256": "1bea55390f2697e3504b6e04b30d07190c431ac5bedab46b078a22666eeeeb3b"
+    },
+    "ubuntu2604": {
+      "file": "koder-ubuntu-26.04.sh",
+      "sha256": "534009c15f4242d37910cba02fa2f65f2de69cb8850ec106eaa7059a8cfcdb7b"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.11 published",
-  "privateSourceCommit": "faa8975938320b7e93a4976deedfe213a8e38ff2",
+  "sourceBaseline": "0.5.12 published",
+  "privateSourceCommit": "b4be7a7767f2c3e885ad597a872a605c7ee2589f",
   "changes": [
-    "Wait for slow model responses without repeating header-timeout requests",
-    "Display download MB, percent and elapsed time",
-    "Respect target-level file permissions within broad owner grants"
+    "Batch repeated learning directory syncs while retaining all file durability barriers",
+    "Recover interrupted transactions without replaying already-published documents",
+    "Add a dedicated Ubuntu 26.04.1 amd64 installer and complete startup tutorials",
+    "Fix GTK4 control sensitivity and protect masked inputs",
+    "Clarify activation output and make fresh-shell PATH setup reliable"
   ],
   "retainedLimits": [
-    "Live external model/provider with user credentials",
-    "Physical Ubuntu GNOME session, all GPUs and reboot/login",
-    "Windows 0.5.12 physical or VM acceptance; prior 0.5.11 VM results retained",
-    "macOS 0.5.12 dedicated GUI/install acceptance; packaged regression ran locally",
-    "Signed macOS locked-screen component",
-    "Real 163/Gmail account delivery"
+    "Physical Ubuntu 26.04.1 GNOME 50, GPU/monitor combinations, login/reboot and lock screen",
+    "Physical Windows 10/11; Windows Server VM results do not replace those checks",
+    "Live model-provider quality or paid-account acceptance",
+    "Live 163/Gmail/other customer mailboxes and real GitHub account writes",
+    "macOS GUI/TCC/locked-screen component, Developer ID signing and notarization",
+    "Human visibility or click-to-resume of every notification; submitted is not seen"
   ],
   "publicationAuthorization": "GitHub only; website excluded",
   "courseStatus": {
@@ -53,14 +59,14 @@
   },
   "packages": {
     "darwin": {
-      "file": "koder-cli-0.5.12-darwin.tgz",
-      "sha256": "5920b43eb644dc99011f3456c28017c06722983051c0c493dbaf53809151b81f",
-      "size": 228009845
+      "file": "koder-cli-0.5.13-darwin.tgz",
+      "sha256": "5645d34cf9f4197578538c30da497b831c934d9ff561d2d8279c415282fb3349",
+      "size": 226538584
     },
     "linux": {
-      "file": "koder-cli-0.5.12-linux.tgz",
-      "sha256": "3b943c83dcafe92e5a73a8351ad7d509e8398cbf6f9452edf417ebd8db2e1882",
-      "size": 150193102
+      "file": "koder-cli-0.5.13-linux.tgz",
+      "sha256": "65f5c27c9a35e99e51a99b22c43fd353ddcf77b2da630fb11379367ed0ba353c",
+      "size": 148720882
     }
   }
 }

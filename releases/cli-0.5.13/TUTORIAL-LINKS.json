@@ -1,0 +1,47 @@
+{
+  "checkedLinks": 639,
+  "missing": [],
+  "publicOnlyTargets": [
+    [
+      "README.md",
+      "SOURCE-STATUS.md"
+    ],
+    [
+      "README.md",
+      "SOURCE-STATUS.md"
+    ],
+    [
+      "README.md",
+      "SOURCE-STATUS.md"
+    ],
+    [
+      "README.zh-CN.md",
+      "SOURCE-STATUS.md"
+    ],
+    [
+      "README.zh-CN.md",
+      "SOURCE-STATUS.md"
+    ],
+    [
+      "README.zh-CN.md",
+      "SOURCE-STATUS.md"
+    ]
+  ],
+  "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/INSTALLATION.md",
+    "docs/START-HERE.en.md",
+    "docs/START-HERE.zh.md",
+    "docs/USER-GUIDE.en.md",
+    "docs/USER-GUIDE.zh.md",
+    "docs/UBUNTU.md",
+    "docs/UBUNTU.zh.md",
+    "docs/UBUNTU-26.04.md",
+    "docs/UBUNTU-26.04.zh.md",
+    "docs/DOWNLOADS.md",
+    "docs/DOWNLOADS.zh.md",
+    "docs/RELEASE-0.5.13.md",
+    "docs/RELEASE-0.5.13.zh.md"
+  ]
+}

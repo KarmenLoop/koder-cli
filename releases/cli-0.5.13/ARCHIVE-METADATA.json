@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "archives": [
+    {
+      "file": "koder-cli-0.5.13-darwin.tgz",
+      "sha256": "5645d34cf9f4197578538c30da497b831c934d9ff561d2d8279c415282fb3349",
+      "entries": 25479,
+      "paxKeys": [
+        "mtime",
+        "path"
+      ],
+      "noAppleMetadata": true
+    },
+    {
+      "file": "koder-cli-0.5.13-linux.tgz",
+      "sha256": "65f5c27c9a35e99e51a99b22c43fd353ddcf77b2da630fb11379367ed0ba353c",
+      "entries": 25474,
+      "paxKeys": [
+        "mtime",
+        "path"
+      ],
+      "noAppleMetadata": true
+    },
+    {
+      "file": "koder-cli-0.5.13.tgz",
+      "sha256": "0bf28f017c53bddb2d30bd6fab3e5a28592a4346ef93502835fed6d236415f33",
+      "entries": 32997,
+      "paxKeys": [
+        "mtime",
+        "path"
+      ],
+      "noAppleMetadata": true
+    }
+  ]
+}

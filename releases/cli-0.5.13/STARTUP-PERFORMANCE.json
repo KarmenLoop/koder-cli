@@ -1,0 +1,62 @@
+{
+  "scope": "Unmodified packaged 0.5.13; fresh disposable profiles; default learning and local model API; instrumentation included.",
+  "rows": [
+    {
+      "round": 1,
+      "variant": "packaged",
+      "firstRequestMs": 860.5,
+      "requests": 1,
+      "exitCode": 0,
+      "thresholdMs": 1000,
+      "passed": true,
+      "learningSyncCalls": 108,
+      "learningSyncMs": 485.1014179999998
+    },
+    {
+      "round": 2,
+      "variant": "packaged",
+      "firstRequestMs": 845.3,
+      "requests": 1,
+      "exitCode": 0,
+      "thresholdMs": 1000,
+      "passed": true,
+      "learningSyncCalls": 108,
+      "learningSyncMs": 474.759369
+    },
+    {
+      "round": 3,
+      "variant": "packaged",
+      "firstRequestMs": 836.7,
+      "requests": 1,
+      "exitCode": 0,
+      "thresholdMs": 1000,
+      "passed": true,
+      "learningSyncCalls": 108,
+      "learningSyncMs": 473.344712
+    }
+  ],
+  "archiveSha256": "5645d34cf9f4197578538c30da497b831c934d9ff561d2d8279c415282fb3349",
+  "gate": "PASS",
+  "priorCandidateMeasurements": [
+    {
+      "archiveSha256": "59692380aabde71f2852da9fc14d46c410b41868599f8a0f638904d03cb4e605",
+      "firstRequestMs": [
+        1003.6,
+        875.8,
+        947.3
+      ],
+      "gate": "PERFORMANCE_HOLD",
+      "note": "Superseded candidate, not the final archive; the failure is retained."
+    },
+    {
+      "archiveSha256": "680f27898212415ea1164b5d1c974969ebc8d0477691a4b63cffe6dc99cfb82b",
+      "firstRequestMs": [
+        954,
+        911.7,
+        893.2
+      ],
+      "gate": "PASS",
+      "note": "Superseded by GTK4 repair; retained for comparison."
+    }
+  ]
+}

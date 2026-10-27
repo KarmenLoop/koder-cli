@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Versioned release path. Keep the installer and manifest pinned to the same release.
@@ -10,7 +10,7 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
@@ -368,21 +368,31 @@ chmod +x "${LAUNCHER}"
 "${NODE_BIN}" -e 'const fs=require("fs"),crypto=require("crypto"),path=require("path"); const [home,file,version,base,launcher,node,site,updates,download]=process.argv.slice(1); const eula=fs.readFileSync(path.join(home,"current","EULA.md")); const sha=crypto.createHash("sha256").update(eula).digest("hex"); const acceptedAt=new Date().toISOString(); const preview=version.includes("-"); fs.mkdirSync(home,{recursive:true}); fs.writeFileSync(path.join(home,"eula-acceptance.json"), JSON.stringify({id:"Koder-EULA-1.1",version:"1.1",sha256:sha,acceptedAt,preview},null,2)+"\n",{mode:0o600}); fs.writeFileSync(file, JSON.stringify({version,base,launcher,node,site,updates,download,installedAt:acceptedAt,preview,agreementId:"Koder-EULA-1.1",agreementVersion:"1.1",agreementSha256:sha},null,2)+"\n")' \
   "${KODER_HOME}" "${KODER_HOME}/install.json" "${VERSION}" "${BASE}" "${LAUNCHER}" "${NODE_BIN}" "https://karmenloop.com" "https://karmenloop.com/updates.html" "https://karmenloop.com/download.html"
 
-case ":${PATH}:" in
-  *":${BIN_DIR}:"*) ;;
-  *)
-    if [ "${MODIFY_PATH}" = 1 ]; then
-      LINE="export PATH=\"${BIN_DIR}:\${PATH}\" # koder-cli"
-      for RC in "${HOME}/.zshrc" "${HOME}/.bashrc"; do
-        if [ -f "${RC}" ] || [ "$(basename "${SHELL:-}")" = "$(basename "${RC}" | sed 's/^\.//; s/rc$//')" ]; then
-          grep -q '# koder-cli' "${RC}" 2>/dev/null || printf '\n%s\n' "${LINE}" >> "${RC}"
-        fi
-      done
-      say "已把 ${BIN_DIR} 加入 PATH，新开一个终端即可直接输入 koder。" "Added ${BIN_DIR} to PATH; open a new terminal to run koder."
-    else
-      say "请把 ${BIN_DIR} 加入 PATH。" "Add ${BIN_DIR} to your PATH."
-    fi ;;
-esac
+# Quote paths for the shell that will read them, including spaces and apostrophes.
+quote_path() {
+  "${NODE_BIN}" -e 'const q=String.fromCharCode(39);process.stdout.write(q+process.argv[1].split(q).join(String.fromCharCode(39,92,39,39))+q)' "$1"
+}
+BIN_QUOTED="$(quote_path "${BIN_DIR}")"
+LAUNCHER_QUOTED="$(quote_path "${LAUNCHER}")"
+if [ "${MODIFY_PATH}" = 1 ]; then
+  LINE="export PATH=${BIN_QUOTED}:\${PATH} # koder-cli"
+  # Ubuntu login shells may read .profile while ordinary terminal tabs read
+  # .bashrc. Existing .bash_profile/.bash_login override .profile in Bash.
+  for RC in "${HOME}/.profile" "${HOME}/.bashrc" "${HOME}/.bash_profile" "${HOME}/.bash_login" "${HOME}/.zprofile" "${HOME}/.zshrc"; do
+    WRITE_RC=0
+    case "${RC}" in "${HOME}/.profile"|"${HOME}/.bashrc") WRITE_RC=1 ;; esac
+    [ ! -f "${RC}" ] || WRITE_RC=1
+    if [ "$(basename "${SHELL:-}")" = zsh ]; then
+      case "${RC}" in "${HOME}/.zprofile"|"${HOME}/.zshrc") WRITE_RC=1 ;; esac
+    fi
+    if [ "${WRITE_RC}" = 1 ]; then
+      grep -Fqx "${LINE}" "${RC}" 2>/dev/null || printf '\n%s\n' "${LINE}" >> "${RC}"
+    fi
+  done
+  say "已写入终端启动配置；当前终端的 PATH 不会被安装子进程修改。下方完整路径现在即可使用。" "Shell startup files updated; the current terminal PATH is not changed by the installer. Use the full path below now."
+else
+  say "已按要求保留终端配置；下方完整路径不依赖 PATH。" "Shell files were left unchanged; the full launcher path below does not depend on PATH."
+fi
 
 if [ "${WITH_HERMES}" = 1 ]; then
   "${LAUNCHER}" engine install hermes || say "Hermes 引擎没装好，之后可运行 koder engine install hermes 重试。" "Hermes engine install failed; retry with koder engine install hermes."
@@ -410,3 +420,12 @@ elif [ "${ONBOARD}" = 1 ] && [ -z "${KODER_EXPECTED_VERSION:-}" ] && [ -r /dev/t
 else
   say "推荐运行 koder activate 开启用户级常驻；koder deactivate 关闭。不会代开电脑或邮箱权限。" "Run koder activate for residency; koder deactivate stops it. Computer and mailbox permissions remain separate."
 fi
+
+# Keep this after setup and the residency offer, so status output cannot bury it.
+say "安装已完成。现在进入 Koder 对话，请复制下一行并回车：" "Start Koder now: copy the next line and press Enter."
+printf '  %s\n' "${LAUNCHER_QUOTED}"
+say "首次配置或修改模型，运行：" "To configure or change the model, run:"
+printf '  %s setup\n' "${LAUNCHER_QUOTED}"
+say "看到 koder > 后，再输入自然语言任务。activate 只开后台常驻，不会打开聊天。" "When koder > appears, type your task. Background activation does not open chat."
+say "若希望当前终端能直接输入 koder，先运行（不需要重新下载）：" "To use koder directly in this terminal, run first (no new download needed):"
+printf '  export PATH=%s:"$PATH"\n  hash -r\n  koder\n' "${BIN_QUOTED}"

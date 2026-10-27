@@ -1,24 +1,30 @@
+## First use: identify the prompt before typing
+
+Follow the [Ubuntu walkthrough](UBUNTU.md) or [platform installation guide](INSTALLATION.md). The sequence is install, configure a model, launch chat, submit a task, then verify the artifact. A system prompt accepts commands; `accept / decline:` asks for license consent; `activate` offers an optional background service; only `koder >` accepts chat tasks. Skipping activation retains foreground chat. Enabling activation does not launch chat.
+
+On Ubuntu/macOS, run `"$HOME/.local/bin/koder" setup` if needed, then `"$HOME/.local/bin/koder"`. These full paths work before PATH refreshes. On Windows, reopen PowerShell and use `koder setup`, then `koder`. See the [installation recovery steps](INSTALLATION.md#3-finish-setup-then-open-koder).
+
 This release checks for missing task output and website handoff evidence. Read [Task results and recovery](task-results.md) and [Website delivery](website-delivery.md). The website Skill follows its applicable requirements, planning, layout, implementation and verification stages; existing off choices remain effective.
 
 [30-lesson hands-on and developer course](courses/README.en.md) · [Browser classroom](courses/index.en.html) · [Practical labs](tutorial-labs/README.en.md)
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current version: **0.5.9**. Start with [release changes](RELEASE-0.5.9.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.5.13**. Start with [release changes](RELEASE-0.5.13.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.9; check GitHub Releases for publication status and available downloads.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide targets 0.5.13. The linked 0.5.9 terminal text exports are retained as historical material; use this page and Installation for current startup instructions.
 
 # Koder CLI complete user guide
 
-Version: **0.5.9**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.5.13**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
 Use the matching Windows PowerShell, CMD, macOS, Linux or WSL instructions in [Installation](INSTALLATION.md). Download this release from [KarmenLoop/koder-cli on GitHub](https://github.com/KarmenLoop/koder-cli/releases). Read the installed EULA and privacy documents before accepting. Personal noncommercial use is free; commercial use and organizational distribution need separate written authorization.
 
-Normal installation does not require changing the machine-wide PowerShell execution policy or disabling security software. `accept` accepts the license; it grants no optional computer, messaging, learning or synchronization authority. A network delay, a canceled installation and an OS policy rejection are different conditions. The installer reports its stage and download progress; keep the exact error for diagnosis.
+Normal installation does not require changing the machine-wide PowerShell execution policy or disabling security software. `accept` accepts the license; it grants no computer, mailbox or synchronization permissions. Default local task memory and external access have separate controls. A network delay, a canceled installation and an OS policy rejection are different conditions. The installer reports its stage and download progress; keep the exact error for diagnosis.
 
 ## 2. Connect your own model
 

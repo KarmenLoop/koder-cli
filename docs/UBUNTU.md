@@ -1,8 +1,32 @@
 # Ubuntu 24.04: install Koder and complete your first task
 
-[Repository home](../README.md) · [中文手把手教程](UBUNTU.zh.md) · [Download 0.5.12](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.12)
+On the newer release? Use the [Ubuntu 26.04.1 Desktop amd64 guide](UBUNTU-26.04.md). This page retains the 24.04 instructions.
 
-This guide covers **Koder CLI 0.5.12** on **Ubuntu 24.04 LTS and its 24.04.x point releases**, on x64 and ARM64. The Linux package includes the supported runtime features, Skills, learning resources and current classroom. Windows-MCP and the macOS locked-use component remain platform-specific. Ubuntu uses the Linux AT-SPI desktop adapter. Ubuntu 24.10 is outside the current scope.
+[Repository home](../README.md) · [中文手把手教程](UBUNTU.zh.md) · [Download 0.5.13](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.13)
+
+This guide covers **Koder CLI 0.5.13** on **Ubuntu 24.04 LTS and its 24.04.x point releases**, on x64 and ARM64. The Linux package includes the supported runtime features, Skills, learning resources and current classroom. Windows-MCP and the macOS locked-use component remain platform-specific. Ubuntu uses the Linux AT-SPI desktop adapter. Ubuntu 24.10 is outside the current scope.
+
+## Already installed but unable to open Koder?
+
+If installation finished, do not download it again just to fix PATH. In the Ubuntu shell (`user@computer:~$`), run:
+
+```bash
+"$HOME/.local/bin/koder" --version
+"$HOME/.local/bin/koder"
+```
+
+For first-time model configuration, run `"$HOME/.local/bin/koder" setup`, save, then launch Koder separately. Use the actual path printed by the installer if you chose a custom directory.
+
+| Prompt or output | Meaning | What to do |
+| --- | --- | --- |
+| `accept / decline:` | License consent | Read the license and enter `accept` only if you agree. |
+| Provider/model/key menu | Setup | Configure and save. This is not the task input. |
+| `activate` offer | Optional background service | Press Enter to skip, or enter `activate` to enable it. Both choices retain foreground chat. |
+| `taskDone` / `service` JSON | Older activation/status output | Check `running`; it is not chat. Start Koder separately. |
+| `user@computer:~$` | System shell | Run `koder` or its full path. |
+| `koder >` | Koder chat | Enter your task in ordinary language. |
+
+Installation, model setup, background activation and opening chat are separate steps. Background activation does not open a chat window.
 
 ## 1. Open a terminal and check the system
 
@@ -27,13 +51,13 @@ command -v curl
 **With wget:**
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **With curl:**
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **If neither is installed:** run these separately, resolve any apt errors, then use the curl command above.
@@ -53,18 +77,18 @@ Personal noncommercial local use is free; model providers bill API usage separat
 
 During downloads, the installer reports MB transferred, a known total and percentage, elapsed seconds, average speed and the attempt number about every five seconds. Unknown totals are labeled. Verification, extraction and activation follow the download.
 
-The 0.5.12 Linux archive is about **150.2 MB**. A first installation may also download Node, and extracted files need additional disk space. This archive size is not a total-download or speed guarantee.
+The 0.5.13 Linux archive is about **150.2 MB**. A first installation may also download Node, and extracted files need additional disk space. This archive size is not a total-download or speed guarantee.
 
 If a transfer is interrupted, rerun the same installation command. Resumable data is kept under `~/.koder-cli/cache/downloads`; SHA-256 verification remains required. Do not combine partial files manually.
 
-Open a **new terminal**, then run:
+You can use the full path above immediately. To use the short command, open a **new terminal**, then run:
 
 ```bash
 koder --version
 koder --help
 ```
 
-Expect `koder 0.5.12`. If the command is not found, adjust this terminal's PATH:
+Expect `koder 0.5.13`. If the command is not found, adjust this terminal's PATH:
 
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
@@ -72,7 +96,15 @@ hash -r
 koder --version
 ```
 
-The installer reports its persistent shell configuration changes or the required PATH entry. If an older copy starts, inspect `type -a koder` before changing anything. Do not delete `~/.koder-cli` to fix PATH.
+The installer runs as a child process and cannot change the PATH of the already-open parent shell. Version 0.5.13 updates Bash startup files, including fresh profiles, and eligible zsh files while retaining their existing contents. `--no-modify-path` leaves these files unchanged. The installer ends with the exact executable path, the setup command and a current-shell PATH command. If an older copy starts, inspect `type -a koder` before changing anything. Do not delete `~/.koder-cli` to fix PATH.
+
+### Read activation status correctly
+
+`activated` is the saved service preference; `running` reports whether the daemon is reachable now. `service: "systemd-user"` identifies the user service. Missing calendar or browser-history sources do not prevent chat. `notificationClickSupported: false` or `TASK_PROTOCOL_PLATFORM_UNSUPPORTED` means notification click-to-resume is unavailable, not that the CLI is unusable. Start chat from the terminal. `displayVerified: false` does not prove that a notification was seen.
+
+### Apple archive warnings in older packages
+
+Older macOS-built archives included `LIBARCHIVE.xattr.com.apple.provenance` metadata. GNU tar may warn repeatedly while still extracting the program successfully. Check the final installer status and executable version. Version 0.5.13 excludes these Apple attributes at packaging time; it retains program and Skill files. Actual checksum errors, unexpected EOF or disk-space failures must still be fixed.
 
 ## 4. Configure a model
 
@@ -88,6 +120,8 @@ koder model test --tools
 ```
 
 These checks call the selected provider and may incur usage charges. A working connection does not grant computer permissions. If protected credential storage is unavailable, check the session keyring described below; do not save secrets in a project or run Koder as root.
+
+After setup exits, run `koder` (or the full path). Wait for `koder >`, then ask for a short reply before starting a file task. At an idle chat prompt, `/exit` returns to the system shell.
 
 ## 5. Complete a file task and a website
 
@@ -240,7 +274,7 @@ Tool rounds remain unlimited by default; explicit cost budgets, cancellation, ap
 | Installer-script download failed | Rerun the full command with `&&`; do not execute a stale temporary file. |
 | Interrupted archive download | Rerun the same installer to resume. Keep TLS and SHA-256 verification enabled. |
 | Command missing / old version | Reopen the terminal, inspect PATH and `type -a koder`. |
-| Task keeps waiting | Verify 0.5.12, watch the ten-second wait feedback, then check the selected provider. |
+| Task keeps waiting | Verify 0.5.13, watch the ten-second wait feedback, then check the selected provider. |
 | `API_HEADERS_TIMEOUT` | The provider may still be generating; avoid submitting duplicate work. |
 | Keyring unavailable | Check secret-tool, the session bus and keyring unlock; do not use root. |
 | `COMPUTER_NO_DESKTOP_SESSION` | Use the signed-in desktop terminal or continue with CLI file tasks. |
@@ -250,7 +284,7 @@ Tool rounds remain unlimited by default; explicit cost budgets, cancellation, ap
 | Mail `STORAGE_BUSY` | Inspect mail and monitor status; do not delete credential stores or locks. |
 | Notification submitted but unseen | Check notification center, Do Not Disturb and app settings. |
 
-Task response headers have a default **180-second** deadline in 0.5.12. Response-body idle limits, total request limits, shell deadlines, download limits and quick model diagnostics are separate. For a confirmed slow provider, set this before starting Koder:
+Task response headers have a default **180-second** deadline in 0.5.13. Response-body idle limits, total request limits, shell deadlines, download limits and quick model diagnostics are separate. For a confirmed slow provider, set this before starting Koder:
 
 ```bash
 export KODER_API_HEADERS_TIMEOUT_MS=600000
@@ -276,20 +310,33 @@ Keep the connection open and visit `http://127.0.0.1:8080` locally. This does no
 To inspect a manual download, place `SHA256SUMS` and the Linux archive from the same release in one directory:
 
 ```bash
-sha256sum koder-cli-0.5.12-linux.tgz
-grep 'koder-cli-0.5.12-linux.tgz' SHA256SUMS
+sha256sum koder-cli-0.5.13-linux.tgz
+grep 'koder-cli-0.5.13-linux.tgz' SHA256SUMS
 ```
 
 The digests must match. The `.tgz` is not a `.deb` or double-click installer. Normal installations use the script above.
 
 ## 12. Evidence and further reading
 
-The [0.5.12 task workflow](https://github.com/KarmenLoop/koder-cli/actions/runs/40555216774) passed on x64 and ARM64 with the final package in a real PTY: a local API waited 20 seconds, with one request, visible wait feedback and a final reply. This is not a live-provider quality test.
+Use the release's [ACCEPTANCE-RESULTS.json](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/ACCEPTANCE-RESULTS.json) for the exact package hash and platform results. Installation, PATH recovery, archive metadata, slow-response PTY, desktop controls and notifications are checked separately.
 
-The [desktop and installation matrix](https://github.com/KarmenLoop/koder-cli/actions/runs/40555225654) checks hashes, managed Node, reinstall preservation, real GTK controls, notifications and headless fallback. At this documentation update, ARM64 X11/Wayland and x64 X11 passed; x64 Wayland was still running. Check the run for its final state. The [release acceptance record](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/ACCEPTANCE-RESULTS.json) retains the publication-time results.
+The [0.5.12 task run](https://github.com/KarmenLoop/koder-cli/actions/runs/40555216774) and [0.5.12 desktop matrix](https://github.com/KarmenLoop/koder-cli/actions/runs/40555225654) are historical baselines. All four desktop jobs passed after retrying an x64 Wayland dependency-download timeout; the initial failure is retained. These results do not certify the 0.5.13 package.
 
 Xvfb/headless Sway do not certify physical GNOME, reboot behavior, every GPU or every app. Earlier 0.5.8 GI text-interface failures remain recorded; the fix uses interface-qualified calls with empty-input, label and password regressions. Compare package hashes when reviewing runs.
 
 Continue with [Start here](START-HERE.en.md), [the English course](courses/README.en.md), [the 1,800-lesson Chinese classroom](courses/README.zh.md), [the user guide](USER-GUIDE.en.md) or [download recovery](DOWNLOADS.md). GitHub does not execute classroom HTML in a file view; use `koder learn` or the classroom's local-opening instructions.
 
 OS references: [Ubuntu Desktop documentation](https://documentation.ubuntu.com/desktop/) and [Ubuntu release cycle](https://ubuntu.com/about/release-cycle).
+
+## First-use checklist
+
+1. Install and either skip or explicitly enable the background service.
+2. Start the full executable path and verify the version; fix PATH only if needed.
+3. Save model configuration, test it and open chat separately.
+4. Create a file in an isolated project, then read it in another terminal.
+5. Complete a website, answer the requirements questions and open the actual preview URL.
+6. Test steering, queueing and cancellation without repeating completed effects.
+7. Enable desktop, mail or GitHub access only for the feature you want to test. Verify each result independently.
+8. Exit with `/exit`, reopen the same project and check that files and settings remain.
+
+Release-specific proof is in [ACCEPTANCE-RESULTS.json](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/ACCEPTANCE-RESULTS.json), keyed by archive hash. The linked 0.5.12 runs are historical comparisons, not 0.5.13 verification. The initial 0.5.12 x64 Wayland dependency timeout was retained; its rerun passed. Physical desktop sessions, reboots and real accounts need their own evidence.

@@ -1,3 +1,7 @@
+## 0.5.13 learning startup update
+
+Full and platform archives retain every supported capability. Only learning transaction directory syncs are batched; individual file durability and recovery remain intact. See [release notes](docs/RELEASE-0.5.13.md).
+
 ## 0.5.12 Ubuntu reliability update
 
 Complete platform runtime packages are retained. Download progress and response-header handling change; no Skills or runtime capabilities are removed. Private source is not added to the public repository. See [release notes](docs/RELEASE-0.5.12.md).
