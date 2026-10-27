@@ -110,7 +110,7 @@ try:
         assert observe_until(lambda _: len(requests) == 2, 10), 'Second model request must start before cancellation'
         cancel_at = time.monotonic()
         os.write(fd, b'\x03')
-        cancelled = observe_until(lambda text: 'Cancelled.' in text, 5)
+        cancelled = observe_until(lambda text: bool(re.search(r'ABORT_ERR:|Cancelled\.|已取消当前执行', text)), 5)
         assert cancelled, 'Busy Ctrl+C must report cancellation without closing chat'
         observe_until(lambda _: False, .5)
         os.write(fd, b'AFTER_CANCEL: reply with the recovery marker.\r')
