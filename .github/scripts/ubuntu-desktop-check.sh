@@ -45,6 +45,11 @@ def walk(node):
     states=node.get_state_set()
     password=node.get_role()==Atspi.Role.PASSWORD_TEXT
     rows.append({'name':'[protected input]' if password else node.get_name(),'role':node.get_role_name(),'interfaces':list(node.get_interfaces()),'enabled':states.contains(Atspi.StateType.ENABLED),'sensitive':states.contains(Atspi.StateType.SENSITIVE)})
+    if not password and 'Text' in node.get_interfaces():
+        count=Atspi.Text.get_character_count(node)
+        try:rows[-1]['boundText']=node.get_text_iface().get_text(0,count)
+        except Exception as error:rows[-1]['boundTextError']=str(error)
+        rows[-1]['interfaceText']=Atspi.Text.get_text(node,0,count)
     for i in range(min(node.get_child_count(),100)):walk(node.get_child_at_index(i))
 for i in range(desktop.get_child_count()):
     app=desktop.get_child_at_index(i)
