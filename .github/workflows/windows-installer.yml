@@ -19,6 +19,8 @@ env:
   PYTHONUTF8: '1'
 jobs:
   windows-vm:
+    permissions:
+      contents: write # GitHub requires this to read draft release assets; the job does not upload.
     if: inputs.phase == 'windows-vm-install' || inputs.phase == 'windows-vm-runtime' || inputs.phase == 'windows-vm-diagnose'
     runs-on: windows-2025
     timeout-minutes: 30
@@ -67,6 +69,7 @@ jobs:
             vm-results/*.json
             vm-results/*.log
             vm-results/*.tap
+            vm-results/*.png
             vm-results/*/terminal.log
             vm-results/*/version.log
             vm-results/*/preserved-version.log
