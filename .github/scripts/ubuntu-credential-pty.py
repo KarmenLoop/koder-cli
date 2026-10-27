@@ -27,7 +27,7 @@ def exercise(script, cancel=False):
                 except OSError:break
                 if not chunk:break
                 buf+=chunk
-                if not sent and b'[sudo]' in buf and b'password' in buf.lower():
+                if not sent and re.search(rb'(?i)password[^\r\n]*:\s*$',buf):
                     if not cancel:os.write(fd,(password+'\n').encode())
                     sent=True
             got,status=os.waitpid(pid,os.WNOHANG)
@@ -36,10 +36,10 @@ def exercise(script, cancel=False):
             got,status=os.waitpid(pid,os.WNOHANG)
             assert got, 'Native sudo fixture timed out'
     finally:
+        (out/('credential-native-cancel.log' if cancel else 'credential-native-success.log')).write_bytes(buf.replace(password.encode(),b'[REDACTED]'))
         if not got:
             os.kill(pid,signal.SIGKILL);os.waitpid(pid,0)
         os.close(fd)
-    (out/('credential-native-cancel.log' if cancel else 'credential-native-success.log')).write_bytes(buf.replace(password.encode(),b'[REDACTED]'))
     assert sent, 'Native sudo did not ask for the fixture password; inspect the sanitized fixture transcript'
     assert password.encode() not in buf, 'The password was echoed'
     text=buf.decode(errors='replace')
@@ -72,7 +72,8 @@ try:
         rows.append(exercise(script));rows.append(exercise(script,True))
     passed=True
 finally:
-    if rule.exists():command(['sudo','rm','--',str(rule)])
-    if created:subprocess.run(['sudo','userdel','--remove',user],capture_output=True)
     (out/'credential-native-pty.json').write_text(json.dumps({'passed':locals().get('passed',False),'rows':rows,'customerCredentials':'NOT_USED','scope':'ephemeral VM fixture user'},indent=2)+'\n')
+    if created:
+        command(['sudo','rm','-f','--',str(rule)])
+        command(['sudo','userdel','--remove',user])
 print('Native credential PTY checks passed')
