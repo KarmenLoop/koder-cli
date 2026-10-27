@@ -1,8 +1,8 @@
-# Ubuntu 24.x 完整版使用说明
+# Ubuntu 24.04 LTS 完整版使用说明
 
 Ubuntu 与 Windows、macOS 使用同一份完整 Koder CLI 运行包，不是精简版。0.5.8 补入 Linux AT-SPI 图形控件驱动，沿用现有 `computer_*` 工具、电脑授权和执行审批。
 
-适配目标包括 Ubuntu 24.04 LTS 的 24.04.x 点版本及 24.10，架构为 x64/ARM64，桌面通道覆盖 X11/Wayland。24.10 已于 2025-07-10 停止 Ubuntu 官方维护；兼容不等于恢复系统安全支持。新设备优先使用 24.04 LTS。不同点版本的内核、显卡及所有 Ubuntu 衍生桌面没有逐一认证。
+本轮适配范围固定为 Ubuntu 24.04 LTS 的 24.04.x 点版本，架构为 x64/ARM64，桌面通道覆盖 X11/Wayland。按最新产品范围，24.10 不再推进。不同点版本的内核、显卡及所有 Ubuntu 衍生桌面没有逐一认证。
 
 ## 安装、升级和完整功能
 
@@ -48,6 +48,6 @@ koder deactivate
 
 ## 验收怎么读
 
-GitHub 的 `Ubuntu full runtime and accessible desktop` 流程检查完整包哈希、托管 Node 安装、重装保留配置、真实 GTK 控件输入/点击/结果观察，以及通知提交和无桌面降级。矩阵为 24.04 x64/ARM64 × X11/Wayland，并在隔离容器补 24.10 用户空间。只操作专用测试应用，不连接真人邮箱。
+GitHub 的 `Ubuntu full runtime and accessible desktop` 流程检查完整包哈希、托管 Node 安装、重装保留配置、真实 GTK 控件输入/点击/结果观察，以及通知提交和无桌面降级。矩阵为 Ubuntu 24.04 x64/ARM64 × X11/Wayland。只操作专用测试应用，不连接真人邮箱。
 
-本机 macOS 的 Linux 注入测试只是契约验证。真实矩阵结果以该次 GitHub run 的 `runtime.json`、`desktop.json` 为准；没有成功回执的格子仍为 `NOT_RUN`。Xvfb/无头 Weston 不能代替物理 GNOME 显示、用户重登/重启、全部显卡或所有应用。完整边界和官方系统维护来源见 [英文说明](UBUNTU.md)。
+本机 macOS 的 Linux 注入测试只是契约验证。真实矩阵结果以该次 GitHub run 的 `runtime.json`、`desktop.json` 为准；未运行的格子为 `NOT_RUN`，已经失败的记录保留 `FAIL`，不被后续通过结果覆盖。首个 0.5.8 草稿包实测发现 GI 文本接口同名冲突，导致输入框被跳过；修复采用明确的 Text 接口调用，并回归空输入框、文字标签与密码隐藏。请核对每次运行的安装包 SHA-256，区分修复前后的构建。Xvfb/无头 Weston 不能代替物理 GNOME 显示、用户重登/重启、全部显卡或所有应用。完整边界和官方系统维护来源见 [英文说明](UBUNTU.md)。

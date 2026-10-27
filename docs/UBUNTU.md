@@ -1,4 +1,4 @@
-# Ubuntu 24.x
+# Ubuntu 24.04 LTS
 
 Koder CLI uses the same complete runtime archive on Linux, macOS and Windows. Ubuntu does not get a reduced edition. Version 0.5.8 adds a native AT-SPI desktop adapter to the existing computer tool and permission path.
 
@@ -7,11 +7,10 @@ Koder CLI uses the same complete runtime archive on Linux, macOS and Windows. Ub
 | Environment | Target | Evidence boundary |
 | --- | --- | --- |
 | Ubuntu 24.04 LTS, including its 24.04.x point releases | x86-64 and ARM64; CLI, server and desktop | The point releases share this runtime path. Each kernel, GPU and installed desktop combination is not individually certified. |
-| Ubuntu 24.10 | x86-64 and ARM64 compatibility | Ubuntu ended support on July 10, 2025. Koder compatibility does not restore OS security maintenance. Prefer 24.04 LTS. |
 | X11 and Wayland | Accessible application controls via AT-SPI | No X11-only keyboard injector is required. Applications must expose accessible controls. |
 | SSH, containers and headless servers | Full CLI task engine | Desktop operations report `COMPUTER_NO_DESKTOP_SESSION`; notifications report `NO_NOTIFICATION_SESSION`. No GUI success is invented. |
 
-Canonical references: [Ubuntu release cycle](https://ubuntu.com/about/release-cycle) and [24.10 end-of-life announcement](https://lists.ubuntu.com/archives/ubuntu-announce/2025-July/000314.html).
+The current compatibility scope is Ubuntu 24.04 LTS. Ubuntu 24.10 is outside this release scope. See the [Ubuntu release cycle](https://ubuntu.com/about/release-cycle) for OS maintenance information.
 
 ## Install the full runtime
 
@@ -80,6 +79,6 @@ koder deactivate
 
 ## Reproducible acceptance
 
-The public `Ubuntu full runtime and accessible desktop` GitHub Actions workflow downloads an exact release, verifies its archive and kernel hashes, tests managed-Node installation and configuration-preserving reinstallation, then operates an owned GTK application through the real Python/AT-SPI transport. Its matrix covers x64/ARM64 and X11/Wayland on 24.04 runners, plus isolated 24.10 userspace containers. It also checks a notification submission and the explicit headless-unavailable result. It does not use a real mailbox, cloud model account or user application.
+The public `Ubuntu full runtime and accessible desktop` GitHub Actions workflow downloads an exact release, verifies its archive and kernel hashes, tests managed-Node installation and configuration-preserving reinstallation, then operates an owned GTK application through the real Python/AT-SPI transport. Its matrix covers x64/ARM64 and X11/Wayland on Ubuntu 24.04 runners. It also checks a notification submission and the explicit headless-unavailable result. It does not use a real mailbox, cloud model account or user application.
 
-Source tests run on macOS with injected Linux backends; those are contract checks, not Ubuntu GUI acceptance. See the exact workflow run and its `runtime.json`/`desktop.json` artifacts for actual results. Before a successful matrix receipt exists, each Linux runtime/desktop matrix cell is `NOT_RUN`. Headless Weston/Xvfb results do not establish a physical GNOME session, screen appearance, reboot/login startup, all Ubuntu flavors or all application controls. Those remain separate device acceptance items. An unavailable cell must not be summarized as a full-platform pass.
+Source tests run on macOS with injected Linux backends; those are contract checks, not Ubuntu GUI acceptance. See the exact workflow run and its `runtime.json`/`desktop.json` artifacts for actual results. A cell without a runtime receipt is `NOT_RUN`; a recorded failing run remains `FAIL` even after a later build passes. The first 0.5.8 draft exposed a GI text-interface name collision that hid editable controls. The corrected adapter uses interface-qualified text calls; a regression preserves empty inputs, readable labels and protected-password handling. Check the archive SHA-256 in each later run to identify the tested build. Headless Weston/Xvfb results do not establish a physical GNOME session, screen appearance, reboot/login startup, all Ubuntu flavors or all application controls. Those remain separate device acceptance items. An unavailable cell must not be summarized as a full-platform pass.

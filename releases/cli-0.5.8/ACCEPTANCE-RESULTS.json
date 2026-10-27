@@ -1,27 +1,27 @@
 {
   "version": "0.5.8",
-  "privateSourceCommit": "5d19f3f1e33afe6c9d60ec7c9e14a191edd922e2",
+  "privateSourceCommit": "7e1d452677ba2f917fb00a56be7e5a583a51017f",
   "runtime": {
     "file": "koder-cli-0.5.8.tgz",
-    "sha256": "e47cb5ccaa4ca19a6fa4992af3334c5b2a4b2deadc8da445a0b63568ab8068e9",
-    "bytes": 512089420
+    "sha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
+    "bytes": 512089493
   },
   "validation": {
     "sourceRegression": {
-      "sourceCommit": "5d19f3f1e33afe6c9d60ec7c9e14a191edd922e2",
+      "sourceCommit": "7e1d452677ba2f917fb00a56be7e5a583a51017f",
       "exitCode": 0,
-      "tests": 1944,
-      "pass": 1923,
+      "tests": 1945,
+      "pass": 1924,
       "fail": 0,
       "cancelled": 0,
       "skipped": 21
     },
     "packagedRuntime": {
       "passed": true,
-      "sourceCommit": "5d19f3f1e33afe6c9d60ec7c9e14a191edd922e2",
+      "sourceCommit": "7e1d452677ba2f917fb00a56be7e5a583a51017f",
       "tests": {
-        "tests": 368,
-        "pass": 368,
+        "tests": 369,
+        "pass": 369,
         "fail": 0,
         "cancelled": 0,
         "skipped": 0
@@ -506,17 +506,15 @@
       "sameFullRuntime": true,
       "platforms": [
         "24.04 x64",
-        "24.04 ARM64",
-        "24.10 x64",
-        "24.10 ARM64"
+        "24.04 ARM64"
       ],
       "desktops": [
         "X11",
         "Wayland"
       ],
       "localContractTests": {
-        "tests": 5,
-        "pass": 5,
+        "tests": 6,
+        "pass": 6,
         "fail": 0,
         "cancelled": 0,
         "skipped": 0
@@ -525,12 +523,445 @@
       "workflow": ".github/workflows/ubuntu-compat.yml",
       "laterReceipts": "See the exact GitHub Actions run and runtime.json/desktop.json artifacts. A later workflow result supplements, and does not rewrite, this packaging-time record.",
       "physicalGNOMELoginReboot": "NOT_RUN",
-      "scope": "Native AT-SPI accessible controls, not pixel automation, canvas-only widgets or locked-screen operation. 24.10 is EOL; compatibility is not renewed OS support."
+      "scope": "Native AT-SPI accessible controls, not pixel automation, canvas-only widgets or locked-screen operation. Ubuntu 24.10 is outside the user-selected scope.",
+      "finalArchiveRun": {
+        "run": "40501647563",
+        "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40501647563",
+        "headSha": "2cfebcd193a9d483f92e9377af166b97609e9db3",
+        "runtimeSha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
+        "passed": true,
+        "cells": [
+          {
+            "artifact": "ubuntu-ubuntu-24.04-arm-wayland",
+            "runtime": {
+              "passed": true,
+              "runtimeSha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
+              "version": "0.5.8",
+              "runs": [
+                {
+                  "name": "install",
+                  "exitCode": 0,
+                  "seconds": 13.3
+                },
+                {
+                  "name": "version",
+                  "exitCode": 0,
+                  "seconds": 0.045
+                },
+                {
+                  "name": "help",
+                  "exitCode": 0,
+                  "seconds": 0.179
+                },
+                {
+                  "name": "reinstall",
+                  "exitCode": 0,
+                  "seconds": 18.645
+                },
+                {
+                  "name": "memory-status",
+                  "exitCode": 0,
+                  "seconds": 0.153
+                },
+                {
+                  "name": "notification-status",
+                  "exitCode": 0,
+                  "seconds": 0.097
+                },
+                {
+                  "name": "agentd-status",
+                  "exitCode": 0,
+                  "seconds": 0.098
+                }
+              ],
+              "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+              "machine": "aarch64",
+              "sameFullRuntime": true,
+              "physicalLoginReboot": "NOT_RUN",
+              "liveProviderAccounts": "NOT_RUN"
+            },
+            "desktop": {
+              "platform": "linux",
+              "architecture": "arm64",
+              "inspection": {
+                "platform": "linux",
+                "kind": "desktop",
+                "backend": "at-spi",
+                "session": "wayland",
+                "captureKind": "accessibility",
+                "screenshotAvailable": false,
+                "available": true,
+                "actions": [
+                  "click",
+                  "type",
+                  "focus",
+                  "select",
+                  "scroll"
+                ],
+                "scope": "AT-SPI controls on the current user desktop; application support varies.",
+                "setup": "koder permissions request --capability desktop"
+              },
+              "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+              "desktop": {
+                "state": "PASS",
+                "typed": true,
+                "clicked": true,
+                "observedResult": true,
+                "passwordHidden": true,
+                "revocationChecked": true,
+                "staleNotReplayed": true,
+                "authorizations": 16
+              },
+              "notification": {
+                "state": "submitted",
+                "reason": "NOTIFICATION_SUBMITTED",
+                "displayVerified": false,
+                "clickSupported": false,
+                "headless": {
+                  "state": "unavailable",
+                  "reason": "NO_NOTIFICATION_SESSION",
+                  "displayVerified": false,
+                  "clickSupported": false
+                },
+                "physicalDisplay": "NOT_RUN"
+              },
+              "passed": true
+            },
+            "passed": true
+          },
+          {
+            "artifact": "ubuntu-ubuntu-24.04-arm-x11",
+            "runtime": {
+              "passed": true,
+              "runtimeSha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
+              "version": "0.5.8",
+              "runs": [
+                {
+                  "name": "install",
+                  "exitCode": 0,
+                  "seconds": 14.189
+                },
+                {
+                  "name": "version",
+                  "exitCode": 0,
+                  "seconds": 0.043
+                },
+                {
+                  "name": "help",
+                  "exitCode": 0,
+                  "seconds": 0.162
+                },
+                {
+                  "name": "reinstall",
+                  "exitCode": 0,
+                  "seconds": 15.997
+                },
+                {
+                  "name": "memory-status",
+                  "exitCode": 0,
+                  "seconds": 0.147
+                },
+                {
+                  "name": "notification-status",
+                  "exitCode": 0,
+                  "seconds": 0.096
+                },
+                {
+                  "name": "agentd-status",
+                  "exitCode": 0,
+                  "seconds": 0.093
+                }
+              ],
+              "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+              "machine": "aarch64",
+              "sameFullRuntime": true,
+              "physicalLoginReboot": "NOT_RUN",
+              "liveProviderAccounts": "NOT_RUN"
+            },
+            "desktop": {
+              "platform": "linux",
+              "architecture": "arm64",
+              "inspection": {
+                "platform": "linux",
+                "kind": "desktop",
+                "backend": "at-spi",
+                "session": "x11",
+                "captureKind": "accessibility",
+                "screenshotAvailable": false,
+                "available": true,
+                "actions": [
+                  "click",
+                  "type",
+                  "focus",
+                  "select",
+                  "scroll"
+                ],
+                "scope": "AT-SPI controls on the current user desktop; application support varies.",
+                "setup": "koder permissions request --capability desktop"
+              },
+              "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+              "desktop": {
+                "state": "PASS",
+                "typed": true,
+                "clicked": true,
+                "observedResult": true,
+                "passwordHidden": true,
+                "revocationChecked": true,
+                "staleNotReplayed": true,
+                "authorizations": 16
+              },
+              "notification": {
+                "state": "submitted",
+                "reason": "NOTIFICATION_SUBMITTED",
+                "displayVerified": false,
+                "clickSupported": false,
+                "headless": {
+                  "state": "unavailable",
+                  "reason": "NO_NOTIFICATION_SESSION",
+                  "displayVerified": false,
+                  "clickSupported": false
+                },
+                "physicalDisplay": "NOT_RUN"
+              },
+              "passed": true
+            },
+            "passed": true
+          },
+          {
+            "artifact": "ubuntu-ubuntu-24.04-wayland",
+            "runtime": {
+              "passed": true,
+              "runtimeSha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
+              "version": "0.5.8",
+              "runs": [
+                {
+                  "name": "install",
+                  "exitCode": 0,
+                  "seconds": 17.144
+                },
+                {
+                  "name": "version",
+                  "exitCode": 0,
+                  "seconds": 0.047
+                },
+                {
+                  "name": "help",
+                  "exitCode": 0,
+                  "seconds": 0.187
+                },
+                {
+                  "name": "reinstall",
+                  "exitCode": 0,
+                  "seconds": 17.471
+                },
+                {
+                  "name": "memory-status",
+                  "exitCode": 0,
+                  "seconds": 0.131
+                },
+                {
+                  "name": "notification-status",
+                  "exitCode": 0,
+                  "seconds": 0.106
+                },
+                {
+                  "name": "agentd-status",
+                  "exitCode": 0,
+                  "seconds": 0.103
+                }
+              ],
+              "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+              "machine": "x86_64",
+              "sameFullRuntime": true,
+              "physicalLoginReboot": "NOT_RUN",
+              "liveProviderAccounts": "NOT_RUN"
+            },
+            "desktop": {
+              "platform": "linux",
+              "architecture": "x64",
+              "inspection": {
+                "platform": "linux",
+                "kind": "desktop",
+                "backend": "at-spi",
+                "session": "wayland",
+                "captureKind": "accessibility",
+                "screenshotAvailable": false,
+                "available": true,
+                "actions": [
+                  "click",
+                  "type",
+                  "focus",
+                  "select",
+                  "scroll"
+                ],
+                "scope": "AT-SPI controls on the current user desktop; application support varies.",
+                "setup": "koder permissions request --capability desktop"
+              },
+              "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+              "desktop": {
+                "state": "PASS",
+                "typed": true,
+                "clicked": true,
+                "observedResult": true,
+                "passwordHidden": true,
+                "revocationChecked": true,
+                "staleNotReplayed": true,
+                "authorizations": 16
+              },
+              "notification": {
+                "state": "submitted",
+                "reason": "NOTIFICATION_SUBMITTED",
+                "displayVerified": false,
+                "clickSupported": false,
+                "headless": {
+                  "state": "unavailable",
+                  "reason": "NO_NOTIFICATION_SESSION",
+                  "displayVerified": false,
+                  "clickSupported": false
+                },
+                "physicalDisplay": "NOT_RUN"
+              },
+              "passed": true
+            },
+            "passed": true
+          },
+          {
+            "artifact": "ubuntu-ubuntu-24.04-x11",
+            "runtime": {
+              "passed": true,
+              "runtimeSha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
+              "version": "0.5.8",
+              "runs": [
+                {
+                  "name": "install",
+                  "exitCode": 0,
+                  "seconds": 16.466
+                },
+                {
+                  "name": "version",
+                  "exitCode": 0,
+                  "seconds": 0.051
+                },
+                {
+                  "name": "help",
+                  "exitCode": 0,
+                  "seconds": 0.186
+                },
+                {
+                  "name": "reinstall",
+                  "exitCode": 0,
+                  "seconds": 16.43
+                },
+                {
+                  "name": "memory-status",
+                  "exitCode": 0,
+                  "seconds": 0.125
+                },
+                {
+                  "name": "notification-status",
+                  "exitCode": 0,
+                  "seconds": 0.107
+                },
+                {
+                  "name": "agentd-status",
+                  "exitCode": 0,
+                  "seconds": 0.103
+                }
+              ],
+              "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+              "machine": "x86_64",
+              "sameFullRuntime": true,
+              "physicalLoginReboot": "NOT_RUN",
+              "liveProviderAccounts": "NOT_RUN"
+            },
+            "desktop": {
+              "platform": "linux",
+              "architecture": "x64",
+              "inspection": {
+                "platform": "linux",
+                "kind": "desktop",
+                "backend": "at-spi",
+                "session": "x11",
+                "captureKind": "accessibility",
+                "screenshotAvailable": false,
+                "available": true,
+                "actions": [
+                  "click",
+                  "type",
+                  "focus",
+                  "select",
+                  "scroll"
+                ],
+                "scope": "AT-SPI controls on the current user desktop; application support varies.",
+                "setup": "koder permissions request --capability desktop"
+              },
+              "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+              "desktop": {
+                "state": "PASS",
+                "typed": true,
+                "clicked": true,
+                "observedResult": true,
+                "passwordHidden": true,
+                "revocationChecked": true,
+                "staleNotReplayed": true,
+                "authorizations": 16
+              },
+              "notification": {
+                "state": "submitted",
+                "reason": "NOTIFICATION_SUBMITTED",
+                "displayVerified": false,
+                "clickSupported": false,
+                "headless": {
+                  "state": "unavailable",
+                  "reason": "NO_NOTIFICATION_SESSION",
+                  "displayVerified": false,
+                  "clickSupported": false
+                },
+                "physicalDisplay": "NOT_RUN"
+              },
+              "passed": true
+            },
+            "passed": true
+          }
+        ],
+        "scope": "Hosted Ubuntu 24.04, x64/ARM64, Xvfb/headless Sway. Actual managed Node installation, native AT-SPI control and notification submission. Synthetic grant and application; not physical desktop/login/reboot or live provider accounts. Ubuntu 24.10 was removed from scope by the user; its prior failed run is retained.",
+        "physicalGNOME": "NOT_RUN",
+        "perPointReleaseHardware": "NOT_RUN"
+      },
+      "priorFailedRuns": [
+        {
+          "run": "40497389584",
+          "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40497389584",
+          "runtimeSha256": "e47cb5ccaa4ca19a6fa4992af3334c5b2a4b2deadc8da445a0b63568ab8068e9",
+          "state": "FAIL",
+          "reason": "Editable controls were skipped by the GI Text dispatch collision. The first run also retained a removed 24.10 test-harness failure."
+        },
+        {
+          "run": "40498054551",
+          "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40498054551",
+          "runtimeSha256": "e47cb5ccaa4ca19a6fa4992af3334c5b2a4b2deadc8da445a0b63568ab8068e9",
+          "state": "FAIL",
+          "reason": "Editable controls were skipped by the GI Text dispatch collision. The first run also retained a removed 24.10 test-harness failure."
+        },
+        {
+          "run": "40498519387",
+          "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40498519387",
+          "runtimeSha256": "e47cb5ccaa4ca19a6fa4992af3334c5b2a4b2deadc8da445a0b63568ab8068e9",
+          "state": "FAIL",
+          "reason": "Editable controls were skipped by the GI Text dispatch collision. The first run also retained a removed 24.10 test-harness failure."
+        },
+        {
+          "run": "40500958281",
+          "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40500958281",
+          "runtimeSha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
+          "state": "FAIL",
+          "reason": "All four native accessible-control paths passed. Wayland notification submission failed because headless Weston lacks mako layer-shell support; the public runner recipe now uses headless Sway. This is a test-environment correction, not a runtime change."
+        }
+      ]
     }
   },
   "notRun": [
     "Windows 10/11 device installation, update, Windows-MCP GUI and Toast: beta device track.",
-    "Actual Ubuntu runtime/desktop matrix at packaging time: NOT_RUN. Separate later GitHub Actions artifacts record actual results.",
     "Physical Ubuntu desktop appearance, every 24.04 point-release/kernel/GPU combination, systemd login/reboot and locked-screen operation.",
     "Live 163 authentication, external SMTP service and recipient delivery; synthetic local TLS accounts only.",
     "User-visible OS notifications and click-to-resume on all platforms.",
@@ -546,13 +977,13 @@
   "priorFailuresRetained": true,
   "websiteChanged": false,
   "evidenceSha256": {
-    "source-058-final-4.receipt.json": "cac0f99c48f9f4b5e8b2586acc7ff45ec97ee5426e71413a8d0655630518f502",
-    "source-058-final-4.txt": "b3f721d5977dcc7e223379a3b76c822a70b0e95bc09ad46e575bda4d4cfbe1f1",
-    "package-check.json": "4f41eec181723b288e5c294541dd555c19868162c27e298c237a148fabf378ac",
-    "package-runtime-inventory.json": "85c00a6460773a5e27aebccc82af942599812d2b76b47635b86f268c6de0eafe",
-    "package-core-tests.json": "455a911ef523e6197f5e9cace677d340401c280e5ea8474935da0db9c9374ddb",
-    "package-core-tests.log": "f0025cef99aae220dfb580ffc734f7bcc2d197a2894dbbe76a2c108f9fa537a6",
-    "local-upgrade.json": "eb3828db84c20300bb28f9ba558487a8664dfeeec4965e2cedd10ca722f11d18",
+    "source-058-final-5.receipt.json": "6f3e9044524ab7041cc9357ba0187e51040d4e790a2ac5eb3d0b4007db0eaf72",
+    "source-058-final-5.txt": "bac110b73ce5e855f48830b54a349709ac91a7fc7fc08699ea9c02687d359116",
+    "package-check.json": "3ed4478abb295873e16c4b599150cc5d4f4af31ace3123d09c30b2561b4e1665",
+    "package-runtime-inventory.json": "1891dde13469842b9384f90ef6a8c431c85e229f94ad8ee5a225df695bac2175",
+    "package-core-tests.json": "3dfebe6ade08c5c5abe5a7524834f771a96daf81f4357a861fce19e494dce06e",
+    "package-core-tests.log": "0423177e150a9390e41c9303f0673dfa6d7542d396a7cf960f5cdffe3c8fbf2e",
+    "local-upgrade.json": "1f3f04fb17526da6fe4c9322152a30119aa1bdd60e91da9cac21772e30300d3e",
     "recovery-green-final.txt": "4d050a017d1e373014bb75c28467edec2c20a4bec548c6d3001896cdb0fce45a",
     "visual-choice-final-green.txt": "65c0a9c3f86d66a20a03694d5ef42a13e13ffe9c299982f5164fc2b62127b3d5",
     "todo-revision-green.txt": "461ad467a421c08372b60e4039c622118cfe1f19439f3feade89ea6941b1b1ba",
@@ -565,10 +996,13 @@
     "completion-memory-red.txt": "e8f93426ca5aae8cfd3bca61cee620e530c2d0c483b6f463f76cfc940715fe26",
     "completion-memory-green.txt": "4908e39fb6cfb71ff34d3ceabe39aec970b4ed1baac4c7e5c978f1199a6c9f28",
     "ubuntu-adapter-final.txt": "e8f5e80f114cd40560658cc9d46a8f83cfb8495527dd0c1e3847cb3eef10a3d5",
+    "ubuntu-text-dispatch-red.txt": "13f07ae553af4411721a33dbf753e3b3324e3a2eacf6ba978c3d54614d7d6f02",
+    "ubuntu-text-dispatch-final-green.txt": "d29dcb4242a327ce224a19422b4c8ce2236ab8dee9e4bc4a5f27f934566d968a",
     "ubuntu-continuity-green.txt": "80f9044e23c08db7fde5f48e807fd55e34d6967da5d8fe966fa93995e6555d66",
     "completion-retry-red.txt": "d6305a8ac2f268aa5d3fe2f95bfe888dc5bc3851ca728472838710cb8edc2c6c",
     "completion-retry-green.txt": "56c389486061b7284589c99ce62fe2eb96dcae1f65ff2ac11b4172a9e7d7c967",
     "website-button-final-check.txt": "89649eae4b1d905642b21609b6da014cc8981fccae2d7cc8b1dd68732c7f97c3",
-    "website/browser/home-accepted.png": "abfda679e3aa9bdc9a9612fe9569364e9ab68c88d9ff5b7b63a3b7eeac666b91"
+    "website/browser/home-accepted.png": "abfda679e3aa9bdc9a9612fe9569364e9ab68c88d9ff5b7b63a3b7eeac666b91",
+    "ubuntu-matrix-40501647563.json": "0e824a2e95b5a3eaf97722f538785f6f45015a5bc2a8959060902a71a36adc7b"
   }
 }

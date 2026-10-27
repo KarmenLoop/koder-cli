@@ -1,10 +1,10 @@
 {
   "version": "0.5.8",
   "file": "koder-cli-0.5.8.tgz",
-  "sha256": "e47cb5ccaa4ca19a6fa4992af3334c5b2a4b2deadc8da445a0b63568ab8068e9",
-  "size": 512089420,
+  "sha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
+  "size": 512089493,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-27T11:22:57.629Z",
+  "builtAt": "2026-10-27T11:58:33.966Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -27,7 +27,7 @@
   },
   "channel": "stable",
   "sourceBaseline": "0.5.7",
-  "privateSourceCommit": "5d19f3f1e33afe6c9d60ec7c9e14a191edd922e2",
+  "privateSourceCommit": "7e1d452677ba2f917fb00a56be7e5a583a51017f",
   "changes": [
     "Recover durable pending mail reminders through the existing daemon ledger",
     "Preserve uncertain SMTP effect receipts in task results",
@@ -75,7 +75,6 @@
     "SMTP acceptance does not prove recipient delivery. UNKNOWN send results are not automatically replayed.",
     "Cancellation, approval gates and explicit cost budgets remain active; no fixed tool-step limit was reintroduced.",
     "Windows 10/11 device installation, update, Windows-MCP GUI and Toast: beta device track.",
-    "Actual Ubuntu runtime/desktop matrix at packaging time: NOT_RUN. Separate later GitHub Actions artifacts record actual results.",
     "Physical Ubuntu desktop appearance, every 24.04 point-release/kernel/GPU combination, systemd login/reboot and locked-screen operation.",
     "Live 163 authentication, external SMTP service and recipient delivery; synthetic local TLS accounts only.",
     "User-visible OS notifications and click-to-resume on all platforms.",
@@ -91,5 +90,23 @@
     "zh": 1800,
     "en": 30,
     "originalZhRetained": 180
+  },
+  "retainedLimitsContext": "This list retains historical limits from earlier releases. The exact-archive acceptance receipt records scoped new evidence; Ubuntu accessible controls and notification submission do not close physical desktop, notification visibility or login/reboot acceptance.",
+  "validationUpdates": {
+    "ubuntu24_04": {
+      "state": "PASS_ISOLATED_DESKTOP",
+      "architectures": [
+        "x64",
+        "ARM64"
+      ],
+      "sessions": [
+        "X11/Xvfb",
+        "Wayland/Sway"
+      ],
+      "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40501647563",
+      "runtimeSha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
+      "physicalDesktop": "NOT_RUN"
+    },
+    "ubuntu24_10": "OUT_OF_SCOPE"
   }
 }

@@ -8,7 +8,7 @@ Website layout choices made through an actual terminal question can now be recor
 
 Preview status, open and stop are scoped to the current process. When another process owns the preview, the CLI reports `not-owned` and an unknown external state instead of claiming that the site stopped. Todo revision conflicts explain which revision is current and how to reread it before retrying, without overwriting newer edits.
 
-Ubuntu uses the complete runtime, with a new AT-SPI adapter connected to the original computer authorization and execution path. The adapter can inspect and operate accessible application controls on X11 or Wayland; it does not provide pixel capture or lock-screen control. The test matrix covers 24.04 x64/ARM64 and isolated 24.10 userspace. See the [Ubuntu guide](UBUNTU.md) for dependencies, feature parity and precise test boundaries.
+Ubuntu uses the complete runtime, with a new AT-SPI adapter connected to the original computer authorization and execution path. The adapter can inspect and operate accessible application controls on X11 or Wayland; it does not provide pixel capture or lock-screen control. The test matrix covers Ubuntu 24.04 x64/ARM64 on X11 and Wayland. A GI text-interface collision found in the first draft is fixed so editable fields and labels remain visible. See the [Ubuntu guide](UBUNTU.md) for dependencies, feature parity and precise test boundaries.
 
 Website tasks that explicitly continue the current site retain verified file evidence. Root-bound completion state survives a memory round trip, and negative instructions such as “do not redo” no longer imply a redesign. Local code verification remains on the normal execution profile even when the request also mentions browser observations.
 
