@@ -35,7 +35,7 @@ for key in list(env):
     if key.upper() == 'PSMODULEPATH':
         del env[key]
 env['PSMODULEPATH'] = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/Modules')
-groups = ['task-step-budget.test.mjs', 'multi-window-session.test.mjs', 'mail-runtime-lifecycle.test.mjs', 'mail-background-recovery.test.mjs', 'mail-inbox-refresh.test.mjs', 'fixtures/mail-recovery-tls.mjs', 'native-mcp.test.mjs', 'native-shell.test.mjs', 'native-gui.test.mjs']
+groups = ['native-notification.test.mjs', 'task-step-budget.test.mjs', 'multi-window-session.test.mjs', 'mail-runtime-lifecycle.test.mjs', 'mail-background-recovery.test.mjs', 'mail-inbox-refresh.test.mjs', 'fixtures/mail-recovery-tls.mjs', 'native-mcp.test.mjs', 'native-shell.test.mjs', 'native-gui.test.mjs']
 if args.diagnose:
     groups = ['notification-diagnostic.mjs', 'native-gui.test.mjs']
 results = []
