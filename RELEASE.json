@@ -1,10 +1,10 @@
 {
-  "version": "0.5.9",
-  "file": "koder-cli-0.5.9.tgz",
-  "sha256": "d782b246bcb806672e0bdb74c771428f2791521532f017c78e49856ac65167da",
-  "size": 519985103,
+  "version": "0.5.10",
+  "file": "koder-cli-0.5.10.tgz",
+  "sha256": "24945ac4f9a60d61e4d82d1e59a8de4464be8279aa529c6f29064bf8eae103b5",
+  "size": 484327789,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-27T13:36:37.280Z",
+  "builtAt": "2026-10-27T15:05:33.343Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,88 +14,56 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "d96d9412955670acf6a4b3e99a917c97063ed20127c395df4cc90a7923b1aba5"
+      "sha256": "46189051d4180938a11abcd27d46c61660534e6182fcc81bc73f80ed628cc28c"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "625022ead63ab7752e751f3e890d5377af1e3f3f51d34a7225f40947232ec0dc"
+      "sha256": "e9a7b9fe2545d9e14056be4cf8e05265fe616ed45c1015eb963e2b87e95e0c8e"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "6171d2dd0c97dd3335cf2d9fc8bbb59b28fa99386d883ebc854fc2c3a6fa6298"
+      "sha256": "7624fc49c4f6ed5a8e874ddf8b0d4751622cbcf08447aaaed08618f1169eac9e"
+    },
+    "ubuntu": {
+      "file": "koder-ubuntu-24.04.sh",
+      "sha256": "aa1d9941b6c51865155206e77bb8ce7fddac9ceeb8e3d30fcdb5004447688e6f"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.8",
-  "privateSourceCommit": "6b9ecb7bd17001333244f64d6902867f9c19b61e",
+  "sourceBaseline": "0.5.8 published / 0.5.9 unpublished integration",
+  "privateSourceCommit": "649295ab75993291bf86e341e31bb9dff66c6d03",
   "changes": [
-    "Load bounded Personal Agent Growth 0.4.3 source excerpts by default",
-    "Retain all 61 pinned core resources and the existing native learning store",
-    "Supply typed native learning writes and current evidence references",
-    "Prioritize complete memory constraints under small context budgets",
-    "Expose the native delivery checker during code-task continuation",
-    "Respect read-only continuation requests after colon separators",
-    "Document curl prerequisites on fresh Ubuntu systems"
+    "Automatic platform archives for macOS and Linux",
+    "Persistent checksum-keyed downloads with bounded retries and cancellation",
+    "Removal of unused OCR data copies without changing selected models",
+    "Personal Agent Growth 0.4.3 default integration and prior delivery fixes",
+    "Dedicated Ubuntu 24.04 installer",
+    "Lower retained memory in the local Skill index"
   ],
   "retainedLimits": [
-    "Windows 10/11 native terminal, ConPTY, IME, cold install and update: beta-owned",
-    "Windows MCP GUI and Linux/Windows visible notifications",
-    "Paid-model task quality, private mailbox delivery and authenticated account writes",
-    "Unsigned macOS locked-use helper: signing and dedicated test Mac unavailable",
-    "Paid-model task quality and billing comparison",
-    "Windows 10/11 native cold installation, update and MCP GUI: beta-owned",
-    "Linux/Windows notification display and click activation",
-    "Live private mail and authenticated external account writes",
-    "Independent replacements for full Windows GUI, CAD geometry, REA disassembly and advanced CodeGraphContext analysis are not delivered",
-    "Existing outside-workspace homeRead and computerDriver capture/act cancellation propagation remains an independent follow-up; no complete desktop cancellation parity claim",
-    "Windows bundle license mapping audit found aiofile LICENCE naming and fastmcp-slim mapping gaps; original vendor bytes and supplied notices retained, not a claim of complete license clearance",
-    "Live paid MiniMax/OpenAI/Anthropic/Gemini/DeepSeek/GLM/Kimi/Grok/Qwen model calls and billing",
-    "Real mailbox delivery and authenticated external account writes",
-    "Native Windows 10/11 no-Node cold install/update, ConPTY/IME, Windows-MCP graphical operations and notifications; beta-owned",
-    "Linux desktop notifications and physical GUI acceptance",
-    "Signed macOS locked-use helper, Apple notarization and dedicated lock-screen acceptance",
-    "Native Windows 10/11 installation, Console/ConPTY/IME and Windows-MCP GUI; beta-owner track",
-    "Native Linux desktop and notification behavior",
-    "Paid-provider task quality and claimed learning improvement",
-    "Private mail, app, GitHub-account writes and multi-device library synchronization",
-    "Network-filesystem and multi-host learning-store concurrency",
-    "Unsigned macOS locked-use helper remains a separate candidate",
-    "Native Windows10/11 cold installation/update,Console/ConPTY/IME and Windows-MCP GUI;beta-owner track",
-    "Native Linux desktop/notifications and native notification visibility on all platforms",
-    "Paid-provider website,writing and coding quality blind tests",
-    "Agent-mediated private mailbox sends,GitHub account writes and third-party production actions",
-    "Rendered browser layout,accessibility and full website business acceptance for a model-generated site",
-    "Windows 10/11 device install/update, cold start, Windows-MCP GUI and Toast: beta track; not run on this macOS host.",
-    "Real 163 account authentication, service-provider delivery and recipient receipt: not run; synthetic mail traffic used a local TLS server.",
-    "Linux desktop notifications, macOS system notification display and click-to-resume: not verified in this release.",
-    "Unmodified short-prompt model-tier blind scores: not rerun.",
-    "Generated website production deployment, mobile and full keyboard-only acceptance: not run.",
-    "macOS locked-use native component remains an unsigned candidate; no Apple Developer signing or dedicated locked-use test host.",
-    "Website live evidence includes failed and resumed rounds; it is not a one-shot blind benchmark.",
-    "SMTP acceptance does not prove recipient delivery. UNKNOWN send results are not automatically replayed.",
-    "Cancellation, approval gates and explicit cost budgets remain active; no fixed tool-step limit was reintroduced.",
-    "Windows 10/11 device installation, update, Windows-MCP GUI and Toast: beta device track.",
-    "Physical Ubuntu desktop appearance, every 24.04 point-release/kernel/GPU combination, systemd login/reboot and locked-screen operation.",
-    "Live 163 authentication, external SMTP service and recipient delivery; synthetic local TLS accounts only.",
-    "User-visible OS notifications and click-to-resume on all platforms.",
-    "Generated website production deployment, mobile viewport and full keyboard-only acceptance.",
-    "Unmodified short-prompt model-quality benchmarks.",
-    "macOS locked-use native component remains an unsigned candidate.",
-    "Website live evidence includes failed, cancelled and repaired rounds; no one-shot full-site quality claim.",
-    "A lost SMTP acknowledgement remains uncertain and is not automatically replayed.",
-    "Cancellation, original permission gates, workspace isolation and explicit cost budgets remain active; default tool steps remain unlimited.",
-    "Windows 10/11 physical install/update and graphical operation: user beta team",
-    "Ubuntu physical GNOME, logout/reboot and arbitrary applications",
-    "Visible notification receipt on physical Windows, Linux or macOS desktops",
-    "New live mailbox-provider send/receive acceptance for this release",
-    "A fresh real-model website delivery trial against the final 0.5.9 archive",
-    "Signed/notarized macOS locked-screen native component remains an unsigned candidate",
-    "First-model startup remains above the original 1000 ms test threshold on this host; both 0.5.8 and 0.5.9 miss the same threshold."
+    "Physical Windows installation/GUI beta acceptance",
+    "Physical Ubuntu GNOME desktop, login and reboot",
+    "Visible notification display and clicks",
+    "Signed macOS locked-screen distribution",
+    "Real mail-provider send/receive against this exact archive",
+    "Prior first-model 1000ms startup benchmark exceeded on this host; original failed run and baseline comparison retained"
   ],
   "publicationAuthorization": "GitHub only; website excluded",
   "courseStatus": {
     "zh": 1800,
     "en": 30,
     "originalZhRetained": 180
+  },
+  "packages": {
+    "darwin": {
+      "file": "koder-cli-0.5.10-darwin.tgz",
+      "sha256": "92098c1e4efce501b93f73a5afe342eae2a4fff1565bbc1cf2c44547a4c8ee4b",
+      "size": 227990229
+    },
+    "linux": {
+      "file": "koder-cli-0.5.10-linux.tgz",
+      "sha256": "c4d02260a97c29dabb492966135ec5e7b50bc916e656a5ccf98ac9d90513f4ad",
+      "size": 150186300
+    }
   }
 }

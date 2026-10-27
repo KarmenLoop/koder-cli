@@ -1,3 +1,5 @@
+0.5.10 安装器自动选择 Linux 专用包；完整现行功能与课堂保留。[断点续传与简单安装](DOWNLOADS.zh.md)。
+
 # Ubuntu 24.04 LTS 完整版使用说明
 
 Ubuntu 与 Windows、macOS 使用同一份完整 Koder CLI 运行包，不是精简版。0.5.8 补入 Linux AT-SPI 图形控件驱动，沿用现有 `computer_*` 工具、电脑授权和执行审批。

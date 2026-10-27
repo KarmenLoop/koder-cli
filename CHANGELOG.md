@@ -1,3 +1,11 @@
+## 0.5.10
+
+- Select smaller platform archives on macOS and Linux without removing supported runtime capabilities.
+- Resume interrupted downloads across invocations, retry bounded failures, verify cached content, and preserve cancellation.
+- Remove unused OCR data-package duplicates while retaining the selected bilingual models and licensing.
+- Keep the complete offline archive and original update/consent contracts.
+
+
 # Changelog
 
 ## 0.5.9 — 2026-10-27

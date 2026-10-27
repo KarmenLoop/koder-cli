@@ -1,0 +1,273 @@
+{
+  "version": "0.5.10",
+  "privateSourceCommit": "649295ab75993291bf86e341e31bb9dff66c6d03",
+  "runtime": {
+    "file": "koder-cli-0.5.10.tgz",
+    "sha256": "24945ac4f9a60d61e4d82d1e59a8de4464be8279aa529c6f29064bf8eae103b5",
+    "size": 484327789
+  },
+  "platformArchives": {
+    "darwin": {
+      "file": "koder-cli-0.5.10-darwin.tgz",
+      "bytes": 227990229,
+      "sha256": "92098c1e4efce501b93f73a5afe342eae2a4fff1565bbc1cf2c44547a4c8ee4b",
+      "reductionPercent": 56.15,
+      "files": 21744,
+      "excludedPrefixes": [
+        "vendor/windows-mcp/win32-x64/",
+        "vendor/solidcraft/win32-x64/",
+        "docs/tutorials/"
+      ],
+      "onlyDeclaredExclusions": true,
+      "allRetainedFilesEqualFullArchive": true,
+      "unchangedSkillAndMethodFiles": 5792,
+      "growthResourcesUnchanged": 61,
+      "selectedOcrModelsUnchanged": true,
+      "currentClassroomRetained": true
+    },
+    "linux": {
+      "file": "koder-cli-0.5.10-linux.tgz",
+      "bytes": 150186300,
+      "sha256": "c4d02260a97c29dabb492966135ec5e7b50bc916e656a5ccf98ac9d90513f4ad",
+      "reductionPercent": 71.12,
+      "files": 21740,
+      "excludedPrefixes": [
+        "vendor/windows-mcp/win32-x64/",
+        "vendor/solidcraft/win32-x64/",
+        "docs/tutorials/",
+        "vendor/solidcraft/darwin-universal/"
+      ],
+      "onlyDeclaredExclusions": true,
+      "allRetainedFilesEqualFullArchive": true,
+      "unchangedSkillAndMethodFiles": 5792,
+      "growthResourcesUnchanged": 61,
+      "selectedOcrModelsUnchanged": true,
+      "currentClassroomRetained": true
+    }
+  },
+  "validation": {
+    "localTests": {
+      "download-ubuntu.tap": {
+        "tests": 25,
+        "pass": 25,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "sha256": "ff8d0441139340b07c5ff0ef0aaa18d399e067d03027d9d837b01d57e01821e1"
+      },
+      "skill-memory-regression.tap": {
+        "tests": 16,
+        "pass": 16,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "sha256": "c525041407f50cffa12cc612adfa496caf28ea7684dc9e35e6975793cfbace2e"
+      },
+      "functional-first.tap": {
+        "tests": 36,
+        "pass": 36,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "sha256": "090ba28a0e12b56ccd152c48f4da1a44dc64e303dda4f058aafea81da606d9c3"
+      },
+      "package-core-tests.log": {
+        "tests": 381,
+        "pass": 381,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "sha256": "bf933c09741f56ddaf8757ee10f0db41862eb7602e00853d17ab6a01b9c1df7f"
+      }
+    },
+    "macOSPackage": {
+      "passed": true,
+      "files": 21744,
+      "kernelFilesVerified": 6329,
+      "cliCommands": 61,
+      "siblingSourcePresent": false,
+      "runtimeSha256": "92098c1e4efce501b93f73a5afe342eae2a4fff1565bbc1cf2c44547a4c8ee4b"
+    },
+    "upgrade": {
+      "passed": true,
+      "from": "0.5.8",
+      "to": "0.5.10",
+      "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+      "userSettingsSentinelPreserved": true,
+      "installStateSentinelPreserved": true,
+      "priorVersionRetained": true,
+      "learningOptOutPreserved": true,
+      "privateLearningSentinelPreserved": true,
+      "installedRuntimeMatchesCheckedPackage": true,
+      "commands": 26
+    },
+    "archivePreservation": {
+      "version": "0.5.10",
+      "baselineBytes": 519985103,
+      "full": {
+        "file": "koder-cli-0.5.10.tgz",
+        "bytes": 484327789,
+        "sha256": "24945ac4f9a60d61e4d82d1e59a8de4464be8279aa529c6f29064bf8eae103b5",
+        "files": 28308
+      },
+      "platforms": {
+        "darwin": {
+          "file": "koder-cli-0.5.10-darwin.tgz",
+          "bytes": 227990229,
+          "sha256": "92098c1e4efce501b93f73a5afe342eae2a4fff1565bbc1cf2c44547a4c8ee4b",
+          "reductionPercent": 56.15,
+          "files": 21744,
+          "excludedPrefixes": [
+            "vendor/windows-mcp/win32-x64/",
+            "vendor/solidcraft/win32-x64/",
+            "docs/tutorials/"
+          ],
+          "onlyDeclaredExclusions": true,
+          "allRetainedFilesEqualFullArchive": true,
+          "unchangedSkillAndMethodFiles": 5792,
+          "growthResourcesUnchanged": 61,
+          "selectedOcrModelsUnchanged": true,
+          "currentClassroomRetained": true
+        },
+        "linux": {
+          "file": "koder-cli-0.5.10-linux.tgz",
+          "bytes": 150186300,
+          "sha256": "c4d02260a97c29dabb492966135ec5e7b50bc916e656a5ccf98ac9d90513f4ad",
+          "reductionPercent": 71.12,
+          "files": 21740,
+          "excludedPrefixes": [
+            "vendor/windows-mcp/win32-x64/",
+            "vendor/solidcraft/win32-x64/",
+            "docs/tutorials/",
+            "vendor/solidcraft/darwin-universal/"
+          ],
+          "onlyDeclaredExclusions": true,
+          "allRetainedFilesEqualFullArchive": true,
+          "unchangedSkillAndMethodFiles": 5792,
+          "growthResourcesUnchanged": 61,
+          "selectedOcrModelsUnchanged": true,
+          "currentClassroomRetained": true
+        }
+      }
+    },
+    "ocrDeduplication": {
+      "removedBuildOnlyResources": [
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/chi_sim/4.0.0/chi_sim.traineddata.gz",
+          "bytes": 20159757,
+          "sha256": "59388039851e4d1293d729c183fd8c1fa9bbbb959eed996e945024671e68c1d6"
+        },
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/chi_sim/4.0.0_best_int/chi_sim.traineddata.gz",
+          "bytes": 1718768,
+          "sha256": "b8a23f10c7de500891eb458a8adc9cc58ab7f242f08b7d149f5e9aea4ad5db7c"
+        },
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/chi_sim/README.md",
+          "bytes": 389,
+          "sha256": "4a1d299c5f5713bb5e80159782b63835289ca4ca8adbfaa9164f28945d732dc5"
+        },
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/chi_sim/index.js",
+          "bytes": 127,
+          "sha256": "ae244e9dfa3f1a818b9d76e375580556aea8b6d55075a5dd3c15e531d8489e45"
+        },
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/chi_sim/package.json",
+          "bytes": 534,
+          "sha256": "cc520ba9b3ced7b1fb69d7d4c0cea43b3dc9eb5e0814662e9be028c8a5cc36c6"
+        },
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/eng/4.0.0/eng.traineddata.gz",
+          "bytes": 10923060,
+          "sha256": "ed350f3752f81ee8f38769edc14d92d997dababe23b565c59879372cc46a2468"
+        },
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/eng/4.0.0_best_int/eng.traineddata.gz",
+          "bytes": 2952873,
+          "sha256": "45b4cb346724ac1774f1c36f42f182b887bcdb28ebe63e6fff90ac41f3fcff91"
+        },
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/eng/README.md",
+          "bytes": 381,
+          "sha256": "adcb325473fe124291951a0a3d29fcb54b341828881570e45c42dc2a3a61a45d"
+        },
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/eng/index.js",
+          "bytes": 123,
+          "sha256": "3786d493d5baf523c6ab63b8099dad2de2dd0f5a38c51d67bd7ddbc8728a053b"
+        },
+        {
+          "path": "vendor/node_modules/@tesseract.js-data/eng/package.json",
+          "bytes": 530,
+          "sha256": "b603509212196b5d09e10519bf252c1e344b79704d065e0d62886846f8554c80"
+        }
+      ],
+      "uncompressedBytesRemoved": 35756542,
+      "canonicalLanguageHashes": {
+        "eng": "ed350f3752f81ee8f38769edc14d92d997dababe23b565c59879372cc46a2468",
+        "chi_sim": "59388039851e4d1293d729c183fd8c1fa9bbbb959eed996e945024671e68c1d6"
+      },
+      "runtimeImport": "document-ocr-worker.mjs explicit languages/ langPath; no @tesseract.js-data imports",
+      "licensesPreserved": true
+    },
+    "skillIndexMemory": {
+      "scope": "Isolated Node processes, 64 owned manifests, explicit GC; retained index heap only, not whole-product memory or real-model quality",
+      "before": {
+        "skills": 64,
+        "manifestBodyBytes": 12800000,
+        "heapBefore": 6286480,
+        "heapAfter": 19448784,
+        "heapDelta": 13162304,
+        "rssBefore": 61521920,
+        "rssAfter": 87261184,
+        "allBodiesStillReadable": true
+      },
+      "after": {
+        "skills": 64,
+        "manifestBodyBytes": 12800000,
+        "heapBefore": 6285392,
+        "heapAfter": 6841240,
+        "heapDelta": 555848,
+        "rssBefore": 61374464,
+        "rssAfter": 72499200,
+        "allBodiesStillReadable": true
+      },
+      "reductionPercent": 95.78,
+      "allMethodsRetained": true
+    },
+    "priorSourceRegression": {
+      "scope": "0.5.9 source baseline, retained as historical evidence, not a new full-suite run",
+      "status": "FUNCTIONAL_PASS_PERFORMANCE_HOLD",
+      "receiptSha256": "831130a537939633cffb7c71a06eac84161bbae1f403fe4337044f83800464fb"
+    },
+    "priorRealModel": {
+      "scope": "0.5.9 learning and delivery continuation; not rerun for the packaging-only changes",
+      "receiptSha256": "bb652af676af526c1b1ccdd978bc02a785a1445c4bd6c0c2af3b50bc038d30e5"
+    },
+    "ubuntu": {
+      "state": "NOT_RUN",
+      "scope": "This exact 0.5.10 archive; matrix follows draft upload"
+    }
+  },
+  "notRun": [
+    "Physical Windows installation/GUI beta acceptance",
+    "Physical Ubuntu GNOME desktop, login and reboot",
+    "Visible notification display and clicks",
+    "Signed macOS locked-screen distribution",
+    "Real mail-provider send/receive against this exact archive"
+  ],
+  "hold": [
+    "Prior first-model 1000ms startup benchmark exceeded on this host; original failed run and baseline comparison retained"
+  ],
+  "retainedAttempts": [
+    {
+      "log": "download-final.tap",
+      "sha256": "6f23b9033349765e0adbfa498ad2d041462884722b9f2e65f2976b0e8e353091",
+      "state": "FAIL",
+      "reason": "The new malformed-checksum fixture initially used the default Node CDN rather than the loopback endpoint. It hit the owned download deadline without installing; fixture corrected and all assertions rerun."
+    }
+  ],
+  "priorDraft": "0.5.9 remains unpublished and is superseded by 0.5.10",
+  "websiteChanged": false
+}

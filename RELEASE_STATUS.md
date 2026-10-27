@@ -1,3 +1,8 @@
+# 0.5.10 download reliability release
+
+GitHub publication is authorized after the owned checks. Physical Windows acceptance remains with beta specialists. Website changes are excluded. This release supersedes the unpublished 0.5.9 draft; its failure and performance records remain retained.
+
+
 # Koder CLI 0.5.9
 
 The bundled Personal Agent Growth method is updated to [0.4.3](https://github.com/KarmenLoop/personal-agent-growth/releases/tag/v0.4.3). Native Agent tasks load a bounded, hash-checked source excerpt by default, including tasks without learning keywords. The original 61 core resources remain available through the Skill reader. Source-read metadata identifies the version, source commit and loaded ranges; it is not a model tool-call or learning-success receipt.

@@ -1,3 +1,5 @@
+> 0.5.10 uses smaller macOS and Linux downloads with resumable, checksum-verified installation. Supported runtime features, bundled Skills and the complete current classroom remain included. The full offline archive is still available. See [download and recovery instructions](docs/DOWNLOADS.md).
+
 > 0.5.9 loads the bundled learning method by default, supplies typed learning examples, and keeps the native delivery checker available when a task resumes. [Release notes](docs/RELEASE-0.5.9.md) · [Learning controls](docs/MARKDOWN-LEARNING.en.md).
 
 > 0.5.8 restores pending background mail reminders, reports uncertain sends as incomplete, and records terminal layout choices. [Release notes](docs/RELEASE-0.5.8.md) · [Mail guide](docs/MAIL-RECOVERY.en.md). [Ubuntu full-runtime guide](docs/UBUNTU.md).

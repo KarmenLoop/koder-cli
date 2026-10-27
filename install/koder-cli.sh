@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.9/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.9/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.10/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.10/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Versioned release path. Keep the installer and manifest pinned to the same release.
@@ -10,7 +10,7 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.9}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.10}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
@@ -115,32 +115,107 @@ case "$DOWNLOAD_TIMEOUT" in ''|*[!0-9]*) fail "下载超时必须是 1–1000000
 if [ "${#DOWNLOAD_TIMEOUT}" -gt 9 ] || [ "$DOWNLOAD_TIMEOUT" -lt 1 ] || [ "$DOWNLOAD_TIMEOUT" -gt 100000000 ]; then
   fail "下载超时必须是 1–100000000 秒。" "Download timeout must be 1..100000000 seconds."
 fi
+DOWNLOAD_RETRIES="${KODER_DOWNLOAD_RETRIES:-5}"
+DOWNLOAD_CONNECT_TIMEOUT="${KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS:-20}"
+DOWNLOAD_STALL_TIMEOUT="${KODER_DOWNLOAD_STALL_TIMEOUT_SECONDS:-60}"
+for value in "$DOWNLOAD_RETRIES" "$DOWNLOAD_CONNECT_TIMEOUT" "$DOWNLOAD_STALL_TIMEOUT"; do
+  case "$value" in ''|*[!0-9]*) fail "下载参数必须是整数。" "Download settings must be integers.";; esac
+  [ "${#value}" -le 4 ] || fail "下载参数过大。" "Download setting is too large."
+done
+[ "$DOWNLOAD_RETRIES" -le 20 ] && [ "$DOWNLOAD_CONNECT_TIMEOUT" -ge 1 ] && [ "$DOWNLOAD_CONNECT_TIMEOUT" -le 600 ] && [ "$DOWNLOAD_STALL_TIMEOUT" -ge 1 ] && [ "$DOWNLOAD_STALL_TIMEOUT" -le 3600 ] || fail "下载重试或等待参数超出范围。" "Download retry or wait setting is out of range."
 DOWNLOAD_PID=""
+DOWNLOAD_PART=""
+DOWNLOAD_CACHE=""
+save_partial() {
+  # Writers use private temporary files. Concurrent installs never append to
+  # each other's partial file; the completed cache is always hash-checked.
+  if [ -n "$DOWNLOAD_CACHE" ] && [ -s "$DOWNLOAD_PART" ]; then
+    local pending
+    pending=$(mktemp "${KODER_HOME}/cache/downloads/.partial.XXXXXX") || return
+    if cp "$DOWNLOAD_PART" "$pending"; then mv -f "$pending" "${DOWNLOAD_CACHE}.partial"; else rm -f "$pending"; fi
+  fi
+}
 stop_download() {
   if [ -n "$DOWNLOAD_PID" ]; then kill "$DOWNLOAD_PID" 2>/dev/null || true; wait "$DOWNLOAD_PID" 2>/dev/null || true; DOWNLOAD_PID=""; fi
+  save_partial
 }
 fetch() {
-  local started next now status
-  started=$(date +%s); next=5
-  # The elapsed-time owner below enforces the deadline. Some curl builds use
-  # 32-bit milliseconds and reject a 100000000-second native timer argument.
-  if command -v curl >/dev/null 2>&1; then curl -fsSL --connect-timeout 0 --max-time 0 -o "$2" "$1" &
-  elif command -v wget >/dev/null 2>&1; then wget -q --timeout=0 --tries=1 -O "$2" "$1" &
-  else fail "需要 curl 或 wget" "curl or wget is required"; fi
-  DOWNLOAD_PID=$!
-  while kill -0 "$DOWNLOAD_PID" 2>/dev/null; do
-    now=$(date +%s)
-    if [ "$((now-started))" -ge "$DOWNLOAD_TIMEOUT" ]; then
-      stop_download
-      fail "下载超时（${DOWNLOAD_TIMEOUT} 秒）。" "Download timed out after ${DOWNLOAD_TIMEOUT}s."
+  local started next now status attempt delay url dest expected size cache resumed bad_hash
+  url="$1"; dest="$2"; expected="${3:-}"; size="${4:-0}"
+  if [ -n "$expected" ]; then
+    case "$expected" in *[!0123456789abcdef]*) fail "下载校验值无效。" "Invalid download checksum.";; esac
+    [ "${#expected}" -eq 64 ] || fail "下载校验值无效。" "Invalid download checksum."
+  fi
+  case "$size" in ''|*[!0-9]*) fail "下载大小无效。" "Invalid download size.";; esac
+  [ "${#size}" -le 9 ] && [ "$size" -le 536870912 ] || fail "下载大小无效。" "Invalid download size."
+  cache=""; DOWNLOAD_CACHE=""; DOWNLOAD_PART="$dest"
+  if [ -n "$expected" ]; then
+    mkdir -p "${KODER_HOME}/cache/downloads"
+    cache="${KODER_HOME}/cache/downloads/${expected}"
+    if [ -f "$cache" ] && [ "$(sha256 "$cache")" = "$expected" ]; then
+      cp "$cache" "$dest"; DOWNLOAD_PART=""; return 0
     fi
-    if [ "$((now-started))" -ge "$next" ]; then
-      printf 'Downloading: %ss elapsed (%ss limit). Ctrl+C cancels.\n' "$((now-started))" "$DOWNLOAD_TIMEOUT" >&2
-      next=$((next+5))
+    if [ -f "${cache}.partial" ]; then cp "${cache}.partial" "$dest"; fi
+    DOWNLOAD_CACHE="$cache"
+  fi
+  started=$(date +%s); next=5; attempt=0; bad_hash=0
+  while [ "$attempt" -le "$DOWNLOAD_RETRIES" ]; do
+    resumed=0; [ ! -s "$dest" ] || resumed=1
+    if command -v curl >/dev/null 2>&1; then
+      if [ -n "$expected" ]; then
+        curl -fsSL --connect-timeout "$DOWNLOAD_CONNECT_TIMEOUT" --max-time 0 --speed-time "$DOWNLOAD_STALL_TIMEOUT" --speed-limit 1 -C - -o "$dest" "$url" &
+      else
+        curl -fsSL --connect-timeout "$DOWNLOAD_CONNECT_TIMEOUT" --max-time 0 --speed-time "$DOWNLOAD_STALL_TIMEOUT" --speed-limit 1 -o "$dest" "$url" &
+      fi
+    elif command -v wget >/dev/null 2>&1; then
+      if [ -n "$expected" ]; then wget -q -c --timeout="$DOWNLOAD_STALL_TIMEOUT" --tries=1 -O "$dest" "$url" &
+      else wget -q --timeout="$DOWNLOAD_STALL_TIMEOUT" --tries=1 -O "$dest" "$url" &
+      fi
+    else fail "需要 curl 或 wget" "curl or wget is required"; fi
+    DOWNLOAD_PID=$!
+    while kill -0 "$DOWNLOAD_PID" 2>/dev/null; do
+      now=$(date +%s)
+      if [ "$((now-started))" -ge "$DOWNLOAD_TIMEOUT" ]; then
+        stop_download
+        fail "下载超时，断点已保留；重新运行安装命令可继续。" "Download timed out; the checkpoint is saved. Rerun the installer to continue."
+      fi
+      if [ "$size" -gt 0 ] && [ -f "$dest" ] && [ "$(wc -c < "$dest" | tr -d ' ')" -gt "$size" ]; then
+        stop_download; rm -f "$dest" "${cache}.partial"; DOWNLOAD_PART=""; DOWNLOAD_CACHE=""
+        fail "下载超过清单大小，已停止。" "Download exceeds its declared size; aborted."
+      fi
+      if [ "$((now-started))" -ge "$next" ]; then
+        printf 'Downloading: %ss elapsed; %s bytes; attempt %s/%s. Ctrl+C cancels and retains the checkpoint.\n' "$((now-started))" "$(wc -c < "$dest" 2>/dev/null | tr -d ' ' || true)" "$((attempt+1))" "$((DOWNLOAD_RETRIES+1))" >&2
+        next=$((next+5))
+      fi
+      sleep 0.2
+    done
+    status=0; wait "$DOWNLOAD_PID" || status=$?; DOWNLOAD_PID=""
+    # A complete partial can receive HTTP 416. Its checksum, not HTTP status,
+    # proves completion. No unverified file is ever extracted or activated.
+    if [ -n "$expected" ] && [ -f "$dest" ] && [ "$(sha256 "$dest")" = "$expected" ]; then
+      local complete
+      complete=$(mktemp "${KODER_HOME}/cache/downloads/.complete.XXXXXX")
+      cp "$dest" "$complete"; mv -f "$complete" "$cache"; rm -f "${cache}.partial"
+      DOWNLOAD_CACHE=""; DOWNLOAD_PART=""; return 0
     fi
-    sleep 0.2
+    if [ "$status" -eq 0 ]; then
+      if [ -z "$expected" ]; then DOWNLOAD_PART=""; return 0; fi
+      bad_hash=$((bad_hash+1)); rm -f "$dest" "${cache}.partial"
+      [ "$bad_hash" -lt 2 ] || { DOWNLOAD_CACHE=""; DOWNLOAD_PART=""; fail "下载校验失败，未安装。" "Download checksum mismatch; not installed."; }
+    elif [ "$resumed" -eq 1 ] && { [ "$status" -eq 33 ] || [ "$status" -eq 22 ]; }; then
+      # The server refused Range (or rejected a completed/stale range).
+      # Restart this file once per attempt instead of appending a 200 response.
+      rm -f "$dest" "${cache}.partial"
+    fi
+    save_partial
+    attempt=$((attempt+1))
+    [ "$attempt" -le "$DOWNLOAD_RETRIES" ] || break
+    delay=$attempt; [ "$delay" -le 5 ] || delay=5
+    printf 'Download interrupted (exit %s). Retrying in %ss; saved partial bytes are reused when supported.\n' "$status" "$delay" >&2
+    sleep "$delay"
+    [ "$(($(date +%s)-started))" -lt "$DOWNLOAD_TIMEOUT" ] || break
   done
-  status=0; wait "$DOWNLOAD_PID" || status=$?; DOWNLOAD_PID=""; return "$status"
+  fail "下载未完成，断点已保留；重新运行同一安装命令可继续。" "Download incomplete; the checkpoint is saved. Rerun the same installer to continue."
 }
 
 sha256() {
@@ -216,10 +291,10 @@ if [ -z "${NODE_BIN}" ]; then
   NODE_DIR="${KODER_HOME}/runtime/${NODE_NAME}"
   if [ ! -x "${NODE_DIR}/bin/node" ]; then
     say "正在下载 Node.js ${NODE_VERSION}……" "Downloading Node.js ${NODE_VERSION}…"
-    fetch "${DIST}/v${NODE_VERSION}/${NODE_FILE}" "${TMP}/${NODE_FILE}"
     fetch "${DIST}/v${NODE_VERSION}/SHASUMS256.txt" "${TMP}/SHASUMS256.txt"
     EXPECTED="$(awk -v f="${NODE_FILE}" '$2 == f {print $1}' "${TMP}/SHASUMS256.txt")"
     [ -n "${EXPECTED}" ] || fail "Node.js 校验文件里没有 ${NODE_FILE}" "${NODE_FILE} missing from SHASUMS256.txt"
+    fetch "${DIST}/v${NODE_VERSION}/${NODE_FILE}" "${TMP}/${NODE_FILE}" "${EXPECTED}"
     [ "$(sha256 "${TMP}/${NODE_FILE}")" = "${EXPECTED}" ] || fail "Node.js 下载校验失败" "Node.js checksum mismatch"
     mkdir -p "${KODER_HOME}/runtime"
     tar -xzf "${TMP}/${NODE_FILE}" -C "${KODER_HOME}/runtime"
@@ -232,15 +307,19 @@ fi
 MANIFEST="koder-cli-latest.json"
 [ -n "${VERSION}" ] && MANIFEST="koder-cli-${VERSION}.json"
 fetch "${BASE}/${MANIFEST}" "${TMP}/manifest.json"
-read -r VERSION FILE EXPECTED AGREEMENT_SHA <<EOF
-$("${NODE_BIN}" -e 'const m=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); if(!/^[0-9A-Za-z.+-]+$/.test(m.version)||!/^[\w.+-]+\.tgz$/.test(m.file)||!/^[0-9a-f]{64}$/.test(m.sha256)||m.agreement?.id!=="Koder-EULA-1.1"||m.agreement?.version!=="1.1"||!/^[0-9a-f]{64}$/.test(m.agreement?.sha256)) process.exit(3); console.log(m.version, m.file, m.sha256,m.agreement.sha256)' "${TMP}/manifest.json")
+[ -z "${KODER_EXPECTED_MANIFEST_SHA256:-}" ] || [ "$(sha256 "${TMP}/manifest.json")" = "${KODER_EXPECTED_MANIFEST_SHA256}" ] || fail "更新清单已变化，已停止。" "Release manifest changed after update check; aborted."
+read -r VERSION FILE EXPECTED AGREEMENT_SHA FULL_SHA PACKAGE_SIZE <<EOF
+$("${NODE_BIN}" -e 'const m=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); const platform=process.argv[2]; const full=process.argv[3]==="1"; if(!/^[0-9A-Za-z.+-]+$/.test(m.version)||m.file!==`koder-cli-${m.version}.tgz`||!/^[0-9a-f]{64}$/.test(m.sha256)||m.agreement?.id!=="Koder-EULA-1.1"||m.agreement?.version!=="1.1"||!/^[0-9a-f]{64}$/.test(m.agreement?.sha256)) process.exit(3); if(m.packages!==undefined){if(!m.packages||typeof m.packages!=="object"||Array.isArray(m.packages))process.exit(3);for(const [os,p]of Object.entries(m.packages))if(!["darwin","linux"].includes(os)||!p||p.file!==`koder-cli-${m.version}-${os}.tgz`||!/^[0-9a-f]{64}$/.test(p.sha256)||!Number.isSafeInteger(p.size)||p.size<1||p.size>536870912)process.exit(3);} const p=!full&&m.packages?.[platform]||m; console.log(m.version,p.file,p.sha256,m.agreement.sha256,m.sha256,p.size||0)' "${TMP}/manifest.json" "$OS" "${KODER_INSTALL_FULL_PACKAGE:-0}")
 EOF
 [ -n "${EXPECTED:-}" ] || fail "安装清单无效" "invalid manifest"
 [ -z "${KODER_EXPECTED_VERSION:-}" ] || [ "${KODER_EXPECTED_VERSION}" = "${VERSION}" ] || fail "更新版本与已检查的版本不同，已停止" "release version changed after update check; aborted"
-[ -z "${KODER_EXPECTED_PACKAGE_SHA256:-}" ] || [ "${KODER_EXPECTED_PACKAGE_SHA256}" = "${EXPECTED}" ] || fail "更新清单 SHA-256 与已检查的值不同，已停止" "release SHA-256 changed after update check; aborted"
+# Older clients pin the complete archive. Keep that pin while selecting the
+# platform archive from the same versioned manifest. New clients pin all bytes.
+[ -z "${KODER_EXPECTED_PACKAGE_SHA256:-}" ] || [ "${KODER_EXPECTED_PACKAGE_SHA256}" = "${FULL_SHA}" ] || fail "更新清单 SHA-256 与已检查的值不同，已停止" "release SHA-256 changed after update check; aborted"
 
 say "正在下载 Koder CLI ${VERSION}……" "Downloading Koder CLI ${VERSION}…"
-fetch "${BASE}/${FILE}" "${TMP}/${FILE}"
+say "安装包：${FILE}（${PACKAGE_SIZE} 字节），支持断点续传。" "Package: ${FILE} (${PACKAGE_SIZE} bytes), with resumable download."
+fetch "${BASE}/${FILE}" "${TMP}/${FILE}" "${EXPECTED}" "${PACKAGE_SIZE}"
 [ "$(sha256 "${TMP}/${FILE}")" = "${EXPECTED}" ] || fail "安装包校验失败（SHA-256 不一致），已停止" "package checksum mismatch; aborted"
 
 TARGET="${KODER_HOME}/versions/${VERSION}"

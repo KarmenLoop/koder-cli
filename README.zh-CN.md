@@ -1,3 +1,5 @@
+> 0.5.10：macOS / Linux 自动选择较小安装包，支持断点续传、有限重试和 SHA-256 校验。当前系统支持的功能、内置 Skills 和完整课堂保留，完整离线包仍可下载。见[安装与下载恢复](docs/DOWNLOADS.zh.md)。
+
 > 0.5.9 默认加载内置学习方法，补齐学习工具参数示例，并修复续做任务时交付检查工具被隐藏的问题。[更新说明](docs/RELEASE-0.5.9.zh.md) · [学习开关与恢复](docs/MARKDOWN-LEARNING.zh.md)。
 
 > 0.5.8 修复后台邮件提醒恢复、发件结果未核实却被标为完成，以及终端选稿无法记录的问题。[更新说明](docs/RELEASE-0.5.8.zh.md) · [邮箱教程](docs/MAIL-RECOVERY.zh.md)。 [Ubuntu 完整版说明](docs/UBUNTU.zh.md)。

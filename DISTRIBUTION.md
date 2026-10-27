@@ -1,3 +1,8 @@
+## 0.5.10 platform downloads
+
+The manifest retains its complete archive fields for old clients and adds hash-pinned macOS/Linux packages. Installers choose automatically. All supported runtime features and current course content remain; foreign binaries and historical tutorial exports are available in the complete offline archive. See [download recovery](docs/DOWNLOADS.md).
+
+
 # Distribution and release records
 
 Version **0.5.9** uses the existing Windows and macOS/Linux installers and a single versioned runtime archive. The release attachment `ACCEPTANCE-RESULTS.json` records validation for that exact archive. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.

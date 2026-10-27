@@ -7,12 +7,13 @@ assets = root / 'candidate'
 out = root / 'ubuntu-results'
 out.mkdir(exist_ok=True)
 manifest = json.loads((assets / 'koder-cli-latest.json').read_text())
-assert manifest['version'] == os.environ.get('KODER_TEST_VERSION', '0.5.8')
-archive = assets / manifest['file']
+assert manifest['version'] == os.environ.get('KODER_TEST_VERSION', '0.5.10')
+package = manifest.get('packages', {}).get('linux', manifest)
+archive = assets / package['file']
 sha = lambda p: hashlib.file_digest(p.open('rb'), 'sha256').hexdigest()
-assert archive.stat().st_size == manifest['size'] and sha(archive) == manifest['sha256']
-installer = assets / 'koder-cli.sh'
-assert sha(installer) == manifest['installers']['sh']['sha256']
+assert archive.stat().st_size == package['size'] and sha(archive) == package['sha256']
+installer = assets / 'koder-ubuntu-24.04.sh'
+assert sha(installer) == manifest['installers']['ubuntu']['sha256']
 payload = root / 'ubuntu-payload'
 with tarfile.open(archive) as z:
     for member in z:
@@ -59,5 +60,5 @@ try:
         f.write('KODER_TEST_RUNTIME=' + str(installed) + '\nKODER_TEST_RESULTS=' + str(out) + '\nKODER_TEST_NODE=' + node + '\n')
     passed = True
 finally:
-    receipt = {'passed': locals().get('passed', False), 'runtimeSha256': manifest['sha256'], 'version': manifest['version'], 'runs': rows, 'osRelease': Path('/etc/os-release').read_text(), 'machine': os.uname().machine, 'sameFullRuntime': True, 'physicalLoginReboot': 'NOT_RUN', 'liveProviderAccounts': 'NOT_RUN'}
+    receipt = {'passed': locals().get('passed', False), 'runtimeSha256': package['sha256'], 'artifact': package['file'], 'version': manifest['version'], 'runs': rows, 'osRelease': Path('/etc/os-release').read_text(), 'machine': os.uname().machine, 'sameFullRuntime': True, 'physicalLoginReboot': 'NOT_RUN', 'liveProviderAccounts': 'NOT_RUN'}
     (out / 'runtime.json').write_text(json.dumps(receipt, indent=2)+'\n')

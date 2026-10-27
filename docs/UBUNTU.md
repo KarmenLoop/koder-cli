@@ -1,6 +1,6 @@
 # Ubuntu 24.04 LTS
 
-Koder CLI uses the same complete runtime archive on Linux, macOS and Windows. Ubuntu does not get a reduced edition. Version 0.5.8 adds a native AT-SPI desktop adapter to the existing computer tool and permission path.
+Koder CLI keeps the same supported runtime features on Linux, macOS and Windows. Since 0.5.10, the installer selects a smaller Linux archive without foreign executables or duplicate historical tutorial exports. See [download recovery](DOWNLOADS.md). Version 0.5.8 adds a native AT-SPI desktop adapter to the existing computer tool and permission path.
 
 ## Compatibility targets
 
@@ -32,7 +32,7 @@ koder setup
 
 Only the distribution dependency installation uses `sudo`. Run the Koder installer and CLI as your ordinary user. Enter a sudo password only in your local terminal, never in a chat. If the download fails, resolve the network or certificate error before running the temporary file. If `wget` is already installed, `wget -O /tmp/koder-install.sh https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh` is an alternative; the installer itself supports either downloader. The release `.tgz` is the runtime archive, not a double-click installer.
 
-Download `koder-cli.sh` from the [0.5.8 release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.8), review it, then run:
+Download `koder-cli.sh` from the [0.5.10 release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.10), review it, then run:
 
 ```bash
 bash koder-cli.sh
