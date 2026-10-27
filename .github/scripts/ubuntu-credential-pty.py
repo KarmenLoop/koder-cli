@@ -1,6 +1,6 @@
 """Exercise native sudo with an owned ephemeral VM account, never a customer password."""
 from pathlib import Path
-import json, os, pty, re, select, secrets, signal, subprocess, tempfile, time
+import json, os, pty, re, select, secrets, signal, subprocess, tempfile, time, shutil, hashlib
 root=Path.cwd()
 settings=dict(line.split('=',1) for line in (root/'ubuntu-env').read_text().splitlines())
 node=settings['KODER_TEST_NODE']; runtime=settings['KODER_TEST_RUNTIME']
@@ -39,7 +39,8 @@ def exercise(script, cancel=False):
         if not got:
             os.kill(pid,signal.SIGKILL);os.waitpid(pid,0)
         os.close(fd)
-    assert sent, 'Native sudo did not ask for the fixture password'
+    (out/('credential-native-cancel.log' if cancel else 'credential-native-success.log')).write_bytes(buf.replace(password.encode(),b'[REDACTED]'))
+    assert sent, 'Native sudo did not ask for the fixture password; inspect the sanitized fixture transcript'
     assert password.encode() not in buf, 'The password was echoed'
     text=buf.decode(errors='replace')
     match=re.search(r'RESULT=(\{[^\r\n]+\})',text)
@@ -56,8 +57,13 @@ try:
     command(['sudo','chmod','0440',str(rule)]);command(['sudo','visudo','-cf',str(rule)])
     with tempfile.TemporaryDirectory(prefix='koder-sudo-fixture-') as tmp:
         directory=Path(tmp);directory.chmod(0o755)
+        # Production runtime directories correctly remain private to their owner.
+        # Copy the exact installed helper and managed interpreter to this test-only directory.
+        helper=directory/'system-login.mjs';shutil.copyfile(Path(runtime)/'src/system-login.mjs',helper);helper.chmod(0o644)
+        copied_node=directory/'node';shutil.copyfile(node,copied_node);copied_node.chmod(0o755);node=str(copied_node)
+        assert helper.read_bytes()==(Path(runtime)/'src/system-login.mjs').read_bytes()
         script=directory/'run.mjs'
-        script.write_text('import {runSystemLogin} from '+json.dumps((Path(runtime)/'src/system-login.mjs').as_uri())+';\n'+
+        script.write_text('import {runSystemLogin} from '+json.dumps(helper.as_uri())+';\n'+
             'const controller=new AbortController(); const cancel=process.argv[2]===\"cancel\";\n'+
             'const timer=cancel?setTimeout(()=>controller.abort(),2500):null;\n'+
             'const ctx={io:{},opts:{},stdin:process.stdin,stderr:process.stderr,stdout:process.stdout,cwd:'+json.dumps(str(home))+',env:{TERM:\"xterm\",LANG:\"C.UTF-8\"}};\n'+

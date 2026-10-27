@@ -66,6 +66,7 @@ jobs:
       - name: Submit and cancel tasks in a real PTY
         run: python3 .github/scripts/ubuntu-task-check.py
       - name: Exercise Wayland accessibility controls and notifications
+        if: always()
         env:
           KODER_DISPLAY_TEST: wayland
           KODER_GTK_TEST: ${{ matrix.toolkit }}

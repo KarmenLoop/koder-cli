@@ -44,6 +44,7 @@ jobs:
       - name: Native password input and cancellation in an owned fixture account
         run: python3 .github/scripts/ubuntu-credential-pty.py
       - name: Actual accessible controls and notification adapter
+        if: always()
         env:
           KODER_DISPLAY_TEST: ${{ matrix.display }}
         run: dbus-run-session -- bash .github/scripts/ubuntu-desktop-check.sh
