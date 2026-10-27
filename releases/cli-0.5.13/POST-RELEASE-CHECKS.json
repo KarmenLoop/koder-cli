@@ -1,0 +1,184 @@
+{
+  "version": "0.5.13",
+  "recordedAt": "2026-10-27T19:48:05.711259+00:00",
+  "initialAcceptanceUnchanged": true,
+  "windowsPublicInstaller": {
+    "passed": true,
+    "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40571214052",
+    "revision": "e6ab716ee2e09474e6f57f1287a1de9b7771c41c",
+    "fullArchiveSha256": "0bf28f017c53bddb2d30bd6fab3e5a28592a4346ef93502835fed6d236415f33",
+    "scope": "Windows Server 2025 VM, actual PowerShell 5.1 and CMD under ConPTY, including public release download. Not physical Windows 10/11.",
+    "environment": {
+      "architecture": "AMD64",
+      "revision": "e6ab716ee2e09474e6f57f1287a1de9b7771c41c",
+      "release": "cli-0.5.13",
+      "scope": "Windows Server VM; no physical Windows 10/11 or visible-desktop acceptance",
+      "pwsh": "7.6.7",
+      "node": "v22.23.3",
+      "os": "Microsoft Windows NT 10.0.26100.0"
+    },
+    "checks": [
+      {
+        "name": "powershell-empty-then-accept",
+        "mode": "powershell",
+        "commandWasPasted": false,
+        "unicodeInstallPath": false,
+        "promptSeen": true,
+        "accepted": true,
+        "passed": true,
+        "seconds": 23.06,
+        "preservedFiles": 0
+      },
+      {
+        "name": "powershell-spaces",
+        "mode": "powershell",
+        "commandWasPasted": false,
+        "unicodeInstallPath": true,
+        "promptSeen": true,
+        "accepted": true,
+        "passed": true,
+        "seconds": 21.69,
+        "preservedFiles": 0
+      },
+      {
+        "name": "powershell-download-runtime",
+        "mode": "powershell",
+        "commandWasPasted": false,
+        "unicodeInstallPath": false,
+        "promptSeen": true,
+        "accepted": true,
+        "passed": true,
+        "seconds": 28.56,
+        "preservedFiles": 0
+      },
+      {
+        "name": "powershell-refuse",
+        "mode": "powershell",
+        "commandWasPasted": false,
+        "unicodeInstallPath": false,
+        "promptSeen": true,
+        "accepted": false,
+        "passed": true,
+        "seconds": 2.92,
+        "preservedFiles": 0
+      },
+      {
+        "name": "cmd-empty-then-accept",
+        "mode": "cmd",
+        "commandWasPasted": false,
+        "unicodeInstallPath": false,
+        "promptSeen": true,
+        "accepted": true,
+        "passed": true,
+        "seconds": 20.94,
+        "preservedFiles": 0
+      },
+      {
+        "name": "stalled-node",
+        "mode": "powershell",
+        "commandWasPasted": false,
+        "unicodeInstallPath": false,
+        "promptSeen": true,
+        "accepted": true,
+        "passed": true,
+        "seconds": 33.11,
+        "preservedFiles": 0
+      },
+      {
+        "name": "manifest-timeout",
+        "mode": "powershell",
+        "commandWasPasted": false,
+        "unicodeInstallPath": false,
+        "promptSeen": true,
+        "accepted": null,
+        "passed": true,
+        "seconds": 10.38,
+        "preservedFiles": 5
+      },
+      {
+        "name": "package-timeout",
+        "mode": "powershell",
+        "commandWasPasted": false,
+        "unicodeInstallPath": false,
+        "promptSeen": true,
+        "accepted": null,
+        "passed": true,
+        "seconds": 10.33,
+        "preservedFiles": 5
+      },
+      {
+        "name": "public-download",
+        "mode": "powershell",
+        "commandWasPasted": false,
+        "unicodeInstallPath": true,
+        "promptSeen": true,
+        "accepted": true,
+        "passed": true,
+        "seconds": 32.38,
+        "preservedFiles": 0
+      },
+      {
+        "name": "redirected-input",
+        "passed": true
+      }
+    ],
+    "publicCommandTested": true
+  },
+  "ubuntu26Followup": {
+    "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40570639303",
+    "scope": "Same frozen archive; bounded signed Ubuntu archive dependency setup; both GTK fixtures passed again",
+    "rows": [
+      {
+        "fixture": "ubuntu-26.04.1-amd64-gtk4",
+        "passed": true
+      },
+      {
+        "fixture": "ubuntu-26.04.1-amd64-gtk3",
+        "passed": true
+      }
+    ]
+  },
+  "publicDownloads": {
+    "passed": true,
+    "rows": [
+      {
+        "url": "https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/README.md",
+        "matchesPublishedFiles": true,
+        "sha256": "be741c2d1bb408c32e4cd0d371a652a7e72948693aba51a53835342cd48b9a85"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/README.zh-CN.md",
+        "matchesPublishedFiles": true,
+        "sha256": "8d4937cf223a89127dd6446c05262717cc482f5470158fa32a791c1ee2ddb7c0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/docs/UBUNTU-26.04.zh.md",
+        "matchesPublishedFiles": true,
+        "sha256": "847660e0e0869ae34f2cc48a7927fec6e29545262d3439851c981d21baba3745"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/docs/UBUNTU-26.04.md",
+        "matchesPublishedFiles": true,
+        "sha256": "d13a60c183e63668f1505f1a22916e8df8167ba574487e08ca8e6c8fada18904"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/updates/koder-cli-latest.json",
+        "matchesPublishedFiles": true,
+        "sha256": "7102112d2c520367541127f56ea76370352689bc665ed25ab6b80f8d3967d4a4"
+      },
+      {
+        "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.13/koder-ubuntu-26.04.sh",
+        "matchesPublishedFiles": true,
+        "sha256": "534009c15f4242d37910cba02fa2f65f2de69cb8850ec106eaa7059a8cfcdb7b"
+      }
+    ],
+    "priorFailureRetained": "Python urllib received truncated README responses; curl HTTP/1.1 with bounded retries matched the released files."
+  },
+  "notRun": [
+    "Physical Ubuntu 26.04.1 GNOME 50, GPU/monitor combinations, login/reboot and lock screen",
+    "Physical Windows 10/11",
+    "Live customer mailboxes, real GitHub account writes, and paid model-provider quality",
+    "macOS GUI/TCC/lock-screen and human notification visibility"
+  ],
+  "websiteChanged": false
+}
