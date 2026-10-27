@@ -1,3 +1,7 @@
+## 0.5.12 Ubuntu reliability update
+
+Complete platform runtime packages are retained. Download progress and response-header handling change; no Skills or runtime capabilities are removed. Private source is not added to the public repository. See [release notes](docs/RELEASE-0.5.12.md).
+
 ## 0.5.11 Windows runtime fixes
 
 Windows, macOS and Ubuntu 24.04 retain complete platform-appropriate runtime packages. The public repository contains installers, documentation and acceptance probes; private kernel source remains excluded. Runtime archives remain subject to their existing licenses. See [release notes](docs/RELEASE-0.5.11.md).

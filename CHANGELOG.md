@@ -1,3 +1,10 @@
+# 0.5.12
+
+- Allow slow model response headers without duplicate timeout retries; show elapsed waiting status.
+- Show MB, percentage, elapsed time and installation phases in the POSIX installer.
+- Check file permissions at the operation target instead of requiring a writable scope root.
+- Add Ubuntu x64/ARM64 interactive regression coverage. Preserve all bundled capabilities.
+
 # 0.5.11
 
 - Allow the first native Windows notification when its settings entry has not been initialized. Read explicit user and policy switches without changing them; preserve denied and uncertain receipts.

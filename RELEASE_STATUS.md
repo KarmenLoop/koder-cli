@@ -1,3 +1,11 @@
+# Koder CLI 0.5.12
+
+This release addresses slow model responses, visible installer progress and broad file-scope authorization. Exact-package Ubuntu VM results and retained limitations are recorded in the release acceptance attachment. Deterministic provider and owned GUI fixtures are distinct from live account or physical desktop acceptance. GitHub only; no website deployment.
+
+See [release notes](docs/RELEASE-0.5.12.md).
+
+## Earlier releases
+
 # Koder CLI 0.5.11
 
 This release includes a fix for avoidable Windows task-completion delays. The dedicated Windows VM workflow preserves failures and tests the exact package. Native mail fixtures are not a real provider account; accepted Toast submissions are not proof that the user saw a notification. Physical Windows 10/11 validation remains with beta specialists. No website deployment is included.

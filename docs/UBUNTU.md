@@ -19,7 +19,7 @@ On a fresh Ubuntu installation, `curl: command not found` means the download nev
 ```bash
 sudo apt update
 sudo apt install -y curl ca-certificates
-curl -fL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh -o /tmp/koder-install.sh
+curl -fL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh -o /tmp/koder-install.sh
 ```
 
 After a successful download, review `/tmp/koder-install.sh`, then run:
@@ -30,9 +30,9 @@ koder --version
 koder setup
 ```
 
-Only the distribution dependency installation uses `sudo`. Run the Koder installer and CLI as your ordinary user. Enter a sudo password only in your local terminal, never in a chat. If the download fails, resolve the network or certificate error before running the temporary file. If `wget` is already installed, `wget -O /tmp/koder-install.sh https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh` is an alternative; the installer itself supports either downloader. The release `.tgz` is the runtime archive, not a double-click installer.
+Only the distribution dependency installation uses `sudo`. Run the Koder installer and CLI as your ordinary user. Enter a sudo password only in your local terminal, never in a chat. If the download fails, resolve the network or certificate error before running the temporary file. If `wget` is already installed, `wget -O /tmp/koder-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh` is an alternative; the installer itself supports either downloader. The release `.tgz` is the runtime archive, not a double-click installer.
 
-Download `koder-cli.sh` from the [0.5.10 release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.11), review it, then run:
+Download `koder-cli.sh` from the [0.5.12 release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.12), review it, then run:
 
 ```bash
 bash koder-cli.sh
@@ -100,3 +100,11 @@ koder deactivate
 The public `Ubuntu full runtime and accessible desktop` GitHub Actions workflow downloads an exact release, verifies its archive and kernel hashes, tests managed-Node installation and configuration-preserving reinstallation, then operates an owned GTK application through the real Python/AT-SPI transport. Its matrix covers x64/ARM64 and X11/Wayland on Ubuntu 24.04 runners. It also checks a notification submission and the explicit headless-unavailable result. It does not use a real mailbox, cloud model account or user application.
 
 Source tests run on macOS with injected Linux backends; those are contract checks, not Ubuntu GUI acceptance. See the exact workflow run and its `runtime.json`/`desktop.json` artifacts for actual results. A cell without a runtime receipt is `NOT_RUN`; a recorded failing run remains `FAIL` even after a later build passes. The first 0.5.8 draft exposed a GI text-interface name collision that hid editable controls. The corrected adapter uses interface-qualified text calls; a regression preserves empty inputs, readable labels and protected-password handling. Check the archive SHA-256 in each later run to identify the tested build. Headless Sway/Xvfb results do not establish a physical GNOME session, screen appearance, reboot/login startup, all Ubuntu flavors or all application controls. Those remain separate device acceptance items. An unavailable cell must not be summarized as a full-platform pass.
+
+## Progress, slow responses and broad scope (0.5.12)
+
+Downloads report MB, a known total and percentage, elapsed time and average speed every five seconds. Verification, extraction and activation have separate status lines. Unknown totals are labeled rather than guessed. Ctrl+C retains a resumable checkpoint.
+
+After task submission, the CLI reports elapsed waiting time every ten seconds until visible model output arrives. The default header deadline is 180 seconds. For a slow model, set `export KODER_API_HEADERS_TIMEOUT_MS=600000` before launching Koder. Header timeouts do not automatically duplicate inference requests; saved tasks remain recoverable.
+
+For broad computer scope, run `koder permissions request --mode full`, review the scope and type `GRANT`. The file boundary includes `/`, but Ubuntu still enforces the current user's file permissions. Protected system paths remain protected. Revoke with `koder permissions revoke`. Desktop/browser drivers and system dependencies must actually be available; confirm any required `sudo` package installation in your terminal.

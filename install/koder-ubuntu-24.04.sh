@@ -2,8 +2,8 @@
 # Ubuntu 24.04 / 24.04.x installer. All supported runtime features included.
 # Generated from koder-cli.sh; the shared installer selects the Linux package.
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.11/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.11/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Versioned release path. Keep the installer and manifest pinned to the same release.
@@ -12,7 +12,7 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.11}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"
@@ -141,8 +141,25 @@ stop_download() {
   if [ -n "$DOWNLOAD_PID" ]; then kill "$DOWNLOAD_PID" 2>/dev/null || true; wait "$DOWNLOAD_PID" 2>/dev/null || true; DOWNLOAD_PID=""; fi
   save_partial
 }
+download_progress() {
+  local bytes elapsed transferred
+  bytes=0; [ ! -f "$dest" ] || bytes=$(wc -c < "$dest" | tr -d ' ')
+  elapsed=$(($(date +%s)-started)); transferred=$((bytes-initial_bytes))
+  [ "$transferred" -ge 0 ] || transferred=0
+  LC_ALL=C awk -v bytes="$bytes" -v total="$size" -v elapsed="$elapsed" -v transferred="$transferred" -v attempt="$((attempt+1))" -v attempts="$((DOWNLOAD_RETRIES+1))" -v zh="$ZH" 'BEGIN {
+    rate=elapsed>0 ? transferred/elapsed/1000000 : 0;
+    if(total>0) {
+      pct=int(bytes*100/total); if(pct>100)pct=100;
+      if(zh==1)printf "下载进度：%.1f MB / %.1f MB (%d%%)；已用 %d 秒；平均 %.1f MB/s；尝试 %d/%d。Ctrl+C 可取消并保留断点。\n",bytes/1000000,total/1000000,pct,elapsed,rate,attempt,attempts;
+      else printf "Downloading: %.1f MB / %.1f MB (%d%%); elapsed %ds; average %.1f MB/s; attempt %d/%d. Ctrl+C cancels and retains the checkpoint.\n",bytes/1000000,total/1000000,pct,elapsed,rate,attempt,attempts;
+    } else {
+      if(zh==1)printf "下载进度：%.1f MB（总大小未知）；已用 %d 秒；平均 %.1f MB/s；尝试 %d/%d。\n",bytes/1000000,elapsed,rate,attempt,attempts;
+      else printf "Downloading: %.1f MB (total unknown); elapsed %ds; average %.1f MB/s; attempt %d/%d.\n",bytes/1000000,elapsed,rate,attempt,attempts;
+    }
+  }' >&2
+}
 fetch() {
-  local started next now status attempt delay url dest expected size cache resumed bad_hash
+  local started next now status attempt delay url dest expected size cache resumed bad_hash initial_bytes
   url="$1"; dest="$2"; expected="${3:-}"; size="${4:-0}"
   if [ -n "$expected" ]; then
     case "$expected" in *[!0123456789abcdef]*) fail "下载校验值无效。" "Invalid download checksum.";; esac
@@ -155,12 +172,15 @@ fetch() {
     mkdir -p "${KODER_HOME}/cache/downloads"
     cache="${KODER_HOME}/cache/downloads/${expected}"
     if [ -f "$cache" ] && [ "$(sha256 "$cache")" = "$expected" ]; then
+      say "复用已校验下载，无需重新传输。" "Using the verified download cache; no transfer needed." >&2
       cp "$cache" "$dest"; DOWNLOAD_PART=""; return 0
     fi
     if [ -f "${cache}.partial" ]; then cp "${cache}.partial" "$dest"; fi
     DOWNLOAD_CACHE="$cache"
   fi
   started=$(date +%s); next=5; attempt=0; bad_hash=0
+  initial_bytes=0; [ ! -f "$dest" ] || initial_bytes=$(wc -c < "$dest" | tr -d ' ')
+  download_progress
   while [ "$attempt" -le "$DOWNLOAD_RETRIES" ]; do
     resumed=0; [ ! -s "$dest" ] || resumed=1
     if command -v curl >/dev/null 2>&1; then
@@ -186,12 +206,14 @@ fetch() {
         fail "下载超过清单大小，已停止。" "Download exceeds its declared size; aborted."
       fi
       if [ "$((now-started))" -ge "$next" ]; then
-        printf 'Downloading: %ss elapsed; %s bytes; attempt %s/%s. Ctrl+C cancels and retains the checkpoint.\n' "$((now-started))" "$(wc -c < "$dest" 2>/dev/null | tr -d ' ' || true)" "$((attempt+1))" "$((DOWNLOAD_RETRIES+1))" >&2
+        download_progress
         next=$((next+5))
       fi
       sleep 0.2
     done
     status=0; wait "$DOWNLOAD_PID" || status=$?; DOWNLOAD_PID=""
+    download_progress
+    if [ -n "$expected" ] && [ -f "$dest" ]; then say "正在校验下载内容（SHA-256）……" "Verifying download (SHA-256)…" >&2; fi
     # A complete partial can receive HTTP 416. Its checksum, not HTTP status,
     # proves completion. No unverified file is ever extracted or activated.
     if [ -n "$expected" ] && [ -f "$dest" ] && [ "$(sha256 "$dest")" = "$expected" ]; then
@@ -275,6 +297,7 @@ trap 'exit 143' TERM
 mkdir -p "${KODER_HOME}" "${BIN_DIR}"
 
 NODE_BIN=""
+say "正在检查 Node.js 运行环境……" "Checking the Node.js runtime…"
 if [ "${FORCE_NODE}" = 0 ] && command -v node >/dev/null 2>&1; then
   if node -e 'try{const [a,b]=process.versions.node.split(".").map(Number);if((a===22&&b>=21||a>=24)&&process.allowedNodeEnvironmentFlags.has("--use-env-proxy")){require("node:sqlite");process.stdout.write(process.versions.node)}else process.exit(1)}catch{process.exit(1)}' 2>/dev/null; then
     NODE_BIN="$(command -v node)"
@@ -298,6 +321,7 @@ if [ -z "${NODE_BIN}" ]; then
     [ -n "${EXPECTED}" ] || fail "Node.js 校验文件里没有 ${NODE_FILE}" "${NODE_FILE} missing from SHASUMS256.txt"
     fetch "${DIST}/v${NODE_VERSION}/${NODE_FILE}" "${TMP}/${NODE_FILE}" "${EXPECTED}"
     [ "$(sha256 "${TMP}/${NODE_FILE}")" = "${EXPECTED}" ] || fail "Node.js 下载校验失败" "Node.js checksum mismatch"
+    say "正在解压 Node.js……" "Extracting Node.js…"
     mkdir -p "${KODER_HOME}/runtime"
     tar -xzf "${TMP}/${NODE_FILE}" -C "${KODER_HOME}/runtime"
   fi
@@ -325,11 +349,13 @@ fetch "${BASE}/${FILE}" "${TMP}/${FILE}" "${EXPECTED}" "${PACKAGE_SIZE}"
 [ "$(sha256 "${TMP}/${FILE}")" = "${EXPECTED}" ] || fail "安装包校验失败（SHA-256 不一致），已停止" "package checksum mismatch; aborted"
 
 TARGET="${KODER_HOME}/versions/${VERSION}"
+say "正在解压 Koder CLI ${VERSION}……" "Extracting Koder CLI ${VERSION}…"
 rm -rf "${TARGET}.tmp"
 mkdir -p "${TARGET}.tmp"
 tar -xzf "${TMP}/${FILE}" -C "${TARGET}.tmp" --strip-components=1
 [ -f "${TARGET}.tmp/bin/koder.mjs" ] || fail "安装包内容不完整" "package is incomplete"
 [ -f "${TARGET}.tmp/EULA.md" ] && [ "$(sha256 "${TARGET}.tmp/EULA.md")" = "${AGREEMENT_SHA}" ] || fail "安装包许可与发行清单不一致，未激活此版本" "package agreement differs from the release manifest; this version was not activated"
+say "正在启用 Koder CLI ${VERSION} 并保存安装信息……" "Activating Koder CLI ${VERSION} and recording the installation…"
 rm -rf "${TARGET}"
 mv "${TARGET}.tmp" "${TARGET}"
 ln -sfn "${TARGET}" "${KODER_HOME}/current"

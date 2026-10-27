@@ -1,0 +1,499 @@
+{
+  "version": "0.5.12",
+  "privateCommit": "faa8975938320b7e93a4976deedfe213a8e38ff2",
+  "ubuntuInteractive": {
+    "passed": true,
+    "results": [
+      {
+        "version": "0.5.12",
+        "artifactSha256": "3b943c83dcafe92e5a73a8351ad7d509e8398cbf6f9452edf417ebd8db2e1882",
+        "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+        "machine": "x86_64",
+        "provider": "loopback fixture; real provider NOT_RUN",
+        "learningDisabled": false,
+        "rows": [
+          {
+            "name": "interactive-slow-first-response",
+            "passed": true,
+            "submitted": true,
+            "replyObserved": true,
+            "requestCount": 1,
+            "waitingStatusVisible": true,
+            "seconds": 20.775
+          }
+        ]
+      },
+      {
+        "version": "0.5.12",
+        "artifactSha256": "3b943c83dcafe92e5a73a8351ad7d509e8398cbf6f9452edf417ebd8db2e1882",
+        "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+        "machine": "aarch64",
+        "provider": "loopback fixture; real provider NOT_RUN",
+        "learningDisabled": false,
+        "rows": [
+          {
+            "name": "interactive-slow-first-response",
+            "passed": true,
+            "submitted": true,
+            "replyObserved": true,
+            "requestCount": 1,
+            "waitingStatusVisible": true,
+            "seconds": 20.635
+          }
+        ]
+      }
+    ]
+  },
+  "ubuntuDesktop": {
+    "passed": false,
+    "state": "PENDING",
+    "matrix": [
+      {
+        "runtime": {
+          "passed": true,
+          "runtimeSha256": "3b943c83dcafe92e5a73a8351ad7d509e8398cbf6f9452edf417ebd8db2e1882",
+          "artifact": "koder-cli-0.5.12-linux.tgz",
+          "version": "0.5.12",
+          "runs": [
+            {
+              "name": "install",
+              "exitCode": 0,
+              "seconds": 7.195
+            },
+            {
+              "name": "download-progress-and-phases",
+              "passed": true
+            },
+            {
+              "name": "version",
+              "exitCode": 0,
+              "seconds": 0.048
+            },
+            {
+              "name": "help",
+              "exitCode": 0,
+              "seconds": 0.181
+            },
+            {
+              "name": "reinstall",
+              "exitCode": 0,
+              "seconds": 7.315
+            },
+            {
+              "name": "memory-status",
+              "exitCode": 0,
+              "seconds": 0.121
+            },
+            {
+              "name": "notification-status",
+              "exitCode": 0,
+              "seconds": 0.106
+            },
+            {
+              "name": "agentd-status",
+              "exitCode": 0,
+              "seconds": 0.108
+            }
+          ],
+          "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+          "machine": "aarch64",
+          "sameFullRuntime": true,
+          "physicalLoginReboot": "NOT_RUN",
+          "liveProviderAccounts": "NOT_RUN"
+        },
+        "desktop": {
+          "platform": "linux",
+          "architecture": "arm64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "wayland",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 16
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        }
+      },
+      {
+        "runtime": {
+          "passed": true,
+          "runtimeSha256": "3b943c83dcafe92e5a73a8351ad7d509e8398cbf6f9452edf417ebd8db2e1882",
+          "artifact": "koder-cli-0.5.12-linux.tgz",
+          "version": "0.5.12",
+          "runs": [
+            {
+              "name": "install",
+              "exitCode": 0,
+              "seconds": 6.377
+            },
+            {
+              "name": "download-progress-and-phases",
+              "passed": true
+            },
+            {
+              "name": "version",
+              "exitCode": 0,
+              "seconds": 0.043
+            },
+            {
+              "name": "help",
+              "exitCode": 0,
+              "seconds": 0.166
+            },
+            {
+              "name": "reinstall",
+              "exitCode": 0,
+              "seconds": 4.577
+            },
+            {
+              "name": "memory-status",
+              "exitCode": 0,
+              "seconds": 0.141
+            },
+            {
+              "name": "notification-status",
+              "exitCode": 0,
+              "seconds": 0.095
+            },
+            {
+              "name": "agentd-status",
+              "exitCode": 0,
+              "seconds": 0.094
+            }
+          ],
+          "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+          "machine": "aarch64",
+          "sameFullRuntime": true,
+          "physicalLoginReboot": "NOT_RUN",
+          "liveProviderAccounts": "NOT_RUN"
+        },
+        "desktop": {
+          "platform": "linux",
+          "architecture": "arm64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "x11",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 16
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        }
+      },
+      {
+        "runtime": {
+          "passed": true,
+          "runtimeSha256": "3b943c83dcafe92e5a73a8351ad7d509e8398cbf6f9452edf417ebd8db2e1882",
+          "artifact": "koder-cli-0.5.12-linux.tgz",
+          "version": "0.5.12",
+          "runs": [
+            {
+              "name": "install",
+              "exitCode": 0,
+              "seconds": 8.228
+            },
+            {
+              "name": "download-progress-and-phases",
+              "passed": true
+            },
+            {
+              "name": "version",
+              "exitCode": 0,
+              "seconds": 0.047
+            },
+            {
+              "name": "help",
+              "exitCode": 0,
+              "seconds": 0.18
+            },
+            {
+              "name": "reinstall",
+              "exitCode": 0,
+              "seconds": 6.675
+            },
+            {
+              "name": "memory-status",
+              "exitCode": 0,
+              "seconds": 0.121
+            },
+            {
+              "name": "notification-status",
+              "exitCode": 0,
+              "seconds": 0.103
+            },
+            {
+              "name": "agentd-status",
+              "exitCode": 0,
+              "seconds": 0.103
+            }
+          ],
+          "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+          "machine": "x86_64",
+          "sameFullRuntime": true,
+          "physicalLoginReboot": "NOT_RUN",
+          "liveProviderAccounts": "NOT_RUN"
+        },
+        "desktop": {
+          "platform": "linux",
+          "architecture": "x64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "x11",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 16
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        }
+      }
+    ]
+  },
+  "sourceTests": {
+    "transport-regression.tap": {
+      "tests": 19,
+      "pass": 19,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "scope-after.tap": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "installer-final.tap": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "continuation.tap": {
+      "tests": 10,
+      "pass": 10,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "session-wait-after.tap": {
+      "tests": 7,
+      "pass": 7,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  "packagedTests": {
+    "tests": 41,
+    "pass": 40,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 1
+  },
+  "package": {
+    "sourceCommit": "faa8975938320b7e93a4976deedfe213a8e38ff2",
+    "runtimeSha256": "5920b43eb644dc99011f3456c28017c06722983051c0c493dbaf53809151b81f",
+    "kernelHashes": 6329,
+    "kernelMatchesSource": true,
+    "smokeCommands": 61
+  },
+  "archivePreservation": {
+    "version": "0.5.12",
+    "baselineBytes": 519985103,
+    "full": {
+      "file": "koder-cli-0.5.12.tgz",
+      "bytes": 484337363,
+      "sha256": "ca93cedb5ead0a13319d33a2c3dca40fb833c388e6a8ef31d38bce3a2dd070ff",
+      "files": 28312
+    },
+    "platforms": {
+      "darwin": {
+        "file": "koder-cli-0.5.12-darwin.tgz",
+        "bytes": 228009845,
+        "sha256": "5920b43eb644dc99011f3456c28017c06722983051c0c493dbaf53809151b81f",
+        "reductionPercent": 56.15,
+        "files": 21748,
+        "excludedPrefixes": [
+          "vendor/windows-mcp/win32-x64/",
+          "vendor/solidcraft/win32-x64/",
+          "docs/tutorials/"
+        ],
+        "onlyDeclaredExclusions": true,
+        "allRetainedFilesEqualFullArchive": true,
+        "unchangedSkillAndMethodFiles": 5792,
+        "growthResourcesUnchanged": 61,
+        "selectedOcrModelsUnchanged": true,
+        "currentClassroomRetained": true
+      },
+      "linux": {
+        "file": "koder-cli-0.5.12-linux.tgz",
+        "bytes": 150193102,
+        "sha256": "3b943c83dcafe92e5a73a8351ad7d509e8398cbf6f9452edf417ebd8db2e1882",
+        "reductionPercent": 71.12,
+        "files": 21744,
+        "excludedPrefixes": [
+          "vendor/windows-mcp/win32-x64/",
+          "vendor/solidcraft/win32-x64/",
+          "docs/tutorials/",
+          "vendor/solidcraft/darwin-universal/"
+        ],
+        "onlyDeclaredExclusions": true,
+        "allRetainedFilesEqualFullArchive": true,
+        "unchangedSkillAndMethodFiles": 5792,
+        "growthResourcesUnchanged": 61,
+        "selectedOcrModelsUnchanged": true,
+        "currentClassroomRetained": true
+      }
+    },
+    "priorFullArchive": {
+      "version": "0.5.11",
+      "sha256": "5f2f9a0d2ab99b81f6fab6b7dcfa907ca21372407b71ec8e3bc0823b7ace8d62",
+      "filesRemoved": 0,
+      "modifiedPaths": [
+        "RELEASE_STATUS.md",
+        "CHANGELOG.md",
+        "README.md",
+        "package.json",
+        "README.zh-CN.md",
+        "DISTRIBUTION.md",
+        "src/version.mjs",
+        "src/computer.mjs",
+        "src/model-check.mjs",
+        "src/session.mjs",
+        "src/model-http.mjs",
+        "kernel/MANIFEST.json",
+        "docs/DOWNLOADS.zh.md",
+        "docs/UBUNTU.md",
+        "docs/UBUNTU.zh.md",
+        "docs/DOWNLOADS.md",
+        "docs/INSTALLATION.md"
+      ],
+      "addedPaths": [
+        "docs/RELEASE-0.5.12.md",
+        "docs/RELEASE-0.5.12.zh.md"
+      ],
+      "allOtherFileHashesUnchanged": true
+    }
+  },
+  "retainedFailures": [
+    "0.5.11 failed the identical delayed-response task on both Ubuntu architectures; see baseline artifacts.",
+    "Original short-deadline concurrency fixture had zero received requests under local load; fixture timing was corrected and rerun.",
+    "The initial unpublished 0.5.12 candidate returned the delayed response in one request but failed to display MODEL_WAIT on both Ubuntu architectures. The callback scope was fixed and the final artifact was rebuilt and retested."
+  ],
+  "notRun": [
+    "Live external model/provider with user credentials",
+    "Physical Ubuntu GNOME session, all GPUs and reboot/login",
+    "Windows 0.5.12 physical or VM acceptance; prior 0.5.11 VM results retained",
+    "macOS 0.5.12 dedicated GUI/install acceptance; packaged regression ran locally",
+    "Signed macOS locked-screen component",
+    "Real 163/Gmail account delivery"
+  ],
+  "websiteChanged": false
+}

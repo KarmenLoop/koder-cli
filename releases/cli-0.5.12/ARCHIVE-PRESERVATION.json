@@ -1,0 +1,78 @@
+{
+  "version": "0.5.12",
+  "baselineBytes": 519985103,
+  "full": {
+    "file": "koder-cli-0.5.12.tgz",
+    "bytes": 484337363,
+    "sha256": "ca93cedb5ead0a13319d33a2c3dca40fb833c388e6a8ef31d38bce3a2dd070ff",
+    "files": 28312
+  },
+  "platforms": {
+    "darwin": {
+      "file": "koder-cli-0.5.12-darwin.tgz",
+      "bytes": 228009845,
+      "sha256": "5920b43eb644dc99011f3456c28017c06722983051c0c493dbaf53809151b81f",
+      "reductionPercent": 56.15,
+      "files": 21748,
+      "excludedPrefixes": [
+        "vendor/windows-mcp/win32-x64/",
+        "vendor/solidcraft/win32-x64/",
+        "docs/tutorials/"
+      ],
+      "onlyDeclaredExclusions": true,
+      "allRetainedFilesEqualFullArchive": true,
+      "unchangedSkillAndMethodFiles": 5792,
+      "growthResourcesUnchanged": 61,
+      "selectedOcrModelsUnchanged": true,
+      "currentClassroomRetained": true
+    },
+    "linux": {
+      "file": "koder-cli-0.5.12-linux.tgz",
+      "bytes": 150193102,
+      "sha256": "3b943c83dcafe92e5a73a8351ad7d509e8398cbf6f9452edf417ebd8db2e1882",
+      "reductionPercent": 71.12,
+      "files": 21744,
+      "excludedPrefixes": [
+        "vendor/windows-mcp/win32-x64/",
+        "vendor/solidcraft/win32-x64/",
+        "docs/tutorials/",
+        "vendor/solidcraft/darwin-universal/"
+      ],
+      "onlyDeclaredExclusions": true,
+      "allRetainedFilesEqualFullArchive": true,
+      "unchangedSkillAndMethodFiles": 5792,
+      "growthResourcesUnchanged": 61,
+      "selectedOcrModelsUnchanged": true,
+      "currentClassroomRetained": true
+    }
+  },
+  "priorFullArchive": {
+    "version": "0.5.11",
+    "sha256": "5f2f9a0d2ab99b81f6fab6b7dcfa907ca21372407b71ec8e3bc0823b7ace8d62",
+    "filesRemoved": 0,
+    "modifiedPaths": [
+      "RELEASE_STATUS.md",
+      "CHANGELOG.md",
+      "README.md",
+      "package.json",
+      "README.zh-CN.md",
+      "DISTRIBUTION.md",
+      "src/version.mjs",
+      "src/computer.mjs",
+      "src/model-check.mjs",
+      "src/session.mjs",
+      "src/model-http.mjs",
+      "kernel/MANIFEST.json",
+      "docs/DOWNLOADS.zh.md",
+      "docs/UBUNTU.md",
+      "docs/UBUNTU.zh.md",
+      "docs/DOWNLOADS.md",
+      "docs/INSTALLATION.md"
+    ],
+    "addedPaths": [
+      "docs/RELEASE-0.5.12.md",
+      "docs/RELEASE-0.5.12.zh.md"
+    ],
+    "allOtherFileHashesUnchanged": true
+  }
+}
