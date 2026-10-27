@@ -7,12 +7,16 @@ function ErrorRow($errorRecord){$a=@();$e=$errorRecord.Exception;while($e){$a+=@
 try{
 [Windows.UI.Notifications.ToastNotificationManager,Windows.UI.Notifications,ContentType=WindowsRuntime]>$null;
 $p=[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('KarmenLoop.Koder');
-$r.before=@{type=$p.GetType().FullName;setting=[string]$p.Setting};
+$r.before=@{type=$p.GetType().FullName;setting=[string]$p.Setting};try{$r.getterBefore=[string]$p.get_Setting()}catch{$r.getterBeforeErrors=@(ErrorRow $_)};
 [Windows.UI.Notifications.ToastNotifier,Windows.UI.Notifications,ContentType=WindowsRuntime]>$null;
 [Windows.UI.Notifications.NotificationSetting,Windows.UI.Notifications,ContentType=WindowsRuntime]>$null;
 [Windows.UI.Notifications.ToastNotification,Windows.UI.Notifications,ContentType=WindowsRuntime]>$null;
 $p=[Windows.UI.Notifications.ToastNotifier]$p;
-$r.after=@{type=$p.GetType().FullName;setting=[string]$p.Setting};
+$r.after=@{type=$p.GetType().FullName;setting=[string]$p.Setting};try{$r.getterAfter=[string]$p.get_Setting()}catch{$r.getterAfterErrors=@(ErrorRow $_)};
+$registration='HKCU:\\Software\\Classes\\AppUserModelId\\KarmenLoop.Koder';
+if(-not(Test-Path $registration)){New-Item -Path $registration -Force>$null;New-ItemProperty -Path $registration -Name DisplayName -Value 'Koder' -PropertyType String>$null;New-ItemProperty -Path $registration -Name ShowInSettings -Value 1 -PropertyType DWord>$null};
+$p=[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('KarmenLoop.Koder');
+try{$r.registeredSetting=[string]$p.get_Setting()}catch{$r.registeredErrors=@(ErrorRow $_)};
 [Windows.Data.Xml.Dom.XmlDocument,Windows.Data.Xml.Dom.XmlDocument,ContentType=WindowsRuntime]>$null;
 $x=New-Object Windows.Data.Xml.Dom.XmlDocument;
 $x.LoadXml('<toast><visual><binding template="ToastGeneric"><text>Koder VM diagnostic</text><text>Owned VM test only</text></binding></visual></toast>');
