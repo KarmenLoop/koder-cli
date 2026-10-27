@@ -17,6 +17,7 @@ assert sha(installer) == manifest['installers']['ubuntu']['sha256']
 payload = root / 'ubuntu-payload'
 with tarfile.open(archive) as z:
     for member in z:
+        assert not any('xattr' in key or 'acl' in key or 'fflags' in key for key in member.pax_headers), (member.name, member.pax_headers)
         assert not member.issym() and not member.islnk()
         assert not Path(member.name).is_absolute() and '..' not in Path(member.name).parts
     z.extractall(payload, filter='data')
@@ -38,12 +39,19 @@ def run(name, argv, accepted=(0,), timeout=120, extra=None):
 
 try:
     # file:// is a controlled local mirror of the same hash-checked GitHub assets.
-    run('install', ['bash', str(installer), '--base', assets.as_uri(), '--force-node', '--no-onboard', '--no-modify-path'], timeout=600)
+    run('install', ['bash', str(installer), '--base', assets.as_uri(), '--force-node', '--no-onboard'], timeout=600)
     progress = (out / 'install.txt').read_text()
     assert ' MB / ' in progress and '(100%)' in progress and 'elapsed ' in progress, 'Missing package download progress'
     assert 'Extracting Koder CLI' in progress and 'Activating Koder CLI' in progress
     rows.append({'name': 'download-progress-and-phases', 'passed': True})
     launcher = home / 'bin/koder'
+    install_text = (out / 'install.txt').read_text()
+    assert 'LIBARCHIVE.xattr' not in install_text, 'GNU tar must not warn for Apple metadata'
+    assert str(launcher) in install_text and ('Background activation does not open chat' in install_text or '不会打开聊天' in install_text)
+    assert (home / '.profile').is_file() and (home / '.bashrc').is_file()
+    run('current-path', ['bash', '-c', 'export PATH="$HOME/bin:$PATH"; hash -r; command -v koder; koder --version'])
+    shell_path = run('fresh-bash-path', ['bash', '--noprofile', '--rcfile', str(home / '.bashrc'), '-ic', 'command -v koder; koder --version'])
+    assert str(launcher) in shell_path and manifest['version'] in shell_path
     assert manifest['version'] in run('version', [str(launcher), '--version'])
     help_text = run('help', [str(launcher), '--help'])
     for feature in ('mail', 'mcp', 'apps', 'memory', 'github', 'skill', 'agentd', 'notifications'):
@@ -51,7 +59,7 @@ try:
     config = home / '.koder-cli/config.json'
     config.write_text('{"language":"en","harnessJit":{"enabled":false},"universalAppUse":{"enabled":false}}\n')
     before = config.read_bytes()
-    run('reinstall', ['bash', str(installer), '--base', assets.as_uri(), '--force-node', '--no-onboard', '--no-modify-path'], timeout=600)
+    run('reinstall', ['bash', str(installer), '--base', assets.as_uri(), '--force-node', '--no-onboard'], timeout=600)
     assert config.read_bytes() == before, 'Reinstall must preserve existing options'
     run('memory-status', [str(launcher), 'memory', 'status', '--json'])
     run('notification-status', [str(launcher), 'notifications', 'status', '--json'])

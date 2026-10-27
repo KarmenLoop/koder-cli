@@ -41,7 +41,7 @@ test('batching retains file syncs and durable prepare/publish/commit ordering',a
  const firstPublish=events.findIndex(e=>e.kind==='rename'&&e.path.startsWith(finalDir+path.sep));
  assert.ok(events.some((e,i)=>i<prepare&&e.kind==='dir'&&e.path.endsWith(path.join('projects','p'))&&e.path.includes(path.sep+'_ops'+path.sep+'staging'+path.sep)));
  assert.ok(events.some((e,i)=>i>prepare&&i<firstPublish&&e.kind==='dir'&&e.path===path.dirname(journal)));
- assert.ok(events.some((e,i)=>i>prepare&&i<firstPublish&&e.kind==='dir'&&e.path===path.join(root,'_ops')), 'the newly created journal directory entry must be durable before output publication');
+ assert.ok(events.some((e,i)=>i>prepare&&i<firstPublish&&e.kind==='dir'&&e.path===path.join(root,'_ops')), 'the newly created journal directory entry must be durable before output publication: '+JSON.stringify(events.filter(e=>e.kind==='dir')));
  assert.ok(events.some((e,i)=>i>firstPublish&&i<commit&&e.kind==='dir'&&e.path===finalDir));
  assert.equal(events.filter(e=>e.kind==='file').length,10,'four staging files, four outputs and both journal states must remain fsynced');
  for(let n=0;n<4;n++){
@@ -93,4 +93,16 @@ test('directory sync failure cannot mark a transaction committed and recovery fl
  await resumed.snapshot();
  assert.ok(dirs.includes(path.join(root,'projects/p')));
  assert.match(fs.readFileSync(journal,'utf8'),/committed/);
+});
+
+
+test('directory ancestry compares normalized paths before publishing the prepared journal',async t=>{
+ const {root,store}=fixture(t),mkdir=fs.mkdirSync,dirs=[],sync=store.syncDir.bind(store);
+ // Exercise the actual mkdir-to-write boundary with an equivalent pathname,
+ // as Windows can return a different slash/drive-letter spelling.
+ fs.mkdirSync=function(p,...args){const first=mkdir.call(this,p,...args);return first?path.dirname(first)+path.sep+'.'+path.sep+path.basename(first):first;};
+ store.syncDir=dir=>{dirs.push(dir);return sync(dir);};
+ try{await store.transact('normalized',tx=>put(tx,2));}finally{fs.mkdirSync=mkdir;}
+ assert.ok(dirs.includes(path.join(root,'_ops')));
+ assert.equal((await store.snapshot()).size,2);
 });
