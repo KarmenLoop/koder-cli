@@ -1,5 +1,13 @@
 # 0.5.13
 
+## 0.5.14
+
+- Replace unconditional login cancellation with hidden input and task-scoped credential handles.
+- Route confirmed credentials to existing bindings and Ubuntu login controls; use native sudo for system authorization.
+- Preserve cancellation, headless refusal, destination confirmation and uncertain-result receipts.
+- Add complete credential tutorials for Ubuntu.
+
+
 - Add an Ubuntu 26.04.1 Desktop amd64 installer and complete walkthrough while retaining Ubuntu 24.04 support.
 - Normalize Windows extended-length directory identities before committing learning transactions.
 

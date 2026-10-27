@@ -10,15 +10,15 @@ This release checks for missing task output and website handoff evidence. Read [
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current version: **0.5.13**. Start with [release changes](RELEASE-0.5.13.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.5.14**. Start with [release changes](RELEASE-0.5.14.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide targets 0.5.13. The linked 0.5.9 terminal text exports are retained as historical material; use this page and Installation for current startup instructions.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide targets 0.5.14. The linked 0.5.9 terminal text exports are retained as historical material; use this page and Installation for current startup instructions.
 
 # Koder CLI complete user guide
 
-Version: **0.5.13**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.5.14**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -221,14 +221,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.5.9-en-cmd.txt](tutorials/koder-cli-0.5.9-en-cmd.txt)
-- [koder-cli-0.5.9-en-linux.txt](tutorials/koder-cli-0.5.9-en-linux.txt)
-- [koder-cli-0.5.9-en-mac.txt](tutorials/koder-cli-0.5.9-en-mac.txt)
-- [koder-cli-0.5.9-en-powershell.txt](tutorials/koder-cli-0.5.9-en-powershell.txt)
-- [koder-cli-0.5.9-zh-cmd.txt](tutorials/koder-cli-0.5.9-zh-cmd.txt)
-- [koder-cli-0.5.9-zh-linux.txt](tutorials/koder-cli-0.5.9-zh-linux.txt)
-- [koder-cli-0.5.9-zh-mac.txt](tutorials/koder-cli-0.5.9-zh-mac.txt)
-- [koder-cli-0.5.9-zh-powershell.txt](tutorials/koder-cli-0.5.9-zh-powershell.txt)
+- [koder-cli-0.5.14-en-cmd.txt](tutorials/koder-cli-0.5.14-en-cmd.txt)
+- [koder-cli-0.5.14-en-linux.txt](tutorials/koder-cli-0.5.14-en-linux.txt)
+- [koder-cli-0.5.14-en-mac.txt](tutorials/koder-cli-0.5.14-en-mac.txt)
+- [koder-cli-0.5.14-en-powershell.txt](tutorials/koder-cli-0.5.14-en-powershell.txt)
+- [koder-cli-0.5.14-zh-cmd.txt](tutorials/koder-cli-0.5.14-zh-cmd.txt)
+- [koder-cli-0.5.14-zh-linux.txt](tutorials/koder-cli-0.5.14-zh-linux.txt)
+- [koder-cli-0.5.14-zh-mac.txt](tutorials/koder-cli-0.5.14-zh-mac.txt)
+- [koder-cli-0.5.14-zh-powershell.txt](tutorials/koder-cli-0.5.14-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
@@ -352,3 +352,7 @@ Read the [complete execution guide](FRAMEWORK-0.5.en.md). It covers installation
 [Model-specific thinking and output limits](MODEL-EFFORT-AND-OUTPUT.en.md)
 
 [Ubuntu 24.x full-runtime and desktop setup](UBUNTU.md).
+
+## Private credential input
+
+Version 0.5.14 supports hidden credential input, existing account bindings, Ubuntu private login filling and native sudo prompts. See [Credentials and private login input](CREDENTIALS.md) for the workflow and platform limits.

@@ -1,0 +1,753 @@
+{
+  "version": "0.5.14",
+  "generatedAt": "2026-10-27T21:15:04.487307+00:00",
+  "localRegression": {
+    "passed": true,
+    "suites": {
+      "credential-final.tap": {
+        "passed": 14,
+        "failed": 0,
+        "sha256": "d8f7ce7a802d1d6c2920b034e68f033b4da7217fa02d30b474974f44954688e9"
+      },
+      "remote-tty.tap": {
+        "passed": 47,
+        "failed": 0,
+        "sha256": "02be3746f62b9ddddc5f741cf368e710e97518dc2803f8b8027444114136c6d1"
+      },
+      "routing-second.tap": {
+        "passed": 32,
+        "failed": 0,
+        "sha256": "baa739da2c53fa8e17700b37c339089bdddb128bdc2e0094367c2cac712c760a"
+      },
+      "desktop-session-final.tap": {
+        "passed": 4,
+        "failed": 0,
+        "sha256": "1481d55f98123dea620fe9f69d95eb6d188277598852b06611424bd31c7027c4"
+      },
+      "docs-clean-final.tap": {
+        "passed": 2,
+        "failed": 0,
+        "sha256": "ffa00181190be6b0f4d42920d6eca25e8092415f0f4149818c41167b20c91c8d"
+      }
+    }
+  },
+  "package": {
+    "passed": true,
+    "privateSourceCommit": "8b579f303f4a042d1849292f95142d3424dbb28b",
+    "kernelHashes": 6329,
+    "kernelMatchesSource": true,
+    "coreTests": {
+      "exitCode": 0,
+      "testSourceHashes": {
+        "login-collection.test.mjs": "ced45daedc349f3d1bc42698c3ee03457f05f9cd2bbda9b22baf440cdf8264a4",
+        "login-routing.test.mjs": "56264a29c9137612acd5c8df26aa7885786c72348c4ebb29a589243ad51bae38",
+        "agent.test.mjs": "09d68962f429b4b16abddf30e7992176144754c4060fc15f15dd085faf72dfd9",
+        "agentd.test.mjs": "4d7034e7c9328b99b6dcc27922288785d86e46503f2509d9949300bc32e381ad",
+        "linux-desktop.test.mjs": "7c32d2aa291db9fa7aa6e5326b0619eea56724ec682406ee2aadb99cf297c923",
+        "native-api-recovery.test.mjs": "472af878f76c80b31326cf0813146b22e821648d3e919727c3f909f809da31f4",
+        "model-http.test.mjs": "b6b2716530226c54f836a5b89b87e8c583b20f77872c9a64db559d23cef5291b",
+        "model-wait.test.mjs": "fb8e816fd17591b3397098eeeb70ff5a10b7a36b2fca0ad1f5637b46ff2981ba",
+        "one-shot-startup.test.mjs": "d41f7ce5adcd44a2bdd57ec39f9c96589934cdbd565ffb01185b7abc6f26f285",
+        "computer-file-scope.test.mjs": "ea5464d09f8676819a683e7772ff1a2cbc677dead556a9807d5c0280dba8383e",
+        "task-step-budget.test.mjs": "bb629d8fdfff17631bf903c53a99f5566a370d91e0227758bbc092bc38859877",
+        "default-learning-integration.test.mjs": "32b31b96f50ea38aaf6dc1d991fc3cf9d5ef46ca28e978ad8c19e851f4a69339",
+        "learning-cli.test.mjs": "9c6eeadd70250333068eaebf3ce492170f37c8776c9f769ebcd3746dc0c6cc90",
+        "learning-store-batching.test.mjs": "1bf37e67f4fb352625236fa658b21e764a22900ce05a417b5b6c4bee33c5c100",
+        "learning-store.test.mjs": "174898ee129e8fb932817836dacbab80f85790fee292a6cd687235b6d70d07f4"
+      },
+      "archiveOnly": true,
+      "passed": 117,
+      "skipped": 1
+    },
+    "runtimeSha256": "23f0d81ffa38a025bcef3e8c9b35acc1b0b9eb2e7d6ad3fda319b09df2c477d2"
+  },
+  "macInstall": {
+    "passed": true,
+    "version": "0.5.14",
+    "archiveSha256": "23f0d81ffa38a025bcef3e8c9b35acc1b0b9eb2e7d6ad3fda319b09df2c477d2",
+    "scope": "Isolated macOS ARM64 install from a file mirror of exact release assets, existing supported Node; no GUI/TCC/locked-screen acceptance",
+    "configurationPreserved": true,
+    "downloadProgress": true,
+    "steps": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "elapsedSeconds": 7.694
+      },
+      {
+        "name": "version",
+        "exitCode": 0,
+        "elapsedSeconds": 0.568
+      },
+      {
+        "name": "help",
+        "exitCode": 0,
+        "elapsedSeconds": 0.164
+      }
+    ]
+  },
+  "windowsRuntime": {
+    "diagnosticOnly": false,
+    "complete": true,
+    "passed": true,
+    "version": "0.5.14",
+    "archiveSha256": "a58b5a8707965faa0c7dc8eb9b7227fd354e2ff4ddd4aec294a4886b8850757d",
+    "scope": "Released package on native Windows; synthetic model/mail fixtures, real OS storage and MCP process. No live mailbox, paid provider, or physical GUI acceptance. Diagnostics do not replace the unchanged 30-second acceptance gate.",
+    "groups": [
+      {
+        "group": "learning-store-batching.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 1.01,
+        "log": "learning-store-batching.test.tap"
+      },
+      {
+        "group": "native-notification.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 6.49,
+        "log": "native-notification.test.tap"
+      },
+      {
+        "group": "task-step-budget.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 17.55,
+        "log": "task-step-budget.test.tap"
+      },
+      {
+        "group": "multi-window-session.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 45.83,
+        "log": "multi-window-session.test.tap"
+      },
+      {
+        "group": "mail-runtime-lifecycle.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 12.11,
+        "log": "mail-runtime-lifecycle.test.tap"
+      },
+      {
+        "group": "mail-background-recovery.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 1.39,
+        "log": "mail-background-recovery.test.tap"
+      },
+      {
+        "group": "mail-inbox-refresh.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 0.22,
+        "log": "mail-inbox-refresh.test.tap"
+      },
+      {
+        "group": "fixtures/mail-recovery-tls.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 1.78,
+        "log": "fixtures-mail-recovery-tls.tap"
+      },
+      {
+        "group": "native-mcp.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 11.62,
+        "log": "native-mcp.test.tap"
+      },
+      {
+        "group": "native-shell.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 25.91,
+        "log": "native-shell.test.tap"
+      },
+      {
+        "group": "native-gui.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 45.95,
+        "log": "native-gui.test.tap"
+      }
+    ]
+  },
+  "ubuntuCredentials": {
+    "passed": true,
+    "runs": [
+      {
+        "artifact": "vm/ubuntu24/ubuntu-ubuntu-24.04-arm-wayland/desktop.json",
+        "receipt": {
+          "platform": "linux",
+          "architecture": "arm64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "wayland",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "credentials": {
+            "state": "PASS",
+            "actualAccountField": true,
+            "actualPasswordField": true,
+            "publicCaptureRedacted": true,
+            "singleUse": true,
+            "liveAccount": "NOT_RUN"
+          },
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 23
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        }
+      },
+      {
+        "artifact": "vm/ubuntu24/ubuntu-ubuntu-24.04-arm-x11/desktop.json",
+        "receipt": {
+          "platform": "linux",
+          "architecture": "arm64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "x11",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "credentials": {
+            "state": "PASS",
+            "actualAccountField": true,
+            "actualPasswordField": true,
+            "publicCaptureRedacted": true,
+            "singleUse": true,
+            "liveAccount": "NOT_RUN"
+          },
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 23
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        }
+      },
+      {
+        "artifact": "vm/ubuntu24/ubuntu-ubuntu-24.04-wayland/desktop.json",
+        "receipt": {
+          "platform": "linux",
+          "architecture": "x64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "wayland",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "credentials": {
+            "state": "PASS",
+            "actualAccountField": true,
+            "actualPasswordField": true,
+            "publicCaptureRedacted": true,
+            "singleUse": true,
+            "liveAccount": "NOT_RUN"
+          },
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 23
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        }
+      },
+      {
+        "artifact": "vm/ubuntu24/ubuntu-ubuntu-24.04-x11/desktop.json",
+        "receipt": {
+          "platform": "linux",
+          "architecture": "x64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "x11",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "credentials": {
+            "state": "PASS",
+            "actualAccountField": true,
+            "actualPasswordField": true,
+            "publicCaptureRedacted": true,
+            "singleUse": true,
+            "liveAccount": "NOT_RUN"
+          },
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 23
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        }
+      },
+      {
+        "artifact": "vm/ubuntu26/ubuntu-26.04.1-amd64-gtk3/ubuntu-results/desktop.json",
+        "receipt": {
+          "platform": "linux",
+          "architecture": "x64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "wayland",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "credentials": {
+            "state": "PASS",
+            "actualAccountField": true,
+            "actualPasswordField": true,
+            "publicCaptureRedacted": true,
+            "singleUse": true,
+            "liveAccount": "NOT_RUN"
+          },
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 23
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        }
+      },
+      {
+        "artifact": "vm/ubuntu26/ubuntu-26.04.1-amd64-gtk4/ubuntu-results/desktop.json",
+        "receipt": {
+          "platform": "linux",
+          "architecture": "x64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "wayland",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "credentials": {
+            "state": "PASS",
+            "actualAccountField": true,
+            "actualPasswordField": true,
+            "publicCaptureRedacted": true,
+            "singleUse": true,
+            "liveAccount": "NOT_RUN"
+          },
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 23
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        }
+      }
+    ],
+    "nativeSudo": [
+      {
+        "artifact": "vm/ubuntu24/ubuntu-ubuntu-24.04-wayland/credential-native-pty.json",
+        "passed": true,
+        "rows": [
+          {
+            "case": "native-password-and-command",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "succeeded"
+          },
+          {
+            "case": "cancel-native-prompt",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "unknown"
+          }
+        ],
+        "customerCredentials": "NOT_USED",
+        "scope": "ephemeral VM fixture user"
+      },
+      {
+        "artifact": "vm/ubuntu24/ubuntu-ubuntu-24.04-arm-x11/credential-native-pty.json",
+        "passed": true,
+        "rows": [
+          {
+            "case": "native-password-and-command",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "succeeded"
+          },
+          {
+            "case": "cancel-native-prompt",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "unknown"
+          }
+        ],
+        "customerCredentials": "NOT_USED",
+        "scope": "ephemeral VM fixture user"
+      },
+      {
+        "artifact": "vm/ubuntu24/ubuntu-ubuntu-24.04-x11/credential-native-pty.json",
+        "passed": true,
+        "rows": [
+          {
+            "case": "native-password-and-command",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "succeeded"
+          },
+          {
+            "case": "cancel-native-prompt",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "unknown"
+          }
+        ],
+        "customerCredentials": "NOT_USED",
+        "scope": "ephemeral VM fixture user"
+      },
+      {
+        "artifact": "vm/ubuntu24/ubuntu-ubuntu-24.04-arm-wayland/credential-native-pty.json",
+        "passed": true,
+        "rows": [
+          {
+            "case": "native-password-and-command",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "succeeded"
+          },
+          {
+            "case": "cancel-native-prompt",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "unknown"
+          }
+        ],
+        "customerCredentials": "NOT_USED",
+        "scope": "ephemeral VM fixture user"
+      },
+      {
+        "artifact": "vm/ubuntu26/ubuntu-26.04.1-amd64-gtk4/ubuntu-results/credential-native-pty.json",
+        "passed": true,
+        "rows": [
+          {
+            "case": "native-password-and-command",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "succeeded"
+          },
+          {
+            "case": "cancel-native-prompt",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "unknown"
+          }
+        ],
+        "customerCredentials": "NOT_USED",
+        "scope": "ephemeral VM fixture user"
+      },
+      {
+        "artifact": "vm/ubuntu26/ubuntu-26.04.1-amd64-gtk3/ubuntu-results/credential-native-pty.json",
+        "passed": true,
+        "rows": [
+          {
+            "case": "native-password-and-command",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "succeeded"
+          },
+          {
+            "case": "cancel-native-prompt",
+            "passed": true,
+            "passwordEchoed": false,
+            "state": "unknown"
+          }
+        ],
+        "customerCredentials": "NOT_USED",
+        "scope": "ephemeral VM fixture user"
+      }
+    ]
+  },
+  "notRun": [
+    "Customer mail, GitHub or model credentials",
+    "Live website sign-in, CAPTCHA, OAuth, FIDO and custom inaccessible controls",
+    "Physical Ubuntu GNOME desktop login and reboot",
+    "Private GUI filling on Windows and macOS (returns unavailable)",
+    "Physical Windows 10/11 credential entry",
+    "macOS TCC and locked-screen operation"
+  ],
+  "earlierAttempts": [
+    {
+      "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40584044694",
+      "state": "FAILED",
+      "reason": "Native success and cancellation and GUI filling passed; fixture cleanup permission check failed"
+    },
+    {
+      "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40584035052",
+      "state": "FAILED",
+      "reason": "GUI filling passed; native fixture did not recognize a platform prompt variant"
+    },
+    {
+      "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40583457827",
+      "state": "FAILED",
+      "reason": "Owned fixture could not reach native password prompt; preserved separately"
+    },
+    {
+      "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40583450065",
+      "state": "FAILED",
+      "reason": "Owned fixture could not reach native password prompt; preserved separately"
+    }
+  ],
+  "websiteChanged": false,
+  "workflowRuns": [
+    {
+      "id": 40584687898,
+      "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40584687898",
+      "conclusion": "success"
+    },
+    {
+      "id": 40584696043,
+      "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40584696043",
+      "conclusion": "success"
+    },
+    {
+      "id": 40583696508,
+      "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40583696508",
+      "conclusion": "success"
+    }
+  ],
+  "retainedFeatures": {
+    "baseline": "0.5.13 Darwin package",
+    "candidate": "0.5.14 Darwin package",
+    "removedFiles": [],
+    "addedFiles": [
+      "docs/CREDENTIALS.md",
+      "docs/CREDENTIALS.zh.md",
+      "docs/RELEASE-0.5.14.md",
+      "docs/RELEASE-0.5.14.zh.md",
+      "src/login-input.mjs",
+      "src/login-session.mjs",
+      "src/system-login.mjs"
+    ],
+    "changedFiles": [
+      "CHANGELOG.md",
+      "DISTRIBUTION.md",
+      "README.md",
+      "README.zh-CN.md",
+      "RELEASE_STATUS.md",
+      "docs/DOWNLOADS.md",
+      "docs/DOWNLOADS.zh.md",
+      "docs/INSTALLATION.md",
+      "docs/START-HERE.en.md",
+      "docs/START-HERE.zh.md",
+      "docs/UBUNTU-26.04.md",
+      "docs/UBUNTU-26.04.zh.md",
+      "docs/UBUNTU.md",
+      "docs/UBUNTU.zh.md",
+      "docs/USER-GUIDE.en.md",
+      "docs/USER-GUIDE.zh.md",
+      "kernel/MANIFEST.json",
+      "kernel/fusion/assistant-service-tools.mjs",
+      "kernel/fusion/harness-profile.mjs",
+      "kernel/fusion/hermes/koder-work/plugin.mjs",
+      "kernel/harness/create.mjs",
+      "package.json",
+      "src/agent.mjs",
+      "src/agentd/client.mjs",
+      "src/agentd/runtime.mjs",
+      "src/assistant-services.mjs",
+      "src/format.mjs",
+      "src/i18n.mjs",
+      "src/linux-desktop.mjs",
+      "src/linux-desktop.py",
+      "src/mail-assistant.mjs",
+      "src/policy.mjs",
+      "src/session.mjs",
+      "src/turn.mjs",
+      "src/version.mjs"
+    ],
+    "oldFileCount": 21752,
+    "newFileCount": 21759,
+    "meaning": "File inventory and exact source check; does not prove every runtime behavior"
+  }
+}
