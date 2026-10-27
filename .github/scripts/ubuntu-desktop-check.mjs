@@ -29,6 +29,10 @@ try{
  await fs.writeFile(path.join(out,'captured-fixture.json'),JSON.stringify(frame,null,2)+'\n');
  assert.ok(!JSON.stringify(frame).includes('fixture-only-hidden-value'),'Password text must not leave the worker');
  assert.ok(frame.elements.some(e=>e.label==='[protected input]'&&e.actions.length===0));
+ if(process.env.KODER_GTK_TEST==='gtk4'){
+  assert.equal(frame.elements.filter(e=>e.label==='[protected input]'&&e.actions.length===0).length,2,'Declared and masked passwords stay protected');
+  assert.deepEqual(frame.elements.find(e=>e.label==='Koder disabled fixture')?.actions,[],'Disabled GTK4 controls stay unavailable');
+ }
  await fs.writeFile(path.join(out,'captured-fixture.json'),JSON.stringify(frame,null,2)+'\n');
  const entry=frame.elements.find(e=>e.label==='Koder fixture input'&&e.actions.includes('type'));assert.ok(entry,'EditableText must be exposed');
  const typed=await driver.act({snapshotId:frame.snapshotId,element:entry.id,action:'type',args:{text:'Ubuntu owned test'}});

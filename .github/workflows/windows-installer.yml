@@ -41,7 +41,7 @@ jobs:
           RELEASE_TAG: ${{ inputs.release }}
         shell: bash
         run: |
-          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate --pattern 'koder-cli-latest.json' --pattern 'koder-cli.ps1' --pattern 'koder-cli.cmd' --pattern 'koder-cli.sh' --pattern 'koder-ubuntu-24.04.sh'
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate --pattern 'koder-cli-latest.json' --pattern 'koder-cli.ps1' --pattern 'koder-cli.cmd' --pattern 'koder-cli.sh' --pattern 'koder-ubuntu-24.04.sh' --pattern 'koder-ubuntu-26.04.sh'
           PACKAGE=$(node -p 'JSON.parse(require("fs").readFileSync("candidate/koder-cli-latest.json")).file')
           gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate --pattern "$PACKAGE"
       - name: Record the actual VM environment

@@ -36,8 +36,11 @@ class Model(http.server.BaseHTTPRequestHandler):
     def do_POST(self):
         data = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
         requests.append({'at': time.monotonic(), 'messages': len(data.get('messages', []))})
-        time.sleep(20)  # Exceeds the old 15-second header timer, not the total budget.
-        body = json.dumps({'choices': [{'message': {'role': 'assistant', 'content': 'UBUNTU_SLOW_REPLY_OK'}, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 12, 'completion_tokens': 6}}).encode()
+        latest = str(next((m.get('content', '') for m in reversed(data.get('messages', [])) if m.get('role') == 'user'), ''))
+        reply = 'UBUNTU_AFTER_CANCEL_OK' if 'AFTER_CANCEL' in latest else 'UBUNTU_CANCEL_SHOULD_NOT_APPEAR' if 'CANCEL_TARGET' in latest else 'UBUNTU_SLOW_REPLY_OK'
+        if reply != 'UBUNTU_AFTER_CANCEL_OK':
+            time.sleep(20)  # Exceeds the old 15-second header timer, not the total budget.
+        body = json.dumps({'choices': [{'message': {'role': 'assistant', 'content': reply}, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 12, 'completion_tokens': 6}}).encode()
         try:
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
@@ -87,6 +90,33 @@ try:
         if sent and 'API_HEADERS_TIMEOUT' in clean and len(requests) >= 3:
             break
     rows.append({'name': 'interactive-slow-first-response', 'passed': sent and success and len(requests) == 1 and 'MODEL_WAIT' in clean, 'submitted': sent, 'replyObserved': success, 'requestCount': len(requests), 'waitingStatusVisible': 'MODEL_WAIT' in clean, 'seconds': round(time.monotonic()-started, 3)})
+    def observe_until(predicate, seconds):
+        deadline = time.monotonic() + seconds
+        while time.monotonic() < deadline:
+            ready, _, _ = select.select([fd], [], [], .1)
+            if ready:
+                try: chunk = os.read(fd, 65536)
+                except OSError as error:
+                    if error.errno == errno.EIO: return False
+                    raise
+                if not chunk: return False
+                raw.extend(chunk)
+            text = re.sub(r'\x1b\[[0-?]*[ -/]*[@-~]', '', raw.decode(errors='replace'))
+            if predicate(text): return True
+        return False
+    if rows[0]['passed']:
+        observe_until(lambda _: False, .5)  # Let final output settle; no action replay.
+        os.write(fd, b'Reply to CANCEL_TARGET only after waiting.\r')
+        assert observe_until(lambda _: len(requests) == 2, 10), 'Second model request must start before cancellation'
+        cancel_at = time.monotonic()
+        os.write(fd, b'\x03')
+        cancelled = observe_until(lambda text: 'Cancelled.' in text, 5)
+        assert cancelled, 'Busy Ctrl+C must report cancellation without closing chat'
+        observe_until(lambda _: False, .5)
+        os.write(fd, b'AFTER_CANCEL: reply with the recovery marker.\r')
+        recovered = observe_until(lambda text: 'UBUNTU_AFTER_CANCEL_OK' in text, 10)
+        clean = raw.decode(errors='replace')
+        rows.append({'name': 'busy-cancel-and-next-turn', 'passed': cancelled and recovered and len(requests) == 3 and 'UBUNTU_CANCEL_SHOULD_NOT_APPEAR' not in clean, 'cancelObserved': cancelled, 'nextTurnReplyObserved': recovered, 'requestCount': len(requests), 'seconds': round(time.monotonic()-cancel_at, 3)})
 finally:
     try: os.write(fd, b'\x03')
     except OSError: pass
