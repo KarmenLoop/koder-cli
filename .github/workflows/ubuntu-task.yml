@@ -2,6 +2,7 @@ name: Ubuntu interactive task acceptance
 on:
   push:
     branches: [acceptance/ubuntu-task-0512]
+    paths: [".github/**"]
   workflow_dispatch:
     inputs:
       release:
