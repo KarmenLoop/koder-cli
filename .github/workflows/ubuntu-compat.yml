@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies in the disposable runner
         run: |
           sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update
-          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y python3-gi gir1.2-gtk-3.0 gir1.2-atspi-2.0 at-spi2-core dbus-x11 libnotify-bin xvfb x11-utils openbox dunst weston sway mako-notifier
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends python3-gi gir1.2-gtk-3.0 gir1.2-atspi-2.0 at-spi2-core dbus-x11 libnotify-bin xvfb x11-utils openbox dunst sway mako-notifier
       - name: Download exact release
         env:
           GH_TOKEN: ${{ github.token }}
