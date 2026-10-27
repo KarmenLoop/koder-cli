@@ -7,7 +7,7 @@ on:
       release:
         description: Exact draft or published release tag
         required: true
-        default: cli-0.5.11
+        default: cli-0.5.12
 permissions:
   contents: read
 jobs:
@@ -30,7 +30,7 @@ jobs:
       - name: Download the exact Linux runtime
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ inputs.release || 'cli-0.5.11' }}
+          RELEASE_TAG: ${{ inputs.release || 'cli-0.5.12' }}
         run: |
           gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate --pattern "koder-cli-${RELEASE_TAG#cli-}-linux.tgz" --pattern koder-cli-latest.json
       - name: Submit a task in a real pseudo-terminal

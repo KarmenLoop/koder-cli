@@ -39,6 +39,10 @@ def run(name, argv, accepted=(0,), timeout=120, extra=None):
 try:
     # file:// is a controlled local mirror of the same hash-checked GitHub assets.
     run('install', ['bash', str(installer), '--base', assets.as_uri(), '--force-node', '--no-onboard', '--no-modify-path'], timeout=600)
+    progress = (out / 'install.txt').read_text()
+    assert ' MB / ' in progress and '(100%)' in progress and 'elapsed ' in progress, 'Missing package download progress'
+    assert 'Extracting Koder CLI' in progress and 'Activating Koder CLI' in progress
+    rows.append({'name': 'download-progress-and-phases', 'passed': True})
     launcher = home / 'bin/koder'
     assert manifest['version'] in run('version', [str(launcher), '--version'])
     help_text = run('help', [str(launcher), '--help'])

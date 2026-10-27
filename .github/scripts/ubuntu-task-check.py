@@ -22,6 +22,9 @@ with tarfile.open(archive) as z:
         assert not Path(m.name).is_absolute() and '..' not in Path(m.name).parts
     z.extractall(payload, filter='data')
 runtime = payload / 'koder-cli'
+scope = subprocess.run(['node', '--test', '.github/scripts/ubuntu-file-scope.test.mjs'], env={**os.environ, 'KODER_TEST_RUNTIME': str(runtime)}, capture_output=True, text=True, timeout=30)
+(out / 'file-scope.tap').write_text(scope.stdout + scope.stderr)
+assert scope.returncode == 0, scope.stdout + scope.stderr
 requests = []
 rows = []
 
@@ -80,7 +83,7 @@ try:
             break
         if sent and 'API_HEADERS_TIMEOUT' in clean and len(requests) >= 3:
             break
-    rows.append({'name': 'interactive-slow-first-response', 'passed': sent and success and len(requests) == 1, 'submitted': sent, 'replyObserved': success, 'requestCount': len(requests), 'seconds': round(time.monotonic()-started, 3)})
+    rows.append({'name': 'interactive-slow-first-response', 'passed': sent and success and len(requests) == 1 and 'MODEL_WAIT' in clean, 'submitted': sent, 'replyObserved': success, 'requestCount': len(requests), 'waitingStatusVisible': 'MODEL_WAIT' in clean, 'seconds': round(time.monotonic()-started, 3)})
 finally:
     try: os.write(fd, b'\x03')
     except OSError: pass
