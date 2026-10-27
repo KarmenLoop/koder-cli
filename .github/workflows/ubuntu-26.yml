@@ -43,8 +43,13 @@ jobs:
           node-version: '22.23.3'
       - name: Install disposable desktop dependencies
         run: |
-          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update
-          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends python3-gi gir1.2-gtk-3.0 gir1.2-gtk-4.0 gir1.2-atspi-2.0 at-spi2-core dbus-x11 libnotify-bin sway mako-notifier
+          # Use Ubuntu's signed archive directly for these disposable GUI tests.
+          # The runner's Azure mirror can spend minutes on individual packages.
+          test -f /etc/apt/sources.list.d/ubuntu.sources
+          sed 's|http://azure.archive.ubuntu.com/ubuntu|http://archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list.d/ubuntu.sources > "$RUNNER_TEMP/koder-ubuntu.sources"
+          apt_options=(-o "Dir::Etc::sourcelist=$RUNNER_TEMP/koder-ubuntu.sources" -o Dir::Etc::sourceparts=- -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30)
+          timeout --kill-after=10s 300s sudo apt-get "${apt_options[@]}" update
+          timeout --kill-after=10s 480s sudo apt-get "${apt_options[@]}" install -y --no-install-recommends python3-gi gir1.2-gtk-3.0 gir1.2-gtk-4.0 gir1.2-atspi-2.0 at-spi2-core dbus-x11 libnotify-bin sway mako-notifier
       - name: Download exact release
         env:
           GH_TOKEN: ${{ github.token }}
