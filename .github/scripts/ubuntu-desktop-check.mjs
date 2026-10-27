@@ -46,6 +46,23 @@ try{
   await new Promise(r=>setTimeout(r,100));
  }
  assert.ok(frame.elements.some(e=>e.label==='Fixture result: Ubuntu owned test'),'Actual button callback must receive actual input');
+ if(typeof driver.fillCredential==='function'){
+  const {createLoginSession}=await import(pathToFileURL(path.join(root,'src/login-session.mjs')));
+  const thread={id:'owned-gui-credentials',messages:[{role:'user',id:'root',content:'Fill the fixture login'}]};
+  const local={env:{KODER_CLI_HOME:out},opts:{},io:{computerDriver:driver,credentialConfirm:async preview=>{assert.equal(preview.targetId,found.targetId);return true;}}};
+  const logins=createLoginSession(local);
+  try{
+   frame=await driver.capture({app:found.targetId});
+   const password=frame.elements.find(e=>e.credentialInput===true);assert.ok(password,'A protected credential input must be visible');
+   const handle=await logins.put({purpose:'login',service:'Owned GTK fixture',account:'credential-fixture-account',password:'credential-fixture-password'},{thread});
+   const args={handle:'login:'+handle.id,operation:'desktop-fill',snapshotId:frame.snapshotId,accountElement:entry.id,passwordElement:password.id};
+   const result=await logins.use(args,{thread});assert.equal(result.state,'filled');assert.equal(result.loginVerified,false);
+   for(let i=0;i<40;i++){try{const actual=JSON.parse(await fs.readFile(path.join(out,'credential-filled.json'),'utf8'));assert.equal(actual.account,true);assert.equal(actual.password,true);break;}catch(e){if(i===39)throw e;await new Promise(r=>setTimeout(r,50));}}
+   await assert.rejects(logins.use(args,{thread}),{code:'LOGIN_HANDLE_EXPIRED_OR_WRONG_TASK'});
+   frame=await driver.capture({app:found.targetId});assert.doesNotMatch(JSON.stringify(frame),/credential-fixture-account|credential-fixture-password/);
+   receipt.credentials={state:'PASS',actualAccountField:true,actualPasswordField:true,publicCaptureRedacted:true,singleUse:true,liveAccount:'NOT_RUN'};
+  }finally{logins.close();}
+ }
  granted=false;await assert.rejects(driver.capture(),{code:'COMPUTER_PERMISSION_REQUIRED'});
  receipt.desktop={state:'PASS',typed:true,clicked:true,observedResult:true,passwordHidden:true,revocationChecked:true,staleNotReplayed:true,authorizations};
  const noDesktop=await notifyNative({kind:'task-done'},{env:{PATH:process.env.PATH}});assert.equal(noDesktop.state,'unavailable');assert.equal(noDesktop.reason,'NO_NOTIFICATION_SESSION');

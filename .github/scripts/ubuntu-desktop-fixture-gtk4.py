@@ -31,6 +31,12 @@ def activate(application):
     result=Gtk.Label(label='Fixture waiting')
     box.append(result)
     button.connect('clicked',lambda _:result.set_text('Fixture result: '+entry.get_text()))
+    def credential_check():
+        if entry.get_text() == 'credential-fixture-account' and secret.get_text() == 'credential-fixture-password':
+            Path(os.environ['KODER_TEST_RESULTS'], 'credential-filled.json').write_text('{"account":true,"password":true}')
+        return True
+    GLib.timeout_add(50, credential_check)
+
     window.present()
     Path(os.environ['KODER_FIXTURE_PID']).write_text(str(os.getpid()))
 app.connect('activate',activate)
