@@ -14,6 +14,24 @@ The current compatibility scope is Ubuntu 24.04 LTS. Ubuntu 24.10 is outside thi
 
 ## Install the full runtime
 
+On a fresh Ubuntu installation, `curl: command not found` means the download never started. Install the download prerequisites first, running each command separately:
+
+```bash
+sudo apt update
+sudo apt install -y curl ca-certificates
+curl -fL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh -o /tmp/koder-install.sh
+```
+
+After a successful download, review `/tmp/koder-install.sh`, then run:
+
+```bash
+bash /tmp/koder-install.sh
+koder --version
+koder setup
+```
+
+Only the distribution dependency installation uses `sudo`. Run the Koder installer and CLI as your ordinary user. Enter a sudo password only in your local terminal, never in a chat. If the download fails, resolve the network or certificate error before running the temporary file. If `wget` is already installed, `wget -O /tmp/koder-install.sh https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh` is an alternative; the installer itself supports either downloader. The release `.tgz` is the runtime archive, not a double-click installer.
+
 Download `koder-cli.sh` from the [0.5.8 release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.8), review it, then run:
 
 ```bash
@@ -81,4 +99,4 @@ koder deactivate
 
 The public `Ubuntu full runtime and accessible desktop` GitHub Actions workflow downloads an exact release, verifies its archive and kernel hashes, tests managed-Node installation and configuration-preserving reinstallation, then operates an owned GTK application through the real Python/AT-SPI transport. Its matrix covers x64/ARM64 and X11/Wayland on Ubuntu 24.04 runners. It also checks a notification submission and the explicit headless-unavailable result. It does not use a real mailbox, cloud model account or user application.
 
-Source tests run on macOS with injected Linux backends; those are contract checks, not Ubuntu GUI acceptance. See the exact workflow run and its `runtime.json`/`desktop.json` artifacts for actual results. A cell without a runtime receipt is `NOT_RUN`; a recorded failing run remains `FAIL` even after a later build passes. The first 0.5.8 draft exposed a GI text-interface name collision that hid editable controls. The corrected adapter uses interface-qualified text calls; a regression preserves empty inputs, readable labels and protected-password handling. Check the archive SHA-256 in each later run to identify the tested build. Headless Weston/Xvfb results do not establish a physical GNOME session, screen appearance, reboot/login startup, all Ubuntu flavors or all application controls. Those remain separate device acceptance items. An unavailable cell must not be summarized as a full-platform pass.
+Source tests run on macOS with injected Linux backends; those are contract checks, not Ubuntu GUI acceptance. See the exact workflow run and its `runtime.json`/`desktop.json` artifacts for actual results. A cell without a runtime receipt is `NOT_RUN`; a recorded failing run remains `FAIL` even after a later build passes. The first 0.5.8 draft exposed a GI text-interface name collision that hid editable controls. The corrected adapter uses interface-qualified text calls; a regression preserves empty inputs, readable labels and protected-password handling. Check the archive SHA-256 in each later run to identify the tested build. Headless Sway/Xvfb results do not establish a physical GNOME session, screen appearance, reboot/login startup, all Ubuntu flavors or all application controls. Those remain separate device acceptance items. An unavailable cell must not be summarized as a full-platform pass.
