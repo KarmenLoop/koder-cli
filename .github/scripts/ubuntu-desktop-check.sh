@@ -44,7 +44,9 @@ for i in {1..40}; do
   sleep .25
 done
 [[ "$notification_ready" == true ]]
-/usr/bin/python3 .github/scripts/ubuntu-desktop-fixture.py > "$KODER_TEST_RESULTS/fixture.log" 2>&1 &
+fixture=.github/scripts/ubuntu-desktop-fixture.py
+if [[ "${KODER_GTK_TEST:-gtk3}" == gtk4 ]]; then fixture=.github/scripts/ubuntu-desktop-fixture-gtk4.py; export GTK_A11Y=atspi; fi
+/usr/bin/python3 "$fixture" > "$KODER_TEST_RESULTS/fixture.log" 2>&1 &
 pids+=("$!")
 for i in {1..40}; do [[ -s "$KODER_FIXTURE_PID" ]] && break; sleep .25; done
 /usr/bin/python3 - <<'PY' > "$KODER_TEST_RESULTS/fixture-interfaces.json"

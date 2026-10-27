@@ -1,0 +1,30 @@
+"""Owned GTK4 controls using the native accessibility bus; no user data."""
+import gi, os
+from pathlib import Path
+gi.require_version('Gtk', '4.0')
+from gi.repository import Gtk, GLib
+GLib.set_prgname('koder-ubuntu-fixture')
+GLib.set_application_name('Koder Ubuntu Fixture')
+app=Gtk.Application(application_id='com.karmenloop.KoderFixture')
+def activate(application):
+    window=Gtk.ApplicationWindow(application=application, title='Koder Ubuntu Fixture')
+    window.set_default_size(480, 240)
+    box=Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+    window.set_child(box)
+    entry=Gtk.Entry()
+    entry.update_property([Gtk.AccessibleProperty.LABEL], ['Koder fixture input'])
+    box.append(entry)
+    secret=Gtk.Entry()
+    secret.set_visibility(False)
+    secret.set_text('fixture-only-hidden-value')
+    secret.update_property([Gtk.AccessibleProperty.LABEL], ['Koder protected fixture'])
+    box.append(secret)
+    button=Gtk.Button(label='Apply fixture value')
+    box.append(button)
+    result=Gtk.Label(label='Fixture waiting')
+    box.append(result)
+    button.connect('clicked',lambda _:result.set_text('Fixture result: '+entry.get_text()))
+    window.present()
+    Path(os.environ['KODER_FIXTURE_PID']).write_text(str(os.getpid()))
+app.connect('activate',activate)
+app.run(None)
