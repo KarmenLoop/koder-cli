@@ -1,5 +1,7 @@
 name: Ubuntu interactive task acceptance
 on:
+  push:
+    branches: [acceptance/ubuntu-task-0512]
   workflow_dispatch:
     inputs:
       release:
@@ -28,7 +30,7 @@ jobs:
       - name: Download the exact Linux runtime
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ inputs.release }}
+          RELEASE_TAG: ${{ inputs.release || 'cli-0.5.11' }}
         run: |
           gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate --pattern "koder-cli-${RELEASE_TAG#cli-}-linux.tgz" --pattern koder-cli-latest.json
       - name: Submit a task in a real pseudo-terminal
