@@ -4,6 +4,8 @@
 
 本功能随 0.5.5 提供，默认用于内置 KARMENLOOP 的合资格任务。首次实际任务才建立学习库，帮助、状态查询、设置菜单浏览和只读规划不建库。安装、升级和平台验收以发行附件 ACCEPTANCE-RESULTS.json 为准。
 
+
+内置方法已更新为 personal-agent-growth 0.4.3；启用时任务入口默认加载有来源哈希的短方法，详细参考用 `skill_read` 读取。任务 JSON 的 `growthMethod` 记录实际加载位置，与真实工具调用、任务通过及质量提升分开陈述，详见[接入说明](AUTONOMOUS-LEARNING.md)。
 ## 启用与使用
 
 需要 Node.js 22.21 或以上的受支持版本。官方安装器会检查运行环境；下方命令适用于 Koder CLI 0.5.5。先运行 `koder --version` 核对版本。

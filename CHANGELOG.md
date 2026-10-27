@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.9 — 2026-10-27
+
+- Bundle Personal Agent Growth 0.4.3 and load bounded source excerpts by default in the existing Agent path.
+- Add typed learning write examples and recovery guidance while preserving evidence validation and pending completion.
+- Retain complete current-task constraint sections under small context budgets and label omitted memory accurately.
+- Keep the native delivery checker available for code-task continuation.
+- Document fresh Ubuntu curl prerequisites without installing packages silently.
+
+[Release notes](docs/RELEASE-0.5.9.md) · [Learning guide](docs/MARKDOWN-LEARNING.en.md).
+
 ## 0.5.8 — 2026-10-27
 
 - Add an authorized AT-SPI desktop adapter to the complete Ubuntu runtime, with X11/Wayland and x64/ARM64 acceptance scripts.

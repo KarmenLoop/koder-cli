@@ -4,15 +4,15 @@ This release checks for missing task output and website handoff evidence. Read [
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-Current version: **0.5.8**. Start with [release changes](RELEASE-0.5.8.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.5.9**. Start with [release changes](RELEASE-0.5.9.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.8; check GitHub Releases for publication status and available downloads.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide and the eight terminal text editions target 0.5.9; check GitHub Releases for publication status and available downloads.
 
 # Koder CLI complete user guide
 
-Version: **0.5.8**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.5.9**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -215,14 +215,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.5.8-en-cmd.txt](tutorials/koder-cli-0.5.8-en-cmd.txt)
-- [koder-cli-0.5.8-en-linux.txt](tutorials/koder-cli-0.5.8-en-linux.txt)
-- [koder-cli-0.5.8-en-mac.txt](tutorials/koder-cli-0.5.8-en-mac.txt)
-- [koder-cli-0.5.8-en-powershell.txt](tutorials/koder-cli-0.5.8-en-powershell.txt)
-- [koder-cli-0.5.8-zh-cmd.txt](tutorials/koder-cli-0.5.8-zh-cmd.txt)
-- [koder-cli-0.5.8-zh-linux.txt](tutorials/koder-cli-0.5.8-zh-linux.txt)
-- [koder-cli-0.5.8-zh-mac.txt](tutorials/koder-cli-0.5.8-zh-mac.txt)
-- [koder-cli-0.5.8-zh-powershell.txt](tutorials/koder-cli-0.5.8-zh-powershell.txt)
+- [koder-cli-0.5.9-en-cmd.txt](tutorials/koder-cli-0.5.9-en-cmd.txt)
+- [koder-cli-0.5.9-en-linux.txt](tutorials/koder-cli-0.5.9-en-linux.txt)
+- [koder-cli-0.5.9-en-mac.txt](tutorials/koder-cli-0.5.9-en-mac.txt)
+- [koder-cli-0.5.9-en-powershell.txt](tutorials/koder-cli-0.5.9-en-powershell.txt)
+- [koder-cli-0.5.9-zh-cmd.txt](tutorials/koder-cli-0.5.9-zh-cmd.txt)
+- [koder-cli-0.5.9-zh-linux.txt](tutorials/koder-cli-0.5.9-zh-linux.txt)
+- [koder-cli-0.5.9-zh-mac.txt](tutorials/koder-cli-0.5.9-zh-mac.txt)
+- [koder-cli-0.5.9-zh-powershell.txt](tutorials/koder-cli-0.5.9-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 

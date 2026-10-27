@@ -4,6 +4,8 @@ Koder saves task checkpoints, decisions and reusable experience as local Markdow
 
 The first eligible task creates its library. `learning status`, help, Setup navigation, and read-only planning do not initialize a library. `--no-learning`, `--no-memory`, the growth master switch, disabled growth skills, and a saved learning opt-out all take precedence. Temporary sessions caused by unavailable memory storage do not create a learning library.
 
+
+The bundled method is personal-agent-growth 0.4.3. Enabled tasks load short, hash-pinned method excerpts by default; detailed references use `skill_read`. JSON results report the loaded ranges in `growthMethod`, separately from actual tool calls and verification. See [the integration guide](AUTONOMOUS-LEARNING.md).
 ## Storage and task boundaries
 
 An explicit `--learning-root` or `KODER_LEARNING_ROOT` chooses an exact directory. Management commands also accept `--root`. Otherwise Koder uses `KODER_DATA`, saved `dataHome`, or the CLI data directory, with `learning/accounts/<account-hash>/workspaces/<workspace-hash>` beneath it. An existing `~/.koder/learning` library is reused only for a compatible local workspace. No automatic migration or copying of existing notes occurs.

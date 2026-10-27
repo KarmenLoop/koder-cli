@@ -193,9 +193,9 @@
       "id": "personal-agent-growth",
       "repository": "KarmenLoop/personal-agent-growth",
       "declaredLicense": "AGPL-3.0-only",
-      "use": "Unmodified KARMEN LOOP task-learning method, references and optional offline handoff/comparison source; separately licensed resources that use the original host permissions and version store.",
+      "use": "Unmodified KARMEN LOOP task-learning method, bilingual references, templates and portable source; Koder loads bounded method excerpts by default through its existing task runtime. Portable hosts remain unregistered and unexecuted.",
       "bundleResourceRoot": "kernel/fusion/ecosystem/resources/personal-agent-growth",
-      "listedResourceFiles": 10,
+      "listedResourceFiles": 61,
       "licenseAndNoticeCopies": [
         {
           "upstreamPath": "LICENSE",
@@ -211,8 +211,22 @@
         }
       ],
       "previousSourceRevision": "bfe713595ee22808d5a9148508369966ca71035e",
-      "version": "0.4.1",
+      "version": "0.4.3",
       "recordedSourceSnapshot": {
+        "kind": "github-release",
+        "status": "published",
+        "tag": "v0.4.3",
+        "commit": "9d5eed453837a1091c845af898164ae1e0f3cbf2",
+        "url": "https://github.com/KarmenLoop/personal-agent-growth/releases/tag/v0.4.3",
+        "archive": {
+          "name": "personal-agent-growth-0.4.3.zip",
+          "sha256": "3ac502143eb8f6b7f5e392abdc6bdeb10ed5f63a247e8b151832ea8617945a68",
+          "bytes": 132723
+        },
+        "coreManifestSha256": "539b028ef2059109017f55238c412c31c02a80ce1f6bcc00b12abcc4f5d28ce2",
+        "contentSha256": "91f4dd4e0b33b62779f8029176d9063a116e06266581d28d73fdbf09f613269f"
+      },
+      "previousSourceSnapshot": {
         "kind": "delivery-archive",
         "status": "local_candidate",
         "buildId": "0.4.1-bundle.1",

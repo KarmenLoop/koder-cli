@@ -1,0 +1,1244 @@
+{
+  "version": "0.5.9",
+  "privateSourceCommit": "6b9ecb7bd17001333244f64d6902867f9c19b61e",
+  "sourceBaseline": "0.5.8",
+  "runtime": {
+    "file": "koder-cli-0.5.9.tgz",
+    "sha256": "d782b246bcb806672e0bdb74c771428f2791521532f017c78e49856ac65167da",
+    "bytes": 519985103
+  },
+  "recordedAt": "2026-10-27T13:58:42.211355+00:00",
+  "scope": "GitHub-only incremental release. Platform, real-model and isolated local evidence are separated.",
+  "validation": {
+    "sourceRegression": {
+      "sourceCommit": "6b9ecb7bd17001333244f64d6902867f9c19b61e",
+      "initialSourceCommit": "7cbaa6a8b2881db949a53cf6652016760233465c",
+      "changedPaths": [
+        "koder-cli/test/workflows.test.mjs"
+      ],
+      "sourceUnchanged": true,
+      "passed": false,
+      "releaseEligible": true,
+      "knownNonBlockingHolds": [
+        {
+          "file": "test/bundle.test.mjs",
+          "test": "light commands start fast; a task reaches the model quickly",
+          "status": "PERFORMANCE_HOLD",
+          "reason": "The original 1000 ms first-model threshold was not met. Alternating baseline/current runs on the same host both missed it while completing successfully. No assertion or threshold was relaxed.",
+          "comparison": "startup-baseline-comparison.json"
+        }
+      ],
+      "status": "FUNCTIONAL_PASS_PERFORMANCE_HOLD",
+      "initialExitCode": 1,
+      "initialCounts": {
+        "tests": 1968,
+        "pass": 1943,
+        "fail": 2,
+        "cancelled": 2,
+        "skipped": 21
+      },
+      "initialElapsedSeconds": 838.222,
+      "initialArgv": [
+        "node",
+        "--test",
+        "--test-concurrency=3",
+        "--test-timeout=240000",
+        "test/academy-deep.test.mjs",
+        "test/academy-practice.test.mjs",
+        "test/academy.test.mjs",
+        "test/acp-close.test.mjs",
+        "test/acp.test.mjs",
+        "test/agent.test.mjs",
+        "test/agentd-mail-health.test.mjs",
+        "test/agentd.test.mjs",
+        "test/api-continuation-audit.test.mjs",
+        "test/api-proxy.test.mjs",
+        "test/api-stability.test.mjs",
+        "test/app-artifact-context.test.mjs",
+        "test/app-use-learning.test.mjs",
+        "test/app-use-mcp.test.mjs",
+        "test/app-use-setup.test.mjs",
+        "test/apps-agent.test.mjs",
+        "test/apps-bundle.test.mjs",
+        "test/apps-command.test.mjs",
+        "test/apps-context.test.mjs",
+        "test/apps-gateway.test.mjs",
+        "test/apps-license.test.mjs",
+        "test/apps-oauth.test.mjs",
+        "test/apps-recovery.test.mjs",
+        "test/apps-setup.test.mjs",
+        "test/automatic-update-responsive.test.mjs",
+        "test/automatic-update.test.mjs",
+        "test/basics.test.mjs",
+        "test/blind-benchmark-goldens.test.mjs",
+        "test/browser-workflow-agent.test.mjs",
+        "test/builtin-skills-cli.test.mjs",
+        "test/bundle.test.mjs",
+        "test/cad-delivery.test.mjs",
+        "test/candidate-update-order.test.mjs",
+        "test/capability-audit.test.mjs",
+        "test/celebration-backpressure.test.mjs",
+        "test/celebration-color.test.mjs",
+        "test/celebration-process.test.mjs",
+        "test/channel-reliability.test.mjs",
+        "test/chat-intent-menu.test.mjs",
+        "test/cli-anything.test.mjs",
+        "test/cloud-tool-roundtrip-audit.test.mjs",
+        "test/command-completion.test.mjs",
+        "test/command-duration.test.mjs",
+        "test/completion-outcomes.test.mjs",
+        "test/consent-content.test.mjs",
+        "test/consumer-features.test.mjs",
+        "test/content-quality-routing.test.mjs",
+        "test/context-carryover-regression.test.mjs",
+        "test/context-compaction.test.mjs",
+        "test/context-learning-native-budget.test.mjs",
+        "test/context-learning-pack.test.mjs",
+        "test/context-learning-segments.test.mjs",
+        "test/context-memory.test.mjs",
+        "test/context-recovery.test.mjs",
+        "test/context-session-policy.test.mjs",
+        "test/context-settings.test.mjs",
+        "test/context-skill-pages.test.mjs",
+        "test/context-suggestions.test.mjs",
+        "test/cross-platform.test.mjs",
+        "test/current-intent.test.mjs",
+        "test/current-task-delivery.test.mjs",
+        "test/default-learning-integration.test.mjs",
+        "test/design-md.test.mjs",
+        "test/development-workflow.test.mjs",
+        "test/device-migration.test.mjs",
+        "test/document-ocr.test.mjs",
+        "test/download-route.test.mjs",
+        "test/engine-qr.test.mjs",
+        "test/eula-gate.test.mjs",
+        "test/execution-permissions-recovery.test.mjs",
+        "test/execution-permissions.test.mjs",
+        "test/failure-recovery.test.mjs",
+        "test/file-receipts.test.mjs",
+        "test/fullstack-delivery.test.mjs",
+        "test/gateway-file-retry.test.mjs",
+        "test/gateway-files.test.mjs",
+        "test/gateway-memory-lease.test.mjs",
+        "test/gateway.test.mjs",
+        "test/github-projects.test.mjs",
+        "test/github-update.test.mjs",
+        "test/growth-default-config.test.mjs",
+        "test/growth-skill.test.mjs",
+        "test/harness-jit.test.mjs",
+        "test/harness-review.test.mjs",
+        "test/headless-cli-process.test.mjs",
+        "test/headless-history-contracts.test.mjs",
+        "test/headless-repeated-clarification.test.mjs",
+        "test/headroom.test.mjs",
+        "test/home-files.test.mjs",
+        "test/host-maintenance.test.mjs",
+        "test/host-review-regressions.test.mjs",
+        "test/input-reliability.test.mjs",
+        "test/install-consent.test.mjs",
+        "test/installer-release-channel.test.mjs",
+        "test/installer.test.mjs",
+        "test/kernel-personalization-plan.test.mjs",
+        "test/launch-update-scan.test.mjs",
+        "test/learning-behavior.test.mjs",
+        "test/learning-boundaries.test.mjs",
+        "test/learning-cli.test.mjs",
+        "test/learning-consistency.test.mjs",
+        "test/learning-defaults.test.mjs",
+        "test/learning-live-account.test.mjs",
+        "test/learning-pack-freshness.test.mjs",
+        "test/learning-projects.test.mjs",
+        "test/learning-recall.test.mjs",
+        "test/learning-regressions.test.mjs",
+        "test/learning-review.test.mjs",
+        "test/learning-store.test.mjs",
+        "test/learning-write-contract.test.mjs",
+        "test/light-version.test.mjs",
+        "test/linux-desktop.test.mjs",
+        "test/live-preview.test.mjs",
+        "test/llm-apps.test.mjs",
+        "test/mail-assistant-tls.test.mjs",
+        "test/mail-assistant.test.mjs",
+        "test/mail-background-recovery.test.mjs",
+        "test/mail-delivery-regression.test.mjs",
+        "test/mail-inbox-refresh.test.mjs",
+        "test/mail-inquiry-tls.test.mjs",
+        "test/mail-inquiry.test.mjs",
+        "test/mail-monitor-recovery.test.mjs",
+        "test/mail-notice-consumption.test.mjs",
+        "test/mail-pop-presets.test.mjs",
+        "test/mail-pop-tls.test.mjs",
+        "test/mail-preview-agent.test.mjs",
+        "test/mail-proactive.test.mjs",
+        "test/mail-recovery-tls.test.mjs",
+        "test/mail-runtime-inquiry.test.mjs",
+        "test/mail-runtime-lifecycle.test.mjs",
+        "test/mail-secret-input.test.mjs",
+        "test/mail-setup-presets.test.mjs",
+        "test/mail-task-receipts.test.mjs",
+        "test/mail-watch-errors.test.mjs",
+        "test/mcp-alias-compatibility.test.mjs",
+        "test/mcp-command.test.mjs",
+        "test/mcp-presets.test.mjs",
+        "test/memory-isolation-recovery.test.mjs",
+        "test/memory-location.test.mjs",
+        "test/memory-store.test.mjs",
+        "test/messaging-connect.test.mjs",
+        "test/messaging-daemon.test.mjs",
+        "test/messaging-e2e.test.mjs",
+        "test/mimo-compat.test.mjs",
+        "test/mimo-stream-regression.test.mjs",
+        "test/mimo-token-plan-connection.test.mjs",
+        "test/minimax-connection-regression.test.mjs",
+        "test/minimax-content-review.test.mjs",
+        "test/minimax-transport-acceptance.test.mjs",
+        "test/moa.test.mjs",
+        "test/model-auto-discovery.test.mjs",
+        "test/model-discovery-audit.test.mjs",
+        "test/model-http.test.mjs",
+        "test/multi-window-lock-compat.test.mjs",
+        "test/multi-window-session.test.mjs",
+        "test/native-api-recovery.test.mjs",
+        "test/native-mcp-command.test.mjs",
+        "test/native-protocol-matrix.test.mjs",
+        "test/natural-update.test.mjs",
+        "test/netlify-native.test.mjs",
+        "test/one-shot-startup.test.mjs",
+        "test/orchestration-commands.test.mjs",
+        "test/output-continuation-boundaries.test.mjs",
+        "test/output-continuation-memory.test.mjs",
+        "test/output-continuation.test.mjs",
+        "test/pageindex.test.mjs",
+        "test/path-identity.test.mjs",
+        "test/permissions.test.mjs",
+        "test/personalization-lock.test.mjs",
+        "test/personalization-session.test.mjs",
+        "test/personalization-setup.test.mjs",
+        "test/plan-catalog-audit.test.mjs",
+        "test/plan-providers.test.mjs",
+        "test/plan-reasoning-recovery-audit.test.mjs",
+        "test/platforms.test.mjs",
+        "test/portable-skills-cli.test.mjs",
+        "test/prefill-terminal.test.mjs",
+        "test/prefill.test.mjs",
+        "test/preview-automatic.test.mjs",
+        "test/preview-lifecycle-guards.test.mjs",
+        "test/preview-process-scope.test.mjs",
+        "test/private-resources.test.mjs",
+        "test/proactive-reply.test.mjs",
+        "test/project-workspace.test.mjs",
+        "test/promise-regressions.test.mjs",
+        "test/provider-audit-regression.test.mjs",
+        "test/provider-availability.test.mjs",
+        "test/provider-compat.test.mjs",
+        "test/provider-endpoint-audit.test.mjs",
+        "test/provider-failure-cleanup.test.mjs",
+        "test/provider-reason-privacy.test.mjs",
+        "test/provider-redirect-audit.test.mjs",
+        "test/quality-contracts.test.mjs",
+        "test/rea-chat.test.mjs",
+        "test/rea.test.mjs",
+        "test/release-channel.test.mjs",
+        "test/release-docs-consistency.test.mjs",
+        "test/reliability-regression.test.mjs",
+        "test/remote-resources.test.mjs",
+        "test/reverse-agent.test.mjs",
+        "test/reverse-core.test.mjs",
+        "test/reverse-project.test.mjs",
+        "test/reverse-runtime.test.mjs",
+        "test/runtime-diagnostics.test.mjs",
+        "test/scan-banner.test.mjs",
+        "test/screenshot-minimax-regression.test.mjs",
+        "test/search-access-recovery.test.mjs",
+        "test/self-fetch.test.mjs",
+        "test/session-controls.test.mjs",
+        "test/session-dock.test.mjs",
+        "test/session-input-terminal.test.mjs",
+        "test/session-input.test.mjs",
+        "test/session-todo.test.mjs",
+        "test/setup-skills-input.test.mjs",
+        "test/setup.test.mjs",
+        "test/shared-memory-account.test.mjs",
+        "test/shared-memory-codec.test.mjs",
+        "test/shared-memory-e2e.test.mjs",
+        "test/shared-memory-entrypoints.test.mjs",
+        "test/shared-memory-migrate.test.mjs",
+        "test/shared-memory-process.test.mjs",
+        "test/shared-memory-runtime.test.mjs",
+        "test/shared-memory-store.test.mjs",
+        "test/shared-memory-sync.test.mjs",
+        "test/shell-recovery-preview.test.mjs",
+        "test/shell-recovery-regression.test.mjs",
+        "test/site-anchor.test.mjs",
+        "test/site-reverse.test.mjs",
+        "test/skill-bundles.test.mjs",
+        "test/slash-menu-terminal.test.mjs",
+        "test/solidcraft.test.mjs",
+        "test/source-navigation.test.mjs",
+        "test/subagent-boundaries-review.test.mjs",
+        "test/subagent-effort-inheritance.test.mjs",
+        "test/subagent-invocation.test.mjs",
+        "test/subagent-roles.test.mjs",
+        "test/subagents.test.mjs",
+        "test/supplemental-fixes.test.mjs",
+        "test/task-delivery.test.mjs",
+        "test/task-notification-cli.test.mjs",
+        "test/task-notification-final-fix.test.mjs",
+        "test/task-notification-lifecycle.test.mjs",
+        "test/task-notification-os.test.mjs",
+        "test/task-notification-policy.test.mjs",
+        "test/task-notification-setup.test.mjs",
+        "test/task-quality.test.mjs",
+        "test/task-step-budget.test.mjs",
+        "test/terminal-frame.test.mjs",
+        "test/thinking-effort-official.test.mjs",
+        "test/thinking-effort.test.mjs",
+        "test/turn-approval-progress.test.mjs",
+        "test/tutorial-curriculum.test.mjs",
+        "test/tutorial.test.mjs",
+        "test/universal-app-use.test.mjs",
+        "test/update-restart-process.test.mjs",
+        "test/update-resume.test.mjs",
+        "test/update-review-regressions.test.mjs",
+        "test/visual-terminal-choice.test.mjs",
+        "test/visual-workflow.test.mjs",
+        "test/website-completion.test.mjs",
+        "test/website-source-budget.test.mjs",
+        "test/website-tool-context.test.mjs",
+        "test/windows-acl-helper.test.mjs",
+        "test/windows-bootstrap.test.mjs",
+        "test/windows-credential-shell.test.mjs",
+        "test/windows-credential-transport.test.mjs",
+        "test/windows-mcp-builtin.test.mjs",
+        "test/windows-mcp-discovery.test.mjs",
+        "test/windows-root-alias.test.mjs",
+        "test/worker-disconnect.test.mjs",
+        "test/workflows.test.mjs",
+        "test/writing-delivery-regression.test.mjs",
+        "test/writing-evidence-contracts.test.mjs",
+        "test/writing-price-receipts.test.mjs",
+        "test/writing-release-versions.test.mjs",
+        "test/writing-source-upgrade.test.mjs"
+      ],
+      "testFiles": 276,
+      "rechecks": [
+        {
+          "file": "test/apps-bundle.test.mjs",
+          "fileSha256": "67f270b7a7df62fe1e9040cc23d3ed779946666d3df164b8d3b9032229a4f944",
+          "argv": [
+            "node",
+            "--test",
+            "--test-concurrency=1",
+            "--test-timeout=900000",
+            "test/apps-bundle.test.mjs"
+          ],
+          "exitCode": 0,
+          "elapsedSeconds": 118.17,
+          "log": "source-recheck-01.tap",
+          "logSha256": "826c8b80c62150b913d73e5fc9ca07018b48a1c11549dd28e11823fb9f49dcdf",
+          "counts": {
+            "tests": 2,
+            "pass": 2,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "file": "test/bundle.test.mjs",
+          "fileSha256": "9da75c25992e3ad48f4d1694be11d45da196fef7bddb82a0a72c514902aeb345",
+          "argv": [
+            "node",
+            "--test",
+            "--test-concurrency=1",
+            "--test-timeout=900000",
+            "test/bundle.test.mjs"
+          ],
+          "exitCode": 1,
+          "elapsedSeconds": 24.22,
+          "log": "source-recheck-02.tap",
+          "logSha256": "7694db49ecbd2247bd75a2a9368fbf15f9bea7ef3ea4b5729894d4c2e980908e",
+          "counts": {
+            "tests": 2,
+            "pass": 1,
+            "fail": 1,
+            "cancelled": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "file": "test/installer.test.mjs",
+          "fileSha256": "b312ee583f5a26c13590af3857556539fc5dd6322dff806ca75b0e625049364b",
+          "argv": [
+            "node",
+            "--test",
+            "--test-concurrency=1",
+            "--test-timeout=900000",
+            "test/installer.test.mjs"
+          ],
+          "exitCode": 0,
+          "elapsedSeconds": 143.959,
+          "log": "source-recheck-03.tap",
+          "logSha256": "5d7c6a5b09a55fa23031ab330b180141f59b63e18b7645a2b7346b8f140a3bca",
+          "counts": {
+            "tests": 7,
+            "pass": 7,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "file": "test/workflows.test.mjs",
+          "fileSha256": "841eae1483ad21c31dc2550816b0112ab604ae21fd0edd552ac3eb194c845cc6",
+          "argv": [
+            "node",
+            "--test",
+            "--test-concurrency=1",
+            "--test-timeout=900000",
+            "test/workflows.test.mjs"
+          ],
+          "exitCode": 0,
+          "elapsedSeconds": 9.359,
+          "log": "source-recheck-04.tap",
+          "logSha256": "d0d0aaaf935615ac1be50c15a19678e6cd8941fcbcdef64c0c5b898185bf2dc0",
+          "counts": {
+            "tests": 14,
+            "pass": 14,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0
+          }
+        }
+      ],
+      "scope": "Every selected source test file was run. Original failures remain recorded. Failed files were repeated serially. The review whitelist explicitly adds the read-only checker and a non-mutating assertion; other assertions and per-test deadlines are unchanged. The outer file watchdog permits the complete installer matrix to finish."
+    },
+    "packagedRuntime": {
+      "passed": true,
+      "sourceCommit": "6b9ecb7bd17001333244f64d6902867f9c19b61e",
+      "buildSourceCommit": "7cbaa6a8b2881db949a53cf6652016760233465c",
+      "sourceBinding": {
+        "passed": true,
+        "sourceCommit": "6b9ecb7bd17001333244f64d6902867f9c19b61e",
+        "packageBuildSourceCommit": "7cbaa6a8b2881db949a53cf6652016760233465c",
+        "changedPathsAfterBuild": [
+          "koder-cli/test/workflows.test.mjs"
+        ],
+        "runtimeSourceFilesChecked": 2852,
+        "kernelFilesChecked": 6338,
+        "packagedTestSourcesUnchanged": true,
+        "runtimeSha256": "d782b246bcb806672e0bdb74c771428f2791521532f017c78e49856ac65167da",
+        "packageCheckSha256": "9986a6051446a27ebea8458885a9cdf1282a254cab2df467081fbdfdf19035ff",
+        "upgradeReceiptSha256": "6353fd659b4ea8b6672a3b3d3f062c7f4256e9bf7f0568ef5dae11f350c59000",
+        "scope": "The only post-build change extends the exact read-only review-tool assertion. All runtime source/docs bytes and the selected packaged-test sources are unchanged; original package and upgrade receipts retain their build commit."
+      },
+      "runtimeSha256": "d782b246bcb806672e0bdb74c771428f2791521532f017c78e49856ac65167da",
+      "kernelHashes": 6338,
+      "kernelMatchesSource": true,
+      "runtimeFiles": 28312,
+      "sourceDocsFiles": 2838,
+      "smokeCommands": 61,
+      "tests": {
+        "tests": 381,
+        "pass": 381,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      "argv": [
+        "node",
+        "--test",
+        "--test-concurrency=1",
+        "--test-timeout=240000",
+        "test/agentd-mail-health.test.mjs",
+        "test/command-completion.test.mjs",
+        "test/context-carryover-regression.test.mjs",
+        "test/context-learning-native-budget.test.mjs",
+        "test/context-learning-pack.test.mjs",
+        "test/context-learning-segments.test.mjs",
+        "test/context-memory.test.mjs",
+        "test/context-skill-pages.test.mjs",
+        "test/default-learning-integration.test.mjs",
+        "test/failure-recovery.test.mjs",
+        "test/growth-skill.test.mjs",
+        "test/harness-jit.test.mjs",
+        "test/learning-behavior.test.mjs",
+        "test/learning-boundaries.test.mjs",
+        "test/learning-cli.test.mjs",
+        "test/learning-consistency.test.mjs",
+        "test/learning-defaults.test.mjs",
+        "test/learning-live-account.test.mjs",
+        "test/learning-pack-freshness.test.mjs",
+        "test/learning-projects.test.mjs",
+        "test/learning-recall.test.mjs",
+        "test/learning-regressions.test.mjs",
+        "test/learning-review.test.mjs",
+        "test/learning-store.test.mjs",
+        "test/learning-write-contract.test.mjs",
+        "test/linux-desktop.test.mjs",
+        "test/mail-background-recovery.test.mjs",
+        "test/mail-inbox-refresh.test.mjs",
+        "test/mail-monitor-recovery.test.mjs",
+        "test/mail-recovery-tls.test.mjs",
+        "test/mail-runtime-inquiry.test.mjs",
+        "test/mail-runtime-lifecycle.test.mjs",
+        "test/mail-task-receipts.test.mjs",
+        "test/output-continuation-boundaries.test.mjs",
+        "test/output-continuation-memory.test.mjs",
+        "test/output-continuation.test.mjs",
+        "test/preview-process-scope.test.mjs",
+        "test/session-controls.test.mjs",
+        "test/session-todo.test.mjs",
+        "test/subagent-effort-inheritance.test.mjs",
+        "test/task-delivery.test.mjs",
+        "test/thinking-effort-official.test.mjs",
+        "test/thinking-effort.test.mjs",
+        "test/tutorial.test.mjs",
+        "test/visual-terminal-choice.test.mjs",
+        "test/visual-workflow.test.mjs",
+        "test/website-completion.test.mjs",
+        "test/website-source-budget.test.mjs",
+        "test/website-tool-context.test.mjs"
+      ],
+      "scope": "Actual unpacked archive, packaged kernel only, copied unmodified tests, disposable HOME"
+    },
+    "macOSUpgrade": {
+      "passed": true,
+      "sourceCommit": "7cbaa6a8b2881db949a53cf6652016760233465c",
+      "runtimeSha256": "d782b246bcb806672e0bdb74c771428f2791521532f017c78e49856ac65167da",
+      "from": "0.5.8",
+      "to": "0.5.9",
+      "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+      "commands": 26,
+      "userSettingsSentinelPreserved": true,
+      "installStateSentinelPreserved": true,
+      "priorVersionRetained": true,
+      "learningOptOutPreserved": true,
+      "privateLearningSentinelPreserved": true,
+      "installedRuntimeMatchesCheckedPackage": true,
+      "installedKernelMatchesCheckedPackage": true,
+      "installedRuntimeFiles": 28312,
+      "installedKernelHashes": 6338
+    },
+    "realModel": {
+      "scope": "Bounded real MiniMax provider calls through the native source runtime in disposable local projects. These precede the final release freeze and do not claim installed-archive, Windows, GUI, mail-provider or website acceptance.",
+      "narrowVerified": [
+        "Default pinned method source projection reached real model requests",
+        "Native learning read, checkpoint and pending completion were invoked",
+        "Native delivery checker was invoked during verification continuation",
+        "A later CLI turn recalled the saved constraint and exited successfully"
+      ],
+      "notClaimed": [
+        "All initial coding attempts passed",
+        "Automatic promotion of a lesson to verified",
+        "Blind quality score improvement",
+        "Dollar cost or billing savings"
+      ],
+      "runs": [
+        {
+          "id": "learning-live",
+          "model": "MiniMax-M3",
+          "endpoint": "https://api.minimaxi.com",
+          "requests": 24,
+          "elapsedMs": 151526,
+          "exitCodes": [
+            3,
+            2
+          ],
+          "defaultMethodLoaded": true,
+          "independentCodeChecks": {
+            "sum": 1097,
+            "empty": 0,
+            "rejects": true
+          },
+          "turns": [
+            {
+              "log": "learning-live/turn-1.stdout",
+              "completionState": "unverified",
+              "exitCode": 3,
+              "reasonCode": "TASK_DELIVERY_INCOMPLETE",
+              "toolCalls": [
+                "read_file",
+                "read_file",
+                "list_dir",
+                "shell",
+                "todo_set",
+                "shell",
+                "write_file",
+                "write_file",
+                "todo_set",
+                "shell",
+                "shell",
+                "read_file",
+                "todo_set",
+                "learning_write",
+                "learning_write",
+                "learning_read",
+                "learning_write",
+                "learning_write",
+                "skill_read",
+                "learning_write",
+                "learning_write",
+                "learning_write",
+                "learning_write",
+                "learning_write",
+                "learning_write",
+                "learning_write",
+                "shell"
+              ],
+              "constraintMarkerPresentInFinal": true,
+              "nativeWrites": [
+                {
+                  "nodeWritten": false,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": false,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": false,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": false,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": false,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": false,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": false,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": true,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": false,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": false,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": true,
+                  "state": null,
+                  "verified": null
+                }
+              ],
+              "deliveryChecks": []
+            },
+            {
+              "log": "learning-live/turn-2.stdout",
+              "completionState": "failed",
+              "exitCode": 2,
+              "reasonCode": "API_UNREACHABLE",
+              "toolCalls": [
+                "read_file",
+                "read_file",
+                "read_file",
+                "learning_read"
+              ],
+              "constraintMarkerPresentInFinal": false,
+              "nativeWrites": [],
+              "deliveryChecks": []
+            }
+          ],
+          "providerReportedUsage": {
+            "prompt_tokens": 559367,
+            "completion_tokens": 14639,
+            "total_tokens": 574006,
+            "cached_prompt_tokens": 376800
+          },
+          "requestsWithUsage": 24,
+          "note": "Malformed native learning writes; retained failure. Typed examples and validation guidance were added afterward."
+        },
+        {
+          "id": "learning-live-2",
+          "model": "MiniMax-M3",
+          "endpoint": "https://api.minimaxi.com",
+          "requests": 13,
+          "elapsedMs": 124433,
+          "exitCodes": [
+            3
+          ],
+          "defaultMethodLoaded": true,
+          "independentCodeChecks": {
+            "sum": 1097,
+            "empty": 0,
+            "rejects": true
+          },
+          "turns": [
+            {
+              "log": "learning-live-2/turn-1.stdout",
+              "completionState": "unverified",
+              "exitCode": 3,
+              "reasonCode": "TASK_DELIVERY_INCOMPLETE",
+              "toolCalls": [
+                "read_file",
+                "read_file",
+                "list_dir",
+                "code_graph",
+                "shell",
+                "skill_read",
+                "todo_set",
+                "learning_read",
+                "write_file",
+                "write_file",
+                "shell",
+                "str_replace",
+                "shell",
+                "read_file",
+                "todo_set",
+                "learning_write",
+                "todo_set",
+                "todo_set",
+                "learning_read",
+                "learning_write"
+              ],
+              "constraintMarkerPresentInFinal": false,
+              "nativeWrites": [
+                {
+                  "nodeWritten": true,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": true,
+                  "state": "pending_verification",
+                  "verified": false
+                }
+              ],
+              "deliveryChecks": []
+            }
+          ],
+          "providerReportedUsage": {
+            "prompt_tokens": 297705,
+            "completion_tokens": 13176,
+            "total_tokens": 310881,
+            "cached_prompt_tokens": 145104
+          },
+          "requestsWithUsage": 13,
+          "note": "Native checkpoint and pending completion were saved; final readme edit lacked subsequent validation. Failure retained."
+        },
+        {
+          "id": "learning-resume-live",
+          "model": "MiniMax-M3",
+          "endpoint": "https://api.minimaxi.com",
+          "requests": 12,
+          "elapsedMs": 52628,
+          "exitCodes": [
+            2
+          ],
+          "defaultMethodLoaded": true,
+          "independentCodeChecks": {
+            "sum": 1097,
+            "empty": 0,
+            "rejects": true
+          },
+          "turns": [
+            {
+              "log": "learning-resume-live/turn-1.stdout",
+              "completionState": "failed",
+              "exitCode": 2,
+              "reasonCode": "TASK_TOOL_FAILED",
+              "toolCalls": [
+                "read_file",
+                "read_file",
+                "read_file",
+                "learning_read",
+                "tool_inventory",
+                "app_tools",
+                "shell",
+                "app_call",
+                "tool_inventory",
+                "app_use_status",
+                "app_call",
+                "cli_anything_discover",
+                "tool_inventory",
+                "skill_catalog",
+                "shell",
+                "app_call",
+                "tool_inventory",
+                "app_tools",
+                "app_call",
+                "diagnostics_runtime_log"
+              ],
+              "constraintMarkerPresentInFinal": false,
+              "nativeWrites": [],
+              "deliveryChecks": []
+            }
+          ],
+          "providerReportedUsage": {
+            "prompt_tokens": 645947,
+            "completion_tokens": 5216,
+            "total_tokens": 651163,
+            "cached_prompt_tokens": 540937
+          },
+          "requestsWithUsage": 12,
+          "note": "Delivery checker was advertised but omitted from model schemas; bounded experiment request cap reached. Failure retained."
+        },
+        {
+          "id": "learning-resume-live-2",
+          "model": "MiniMax-M3",
+          "endpoint": "https://api.minimaxi.com",
+          "requests": 12,
+          "elapsedMs": 55767,
+          "exitCodes": [
+            2
+          ],
+          "defaultMethodLoaded": true,
+          "independentCodeChecks": {
+            "sum": 1097,
+            "empty": 0,
+            "rejects": true
+          },
+          "turns": [
+            {
+              "log": "learning-resume-live-2/turn-1.stdout",
+              "completionState": "failed",
+              "exitCode": 2,
+              "reasonCode": "TASK_TOOL_FAILED",
+              "toolCalls": [
+                "read_file",
+                "read_file",
+                "read_file",
+                "learning_read",
+                "shell",
+                "tool_inventory",
+                "app_call",
+                "shell",
+                "app_call",
+                "tool_inventory",
+                "app_call",
+                "app_use_status",
+                "app_result_read",
+                "shell",
+                "app_call",
+                "subagent_roles",
+                "cli_anything_discover"
+              ],
+              "constraintMarkerPresentInFinal": false,
+              "nativeWrites": [],
+              "deliveryChecks": []
+            }
+          ],
+          "providerReportedUsage": {
+            "prompt_tokens": 905738,
+            "completion_tokens": 5789,
+            "total_tokens": 911527,
+            "cached_prompt_tokens": 680171
+          },
+          "requestsWithUsage": 12,
+          "note": "Checker schema was available, but inherited conversation still routed through Apps; experiment cap reached. Failure retained."
+        },
+        {
+          "id": "learning-live-3",
+          "model": "MiniMax-M3",
+          "endpoint": "https://api.minimaxi.com",
+          "requests": 10,
+          "elapsedMs": 84967,
+          "exitCodes": [
+            3
+          ],
+          "defaultMethodLoaded": true,
+          "independentCodeChecks": {
+            "sum": 1097,
+            "empty": 0,
+            "rejects": true
+          },
+          "turns": [
+            {
+              "log": "learning-live-3/turn-1.stdout",
+              "completionState": "unverified",
+              "exitCode": 3,
+              "reasonCode": "TASK_DELIVERY_INCOMPLETE",
+              "toolCalls": [
+                "read_file",
+                "read_file",
+                "list_dir",
+                "skill_read",
+                "shell",
+                "learning_read",
+                "todo_set",
+                "delivery_check",
+                "write_file",
+                "write_file",
+                "shell",
+                "shell",
+                "delivery_check",
+                "todo_set",
+                "learning_write",
+                "learning_read",
+                "learning_write",
+                "todo_set"
+              ],
+              "constraintMarkerPresentInFinal": true,
+              "nativeWrites": [
+                {
+                  "nodeWritten": true,
+                  "state": null,
+                  "verified": null
+                },
+                {
+                  "nodeWritten": true,
+                  "state": "pending_verification",
+                  "verified": false
+                }
+              ],
+              "deliveryChecks": [
+                {
+                  "state": "incomplete",
+                  "issues": [
+                    "MISSING_TEST_OR_VERIFY"
+                  ]
+                },
+                {
+                  "state": "structure-checked",
+                  "issues": []
+                }
+              ]
+            }
+          ],
+          "providerReportedUsage": {
+            "prompt_tokens": 203982,
+            "completion_tokens": 8892,
+            "total_tokens": 212874,
+            "cached_prompt_tokens": 92286
+          },
+          "requestsWithUsage": 10,
+          "note": "Actual code fix, tests, native checker and pending learning completion; additional arbitrary shell command invalidated post-edit validation. Exit 3 retained."
+        },
+        {
+          "id": "learning-verification-live",
+          "model": "MiniMax-M3",
+          "endpoint": "https://api.minimaxi.com",
+          "requests": 9,
+          "elapsedMs": 73120,
+          "exitCodes": [
+            0,
+            3
+          ],
+          "defaultMethodLoaded": true,
+          "independentCodeChecks": {
+            "sum": 1097,
+            "empty": 0,
+            "rejects": true
+          },
+          "turns": [
+            {
+              "log": "learning-verification-live/turn-1.stdout",
+              "completionState": "succeeded",
+              "exitCode": 0,
+              "reasonCode": null,
+              "toolCalls": [
+                "learning_read",
+                "read_file",
+                "shell",
+                "delivery_check",
+                "learning_write"
+              ],
+              "constraintMarkerPresentInFinal": false,
+              "nativeWrites": [
+                {
+                  "nodeWritten": true,
+                  "state": null,
+                  "verified": null
+                }
+              ],
+              "deliveryChecks": [
+                {
+                  "state": "structure-checked",
+                  "issues": []
+                }
+              ]
+            },
+            {
+              "log": "learning-verification-live/turn-2.stdout",
+              "completionState": "unverified",
+              "exitCode": 3,
+              "reasonCode": "TASK_DELIVERY_INCOMPLETE",
+              "toolCalls": [
+                "learning_read",
+                "read_file",
+                "read_file",
+                "list_dir",
+                "search",
+                "learning_write"
+              ],
+              "constraintMarkerPresentInFinal": true,
+              "nativeWrites": [
+                {
+                  "nodeWritten": true,
+                  "state": null,
+                  "verified": null
+                }
+              ],
+              "deliveryChecks": []
+            }
+          ],
+          "providerReportedUsage": {
+            "prompt_tokens": 396313,
+            "completion_tokens": 6822,
+            "total_tokens": 403135,
+            "cached_prompt_tokens": 214708
+          },
+          "requestsWithUsage": 9,
+          "note": "Verification turn succeeded; subsequent colon-prefixed read-only recall was falsely gated. The false gate was then fixed."
+        },
+        {
+          "id": "learning-recall-final",
+          "model": "MiniMax-M3",
+          "endpoint": "https://api.minimaxi.com",
+          "requests": 5,
+          "elapsedMs": 31072,
+          "exitCodes": [
+            0
+          ],
+          "defaultMethodLoaded": true,
+          "independentCodeChecks": {
+            "sum": 1097,
+            "empty": 0,
+            "rejects": true
+          },
+          "turns": [
+            {
+              "log": "learning-recall-final/turn-1.stdout",
+              "completionState": "succeeded",
+              "exitCode": 0,
+              "reasonCode": null,
+              "toolCalls": [
+                "learning_read",
+                "read_file",
+                "read_file",
+                "read_file",
+                "list_dir",
+                "search",
+                "shell",
+                "delivery_check",
+                "learning_write"
+              ],
+              "constraintMarkerPresentInFinal": true,
+              "nativeWrites": [
+                {
+                  "nodeWritten": true,
+                  "state": null,
+                  "verified": null
+                }
+              ],
+              "deliveryChecks": [
+                {
+                  "state": "structure-checked",
+                  "issues": []
+                }
+              ]
+            }
+          ],
+          "providerReportedUsage": {
+            "prompt_tokens": 333224,
+            "completion_tokens": 3297,
+            "total_tokens": 336521,
+            "cached_prompt_tokens": 203445
+          },
+          "requestsWithUsage": 5,
+          "note": "Fresh CLI invocation on the existing isolated project recalled the saved constraint, verified tests and delivery, and exited 0."
+        }
+      ],
+      "totalRequests": 85,
+      "monetaryCost": "UNKNOWN; provider-reported token usage retained, no inferred dollar cost",
+      "sideEffects": "Disposable local fixture files and learning notes only; no real email, publication, account writes or system permission changes."
+    },
+    "ubuntu": {
+      "scope": "Ubuntu 24.04 LTS only; 24.10 excluded",
+      "currentArchive": "NOT_RUN",
+      "baselineRelease": "0.5.8",
+      "baselineRun": "https://github.com/KarmenLoop/koder-cli/actions/runs/40501647563",
+      "baselineNote": "Prior x64/ARM64 X11/Xvfb and Wayland/Sway runner validation is preserved and is not a 0.5.9 result.",
+      "finalArchiveRun": null
+    }
+  },
+  "bundledMethod": {
+    "id": "builtin:personal-agent-growth",
+    "version": "0.4.3",
+    "sourceCommit": "9d5eed453837a1091c845af898164ae1e0f3cbf2",
+    "sourceUrl": "https://github.com/KarmenLoop/personal-agent-growth/tree/v0.4.3",
+    "license": "AGPL-3.0-only",
+    "resourceCount": 61,
+    "defaultMode": "Bounded hash-verified source excerpts in the existing native runtime",
+    "portableHostExecuted": false,
+    "secondDatabaseCreated": false,
+    "extraIndependentModelCalls": 0
+  },
+  "boundaries": [
+    "Provider/BYOK, cancellation, budgets, approvals and UNKNOWN effects retain the existing Core authority",
+    "Native learning completion stays pending_verification; model self-evaluation does not activate a lesson",
+    "Normal task inference consumes provider tokens; no monetary saving claim",
+    "No real email, user account write or production website operation was performed by these learning checks",
+    "Off switches, no-memory mode and account/workspace/session isolation are retained"
+  ],
+  "notRun": [
+    "Windows 10/11 physical install/update and graphical operation: user beta team",
+    "Ubuntu physical GNOME, logout/reboot and arbitrary applications",
+    "Visible notification receipt on physical Windows, Linux or macOS desktops",
+    "New live mailbox-provider send/receive acceptance for this release",
+    "A fresh real-model website delivery trial against the final 0.5.9 archive"
+  ],
+  "hold": [
+    "Signed/notarized macOS locked-screen native component remains an unsigned candidate",
+    "First-model startup remains above the original 1000 ms test threshold on this host; both 0.5.8 and 0.5.9 miss the same threshold."
+  ],
+  "priorFailures": [
+    {
+      "file": "default-before.tap",
+      "sha256": "9d414ee5cd2a81cd274fea244352eca99c52123a73d92fb564cf577278cd48f2",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "delivery-route-before.tap",
+      "sha256": "791174feb6e0c7e6a5b43586effc7af489f14152109e6ae9f7379753bbb7676b",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "readonly-colon-before.tap",
+      "sha256": "075ccd161ce51757450270cf24d1e75a34f6c984903590dd18b0b2914a6eb235",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "write-contract-before.tap",
+      "sha256": "5e5b74ec6e5c31f0d4da1dba1c76b2a64f01eb897b656275931ae6cae0aa7dcd",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "budget-after-02.tap",
+      "sha256": "36d6169a1d1a8bace015ace90b1633c267e9229a5f65bb73cc4654fda380e8b6",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "budget-after-03.tap",
+      "sha256": "b31313b116d4f7c07d8ca0f35b51c5b54de9a0e7b30f7c2d81e45d48dea36572",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "budget-after-04.tap",
+      "sha256": "32cf1439ef9ade016fe477b1cd0cc8bb320798a2b25d1d6c52bd380227300b3c",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "budget-after-05.tap",
+      "sha256": "acf56aefbb17e694235c997ae9e93a60d7343d9f389996c79d50a5385b78d4e7",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "budget-after-06.tap",
+      "sha256": "19948a9d3229f76acfc35e297aef8938d00dd2edacf449ceadf94fa998510a94",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "budget-after-07.tap",
+      "sha256": "4c49d252c051a00f01e67f93f09f26ce45d99f6752c82289b7e3cd3e14c69dd2",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "budget-after-08.tap",
+      "sha256": "349007e51940710f5014bb596c8aa6eaf3bb7880a4fc1ae6a8f3431ba3188073",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "budget-after-09.tap",
+      "sha256": "dc1373a0b0ef44e689bee084f14536ca8739fd6d32c8a14e9defe1e1d4c3578e",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "budget-after-10.tap",
+      "sha256": "81174b1047f7fe67db4d6723bfe6ed4a7fbb6ce55a9f48f2676a6184e8658d2d",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "source-059-version-mismatch-interrupted.json",
+      "sha256": "05048a019bbffca4f43fd9628d6159dbda31804aa3da47c28ecb08ab9373da25",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    },
+    {
+      "file": "source-059-version-mismatch-interrupted.tap",
+      "sha256": "e252836ad1ee523508654d883a8eab691daf1489791018cbee4e3fdf2899191b",
+      "scope": "Retained prior failure, diagnostic attempt or interrupted source run; not current acceptance"
+    }
+  ],
+  "priorReleaseEvidence": {
+    "version": "0.5.8",
+    "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.8/ACCEPTANCE-RESULTS.json",
+    "sha256": "1512c74298b945c9d27347b17ee71353be165b0f8c6fd82e5fbf5a9e6f92eb8c",
+    "notRelabeled": true
+  },
+  "evidenceSha256": {
+    "learning-live/result.json": "751b0a1cb5a9ef43a7b8e9d755f6e1ff238cb1eef763a0e1bc547eb5b6476b18",
+    "learning-live/requests.json": "2fff4409bec2d898252041837ab3092752cfc9a026a4018e9000c05aac204aed",
+    "learning-live/turn-1.stdout": "56f0e2a0a7fb5e5ee2e1d920c88b499fde5008f82730f8d459421bd4139a3782",
+    "learning-live/turn-1.stderr": "0824c6cd7183bc186e8a02df106edcaf4f206bbdcce28d3af8d52029ac302e8b",
+    "learning-live/turn-2.stdout": "c5ed52359471584c86771a2e36a9e08bc1f492019465e2bffff7729ab5aebcee",
+    "learning-live/turn-2.stderr": "ba561b674365ba89a737a18515b938a7a4cc2c4888d9ec303be7c3f7facd3239",
+    "learning-live-2/result.json": "882c263af80451a30f14b513b9a5e82f6517f0924e0056346b0cf4dce43566a5",
+    "learning-live-2/requests.json": "656ce333ad05579082e14743c28ce768cfcae860446513e64943d0009b558dff",
+    "learning-live-2/turn-1.stdout": "7309fa235cfe16f40f3513e7d5e2dd53a2a6f4db1e10f3c7b68972f78206925f",
+    "learning-live-2/turn-1.stderr": "0824c6cd7183bc186e8a02df106edcaf4f206bbdcce28d3af8d52029ac302e8b",
+    "learning-resume-live/result.json": "6a790b27c0137ac936de2497ded17f6c463659de323f792e53f1fddabe1f7508",
+    "learning-resume-live/requests.json": "5823a4eee41f6fa1de5fdf2f19b16d59d8085a80007f0a24876a0806d0dfa661",
+    "learning-resume-live/turn-1.stdout": "0e072f309a2fc932a386dc3af8dece0c7eba7542606d6fb55650ae28a61ec82d",
+    "learning-resume-live/turn-1.stderr": "a24f34499c556466866570aa3e94d2c40675bbe40597b8f25b4da1c865307525",
+    "learning-resume-live-2/result.json": "23128c2a23d5dbb499e9e5dc7b75308860d81f2496328d851bf1df6af13a77df",
+    "learning-resume-live-2/requests.json": "c8038ce6cf43036b2ee4fe0860cfbeaaff3e212128545096396862fb615aebd0",
+    "learning-resume-live-2/turn-1.stdout": "766ffb2bdc7ab0533e3625d05c2961ffa7df6cee6b99280cf506e74f54cf2b73",
+    "learning-resume-live-2/turn-1.stderr": "3645cc70150ca7188285c9e6b41bd6849bac7afbba967db43d9c23f9801a1c65",
+    "learning-live-3/result.json": "6b1fc5e6a44af055fb82b65cba03929fbdbf453fe1c2dc300af470f57f9dad21",
+    "learning-live-3/requests.json": "63d4fb9f69dd6271c946f77e12a952c6410c1c9a0fbb14cdaa08b4c949371640",
+    "learning-live-3/turn-1.stdout": "ea890f462f48955b95412ff68eb096d751ece5945800a7e804e38123db517072",
+    "learning-live-3/turn-1.stderr": "0824c6cd7183bc186e8a02df106edcaf4f206bbdcce28d3af8d52029ac302e8b",
+    "learning-verification-live/result.json": "5dbe560eee47a2dd3ec4c0c599623a77cadf2709680bee58d4dc39f24b20e292",
+    "learning-verification-live/requests.json": "7b860fedd92d518d7e9c18f153570c973c7616292736cce046db1a78a3443175",
+    "learning-verification-live/turn-1.stdout": "18b34ebc05df6330bb8079da7bf4780e49a5c0680054ade1d8440db6e295fec8",
+    "learning-verification-live/turn-1.stderr": "d3e723de84180236759c5b64efe76a319920622918b5d59cbadb197b47dd1862",
+    "learning-verification-live/turn-2.stdout": "b6bcfa1330e2398e50320b637b4f7d59749c7a48de4c146e0af9484bb3bcae88",
+    "learning-verification-live/turn-2.stderr": "29dfa2c908f7d6a2659c11967f91b92bc6a82548e9073ad34bf7308372e844eb",
+    "learning-recall-final/result.json": "7cca4a8d4d276343da0a5f0815c60b3661d66411000ce296f424e6c5f8dfb1c0",
+    "learning-recall-final/requests.json": "44fde511fcb152b96897d27673f762f2dbf3919292027f384b987ce1421ecd3b",
+    "learning-recall-final/turn-1.stdout": "8aa948905be65bd5ea5b4cb728e54cd6eab74ea7850af56ad5353950b3597267",
+    "learning-recall-final/turn-1.stderr": "8d45858519c7df642780a31ce1d0f0889c80bb8c49aa66b846f7c534ab2d9859",
+    "source-059-final.json": "e3894325d4231038e8aabf87be56648df8b7e56ac22e1eaf8b40269e86822f5b",
+    "source-059-final.tap": "a39646aa41a3108baea00a216c2d19ddf8b7ca9ff4411d01755190299a5e8917",
+    "source-rechecks.json": "cd1095bef80d74ac43d9268cc23d13a2223e274f382950010e4f5edc04210d28",
+    "source-recheck-01.tap": "826c8b80c62150b913d73e5fc9ca07018b48a1c11549dd28e11823fb9f49dcdf",
+    "startup-baseline-comparison.json": "648eb9956622dcaced568aec9ae746881ad12c2517c28a88b16153a3ebdf9f7d",
+    "source-recheck-02.tap": "7694db49ecbd2247bd75a2a9368fbf15f9bea7ef3ea4b5729894d4c2e980908e",
+    "source-recheck-03.tap": "5d7c6a5b09a55fa23031ab330b180141f59b63e18b7645a2b7346b8f140a3bca",
+    "source-recheck-04.tap": "d0d0aaaf935615ac1be50c15a19678e6cd8941fcbcdef64c0c5b898185bf2dc0",
+    "package-source-binding.json": "7dd255a8f4a98eaf108050361a2ab3790b319971b48c311f99413ebb06c01a2b",
+    "source-review.json": "831130a537939633cffb7c71a06eac84161bbae1f403fe4337044f83800464fb",
+    "package-check.json": "9986a6051446a27ebea8458885a9cdf1282a254cab2df467081fbdfdf19035ff",
+    "package-core-tests.json": "074de544dfb3430894c8ba1a546c8108e9ea7ee143dfa0b9c9b9200e3ce3be6e",
+    "package-core-tests.log": "72ee47f199e3e74c2cc5d6c180df9ce7df7dc1c9a00e491ee2752fdf4056a40c",
+    "package-runtime-inventory.json": "4f117d5e681da62f1b33e5c35ce492f5f1a600f706ee33420e2128ad665c6d06",
+    "local-upgrade.json": "6353fd659b4ea8b6672a3b3d3f062c7f4256e9bf7f0568ef5dae11f350c59000",
+    "local-upgrade-commands.json": "9290f0ead66c7e98cee35923a08fbbba8562879954c91e70fb7e65dd8c9a6510",
+    "real-model-review.json": "bb652af676af526c1b1ccdd978bc02a785a1445c4bd6c0c2af3b50bc038d30e5",
+    "resource-import.json": "7c1a0119c7e9c0594dfa2a4aef0c3ca876e0e5d4348b3815d0120756aba7c4ff"
+  },
+  "websiteChanged": false
+}

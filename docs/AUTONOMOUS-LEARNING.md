@@ -1,29 +1,46 @@
-# Built-in learning in Koder CLI 0.5.5
+# Built-in learning in Koder CLI
 
-Koder includes personal-agent-growth 0.4.1 guidance and default local Markdown task memory. The existing Agent reads relevant task notes, performs the requested work, records decisions and checkpoints, and reviews local evidence. No separate runtime or extra paid comparison run is started by this default.
+Koder includes the published personal-agent-growth 0.4.3 method and local Markdown task memory. When enabled, the existing Agent loads a bounded selection of the method at task entry, including ordinary tasks that do not mention learning. Research, office and app-use profiles retain this default method. Smaller model windows use a shorter projection. Detailed references remain available through the existing `skill_read` tool.
 
 ```sh
 koder growth status --json
 koder learning status --json
+koder growth show
 koder learning off
 koder learning on
+koder growth off
+koder growth on
 ```
 
-Run these commands in the workspace you want to inspect. `learning status` reports its scoped library without creating one. The first eligible task initializes the library; account, workspace and default task-session boundaries remain separate. Existing off choices take precedence. `growth off` also pauses the local integration; turning growth back on does not erase a separate learning opt-out. In chat, `/learning on|off` and `/growth on|off` apply on the next turn while retaining the conversation.
+Run status commands in the workspace you want to inspect. `growth status` reports method version, pinned source and default-loading mode. `learning status` reports scoped storage without creating it. The first eligible task initializes the library; account, workspace and task-session boundaries remain separate. Existing off choices take precedence. `growth off` disables method loading and pauses local learning. Turning it back on preserves a separate learning opt-out. In chat, `/learning on|off` and `/growth on|off` apply on the next turn while retaining the conversation.
 
-The model's completion proposal remains `pending_verification`. Explicit owner completion requires evidence. Daily and weekly reviews summarize the current account/workspace library; model recall remains task-scoped. Reviews use local records and no extra model call. A closed CLI does not acquire a new wake service from this feature. Profile learning, synchronization, skill adoption and computer permissions retain their separate controls.
+## What runs by default
 
-The embedded method is pinned to the immutable local delivery snapshot `delivery:0.4.1-bundle.1`; this is not an upstream Git release tag. Its ten core files retain AGPL-3.0-only and the original LICENSE/NOTICE. Source records are included with the package. No private experience seed or personal task evidence is bundled.
+The native task lifecycle reads the current task pack, records tool observations and checkpoints, and runs local reviews. The model can use `learning_read` and `learning_write` for decisions, progress and candidate experience. Recovery checks the latest context and node against actual artifacts. Missing knowledge calls for bounded research within existing permissions, followed by task-specific verification. Tool failures make the regression-repair reference available in the next method projection.
 
-Read the current [English task-memory guide](MARKDOWN-LEARNING.en.md), [中文手把手指南](MARKDOWN-LEARNING.zh.md) and [0.5.5 release notes](RELEASE-0.5.5.md) for setup, recovery, cost records and platform limits.
+The model's completion proposal remains `pending_verification`; explicit owner completion requires evidence. Daily and weekly reviews summarize the current account/workspace library; model recall remains task-scoped. Revised Skills continue through the original proposal, test, comparison and adoption ports. Insufficient evidence remains `NO_ENTRY`, not an activated improvement.
+
+## Observable loading and costs
+
+JSON task results expose `growthMethod`: version, source commit, excerpt paths, SHA-256, character offsets and lengths. These fields record the exact source text loaded into the system projection. They do not claim a model read the entire Skill, followed every step, improved quality or completed the task. Actual tool calls, task files and verification results remain separate evidence. The default projection adds prompt content but no additional model requests; ordinary provider charges and the existing task budget still apply.
+
+Method resources do not start a portable Python host, a second SQLite/MCP service, another experience library or extra paid comparison runs. Markdown writes use the existing native transaction layer. Off, temporary or unavailable learning does not fall back to shell-created notes. Profile learning, synchronization, Skill adoption, background wakeups and computer permissions retain their own controls.
+
+The embedded method is pinned to [published v0.4.3](https://github.com/KarmenLoop/personal-agent-growth/releases/tag/v0.4.3), source commit `9d5eed453837a1091c845af898164ae1e0f3cbf2`. Its 61 unmodified files include bilingual references, Markdown templates and portable source, with the original AGPL-3.0-only LICENSE/NOTICE. No private experience seed or personal task evidence is bundled.
+
+Read the [English task-memory guide](MARKDOWN-LEARNING.en.md) and [中文手把手指南](MARKDOWN-LEARNING.zh.md) for storage, recovery, cost records and platform limits.
 
 ## 中文说明
 
-0.5.5 默认把任务进度、决策和经验候选保存到本地 Markdown；已有关闭选择继续生效。使用原 Agent 与权限模型，按账号、工作区、任务隔离。会话中 `/learning off` 暂停学习，关闭不会删除文件。日周复盘汇总当前账号与工作区库，模型召回仍限当前任务；不额外调用模型，也不代开画像、同步、后台常驻或全局技能采纳。
+自主学习方法已更新为正式发布的 0.4.3。默认任务入口会加载固定来源的短方法，不要求用户先说“学习”。任务开始读取当前任务记忆，重要决定和进度沿原 `learning_read` / `learning_write` 保存；结束保留实际结果、待验证经验和未完成项。研究、办公、应用操作的内置 Profile 也保留此方法，小上下文使用短版。完整方法和修复参考仍通过 `skill_read` 按需读取。
+
+`koder growth status --json` 核对版本与默认模式；任务 JSON 的 `growthMethod` 提供实际加载节选的文件哈希及位置。这是来源加载收据，不冒充模型已经执行或质量已经提升。默认加载会增加少量提示文本，不单独增加模型请求。账号、工作区和会话隔离、取消、费用预算及原有工具权限保持；已有关闭选择优先。
+
+`koder learning off` 单独关本地任务记忆，`koder growth off` 关闭默认方法并暂停学习，均不删除旧文件。升级不会自动打开画像、同步、后台常驻、电脑权限或全局技能采纳，也不会启动资源里的独立 Python 宿主。
 
 ## Earlier behavior, retained for reference
 
-The following preview.22 notes describe the earlier method-only integration. Version numbers, controls and resource counts below are historical; use the current instructions above for 0.5.5.
+The following preview.22 notes describe the earlier method-only integration. Version numbers, controls and resource counts below are historical; use the current instructions above for the current release.
 
 # Historical reference: preview.22 / method 0.3.2
 

@@ -1,10 +1,10 @@
 {
-  "version": "0.5.8",
-  "file": "koder-cli-0.5.8.tgz",
-  "sha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
-  "size": 512089493,
+  "version": "0.5.9",
+  "file": "koder-cli-0.5.9.tgz",
+  "sha256": "d782b246bcb806672e0bdb74c771428f2791521532f017c78e49856ac65167da",
+  "size": 519985103,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-27T11:58:33.966Z",
+  "builtAt": "2026-10-27T13:36:37.280Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,28 +14,28 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "c6de17dd5df988b38da49d72af2d1c192b17955bdbfe0e538ddb3ddf17799eaa"
+      "sha256": "d96d9412955670acf6a4b3e99a917c97063ed20127c395df4cc90a7923b1aba5"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "b14b23ffbbcf9b8cf2133f125881c01875837584e49b24f239cef39550d74f1e"
+      "sha256": "625022ead63ab7752e751f3e890d5377af1e3f3f51d34a7225f40947232ec0dc"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "7a5e67b4468e76047c9d741fa8f5adb3bbeb0b335588838b80bb18a75a4ef65d"
+      "sha256": "6171d2dd0c97dd3335cf2d9fc8bbb59b28fa99386d883ebc854fc2c3a6fa6298"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.7",
-  "privateSourceCommit": "7e1d452677ba2f917fb00a56be7e5a583a51017f",
+  "sourceBaseline": "0.5.8",
+  "privateSourceCommit": "6b9ecb7bd17001333244f64d6902867f9c19b61e",
   "changes": [
-    "Recover durable pending mail reminders through the existing daemon ledger",
-    "Preserve uncertain SMTP effect receipts in task results",
-    "Record terminal layout choices against the current task and review",
-    "Report preview ownership per process",
-    "Explain expected Todo revisions and the read-before-retry path",
-    "Add an AT-SPI adapter and a complete Ubuntu runtime acceptance matrix",
-    "Preserve continued website evidence and code-verification tools"
+    "Load bounded Personal Agent Growth 0.4.3 source excerpts by default",
+    "Retain all 61 pinned core resources and the existing native learning store",
+    "Supply typed native learning writes and current evidence references",
+    "Prioritize complete memory constraints under small context budgets",
+    "Expose the native delivery checker during code-task continuation",
+    "Respect read-only continuation requests after colon separators",
+    "Document curl prerequisites on fresh Ubuntu systems"
   ],
   "retainedLimits": [
     "Windows 10/11 native terminal, ConPTY, IME, cold install and update: beta-owned",
@@ -83,30 +83,19 @@
     "macOS locked-use native component remains an unsigned candidate.",
     "Website live evidence includes failed, cancelled and repaired rounds; no one-shot full-site quality claim.",
     "A lost SMTP acknowledgement remains uncertain and is not automatically replayed.",
-    "Cancellation, original permission gates, workspace isolation and explicit cost budgets remain active; default tool steps remain unlimited."
+    "Cancellation, original permission gates, workspace isolation and explicit cost budgets remain active; default tool steps remain unlimited.",
+    "Windows 10/11 physical install/update and graphical operation: user beta team",
+    "Ubuntu physical GNOME, logout/reboot and arbitrary applications",
+    "Visible notification receipt on physical Windows, Linux or macOS desktops",
+    "New live mailbox-provider send/receive acceptance for this release",
+    "A fresh real-model website delivery trial against the final 0.5.9 archive",
+    "Signed/notarized macOS locked-screen native component remains an unsigned candidate",
+    "First-model startup remains above the original 1000 ms test threshold on this host; both 0.5.8 and 0.5.9 miss the same threshold."
   ],
   "publicationAuthorization": "GitHub only; website excluded",
   "courseStatus": {
     "zh": 1800,
     "en": 30,
     "originalZhRetained": 180
-  },
-  "retainedLimitsContext": "This list retains historical limits from earlier releases. The exact-archive acceptance receipt records scoped new evidence; Ubuntu accessible controls and notification submission do not close physical desktop, notification visibility or login/reboot acceptance.",
-  "validationUpdates": {
-    "ubuntu24_04": {
-      "state": "PASS_ISOLATED_DESKTOP",
-      "architectures": [
-        "x64",
-        "ARM64"
-      ],
-      "sessions": [
-        "X11/Xvfb",
-        "Wayland/Sway"
-      ],
-      "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40501647563",
-      "runtimeSha256": "35e0e69e0e147bcb3c664e971647c718f6b7cdf2771de8b324f57526237db917",
-      "physicalDesktop": "NOT_RUN"
-    },
-    "ubuntu24_10": "OUT_OF_SCOPE"
   }
 }

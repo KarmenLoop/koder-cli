@@ -108,14 +108,11 @@ The inspected installer includes resources from alibaba/open-code-review, affaan
 
 The 0.3.0 archive contains a truncated open-code-review Apache licence; the complete pinned [licence](licenses/open-code-review/LICENSE) is provided here. Its next build must include the complete file and updated manifest digest. The granting holders have adopted the limited CLI/kernel linking permission; its inclusion in the next package, all third-party obligations and unfinished runtime/device acceptance remain release-review items. This documentation commit does not publish a new installer.
 
-## KARMEN LOOP personal-agent-growth 0.4.1
+## KARMEN LOOP personal-agent-growth 0.4.3
 
-Ten unmodified core files from [personal-agent-growth](https://github.com/KarmenLoop/personal-agent-growth) are bundled as separately licensed method resources. The source is the local candidate delivery `0.4.1-bundle.1`, not a published release tag. Its complete archive has SHA-256 `1375852797329c2b3ee577153ba7c4ce09c52a64aeec0ba17129c1326c1eb456`; the included core archive has SHA-256 `bc7945fd3d1da9d874b5a59d9a57646391ed381083a742632aea7ba2d9406862`. The resource manifest records both archives, their manifests and every included file hash. Private task records, trial evidence and experience libraries are not included.
+Sixty-one unmodified core files from [personal-agent-growth v0.4.3](https://github.com/KarmenLoop/personal-agent-growth/releases/tag/v0.4.3) are bundled as separately licensed method resources. The published source commit is `9d5eed453837a1091c845af898164ae1e0f3cbf2`. The core archive has SHA-256 `3ac502143eb8f6b7f5e392abdc6bdeb10ed5f63a247e8b151832ea8617945a68`; its manifest has SHA-256 `539b028ef2059109017f55238c412c31c02a80ce1f6bcc00b12abcc4f5d28ce2`. The package records every included file hash. Private task records, trial evidence and experience libraries are excluded. The component record retains the previous 0.4.1 candidate provenance.
 
-Copyright (C) 2026 KARMENLOOP Official Team. These resources retain AGPL-3.0-only and their full [license](licenses/personal-agent-growth/LICENSE) and [notice](licenses/personal-agent-growth/NOTICE). Koder's own license does not replace these terms. Koder supplies its host guidance separately and uses its existing tools, approvals and version store; the portable comparison source does not install another executor or activate a separate experience library.
-
-
-REA 6.7.0 is bundled under its original MIT license. Its dependencies retain their own licenses and notices, including OpenPGP.js under LGPL-3.0+. See vendor/rea/README.md, vendor/rea/components.json, vendor/rea/node_modules/rea-agents/THIRD_PARTY_NOTICES.md and vendor/rea/sources/. External analysis engines are not included.
+Copyright (C) 2026 KARMENLOOP Official Team. These resources retain AGPL-3.0-only and their full [license](licenses/personal-agent-growth/LICENSE) and [notice](licenses/personal-agent-growth/NOTICE). Koder's own license does not replace these terms. Koder supplies its adapter separately and uses its existing tools, approvals, Markdown storage and version store. Portable Python hosts and comparison scripts are readable source resources; they are not registered or executed as another database, MCP server, scheduler or executor.
 
 ## Vercel agent-browser - Apache License 2.0
 
