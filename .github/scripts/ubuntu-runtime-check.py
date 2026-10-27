@@ -12,8 +12,11 @@ package = manifest.get('packages', {}).get('linux', manifest)
 archive = assets / package['file']
 sha = lambda p: hashlib.file_digest(p.open('rb'), 'sha256').hexdigest()
 assert archive.stat().st_size == package['size'] and sha(archive) == package['sha256']
-installer = assets / 'koder-ubuntu-24.04.sh'
-assert sha(installer) == manifest['installers']['ubuntu']['sha256']
+entry = os.environ.get('KODER_UBUNTU_ENTRY', 'ubuntu')
+installer_info = manifest['installers'][entry]
+assert installer_info['file'] in ('koder-ubuntu-24.04.sh', 'koder-ubuntu-26.04.sh')
+installer = assets / installer_info['file']
+assert sha(installer) == installer_info['sha256']
 payload = root / 'ubuntu-payload'
 with tarfile.open(archive) as z:
     for member in z:

@@ -99,8 +99,8 @@ test('directory sync failure cannot mark a transaction committed and recovery fl
 test('directory ancestry compares normalized paths before publishing the prepared journal',async t=>{
  const {root,store}=fixture(t),mkdir=fs.mkdirSync,dirs=[],sync=store.syncDir.bind(store);
  // Exercise the actual mkdir-to-write boundary with an equivalent pathname,
- // as Windows can return a different slash/drive-letter spelling.
- fs.mkdirSync=function(p,...args){const first=mkdir.call(this,p,...args);return first?path.dirname(first)+path.sep+'.'+path.sep+path.basename(first):first;};
+ // including the namespace prefix returned by Windows recursive mkdir.
+ fs.mkdirSync=function(p,...args){const first=mkdir.call(this,p,...args);return first?path.toNamespacedPath(path.dirname(first)+path.sep+'.'+path.sep+path.basename(first)):first;};
  store.syncDir=dir=>{dirs.push(dir);return sync(dir);};
  try{await store.transact('normalized',tx=>put(tx,2));}finally{fs.mkdirSync=mkdir;}
  assert.ok(dirs.includes(path.join(root,'_ops')));
