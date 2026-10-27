@@ -27,7 +27,7 @@ test('Windows per-app notification refusal stays denied without re-enabling the 
     assert.equal(ps(`$k=[Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('${key}');try{[Console]::Write($k.GetValue('Enabled'))}finally{$k.Dispose()}`),'0');
   } finally {
     const encoded=Buffer.from(JSON.stringify(prior)).toString('base64');
-    ps(`$p=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('${encoded}'))|ConvertFrom-Json;$k=[Microsoft.Win32.Registry]::CurrentUser.CreateSubKey('${key}');try{if($null -eq $p.value){$k.DeleteValue('Enabled',$false)}else{$k.SetValue('Enabled',$p.value,[Microsoft.Win32.RegistryValueKind]::$($p.kind))}}finally{$k.Dispose()}`);
+    ps(`$p=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('${encoded}'))|ConvertFrom-Json;$k=[Microsoft.Win32.Registry]::CurrentUser.CreateSubKey('${key}');try{if($null -eq $p.value){$k.DeleteValue('Enabled',$false)}else{$k.SetValue('Enabled',$p.value,([Enum]::Parse([Microsoft.Win32.RegistryValueKind],[string]$p.kind)))}}finally{$k.Dispose()}`);
     rows.preferenceRestored=true;save();
   }
 });
