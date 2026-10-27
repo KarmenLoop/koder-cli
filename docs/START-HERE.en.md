@@ -6,13 +6,15 @@
 
 Retained since 0.5.0: [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
 
-# Start with Koder CLI 0.5.1
+# Start with Koder CLI 0.5.12
 
 Koder is a terminal coding and writing agent that uses your selected model API or compatible local model. It can work on project files, run approved commands and use configured Skills, MCP connections and applications. Your provider bills model usage separately. A catalog entry or an enabled setting is not proof of a working account or device connection.
 
 ## 1. Install or update
 
-Use the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.1). Choose Windows CMD/PowerShell or macOS Terminal; these installers use the same 0.5.1 runtime. The CLI is a separate download from the desktop application.
+**On Ubuntu, start with the [24.04 walkthrough](UBUNTU.md) for downloads, model setup, permissions, desktop operations and troubleshooting. [中文教程](UBUNTU.zh.md).**
+
+Use the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.12). Choose Windows CMD/PowerShell, macOS Terminal or Ubuntu 24.04; the installers select the matching platform package for the same release. The CLI is a separate download from the desktop application.
 
 For an existing managed installation:
 
@@ -21,7 +23,7 @@ koder update
 koder --version
 ```
 
-Expect `koder 0.5.1`. If an updater from 0.4.4 or earlier rejects the manifest, run the current GitHub installer in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS.
+Expect `koder 0.5.12`. If an updater from 0.4.4 or earlier rejects the manifest, run the current GitHub installer in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
 
 ## 2. Configure a model and try a task
 

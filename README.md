@@ -1,28 +1,17 @@
-> 0.5.12 fixes premature timeouts while waiting for model responses, shows download progress, and corrects broad file-scope access checks. All bundled capabilities remain available. See [release notes](docs/RELEASE-0.5.12.md).
-
-> 0.5.10 uses smaller macOS and Linux downloads with resumable, checksum-verified installation. Supported runtime features, bundled Skills and the complete current classroom remain included. The full offline archive is still available. See [download and recovery instructions](docs/DOWNLOADS.md).
-
-> 0.5.9 loads the bundled learning method by default, supplies typed learning examples, and keeps the native delivery checker available when a task resumes. [Release notes](docs/RELEASE-0.5.9.md) · [Learning controls](docs/MARKDOWN-LEARNING.en.md).
-
-> 0.5.8 restores pending background mail reminders, reports uncertain sends as incomplete, and records terminal layout choices. [Release notes](docs/RELEASE-0.5.8.md) · [Mail guide](docs/MAIL-RECOVERY.en.md). [Ubuntu full-runtime guide](docs/UBUNTU.md).
-
-> 0.5.7 fixes mailbox ownership and send recovery, refreshes inbox reads, and corrects website delivery checks. [Release notes](docs/RELEASE-0.5.7.md) · [Mail guide](docs/MAIL-RECOVERY.en.md).
-
-> 0.5.6 improves task completion and website handoff: explicit incomplete results, bounded recovery, current file evidence and a real preview address. [Release notes](docs/RELEASE-0.5.6.md) · [Website workflow](docs/website-delivery.md).
-
-> 0.5.5 saves local Markdown task memory by default and reviews it during CLI sessions or the next task. Existing off choices remain off; use Setup or `koder learning off` for the feature and `koder growth off` for the master switch. [Release notes](docs/RELEASE-0.5.5.md) · [Task memory guide](docs/MARKDOWN-LEARNING.en.md).
-
-> 0.5.4 adds model-specific thinking controls, preserves truncated answers, and keeps child-task effort settings consistent. [Release notes](docs/RELEASE-0.5.4.md) · [Thinking and output guide](docs/MODEL-EFFORT-AND-OUTPUT.en.md).
-
-> 0.5.3 refines the startup refractor and gives Setup and pickers slimmer blue frames, with better narrow-terminal sizing and reduced-motion support. [Release notes](docs/RELEASE-0.5.3.md) · [Terminal guide](docs/SESSION-DOCK.en.md#startup-and-frame-appearance).
-
-> 0.5.2 adds native JS/TS source navigation and capability routing, and repairs MCP alias handling and optional-service discovery. [Capability guide](docs/NATIVE-MCP-CAPABILITIES.en.md) · [Release notes](docs/RELEASE-0.5.2.md).
-
-> 0.5.0 adds bundled offline OCR, professional child-task roles, bounded child concurrency and explicit headless task results. [Release notes](docs/RELEASE-0.5.0.md).
-
-[Start here: installation, updates and all workflows](docs/START-HERE.en.md)
-
 # Koder CLI
+
+**Current release: 0.5.12. The Ubuntu 24.04 walkthrough is now updated.**
+
+[Ubuntu tutorial](docs/UBUNTU.md) · [All-platform installation](docs/INSTALLATION.md) · [Start here](docs/START-HERE.en.md) · [Download packages](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.12) · [中文 Ubuntu 教程](docs/UBUNTU.zh.md)
+
+| Your next step | Guide |
+| --- | --- |
+| Install on Ubuntu 24.04 / 24.04.x | [Download, progress, model setup and first task](docs/UBUNTU.md) |
+| Operate Ubuntu graphical apps | [Desktop dependencies, grants and an editor exercise](docs/UBUNTU.md#7-set-up-and-test-the-graphical-desktop) |
+| Troubleshoot a download or waiting task | [Ubuntu troubleshooting](docs/UBUNTU.md#10-troubleshooting) |
+| Install or update Windows / macOS | [Choose the matching terminal](docs/INSTALLATION.md) |
+| Follow the course | [English course](docs/courses/README.en.md) · [1,800 Chinese lessons](docs/courses/README.zh.md) |
+
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **v0.5.12**
 
@@ -47,6 +36,35 @@ Current release: **[0.5.12](https://github.com/KarmenLoop/koder-cli/releases/tag
 [Download 0.5.12](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.12) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.5.12.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
 ---
+
+<details>
+<summary>Recent release notes</summary>
+
+> 0.5.12 fixes premature timeouts while waiting for model responses, shows download progress, and corrects broad file-scope access checks. All bundled capabilities remain available. See [release notes](docs/RELEASE-0.5.12.md).
+
+> 0.5.10 uses smaller macOS and Linux downloads with resumable, checksum-verified installation. Supported runtime features, bundled Skills and the complete current classroom remain included. The full offline archive is still available. See [download and recovery instructions](docs/DOWNLOADS.md).
+
+> 0.5.9 loads the bundled learning method by default, supplies typed learning examples, and keeps the native delivery checker available when a task resumes. [Release notes](docs/RELEASE-0.5.9.md) · [Learning controls](docs/MARKDOWN-LEARNING.en.md).
+
+> 0.5.8 restores pending background mail reminders, reports uncertain sends as incomplete, and records terminal layout choices. [Release notes](docs/RELEASE-0.5.8.md) · [Mail guide](docs/MAIL-RECOVERY.en.md). [Ubuntu full-runtime guide](docs/UBUNTU.md).
+
+> 0.5.7 fixes mailbox ownership and send recovery, refreshes inbox reads, and corrects website delivery checks. [Release notes](docs/RELEASE-0.5.7.md) · [Mail guide](docs/MAIL-RECOVERY.en.md).
+
+> 0.5.6 improves task completion and website handoff: explicit incomplete results, bounded recovery, current file evidence and a real preview address. [Release notes](docs/RELEASE-0.5.6.md) · [Website workflow](docs/website-delivery.md).
+
+> 0.5.5 saves local Markdown task memory by default and reviews it during CLI sessions or the next task. Existing off choices remain off; use Setup or `koder learning off` for the feature and `koder growth off` for the master switch. [Release notes](docs/RELEASE-0.5.5.md) · [Task memory guide](docs/MARKDOWN-LEARNING.en.md).
+
+> 0.5.4 adds model-specific thinking controls, preserves truncated answers, and keeps child-task effort settings consistent. [Release notes](docs/RELEASE-0.5.4.md) · [Thinking and output guide](docs/MODEL-EFFORT-AND-OUTPUT.en.md).
+
+> 0.5.3 refines the startup refractor and gives Setup and pickers slimmer blue frames, with better narrow-terminal sizing and reduced-motion support. [Release notes](docs/RELEASE-0.5.3.md) · [Terminal guide](docs/SESSION-DOCK.en.md#startup-and-frame-appearance).
+
+> 0.5.2 adds native JS/TS source navigation and capability routing, and repairs MCP alias handling and optional-service discovery. [Capability guide](docs/NATIVE-MCP-CAPABILITIES.en.md) · [Release notes](docs/RELEASE-0.5.2.md).
+
+> 0.5.0 adds bundled offline OCR, professional child-task roles, bounded child concurrency and explicit headless task results. [Release notes](docs/RELEASE-0.5.0.md).
+
+[Start here: installation, updates and all workflows](docs/START-HERE.en.md)
+
+</details>
 
 ## Why this exists
 
@@ -225,6 +243,16 @@ Paste the complete line at a **CMD** prompt (not into PowerShell):
 ```bat
 powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
 ```
+
+### Ubuntu 24.04 LTS (dedicated installer)
+
+With wget installed, paste this complete line. The installer runs only if its download succeeds:
+
+```bash
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+```
+
+Use the [Ubuntu walkthrough](docs/UBUNTU.md#2-choose-one-installation-route) for curl or missing download tools. Installation reports MB, percentage and elapsed time, and supports resuming interrupted transfers. Open a new terminal afterward and run `koder --version` and `koder setup`. Desktop operations need separate dependencies and permission.
 
 ### macOS / Linux / WSL
 

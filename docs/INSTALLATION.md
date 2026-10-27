@@ -18,6 +18,8 @@ Read the [license](../EULA.md), [consent and data guide](../ACCEPTANCE.md), and 
 
 ## Ubuntu 24.04 quick path
 
+**[Ubuntu 中文手把手教程](UBUNTU.zh.md) · [English walkthrough](UBUNTU.md)** — separate wget/curl instructions, visible download progress, model setup, desktop authorization and troubleshooting.
+
 Use the [dedicated Ubuntu installer and progress guide](UBUNTU.md). It supports x64 and ARM64, downloads the complete Linux runtime, and shows MB, percentage and elapsed time. Use `wget` if a fresh Ubuntu installation does not include `curl`.
 
 ## 2. Install

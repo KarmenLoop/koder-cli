@@ -1,5 +1,7 @@
 # 安装更简单，功能完整保留
 
+Ubuntu 24.04 用户：[完整手把手教程](UBUNTU.zh.md)，包含首次安装、图形操作和故障处理。
+
 0.5.10 安装器会自动选择 macOS 或 Linux 包；Windows 继续使用包含内置 Windows MCP 的完整包。用户不需要手动选依赖或拼包。macOS Intel 与 Apple Silicon 共用 macOS 包，Linux x64 / ARM64 共用运行包并自动选择各自的 Node。
 
 保留当前系统支持的全部运行代码、模型/BYOK、权限、取消、邮箱、GitHub、MCP、Skills、桌面/浏览器适配、自主学习、OCR、PageIndex 和完整现行 1,800 课中文课堂。英文仍为原 30 课。Linux 原有 SolidCraft 外部连接入口保留；没有把不存在的 Linux 内置 SolidCraft 二进制声称已支持。

@@ -1,5 +1,7 @@
 # Smaller downloads, complete runtime
 
+Ubuntu 24.04 users: follow the [complete walkthrough](UBUNTU.md) for installation, desktop operations and troubleshooting.
+
 Koder 0.5.10 chooses a platform archive automatically. A macOS download contains the macOS SolidCraft binary and does not contain Windows Python/MCP or Windows SolidCraft executables. A Linux download excludes those foreign binaries. Linux retains its existing external SolidCraft connection path; this release does not invent a Linux SolidCraft binary. Windows keeps the complete archive and its bundled Windows MCP.
 
 All supported runtime code, provider routes, permissions, cancellation, mail, GitHub, browser/desktop adapters, Skills, active learning resources, OCR, PageIndex and the complete current 1,800-lesson Chinese classroom remain included. Platform packages omit duplicate historical `docs/tutorials` exports; those files remain in repository history, the full archive and earlier release attachments. English remains the original 30-lesson course.

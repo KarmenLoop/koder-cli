@@ -1,26 +1,17 @@
-> 0.5.12 修复等待模型时过早超时，增加下载 MB、百分比与耗时，并修复整盘授权误拦项目文件的问题。现有功能保留。见[发行说明](docs/RELEASE-0.5.12.zh.md)。
-
-> 0.5.10：macOS / Linux 自动选择较小安装包，支持断点续传、有限重试和 SHA-256 校验。当前系统支持的功能、内置 Skills 和完整课堂保留，完整离线包仍可下载。见[安装与下载恢复](docs/DOWNLOADS.zh.md)。
-
-> 0.5.9 默认加载内置学习方法，补齐学习工具参数示例，并修复续做任务时交付检查工具被隐藏的问题。[更新说明](docs/RELEASE-0.5.9.zh.md) · [学习开关与恢复](docs/MARKDOWN-LEARNING.zh.md)。
-
-> 0.5.8 修复后台邮件提醒恢复、发件结果未核实却被标为完成，以及终端选稿无法记录的问题。[更新说明](docs/RELEASE-0.5.8.zh.md) · [邮箱教程](docs/MAIL-RECOVERY.zh.md)。 [Ubuntu 完整版说明](docs/UBUNTU.zh.md)。
-
-> 0.5.7 修复邮箱锁竞争、发件恢复与查信刷新，并校准网站交付检查。[更新说明](docs/RELEASE-0.5.7.zh.md) · [邮箱使用与排查](docs/MAIL-RECOVERY.zh.md)。
-
-> 0.5.6 补强任务完成与网站交付：明确未完成原因、有界恢复、核对当前文件和实际预览地址。[更新说明](docs/RELEASE-0.5.6.zh.md) · [网站流程](docs/website-delivery.md)。
-
-> 0.5.5 默认保存本地 Markdown 任务记忆，并在 CLI 会话内或下次任务时复盘。已有关闭选择继续生效；可在 Setup 或 `koder learning off` 单独关闭，`koder growth off` 一并暂停。[更新说明](docs/RELEASE-0.5.5.zh.md) · [任务记忆指南](docs/MARKDOWN-LEARNING.zh.md)。
-
-> 0.5.4 按模型、接口与协议提供思考档位，修复子任务强度继承，并保留达到输出上限的正文；符合条件时最多进行两次纯文本续答，取消与费用预算继续生效。[更新说明](docs/RELEASE-0.5.4.zh.md) · [操作指南](docs/MODEL-EFFORT-AND-OUTPUT.zh.md)。
-
-> 0.5.3 细化启动折光体、统一细蓝边框，并修复窄终端菜单宽度；常驻输入、引导和排队保持原有行为。[更新说明](docs/RELEASE-0.5.3.zh.md)。
-
-> 0.5.2 增加原生 JS/TS 代码导航与能力路由，并修复 MCP 别名及可选服务发现。[更新说明](docs/RELEASE-0.5.2.zh.md)。
-
-[从这里开始：安装、更新与全部功能教程](docs/START-HERE.zh.md)
-
 # Koder CLI
+
+**当前正式版：0.5.12。Ubuntu 24.04 手把手教程已更新。**
+
+[Ubuntu 中文教程](docs/UBUNTU.zh.md) · [全部平台安装](docs/INSTALLATION.md) · [教程总入口](docs/START-HERE.zh.md) · [下载安装包](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.12)
+
+| 你要做什么 | 直接入口 |
+| --- | --- |
+| Ubuntu 24.04 / 24.04.x 首次安装 | [下载、进度、模型配置和第一个任务](docs/UBUNTU.zh.md#install) |
+| 让 Koder 操作 Ubuntu 图形应用 | [依赖、权限、文本编辑器实操](docs/UBUNTU.zh.md#desktop) |
+| Ubuntu 下载慢、任务一直等待、密钥环失败 | [按现象排查](docs/UBUNTU.zh.md#troubleshooting) |
+| Windows / macOS 安装或升级 | [选择对应终端](docs/INSTALLATION.md) |
+| 继续完整课程 | [1800 课中文课堂说明](docs/courses/README.zh.md) |
+
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **v0.5.12**
 
@@ -45,6 +36,33 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 [下载 0.5.12](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.12) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.5.12.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 ---
+
+<details>
+<summary>近期更新记录（展开）</summary>
+
+> 0.5.12 修复等待模型时过早超时，增加下载 MB、百分比与耗时，并修复整盘授权误拦项目文件的问题。现有功能保留。见[发行说明](docs/RELEASE-0.5.12.zh.md)。
+
+> 0.5.10：macOS / Linux 自动选择较小安装包，支持断点续传、有限重试和 SHA-256 校验。当前系统支持的功能、内置 Skills 和完整课堂保留，完整离线包仍可下载。见[安装与下载恢复](docs/DOWNLOADS.zh.md)。
+
+> 0.5.9 默认加载内置学习方法，补齐学习工具参数示例，并修复续做任务时交付检查工具被隐藏的问题。[更新说明](docs/RELEASE-0.5.9.zh.md) · [学习开关与恢复](docs/MARKDOWN-LEARNING.zh.md)。
+
+> 0.5.8 修复后台邮件提醒恢复、发件结果未核实却被标为完成，以及终端选稿无法记录的问题。[更新说明](docs/RELEASE-0.5.8.zh.md) · [邮箱教程](docs/MAIL-RECOVERY.zh.md)。 [Ubuntu 完整版说明](docs/UBUNTU.zh.md)。
+
+> 0.5.7 修复邮箱锁竞争、发件恢复与查信刷新，并校准网站交付检查。[更新说明](docs/RELEASE-0.5.7.zh.md) · [邮箱使用与排查](docs/MAIL-RECOVERY.zh.md)。
+
+> 0.5.6 补强任务完成与网站交付：明确未完成原因、有界恢复、核对当前文件和实际预览地址。[更新说明](docs/RELEASE-0.5.6.zh.md) · [网站流程](docs/website-delivery.md)。
+
+> 0.5.5 默认保存本地 Markdown 任务记忆，并在 CLI 会话内或下次任务时复盘。已有关闭选择继续生效；可在 Setup 或 `koder learning off` 单独关闭，`koder growth off` 一并暂停。[更新说明](docs/RELEASE-0.5.5.zh.md) · [任务记忆指南](docs/MARKDOWN-LEARNING.zh.md)。
+
+> 0.5.4 按模型、接口与协议提供思考档位，修复子任务强度继承，并保留达到输出上限的正文；符合条件时最多进行两次纯文本续答，取消与费用预算继续生效。[更新说明](docs/RELEASE-0.5.4.zh.md) · [操作指南](docs/MODEL-EFFORT-AND-OUTPUT.zh.md)。
+
+> 0.5.3 细化启动折光体、统一细蓝边框，并修复窄终端菜单宽度；常驻输入、引导和排队保持原有行为。[更新说明](docs/RELEASE-0.5.3.zh.md)。
+
+> 0.5.2 增加原生 JS/TS 代码导航与能力路由，并修复 MCP 别名及可选服务发现。[更新说明](docs/RELEASE-0.5.2.zh.md)。
+
+[从这里开始：安装、更新与全部功能教程](docs/START-HERE.zh.md)
+
+</details>
 
 ## 为什么需要它
 
@@ -223,6 +241,16 @@ $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.Serv
 ```bat
 powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
 ```
+
+### Ubuntu 24.04 LTS（独立入口）
+
+已有 wget 的 Ubuntu，复制完整一行到终端；下载成功后才运行安装器：
+
+```bash
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.12/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+```
+
+没有 wget、只有 curl，或两个都没有：[按完整教程选择路线](docs/UBUNTU.zh.md#install)。安装显示 MB、百分比和耗时；断网后可重跑续传。安装完成新开终端运行 `koder --version`、`koder setup`。图形操作需另行配置依赖与授权。
 
 ### macOS / Linux / WSL
 
