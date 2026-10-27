@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies in the disposable runner
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-gi gir1.2-gtk-3.0 gir1.2-atspi-2.0 at-spi2-core dbus-x11 libnotify-bin xvfb x11-utils openbox dunst weston mako-notifier
+          sudo apt-get install -y python3-gi gir1.2-gtk-3.0 gir1.2-atspi-2.0 at-spi2-core dbus-x11 libnotify-bin xvfb x11-utils openbox dunst weston sway mako-notifier
       - name: Download exact release
         env:
           GH_TOKEN: ${{ github.token }}
