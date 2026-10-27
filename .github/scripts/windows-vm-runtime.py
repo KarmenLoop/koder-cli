@@ -29,8 +29,12 @@ suite = Path(__file__).resolve().with_name('windows-vm')
 env = {**os.environ, 'KODER_ACCEPTANCE_PACKAGE': str(package), 'KODER_VM_EVIDENCE':str(out), 'KODER_AUTO_UPDATE': '0', 'TZ': 'UTC'}
 for key in ['KODER_DESKTOP_ROOT', 'KODER_KERNEL_ROOT', 'NODE_OPTIONS', 'NODE_TEST_CONTEXT']:
     env.pop(key, None)
-env['PSModulePath'] = str(Path(env['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/Modules')
-groups = ['task-step-budget.test.mjs', 'multi-window-session.test.mjs', 'mail-runtime-lifecycle.test.mjs', 'mail-background-recovery.test.mjs', 'mail-inbox-refresh.test.mjs', 'fixtures/mail-recovery-tls.mjs', 'native-mcp.test.mjs']
+# os.environ is case-insensitive on Windows; a plain dict is not.
+for key in list(env):
+    if key.upper() == 'PSMODULEPATH':
+        del env[key]
+env['PSMODULEPATH'] = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/Modules')
+groups = ['task-step-budget.test.mjs', 'multi-window-session.test.mjs', 'mail-runtime-lifecycle.test.mjs', 'mail-background-recovery.test.mjs', 'mail-inbox-refresh.test.mjs', 'fixtures/mail-recovery-tls.mjs', 'native-mcp.test.mjs', 'native-shell.test.mjs']
 results = []
 for name in groups:
     start = time.monotonic()

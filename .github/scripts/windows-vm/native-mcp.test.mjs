@@ -67,3 +67,20 @@ test('native Windows Toast adapter reports a structured receipt without claiming
     assert.equal(receipt.displayVerified,false); assert.equal(typeof receipt.reason,'string');
   }
 });
+
+test('Koder MCP transport initializes the bundled server, calls a real tool and cleans up its owned tree', {timeout:45000}, async()=>{
+  const {connectStdio}=await loadRelease('kernel/loop/mcp-stdio.mjs');
+  const launch=bundledWindowsMcp();
+  const client=connectStdio({...launch,env:{SystemRoot:process.env.SystemRoot,PATH:path.join(process.env.SystemRoot,'System32'),ANONYMIZED_TELEMETRY:'false',PYTHONUTF8:'1'}});
+  try {
+    evidence.koderInitialize=await client.request('initialize',{}); save();
+    const listed=await client.request('tools/list',{});
+    assert(listed.tools.some(tool=>tool.name==='ControlStatus'));
+    evidence.koderControlStatus=await client.request('tools/call',{name:'ControlStatus',arguments:{}}); save();
+    assert.notEqual(evidence.koderControlStatus.isError,true);
+    assert(evidence.koderControlStatus.content?.length>0);
+  } finally {
+    evidence.koderCleanup=await client.close(); save();
+    assert.equal(evidence.koderCleanup.cleanupComplete,true);
+  }
+});
