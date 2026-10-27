@@ -1,0 +1,562 @@
+{
+  "version": "0.5.7",
+  "privateSourceCommit": "385beef4e16f05aa99124634e87c76e0225c74ca",
+  "runtime": {
+    "file": "koder-cli-0.5.7.tgz",
+    "sha256": "2ec191cd09cee7e4559f912dbcc589172a6f8a1b7d72793146bd2c5994b3eaa1",
+    "bytes": 504289835
+  },
+  "validation": {
+    "sourceRegression": {
+      "sourceCommit": "385beef4e16f05aa99124634e87c76e0225c74ca",
+      "exitCode": 0,
+      "files": 264,
+      "tests": 1922,
+      "pass": 1901,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 21
+    },
+    "packagedRuntime": {
+      "passed": true,
+      "sourceCommit": "385beef4e16f05aa99124634e87c76e0225c74ca",
+      "tests": {
+        "tests": 335,
+        "pass": 335,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      "isolatedKernel": true
+    },
+    "macOSUpgrade": {
+      "passed": true,
+      "from": "0.5.6",
+      "to": "0.5.7",
+      "scope": "Disposable HOME with an existing Node runtime; actual installer and updater; user settings and prior installation preserved."
+    },
+    "realModelLongTask": {
+      "status": "VERIFIED",
+      "model": "MiniMax-M3",
+      "requests": 7,
+      "exitCode": 0,
+      "elapsedMs": 83117,
+      "rows": 20,
+      "expectedTotals": {
+        "correctCents": 208800,
+        "declaredCents": 209425
+      },
+      "deltaDefinition": "correctCents - declaredCents",
+      "deltaCents": -625,
+      "independentVerifierExitCode": 0,
+      "artifactHashes": {
+        "audit.csv": "1f2a22c3e63169f189d6b4b264de71ce3c5772f1993fe4b4d36e86d39b8e3368",
+        "audit-summary.md": "fd7de4cbede2673c308bde146b641bf9c2d5d0d06c6d7d35fa1debe0090cc0ec",
+        "verify.mjs": "b0282c78efabc0344b2c3107d08caa80ccb278d0fbea37e2e19e51ffde18559a"
+      },
+      "receiptHashes": [
+        {
+          "path": "receipts/5dd96ac9ab65db91b0.json",
+          "sha256": "311420d55c35dff55c1ef8dad590b872ac03f8f7a370ee6346b780aca0b93ad8"
+        },
+        {
+          "path": "receipts/fbd158bedc3d15ad30.json",
+          "sha256": "cd212664c6302b50bcb3a469090a2ffb4a47d386f8cef08ad7c4098a7eeb46da"
+        },
+        {
+          "path": "receipts/2be2f2ab1bd01b16d2.json",
+          "sha256": "60b40d162ef6a6ab811d4f900de9cdd133112bc9c26032b7bb1f6f1273308b96"
+        },
+        {
+          "path": "receipts/9e1addda5d2c19aa4a.json",
+          "sha256": "9a63c1dc7e63a46ac3c79081d36dc10aa8efc508b0c4ff158d1f7dcf3a28e380"
+        },
+        {
+          "path": "receipts/428ef421495194b686.json",
+          "sha256": "c44c7676f039429c0a440beae7211cdfd7b805fcac1fb3a340412d72f904d946"
+        },
+        {
+          "path": "receipts/a6fd0ff5af1b2fa48c.json",
+          "sha256": "1c62ce114faefe5475203e43eb44933866e254d760cee481ea22655786f22b9e"
+        },
+        {
+          "path": "receipts/74eb3a7f8378f66a53.json",
+          "sha256": "b6d68b80925e47c51bc976244db54238a655ed0b834e551dff2609e154e70e23"
+        },
+        {
+          "path": "receipts/98c8a3f0940b9f9bb5.json",
+          "sha256": "a8f4c9cd33729ec56867f6578c9b25f133e435fd5e75443c9d024c71d86cfe0d"
+        },
+        {
+          "path": "receipts/25cc411e00d1c88801.json",
+          "sha256": "c63db5b6c2184849a8a80d64fe54679fa15404e9cb4cedf80ce4058639261bff"
+        },
+        {
+          "path": "receipts/5463bcfe5927790820.json",
+          "sha256": "5227d803251131be11656486660f9bef71830dd89cccac3f3d8a8167185ed46d"
+        },
+        {
+          "path": "receipts/a3edeea1e549a29e03.json",
+          "sha256": "bb0e60d005c9a4fbd6ebc80915ad0ff1a057248859f7ffa8753a491c7b8b6d35"
+        },
+        {
+          "path": "receipts/d1dd9776fbd2045152.json",
+          "sha256": "c6e5d14409199e9d3e490ec30cafb1ba5b8146949be9a4091ca8a63e641c442d"
+        },
+        {
+          "path": "receipts/08bd4f6ae9fb4e8531.json",
+          "sha256": "6dd4487195d35ab47671191cd5a3603b74c5adf6116793f2bdfb7e38ebad6951"
+        },
+        {
+          "path": "receipts/f222d8c12ef55e01dd.json",
+          "sha256": "7713df13c71397654b580e9cdde092453fe3612409d9202246f26fb3111d6dbd"
+        },
+        {
+          "path": "receipts/8fd887cfc57d4f9a7e.json",
+          "sha256": "d60731b9dcd76f44c8fe3733e2a0c053f4fc4ccf79c9f233ccb913c873e475d9"
+        },
+        {
+          "path": "receipts/57743c6f345dbc7443.json",
+          "sha256": "524f5cf33168524a87a578acab9778ea309e23703c5b14f071d9b44e6d66c5a0"
+        },
+        {
+          "path": "receipts/b42d3813f4f4435fc3.json",
+          "sha256": "cb2075c224c93921c00d8cca569de90c8720e80876841526b572053a20968624"
+        },
+        {
+          "path": "receipts/3833bce02fd6e236cd.json",
+          "sha256": "0e09810ff5bd2f54db877db9e9cf12f1852d4167e9c05182cddcd26d1f8b5083"
+        },
+        {
+          "path": "receipts/2e3390e9464cc8bcc8.json",
+          "sha256": "cabd5d3d4a19cb1bdb26bf700426914eba3fce607cfec05130994f46543ea07b"
+        },
+        {
+          "path": "receipts/a77bde534754d54e00.json",
+          "sha256": "2319277ef987f49f90d63e5f6c8b670f40c327a9c8a2d82648b417c24b2d6126"
+        }
+      ],
+      "priorFailuresRetained": true,
+      "scope": "Actual MiniMax-M3 requests in an isolated local synthetic project. Not a same-model-tier blind score comparison.",
+      "independentOracleRows": 20,
+      "originalSyntheticInputsUnchanged": true,
+      "oracle": "Root recomputed each generated quantity, unit price, declared amount, next-chain target and CSV column independently of model-written verify.mjs.",
+      "executionScope": "Resumed completion after earlier failed/review rounds; seven requests and twelve tool results refer to the final round only.",
+      "priorRounds": [
+        {
+          "run": "long-task-final",
+          "code": 0,
+          "model": "MiniMax-M3",
+          "requests": 7,
+          "elapsedMs": 83117,
+          "toolResults": 12,
+          "driverCsvExact": null,
+          "scope": "Raw round outcome, not overall acceptance"
+        },
+        {
+          "run": "long-task-live",
+          "code": 0,
+          "model": "MiniMax-M3",
+          "requests": 31,
+          "elapsedMs": 108829,
+          "toolResults": 32,
+          "driverCsvExact": false,
+          "scope": "Raw round outcome, not overall acceptance"
+        },
+        {
+          "run": "long-task-review",
+          "code": 2,
+          "model": "MiniMax-M3",
+          "requests": 13,
+          "elapsedMs": 52560,
+          "toolResults": 35,
+          "driverCsvExact": null,
+          "scope": "Raw round outcome, not overall acceptance"
+        },
+        {
+          "run": "long-task-review-complete",
+          "code": 2,
+          "model": "MiniMax-M3",
+          "requests": 13,
+          "elapsedMs": 301850,
+          "toolResults": 47,
+          "driverCsvExact": null,
+          "scope": "Raw round outcome, not overall acceptance"
+        },
+        {
+          "run": "long-task-review-routed",
+          "code": 3,
+          "model": "MiniMax-M3",
+          "requests": 33,
+          "elapsedMs": 286648,
+          "toolResults": 36,
+          "driverCsvExact": null,
+          "scope": "Raw round outcome, not overall acceptance"
+        }
+      ],
+      "finalToolResults": 12,
+      "priorDriverOracleNote": "Original driver used a different delta sign convention; its csvExact=false is retained. Final independent oracle verified all rows with the documented correct-minus-declared convention."
+    },
+    "realModelMail": {
+      "status": "VERIFIED_LOOPBACK_TLS",
+      "model": "MiniMax-M3",
+      "requests": 4,
+      "exitCode": 0,
+      "elapsedMs": 27170,
+      "messageCount": 1,
+      "approvals": 2,
+      "tools": [
+        "mail_inbox",
+        "mail_read",
+        "mail_send"
+      ],
+      "protocol": [
+        "IMAP LOGIN",
+        "IMAP EXAMINE INBOX",
+        "IMAP UID FETCH",
+        "SMTP AUTH",
+        "SMTP DATA"
+      ],
+      "certificateVerification": true,
+      "providerDelivery": "NOT_RUN",
+      "realUserMailboxes": "NOT_USED",
+      "scope": "Actual model calling native mail tools against synthetic accounts and a local TLS server; no external email sent. SMTP acceptance is not recipient delivery.",
+      "sourceCommit": "89195cb01c71f8c1a79b0fe0fb813a30f87a146f",
+      "resultEvidence": "mail-live-final-tls/result.json",
+      "priorRunRetained": true,
+      "testSetupFailureRetained": "First final rerun omitted process-local test CA and failed before any model request or send; corrected by passing NODE_EXTRA_CA_CERTS for this test process only.",
+      "laterCandidateSourceCheck": {
+        "sourceCommit": "385beef4e16f05aa99124634e87c76e0225c74ca",
+        "mailFilesChangedSinceLiveRun": false,
+        "scope": "Source-equivalence check only; actual model/TLS run retains its original sourceCommit."
+      }
+    },
+    "realModelWebsite": {
+      "status": "VERIFIED_RESUMED_LOCAL_WORKFLOW",
+      "sourceCommit": "385beef4e16f05aa99124634e87c76e0225c74ca",
+      "run": "website-2026-10-27T08-57-07-378Z",
+      "model": "MiniMax-M3",
+      "modelRequests": 4,
+      "exitCode": 0,
+      "completion": {
+        "state": "completed",
+        "reasonCode": null,
+        "evidence": {
+          "toolResults": 6,
+          "unknownToolCallIds": []
+        },
+        "nextStep": null
+      },
+      "scope": "Actual model completed an explicit closeout of the same synthetic website after prior failed and resumed rounds; not an unchanged short-prompt benchmark or human design approval.",
+      "defaultSkill": {
+        "id": "fullstack-web-delivery",
+        "exactBodyPresentInEveryFinalRequest": true,
+        "requestCount": 4,
+        "source": {
+          "repository": "https://github.com/KarmenLoop/fullstack-web-delivery",
+          "commit": "72e05993c485210e255c1e950f424a53fb05be49",
+          "version": "0.9.1",
+          "license": "LicenseRef-KarmenLoop-Source-Available-No-Modification-1.0"
+        }
+      },
+      "requirements": {
+        "actualAskUserCalls": 4,
+        "selectionSource": "scripted-test-user",
+        "topics": [
+          "苔木书房网站的首要动作是什么？这决定首页主 CTA 和导航结构。",
+          "预约/报名这类表单需要保存数据吗？考虑到只做本地示范、不部署、不用真实账号。",
+          "首版需要哪些页面？",
+          "三个方向稿已在浏览器评审页打开（评审页可点选并查看每稿的桌面/手机对照）。你希望正式版采用哪一种？"
+        ],
+        "selectedLayout": "A",
+        "evidenceRun": "website-2026-10-27T05-14-49-147Z"
+      },
+      "pages": [
+        "index.html",
+        "shelf.html",
+        "events.html",
+        "visit.html"
+      ],
+      "localPreview": {
+        "url": "http://127.0.0.1:64843/",
+        "status": 200,
+        "bytes": 5815,
+        "sha256": "1c0127903c63af39e44b15d5e8af07c6b6daba1818988f9a490adbca20dc9641",
+        "hasHtml": true,
+        "checkedAt": "2026-10-27T08:57:32.591Z"
+      },
+      "siteVerification": {
+        "exitCode": 0,
+        "assertionsPassed": 278,
+        "scope": "Model-authored local verifier independently rerun by root; does not replace browser/device acceptance",
+        "logSha256": "1bc1f9ddec79e7bd3b60a633d30351add14cd9b1f64ed08784278ddbb35e1b47"
+      },
+      "artifactHashes": {
+        "index.html": "43452d447fee20ad2387ede31ae7d66e99f03d55ba1718d3aa21e3e93874aa2e",
+        "shelf.html": "5c173ef41b21095f9d7488cf5570aa2d68190f0b5bb2dfd0e087b8f53f68cde1",
+        "events.html": "2a247231f5caeb9222363b8623019a6f4c3ec9e6a4fcd28aedae94ed8bb584e8",
+        "visit.html": "c3c9bbe4ec84aaa83472fda69d06fd760dac1d7a4d6de8598dbb4d27c66535c2",
+        "assets/site.js": "5bc10dc2619d383a5741444df58e634a2ccee70898595dded901fb18d0a65548",
+        "assets/styles.css": "efe0310af4385f0129d54893a77881b5850f24e113eff0e3c77042b84b760bec",
+        "PROJECT-ANCHOR.md": "33200c4d6ddef992a83e2f2c6eff08654e185784c3c947336b251d3ed19b345f",
+        "DESIGN.md": "1abed0dc6a8f2cb4e8edfc9bc6dfe295b3e5cb461a74d6a91d043d145f111318",
+        "docs/web-delivery/PLAN.md": "0274c2bb67e347d0576be2caba161d58269c662923eebfe782170832799dec6e",
+        "tools/verify-site.mjs": "0dac1f741af11f3557cf5d930d16ec98ca69970a4455ce89b811b10a100b3cbc"
+      },
+      "priorFailuresRetained": true,
+      "priorRounds": [
+        {
+          "run": "website-2026-10-27T05-14-49-147Z",
+          "exitCode": 2,
+          "modelRequests": 21,
+          "budgetReason": "TEST_MODEL_REQUEST_LIMIT",
+          "completionReason": "TASK_CANCELLED",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T05-30-04-539Z",
+          "exitCode": 2,
+          "modelRequests": 14,
+          "budgetReason": null,
+          "completionReason": "API_UNREACHABLE",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T06-34-44-267Z",
+          "exitCode": 3,
+          "modelRequests": 23,
+          "budgetReason": null,
+          "completionReason": "TASK_DELIVERY_INCOMPLETE",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T06-42-49-630Z",
+          "exitCode": 3,
+          "modelRequests": 25,
+          "budgetReason": null,
+          "completionReason": "TASK_DELIVERY_INCOMPLETE",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T06-49-53-060Z",
+          "exitCode": 3,
+          "modelRequests": 28,
+          "budgetReason": null,
+          "completionReason": "TASK_DELIVERY_INCOMPLETE",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T07-00-48-362Z",
+          "exitCode": 2,
+          "modelRequests": 41,
+          "budgetReason": "TEST_MODEL_REQUEST_LIMIT",
+          "completionReason": "TASK_CANCELLED",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T07-06-05-272Z",
+          "exitCode": 3,
+          "modelRequests": 42,
+          "budgetReason": null,
+          "completionReason": "TASK_DELIVERY_INCOMPLETE",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T07-38-50-645Z",
+          "exitCode": 2,
+          "modelRequests": 19,
+          "budgetReason": "TEST_MODEL_REQUEST_LIMIT",
+          "completionReason": "TASK_CANCELLED",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T07-46-13-305Z",
+          "exitCode": 3,
+          "modelRequests": 39,
+          "budgetReason": null,
+          "completionReason": "TASK_DELIVERY_INCOMPLETE",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T08-08-09-886Z",
+          "exitCode": 3,
+          "modelRequests": 8,
+          "budgetReason": null,
+          "completionReason": "TOOL_RESULT_UNCONFIRMED",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T08-12-09-371Z",
+          "exitCode": 3,
+          "modelRequests": 5,
+          "budgetReason": null,
+          "completionReason": "TASK_DELIVERY_INCOMPLETE",
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T08-14-25-457Z",
+          "exitCode": 0,
+          "modelRequests": 9,
+          "budgetReason": null,
+          "completionReason": null,
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        },
+        {
+          "run": "website-2026-10-27T08-55-31-424Z",
+          "exitCode": 0,
+          "modelRequests": 4,
+          "budgetReason": null,
+          "completionReason": null,
+          "scope": "Retained raw round result, not a one-shot benchmark"
+        }
+      ],
+      "notRun": [
+        "Production deployment",
+        "Real customer data",
+        "Mobile and full keyboard-only browser acceptance"
+      ],
+      "ownerBrowserEvidence": "website/browser/receipt.json",
+      "rawResultSha256": "2c16dc2bf8ba459f9607a5e36bffa84b0f6631c4bd5a11fc2b194299081eb56d"
+    },
+    "realModelReadonlyWebsite": {
+      "status": "VERIFIED_READONLY_ROOT",
+      "sourceCommit": "385beef4e16f05aa99124634e87c76e0225c74ca",
+      "run": "website-2026-10-27T08-55-31-424Z",
+      "model": "MiniMax-M3",
+      "modelRequests": 4,
+      "exitCode": 0,
+      "completion": {
+        "state": "completed",
+        "reasonCode": null,
+        "evidence": {
+          "toolResults": 5,
+          "unknownToolCallIds": []
+        },
+        "nextStep": null
+      },
+      "tools": {
+        "read_file": 1,
+        "project_anchor": 1,
+        "shell": 1,
+        "workspace_preview": 2
+      },
+      "siteArtifactsUnchanged": true,
+      "previewRegistryScope": "Current process only; a not-running status does not prove another process preview stopped. No preview was created in this read-only task.",
+      "modelOutputLimitation": "The model overstated a process-local not-running status as global preview unavailability; this check validates read-only completion and unchanged files, not that statement. Other retained preview owners were not queried by this model turn.",
+      "scope": "Actual model resumed exact saved history with a new explicit read-only root message. Only verification and preview status were requested; this does not establish a new website implementation.",
+      "rawResultSha256": "fbbdfbf568dc01da2007b54b6bb06d864eb318ea3c781c9a1c4fad59bec02a5b",
+      "priorFailure": "website-2026-10-27T08-12-09-371Z, WEBSITE_SOURCE_MISSING retained"
+    },
+    "ownerBrowser": {
+      "status": "VERIFIED_NARROW",
+      "surface": "Codex in-app browser",
+      "origin": "http://127.0.0.1:63486",
+      "actions": [
+        "Book category filter 12 to 4",
+        "Book reservation link prefilled purpose and note",
+        "Empty-form field errors",
+        "Synthetic booking produced TM-20261028-0001",
+        "Reload retained synthetic reservation"
+      ],
+      "screenshot": "booking-final-057.png",
+      "screenshotSha256": "d550717aabb126dfce221ccb0275f1e422f6651c5e64a843064cc8e2a54d391f",
+      "notRun": [
+        "Mobile viewport",
+        "Full keyboard-only flow",
+        "Production deployment",
+        "Real customer data"
+      ],
+      "scope": "Owner browser acceptance, distinct from the Koder model tool run. Local demo stores data in the browser only.",
+      "verifiedSiteFiles": {
+        "shelf.html": "5c173ef41b21095f9d7488cf5570aa2d68190f0b5bb2dfd0e087b8f53f68cde1",
+        "index.html": "43452d447fee20ad2387ede31ae7d66e99f03d55ba1718d3aa21e3e93874aa2e",
+        "README.md": "05256515436d86f4dd9e0b794f671b97a7c7cff133084384219bff9db612735b",
+        "DESIGN.md": "1abed0dc6a8f2cb4e8edfc9bc6dfe295b3e5cb461a74d6a91d043d145f111318",
+        "visit.html": "c3c9bbe4ec84aaa83472fda69d06fd760dac1d7a4d6de8598dbb4d27c66535c2",
+        "events.html": "2a247231f5caeb9222363b8623019a6f4c3ec9e6a4fcd28aedae94ed8bb584e8",
+        "PROJECT-ANCHOR.md": "33200c4d6ddef992a83e2f2c6eff08654e185784c3c947336b251d3ed19b345f",
+        "koder-designs/b-shelf-catalogue.html": "7d7cf165b8ba46ff0f0e45efe4d8a92c3cb439ab7fd67982220b167785248b96",
+        "koder-designs/c-long-table.html": "818bd25121342d147f418a508bdc79c2d5f46ab800f59f4e349917c21948856c",
+        "koder-designs/a-paper-editorial.html": "d0130eb72dc099f044e9a0bbbb1835b47b1a69bba2959a082153e28a435dab80",
+        "tools/verify-site.mjs": "0dac1f741af11f3557cf5d930d16ec98ca69970a4455ce89b811b10a100b3cbc",
+        "docs/web-delivery/acceptance.csv": "b468e55a30c62966951d9a06ba609749b141e5a0d439957d7ae328752c19af59",
+        "docs/web-delivery/MOTION-MAP.md": "17e2c119608f2f7506bb6bda6a8668c569474d37d275a60cd876f710e5cae80c",
+        "docs/web-delivery/UI-MATCH-SPEC.md": "10b16b82dc16a0e50a2104ac419b30fa060fd603cbcbf37d23fe9d8269d8476a",
+        "docs/web-delivery/DECISIONS.jsonl": "48c2f506d695000426da8778b673a7f0f3406465fc4134d5f96b90f2b81afb50",
+        "docs/web-delivery/PLAN.md": "0274c2bb67e347d0576be2caba161d58269c662923eebfe782170832799dec6e",
+        "koder-review/be30d0d9-5817-499c-b476-d31273b4053a/index.html": "9d3bb2c31a9c871e3794cf63aca68ac757d724eba8af6ebff25aa4c478984e94",
+        "koder-review/be30d0d9-5817-499c-b476-d31273b4053a/direction-2.html": "7d7cf165b8ba46ff0f0e45efe4d8a92c3cb439ab7fd67982220b167785248b96",
+        "koder-review/be30d0d9-5817-499c-b476-d31273b4053a/direction-3.html": "818bd25121342d147f418a508bdc79c2d5f46ab800f59f4e349917c21948856c",
+        "koder-review/be30d0d9-5817-499c-b476-d31273b4053a/direction-1.html": "d0130eb72dc099f044e9a0bbbb1835b47b1a69bba2959a082153e28a435dab80",
+        "koder-review/be30d0d9-5817-499c-b476-d31273b4053a/review.json": "ab8e91a26e2418b44bfb5a3c4214d0fc4baf02d69fdbee2aedb86aa43ff4f16a",
+        "assets/styles.css": "efe0310af4385f0129d54893a77881b5850f24e113eff0e3c77042b84b760bec",
+        "assets/site.js": "5bc10dc2619d383a5741444df58e634a2ccee70898595dded901fb18d0a65548"
+      },
+      "lastCheck": "Reload after resumed model review retained TM-20261028-0001. Six website UI files have the same hashes as the prior interactive browser test; test scripts and documentation changed separately.",
+      "finalPreview": {
+        "sourceCommit": "385beef4e16f05aa99124634e87c76e0225c74ca",
+        "modelRun": "website-2026-10-27T08-57-07-378Z",
+        "url": "http://127.0.0.1:64843/",
+        "homepageOpenedInBrowser": true,
+        "screenshot": "home-final-057.png",
+        "screenshotSha256": "7af8bb600790e00026b1def9a65c09b816d548164ace1b0e2a05fd24f551c912",
+        "scope": "Read-only homepage rendering. Previous reservation interaction evidence and limits remain unchanged."
+      }
+    }
+  },
+  "notRun": [
+    "Windows 10/11 device install/update, cold start, Windows-MCP GUI and Toast: beta track; not run on this macOS host.",
+    "Real 163 account authentication, service-provider delivery and recipient receipt: not run; synthetic mail traffic used a local TLS server.",
+    "Linux desktop notifications, macOS system notification display and click-to-resume: not verified in this release.",
+    "Unmodified short-prompt model-tier blind scores: not rerun.",
+    "Generated website production deployment, mobile and full keyboard-only acceptance: not run."
+  ],
+  "hold": [
+    "macOS locked-use native component remains an unsigned candidate; no Apple Developer signing or dedicated locked-use test host.",
+    "Website live evidence includes failed and resumed rounds; it is not a one-shot blind benchmark.",
+    "SMTP acceptance does not prove recipient delivery. UNKNOWN send results are not automatically replayed.",
+    "Cancellation, approval gates and explicit cost budgets remain active; no fixed tool-step limit was reintroduced."
+  ],
+  "priorFailuresRetained": true,
+  "websiteChanged": false,
+  "evidenceSha256": {
+    "source-057-final-6.receipt.json": "f4684c81e3af2269772fa7a490b8ff49df0f0b9f0c368565d5656cdbfba54616",
+    "source-057-final-6.txt": "697f7b626f94103b717ca4b7747c70e3ed9ef521efb7d718a80a9e8ac92997ba",
+    "package-check.json": "06d4d1b180489842d41d8e25080d03cc07dc9c34e2d3545e6c480c137e0ad99a",
+    "package-core-tests.json": "aa143d775b122b5ab91920044102652fab5b4d81f6ea057ccada6c9dda09382d",
+    "package-core-tests.log": "cd2eaec5c2882e1e98a8ac26489932c9c113e3b8ea56715f266d095f98835d71",
+    "local-upgrade.json": "711d3b5c59ead54e0c69fecc5bd9ea142108da49376aa611294a09cee765daee",
+    "mail-all.txt": "353fd57bbd4dfa2bff58886ef2603cae5fc93a45d7df45a8825510f3e07ff7f0",
+    "mail-shared-green-2.txt": "4feaf2cea8ed57347a6defb8ce6033e1475262fa15586d262c73f1733f9a9c3b",
+    "website-scan-green.txt": "32f2383155f12b45b3067861f5589e02e042b90844fdb42e956f85c50a3b50fb",
+    "custom-verify-green-2.txt": "884e0758daf93aba571f381180a9d653126920b97b4bf31f7d0b99a41b212721",
+    "long-task-verified.json": "76c20e3668a234449a06213942a8d4894efbce43d1f395ec29427e29b862d81e",
+    "mail-live-verified.json": "f05505e7b635784a7740dd0a70f174b7eceeaf3506fab5a0ad9a78593d5aa922",
+    "website-final-verified.json": "0caef428371239e993b55ed8f1677be11b064729bad1e5d211dbe8b0bd9ea5de",
+    "website/browser/receipt.json": "123669ef2ed1832e9a334d6a3b95327b0d7d7669385d3c7d0919d6c03aac5fc2",
+    "website/browser/booking-final-057.png": "d550717aabb126dfce221ccb0275f1e422f6651c5e64a843064cc8e2a54d391f",
+    "website/browser/home-final-057.png": "7af8bb600790e00026b1def9a65c09b816d548164ace1b0e2a05fd24f551c912",
+    "intent-all-green.txt": "5aba32554ecbd6362b521d428247332152f3e4fe8a6c097b2936820aae4e82e9",
+    "mail-inquiry-green.txt": "14f10076eff31de24d1dcd35623d09b5f901e27343fd1e0fd6462dcaa05329f4",
+    "intent-validation-final-all.txt": "7d8c2b984ce3680aefab2cfa15d01c336707a200863e0b59c3b467d20c7466ea",
+    "intent-validation-receipt.txt": "890fa27186926e18302d375153f45c4dd2b026d9b45f6ff1da4fb8dc48edf24f",
+    "public-release-binding-green.txt": "7f3502e84d7ff4d05d8c7b8ab530d6362d725485a998e45c1d3fc4d209ac735f",
+    "public-release-binding-final6-green.txt": "b7830e67d61b451b902dcd12e4ef9244bd4afd9ed931be59cf980647e2f2344a",
+    "no-change-wording-red.txt": "bc234953c3a96cf3ee81dc67ed1ed26960b5c752fe2fc5ba764228643401d459",
+    "no-change-wording-green.txt": "94b1797e27864a3873b668619e299ebb87a67202b6f02bb47512e483345e969b",
+    "no-change-wording-all-green.txt": "cbf69d11a5def13c8615d62784b74f061572884374127812393e36538d090989",
+    "no-change-wording-review-red.txt": "3fdb43210065d9e9b19229231557a55b282d1e271738ac518cc518a7a12039db",
+    "no-change-wording-review-green.txt": "ce613b063955c308c5b8bd557d552c90378d087782ae586116a038853a211b0a",
+    "no-change-wording-review-all-green.txt": "11d72643ac9ac3c923932e153953378149560f74783799736345819ff3270052",
+    "no-change-wording-review2-red.txt": "b0abc8676c57fe5dea7eb876f689e854280800dad2f241b048412d6a876187b7",
+    "no-change-wording-review2-green.txt": "0a2ef74d6cb5195b9b5d4c1a7aaa2a8d442255de51849c339f25ccd4c16b8833",
+    "no-change-wording-review2-all-green.txt": "7b4b73ff42bce11ad7251ab53bf1c37fc2bbf9ef4d4d84cd64a160cb5623c706",
+    "readonly-website-red.txt": "3302cc741b24f6775d6a00ed028c7dd3ab5951b5f8d8666d7499e19066d8fb35",
+    "readonly-website-green.txt": "68f46f4da434c9e9725cd173d7aa7626e6cdc2afcb62d64a8bcf7923132f10f5",
+    "readonly-website-all-green.txt": "edb96b760f40af92feb0e7ea349f18117af69d0876b0ce4dfc247b65032615ca",
+    "readonly-website-review-red.txt": "c1b219f9dad575919744944f9b3e805033420f3b6164de22fd206eebe75802d9",
+    "readonly-website-review-green.txt": "5c2a19d1035cb0f3dc8da4a492f4c1d2d5acf1a3ed584094c12e4d8f8384cb59",
+    "readonly-website-final-green.txt": "2c24f7d889922ec37e0c76435f03e5a7a949cc9b74f6f4b66ce5a906b873d18d",
+    "readonly-website-live-verified.json": "7e9afc906d4af1aeb5dbfc8b15f14172ae9dc2173bf9d54ef6c6831a0766308b"
+  }
+}

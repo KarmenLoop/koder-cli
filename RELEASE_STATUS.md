@@ -1,11 +1,19 @@
-# Koder CLI 0.5.6
+# Koder CLI 0.5.7
 
-This release strengthens task completion, failure recovery and website delivery through the existing Agent loop. It checks actual artifacts and preview state, uses bounded tool-free recovery for empty answers, and keeps failed or unknown operations visible. Tool calls remain unlimited by default; cancellation and cost budgets remain effective.
+Mail operations now share the correct owner within a session. Background checks yield to an in-flight operation instead of repeatedly reporting storage contention; closing one daemon session no longer closes another session's mailbox. A configured but stopped monitor can be started again with `koder mail monitor on` after its existing authorization prompt.
 
-Website tasks use the bundled Fullstack Web Delivery v0.9.1 resources without modifying their original bytes. The applicable requirements, planning, layout, implementation, validation and handoff stages share Koder's existing tools and permissions. Existing off choices remain off. HTTP preview availability is not browser or business-flow acceptance.
+Binding checks read-only inbox access, not just login. Incoming-mail tool calls refresh the inbox by default. Outgoing messages include a Date header, and a definite SMTP rejection permits a new explicitly approved attempt. A lost acknowledgement after message submission stays uncertain and cannot be resent automatically. SMTP acceptance is not proof of recipient delivery.
 
-The release attachment `ACCEPTANCE-RESULTS.json` separates source regression, packaged execution and isolated macOS installation/update. Original failures and timing limits remain recorded. Windows 10/11 Console/ConPTY/IME, Windows-MCP GUI, real paid providers, private-account writes and browser design-quality evaluation remain NOT_RUN for this release. The macOS locked-use helper remains an unsigned candidate on HOLD.
+Website structure checks exclude generated layout review pages, while keeping checks on real source files. Explicitly retaining a confirmed layout no longer requires a fresh layout choice. Negative task instructions such as “do not send email” no longer select the office profile and hide coding tools. Todo assignment errors now explain the valid current-agent and subagent identifiers.
 
-Distribution is GitHub only; website changes and deployments are excluded. Existing model routing, user data, EULA and third-party attribution remain.
+## Install or update
 
-[Release notes](docs/RELEASE-0.5.6.md) · [中文说明](docs/RELEASE-0.5.6.zh.md) · [Task results](docs/task-results.md) · [Website workflow](docs/website-delivery.md).
+Use the Windows PowerShell/CMD or macOS shell installer attached to this release. Existing installations can run `koder update`, then `koder --version`; the result should be `0.5.7`. See [the installation guide](docs/INSTALLATION.md) and [mail setup and troubleshooting](docs/MAIL-RECOVERY.en.md).
+
+## Evidence and limits
+
+Regression and packaged-runtime results are recorded in the release attachment `ACCEPTANCE-RESULTS.json`. Real MiniMax-M3 calls exercised a multi-step receipt audit, a website workflow and native mail tools. Long-task and website evidence includes resumed rounds, with earlier failures and test-driver limits retained. Website validation separates file/HTTP checks, browser interactions and model completion status. Requirement questions used declared scripted test-user answers; they are not human design approval or an unchanged short-prompt benchmark. Mail protocol tests use synthetic accounts and local TLS servers, including rejection, cancellation and lost-acknowledgement cases. They do not establish delivery through a live 163 account.
+
+Windows 10/11 installation, GUI/MCP operation and visible system notifications remain on the beta device track. Live external mailbox delivery and signed macOS locked-screen operation are not verified. The website is unchanged; this publication updates GitHub only.
+
+Existing BYOK routing, permissions, cancellation, cost budgets, session isolation and unknown-effect protection remain in force. Tool steps remain unlimited by default.

@@ -1,6 +1,6 @@
 # Distribution and release records
 
-Version **0.5.6** uses the existing Windows and macOS/Linux installers and a single versioned runtime archive. The release attachment `ACCEPTANCE-RESULTS.json` records validation for that exact archive. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
+Version **0.5.7** uses the existing Windows and macOS/Linux installers and a single versioned runtime archive. The release attachment `ACCEPTANCE-RESULTS.json` records validation for that exact archive. This public repository retains historical GPL source with its original package version; that tree does not build the current proprietary release. Use the official release feed to identify the downloadable build and read the [source status](https://github.com/KarmenLoop/koder-cli/blob/main/SOURCE-STATUS.md). A local source patch, successful packaging command or partial test run does not establish release acceptance.
 
 ## Governing documents
 

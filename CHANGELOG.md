@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.5.7 — 2026-10-27
+
+- Serialize mailbox ownership and scope cleanup to the owning session; let background polling yield to active operations.
+- Refresh native inbox reads, verify inbox access during binding, and restart a stopped monitor through the existing consent flow.
+- Include outgoing Date headers and distinguish definite SMTP rejection from uncertain submission; require fresh approval for retries.
+- Exclude generated layout review pages from site-source checks and honor explicitly retained confirmed layouts.
+- Ignore negated task cues when choosing a Harness profile and clarify invalid Todo assignees.
+
+[Release notes](docs/RELEASE-0.5.7.md) · [Mail guide](docs/MAIL-RECOVERY.en.md).
+
+- Recognize successful project verification scripts and preserve verified no-change outcomes when only tests or delivery notes need repair.
+
+- Preserve completed validation after proven unchanged-file inspections; do not count rejected, unexecuted commands as mutations. Keep incomplete snapshots and unknown outcomes unverified.
+
+- Recognize explicit no-change wording without relaxing the required source inspection and verification evidence.
+
+- Keep pending mail inquiries during foreground refreshes and background notice-read contention; distinguish conditional no-change outcomes from read-only tasks.
+- Keep explicitly read-only website checks out of the source-change gate while preserving conditional repairs and file-specific exclusions.
+
 ## 0.5.6 — 2026-10-27
 
 - Require a useful final answer and evidence for requested artifacts. Empty final answers receive at most two tool-free repair requests under the existing budget; unresolved delivery is reported as incomplete.

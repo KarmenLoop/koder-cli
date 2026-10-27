@@ -1,10 +1,10 @@
 {
-  "version": "0.5.6",
-  "file": "koder-cli-0.5.6.tgz",
-  "sha256": "51d357caba1c3582eb5c7b5314dad3764dc454f082aafc48e14867bceaea7187",
-  "size": 496495164,
+  "version": "0.5.7",
+  "file": "koder-cli-0.5.7.tgz",
+  "sha256": "2ec191cd09cee7e4559f912dbcc589172a6f8a1b7d72793146bd2c5994b3eaa1",
+  "size": 504289835,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-26T22:14:41.547Z",
+  "builtAt": "2026-10-27T09:03:56.771Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,26 +14,30 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "229ad25b8820918eb3f45742a24e14d5c4bc08303725719e2ac126da2d0b90ea"
+      "sha256": "f8d7f709ea67b99a0f906d6f1b15c20c36b15a2ddd52b8deb148e4021c37cfad"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "6706fe0b7cff1d7151cdb1e0b0fd2301ee0685937de46656668164bb5e6584dc"
+      "sha256": "59a9152efa4bcd152a0453139e4faa73eddcdcbcb5ca496ea3fe813cdc0da9f2"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "5aa087ef71734a3217719e59bfd5b3fdae6218be5825ae0cd2d65744066c30f8"
+      "sha256": "453a2254addf71cc86a94ee1b978f032a64add4fa86052c6854e7914c4a9e68e"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.5",
-  "privateSourceCommit": "ee8146d392fb3b2cafdc3aee86f6200340f579d6",
+  "sourceBaseline": "0.5.6",
+  "privateSourceCommit": "385beef4e16f05aa99124634e87c76e0225c74ca",
   "changes": [
-    "Reports incomplete task results with saved evidence and next steps instead of treating an empty answer as success",
-    "Checks website source, continued-task file hashes and owned local preview addresses before delivery",
-    "Keeps current requests and learning constraints within small model context windows while preserving unknown and signed history",
-    "Preserves cancelled unknown effects for read-only reconciliation and prevents repeated requests for an identical rejected operation",
-    "Retains local task learning and review with existing opt-outs, permissions and task budgets"
+    "Serialize session mailbox ownership and yield background checks to active operations",
+    "Refresh inbox tools and validate inbox access during binding",
+    "Preserve uncertain sends while allowing freshly approved retries after definite SMTP rejection",
+    "Honor negative task cues and retained website layout choices",
+    "Exclude generated review pages from source checks",
+    "Recognize actual project verification scripts and verified no-change repairs",
+    "Preserve pending inquiry notifications during refresh and storage contention",
+    "Keep conditional no-change instructions within the requested repair contract",
+    "Keep explicit read-only website checks out of the source-write gate"
   ],
   "retainedLimits": [
     "Windows 10/11 native terminal, ConPTY, IME, cold install and update: beta-owned",
@@ -62,7 +66,16 @@
     "Native Linux desktop/notifications and native notification visibility on all platforms",
     "Paid-provider website,writing and coding quality blind tests",
     "Agent-mediated private mailbox sends,GitHub account writes and third-party production actions",
-    "Rendered browser layout,accessibility and full website business acceptance for a model-generated site"
+    "Rendered browser layout,accessibility and full website business acceptance for a model-generated site",
+    "Windows 10/11 device install/update, cold start, Windows-MCP GUI and Toast: beta track; not run on this macOS host.",
+    "Real 163 account authentication, service-provider delivery and recipient receipt: not run; synthetic mail traffic used a local TLS server.",
+    "Linux desktop notifications, macOS system notification display and click-to-resume: not verified in this release.",
+    "Unmodified short-prompt model-tier blind scores: not rerun.",
+    "Generated website production deployment, mobile and full keyboard-only acceptance: not run.",
+    "macOS locked-use native component remains an unsigned candidate; no Apple Developer signing or dedicated locked-use test host.",
+    "Website live evidence includes failed and resumed rounds; it is not a one-shot blind benchmark.",
+    "SMTP acceptance does not prove recipient delivery. UNKNOWN send results are not automatically replayed.",
+    "Cancellation, approval gates and explicit cost budgets remain active; no fixed tool-step limit was reintroduced."
   ],
   "publicationAuthorization": "GitHub only; website excluded",
   "courseStatus": {
