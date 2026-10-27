@@ -41,6 +41,8 @@ jobs:
           printf 'KODER_TEST_VERSION=%s\n' "${RELEASE_TAG#cli-}" >> "$GITHUB_ENV"
       - name: Full package, managed Node, reinstallation and CLI features
         run: python3 .github/scripts/ubuntu-runtime-check.py
+      - name: Native password input and cancellation in an owned fixture account
+        run: python3 .github/scripts/ubuntu-credential-pty.py
       - name: Actual accessible controls and notification adapter
         env:
           KODER_DISPLAY_TEST: ${{ matrix.display }}

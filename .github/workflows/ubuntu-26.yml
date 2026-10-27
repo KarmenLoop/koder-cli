@@ -61,6 +61,8 @@ jobs:
         env:
           KODER_UBUNTU_ENTRY: ubuntu2604
         run: python3 .github/scripts/ubuntu-runtime-check.py
+      - name: Native password input and cancellation in an owned fixture account
+        run: python3 .github/scripts/ubuntu-credential-pty.py
       - name: Submit and cancel tasks in a real PTY
         run: python3 .github/scripts/ubuntu-task-check.py
       - name: Exercise Wayland accessibility controls and notifications
