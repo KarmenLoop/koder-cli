@@ -23,7 +23,7 @@ runtime = out / 'runtime'
 runtime.mkdir()
 with tarfile.open(archive) as stream:
     stream.extractall(runtime, filter='data')
-package = runtime / 'package'
+package = runtime / 'koder-cli'
 assert json.loads((package / 'package.json').read_text())['version'] == manifest['version']
 suite = Path(__file__).resolve().with_name('windows-vm')
 env = {**os.environ, 'KODER_ACCEPTANCE_PACKAGE': str(package), 'KODER_VM_EVIDENCE':str(out), 'KODER_AUTO_UPDATE': '0', 'TZ': 'UTC'}
