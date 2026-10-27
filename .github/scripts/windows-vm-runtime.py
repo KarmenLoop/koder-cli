@@ -11,6 +11,7 @@ import time
 p = argparse.ArgumentParser()
 p.add_argument('--assets', required=True)
 p.add_argument('--out', required=True)
+p.add_argument('--diagnose', action='store_true')
 args = p.parse_args()
 assets, out = Path(args.assets).resolve(), Path(args.out).resolve()
 out.mkdir(parents=True, exist_ok=True)
@@ -35,10 +36,14 @@ for key in list(env):
         del env[key]
 env['PSMODULEPATH'] = str(Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/Modules')
 groups = ['task-step-budget.test.mjs', 'multi-window-session.test.mjs', 'mail-runtime-lifecycle.test.mjs', 'mail-background-recovery.test.mjs', 'mail-inbox-refresh.test.mjs', 'fixtures/mail-recovery-tls.mjs', 'native-mcp.test.mjs', 'native-shell.test.mjs']
+if args.diagnose:
+    groups = ['session-timing-diagnostic.mjs', 'notification-diagnostic.mjs']
 results = []
 for name in groups:
     start = time.monotonic()
     case_env = {**env}
+    if name == 'session-timing-diagnostic.mjs':
+        case_env['NODE_OPTIONS'] = '--import=' + (suite/'io-timing.mjs').as_uri()
     if name == 'fixtures/mail-recovery-tls.mjs':
         case_env['NODE_EXTRA_CA_CERTS'] = str(suite / 'fixtures/mail-test-cert.pem')
     try:
@@ -51,5 +56,5 @@ for name in groups:
     row = {'group':name, 'exitCode':code, 'passed':code == 0, 'durationSeconds':round(time.monotonic()-start, 2), 'log':log}
     results.append(row)
     print(json.dumps(row), flush=True)
-    (out/'RUNTIME-RESULT.json').write_text(json.dumps({'complete':len(results)==len(groups), 'passed':len(results)==len(groups) and all(r['passed'] for r in results), 'version':manifest['version'], 'archiveSha256':actual, 'scope':'Released package on native Windows; synthetic model/mail fixtures, real OS storage and MCP process. No live mailbox, paid provider, or physical GUI acceptance.', 'groups':results}, indent=2)+'\n')
+    (out/'RUNTIME-RESULT.json').write_text(json.dumps({'diagnosticOnly':args.diagnose, 'complete':len(results)==len(groups), 'passed':len(results)==len(groups) and all(r['passed'] for r in results), 'version':manifest['version'], 'archiveSha256':actual, 'scope':'Released package on native Windows; synthetic model/mail fixtures, real OS storage and MCP process. No live mailbox, paid provider, or physical GUI acceptance. Diagnostics do not replace the unchanged 30-second acceptance gate.', 'groups':results}, indent=2)+'\n')
 raise SystemExit(0 if all(row['passed'] for row in results) else 1)

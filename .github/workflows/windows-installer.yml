@@ -8,7 +8,7 @@ on:
         default: cli-0.4.0-preview.30
       phase:
         type: choice
-        options: [windows-vm-install, windows-vm-runtime, stable-candidate, published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, animation-repeat, windows-diagnosis, windows-app-diagnosis, animation-diagnosis, memory-public]
+        options: [windows-vm-install, windows-vm-runtime, windows-vm-diagnose, stable-candidate, published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, animation-repeat, windows-diagnosis, windows-app-diagnosis, animation-diagnosis, memory-public]
         default: published
       assets_ref:
         description: Reserved for older installer-only runs
@@ -19,7 +19,7 @@ env:
   PYTHONUTF8: '1'
 jobs:
   windows-vm:
-    if: inputs.phase == 'windows-vm-install' || inputs.phase == 'windows-vm-runtime'
+    if: inputs.phase == 'windows-vm-install' || inputs.phase == 'windows-vm-runtime' || inputs.phase == 'windows-vm-diagnose'
     runs-on: windows-2025
     timeout-minutes: 30
     steps:
@@ -53,6 +53,9 @@ jobs:
       - name: Exercise the installed Windows runtime
         if: inputs.phase == 'windows-vm-runtime'
         run: python .github/scripts/windows-vm-runtime.py --assets candidate --out vm-results
+      - name: Diagnose the failed session timing gate and unknown Toast receipt
+        if: inputs.phase == 'windows-vm-diagnose'
+        run: python .github/scripts/windows-vm-runtime.py --assets candidate --out vm-results --diagnose
       - name: Preserve receipts and terminal logs, including failed cases
         if: always()
         uses: actions/upload-artifact@v4
