@@ -1,0 +1,61 @@
+{
+  "release": "0.5.10",
+  "scope": "Tests and synthetic fixtures only; implementation is loaded from the released archive. Assertions are unchanged; imports target the package under test. The TLS key belongs solely to the loopback test CA.",
+  "files": [
+    {
+      "test": "helpers.mjs",
+      "originalSha256": "1463bb5e2cc2eab0155365a755ec60d5be77d0e8f4f9dbccfce80bfdc3d629e4",
+      "probeSha256": "bf1cebf6aaab5de9a3d0425cd684c4353eb700953e19a0896ea96f5e3b68ac57"
+    },
+    {
+      "test": "windows-fixtures.mjs",
+      "originalSha256": "be9923b6c3f838057e37127ddc769a6eab1ea1e7ffb44c36b9998d00576b160d",
+      "probeSha256": "be9923b6c3f838057e37127ddc769a6eab1ea1e7ffb44c36b9998d00576b160d"
+    },
+    {
+      "test": "task-step-budget.test.mjs",
+      "originalSha256": "bb629d8fdfff17631bf903c53a99f5566a370d91e0227758bbc092bc38859877",
+      "probeSha256": "836f8c7853c2bc76e7c115dcbb74c49e80ce3bad62c5e9b34dd34a2b0e707513"
+    },
+    {
+      "test": "multi-window-session.test.mjs",
+      "originalSha256": "80e5314a71d8ec5ea92d61d01b714940bb60c6d21e822eac072695a245e69fdb",
+      "probeSha256": "24864713e6fada9c52e4c4b6acaa9ed39f0cacfcf74fc067e899df1146964201"
+    },
+    {
+      "test": "mail-runtime-lifecycle.test.mjs",
+      "originalSha256": "ea02f06dbe821c9d66550a0fafaf268cda77f39fa79514e06eb4aeaf567a86fe",
+      "probeSha256": "cdc55b76255d6d7df9e782e3f772fdef6f5479c2d6428d5e48e9264b4efa9791"
+    },
+    {
+      "test": "mail-background-recovery.test.mjs",
+      "originalSha256": "4ea523334a0e652a737df4d26a58765de421eeee2a8283a321d31af0a54a2c70",
+      "probeSha256": "e2de7e352abfba5334e95fda97e54e850d81401abb9c4dbbad7742485b7eeb97"
+    },
+    {
+      "test": "mail-inbox-refresh.test.mjs",
+      "originalSha256": "0a6910883fc697a4a66fd47081b5c19f387ba9dc538d3df9c7e7993cb9f77325",
+      "probeSha256": "6f6b9afe84a0d1ae6b9083519c89f53aeeebfed104fce38e1f2aae9bd1dacdad"
+    },
+    {
+      "test": "fixtures/multi-window-session.mjs",
+      "originalSha256": "4835f8eaa6d8d6790cc960fb0fb0a346faf4e1aae35cb067e281c57b341c5730",
+      "probeSha256": "d927ac3a152c464987b8f52dac59d8ca0a11a06727b7babc675f40154b950620"
+    },
+    {
+      "test": "fixtures/mail-recovery-tls.mjs",
+      "originalSha256": "f2e1b4d675d7936511c44ecbad999251d4984ba87258ee6fdd8b5866f4de8e4d",
+      "probeSha256": "89be67cfb8040e19bd4e8a4bbcbd1e302fc79cb7485ecff6b090364724c644b1"
+    },
+    {
+      "test": "fixtures/mail-test-cert.pem",
+      "originalSha256": "b2413d6602d713813fecd8077103c538a2660cda05cd67e03e0fffc9f8f7480b",
+      "probeSha256": "b2413d6602d713813fecd8077103c538a2660cda05cd67e03e0fffc9f8f7480b"
+    },
+    {
+      "test": "fixtures/mail-test-key.pem",
+      "originalSha256": "689696bef4360785eeb73f8d2fac3bbff1f3dde9caa6266a36e218083156fce6",
+      "probeSha256": "689696bef4360785eeb73f8d2fac3bbff1f3dde9caa6266a36e218083156fce6"
+    }
+  ]
+}
