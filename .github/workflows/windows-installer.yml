@@ -8,7 +8,7 @@ on:
         default: cli-0.4.0-preview.30
       phase:
         type: choice
-        options: [stable-candidate, published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, animation-repeat, windows-diagnosis, windows-app-diagnosis, animation-diagnosis, memory-public]
+        options: [windows-vm-install, windows-vm-runtime, stable-candidate, published, candidate, candidate-windows, candidate-focused, negative, startup-repeat, animation-repeat, windows-diagnosis, windows-app-diagnosis, animation-diagnosis, memory-public]
         default: published
       assets_ref:
         description: Reserved for older installer-only runs
@@ -18,6 +18,57 @@ permissions:
 env:
   PYTHONUTF8: '1'
 jobs:
+  windows-vm:
+    if: inputs.phase == 'windows-vm-install' || inputs.phase == 'windows-vm-runtime'
+    runs-on: windows-2025
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check pywinpty==3.1.0
+      - name: Download the published Windows package and installer manifests
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release }}
+        shell: bash
+        run: |
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate --pattern 'koder-cli-latest.json' --pattern 'koder-cli.ps1' --pattern 'koder-cli.cmd' --pattern 'koder-cli.sh' --pattern 'koder-ubuntu-24.04.sh'
+          PACKAGE=$(node -p 'JSON.parse(require("fs").readFileSync("candidate/koder-cli-latest.json")).file')
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate --pattern "$PACKAGE"
+      - name: Record the actual VM environment
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force vm-results | Out-Null
+          @{os=[System.Environment]::OSVersion.VersionString; architecture=$env:PROCESSOR_ARCHITECTURE; pwsh=$PSVersionTable.PSVersion.ToString(); node=(node --version); release='${{ inputs.release }}'; revision='${{ github.sha }}'; scope='Windows Server VM; no physical Windows 10/11 or visible-desktop acceptance'} | ConvertTo-Json | Set-Content vm-results/environment.json
+      - name: Exercise the real PowerShell 5.1 and CMD installers in ConPTY
+        if: inputs.phase == 'windows-vm-install'
+        run: python .github/scripts/test-windows-installer.py --assets candidate --out vm-results --public-download
+      - name: Exercise the installed Windows runtime
+        if: inputs.phase == 'windows-vm-runtime'
+        run: python .github/scripts/windows-vm-runtime.py --assets candidate --out vm-results
+      - name: Preserve receipts and terminal logs, including failed cases
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.phase }}-${{ inputs.release }}-${{ github.run_attempt }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            vm-results/*.json
+            vm-results/*.log
+            vm-results/*.tap
+            vm-results/*/terminal.log
+            vm-results/*/version.log
+            vm-results/*/preserved-version.log
+            vm-results/*/RESULT.json
+
   packaged:
     if: inputs.phase == 'candidate' || inputs.phase == 'candidate-windows' || inputs.phase == 'candidate-focused'
     permissions:
