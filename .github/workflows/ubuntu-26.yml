@@ -1,5 +1,8 @@
 name: Ubuntu 26.04.1 Desktop amd64 compatibility
 on:
+  push:
+    branches: [acceptance/learning-startup-0513]
+    paths: [".github/workflows/ubuntu-26.yml"]
   workflow_dispatch:
     inputs:
       release:
@@ -41,7 +44,7 @@ jobs:
       - name: Download exact release
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ inputs.release }}
+          RELEASE_TAG: ${{ inputs.release || 'cli-0.5.13' }}
         run: |
           gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate --pattern "koder-cli-${RELEASE_TAG#cli-}-linux.tgz" --pattern 'koder-cli-latest.json' --pattern 'koder-cli.sh' --pattern 'koder-ubuntu-24.04.sh'
           printf 'KODER_TEST_VERSION=%s\n' "${RELEASE_TAG#cli-}" >> "$GITHUB_ENV"
