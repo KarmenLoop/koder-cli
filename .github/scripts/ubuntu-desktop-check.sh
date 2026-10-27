@@ -32,4 +32,23 @@ fi
 /usr/bin/python3 .github/scripts/ubuntu-desktop-fixture.py > "$KODER_TEST_RESULTS/fixture.log" 2>&1 &
 pids+=("$!")
 for i in {1..40}; do [[ -s "$KODER_FIXTURE_PID" ]] && break; sleep .25; done
+/usr/bin/python3 - <<'PY' > "$KODER_TEST_RESULTS/fixture-interfaces.json"
+import gi, json, os
+from pathlib import Path
+gi.require_version('Atspi','2.0')
+from gi.repository import Atspi
+Atspi.set_timeout(1000,2000)
+pid=int(Path(os.environ['KODER_FIXTURE_PID']).read_text())
+desktop=Atspi.get_desktop(0)
+rows=[]
+def walk(node):
+    states=node.get_state_set()
+    password=node.get_role()==Atspi.Role.PASSWORD_TEXT
+    rows.append({'name':'[protected input]' if password else node.get_name(),'role':node.get_role_name(),'interfaces':list(node.get_interfaces()),'enabled':states.contains(Atspi.StateType.ENABLED),'sensitive':states.contains(Atspi.StateType.SENSITIVE)})
+    for i in range(min(node.get_child_count(),100)):walk(node.get_child_at_index(i))
+for i in range(desktop.get_child_count()):
+    app=desktop.get_child_at_index(i)
+    if app.get_process_id()==pid:walk(app)
+print(json.dumps(rows))
+PY
 "$KODER_TEST_NODE" .github/scripts/ubuntu-desktop-check.mjs

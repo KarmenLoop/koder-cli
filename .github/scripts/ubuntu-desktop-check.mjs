@@ -22,6 +22,7 @@ try{
  frame=await driver.capture({app:found.targetId});
  assert.ok(!JSON.stringify(frame).includes('fixture-only-hidden-value'),'Password text must not leave the worker');
  assert.ok(frame.elements.some(e=>e.label==='[protected input]'&&e.actions.length===0));
+ await fs.writeFile(path.join(out,'captured-fixture.json'),JSON.stringify(frame,null,2)+'\n');
  const entry=frame.elements.find(e=>e.label==='Koder fixture input'&&e.actions.includes('type'));assert.ok(entry,'EditableText must be exposed');
  const typed=await driver.act({snapshotId:frame.snapshotId,element:entry.id,action:'type',args:{text:'Ubuntu owned test'}});
  assert.equal(typed.ok,true);frame=typed.after;
