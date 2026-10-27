@@ -4,15 +4,15 @@
 
 [从这里开始：安装、首个任务和功能导航](START-HERE.zh.md)
 
-当前版本：**0.5.7**。先看[本版更新](RELEASE-0.5.7.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.5.8**。先看[本版更新](RELEASE-0.5.8.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 > 旧版更新器可能因包超过 100 MB 报“清单无效”。请用 GitHub Release 下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
-当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南与下方八份终端文字教程对应 0.5.7；实际发布和可下载文件以 GitHub Releases 为准。
+当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南与下方八份终端文字教程对应 0.5.8；实际发布和可下载文件以 GitHub Releases 为准。
 
 # Koder CLI 完整使用教程
 
-版本：**0.5.7**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.5.8**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -215,14 +215,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.5.7-en-cmd.txt](tutorials/koder-cli-0.5.7-en-cmd.txt)
-- [koder-cli-0.5.7-en-linux.txt](tutorials/koder-cli-0.5.7-en-linux.txt)
-- [koder-cli-0.5.7-en-mac.txt](tutorials/koder-cli-0.5.7-en-mac.txt)
-- [koder-cli-0.5.7-en-powershell.txt](tutorials/koder-cli-0.5.7-en-powershell.txt)
-- [koder-cli-0.5.7-zh-cmd.txt](tutorials/koder-cli-0.5.7-zh-cmd.txt)
-- [koder-cli-0.5.7-zh-linux.txt](tutorials/koder-cli-0.5.7-zh-linux.txt)
-- [koder-cli-0.5.7-zh-mac.txt](tutorials/koder-cli-0.5.7-zh-mac.txt)
-- [koder-cli-0.5.7-zh-powershell.txt](tutorials/koder-cli-0.5.7-zh-powershell.txt)
+- [koder-cli-0.5.8-en-cmd.txt](tutorials/koder-cli-0.5.8-en-cmd.txt)
+- [koder-cli-0.5.8-en-linux.txt](tutorials/koder-cli-0.5.8-en-linux.txt)
+- [koder-cli-0.5.8-en-mac.txt](tutorials/koder-cli-0.5.8-en-mac.txt)
+- [koder-cli-0.5.8-en-powershell.txt](tutorials/koder-cli-0.5.8-en-powershell.txt)
+- [koder-cli-0.5.8-zh-cmd.txt](tutorials/koder-cli-0.5.8-zh-cmd.txt)
+- [koder-cli-0.5.8-zh-linux.txt](tutorials/koder-cli-0.5.8-zh-linux.txt)
+- [koder-cli-0.5.8-zh-mac.txt](tutorials/koder-cli-0.5.8-zh-mac.txt)
+- [koder-cli-0.5.8-zh-powershell.txt](tutorials/koder-cli-0.5.8-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 
@@ -344,3 +344,5 @@ koder project check --kind website --json -w /path/to/site
 [完整操作教程](FRAMEWORK-0.5.zh.md) · [OCR 逐步操作](OCR.zh.md) · [角色与队列](SUBAGENT-ROLES.zh.md) · [无头/CI](HEADLESS-0.5.zh.md)。先检查可用通道和权限，再执行并核对回执。
 
 [按模型选择思考强度与处理输出上限](MODEL-EFFORT-AND-OUTPUT.zh.md)
+
+[Ubuntu 24.x 完整功能与图形桌面配置](UBUNTU.zh.md)。

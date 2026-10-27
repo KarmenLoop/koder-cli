@@ -33,3 +33,5 @@ A bare “continue” can finish an interrupted website task without recreating 
 ## Verification limits
 
 Deterministic provider fixtures verify routing, persistence, tool execution, cancellation and result contracts. They do not measure real-model writing or design quality. Native Windows GUI operations, external accounts, paid providers and production deployment remain separate checks; report them as `NOT_RUN` until observed.
+
+A native `mail_send` or sending `mail_reply` that receives `DELIVERY_UNCERTAIN` retains an unknown effect receipt. Even a later inbox read or honest explanatory answer cannot convert it into a verified send: the task remains incomplete (exit 3). Reconcile the provider record before a new send; no automatic replay occurs.

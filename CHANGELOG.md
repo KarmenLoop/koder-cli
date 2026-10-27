@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.5.8 — 2026-10-27
+
+- Add an authorized AT-SPI desktop adapter to the complete Ubuntu runtime, with X11/Wayland and x64/ARM64 acceptance scripts.
+- Preserve root-bound task completion across memory recovery, recognize explicit same-site continuation and retain code-verification tools.
+
+- Recover durable pending mail inquiries after temporary notification failures, daily caps or restarts, using the existing notification ledger.
+- Preserve unknown SMTP effect receipts through Agent results; uncertain sends remain incomplete and are not replayed.
+- Record actual terminal choices for the current layout review while rejecting stale, conflicting and negative choices.
+- Report preview ownership per process without claiming that another process stopped.
+- Explain stale Todo revisions and the read-before-retry path without weakening revision checks.
+
+[Mail recovery](docs/MAIL-RECOVERY.en.md) · [Website delivery](docs/website-delivery.md) · [Release notes](docs/RELEASE-0.5.8.md).
+
 ## 0.5.7 — 2026-10-27
 
 - Serialize mailbox ownership and scope cleanup to the owning session; let background polling yield to active operations.

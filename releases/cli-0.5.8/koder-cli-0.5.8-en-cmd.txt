@@ -1,0 +1,1169 @@
+Koder CLI 0.5.8 · Original 30 English lessons; the full 1,800-lesson curriculum is currently in Chinese
+
+0.5.8 recovers pending background mail reminders, preserves uncertain-send task results, records actual terminal layout choices and reports preview ownership honestly. See docs/RELEASE-0.5.8.md.
+
+0.5.7 repairs mailbox ownership, fresh inbox checks and approved send recovery. See docs/MAIL-RECOVERY.en.md. Existing lessons and earlier release notes remain available.
+
+0.5.5 enables local task memory by default and preserves existing off choices. Inspect the current scope with koder learning status; use koder learning off for the feature or koder growth off for the master switch. Profile learning, network access, residency and global Skill adoption remain separate. Task memory preserves this tutorial and original notes. See docs/MARKDOWN-LEARNING.en.md.
+
+Koder CLI tutorial (text edition)
+Run koder learn in a terminal to practise in a sandbox as you read.
+This edition is written for Windows Command Prompt (CMD); for another system: koder learn --print --os powershell|cmd|mac|linux
+
+━━ Lesson 1 of 30 · Welcome to Koder boot camp ━━
+Coach › Hi, I'm the Koder coach. The Chinese academy has 1800 lessons. The original 30 English coach lessons remain available; lessons 31–1800 are currently taught in Chinese. External exercises are optional and never run by reading.
+  · The tutorial creates a practice project in your temp folder: a small cart app with a planted bug, deleted when you finish.
+  · Lesson 1 detects PowerShell, CMD, macOS or Linux and writes every command for it; you can switch with a number.
+Coach › The built-in coach needs no model setup or paid API calls: the one doing the work is me, the 'coach model', with a pre-written script and limited acting talent. The edits and commands are real though, through the same kernel Koder always uses.
+  Tip · Controls: Enter = next; b = previous lesson; q = quit any time (progress is saved); a number = jump to that lesson.
+  Tip · Copy and paste: in Windows Terminal select text, then Ctrl+C copies and Ctrl+V pastes (with nothing selected, Ctrl+C means cancel); in the classic console a right-click pastes.
+  Tip · Commands hard to remember? Run koder setup (or /setup in a chat) any time and set language, model and colours with the arrow keys or the mouse.
+  (whispering) Relax. There are no exams here, only Easter eggs.
+Coach › Study guide · Allow 25 minutes including practice, not a runtime deadline
+        Goal: Distinguish the system shell, Koder chat and the practice project; finish an offline exercise and locate its files.
+  Tip · Before you start: Use a terminal with copy and paste. Read the installation guide if needed; do not reinstall a working copy. The coach uses a temporary directory, retained only if you choose to keep it. Use a separate folder for extended exercises.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder --version in the system shell, note the version, then run koder help.
+           Check: Both commands return readable output. If the executable is missing, use lesson 16 before continuing.
+Coach › 2. Run koder learn and select your actual shell in lesson 1.
+           Check: A practice path appears. The scripted coach makes no paid model calls, but its file edits and tests are real.
+Coach › 3. Press Enter to continue, jump to lesson 4 with 4, reject one edit and accept another. Quit with q, then reopen koder learn.
+           Check: Progress can resume. Quitting normally removes the practice files; saved progress does not mean saved project files.
+Coach › 4. For your own work, leave the lesson and run koder project create "Learning Site" --kind website, then koder project list --json.
+           Check: The project has its own directory. Use the returned path instead of guessing or reusing a temporary practice path.
+Coach › Troubleshooting
+  Tip · The cart disappears after q → This is practice cleanup. Choose to keep it in the graduation lesson if you need the files.
+  Tip · The shell does not recognize /setup → Enter koder chat first, or use koder setup in the shell.
+Coach › Assignment: Write a learning record with version, shell, project path and temporary practice path. Identify which steps are offline and which need your model.
+        Acceptance: All four values must come from actual output. The learn coach is offline; ordinary ask/run uses the configured model. Temporary exercises are not durable deliverables.
+Coach › Developer track · Design, implementation and validation
+        Record the command, version, working directory, exit code and artifact path.
+        Run node --test in the bundled cart-lab first and observe the planted failure; then ask Koder to fix it and inspect the diff.
+        Require a failing baseline, passing checks and the resulting files. A model completion message is not evidence.
+        Keep teaching examples separate from live-account acceptance.
+  Tip · Further reading (bundled docs/): INSTALLATION.md, START-HERE.zh.md, START-HERE.en.md
+
+━━ Lesson 2 of 30 · The banner and the prompt ━━
+  · (The banner appears here: the KARMEN refractor on the left, KODER and KARMEN LOOP on the right.)
+Coach › On the left is the KARMEN refractor, the mascot from our website, drawn from the very same surface; on the right, KODER and KARMEN LOOP, then the current model, engine, folder and common commands. It isn't decoration. Fine, it's mostly decoration, but it is pretty.
+  Tip · Box lines or the refractor scrambled? A CJK font in the classic console draws block characters two columns wide. Koder switches to plain characters by itself, or set Banner style to plain in koder setup. Better still, use Windows Terminal: built into Windows 11, free from the Microsoft Store on Windows 10.
+    set "KODER_ASCII=1" && koder
+        plain-character banner for this window; quote the whole set, or CMD keeps the space before && in the value
+Coach › Below the banner is the prompt, which tells you the current state:
+    koder ›
+        type a task here, e.g. fix the typos in README
+    koder[code] ›
+        the brackets show the current mode
+    koder! ›
+        the exclamation mark means auto-approve is on; be careful
+Coach › The prompt reads koder[plan]! ›. Which statement is right?
+    1. Plan mode, with auto-approve on
+    2. Plan mode, and something just failed
+    3. Code mode, and it's excited
+  Answer: 1。Full marks. Brackets are the mode, the exclamation mark is auto-approve.
+Coach › Study guide · Allow 20 minutes including practice, not a runtime deadline
+        Goal: Read the active directory, model and mode, and find help without mistaking the prompt for a completed task.
+  Tip · Before you start: Complete lesson 1, widen the terminal to at least 80 columns and prepare a harmless task.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder and read the version, model and directory before entering a task.
+           Check: The directory must match your project. A displayed model name is configuration, not a connectivity test.
+Coach › 2. Enter /help, then /setup; exit Setup back to the conversation.
+           Check: Help and Setup open in the current CLI session.
+Coach › 3. Press / on an empty line, select with arrows and fill with Tab. Edit before submitting.
+           Check: Selection fills a draft. Esc closes the menu; use /help or completion if the terminal cannot render it.
+Coach › 4. Open Koder in a different project in a second window and inspect both directories.
+           Check: Each window should work independently. Preserve the full occupancy message if you intentionally share a session.
+Coach › Troubleshooting
+  Tip · Broken borders or wrapped menu → Widen the window or choose a plain banner in Setup; retain model settings.
+  Tip · A session appears occupied with one window visible → Record version and session name; inspect other terminals or residency before deleting anything.
+Coach › Assignment: Annotate a redacted banner with version, directory, model and mode. Fill a menu draft, then cancel it without sending.
+        Acceptance: Explain the difference between configuration and execution. Canceling the draft must create no model task or file edit.
+Coach › Developer track · Design, implementation and validation
+        Treat selection, draft insertion, submission and cancellation as separate events.
+        Check the menu at 80×24 and in a narrow terminal; fallback must remain readable.
+        For non-TTY/JSON calls, verify that animation and menus do not pollute output. Check session boundaries with two separate projects.
+  Tip · Further reading (bundled docs/): PROMPT_PREFILLS.md, MULTI-WINDOW.md, SESSION-INPUT-AND-SKILLS.zh.md, SESSION-INPUT-AND-SKILLS.en.md
+
+━━ Lesson 3 of 30 · Configure a model: give Koder a brain ━━
+  Tip · The model page now discovers current account IDs automatically. Choose Current account models to select one; refresh never switches it for you. A listing is not a tool-call test: run koder model test --tools. Automatic discovery can be disabled, or use koder model refresh manually.
+Coach › Koder can't think on its own; it needs a model. The easiest way is the settings screen:
+    koder setup
+        pick a provider and model with the arrow keys or mouse, paste the key; it can even open the key page
+Coach › Prefer commands? Put the key in an environment variable and save only its name:
+    setx OPENAI_API_KEY "sk-your-key"
+        saved to your account; new windows see it
+    set "OPENAI_API_KEY=sk-your-key"
+        this window only; quote the whole assignment
+    koder model set --preset chatgpt --key-env OPENAI_API_KEY
+        a preset; only the variable name is saved
+    koder model set --preset local --model qwen3:8b
+        local Ollama, no key
+    set "KODER_MODEL=gpt-6.1-sol" && set "KODER_BASE_URL=https://api.openai.com/v1" && set "KODER_API_KEY=sk-…" && koder review
+        environment variables, handy in CI
+  Tip · koder model presets lists the available presets; koder model show prints the current setup with only the last four characters of the key.
+  (whispering) CMD forgets your commands when the window closes; the colleague behind you does not. Paste keys in koder setup: only the last four show, but the stored key is plaintext.
+Coach › Today the practice project uses the coach model, so this lesson is look-only. Set up a real one after you graduate.
+  · You can run koder model presets right there to list them.
+Coach › Study guide · Allow 35 minutes including practice, not a runtime deadline
+        Goal: Configure the service, protocol and model your account actually supports, then test text and tool round trips separately.
+  Tip · Before you start: Have your product type, model ID and official base URL ready. Supply the key only through the dedicated input or a secret manager. Live diagnostics may incur charges.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Open model settings in koder setup. Choose region and metered API or plan before the model.
+           Check: The route matches the key. Disabled entries remain unavailable; a web subscription is not API credit.
+Coach › 2. Save the key, then run koder model show to inspect the model, protocol and address.
+           Check: Settings match your console. Review and redact output before sharing it.
+Coach › 3. Run koder model test, followed by koder model test --tools after success.
+           Check: Keep both results. Text success with tool failure is not a working agent integration.
+Coach › 4. Use koder model presets and koder model models <preset-id> where supported; compare with help and your console.
+           Check: Discovery and account access are different. Refreshed model metadata does not grant quota.
+Coach › Troubleshooting
+  Tip · HTTP 401/403 → Check region, product, permissions and key validity instead of repeatedly retrying.
+  Tip · 422 with 1026/1027 → Treat it as MiniMax content filtering; use lesson 22 to isolate input, not as a connectivity outage.
+Coach › Assignment: Create a key-free connection card: preset, model, protocol, base URL, text result, tool result and billing source.
+        Acceptance: Support each field with configuration or output. Mark unrun checks NOT_RUN rather than assuming success.
+Coach › Developer track · Design, implementation and validation
+        Use --key-env VARIABLE_NAME for a secret variable in CI, never the key value in arguments.
+        Use local fixtures for success, 401, 429, 5xx, content filtering and tool-protocol errors; check classification and redaction.
+        Keep diagnostic deadlines separate from long-task retry budgets, and distinguish fixture results from paid calls.
+  Tip · Further reading (bundled docs/): PROVIDERS.md, MODEL-DISCOVERY.zh.md, MODEL-DISCOVERY.en.md, MINIMAX-CONTENT-REVIEW.md
+
+━━ Lesson 4 of 30 · First task: read the diff, decide ━━
+Coach › cart.mjs forgets to multiply by quantity, so the test keeps failing. Let's have Koder fix it.
+Coach › In the default interactive mode Koder shows the diff before editing: red lines starting with - go away, green lines starting with + come in. In this lesson it writes only after y; other answers cancel. --yes auto-approves ordinary edits.
+  (whispering) Reading a diff is like reading a check-up report: green is new muscle, red is trimmed fat. Make sure nothing vital got cut before you sign.
+  Tip · When Koder asks 'Accept this edit?', try typing n first. To try again, explicitly request another proposal, then type y to approve it. The model cannot undo your rejection.
+  · Hands-on: type a task and reject the coach's edit with n. Explicitly request another proposal, review the diff, accept with y, then see the file change.
+Coach › Practice asks at each step so you can see the controls. Normal use defaults to smart approval: low-risk commands and ordinary project edits run automatically. Sensitive prompts offer Always allow. Use /permissions execution status to inspect, ask for ask mode, or reset to revoke all settings.
+Coach › Study guide · Allow 30 minutes including practice, not a runtime deadline
+        Goal: Turn a vague request into a verifiable deliverable; inspect the diff and check the disk after rejecting or approving it.
+  Tip · Before you start: Use the coach cart or bundled cart-lab, not a critical project. Record existing changes before working in your own repository.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Ask: “Fix cart totals so quantity is counted; preserve other behavior, test an empty cart and run node --test.”
+           Check: The request specifies scope, constraints and a check, rather than only “improve it”.
+Coach › 2. Inspect the proposed files and diff; reject the first edit.
+           Check: The file remains unchanged. Verify it rather than relying only on the reply.
+Coach › 3. Retry and approve only the target function and relevant tests.
+           Check: Changes stay in the project and do not add unrelated formatting or dependencies.
+Coach › 4. Open the files, run the check and request a list of changes, validation and remaining work.
+           Check: Files, test output and the report agree. Preserve output if the check fails.
+Coach › Troubleshooting
+  Tip · Only advice, no files → Use an execution task with file targets and checks; confirm you are not in ask or plan mode.
+  Tip · Execution result is unknown → Inspect files and receipts before asking for a full replay.
+Coach › Assignment: Add a zero-quantity case to cart-lab, fix the implementation and retain before/after test results and the diff.
+        Acceptance: An empty cart is 0; 200 cents ×3 plus 150 cents ×1 is 750; zero quantity contributes 0. Keep existing tests.
+Coach › Developer track · Design, implementation and validation
+        Translate the requirement into inputs, outputs, edge cases and invariants. Write tests that catch the actual bug.
+        Use git diff --check and inspect the diff; passing tests do not justify deleted assertions.
+        Record workspace, files, checks and exit codes. A final reply is not a file deliverable.
+  Tip · Further reading (bundled docs/): CONTENT-QUALITY.zh.md, CONTENT-QUALITY.en.md, CLI-CONTRACTS.md
+
+━━ Lesson 5 of 30 · Command approval: run tests, stop shady ones ━━
+Coach › After editing you'll want to run the tests. Running project code asks by default; low-risk checks such as node --version run automatically.
+  Tip · Rule of thumb: allow it if you understand it, it stays inside the project and it can be undone. Remove-Item -Recurse -Force, rd /s /q, del /s /q, irm … | iex, git push --force: verify the source and exact effects before allowing them. Reject unknown scripts. Check official installers, licenses and verification information too.
+  Tip · On Windows, commands Koder runs for you go through CMD, not PowerShell. For PowerShell syntax, wrap it as powershell -NoProfile -Command "…".
+  (whispering) Approve commands with the same care you give a food-delivery bill.
+  · Hands-on: the coach asks to run node test.mjs (allow it), then an irm … | iex (reject it; even if you slip, the coach blocks it).
+Coach › Command output goes back to the model as is, so it sees the test results and decides what to do next.
+Coach › Study guide · Allow 25 minutes including practice, not a runtime deadline
+        Goal: Distinguish ordinary checks, sensitive actions and OS permissions; reject unsafe commands and handle long tasks.
+  Tip · Before you start: Use a disposable directory. Read the working path, destination and files, not just the command name.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Ask Koder to run tests and read the entire proposed command.
+           Check: Identify the operation, working directory, writes and network access.
+Coach › 2. Approve the test, but reject an unknown downloaded script executed immediately.
+           Check: Rejection is a valid outcome; files and permissions remain intact.
+Coach › 3. Inspect approval policy in Setup and run koder permissions status.
+           Check: Full approval and OS grants are separate; --yes does not grant computer access or approve mail/GitHub writes.
+Coach › 4. For a long task, check its deadline; after timeout inspect process, logs and artifacts before continuing or canceling.
+           Check: Timeout does not imply rollback, and “started” does not prove installation finished.
+Coach › Troubleshooting
+  Tip · EXECUTION_PERMISSIONS_INVALID → Inspect Koder permissions and workspace state; do not globally relax PowerShell policy.
+  Tip · The approval prompt cannot accept input → Record version and terminal type; cancel and retry interactively rather than bypassing approval.
+Coach › Assignment: Classify reading README, deleting a directory and sending mail; identify target, grants, confirmation and evidence.
+        Acceptance: Reading grants no deletion authority. Deletion needs a defined target and authorization; mail needs final-content approval and a receipt.
+Coach › Developer track · Design, implementation and validation
+        Test allow, deny and cancel using synthetic local files; denied or canceled writes must not execute.
+        Separate tool deadlines, task budgets and provider diagnostics rather than extending everything indefinitely.
+        Preserve UNKNOWN results and reconcile before retrying. Shell text alone cannot establish an external receipt.
+  Tip · Further reading (bundled docs/): COMMAND-DURATION.md, CLI-CONTRACTS.md, AUTO-UPDATE.zh.md
+
+━━ Lesson 6 of 30 · Choices: Koder asks you too ━━
+Coach › When a decision is yours, Koder stops and asks a multiple-choice question. Type the number and press Enter; a bare Enter cancels the turn.
+  (whispering) Never answer 'whatever'. 'Whatever' is the hardest dish to cook.
+  · Hands-on: the coach asks about a service fee with three options; answer with a number, or press Enter to cancel.
+Coach › Study guide · Allow 25 minutes including practice, not a runtime deadline
+        Goal: Use reviewable choices to move a task forward while distinguishing selection, action approval and delivery.
+  Tip · Before you start: Prepare a short website brief with audience, goal, content, style and constraints; omit passwords and customer lists.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Ask for three browsable course-signup layouts for beginners, with signup as the main action and no publication yet.
+           Check: The layouts differ in hierarchy or structure, not only color.
+Coach › 2. Review audience, tradeoffs and artifact paths; use lesson 30 for local preview.
+           Check: Open actual artifacts. A concept image is not a working website.
+Coach › 3. Choose one: “Keep B’s navigation, use A’s signup block and remove autoplay.”
+           Check: The feedback is actionable; choosing a design does not approve deployment, payment or sending.
+Coach › 4. Check a narrow viewport, links and form behavior; label controls without a backend.
+           Check: Separate demos from real services. No backend means no claim of a stored signup.
+Coach › Troubleshooting
+  Tip · Repeated clarification → State the goal and constraints and continue the selected option; retain final confirmation for consequential actions.
+  Tip · A headless script waits for a choice → Specify low-risk defaults in the task; missing authorization must not become fabricated consent.
+Coach › Assignment: Write a brief under 150 words requesting three options, then give three concrete revisions and two acceptance checks.
+        Acceptance: Each revision identifies a page region. Checks are observable, such as no horizontal overflow and the button opening the intended form.
+Coach › Developer track · Design, implementation and validation
+        Treat choices as task input, not permission to act.
+        Define acceptable headless defaults and test missing-approval cases separately.
+        Deliver preview URLs, files, start/stop instructions and unconnected services; visual feedback does not replace runnable artifacts.
+  Tip · Further reading (bundled docs/): VISUAL-WORKFLOW-AND-NETLIFY.md, MAIL-AND-LIVE-PREVIEW.md
+
+━━ Lesson 7 of 30 · Slash commands: gears, brakes and undo ━━
+Coach › A Skill is a working guide. Koder can read Codex, Cursor and WorkBuddy SKILL.md packages and their resources on demand; scripts keep normal Koder approvals. Find one with /skills list, select it with /skill name and clear it with /skill clear. Host-specific tools still need setup.
+Coach › Lines starting with / are slash commands. They control Koder itself and never reach the model.
+    /mode plan
+        plan mode: read-only, proposes a plan
+    /mode code
+        code mode: states a plan, then edits
+    /yes
+        toggles auto-approve; the prompt gains a !
+    /new
+        starts a fresh session
+    /lang zh
+        switches to Chinese, /lang en switches back
+    /review  /fix  /test  /scan
+        run those commands inside the chat
+    /help  /learn  /exit
+        commands, this tutorial, quit (Ctrl+D works too)
+  Try it · Type /mode plan to switch to plan mode  →  /mode plan
+  Try it · Now type /yes to turn on auto-approve  →  /yes
+  Try it · Good. Type /yes again to turn it off  →  /yes
+  Tip · Used to Ctrl+Z on Windows? It does nothing in Koder; use /exit or Ctrl+D.
+Coach › Koder is running a command you regret. Fastest fix?
+    1. Press Ctrl+C to cancel the turn
+    2. Unplug the network cable
+    3. Shout 'stop' at the screen
+  Answer: 1。Right. Ctrl+C is the emergency brake; Ctrl+D is a polite goodbye.
+Coach › Study guide · Allow 30 minutes including practice, not a runtime deadline
+        Goal: Steer, interrupt or queue during work, and insert slash-menu drafts without sending them accidentally.
+  Tip · Before you start: Use interactive Koder and a harmless task lasting several seconds. Non-TTY/JSON calls do not provide the same menu interaction.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Select steer in /setup. During a task enter “Use English, keeping file paths unchanged.”
+           Check: Check that steering was accepted; if queued instead, retain the reason code.
+Coach › 2. Try “stop”, then “stop, list the next steps”.
+           Check: The first cancels; the second cancels and queues the suffix. The CLI remains usable.
+Coach › 3. Switch to queue and submit two distinct requests while busy.
+           Check: A queue count and preview appear; requests run FIFO. Queued text must not approve a pending action.
+Coach › 4. Press / on an empty line, filter /he, fill /help with Tab, close with Esc and reopen; try /prefill.
+           Check: Drafts remain editable and require submission. Unsupported rendering has an explicit fallback.
+Coach › Troubleshooting
+  Tip · An old build lacks input features → Check koder version, update using lesson 16 and verify the executable path.
+  Tip · An ordinary sentence triggers cancellation → Keep the exact sentence. “Stop a server” is a task, not an exact interrupt command.
+Coach › Assignment: Record one steering input, two queued requests, a cancellation and a menu draft without external writes.
+        Acceptance: Steering is accepted or explicitly falls back; FIFO order is preserved, cancel does not replay tools and menus do not auto-send.
+Coach › Developer track · Design, implementation and validation
+        Cover local sessions and agentd failure paths; local input must work without activation.
+        Verify steering in subsequent requests or the transcript, not just a status message.
+        Test that queued text cannot approve actions and that Esc/Ctrl+C leaves no dangling input listeners.
+  Tip · Further reading (bundled docs/): SESSION-INPUT-AND-SKILLS.zh.md, SESSION-INPUT-AND-SKILLS.en.md, PROMPT_PREFILLS.md
+
+━━ Lesson 8 of 30 · Read-only questions, pipes and scripts ━━
+Coach › Just want answers without anything being touched? Use ask. It can list, read and search, but cannot edit or run commands.
+  · Hands-on: ask anything; the coach reads package.json with read-only tools and answers. No approvals needed, since nothing can change.
+Coach › In scripts, Koder behaves like any other command-line tool:
+    git diff | koder ask "summarise this change"
+        piped input is attached as extra material
+    type error.log | koder ask "what does this error mean"
+        feed it a file
+    koder run --yes --json "fix the lint errors" > events.jsonl
+        --json prints one event per line; CMD has no JSON tool, so save it for another program
+    echo %ERRORLEVEL%
+        the exit code of the last command
+  Tip · CMD only understands double quotes: koder ask "what is this" works; single quotes become part of the question.
+Coach › Exit codes: 0 done; 1 cancelled or a check failed; 2 a usage or model configuration problem.
+  (whispering) Exit code 2 means 'check your setup', not 'it didn't try hard enough'.
+Coach › Study guide · Allow 35 minutes including practice, not a runtime deadline
+        Goal: Write scripts with intentional stdin behavior and decide whether to continue from the exit code.
+  Tip · Before you start: Prepare a non-sensitive report.txt and configure a model before live ask calls. Use the pipeline syntax for your shell.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder ask "Explain this project without changing files".
+           Check: A read-only answer returns; an explicit prompt does not wait for unrelated stdin by default.
+Coach › 2. Pipe report.txt to koder ask "Summarize the input" --stdin using your shell’s example below.
+           Check: Submission waits for complete input; --stdin explicitly requests the pipe.
+Coach › 3. To write, use koder run "Save the summary to summary.md and read it back", reviewing the approval scope.
+           Check: The file exists; ask is not a substitute for execution.
+Coach › 4. Read the exit code using your shell’s syntax; stop downstream work on nonzero and retain stderr.
+           Check: Text on stdout does not prove success. Parse JSON output separately.
+Coach › Troubleshooting
+  Tip · Input never finishes → Check whether the producer closes its pipe. A stdin timeout must not submit partial input as a complete task.
+  Tip · Chinese remains with --lang en → Separate UI text from model output; state the requested language and retain invocation parameters.
+Coach › Assignment: Ask directly and via an explicit pipe using the same report.txt; record input usage, exit code and duration.
+        Acceptance: A prompt does not consume an unrelated pipe; --stdin requires complete input and failure prevents downstream publication.
+Coach › Developer track · Design, implementation and validation
+        Use the bundled stdin-producer.mjs to exercise delayed EOF without paid calls.
+        For Koder acceptance use a local model fixture or an authorized test key; cover prompts, no prompts, --stdin, timeout and oversized input.
+        Check structured output as well as exit status. Preserve the detailed error code alongside usage or quality-gate failures.
+  Tip · Further reading (bundled docs/): CLI-CONTRACTS.md, CLI-CONTRACTS.zh.md
+
+━━ Lesson 9 of 30 · Code review with context ━━
+Coach › review looks beyond the diff: it reads rule files such as AGENTS.md, recent commits and where changed functions are called, then lets the model verify with read-only tools.
+  · Demo: the coach adds a discount function that yields fractional cents, then runs the real review pipeline, printing severity, file, line and a suggestion.
+Coach › Each finding has a severity (high, medium, low), file, line and suggestion. Common forms:
+    koder review
+        review uncommitted changes, else the current branch
+    koder review --base main
+        compare with main
+    koder review --format markdown --out review.md
+        a comment ready for the PR
+    koder review --fail-on high
+        exit 1 on high findings, for CI
+    koder review --fix --check "npm test"
+        review, fix and test in one go
+  · You can let Koder apply the fix, again with a diff and a y.
+  (whispering) Being caught by Koder is fine. Being caught by your users in production is not.
+Coach › Study guide · Allow 35 minutes including practice, not a runtime deadline
+        Goal: Get actionable review findings and prevent an unparsed JSON review from passing a CI gate.
+  Tip · Before you start: Prepare a small, explainable change in a test repository; define the scope when there is no repository or diff.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Inspect git diff, then run koder review.
+           Check: Findings refer to the actual diff and explain location, trigger, impact and a remedy.
+Coach › 2. Reproduce a finding before requesting the smallest fix.
+           Check: Do not rewrite everything based on a suggestion; mark unconfirmed findings for investigation.
+Coach › 3. For automation run koder review --format json and capture stdout, stderr and exit code.
+           Check: Check parseability, parsed status and exit code; an empty-repository error must not pass.
+Coach › 4. After the fix, rerun the original tests and review the relevant diff.
+           Check: Closure has evidence; remaining findings have reasons. Review does not deploy anything.
+Coach › Troubleshooting
+  Tip · REVIEW_UNPARSED → Retain the output and fail the gate; never insert parsed=true manually.
+  Tip · Advice refers to different files → Check branch, workspace and uncommitted changes, then narrow the scope.
+Coach › Assignment: Review the cart fix and report a substantiated finding or no demonstrated issue, with test evidence.
+        Acceptance: Do not invent a quota of findings. Real issues must be locatable and reproducible; parse or model failures cannot become approvals.
+Coach › Developer track · Design, implementation and validation
+        Treat review as a data interface: validate JSON shape, status and parsed rather than searching for “pass”.
+        Cover prose, empty output, partial JSON and provider errors; keep unparsed output nonzero.
+        Use constrained workspaces and read-only tokens; commenting and pushing are separately authorized actions.
+  Tip · Further reading (bundled docs/): QUALITY-CHECKS.zh.md, QUALITY-CHECKS.en.md, CLI-CONTRACTS.md
+
+━━ Lesson 10 of 30 · Fix until green: fix --check ━━
+Coach › fix is a loop: run the check, hand failures to Koder, re-run, until it passes or attempts run out (3 by default).
+  Tip · This time I'll press y for you; just watch it go round by round.
+  · Demo: a check.mjs tests a count function; Koder gets it wrong once and right the second time, showing 'attempt 1/3' and finally 'Check passed'.
+  (whispering) It missed the first time. Don't laugh; have you ever got it right first time?
+    koder fix --check "npm test"
+        fix until the tests pass
+    koder fix "the home button does nothing"
+        no check command: fix once from the description
+    npm test 2>&1 | koder fix
+        feed the failure straight in
+Coach › Study guide · Allow 40 minutes including practice, not a runtime deadline
+        Goal: Drive a fix with a reproducible failing check and preserve evidence instead of weakening tests.
+  Tip · Before you start: Copy cart-lab into a separate project. Its examples require Node; use the built-in coach if Node is unavailable.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run node --test and record the failing case and expected/actual values.
+           Check: Keep the baseline log; the test should demonstrate the total-price bug.
+Coach › 2. Run koder fix "Fix cart totals without removing existing tests" --check "node --test".
+           Check: The check/fix loop is visible and edits remain reviewable.
+Coach › 3. Check price × quantity behavior and add empty, zero-quantity and multi-item cases.
+           Check: Tests cover the requirement rather than hard-coding one result of 750.
+Coach › 4. Run the check independently and verify README instructions.
+           Check: Completion requires a passing check; budget exhaustion reports blockers and existing artifacts.
+Coach › Troubleshooting
+  Tip · An unhelpful fix error → Provide a task and --check command, then run the check alone to confirm it exists.
+  Tip · Dependency failure leads to repeated code edits → Separate setup failures from product failures; do not hide missing dependencies in tests.
+Coach › Assignment: Keep a failure, a fix and an independent rerun; explain root cause, change and validation in three sentences.
+        Acceptance: The bug omitted quantity. Fix the implementation, not the expectation; original and new edge tests pass.
+Coach › Developer track · Design, implementation and validation
+        For performance work, fix the input and measurement conditions; for refactors, preserve behavior rather than changing the test data.
+        Save runnable files, tests and next steps during long tasks.
+        Record actual attempts and duration. Targeted checks do not prove a full-suite pass.
+  Tip · Further reading (bundled docs/): CONTENT-QUALITY.zh.md, CONTENT-QUALITY.en.md, COMMAND-DURATION.md
+
+━━ Lesson 11 of 30 · Flows and CI: agents in formation ━━
+Coach › Put review, tests and fixes into one flow file and run the same thing locally and in CI. Here's a small one; let's run it:
+  · Demo: a four-step flow: tests, a check, an ask step summarising them with {{step.output}}, and a celebration that runs only when the check passed.
+    type
+        shell, run, ask, review, fix or test
+    when
+        unit.failed, count.passed, always, failure
+    {{step.output}}
+        reuse an earlier step's output
+    parallel
+        run independent steps side by side (shell, ask, review); shell is not inherently read-only
+    approve: auto
+        auto-approve, for CI
+  Tip · On Windows, shell steps run through CMD (not PowerShell); wrap PowerShell syntax as powershell -NoProfile -Command "…". For a flow that runs anywhere, stick to node, npm and git, like the node -e celebration above.
+Coach › koder ci init writes a GitHub Actions workflow: every PR gets reviewed and commented on; comment /koder fix and it fixes and pushes back. Only repository members count; strangers can shout all they like.
+Coach › Study guide · Allow 45 minutes including practice, not a runtime deadline
+        Goal: Split repeated work into checked steps and prevent publication after a failed prerequisite.
+  Tip · Before you start: Complete lessons 8–10. Read the bundled flow-lab.json and use it with cart-lab. This example only runs local checks: no publication or model calls.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Read flow-lab.json and identify step IDs, types, commands and dependencies.
+           Check: Each step has one clear responsibility and uses project checks.
+Coach › 2. Run koder flow run flow-lab.json in the example directory.
+           Check: The planted cart bug fails a check. Save step states; skipped does not mean passed.
+Coach › 3. Fix the cart with lesson 10 and rerun the same flow.
+           Check: Checks pass with the same inputs and workflow; the change is explainable.
+Coach › 4. For CI, read koder help ci, generate configuration in a test repository and review it.
+           Check: Check permissions, branches and secret references. Generated YAML is not a completed CI run.
+Coach › Troubleshooting
+  Tip · Parallel steps overwrite files → Parallelize only independent steps. A shell command is not inherently read-only.
+  Tip · A failed workflow says it finished → Read step states and the final exit code; finished only means execution ended.
+Coach › Assignment: Draw a check-to-summary dependency graph and inject a failure that prevents the success branch from running.
+        Acceptance: The dependency graph matches logs; failures, skips and passes are distinct, and nothing was published.
+Coach › Developer track · Design, implementation and validation
+        Define each artifact’s path, format, producer and consumer. Check a step succeeded before using {{step.output}}.
+        Use minimal CI permissions and protected secrets; repository or PR text is not authority.
+        Record cancellation, timeout and failure separately, and avoid replaying external effects on recovery.
+  Tip · Further reading (bundled docs/): CLI-CONTRACTS.md, COMMAND-REFERENCE.en.md
+
+━━ Lesson 12 of 30 · MoA: several models think together ━━
+Coach › On hard problems one model can get stuck. MoA (Mixture of Agents) lets a few reference models advise first; the current model reads their advice privately, then acts.
+    koder model add reference --preset custom --base-url https://your-provider.example/v1 --model YOUR_MODEL --key-env MODEL_API_KEY
+        register reference models; as many as you like
+    koder moa set --refs reference
+        create a MoA preset
+    koder --moa "refactor payments and add tests"
+        run a task with MoA; /moa toggles it in a chat
+    koder moa set --fanout every_step
+        references are asked once per user turn by default; every_step asks each step, sharper and pricier
+Coach › Can MoA reference models edit your files directly?
+    1. No. They only advise; the aggregator acts, with your approval as usual
+    2. Yes, the more the merrier
+    3. Only the README
+  Answer: 1。Right. References hold no tools at all; they can't even read a file.
+  (whispering) MoA is like a meeting: everyone may speak, one person decides, and that person still has to ask you.
+Coach › Study guide · Allow 30 minutes including practice, not a runtime deadline
+        Goal: Use multiple models only where useful, control costs and verify the final answer.
+  Tip · Before you start: Have a working primary model and separately authorized references for live use. Reading this lesson requires no calls.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run a small task with one model and record duration, validation and available usage.
+           Check: You have a single-model baseline.
+Coach › 2. Register and test a reference model before configuring MoA.
+           Check: References have valid configuration and matching credential routes.
+Coach › 3. Enable MoA for the same task and inputs and inspect the synthesis.
+           Check: The primary executor owns tools and approvals; references cannot act independently.
+Coach › 4. Compare correctness, duration and cost before keeping it.
+           Check: Unknown usage stays unknown. More calls do not automatically mean a better result.
+Coach › Troubleshooting
+  Tip · A reference is unavailable → Disable that reference and inspect its configuration; do not change billing routes silently.
+  Tip · References disagree → Resolve with facts, tests and sources rather than votes.
+Coach › Assignment: Compare two explanations of the cart bug and separate common evidence from disagreement; adopt only tested conclusions.
+        Acceptance: Explain the information added by the reference; consensus is not a test.
+Coach › Developer track · Design, implementation and validation
+        Hold model, input and budget constant when comparing orchestration.
+        Inspect koder harness status; JIT profiles and MoA are different layers and neither grants authority.
+        Record cost, steps, failure and fallback. Preserve NO_ENTRY for unproven lessons instead of activating them.
+  Tip · Further reading (bundled docs/): HARNESS-JIT.md, HARNESS-INCREMENTAL.md
+
+━━ Lesson 13 of 30 · Chat apps: command Koder from your phone ━━
+Coach › Koder connects to Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord and WhatsApp. Each adapter needs the platform account and authorization. Follow setup and inspect its actual state; the WeChat flow depends on the service. Live-account acceptance remains pending for this preview; this tutorial does not connect.
+    koder gateway setup feishu
+        connect Feishu (wecom, dingtalk work the same way)
+    koder gateway setup weixin
+        configure WeChat through the available account flow
+    koder gateway start --background
+        receive messages in the background
+    koder gateway status
+        which platforms are online
+    koder gateway pair K7Q2MX
+        approve a new user
+  Tip · Feishu, WeCom, DingTalk, Slack and Discord use long connections and need no public URL; the WhatsApp Cloud API needs the local port exposed through a tunnel.
+  Tip · koder gateway start --background runs quietly with no window; sleep, sign-out or a restart stops it, so run it again after logging in.
+Coach › A stranger messages your bot on WeChat. What happens?
+    1. They get a pairing code; only after you run koder gateway pair can they use it
+    2. The bot starts editing code for them
+    3. The bot cheerfully sends them your keys
+  Answer: 1。Right. Direct messages need pairing by default and groups are off; before edits or commands it still asks in the chat and waits for a 'yes'.
+  (whispering) Now you can fix bugs from the sofa. Whether that counts as overtime is up to you.
+Coach › Study guide · Allow 40 minutes including practice, not a runtime deadline
+        Goal: Connect an authorized messaging channel and verify pairing, receipt and permissions.
+  Tip · Before you start: Choose a platform where you already have account and administration access. Pairing codes shown in lessons are examples, and live setup may send external messages.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder gateway status before setup.
+           Check: Reuse an existing host rather than creating competing receivers.
+Coach › 2. Run koder gateway setup <platform-id> and follow the current account flow.
+           Check: Configuration or connection success does not prove every message path.
+Coach › 3. Send a harmless message from your own test chat and verify the generated pairing code before approving it.
+           Check: Unpaired accounts cannot run tasks; approve only an identity you recognize.
+Coach › 4. Run a read-only task and check both ends and session identity, then test cancellation.
+           Check: Receive, execute, reply and cancel each have evidence; a disconnect is not a delivered reply.
+Coach › Troubleshooting
+  Tip · Messages stop after closing the terminal → Check residency with lesson 20; a background child alone does not prove restart persistence.
+  Tip · Group and private context appear mixed → Inspect linking and sharing scope; remove unnecessary links instead of erasing all history.
+Coach › Assignment: Trace one message across sender, session, receipt, execution and reply; without an account, produce a clearly labeled test plan.
+        Acceptance: Configuration is not live acceptance, and a plan is not a successful send. Each status needs evidence.
+Coach › Developer track · Design, implementation and validation
+        Reuse the session, approval, cancellation and receipt authorities.
+        Test duplicates, reconnects, unpaired rejection and expired approvals.
+        Separate live-platform receipts from fixtures, and review access controls before exposing a webhook.
+  Tip · Further reading (bundled docs/): ALWAYS-ON.zh.md, ALWAYS-ON.en.md, USER-GUIDE.zh.md
+
+━━ Lesson 14 of 30 · Editors: Zed, Neovim, Emacs ━━
+Coach › Prefer your editor? Zed, Neovim and Emacs launch koder acp over ACP to chat, see diffs and approve edits. Zed needs just this:
+  · (The koder editor zed snippet is shown here.)
+    koder editor nvim
+        Neovim (CodeCompanion), config at %LOCALAPPDATA%\nvim\lua\plugins\codecompanion.lua
+    koder editor emacs
+        Emacs (agent-shell), config at %APPDATA%\.emacs.d\init.el
+  Tip · On Windows editors only add .exe when starting programs, so the snippet says koder.cmd; keep it. Zed's settings live in %APPDATA%\Zed\settings.json. Too lazy to copy? The Editors item in koder setup copies it for you.
+  (whispering) Vim users, relax: quitting Koder is far easier than quitting Vim. Ctrl+D.
+Coach › Study guide · Allow 35 minutes including practice, not a runtime deadline
+        Goal: Use the same Koder installation from an editor and import portable Skills without blindly running scripts.
+  Tip · Before you start: Verify the standalone CLI works. Check your installed editor’s ACP support and use a Skill you are authorized to use.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder editor zed, nvim or emacs and inspect the generated snippet.
+           Check: The command points to the real installation and the correct Windows launcher where applicable.
+Coach › 2. Back up editor settings and merge the snippet; open a test project.
+           Check: Existing plugins remain configured and the workspace is correct.
+Coach › 3. Ask a read-only question, then request a small edit and reject it.
+           Check: Requests and approval reach the editor; rejection leaves files unchanged.
+Coach › 4. Run koder skills list and koder help skills; import the selected directory and inspect it with show.
+           Check: Portable SKILL.md content can be discovered within compatibility limits; host-specific APIs do not become available automatically.
+Coach › Troubleshooting
+  Tip · The editor cannot find Koder → Check the absolute executable path, environment and arguments.
+  Tip · A Skill references unavailable tools → Map to existing tools where possible or report the missing dependency; do not claim complete compatibility.
+Coach › Assignment: Import a read-only instruction Skill into a test project and record discovery, reading, applicable tasks and unsupported tools.
+        Acceptance: Importing neither installs dependencies nor grants permissions or executes scripts. Editor tasks retain existing approvals.
+Coach › Developer track · Design, implementation and validation
+        Separate protocol output from diagnostics so animations cannot corrupt ACP.
+        Test startup, proposals, denial, cancellation and cleanup.
+        Author Skills with clear triggers, steps, success criteria and recovery. Repository content cannot create system authority.
+  Tip · Further reading (bundled docs/): PORTABLE-SKILLS.zh.md, PORTABLE-SKILLS.en.md, MCP-SKILL-COMPATIBILITY.zh.md
+
+━━ Lesson 15 of 30 · Scan your projects, decide what's next ━━
+Coach › koder scan gathers recent projects and tasks from Koder, Codex, Claude Code and Cursor. It reads only folders, times and titles; this listing step does not request a model. Choosing a subsequent model task includes relevant project and task material in your configured model request.
+Coach › Once the list appears, choose like this:
+    the number in front of a project
+        selects it; Enter skips
+    1  review the changes
+        same as koder review
+    2  run checks and fix
+        guesses a check such as npm test; Enter accepts it
+    3  ask Koder what's most worth doing now
+        your recent tasks from other tools are included
+    4  type your own task
+  · You can run a scan on the spot; it only lists projects.
+  (whispering) Found a dozen projects on the go? Totally normal. We're all like that.
+Coach › Study guide · Allow 25 minutes including practice, not a runtime deadline
+        Goal: Find the right project and control which cross-tool task material reaches the model.
+  Tip · Before you start: Prepare two test projects with distinct READMEs. Scanning may display local titles and paths; check before sharing your screen.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder scan --limit 6 without starting a follow-up task.
+           Check: Inspect source and path; listing is local, while a follow-up may send selected material to the model.
+Coach › 2. Select project A, verify the path and request a README summary.
+           Check: The summary concerns A, not unrelated facts from B.
+Coach › 3. Use separate directories or sessions for parallel tasks and inspect koder project list --json.
+           Check: Tasks have clear ownership and do not scatter files into the installation.
+Coach › 4. When resuming, name the project, completed work and next goal.
+           Check: Existing artifacts are inspected; a chat title is not a complete project state.
+Coach › Troubleshooting
+  Tip · Too many old projects appear → Limit the list or use -w with the intended path; do not delete history merely to tidy the list.
+  Tip · A project moved → Open the new path explicitly and inspect files rather than assuming an old mapping.
+Coach › Assignment: Put distinct synthetic markers in A and B and query each; neither answer should use the other project’s marker.
+        Acceptance: Retain both paths and results. Describe explicitly shared notes separately from isolated task history.
+Coach › Developer track · Design, implementation and validation
+        Canonical workspace identity participates in isolation; handle aliases, symlinks and concurrent sessions consistently.
+        Test two projects, named sessions and recovery without erasing old records.
+        Deliver a file index and entry points for future readback.
+  Tip · Further reading (bundled docs/): MULTI-WINDOW.md, USER-GUIDE.zh.md, USER-GUIDE.en.md
+
+━━ Lesson 16 of 30 · Install, update and switch engines ━━
+Coach › Want Koder on another machine? Read the license and consent guide, then use your shell’s installer. Missing Node.js is downloaded and the package is checked with SHA-256. Run setup and learn afterwards.
+    Read in your browser first:
+    https://github.com/KarmenLoop/koder-cli/blob/main/EULA.md
+    https://github.com/KarmenLoop/koder-cli/blob/main/ACCEPTANCE.md
+    https://github.com/KarmenLoop/koder-cli/blob/main/LEGAL-NOTICE.md
+        Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
+        A normal install asks you to type accept and press Enter. decline or Ctrl+C cancels; an empty Enter asks again without installing. Type the full word accept, then press Enter.
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
+        Unattended deployment after you have read and agreed (do not prefill this for someone else; KODER_EULA_ACCEPT=1 accepts only the software license):
+    set "KODER_EULA_ACCEPT=1"
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://karmenloop.com/install/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $limit){throw ('Installer download timed out after '+$limit+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
+    set "KODER_EULA_ACCEPT="
+        Windows 10 / 11: reopen Command Prompt or PowerShell; this window does not refresh PATH.
+    koder version
+    koder setup
+    koder learn
+    koder update --check
+        Check GitHub without installing
+    koder update
+        Verify and install a newer release; preview.6+ sessions restart and resume with config, memory and bindings retained
+        To move to preview.7, run the normal install command above and type accept after reading. The preview.6 updater stops before downloading the installer when the license checksum changes, and KODER_EULA_ACCEPT does not bypass that check. Configuration, memory and bindings are kept
+    koder uninstall
+        Remove the app, keep config; choose --purge separately to delete config
+  Tip · It lives in %LOCALAPPDATA%\koder-cli with settings in %USERPROFILE%\.koder-cli; no administrator rights. Reopen the window afterwards: a CMD window fixes its PATH when it opens.
+Coach › Windows XP, 7 and 8 can't install it: Node.js 22 needs Windows 10, and XP can't even speak the TLS 1.2 that model APIs require. On an old PC, SSH into another machine running Koder with a tool like PuTTY, or send tasks from your phone through the chat gateway.
+  Tip · Installing on another system? koder learn 16 --os powershell (or cmd, mac, linux) shows that edition.
+Coach › Installed copies check at the start of each interactive chat and every six hours while it stays open. Installation waits until tasks, queued input and drafts are clear, then verifies the new entry and resumes the conversation. A changed license requires your attention first. Prefer your own timing? Use /update auto off, or /update auto on (or “enable automatic updates”) to re-enable it in this window. Keep typing to steer a running task; press / on an empty line for editable choices. Use koder logs --tail 100 for local diagnostics. Even updates can wait their turn.
+    koder update auto status
+    koder update auto off
+    koder update --check
+    koder update
+Coach › Koder uses its built-in native adapters. The internal fallback is disabled and gray by default; ordinary use needs no extra engine. Check the selected model and protocol first. A network error never silently changes the engine, key, or billing endpoint.
+    koder engine list
+    koder model show
+    koder engine use koder
+  (whispering) The uninstall command is here not because we want you to use it, but because we trust you won't.
+Coach › Study guide · Allow 40 minutes including practice, not a runtime deadline
+        Goal: Install or update correctly, verify the running version and retain configuration and recovery options.
+  Tip · Before you start: Record OS, architecture, installed version and executable path. Use the official site or GitHub and the shell-specific installation guide.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder version and koder update status and note location and policy.
+           Check: Distinguish the launcher, version directory and data directory; multiple installs may launch an old copy.
+Coach › 2. Read license and installation instructions, choose the correct installer and start updates with koder update --check.
+           Check: A check is not an installation. Preserve the failing stage on download errors.
+Coach › 3. Run koder update when ready and follow save/switch prompts without killing other tasks.
+           Check: Download, verification, installation and entry checks are distinct stages.
+Coach › 4. Open a new terminal, run koder version and koder doctor, then inspect your project and settings.
+           Check: The new entry launches the intended version and retains data; keep logs for any failure.
+Coach › Troubleshooting
+  Tip · Auto-update asks for manual action → Inspect ownership, path and the precise error; use the official installer when needed without deleting configuration.
+  Tip · PowerShell blocks a script → Use the documented launcher; do not globally set Unrestricted or disable protection.
+Coach › Assignment: Write an upgrade record: before/after version, launcher, retained settings and recovery path. Label a dry run as such.
+        Acceptance: Actual launch agrees with version output. A download is not startup acceptance; record each platform separately.
+Coach › Developer track · Design, implementation and validation
+        Separate CMD, PowerShell 5.1, macOS and architectures. Isolate PATH for no-Node startup rather than removing the user’s Node.
+        Check hashes, manifests, upgrades and EOF exit with original deadlines.
+        Windows Server evidence does not replace Windows 10/11 client GUI acceptance.
+  Tip · Further reading (bundled docs/): INSTALLATION.md, AUTO-UPDATE.zh.md, AUTO-UPDATE.en.md, WINDOWS-INSTALL-CHECKS.md
+
+━━ Lesson 17 of 30 · License and optional consent ━━
+Coach › Before acceptance you can read help and this text tutorial. License acceptance enables no learning, synchronization, app connections or computer grants. Each is your choice; the tutorial enables none.
+    koder eula
+    koder eula accept
+    koder help permissions
+    koder learn --print
+Coach › Permissions and data guide
+
+        License: personal, noncommercial local use is free; commercial use and organizational deployment require separate written authorization, and the personal license grants no proprietary development or code-modification rights. New Koder-owned distributions use proprietary Koder-EULA-1.1; third-party and legacy GPL rights remain intact. Acceptance licenses the software and enables none of the optional capabilities below. Read: koder eula. Explicitly accept: koder eula accept.
+
+        Model and network: tasks, selected file contents, retrieved memories and tool results may be sent to your configured model/API. Provider charges apply. A local model must actually be installed and running; selecting a preset does not make offline inference available. Use --key-env for a variable reference. A key pasted into provider configuration is stored locally in plaintext even when the display masks it.
+
+        Computer scope: file read/write/search, network, browser, desktop, channel attachments and skill updates are checked separately. Full work mode selects visible disk roots, subject to actual operating-system permissions and capabilities. Review the executable, roots and remote actors before typing GRANT. Agreement acceptance or --yes grants no computer authority. koder permissions revoke withdraws future Koder computer-tool grants on this device; revoke OS permissions in system settings separately. Completed writes or sends are not automatically undone.
+
+        Cross-device memory service: your configured Core endpoint
+        After login, this account’s default shared space can synchronize conversations and memory across linked terminals, channels and devices. All members of a linked group can use linked private-chat memory; replies posted to the group are visible to its members. Link only conversations intended for sharing. Model API keys and computer grants are not memory-sync data. Sign out here: koder account logout. Forget the shared space: koder memory forget. Sign-out does not delete server copies; offline devices apply deletion after reconnecting.
+
+        Preference learning
+        Off by default. Extract communication preferences, explicit likes and work background from authorized conversations, retain their sources, and use them in later answers. A drink wanted today should not automatically become a permanent preference; inspect, correct or remove records.
+        Turn off: koder memory learning off
+
+        Daily state
+        Off by default. Separately allow summaries of today’s mood, temporary needs and circumstances as short-term context. This is independent of lasting preference learning and does not diagnose a condition.
+        Turn off: koder memory daily-state off
+
+        Skill evolution
+        Off by default. Allow skill-improvement candidates from authorized tasks and feedback, retaining provenance, checks and rollback records. This does not permit self-elevation, arbitrary software installation, changes to system security or bypassing tool approvals.
+        Turn off: koder memory evolution off
+
+        Proactive service and reminders
+        Off by default. Allow greetings, work questions and reminders based on confirmed background, and associate your reply with the original question. Default quiet hours are 22:00–08:00 local time. Current terminal reminders need a running process and a compatible Core service. This does not authorize automatic messages to contacts or groups.
+        Turn off: koder memory proactive off
+
+        Daily reflection needs authorized sources, the relevant opt-ins, a valid account and a compatible Core host. The default model-call budget is four per day, using your configured API or local model and potentially incurring charges. A waiting-host or credential state means reflection has not completed. Turning learning off stops the corresponding future use; it does not erase history. Manage records with profile forget or memory forget.
+
+        Local storage: new Windows memory prefers a writable D drive, falling back to a writable per-user location on C. Existing and explicitly configured locations are retained. Memory, installation and credential locations differ; inspect memory status / memory personalization status. Manually edit or roll back the assistant style without granting authority. Normal uninstall keeps configuration; --purge separately removes configuration. External memory and server copies need separate handling.
+
+        Applications and MCP use the selected service’s API key or browser authorization. That service receives data submitted through the connection and sets its own fees and terms. Chats and agents in the same configured profile can reuse a connection; external writes still require tool approval. A stdio MCP server starts a local program. Imports are disabled by default; enable or test starts a connection. Use koder apps disconnect <id> or koder mcp disable <id> to stop use; revoke access with the provider to invalidate its tokens.
+
+        Changing choices: the four optional features do not enable one another. Type ENABLE to turn one on, DISABLE to turn it off, and SAVE for a manual style edit. Read-only help and koder learn --print are available before agreement acceptance. Native Windows, live channels and multiple physical devices remain unverified for this preview; rely on observed connection states and results.
+Coach › Study guide · Allow 20 minutes including practice, not a runtime deadline
+        Goal: Distinguish license acceptance, feature settings and action grants, and enable only what you need.
+  Tip · Before you start: Read bundled license, privacy and commercial-use information; use the documented contact for organizational licensing questions.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder privacy statement and read the full terms and license files.
+           Check: Local documents remain readable offline.
+Coach › 2. Inspect learning, sync, computer, mail and residency settings separately.
+           Check: Each has its own purpose, data scope and off switch.
+Coach › 3. Enable only the needed feature and inspect its status.
+           Check: License acceptance does not enable unrelated capabilities; full approval does not expand grants.
+Coach › 4. Disable the optional feature and check again.
+           Check: Disabling stops future use; deleting retained data is a separate action.
+Coach › Troubleshooting
+  Tip · Assuming accept grants everything → Inspect feature states; license acceptance has no such meaning.
+  Tip · Old memories remain after disabling learning → Retention is expected; remove specific records if desired instead of erasing everything.
+Coach › Assignment: List the separate decisions for license acceptance, model access to mail and automatic replies.
+        Acceptance: None substitutes for another; sending must follow final confirmation or an explicitly authorized rule.
+Coach › Developer track · Design, implementation and validation
+        Model consent separately from availability; test defaults, migration and revocation.
+        Retain prior settings and never enable sensitive sources through an upgrade.
+        Name the missing layer in diagnostics rather than suggesting disabling protection.
+  Tip · Further reading (bundled docs/): COMMERCIAL-LICENSING.md, USER-GUIDE.zh.md
+
+━━ Lesson 18 of 30 · Computer and files: inspect, grant, revoke ━━
+Coach › Inspect capabilities, then choose the needed folders and capabilities. Home mode is for personal files; full work mode selects visible disk roots. Review the executable, roots and remote actors before typing GRANT. OS privacy access, administrator permissions and missing drivers still need their system procedures.
+    koder permissions status
+    koder permissions request --home
+    koder permissions request --mode full
+    koder permissions revoke
+  Tip · Grant commands change local permission records: choose one, do not paste the entire block. Revocation blocks future computer-tool calls; it does not unsend files or restore overwritten contents. Manage OS permissions in system settings separately.
+Coach › Use a full path, quoted when it contains spaces. On Windows, D: is drive-relative; use D:\folder\file.txt explicitly. If a path leaves its directory, check the workspace, allowed roots, network drives and link targets, then permissions status. Keep directory checks enabled. Before sending a file, confirm the recipient, group and attachment scope.
+Coach › Study guide · Allow 45 minutes including practice, not a runtime deadline
+        Goal: Operate the browser or desktop within explicit grants and verify actual state after each step.
+  Tip · Before you start: Use owned test windows and public pages, leaving personal windows untouched. GUI work needs a supported driver and interactive desktop.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder permissions status and inspect network, browser, desktop and file grants.
+           Check: Missing grants are visible; --yes does not grant computer access.
+Coach › 2. Request the necessary scope through Setup or koder permissions request.
+           Check: Grant only the required scope and review OS prompts yourself.
+Coach › 3. On Windows run koder mcp doctor windows-mcp --json, then test/enable the bundled driver in Setup.
+           Check: Missing dependencies, architecture support or grants are reported; do not create a competing installation.
+Coach › 4. Ask: “Type HELLO-KODER into my new test text window and read it back; do not save into personal directories.”
+           Check: Identify the target before acting and observe afterward; success needs actual window state.
+Coach › Troubleshooting
+  Tip · No driver or display server → Use available file/API paths and mark GUI untested rather than claiming clicks.
+  Tip · GUI operation fails while locked → Background tasks and locked-screen GUI are separate capabilities; the native companion still needs signing and dedicated acceptance.
+Coach › Assignment: Type and read back in an owned window, revoke the relevant grant and verify later actions are blocked.
+        Acceptance: Retain target, grant, receipt and observed content. The revocation case must perform no extra clicks.
+Coach › Developer track · Design, implementation and validation
+        Bind target identity to observed platform handles/PIDs; matching titles alone are insufficient.
+        Clean up only owned resources and never terminate unrelated processes.
+        Separate discovery, calls, visible effects and user-task acceptance.
+  Tip · Further reading (bundled docs/): WINDOWS-MCP-BUNDLED.zh.md, WINDOWS-MCP-BUNDLED.en.md, MCP-ACTUAL-ACCEPTANCE.zh.md
+
+━━ Lesson 19 of 30 · Memory storage, groups and devices ━━
+Coach › Memory does not put every conversation into one model request. Tasks use relevant memory and compacted history; records persist within the configured scope. New Windows profiles prefer writable D, falling back to a writable per-user location on C. Existing locations and explicit configuration are retained. Installation, credentials and memory may live in different places.
+    koder memory status
+    koder memory personalization status
+    koder memory show
+    koder memory search "project decisions"
+    koder account status
+    koder memory sync
+Coach › Cross-device memory service: your deployed, compatible Core endpoint
+        After login, this account’s default shared space can synchronize conversations and memory across linked terminals, channels and devices. All members of a linked group can use linked private-chat memory; replies posted to the group are visible to its members. Link only conversations intended for sharing. Model API keys and computer grants are not memory-sync data. Sign out here: koder account logout. Forget the shared space: koder memory forget. Sign-out does not delete server copies; offline devices apply deletion after reconnecting.
+    koder account login --server "https://your-core.example"
+        Replace the example with your actual compatible Core service
+    koder account logout
+        Sign out here without deleting server memory
+    koder memory forget
+        Forget the current shared space; offline devices apply it on sync
+  Tip · All linked-group members can use linked private-chat memory; group replies are visible to them. Link only conversations intended for that sharing. Login does not prove synchronization: inspect state and read back actual records. This preview still lacks physical multi-device and live WeChat, Feishu and WeCom account acceptance.
+Coach › Study guide · Allow 35 minutes including practice, not a runtime deadline
+        Goal: Understand workspace, session and shared-memory boundaries for concurrent work and recovery.
+  Tip · Before you start: Use two test directories and synthetic markers, never actual secrets.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder memory status in A and note its scope and storage.
+           Check: Understand ownership instead of assuming all data lives in the project folder.
+Coach › 2. Give A a synthetic marker, then ask B for it without supplying it.
+           Check: B should not automatically retrieve A’s task facts.
+Coach › 3. Return to A, then use a named session for separate investigation.
+           Check: A can resume; the named session has its own identity, with shared notes explicitly scoped.
+Coach › 4. Inspect a specific record and scope before using forget commands.
+           Check: Logout, disabling learning and deletion differ; sync needs a compatible Core and readback evidence.
+Coach › Troubleshooting
+  Tip · Windows share unrelated context → Record paths, version, sessions and shared-note settings; reproduce without erasing evidence.
+  Tip · Login succeeds but sync does not → Check account, device and sync state; verify readback on both devices.
+Coach › Assignment: Perform an A→B→A isolation check and record visible content and expectations.
+        Acceptance: B lacks A’s private marker and A resumes; untested remote sync stays NOT_RUN.
+Coach › Developer track · Design, implementation and validation
+        Keep identity, storage, retrieval and caches aligned to the same workspace/session scope.
+        Test concurrent tasks and stale-lock ownership rather than blindly deleting locks.
+        Headroom changes the model view while retaining retrievable evidence; compaction is not authorization to erase data.
+  Tip · Further reading (bundled docs/): MULTI-WINDOW.md, HEADROOM.zh.md, HEADROOM.en.md
+
+━━ Lesson 20 of 30 · Learning, soul, reflection and proactive service ━━
+Coach › All four switches default off and remain independent. Open koder setup → Memory and soul and read each description before choosing. Command-line prompts also explain purpose and cost; type ENABLE to turn on or DISABLE to turn off.
+Coach › The bundled personal-agent-growth 0.4.1 method helps relevant tasks prepare, investigate failures and review results. Use koder growth status, show, off or on; changes apply to the next session. Think of it as a task notebook: it does not start a background class, enable profile learning or turn on sync.
+Coach › Preference learning
+        Off by default. Extract communication preferences, explicit likes and work background from authorized conversations, retain their sources, and use them in later answers. A drink wanted today should not automatically become a permanent preference; inspect, correct or remove records.
+        Turn off: koder memory learning off
+Coach › Daily state
+        Off by default. Separately allow summaries of today’s mood, temporary needs and circumstances as short-term context. This is independent of lasting preference learning and does not diagnose a condition.
+        Turn off: koder memory daily-state off
+Coach › Skill evolution
+        Off by default. Allow skill-improvement candidates from authorized tasks and feedback, retaining provenance, checks and rollback records. This does not permit self-elevation, arbitrary software installation, changes to system security or bypassing tool approvals.
+        Turn off: koder memory evolution off
+Coach › Proactive service and reminders
+        Off by default. Allow greetings, work questions and reminders based on confirmed background, and associate your reply with the original question. Default quiet hours are 22:00–08:00 local time. Current terminal reminders need a running process and a compatible Core service. This does not authorize automatic messages to contacts or groups.
+        Turn off: koder memory proactive off
+    koder memory learning status
+    koder memory daily-state status
+    koder memory evolution status
+    koder memory proactive status
+    koder memory profile show
+    koder memory soul show
+    koder memory reflection run
+  Tip · reflection run attempts to use authorized conversations and your configured model and may incur charges. It needs a valid account, compatible Core host and relevant opt-ins. The default is at most four model calls per day. waiting-account-host means a prerequisite is missing, not a completed summary. Proactive service needs a running host and defaults to quiet hours 22:00–08:00; closing the terminal or computer does not keep it running.
+Coach › Review, correct and delete learned records. A daily mood or temporary request is not a permanent identity; skill-improvement candidates still need approval. Soul settings control name, tone and style with versioned save and rollback, without adding tool authority. Disabling learning retains prior records; delete with profile forget <recordID> or memory forget.
+Coach › Study guide · Allow 45 minutes including practice, not a runtime deadline
+        Goal: Configure learning, task harnesses, residency and mail alerts separately and verify when each actually runs.
+  Tip · Before you start: Start with minimal visibility. Residency is explicit; installation does not grant mail, calendar or browser-history access.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder growth status and koder harness status and inspect Skill settings in Setup.
+           Check: An available method Skill does not prove a running daemon; toggles affect applicable future tasks.
+Coach › 2. Review app-use learning in Setup: connected Apps/MCP first, then browser and desktop, with official help for unfamiliar flows.
+           Check: Missing grants are reported; learned steps cite sources and do not invent actions.
+Coach › 3. If you need alerts after closing the terminal, explicitly run koder activate, then koder status.
+           Check: Only running establishes a live host; quiet hours, limits and source settings still apply.
+Coach › 4. Bind mail in Setup, separately enable koder mail monitor on and inspect monitor status.
+           Check: Binding, monitoring, model access and autonomous replies are separate; polling is not instant delivery.
+Coach › Troubleshooting
+  Tip · No background alert → Check host, visibility, quiet hours, budget and network; sleep can delay checks.
+  Tip · Stop alerts but retain the mailbox → Use mail monitor off for mail checks; deactivate stops residency without disconnecting mail.
+Coach › Assignment: Map binding, monitoring, reading, drafting and sending, including each input and approval; enable only needed stages.
+        Acceptance: Alerts need not expose full mail to a model; drafting is not sending, and SMTP acceptance is not proof the recipient read it.
+Coach › Developer track · Design, implementation and validation
+        JIT chooses serializable seeds and uses existing provider, budget, permission and cancellation paths.
+        Experiences need cues, lessons, evidence and outcomes; self-evaluation alone proves nothing.
+        Test notify/silence, quiet hours, deduplication, unknown receipts and revocation.
+  Tip · Further reading (bundled docs/): ALWAYS-ON.zh.md, ALWAYS-ON.en.md, HARNESS-JIT.md, APP-USE-AND-LEARN.zh.md, MAIL-DELIVERY.zh.md
+
+━━ Lesson 21 of 30 · Gamma, applications and MCP ━━
+Coach › Applications and MCP use the selected service’s API key or browser authorization. That service receives data submitted through the connection and sets its own fees and terms. Chats and agents in the same configured profile can reuse a connection; external writes still require tool approval. A stdio MCP server starts a local program. Imports are disabled by default; enable or test starts a connection. Use koder apps disconnect <id> or koder mcp disable <id> to stop use; revoke access with the provider to invalidate its tokens.
+    koder apps
+    koder apps connect gamma --key-env GAMMA_API_KEY
+    koder apps status
+    koder mcp import "mcp-config.json"
+    koder mcp list
+    koder mcp enable my-server
+    koder mcp test my-server
+    koder mcp disable my-server
+    koder apps disconnect gamma
+  Tip · Choose individual commands as needed; do not run the entire block. Set the environment variable for your shell as shown in lesson 3. For browser authorization, follow service configuration in koder help apps / koder help mcp. Inspect the MCP executable, arguments, endpoint and permissions before enabling; test makes a real connection.
+Coach › Use connection diagnostics to distinguish expired tokens, rate limits, network failures and model tool-call errors. Chats and agents in the same profile reuse connections; this does not synchronize credentials across devices. Large tool results are bounded or excerpted. A connected service is not evidence of a completed external task.
+Coach › Study guide · Allow 60 minutes including practice, not a runtime deadline
+        Goal: Turn connected tools into verifiable outcomes: invoke MCP, approve a mail send and upload or edit GitHub content safely.
+  Tip · Before you start: Use authorized test accounts, a test recipient and a private test repository. Enter secrets only in dedicated prompts. Reading the lesson requires no account binding; external actions are optional exercises.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder apps status and koder mcp list, then read koder help mcp.
+           Check: Discovery alone does not establish a configured, enabled, callable service.
+Coach › 2. Inspect executable, arguments, endpoint and environment variable names, then run koder mcp test <server-id> for an authorized service.
+           Check: This makes a real connection. Record tools and server errors separately from business completion.
+Coach › 3. Bind 163 through /setup using the full address and client authorization code in send/receive mode; inspect /mail status.
+           Check: Receive and SMTP settings are distinct. Use the dedicated secret input; receive-only accounts cannot send.
+Coach › 4. Replace YOUR_TEST_ADDRESS with your own test recipient and run the mail send command; inspect the final message before typing send.
+           Check: Keep the SMTP submission receipt and check the test inbox. Reconcile uncertain delivery instead of resending.
+Coach › 5. Use koder github connect with its secret input, then status, repos and read on your test README.
+           Check: Confirm identity and repository scope. Read access does not prove write access; keep tokens out of project files.
+Coach › 6. Prepare README.md and run koder github commit OWNER/REPO README.md --message "Improve learning notes"; read it back and separately edit repository metadata.
+           Check: Approve each target explicitly and verify SHA/state. Only listed files are uploaded, not a whole directory.
+Coach › Troubleshooting
+  Tip · Mail requests loop through skill discovery or shell → Use the bound native mail_send path or /mail send, not a nested Koder process.
+  Tip · GITHUB_PENDING_REVIEW_REQUIRED → Run koder github reconcile OWNER/REPO; preserve unresolved state rather than force-pushing or replaying.
+Coach › Assignment: Choose one connection and record status, operation and readback. Without an account, label the exercise NOT_RUN. Upload only a secret-free README.
+        Acceptance: Separate discovery, invocation and external effect. Distinguish SMTP submission from arrival and verify GitHub content against the receipt.
+Coach › Developer track · Design, implementation and validation
+        Route external writes through existing approval, idempotency and UNKNOWN reconciliation rules; --yes does not replace mail/GitHub confirmation.
+        Keep artifact IDs, hashes, sizes and readback methods when shortening large results.
+        Test repository identity casing, head changes, rejection, timeout and recovery without normalizing case-sensitive paths or branches.
+        Fail explicitly when secure storage is unavailable; never leak tokens into prompts or plaintext.
+  Tip · Further reading (bundled docs/): MAIL-DELIVERY.zh.md, MAIL-DELIVERY.en.md, GITHUB-PROJECTS.zh.md, GITHUB-PROJECTS.en.md, MCP-INTEGRATIONS.zh.md
+
+━━ Lesson 22 of 30 · API, context and update troubleshooting ━━
+Coach › Development tasks research public GitHub candidates and fixed-version licenses, clarify requirements and record architecture, tasks and tools. Existing projects are reused; installation retains current approvals. Say “update Koder CLI” or use /update for version comparison, verified installation and installed-entry readback; Ask/plan mode only checks.
+    koder version
+    koder doctor
+    koder model show
+    koder setup
+    koder update --check
+    koder update
+Coach › API unavailable: check endpoint, protocol, model, environment variable and network. For 401/403 check credentials or access; for 429 check quota and rate limits; for 5xx or timeout check the provider. Keep the actual error code and redact keys and conversation content before sharing logs.
+Coach › Use setup → Context and output. Enter the real window supported by this model and endpoint; output capacity shares it. Koder compacts history, bounds tool results and retains relevant memory, but a larger number cannot enlarge a provider hard limit. Read oversized files in chunks or retrieve relevant portions, or configure a genuinely larger-context model.
+Coach › update --check only checks the official GitHub feed; update downloads, verifies and installs a newer channel release. Equal versions are not reinstalled and older ones are not selected. Configuration, memory and channel bindings are retained. Sessions started with preview.6 or later restart automatically after saving work and restore the conversation and buffered input. Gateways finish work and replies before reconnecting. Start the new version once when migrating an older process. Updates never replace pending approval or replay completed actions. Review and explicitly accept any changed license before upgrading. Verify with version; old tutorial graduates resume at new lesson 17.
+  Tip · Normal koder uninstall retains configuration. --purge removes configuration; back up first, and manage external memory and server copies separately. Tutorials and help can be read offline; remote models, updates, cloud sync and online apps require network.
+Coach › Study guide · Allow 40 minutes including practice, not a runtime deadline
+        Goal: Identify the failing layer, collect minimal evidence and recover without repeating completed actions.
+  Tip · Before you start: Save current work without wiping history. Collect version, OS, failing command, error code and a few redacted log lines.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder version and koder doctor and identify installation, model, tool, grant or external-submit failure.
+           Check: Separate unrelated events such as mail polling errors and a coding timeout.
+Coach › 2. Inspect model show and run one model test; check access for 401/403, quota for 429 and provider/network state for 5xx.
+           Check: Keep status and provider reason without endless retries; redact before sharing.
+Coach › 3. For MiniMax 422 with 1026/1027, compare a short harmless request in a new session and avoid binary/large hex payloads.
+           Check: Report filtering accurately, retain history and do not bypass provider review.
+Coach › 4. For timeout or HARNESS_JIT_STOP, inspect the last tool, artifacts and receipts and list completed, unknown and unrun work.
+           Check: Started, exit 0 or an orchestration stop alone does not prove business success; resume only remaining work.
+Coach › Troubleshooting
+  Tip · Increasing context arbitrarily → Use the actual model limit and reserve output capacity; retrieve relevant file sections.
+  Tip · The old build still runs after update → Check launcher path and version in a new terminal; use lesson 16 for multiple entries.
+Coach › Assignment: Write recovery plans for an uncertain mail send and an empty web search. Start with evidence, not resending or reinstalling.
+        Acceptance: Reconcile mail submission and inbox state; check search URL, status and body rather than treating an empty response as absence of information.
+Coach › Developer track · Design, implementation and validation
+        Preserve HTTP status, provider code and a redacted reason, with consistent user-facing wording.
+        Failed calls must not masquerade as successful history; unknown usage is not zero.
+        Recovery depends on task input, baseline, model settings and experience versions; recheck scope after cancellation or revocation.
+  Tip · Further reading (bundled docs/): MINIMAX-CONTENT-REVIEW.md, PROVIDER-WRITING-INPUT.md, COMMAND-DURATION.md, AUTO-UPDATE.zh.md
+
+━━ Lesson 23 of 30 · Keep the right door open: Alibaba and Volcano plans ━━
+Coach › Read the sign on the door first: MiMo Token Plan, Kimi, DeepSeek, Alibaba Token Plan, and Volcano integrations have known bugs and are temporarily unavailable. Their entries are gray. Settings stay saved, but no requests or backup-engine switches are made.
+Coach › A subscription key is not an all-access pass. Alibaba Token Plan, Coding Plan, and metered APIs are separate routes. Volcano Coding Plan has its own endpoint too. Koder lists them separately and never quietly changes the billing route.
+    koder model presets
+    koder model models aliyun-token-plan
+    koder model models aliyun-coding-plan
+    koder model models volcano-coding-plan
+    koder model models kimi-code
+  Tip · In setup, choose the exact plan, then a model, then that plan’s key. Your console decides model access, region, and seat availability. A listing is not free credit.
+  (whispering) The right address works better than asking a 401 to open up.
+Coach › Study guide · Allow 25 minutes including practice, not a runtime deadline
+        Goal: Distinguish plans from metered APIs and avoid mismatched regions, endpoints and billing products.
+  Tip · Before you start: Use key-free console product information. Do not run live exercises against disabled routes.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder model presets and inspect disabled entries.
+           Check: Use availability in your installed build, not the advertised count.
+Coach › 2. Record whether you purchased a Token Plan, Coding Plan or metered API and its region.
+           Check: Similar names do not imply interchangeable keys.
+Coach › 3. Inspect the relevant models entry and compare model IDs and base URL with your console.
+           Check: Discovery supplies candidates, not account entitlement.
+Coach › 4. Test only when the route is available and matches the product; otherwise retain settings and choose an authorized alternative.
+           Check: No silent billing change or bypass of disabled routes.
+Coach › Troubleshooting
+  Tip · Balance remains but 401 occurs → Balance and authorization differ; check the key’s product and region.
+  Tip · The model list is empty → Distinguish discovery failure, access denial and no available models instead of guessing IDs.
+Coach › Assignment: Build a key-free product, region, endpoint, model and availability table.
+        Acceptance: Mark uncertain values pending and disabled entries unavailable rather than tested.
+Coach › Developer track · Design, implementation and validation
+        Route by preset and product identity, not a fuzzy model-name match that changes billing.
+        Track discovery timestamps and errors while retaining settings on failure.
+        Reconcile disabled entries with runtime metadata instead of inflating available counts.
+  Tip · Further reading (bundled docs/): PROVIDERS.md, MODEL-DISCOVERY.zh.md, MODEL-DISCOVERY.en.md
+
+━━ Lesson 24 of 30 · MiMo checkup: a reply is only the first step ━━
+Coach › MiMo Token Plan is temporarily closed for repairs; please do not keep retrying a key. The checks below apply only to available endpoints. Gray entries report that they are temporarily unavailable.
+Coach › MiMo metered and Token Plan credentials are separate too. Once configured, check text, then explicitly choose a tool round trip. The commands below make real requests to your API and may cost money. This lesson displays them without running them.
+    koder model show
+    koder model test
+    koder model test --tools
+  Tip · A hello in an old session should be a hello, not a restart of a task buried in hundreds of messages. Use /new for a new topic, or name the task you want to resume. A greeting does not erase saved history.
+Coach › Study guide · Allow 25 minutes including practice, not a runtime deadline
+        Goal: Understand a tool round trip: request, execution, result and model continuation.
+  Tip · Before you start: When the MiMo Token Plan route is disabled, study it offline; use an available authorized provider for live checks.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Inspect koder model show.
+           Check: Use the same configuration for text and tool checks.
+Coach › 2. Run model test and then explicitly model test --tools on an available route.
+           Check: Record both results and timing; tool diagnostics avoid business effects.
+Coach › 3. Inspect whether the failure is tool formatting, missing results, empty output or HTTP rejection.
+           Check: MODEL_PROTOCOL does not automatically mean disconnection.
+Coach › 4. Use a short new-session comparison while retaining the old session; explicitly name remaining work when resuming.
+           Check: A greeting does not replay old tasks.
+Coach › Troubleshooting
+  Tip · Text works but actions fail → Report tool diagnostics; changing OS grants will not repair a protocol mismatch.
+  Tip · Old history is too large → Isolate with a new session and relevant summaries/artifacts instead of wiping memory.
+Coach › Assignment: Draw the four stages of a tool round trip and identify evidence for each.
+        Acceptance: A declaration proves visibility; a receipt records execution; continuation must use that result.
+Coach › Developer track · Design, implementation and validation
+        Use scripted models for tool names, arguments, call-ID pairing and redacted HTTP errors.
+        Cover empty content with tool calls, streaming fragments, missing results and duplicate IDs.
+        Without credentials mark live MiMo acceptance NOT_RUN; a compatible fixture is not a live plan test.
+  Tip · Further reading (bundled docs/): MIMO.md, PROVIDER-WRITING-INPUT.md
+
+━━ Lesson 25 of 30 · Privacy paperwork, even with the Wi-Fi off ━━
+Coach › Privacy should be more than a link that will not load. Full CLI terms, a plain-language statement, and the complete official consumer originals ship with the package. CLI configuration files and the desktop encrypted key store are explained separately.
+    koder privacy consumer
+    koder privacy statement
+    koder privacy desktop
+    koder privacy agreement
+    koder privacy sources
+  Tip · These commands read local files and need no API key. Accepting the license does not turn on learning, sync, music, IP lookup, or computer grants.
+Coach › Study guide · Allow 25 minutes including practice, not a runtime deadline
+        Goal: Find bundled privacy documents, understand data destinations and minimize disclosure.
+  Tip · Before you start: Use synthetic material rather than passwords, private mail or customer data.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Read privacy statement, consumer and sources and note versions/sources.
+           Check: Local full text is available without a model call.
+Coach › 2. Separate project files, conversation history, credentials and external receipts.
+           Check: Assess storage and transmission per category rather than claiming nothing leaves the machine.
+Coach › 3. Inspect resources, sync, learning and model mail-access settings.
+           Check: Remote models receive task context; separate grants control additional sources.
+Coach › 4. Before feedback, copy minimal diagnostics and redact tokens, personal paths, mail and account details.
+           Check: The report remains useful without unnecessary personal data.
+Coach › Troubleshooting
+  Tip · Assuming CLI and desktop store secrets identically → Read each product’s statement separately.
+  Tip · Data remains after uninstall → Normal uninstall can retain data; identify local, external and server copies before deletion.
+Coach › Assignment: Draw a synthetic project’s data flow from files to model, tools and receipts, marking external transfers.
+        Acceptance: Keys stay out of model context; selected task content may reach the model, and external writes need separate authorization and receipts.
+Coach › Developer track · Design, implementation and validation
+        Redact nested fields, URL parameters and error causes; never publish sensitive fixtures.
+        Test revocation, export and deletion against actual scope rather than UI labels.
+        Verify privacy text and provenance are bundled and respect third-party distribution rights.
+  Tip · Further reading (bundled docs/): USER-GUIDE.zh.md, PRIVATE-RESOURCES.md
+
+━━ Lesson 26 of 30 · A real feedback address, without the secrets ━━
+Coach › Say “I want to give feedback” or “How do I contact support?” and Koder provides an email address and blank template. It does not send the email or attach chat history, keys, or private paths.
+    koder feedback
+  (whispering) Complaints are welcome. Reproduction steps are even better. Please keep the keys.
+Coach › Study guide · Allow 25 minutes including practice, not a runtime deadline
+        Goal: Produce reproducible, secret-free feedback and grounded writing deliverables.
+  Tip · Before you start: Prepare a minimal reproduction and actual output. For writing, supply verified facts without implying nonexistent release changes.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder feedback and inspect the address and template.
+           Check: It displays contact details without sending chats or attachments.
+Coach › 2. Fill version, OS/shell, steps, expected and actual results and redacted errors.
+           Check: Another person can reproduce it; “broken” alone is insufficient.
+Coach › 3. Ask for feedback.md with a defined audience, verified facts and length.
+           Check: A readable file exists and unknown causes remain unknown.
+Coach › 4. If sending, inspect recipient and final content using lesson 21 and approve separately.
+           Check: Writing and sending are different actions; keeping only a draft is valid.
+Coach › Troubleshooting
+  Tip · The draft is vague → Add audience, facts, risks and next actions, and require a written file with readback.
+  Tip · Release mail invents new features → Read release/change/acceptance material first; disclose when describing existing features rather than release increments.
+Coach › Assignment: Write but do not send a bug email with version in the subject, minimal steps, actual error and requested help.
+        Acceptance: Facts are traceable, no keys or full private chats are included and unrun tests are not claimed.
+Coach › Developer track · Design, implementation and validation
+        Measure the primary written file rather than the chat sign-off and retain its path/hash.
+        Release writing needs sources or explicit non-increment disclosure; unsupported attribution still fails.
+        Record predecessor evidence for compression and add no new facts. Quality-gate exit 3 is not an API outage.
+  Tip · Further reading (bundled docs/): CONTENT-QUALITY.zh.md, CONTENT-QUALITY.en.md, QUALITY-CHECKS.zh.md, QUALITY-CHECKS.en.md
+
+━━ Lesson 27 of 30 · Six seconds of fun, with an exit right there ━━
+Coach › Code rain, confetti, fireworks, a Christmas tree, Halloween pumpkins, National Day lanterns, New Year, and birthdays live in one optional menu. Effects last about six seconds; any key skips. Terminals without animation support get text. Ordinary commands, JSON, and scripts stay clean.
+    koder celebrate
+    koder celebrate fireworks
+    koder celebrate auto notice
+    koder celebrate auto off
+  Tip · By default, a supported holiday gets one greeting. Choose auto on for automatic effects. Regional and lunar holidays follow the local date; add your own annual occasion when it is not on the calendar.
+    koder celebrate custom --date 03-14 --name "Our day"
+Coach › Study guide · Allow 20 minutes including practice, not a runtime deadline
+        Goal: Use skippable animations without disrupting work or polluting script output.
+  Tip · Before you start: Use an interactive terminal. Animation needs no model and proves no task outcome; disable automatic effects when inappropriate.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Run koder celebrate and choose an effect such as fireworks.
+           Check: Selection controls an effect, not project execution.
+Coach › 2. Press a key during playback.
+           Check: The prompt becomes usable immediately.
+Coach › 3. Use koder celebrate auto notice for greetings only, or auto off.
+           Check: Notice is different from automatic playback; normal command output stays clean.
+Coach › 4. Check the text fallback in a limited terminal.
+           Check: No broken cursor state remains and input still works.
+Coach › Troubleshooting
+  Tip · Cursor behaves oddly after animation → Record terminal and dimensions; disable effects instead of resetting all settings.
+  Tip · A holiday has no effect → Check date, mode and supported calendar; not every regional holiday is covered.
+Coach › Assignment: Play, skip and disable an effect, then verify /help still works.
+        Acceptance: Skipping preserves input and animation is not used as acceptance evidence.
+Coach › Developer track · Design, implementation and validation
+        Restore cursor, raw mode and listeners on completion, error and cancel.
+        Check TTY, dumb, CI and JSON paths without ANSI pollution.
+        Respect date-level deduplication and user settings instead of playing on every command.
+  Tip · Further reading (bundled docs/): USER-GUIDE.zh.md, USER-GUIDE.en.md
+
+━━ Lesson 28 of 30 · Remember a birthday, not a dossier ━━
+Coach › You can explicitly ask Koder to remember your birthday, or use a month and day below. It does not ask for a birth year or age. A casual mention offers a choice; someone else’s birthday never becomes yours. The tutorial does not save the example date.
+    koder celebrate birthday --date 03-14
+    koder celebrate birthday forget
+  Tip · Birthday settings are not automatically included in model requests or sync. Information you type in an ordinary message still follows that model conversation’s normal data rules.
+Coach › Study guide · Allow 20 minutes including practice, not a runtime deadline
+        Goal: Store minimal birthday information only by explicit choice, with review and removal.
+  Tip · Before you start: Practice with a fictional month/day. No birth year, age or ID is needed; mentioning someone else is not consent to record yours.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Read koder help celebrate for birthday commands and date format.
+           Check: Use current help rather than guessing syntax.
+Coach › 2. Explicitly say “Remember my birthday is March 14” and inspect the response.
+           Check: Only the allowed month/day is saved, not an inferred age or identity.
+Coach › 3. Inspect status, change the practice date using the lesson commands and inspect again.
+           Check: Stored value matches the response without enabling learning or sync.
+Coach › 4. Remove the synthetic birthday after practice; choose automatic greetings independently.
+           Check: Removal and disabling animation differ; no fake profile data remains.
+Coach › Troubleshooting
+  Tip · Another person’s birthday was recorded → Correct it explicitly and verify the stored value.
+  Tip · The date remains after disabling effects → Animation preferences and the stored date are independent.
+Coach › Assignment: Set, inspect and remove a fictional date and record the final state.
+        Acceptance: The practice date is removed and no year or extra personal data was added.
+Coach › Developer track · Design, implementation and validation
+        Distinguish explicit self-memory requests from quotations and third-party information.
+        Test invalid dates, leap days, repeated settings and removal, with notification deduplication.
+        Verify deletion in storage, not only in displayed text.
+  Tip · Further reading (bundled docs/): USER-GUIDE.zh.md
+
+━━ Lesson 29 of 30 · A birthday song, and a language you choose ━━
+Coach › Music and IP country lookup are off by default and confirmed separately. Enabled birthday music opens at most one automatic browser tab when you use chat that day. The local melody needs no sign-in. If autoplay is blocked, press Play. Closing the page does not affect work.
+    koder celebrate music on
+    koder celebrate music off
+    koder celebrate locale --language en
+    koder celebrate locale --language auto
+    koder celebrate locale --ip
+  Tip · Your chosen language comes first, then explicitly enabled local language counts. IP is only a weak hint. Country lookup exposes your public address to ipapi.co; an external music service receives its own visit data. Enter skips each choice.
+  (whispering) A second slice of cake is fine. Permissions can stay small.
+Coach › Study guide · Allow 20 minutes including practice, not a runtime deadline
+        Goal: Choose language and music explicitly without silently sharing location or opening audible pages.
+  Tip · Before you start: Check whether sound is appropriate. Prefer explicit language settings over IP-based guesses.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Set koder lang zh or en; use --lang for one invocation.
+           Check: Language settings apply without rewriting code or preserved quotations.
+Coach › 2. Inspect music settings with the existing lesson commands and leave them off initially.
+           Check: Status inspection opens no browser and plays no audio.
+Coach › 3. Explicitly approve the chosen external music page when desired.
+           Check: The site may require login or a play gesture; opening it is not proof of playback.
+Coach › 4. Stop playback, close the owned test page and disable unwanted music preferences.
+           Check: Leave other apps’ playback untouched; music and language remain independent.
+Coach › Troubleshooting
+  Tip · A page opens silently → Check its play control, volume and site rules instead of opening repeated tabs.
+  Tip · Language was inferred incorrectly → Ask for or use an explicit selection, without adding an IP lookup.
+Coach › Assignment: Record language, external-link consent, page opening and actual playback separately.
+        Acceptance: Opening is not playback, and playback does not grant download rights; unselected external actions do not occur.
+Coach › Developer track · Design, implementation and validation
+        Use existing URL validation and browser grants; do not inject passwords or bypass site controls.
+        Keep localization natural and locale choices independent; inferred regions are not user facts.
+        Separate launch failure, unverified playback and refusal.
+  Tip · Further reading (bundled docs/): USER-GUIDE.zh.md, APP-USE-AND-LEARN.en.md
+
+━━ Lesson 30 of 30 · Foundation graduation and project draft ━━
+Coach › Congratulations, you've graduated! A cheat sheet for the road:
+    koder setup
+        the settings screen, arrow keys or mouse
+    koder
+        start a chat
+    koder "task"
+        get to work
+    koder ask "question"
+        read-only question
+    koder review
+        code review
+    koder fix --check "cmd"
+        fix until green
+    koder test file
+        add tests
+    koder flow run flow
+        run a flow
+    koder --moa "task"
+        several models think together
+    koder gateway setup platform
+        connect a chat app
+    koder scan
+        scan local projects
+    koder help command
+        details for any command
+    koder learn number
+        revisit a lesson
+Coach › Next: set up a model with koder setup, then type koder in your own project.
+  Tip · Go to your project: cd /d D:\code\my-app, then type koder. Changing drives needs /d, or CMD changes the path but stays on the old drive. Family tradition.
+  (whispering) The coach is off duty. Remember: Koder proposes, you decide, and the blame… we share.
+  · At the end you can keep the practice project or delete it.
+Coach › Study guide · Allow 90 minutes including practice, not a runtime deadline
+        Goal: Deliver a runnable, previewable project with verifiable results and a sourced written artifact.
+  Tip · Before you start: Choose a small website, app or presentation task in a separate Koder Projects directory. Use synthetic data and authorize deployment or GitHub writes separately.
+Coach › Hands-on steps · These are optional instructions, not automatically executed account connections, sends or publications.
+Coach › 1. Write a brief with audience, goal, content, exclusions, artifact paths and checks. For a site, request three browsable layouts first.
+           Check: Requirements map to files and behavior; refine the chosen direction.
+Coach › 2. Implement and test; for a static site use /preview start --directory site in the current chat after verifying the directory.
+           Check: The local artifact opens. For framework projects, start the documented dev server before connecting its preview URL.
+Coach › 3. Change a heading and inspect preview updates, narrow layout, keyboard access, links and empty data.
+           Check: Refresh/reload shows actual edits; a screenshot alone is insufficient.
+Coach › 4. Request an H5 project map covering directories, entry points, modules, data flow, checks and unconnected services, grounded in actual files.
+           Check: The map opens in a browser and its nodes are traceable; demo services are not described as live.
+Coach › 5. Write intro.md for technical decision-makers and a release email without a change list that explicitly avoids increment claims.
+           Check: Primary files meet length/audience requirements with sources, limits and next steps, not invented pricing or features.
+Coach › 6. Deliver README, test results, preview instructions, map, writing and untested items; close with /preview stop.
+           Check: Another person can reproduce the result. Upload or deploy only through a separately approved flow.
+Coach › Troubleshooting
+  Tip · Preview reports not-running → Preview belongs to its owning process. Use the same chat; stop a standalone start with Ctrl+C rather than expecting another process to see it.
+  Tip · A report exists but project files do not → Check each artifact against the brief; mark missing files incomplete and finish them.
+Coach › Assignment: Submit README, runnable files, test logs, project-map.html, intro.md, release-email.md and an untested list. Exclude secrets, account caches and node_modules.
+        Acceptance: Check runnability, explanation, validation, recovery and grounded facts. Report gaps; screenshots do not replace execution and fixtures do not prove live-account success.
+Coach › Developer track · Design, implementation and validation
+        Reproduce from a clean test directory using README and check the failure baseline, minimal diff, tests and package files.
+        Keep static previews local and never expose the home directory. Netlify login, site selection and deployment use existing approval flows.
+        Record version, hashes, commands, exit codes and platform; distinguish real Windows, models, accounts and signing.
+        Use the 30-lesson checklist to retain both regression and new-feature evidence.
+  Tip · Further reading (bundled docs/): VISUAL-WORKFLOW-AND-NETLIFY.md, MAIL-AND-LIVE-PREVIEW.md, CONTENT-QUALITY.zh.md, GITHUB-PROJECTS.zh.md
+
+Feature quick reference · Skills / input / Harness
+List Skills with koder skills list; select with /skill and manage with /skills. Importing never runs scripts or grants permissions.
+Keep typing during a task. Setup selects steer for the current task or queue for later tasks.
+Use /harness deep-research for research or koder harness off for the baseline path. Setup separately controls Skills and tutorial learning.
+App use prefers connected Apps/MCP, then authorized browser or desktop tools. Missing drivers, grants or an experience owner are disclosed, not reported as success.
+0.4.3 residency: explicitly run koder activate, inspect koder status, and stop with koder deactivate. Setup controls limits, quiet hours and sources; mail, calendar and browser history stay off by default.
+Bind mail with masked authorization-code input in Setup. Separately authorize /mail model on and /mail inquire on. Choices draft a reply; sending requires preview and confirmation. Background mail also needs explicit visibility.
+https://karmenloop.com/cli-guide/docs/ALWAYS-ON.zh.html
+https://karmenloop.com/cli-guide/docs/ALWAYS-ON.en.html
+https://karmenloop.com/cli-guide/docs/RELEASE-0.4.5.html
+0.4.5: Windows x64 includes Windows-MCP and private Python. Inspect with koder mcp doctor windows-mcp --json, then configure, test and enable in Setup; a separate winget install is unnecessary.
+Mail uses native mail_send/mail_reply after final content approval. /mail monitor on separately authorizes background monitoring; the running resident host polls every 30 seconds by default, subject to quiet hours and daily limits.
+https://karmenloop.com/cli-guide/docs/WINDOWS-MCP-BUNDLED.en.html
+https://karmenloop.com/cli-guide/docs/MAIL-DELIVERY.en.html
+Headroom context optimization: task results use reversible optimization by default and retain originals. Disable it in Setup -> Skills or inspect the method with koder skills show builtin:headroom. Full bundled guides: docs/HEADROOM.en.md and docs/HEADROOM.zh.md.

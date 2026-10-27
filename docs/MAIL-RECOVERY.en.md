@@ -35,4 +35,10 @@ To ask before drafting a response, separately enable `koder mail model on`, then
 | `NETWORK` / `PROTOCOL` | Inspect server reachability, TLS and provider restrictions. Binding now also checks inbox access, so a login alone is insufficient. |
 | `DELIVERY_UNCERTAIN` | Submission may have occurred. Reconcile before another send; automatic replay is blocked. |
 
-The 0.5.7 acceptance suite covers synthetic TLS traffic and actual Agent tool routing. Live 163 delivery, Windows notification display and user-device service restart need their own device/account records.
+The 0.5.8 acceptance suite covers synthetic TLS traffic and actual Agent tool routing. Live 163 delivery, Windows notification display and user-device service restart need their own device/account records.
+
+## Pending notifications and uncertain sends in 0.5.8
+
+A pending inquiry is retained if the OS notification channel is unavailable or the daily push limit has been reached. The daemon reoffers it through the same notification ledger after recovery or restart; submitted or unknown dispatches are not sent again. Quiet hours, visibility, model-reading consent and daily limits still apply. Revoking access stops recovery. A successful OS submission does not establish visible delivery.
+
+For a native Agent send with `DELIVERY_UNCERTAIN`, the final task result is incomplete (exit 3), even if the explanatory response is nonempty. Inspect sent records before any new explicitly authorized attempt.

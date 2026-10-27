@@ -1,0 +1,574 @@
+{
+  "version": "0.5.8",
+  "privateSourceCommit": "5d19f3f1e33afe6c9d60ec7c9e14a191edd922e2",
+  "runtime": {
+    "file": "koder-cli-0.5.8.tgz",
+    "sha256": "e47cb5ccaa4ca19a6fa4992af3334c5b2a4b2deadc8da445a0b63568ab8068e9",
+    "bytes": 512089420
+  },
+  "validation": {
+    "sourceRegression": {
+      "sourceCommit": "5d19f3f1e33afe6c9d60ec7c9e14a191edd922e2",
+      "exitCode": 0,
+      "tests": 1944,
+      "pass": 1923,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 21
+    },
+    "packagedRuntime": {
+      "passed": true,
+      "sourceCommit": "5d19f3f1e33afe6c9d60ec7c9e14a191edd922e2",
+      "tests": {
+        "tests": 368,
+        "pass": 368,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      "isolatedKernel": true,
+      "runtimeFiles": 28251,
+      "kernelHashes": 6287
+    },
+    "macOSUpgrade": {
+      "passed": true,
+      "from": "0.5.7",
+      "to": "0.5.8",
+      "scope": "Disposable HOME with an existing Node runtime; actual installer and updater; user settings and prior installation preserved."
+    },
+    "realModelLongTask": {
+      "exitCode": 0,
+      "model": "MiniMax-M3",
+      "realModel": true,
+      "requests": 33,
+      "elapsedMs": 158665,
+      "csvExact": true,
+      "inputReceipts": 20,
+      "expectedTotals": {
+        "correctCents": 208800,
+        "declaredCents": 209425
+      },
+      "nativeTools": {
+        "read_file": 21,
+        "todo_set": 2,
+        "shell": 6,
+        "write_file": 3
+      },
+      "usage": {
+        "requests": 33,
+        "responsesWithUsage": 33,
+        "promptTokens": 439101,
+        "completionTokens": 10796,
+        "cachedPromptTokens": 340858,
+        "monetaryCost": "UNKNOWN; no provider invoice read",
+        "source": "Actual API response usage, final record per request"
+      },
+      "scope": "Owned synthetic accounting project; actual API and native tools; unlimited product steps, bounded test-run budget",
+      "evidence": {
+        "resultSha256": "8748c3f606baf90c8a38e7e34af0b3ae5fafb90b995d0608a714bbb10586c7c2",
+        "requestsSha256": "faa92a90cdc8ec60d918fceb3e04afc0034dcc0ee574589193699394e6114b10",
+        "toolStreamSha256": "4aa5974b9fefed943355589ad5da58e81c906a5a9b4c7079877247483a8c5e7e"
+      }
+    },
+    "realModelMail": {
+      "model": "MiniMax-M3",
+      "realModel": true,
+      "transport": "Actual TLS IMAP/SMTP over loopback with native Koder mail tools; synthetic accounts",
+      "acceptedSend": {
+        "exitCode": 0,
+        "receivedMessages": 1,
+        "smtpState": "sent",
+        "recipientDelivery": "NOT_VERIFIED",
+        "requests": 5,
+        "nativeTools": {
+          "mail_inbox": 1,
+          "todo_set": 4,
+          "mail_read": 1,
+          "mail_send": 1
+        },
+        "usage": {
+          "requests": 5,
+          "responsesWithUsage": 5,
+          "promptTokens": 53779,
+          "completionTokens": 1347,
+          "cachedPromptTokens": 911,
+          "monetaryCost": "UNKNOWN; no provider invoice read",
+          "source": "Actual API response usage, final record per request"
+        }
+      },
+      "lostAcknowledgement": {
+        "beforeFix": {
+          "exitCode": 0,
+          "smtpState": "uncertain",
+          "failureRetained": true
+        },
+        "afterFix": {
+          "exitCode": 3,
+          "smtpState": "uncertain",
+          "receivedMessages": 1,
+          "automaticReplay": false,
+          "requests": 10,
+          "nativeTools": {
+            "todo_set": 4,
+            "mail_inbox": 3,
+            "mail_read": 1,
+            "mail_send": 1,
+            "list_dir": 3,
+            "diagnostics_runtime_log": 1,
+            "search": 2,
+            "read_file": 1,
+            "app_result_read": 1,
+            "app_tools": 1,
+            "tool_inventory": 1
+          },
+          "usage": {
+            "requests": 10,
+            "responsesWithUsage": 10,
+            "promptTokens": 100028,
+            "completionTokens": 3919,
+            "cachedPromptTokens": 69303,
+            "monetaryCost": "UNKNOWN; no provider invoice read",
+            "source": "Actual API response usage, final record per request"
+          }
+        }
+      },
+      "externalMailSent": false,
+      "real163Account": "NOT_RUN",
+      "evidenceSha256": {
+        "mail-live-final-tls/result.json": "ab5bc041f8875deccbd1e8624c17ff7a81f24c8141267c5fdc1205d4e88b3714",
+        "mail-live-final-tls/requests.json": "d111d596d1558c3c4a751a2e222c9941ef6a1f79df35ca350d5b7b4df064f9a4",
+        "mail-live-unknown-tls/result.json": "80c934e5d1ef88ba9723b17e993af44e59a4a4c2b035583f6cc6c21b87c31894",
+        "mail-live-unknown-fixed/result.json": "1240d24689c6f0b8040c464ae2ffde95114e5ae902e498e132810df3e9b416b5",
+        "mail-live-unknown-fixed/requests.json": "7a4acbf9e991509e61aabd139d94b14471d3ba07c1296f47ef50bc48f746e032",
+        "mail-live-final-tls/stdout.txt": "5a187f9c64fd152b09b7631942fbc202e03f4a0b7ea6b36b0db6635f43ad2352",
+        "mail-live-unknown-fixed/stdout.txt": "79c524c8a77f11e803354403fa9bcf95a14abf1187e9e3407bbf5cfbbc815696"
+      }
+    },
+    "realModelWebsite": {
+      "realModel": true,
+      "model": "MiniMax-M3",
+      "scope": "Multi-stage synthetic website task with scripted test-user answers, real model/tool calls, observed defects and bounded repairs. Not a one-shot or blind-quality benchmark.",
+      "automaticDesignSkill": {
+        "state": "complete",
+        "nativeQuestions": 6,
+        "source": {
+          "repository": "https://github.com/KarmenLoop/fullstack-web-delivery",
+          "commit": "72e05993c485210e255c1e950f424a53fb05be49",
+          "version": "0.9.1",
+          "license": "LicenseRef-KarmenLoop-Source-Available-No-Modification-1.0"
+        },
+        "resources": [
+          {
+            "path": "SKILL.md",
+            "resourceSha256": "e5393e72716cbb6c97b5dd90bf65bfadd6d265c7998b9f6977a4b08df861459a",
+            "characters": 9539,
+            "totalCharacters": 9539,
+            "complete": true,
+            "nextOffset": null
+          },
+          {
+            "path": "references/development-workflow.md",
+            "resourceSha256": "44f289ff9bb57d55cf2a07727cb006bffd482e686ad1755feb68f025c83ba04e",
+            "characters": 2512,
+            "totalCharacters": 2512,
+            "complete": true,
+            "nextOffset": null
+          },
+          {
+            "path": "references/implementation.md",
+            "resourceSha256": "c5024f2a3d2da1ee05f743f560be614a2ec9ec27e48c5000ef883605b1334c86",
+            "characters": 2770,
+            "totalCharacters": 2770,
+            "complete": true,
+            "nextOffset": null
+          },
+          {
+            "path": "references/delivery.md",
+            "resourceSha256": "6d10e8540e4bd4e8b12668781fc11b9dc171a9d63e4e717781c4fe17e9fca557",
+            "characters": 2384,
+            "totalCharacters": 2384,
+            "complete": true,
+            "nextOffset": null
+          }
+        ]
+      },
+      "finalRepair": {
+        "exitCode": 0,
+        "completion": "completed",
+        "requests": 39,
+        "toolCounts": {
+          "project_anchor": 1,
+          "read_file": 11,
+          "list_dir": 2,
+          "search": 5,
+          "shell": 11,
+          "todo_set": 2,
+          "str_replace": 13,
+          "workspace_preview": 1,
+          "app_use_status": 1
+        },
+        "sourceCommitRecordedAtStart": "4e09bbef24ade6ce87bbf86daf47e4773096c9ab",
+        "sourceBoundary": "The final repair ran while continuation fixes were being finalized. The final committed source has a separate full regression; this live run is not a frozen-source full-site acceptance.",
+        "localPreviewHttp": [
+          {
+            "page": "index.html",
+            "status": 200,
+            "bytes": 6027,
+            "sha256": "c7b8c8216bf0556e2a544560562d7d3e55bd10963fcd229c3b5f305bfff99f01"
+          },
+          {
+            "page": "collection.html",
+            "status": 200,
+            "bytes": 6935,
+            "sha256": "e6557df05f2d5d5884cadb642dd3fe06f2ed6547afb0b90c8e514c916790b3e5"
+          },
+          {
+            "page": "events.html",
+            "status": 200,
+            "bytes": 6276,
+            "sha256": "e508b5d81c13bbcf72bfc528d3d7311e8b428baad2ac5cf70f8c6c28d71f1141"
+          },
+          {
+            "page": "about.html",
+            "status": 200,
+            "bytes": 6807,
+            "sha256": "f585ef83344c8b78ed6320ba0cdcb55dab86153aa5ff43aca6eea008a79ddfff"
+          }
+        ],
+        "regressionExitCode": 0
+      },
+      "artifacts": [
+        {
+          "path": "DESIGN.md",
+          "bytes": 8386,
+          "sha256": "15e94680ead5afd7186e176a6f7c1d730b759416fe28afbda4fbd6d3f534e243"
+        },
+        {
+          "path": "PLAN.md",
+          "bytes": 23765,
+          "sha256": "b905fdc91a94944d20267d2483f6d6813f42775718c57884a44403cbd0a3cc5b"
+        },
+        {
+          "path": "PROJECT-ANCHOR.md",
+          "bytes": 3073,
+          "sha256": "f08645d9f4b284780e277f7cc0b835bf44c6c5ad00697d7fc7fb67863ed3f092"
+        },
+        {
+          "path": "README.md",
+          "bytes": 20009,
+          "sha256": "705d410247e4d057e7bac246a3d90b4ec93c3346e1e93fc74d2f5fff0e11b524"
+        },
+        {
+          "path": "about.html",
+          "bytes": 6225,
+          "sha256": "1839e89e8bd501b1e9caea6c3ac7455216fc2d0ae69e982a009bade9c4fea837"
+        },
+        {
+          "path": "assets/css/mvp.css",
+          "bytes": 10546,
+          "sha256": "93a1c8a37a2b43cc52597b3871efc41e7395778985399b0f6c06d43baa7ea24a"
+        },
+        {
+          "path": "assets/css/taimu.css",
+          "bytes": 19247,
+          "sha256": "7b16a06482575913f921dc84ca94d053f49e02a221a78a695864808361594a55"
+        },
+        {
+          "path": "assets/data/books.js",
+          "bytes": 5450,
+          "sha256": "38d1a1e85fd52dfd7f9610d53401b9938f40b30c714f86a39c684d7a83e8cd56"
+        },
+        {
+          "path": "assets/data/events.js",
+          "bytes": 2125,
+          "sha256": "0207591b89dd349c56a19f53327008260c3e0651bec8beef66f2811ecbd23e96"
+        },
+        {
+          "path": "assets/js/collection.js",
+          "bytes": 9491,
+          "sha256": "5ae87f53d3f3d282db01b9c1e254fb27b6e245d3d5dac3312cf2d1b150e14b05"
+        },
+        {
+          "path": "assets/js/events.js",
+          "bytes": 8091,
+          "sha256": "57ce154c603c99fb832f33393e6051cb33dc1a22f2259908fad5075d8928c076"
+        },
+        {
+          "path": "assets/js/home.js",
+          "bytes": 2396,
+          "sha256": "3b4a92fe8d922c485712f4303ae0fee6be8602ea91309b10b892de43b6e19397"
+        },
+        {
+          "path": "assets/js/taimu.js",
+          "bytes": 8789,
+          "sha256": "b6224a2353eabd440af6cae50efb2bea5093ca74c80d99c206daf7aed59b4d8b"
+        },
+        {
+          "path": "assets/vendor/MVP-LICENSE.txt",
+          "bytes": 2009,
+          "sha256": "f713a260b8520e7f96c26deb392e6c5ca0797da11d798b946889cff4fa65d3d2"
+        },
+        {
+          "path": "collection.html",
+          "bytes": 6353,
+          "sha256": "a5a70968f1627dce735df0bfb37a3a04aa06a13a61f8168a0fe2d74d4476e2a7"
+        },
+        {
+          "path": "events.html",
+          "bytes": 5694,
+          "sha256": "2ef09f20104114d66d4b0da30f81fe86e621eeae0316dfe22567351988766f0f"
+        },
+        {
+          "path": "index-结果.md",
+          "bytes": 2886,
+          "sha256": "ba03d7c345431a22a6605f96d820d70db8e104404228a1189b723566b95cf69b"
+        },
+        {
+          "path": "index.html",
+          "bytes": 5445,
+          "sha256": "4e3fceff8e3f7ff96fa21937368adb21726f0c25ac4d5d5b8821946c77b20564"
+        },
+        {
+          "path": "koder-delivery/55fcb6b0-32e1-41c6-a966-32dda56d71d1/index.html",
+          "bytes": 11598,
+          "sha256": "229776c4cf6fa1bbd5a1bb37107084411ea78350dd1a7e35a0f35e87e4e17c61"
+        },
+        {
+          "path": "koder-delivery/55fcb6b0-32e1-41c6-a966-32dda56d71d1/structure.json",
+          "bytes": 4726,
+          "sha256": "b41aaf0191a2aef4e0a1af0dc7773ea2a0ee79a9f8187d9756e3caebff210f98"
+        },
+        {
+          "path": "koder-designs/direction-a-editorial.html",
+          "bytes": 10998,
+          "sha256": "e541284300029100aa0ba9df9ff060651d6e1e2891ab88a1be945c3b10f4495e"
+        },
+        {
+          "path": "koder-designs/direction-b-grid.html",
+          "bytes": 11460,
+          "sha256": "bafc3c466ded7fe17658ff71aef92997f184435056523f764d0633dde1642a3d"
+        },
+        {
+          "path": "koder-designs/direction-c-scene.html",
+          "bytes": 12218,
+          "sha256": "75fbf392fff72e06fa9be300dc6c1a51ea51f3340072b68c7e7963396d13bd73"
+        },
+        {
+          "path": "koder-designs/index.html",
+          "bytes": 4143,
+          "sha256": "4239b53e0d4e7755e4ade22b0f31ca9ca2ae5ed136fd35ead822cb52b27a7aa1"
+        },
+        {
+          "path": "koder-review/4e4e4e4a-f5b0-47ef-b97a-3290d923afff/direction-1.html",
+          "bytes": 10998,
+          "sha256": "e541284300029100aa0ba9df9ff060651d6e1e2891ab88a1be945c3b10f4495e"
+        },
+        {
+          "path": "koder-review/4e4e4e4a-f5b0-47ef-b97a-3290d923afff/direction-2.html",
+          "bytes": 11460,
+          "sha256": "bafc3c466ded7fe17658ff71aef92997f184435056523f764d0633dde1642a3d"
+        },
+        {
+          "path": "koder-review/4e4e4e4a-f5b0-47ef-b97a-3290d923afff/direction-3.html",
+          "bytes": 12218,
+          "sha256": "75fbf392fff72e06fa9be300dc6c1a51ea51f3340072b68c7e7963396d13bd73"
+        },
+        {
+          "path": "koder-review/4e4e4e4a-f5b0-47ef-b97a-3290d923afff/feedback.json",
+          "bytes": 780,
+          "sha256": "af461b36baac40e802c04e7a3f30cc962e464741fbb1beb4d7c137b469e85ae4"
+        },
+        {
+          "path": "koder-review/4e4e4e4a-f5b0-47ef-b97a-3290d923afff/index.html",
+          "bytes": 52533,
+          "sha256": "b858930bcb6a9eb89ba5da7e6ddc769e28ddc71692e3763976538df40aa8b821"
+        },
+        {
+          "path": "koder-review/4e4e4e4a-f5b0-47ef-b97a-3290d923afff/review.json",
+          "bytes": 1996,
+          "sha256": "dfc0da558639971c1571b228855cc26629d5b97b368809c8ae32c3255ac4e233"
+        },
+        {
+          "path": "tools/check-btn-contrast.mjs",
+          "bytes": 31181,
+          "sha256": "4116b238508cdfc37a6c20269350237e347c103b8e8839eb42ed074277af924f"
+        }
+      ],
+      "stages": [
+        {
+          "id": "website-2026-10-27T09-59-34-485Z",
+          "exitCode": 3,
+          "requests": 35,
+          "questions": 2,
+          "completion": "incomplete",
+          "reasonCode": "TASK_DELIVERY_INCOMPLETE",
+          "sourceCommitRecorded": null,
+          "resultSha256": "33aee92e382493feb12851454ff2cc34ca81dab2783a8c4713cb92d56e60d423",
+          "runSha256": "065ad2a109de4636f796240638b883ec830607b74cdcfb199f2ddf61fa493f35"
+        },
+        {
+          "id": "website-2026-10-27T10-11-39-448Z",
+          "exitCode": 2,
+          "requests": 46,
+          "questions": 6,
+          "completion": "cancelled",
+          "reasonCode": "TASK_CANCELLED",
+          "sourceCommitRecorded": null,
+          "resultSha256": "e231a7cc8cf94dbce8798b78888f2e85fdb4184bef38b6c62e7ac004bedf817c",
+          "runSha256": "ec572259752cef163a6b1dd7691253a68f2c5bdf549661f0278018d2db834dba"
+        },
+        {
+          "id": "website-accepted-2026-10-27T10-58-16-545Z",
+          "exitCode": 0,
+          "requests": 39,
+          "questions": 0,
+          "completion": "completed",
+          "reasonCode": null,
+          "sourceCommitRecorded": "4e09bbef24ade6ce87bbf86daf47e4773096c9ab",
+          "resultSha256": "3cf78a441f3762ff2867a159c8bcc8d5c96b2819e4aaf3a2c624873e6cef16cc",
+          "runSha256": "235ceda0a8156cd3bb4095890d2bfdc2fc1f8b4c8f9eec8404cabee48c6ad10d"
+        },
+        {
+          "id": "website-closeout-2026-10-27T10-29-42-362Z",
+          "exitCode": 3,
+          "requests": 21,
+          "questions": 0,
+          "completion": "incomplete",
+          "reasonCode": "TASK_DELIVERY_INCOMPLETE",
+          "sourceCommitRecorded": "164a3ac4974da48714ed5099631d08e540eddd87",
+          "resultSha256": "fd442a0c072ccf7cb0e554b69de45f1f71d8d444ae2a64d4f882655c256b9537",
+          "runSha256": "a673f291d9f30c41ba15c15976885a13efa2b2257f707c5faecfbd109dcb0caf"
+        },
+        {
+          "id": "website-delivered-2026-10-27T10-47-43-211Z",
+          "exitCode": 3,
+          "requests": 18,
+          "questions": 0,
+          "completion": "incomplete",
+          "reasonCode": "TASK_DELIVERY_INCOMPLETE",
+          "sourceCommitRecorded": "4e09bbef24ade6ce87bbf86daf47e4773096c9ab",
+          "resultSha256": "e5acd8fe99b4e7f26f4b762e463a16839aa2a245245abfd11a95088fcfdc8264",
+          "runSha256": "d6f89d4e213ad09c0a644a88914d978da7014a1c5e9f8c18b8842726004ea219"
+        },
+        {
+          "id": "website-final-2026-10-27T10-38-07-660Z",
+          "exitCode": 2,
+          "requests": 31,
+          "questions": 0,
+          "completion": "cancelled",
+          "reasonCode": "TASK_CANCELLED",
+          "sourceCommitRecorded": "4e09bbef24ade6ce87bbf86daf47e4773096c9ab",
+          "resultSha256": "c93ac47c31d81f6769c5443db75bf4134aecd95e32512b98fb6336c6c6938174",
+          "runSha256": "0000458e10becb3d13987d44defb1d5c8f35b24fdd1e2c60e6f7d0a7076741c2"
+        },
+        {
+          "id": "website-repair-2026-10-27T10-24-24-264Z",
+          "exitCode": 2,
+          "requests": 36,
+          "questions": 0,
+          "completion": "cancelled",
+          "reasonCode": "TASK_CANCELLED",
+          "sourceCommitRecorded": "eb7f5ec136ae1e808605a024c47b2f0aa94e1899",
+          "resultSha256": "a245056588d96c82dc8be4fa36e16fa72d9e12a37d87a12fac21b651c59178df",
+          "runSha256": "6ff07c6a6f3a6e4dce164d0171eab9a3387c4a516c6af9cbbca15995c6552d3f"
+        }
+      ],
+      "browserChecks": {
+        "by": "Independent Codex browser observation, not the Koder model",
+        "searchEmptyAndReset": "PASS",
+        "borrowSavedAfterReload": "PASS after observed failure and model repair",
+        "eventSavedAfterReload": "PASS",
+        "deleteOwnedTestRecordAndRestoreFocus": "PASS",
+        "finalDesktopAppearance": "OBSERVED",
+        "mobileViewports": "NOT_RUN",
+        "proofSha256": {
+          "initial-observation.json": "a6b87fc63c6e58ed31bf80d664aacb82d5e856795fb261117570a3611ca3bf3c",
+          "search-empty.txt": "c216a547db914f43f290ccb7ee5c93ea478d3f46fd4efa61b51c56451051e44e",
+          "borrow-reloaded.txt": "67ae031ac98c85302a68ae5124ccd9ccd7ee8a7fd1446eb8f245c5fc0e8af9f3",
+          "event-reloaded.txt": "5daf5ebf3108f641ab12ff75e4de65665d12ad9c5a356441342a607ec76673ab",
+          "event-deleted.txt": "67fb6d31f8cfd493cf9db1c9bc648634f01a4958cf4da1966bc052344c26a483",
+          "home-accepted.png": "abfda679e3aa9bdc9a9612fe9569364e9ab68c88d9ff5b7b63a3b7eeac666b91"
+        }
+      },
+      "finalRepairUsage": {
+        "requests": 39,
+        "responsesWithUsage": 39,
+        "promptTokens": 3348921,
+        "completionTokens": 41273,
+        "monetaryCost": "UNKNOWN; provider invoice not read"
+      },
+      "sourceRegressionForContinuation": "website-continuation-green.txt and completion-memory-green.txt retain their failed predecessors",
+      "productionDeployment": "NOT_RUN",
+      "realExternalAccounts": "NOT_RUN",
+      "priorFailuresRetained": true
+    },
+    "ubuntu": {
+      "sameFullRuntime": true,
+      "platforms": [
+        "24.04 x64",
+        "24.04 ARM64",
+        "24.10 x64",
+        "24.10 ARM64"
+      ],
+      "desktops": [
+        "X11",
+        "Wayland"
+      ],
+      "localContractTests": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      "actualLinuxMatrixAtPackaging": "NOT_RUN",
+      "workflow": ".github/workflows/ubuntu-compat.yml",
+      "laterReceipts": "See the exact GitHub Actions run and runtime.json/desktop.json artifacts. A later workflow result supplements, and does not rewrite, this packaging-time record.",
+      "physicalGNOMELoginReboot": "NOT_RUN",
+      "scope": "Native AT-SPI accessible controls, not pixel automation, canvas-only widgets or locked-screen operation. 24.10 is EOL; compatibility is not renewed OS support."
+    }
+  },
+  "notRun": [
+    "Windows 10/11 device installation, update, Windows-MCP GUI and Toast: beta device track.",
+    "Actual Ubuntu runtime/desktop matrix at packaging time: NOT_RUN. Separate later GitHub Actions artifacts record actual results.",
+    "Physical Ubuntu desktop appearance, every 24.04 point-release/kernel/GPU combination, systemd login/reboot and locked-screen operation.",
+    "Live 163 authentication, external SMTP service and recipient delivery; synthetic local TLS accounts only.",
+    "User-visible OS notifications and click-to-resume on all platforms.",
+    "Generated website production deployment, mobile viewport and full keyboard-only acceptance.",
+    "Unmodified short-prompt model-quality benchmarks."
+  ],
+  "hold": [
+    "macOS locked-use native component remains an unsigned candidate.",
+    "Website live evidence includes failed, cancelled and repaired rounds; no one-shot full-site quality claim.",
+    "A lost SMTP acknowledgement remains uncertain and is not automatically replayed.",
+    "Cancellation, original permission gates, workspace isolation and explicit cost budgets remain active; default tool steps remain unlimited."
+  ],
+  "priorFailuresRetained": true,
+  "websiteChanged": false,
+  "evidenceSha256": {
+    "source-058-final-4.receipt.json": "cac0f99c48f9f4b5e8b2586acc7ff45ec97ee5426e71413a8d0655630518f502",
+    "source-058-final-4.txt": "b3f721d5977dcc7e223379a3b76c822a70b0e95bc09ad46e575bda4d4cfbe1f1",
+    "package-check.json": "4f41eec181723b288e5c294541dd555c19868162c27e298c237a148fabf378ac",
+    "package-runtime-inventory.json": "85c00a6460773a5e27aebccc82af942599812d2b76b47635b86f268c6de0eafe",
+    "package-core-tests.json": "455a911ef523e6197f5e9cace677d340401c280e5ea8474935da0db9c9374ddb",
+    "package-core-tests.log": "f0025cef99aae220dfb580ffc734f7bcc2d197a2894dbbe76a2c108f9fa537a6",
+    "local-upgrade.json": "eb3828db84c20300bb28f9ba558487a8664dfeeec4965e2cedd10ca722f11d18",
+    "recovery-green-final.txt": "4d050a017d1e373014bb75c28467edec2c20a4bec548c6d3001896cdb0fce45a",
+    "visual-choice-final-green.txt": "65c0a9c3f86d66a20a03694d5ef42a13e13ffe9c299982f5164fc2b62127b3d5",
+    "todo-revision-green.txt": "461ad467a421c08372b60e4039c622118cfe1f19439f3feade89ea6941b1b1ba",
+    "mail-receipt-green.txt": "6a57cb968d6517eb0b09e0f60947e5c708c492b7b2250be758be7d0f7329c003",
+    "website-final-verified.json": "9ea89db66b4b7e2d4bbf9f678d72bb8d9537cb1d67cc80cfbaa69943f6ca9f76",
+    "long-task-verified.json": "5d9b39f1c9b87d3fa54ba722e5c8695ecad378faff3432c9923a3efdf0531274",
+    "mail-live-verified.json": "c0168faba1ec7630505de995d53a5b152aafb2683b41cc4cc3b415d4dead1004",
+    "website-continuation-red.txt": "aa1d1a10961e0d21b17f74fff26041b493f6f1c00d3f809cf7a86807f1e5d64f",
+    "website-continuation-green.txt": "9e314c15c0067e093713e81ad9fc6765341890dbca8873f830f5f68ebc93be11",
+    "completion-memory-red.txt": "e8f93426ca5aae8cfd3bca61cee620e530c2d0c483b6f463f76cfc940715fe26",
+    "completion-memory-green.txt": "4908e39fb6cfb71ff34d3ceabe39aec970b4ed1baac4c7e5c978f1199a6c9f28",
+    "ubuntu-adapter-final.txt": "e8f5e80f114cd40560658cc9d46a8f83cfb8495527dd0c1e3847cb3eef10a3d5",
+    "ubuntu-continuity-green.txt": "80f9044e23c08db7fde5f48e807fd55e34d6967da5d8fe966fa93995e6555d66",
+    "completion-retry-red.txt": "d6305a8ac2f268aa5d3fe2f95bfe888dc5bc3851ca728472838710cb8edc2c6c",
+    "completion-retry-green.txt": "56c389486061b7284589c99ce62fe2eb96dcae1f65ff2ac11b4172a9e7d7c967",
+    "website-button-final-check.txt": "89649eae4b1d905642b21609b6da014cc8981fccae2d7cc8b1dd68732c7f97c3",
+    "website/browser/home-accepted.png": "abfda679e3aa9bdc9a9612fe9569364e9ab68c88d9ff5b7b63a3b7eeac666b91"
+  }
+}

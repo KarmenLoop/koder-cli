@@ -1,3 +1,5 @@
+> 0.5.8 restores pending background mail reminders, reports uncertain sends as incomplete, and records terminal layout choices. [Release notes](docs/RELEASE-0.5.8.md) · [Mail guide](docs/MAIL-RECOVERY.en.md). [Ubuntu full-runtime guide](docs/UBUNTU.md).
+
 > 0.5.7 fixes mailbox ownership and send recovery, refreshes inbox reads, and corrects website delivery checks. [Release notes](docs/RELEASE-0.5.7.md) · [Mail guide](docs/MAIL-RECOVERY.en.md).
 
 > 0.5.6 improves task completion and website handoff: explicit incomplete results, bounded recovery, current file evidence and a real preview address. [Release notes](docs/RELEASE-0.5.6.md) · [Website workflow](docs/website-delivery.md).
@@ -16,9 +18,9 @@
 
 # Koder CLI
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.5.7**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.5.8**
 
-[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.7)
+[![Release](https://img.shields.io/github/v/release/KarmenLoop/koder-cli?filter=cli-*)](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.8)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
@@ -28,7 +30,7 @@
 
 Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
 
-Current release: **[0.5.7](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.7)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
+Current release: **[0.5.8](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.8)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
@@ -36,7 +38,7 @@ Current release: **[0.5.7](https://github.com/KarmenLoop/koder-cli/releases/tag/
 
 *0.5.3 startup output captured from an isolated macOS PTY and rendered from ANSI. Font rendering varies by terminal.*
 
-[Download 0.5.7](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.7) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.5.7.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
+[Download 0.5.8](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.8) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.5.8.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
 ---
 
@@ -61,7 +63,7 @@ It does **not** claim that local fixtures certify every PC, provider account, or
 |---|---|
 | **What you install** | Versioned CLI runtime via official Windows / macOS / Linux installers (Node **^22.21.0 or ≥24**, reused or downloaded and checksum-verified) |
 | **What you bring** | Your own model API key or a supported local model endpoint |
-| **Version** | **0.5.7** (`RELEASE.json`, release tag `cli-0.5.7`, stable channel) |
+| **Version** | **0.5.8** (`RELEASE.json`, release tag `cli-0.5.8`, stable channel) |
 | **License for this build** | **Koder-EULA-1.1** — proprietary end-user license for the current application runtime |
 | **Personal use** | Free for personal, noncommercial local use — **no membership, no invite code** |
 | **Commercial / org** | Separate prior written authorization (`koder business` / [commercial licensing](docs/COMMERCIAL-LICENSING.md)) |
@@ -207,7 +209,7 @@ The matching screenshot lives in [walkthrough step 1](#1-install-and-accept-the-
 ### Windows PowerShell
 
 ```powershell
-$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.7/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
+$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.8/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
 ```
 
 ### Windows Command Prompt (CMD)
@@ -215,7 +217,7 @@ $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.Serv
 Paste the complete line at a **CMD** prompt (not into PowerShell):
 
 ```bat
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.7/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.8/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
 ```
 
 ### macOS / Linux / WSL
@@ -231,7 +233,7 @@ koder --version
 koder setup
 ```
 
-`koder --version` should report **0.5.7**. Full platform notes: [Installation](docs/INSTALLATION.md).
+`koder --version` should report **0.5.8**. Full platform notes: [Installation](docs/INSTALLATION.md).
 
 ---
 
@@ -275,7 +277,7 @@ koder --version
 koder
 ```
 
-Expect **0.5.7**. Bare `koder` opens interactive chat. Prefer a short coach first?
+Expect **0.5.8**. Bare `koder` opens interactive chat. Prefer a short coach first?
 
 ```text
 koder learn
@@ -389,7 +391,7 @@ Use `koder review` when you want findings after apply, before a larger follow-up
 
 *Step 6 — review / fix loop after apply.*
 
-**First success** means: version reports 0.5.7, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
+**First success** means: version reports 0.5.8, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
 
 Day-to-day chat: type `/` on an empty prompt for editable choices (Tab fills, Esc closes, Enter sends only after fill). `/setup` opens settings, `/model` manages models, `/new` starts a topic, `/exit` leaves. `/menu` opens settings; Escape leaves.
 
@@ -539,13 +541,13 @@ koder update auto on
 | Troubleshooting | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Stalled install, gray providers, common failures |
 | Distribution & legacy GPL tree | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | Proprietary runtime vs historical public tree |
 | Printable course texts | [docs/tutorials/](docs/tutorials/) | 1,800 Chinese / 30 English lessons across PowerShell, CMD, macOS and Linux editions |
-| This release | [RELEASE-0.5.7.md](docs/RELEASE-0.5.7.md) | What changed and what remains NOT_RUN |
+| This release | [RELEASE-0.5.8.md](docs/RELEASE-0.5.8.md) | What changed and what remains NOT_RUN |
 
 ---
 
 ## Validation honesty
 
-Release evidence distinguishes **source / fixture checks**, **installed protocol fixtures**, **hosted native Windows**, **real provider accounts**, and **user devices**. Local no-key regressions exercise CLI behavior with scripted providers; they do **not** certify PowerShell 5.1 cold install, ConPTY/IME, Windows-MCP GUI operation, mailbox delivery, or model quality. Those items remain **NOT_RUN** where the [0.5.7 notes](docs/RELEASE-0.5.7.md) and [Windows install checks](docs/WINDOWS-INSTALL-CHECKS.md) say so.
+Release evidence distinguishes **source / fixture checks**, **installed protocol fixtures**, **hosted native Windows**, **real provider accounts**, and **user devices**. Local no-key regressions exercise CLI behavior with scripted providers; they do **not** certify PowerShell 5.1 cold install, ConPTY/IME, Windows-MCP GUI operation, mailbox delivery, or model quality. Those items remain **NOT_RUN** where the [0.5.8 notes](docs/RELEASE-0.5.8.md) and [Windows install checks](docs/WINDOWS-INSTALL-CHECKS.md) say so.
 
 Ready-to-use packages, installers, and checksums ship as **release assets**. New tags may add distribution documentation without publishing proprietary runtime source to this public tree.
 
@@ -562,8 +564,8 @@ Yours. Configure a provider in setup. Koder does not replace your provider’s b
 **Will it change my files without asking?**  
 Recognized low-risk local checks and ordinary project edits may run under smart approval. Sensitive or unknown effects—including deletion, secret paths, and shell side effects—ask first. Review diffs and targets before approving.
 
-**Is the public GitHub source the 0.5.7 runtime?**
-No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.5.7** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
+**Is the public GitHub source the 0.5.8 runtime?**
+No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.5.8** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
 
 **Can my company deploy it?**  
 Contact [info@karmenloop.com](mailto:info@karmenloop.com) or run `koder business`. Stars, downloads, and inquiry emails alone are not commercial authorization.
@@ -591,7 +593,7 @@ If Koder is useful, an optional [GitHub star](https://github.com/KarmenLoop/kode
 
 ## Detailed learning paths
 
-Classroom edition **2026.10.26.1** adds 1,800 downloadable practice workbooks, twelve domain guides, and an offline exercise helper. Start with the [hands-on guide](docs/courses/PRACTICE-GUIDE.zh.html) or [download the complete classroom](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.7/koder-academy-0.5.7.zip). This course revision is separate from CLI 0.5.7.
+Classroom edition **2026.10.26.1** adds 1,800 downloadable practice workbooks, twelve domain guides, and an offline exercise helper. Start with the [hands-on guide](docs/courses/PRACTICE-GUIDE.zh.html) or [download the complete classroom](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.8/koder-academy-0.5.8.zip). This course revision is separate from CLI 0.5.8.
 
 The [1,800-lesson Chinese classroom](docs/courses/index.zh.html) is organized into 120 units, with explanations, examples, exercises, quizzes, troubleshooting and developer guidance. Notes and progress stay in the browser and can be exported. The [original 30 English lessons](docs/courses/README.en.md) and existing practice project remain available. The classroom has shipped since 0.4.12; update the installed CLI to use the added lessons. See the [course guide](docs/courses/ACADEMY-GUIDE.zh.md) for the two learning tracks and local classroom controls.
 

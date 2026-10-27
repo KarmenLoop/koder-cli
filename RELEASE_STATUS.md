@@ -1,19 +1,21 @@
-# Koder CLI 0.5.7
+# Koder CLI 0.5.8
 
-Mail operations now share the correct owner within a session. Background checks yield to an in-flight operation instead of repeatedly reporting storage contention; closing one daemon session no longer closes another session's mailbox. A configured but stopped monitor can be started again with `koder mail monitor on` after its existing authorization prompt.
+Pending mail inquiry notifications can recover after a monitor restart, temporary notification unavailability or a daily notification limit. The existing notification ledger controls retries and deduplication. Previously handled inquiries no longer hide newer ones, and recovery does not spend a second mailbox inquiry allowance.
 
-Binding checks read-only inbox access, not just login. Incoming-mail tool calls refresh the inbox by default. Outgoing messages include a Date header, and a definite SMTP rejection permits a new explicitly approved attempt. A lost acknowledgement after message submission stays uncertain and cannot be resent automatically. SMTP acceptance is not proof of recipient delivery.
+A send with a lost SMTP acknowledgement now carries its uncertain effect receipt through the Agent tool layer. The task is incomplete and exits with code 3; it cannot report a verified send or replay the message automatically. Definite SMTP acceptance remains distinct from recipient delivery. Native tool failures retain their diagnostic code.
 
-Website structure checks exclude generated layout review pages, while keeping checks on real source files. Explicitly retaining a confirmed layout no longer requires a fresh layout choice. Negative task instructions such as “do not send email” no longer select the office profile and hide coding tools. Todo assignment errors now explain the valid current-agent and subagent identifiers.
+Website layout choices made through an actual terminal question can now be recorded by `project_visuals select`. The answer must belong to the current task, follow the current layout review, and identify one of its complete option names. Earlier, conflicting, combined or negative answers cannot authorize a choice. Browser review and explicitly delegated choices retain their existing behavior. Selection never authorizes deployment.
+
+Preview status, open and stop are scoped to the current process. When another process owns the preview, the CLI reports `not-owned` and an unknown external state instead of claiming that the site stopped. Todo revision conflicts explain which revision is current and how to reread it before retrying, without overwriting newer edits.
 
 ## Install or update
 
-Use the Windows PowerShell/CMD or macOS shell installer attached to this release. Existing installations can run `koder update`, then `koder --version`; the result should be `0.5.7`. See [the installation guide](docs/INSTALLATION.md) and [mail setup and troubleshooting](docs/MAIL-RECOVERY.en.md).
+Use the Windows PowerShell/CMD or macOS shell installer attached to this release. Existing installations can run `koder update`, then `koder --version`; the expected version is `0.5.8`. See [installation](docs/INSTALLATION.md), [mail setup and recovery](docs/MAIL-RECOVERY.en.md), [website delivery](docs/website-delivery.md), and [task result codes](docs/task-results.md).
 
 ## Evidence and limits
 
-Regression and packaged-runtime results are recorded in the release attachment `ACCEPTANCE-RESULTS.json`. Real MiniMax-M3 calls exercised a multi-step receipt audit, a website workflow and native mail tools. Long-task and website evidence includes resumed rounds, with earlier failures and test-driver limits retained. Website validation separates file/HTTP checks, browser interactions and model completion status. Requirement questions used declared scripted test-user answers; they are not human design approval or an unchanged short-prompt benchmark. Mail protocol tests use synthetic accounts and local TLS servers, including rejection, cancellation and lost-acknowledgement cases. They do not establish delivery through a live 163 account.
+`ACCEPTANCE-RESULTS.json` binds source regression, packaged-runtime checks, an isolated macOS upgrade and actual MiniMax-M3 task results to this runtime archive. The long-task exercise completed 33 model requests and independently checked the generated audit. Mail runs used native inbox/read/send tools with synthetic local TLS accounts, including a lost-acknowledgement case with exactly one received message. Website evidence records the automatic design workflow, scripted test-user answers, saved source, layout selection and preview checks. Earlier failures remain in the evidence; these exercises are not blind model-quality scores.
 
-Windows 10/11 installation, GUI/MCP operation and visible system notifications remain on the beta device track. Live external mailbox delivery and signed macOS locked-screen operation are not verified. The website is unchanged; this publication updates GitHub only.
+Windows 10/11 installation, GUI/MCP operation and visible notifications are assigned to the beta device track. Live 163 authentication and recipient delivery, Linux/macOS notification display, and signed macOS locked-screen operation are not established by these local checks. Notification submission is not proof that a user saw it. The production website is unchanged; this publication updates GitHub only.
 
-Existing BYOK routing, permissions, cancellation, cost budgets, session isolation and unknown-effect protection remain in force. Tool steps remain unlimited by default.
+Existing provider/BYOK routing, skills, permissions, cancellation, explicit cost budgets, workspace isolation and unknown-effect protection remain in force. Tool steps remain unlimited by default.
