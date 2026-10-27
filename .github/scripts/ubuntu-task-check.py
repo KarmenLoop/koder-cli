@@ -25,6 +25,9 @@ runtime = payload / 'koder-cli'
 scope = subprocess.run(['node', '--test', '.github/scripts/ubuntu-file-scope.test.mjs'], env={**os.environ, 'KODER_TEST_RUNTIME': str(runtime)}, capture_output=True, text=True, timeout=30)
 (out / 'file-scope.tap').write_text(scope.stdout + scope.stderr)
 assert scope.returncode == 0, scope.stdout + scope.stderr
+learning = subprocess.run(['node', '--test', '.github/scripts/windows-vm/learning-store-batching.test.mjs'], env={**os.environ, 'KODER_ACCEPTANCE_PACKAGE': str(runtime)}, capture_output=True, text=True, timeout=30)
+(out / 'learning-store.tap').write_text(learning.stdout + learning.stderr)
+assert learning.returncode == 0, learning.stdout + learning.stderr
 requests = []
 rows = []
 
