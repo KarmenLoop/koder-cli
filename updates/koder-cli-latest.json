@@ -1,22 +1,22 @@
 {
-  "version": "0.5.10",
+  "version": "0.5.11",
   "packages": {
     "darwin": {
-      "file": "koder-cli-0.5.10-darwin.tgz",
-      "sha256": "92098c1e4efce501b93f73a5afe342eae2a4fff1565bbc1cf2c44547a4c8ee4b",
-      "size": 227990229
+      "file": "koder-cli-0.5.11-darwin.tgz",
+      "sha256": "bace3c9b1883cd5f7f4d44f2843c1befcb5d8e96cac6bca933d42b3f7e89e604",
+      "size": 228006317
     },
     "linux": {
-      "file": "koder-cli-0.5.10-linux.tgz",
-      "sha256": "c4d02260a97c29dabb492966135ec5e7b50bc916e656a5ccf98ac9d90513f4ad",
-      "size": 150186300
+      "file": "koder-cli-0.5.11-linux.tgz",
+      "sha256": "768b0d194680ce8e7b3d0279d6de1bdcc2eaafa605b621cbc1ba72c8202d7e43",
+      "size": 150199632
     }
   },
-  "file": "koder-cli-0.5.10.tgz",
-  "sha256": "24945ac4f9a60d61e4d82d1e59a8de4464be8279aa529c6f29064bf8eae103b5",
-  "size": 484327789,
+  "file": "koder-cli-0.5.11.tgz",
+  "sha256": "5f2f9a0d2ab99b81f6fab6b7dcfa907ca21372407b71ec8e3bc0823b7ace8d62",
+  "size": 484352676,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-27T15:05:33.343Z",
+  "builtAt": "2026-10-27T16:54:13.502Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -26,19 +26,19 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "46189051d4180938a11abcd27d46c61660534e6182fcc81bc73f80ed628cc28c"
+      "sha256": "74f4402f93b06a18f950f0c6f7751c93f29103c23657fd21e9d3556c456411fd"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "e9a7b9fe2545d9e14056be4cf8e05265fe616ed45c1015eb963e2b87e95e0c8e"
+      "sha256": "77a401f8118749acdce880a128dda0e1fbdaa9c0b388061abdb5291db070c8e9"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "7624fc49c4f6ed5a8e874ddf8b0d4751622cbcf08447aaaed08618f1169eac9e"
+      "sha256": "bc50737c058ebcddd622e28abaf8605bedc693a0976349ac615dc9775d9ddf6b"
     },
     "ubuntu": {
       "file": "koder-ubuntu-24.04.sh",
-      "sha256": "aa1d9941b6c51865155206e77bb8ce7fddac9ceeb8e3d30fcdb5004447688e6f"
+      "sha256": "e5947d98167b8cf6195683f481a1448e466ab29c7937cc81e9b1714ba81d3421"
     }
   }
 }

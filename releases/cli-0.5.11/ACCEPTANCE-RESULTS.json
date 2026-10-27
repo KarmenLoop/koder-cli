@@ -1,0 +1,358 @@
+{
+  "version": "0.5.11",
+  "privateSourceCommit": "0ef00c03078d29bc74b9913c4427c9bab8b8b57d",
+  "runtime": {
+    "file": "koder-cli-0.5.11.tgz",
+    "size": 484352676,
+    "sha256": "5f2f9a0d2ab99b81f6fab6b7dcfa907ca21372407b71ec8e3bc0823b7ace8d62"
+  },
+  "platformArchives": {
+    "darwin": {
+      "file": "koder-cli-0.5.11-darwin.tgz",
+      "sha256": "bace3c9b1883cd5f7f4d44f2843c1befcb5d8e96cac6bca933d42b3f7e89e604",
+      "size": 228006317
+    },
+    "linux": {
+      "file": "koder-cli-0.5.11-linux.tgz",
+      "sha256": "768b0d194680ce8e7b3d0279d6de1bdcc2eaafa605b621cbc1ba72c8202d7e43",
+      "size": 150199632
+    }
+  },
+  "candidateWindows": {
+    "passed": true,
+    "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40546012616",
+    "runId": 40546012616,
+    "platform": "Windows Server 2025 x64 disposable GitHub VM",
+    "counts": {
+      "tests": 54,
+      "pass": 54,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "groups": [
+      {
+        "group": "native-notification.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 5.52,
+        "log": "native-notification.test.tap",
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "2ca9c2f6fe45ed7c729d7a276084c4b1737887a19b054a1f6d9a8046c9b8e425"
+      },
+      {
+        "group": "task-step-budget.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 13.95,
+        "log": "task-step-budget.test.tap",
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "5198dd969557c1ebfa4176b308e19261b500fc78568c9f83be6cfe181474838e"
+      },
+      {
+        "group": "multi-window-session.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 31.72,
+        "log": "multi-window-session.test.tap",
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "dadd3d8a4698eda22fb4a0a7f359d585c5fefbdc90c4861644f3f9d76cbb8ad6"
+      },
+      {
+        "group": "mail-runtime-lifecycle.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 11.81,
+        "log": "mail-runtime-lifecycle.test.tap",
+        "tests": 18,
+        "pass": 18,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "d49c9c23bb454e4897d8da057c597b5054d5f16dfff59fc6372e2398f1072f22"
+      },
+      {
+        "group": "mail-background-recovery.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 1.16,
+        "log": "mail-background-recovery.test.tap",
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "10fe72b3edb0cc061d83d36245e9da84fb7b01718068976201799c988e773935"
+      },
+      {
+        "group": "mail-inbox-refresh.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 0.17,
+        "log": "mail-inbox-refresh.test.tap",
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "4a0ad04997749766b5dbbbdf4ba6b14cddf9c395ab0637fe3c317143ff44e2da"
+      },
+      {
+        "group": "fixtures/mail-recovery-tls.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 1.28,
+        "log": "fixtures-mail-recovery-tls.tap",
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "4966ded001f240945d76baff8786a07e5d6261b4ad455d803a3e1eda42f5f2a5"
+      },
+      {
+        "group": "native-mcp.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 9.22,
+        "log": "native-mcp.test.tap",
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "7be154e70728d4a6f2decf28bba43e79139b09d0ae81649888881ff38ecacb8c"
+      },
+      {
+        "group": "native-shell.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 19.28,
+        "log": "native-shell.test.tap",
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "fe97580335d026a8f76f9a1e820ee54dd44469fc591354e321f63927b18343c8"
+      },
+      {
+        "group": "native-gui.test.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "durationSeconds": 41.91,
+        "log": "native-gui.test.tap",
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "logSha256": "cc90bffb3fbb0a2e5f0b14d9a5eb773ab2bd0b9212e44b7e37ff27fd021afaf3"
+      }
+    ],
+    "concurrentSessions": {
+      "acceptanceLimitMs": 30000,
+      "durationMs": 10471.9116,
+      "originalLimitUnchanged": true
+    },
+    "nativeGui": {
+      "savedFileVerified": true,
+      "scope": "Owned visible WinForms input and save button through packaged Koder MCP"
+    },
+    "notification": {
+      "before": {
+        "state": "available",
+        "reason": "NOTIFICATION_FIRST_USE",
+        "displayVerified": false,
+        "clickSupported": false
+      },
+      "first": {
+        "state": "submitted",
+        "reason": "NOTIFICATION_SUBMITTED",
+        "displayVerified": false,
+        "clickSupported": false
+      },
+      "after": {
+        "state": "available",
+        "reason": "NOTIFICATION_AVAILABLE",
+        "displayVerified": false,
+        "clickSupported": false
+      },
+      "disabled": {
+        "state": "denied",
+        "reason": "NOTIFICATION_SETTINGS_DISABLED",
+        "displayVerified": false,
+        "clickSupported": false
+      },
+      "denied": {
+        "state": "denied",
+        "reason": "NOTIFICATION_SETTINGS_DISABLED",
+        "displayVerified": false,
+        "clickSupported": false
+      },
+      "preferenceRestored": true
+    }
+  },
+  "baselineWindows": {
+    "version": "0.5.10",
+    "installerRun": "https://github.com/KarmenLoop/koder-cli/actions/runs/40538524104",
+    "installerChecksPassed": 10,
+    "runtimeRun": "https://github.com/KarmenLoop/koder-cli/actions/runs/40539772681",
+    "tests": 51,
+    "pass": 50,
+    "timeout": 1,
+    "concurrentSessionFailure": "Original 30-second limit exceeded; a separate diagnostic took 38276.1295 ms.",
+    "guiRun": "https://github.com/KarmenLoop/koder-cli/actions/runs/40543516602"
+  },
+  "localSourceNotificationRegression": {
+    "tests": 76,
+    "pass": 76,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "macOSPackagedRegression": {
+    "tests": 114,
+    "pass": 114,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "macOSPackage": {
+    "passed": true,
+    "runtimeSha256": "bace3c9b1883cd5f7f4d44f2843c1befcb5d8e96cac6bca933d42b3f7e89e604",
+    "kernelFilesVerified": 6329,
+    "runtimeFiles": 21746,
+    "cliCommands": 61,
+    "siblingSourcePresent": false
+  },
+  "macOSUpgrade": {
+    "passed": true,
+    "from": "0.5.8",
+    "to": "0.5.11",
+    "scope": "Actual macOS installer and updater, disposable HOME, existing Node, no global PATH change",
+    "userSettingsSentinelPreserved": true,
+    "installStateSentinelPreserved": true,
+    "priorVersionRetained": true,
+    "learningOptOutPreserved": true,
+    "privateLearningSentinelPreserved": true,
+    "installedRuntimeMatchesCheckedPackage": true,
+    "commands": 26
+  },
+  "archivePreservation": {
+    "version": "0.5.11",
+    "baselineBytes": 519985103,
+    "full": {
+      "file": "koder-cli-0.5.11.tgz",
+      "bytes": 484352676,
+      "sha256": "5f2f9a0d2ab99b81f6fab6b7dcfa907ca21372407b71ec8e3bc0823b7ace8d62",
+      "files": 28310
+    },
+    "platforms": {
+      "darwin": {
+        "file": "koder-cli-0.5.11-darwin.tgz",
+        "bytes": 228006317,
+        "sha256": "bace3c9b1883cd5f7f4d44f2843c1befcb5d8e96cac6bca933d42b3f7e89e604",
+        "reductionPercent": 56.15,
+        "files": 21746,
+        "excludedPrefixes": [
+          "vendor/windows-mcp/win32-x64/",
+          "vendor/solidcraft/win32-x64/",
+          "docs/tutorials/"
+        ],
+        "onlyDeclaredExclusions": true,
+        "allRetainedFilesEqualFullArchive": true,
+        "unchangedSkillAndMethodFiles": 5792,
+        "growthResourcesUnchanged": 61,
+        "selectedOcrModelsUnchanged": true,
+        "currentClassroomRetained": true
+      },
+      "linux": {
+        "file": "koder-cli-0.5.11-linux.tgz",
+        "bytes": 150199632,
+        "sha256": "768b0d194680ce8e7b3d0279d6de1bdcc2eaafa605b621cbc1ba72c8202d7e43",
+        "reductionPercent": 71.11,
+        "files": 21742,
+        "excludedPrefixes": [
+          "vendor/windows-mcp/win32-x64/",
+          "vendor/solidcraft/win32-x64/",
+          "docs/tutorials/",
+          "vendor/solidcraft/darwin-universal/"
+        ],
+        "onlyDeclaredExclusions": true,
+        "allRetainedFilesEqualFullArchive": true,
+        "unchangedSkillAndMethodFiles": 5792,
+        "growthResourcesUnchanged": 61,
+        "selectedOcrModelsUnchanged": true,
+        "currentClassroomRetained": true
+      }
+    },
+    "priorFullArchive": {
+      "version": "0.5.10",
+      "sha256": "24945ac4f9a60d61e4d82d1e59a8de4464be8279aa529c6f29064bf8eae103b5",
+      "filesRemoved": 0,
+      "modifiedPaths": [
+        "RELEASE_STATUS.md",
+        "CHANGELOG.md",
+        "README.md",
+        "package.json",
+        "README.zh-CN.md",
+        "DISTRIBUTION.md",
+        "src/version.mjs",
+        "src/agentd/notifications.mjs",
+        "src/notify/focus.mjs",
+        "src/notify/dispatch.mjs",
+        "kernel/MANIFEST.json",
+        "docs/DOWNLOADS.zh.md",
+        "docs/UBUNTU.md",
+        "docs/DOWNLOADS.md"
+      ],
+      "addedPaths": [
+        "docs/RELEASE-0.5.11.md",
+        "docs/RELEASE-0.5.11.zh.md"
+      ],
+      "allOtherFileHashesUnchanged": true
+    }
+  },
+  "notRun": [
+    "Physical Windows 10/11 beta acceptance",
+    "Real 163/Gmail mailbox sending, inbox monitoring and delivery",
+    "Visible notification banner and click verification",
+    "Paid-model website and long-task end-to-end checks on this exact build",
+    "Signed macOS locked-screen distribution",
+    "Exact 0.5.11 Ubuntu desktop VM matrix"
+  ],
+  "retainedFailures": [
+    {
+      "runId": 40539772681,
+      "kind": "product",
+      "reason": "Multi-window session test exceeded 30 seconds on 0.5.10."
+    },
+    {
+      "runId": 40543002659,
+      "kind": "fixture",
+      "reason": "Owned form was started hidden; verified effect correctly failed. Corrected visibility in follow-up."
+    },
+    {
+      "runId": 40539266676,
+      "kind": "fixture",
+      "reason": "Case-sensitive plain environment dictionary lookup for SystemRoot failed before product checks."
+    }
+  ],
+  "hold": [
+    "Prior learning first-model 1000ms startup benchmark remains a separate performance follow-up."
+  ],
+  "websiteChanged": false
+}

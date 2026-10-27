@@ -1,3 +1,11 @@
+# Koder CLI 0.5.11
+
+This release includes a fix for avoidable Windows task-completion delays. The dedicated Windows VM workflow preserves failures and tests the exact package. Native mail fixtures are not a real provider account; accepted Toast submissions are not proof that the user saw a notification. Physical Windows 10/11 validation remains with beta specialists. No website deployment is included.
+
+See [release notes](docs/RELEASE-0.5.11.md) and the release acceptance attachment for exact results.
+
+## Historical release records
+
 # 0.5.10 download reliability release
 
 GitHub publication is authorized after the owned checks. Physical Windows acceptance remains with beta specialists. Website changes are excluded. This release supersedes the unpublished 0.5.9 draft; its failure and performance records remain retained.

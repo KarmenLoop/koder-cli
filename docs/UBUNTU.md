@@ -32,7 +32,7 @@ koder setup
 
 Only the distribution dependency installation uses `sudo`. Run the Koder installer and CLI as your ordinary user. Enter a sudo password only in your local terminal, never in a chat. If the download fails, resolve the network or certificate error before running the temporary file. If `wget` is already installed, `wget -O /tmp/koder-install.sh https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh` is an alternative; the installer itself supports either downloader. The release `.tgz` is the runtime archive, not a double-click installer.
 
-Download `koder-cli.sh` from the [0.5.10 release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.10), review it, then run:
+Download `koder-cli.sh` from the [0.5.10 release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.11), review it, then run:
 
 ```bash
 bash koder-cli.sh

@@ -1,3 +1,7 @@
+## 0.5.11 Windows runtime fixes
+
+Windows, macOS and Ubuntu 24.04 retain complete platform-appropriate runtime packages. The public repository contains installers, documentation and acceptance probes; private kernel source remains excluded. Runtime archives remain subject to their existing licenses. See [release notes](docs/RELEASE-0.5.11.md).
+
 ## 0.5.10 platform downloads
 
 The manifest retains its complete archive fields for old clients and adds hash-pinned macOS/Linux packages. Installers choose automatically. All supported runtime features and current course content remain; foreign binaries and historical tutorial exports are available in the complete offline archive. See [download recovery](docs/DOWNLOADS.md).

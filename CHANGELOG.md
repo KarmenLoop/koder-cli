@@ -1,3 +1,10 @@
+# 0.5.11
+
+- Allow the first native Windows notification when its settings entry has not been initialized. Read explicit user and policy switches without changing them; preserve denied and uncertain receipts.
+- Avoid launching focus subprocesses when the notification decision does not depend on focus, while draining a quiet-hours backlog, or without an attached terminal.
+- Add isolated Windows Server VM checks for installers, session isolation, long tasks, mail fixtures, and the bundled MCP transport.
+- Preserve the original 30-second multi-window gate and failed-run evidence.
+
 ## 0.5.10
 
 - Select smaller platform archives on macOS and Linux without removing supported runtime capabilities.
