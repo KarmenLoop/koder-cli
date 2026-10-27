@@ -1,0 +1,401 @@
+{
+  "version": "0.5.10",
+  "observedAt": "2026-10-27T15:59:33.144304+00:00",
+  "publishedAt": "2026-10-27T15:49:25Z",
+  "publicBuildCommit": "031eaffb849b8bd4a3f7318eca444278708a2d96",
+  "privateSourceCommit": "649295ab75993291bf86e341e31bb9dff66c6d03",
+  "publicChannel": {
+    "verifiedAt": "2026-10-27T15:50:28.861453+00:00",
+    "passed": true,
+    "anonymousHttp": true,
+    "checks": [
+      {
+        "name": "main-channel",
+        "url": "https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/updates/koder-cli-latest.json",
+        "exitCode": 0,
+        "sha256": "0dfc77270491a23a6580b96195b075898e3f77b56cbfdb26efaee3c09990f93a",
+        "matches": true
+      },
+      {
+        "name": "main-posix-installer",
+        "url": "https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh",
+        "exitCode": 0,
+        "sha256": "46189051d4180938a11abcd27d46c61660534e6182fcc81bc73f80ed628cc28c",
+        "matches": true
+      },
+      {
+        "name": "ubuntu-installer",
+        "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.10/koder-ubuntu-24.04.sh",
+        "exitCode": 0,
+        "sha256": "aa1d9941b6c51865155206e77bb8ce7fddac9ceeb8e3d30fcdb5004447688e6f",
+        "matches": true
+      },
+      {
+        "name": "windows-installer",
+        "url": "https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.10/koder-cli.ps1",
+        "exitCode": 0,
+        "sha256": "e9a7b9fe2545d9e14056be4cf8e05265fe616ed45c1015eb963e2b87e95e0c8e",
+        "matches": true
+      }
+    ]
+  },
+  "publicMacUpgrade": {
+    "passed": true,
+    "sourceCommit": "649295ab75993291bf86e341e31bb9dff66c6d03",
+    "runtimeSha256": "92098c1e4efce501b93f73a5afe342eae2a4fff1565bbc1cf2c44547a4c8ee4b",
+    "from": "0.5.8",
+    "to": "0.5.10",
+    "userSettingsSentinelPreserved": true,
+    "installStateSentinelPreserved": true,
+    "priorVersionRetained": true,
+    "learningOptOutPreserved": true,
+    "privateLearningSentinelPreserved": true,
+    "sentinelSha256": "84b3e853b672df3418be126ed9c04412beccc6d11865792263aa876bccde3a61",
+    "installStateSentinelSha256": "d3ceeb697f50e242148141488b5592d01c2ba8f88746ca99fa48923fb55a5bb0",
+    "installedRuntimeFiles": 21744,
+    "installedRuntimeMatchesCheckedPackage": true,
+    "runtimeInventorySha256": "6e08242f4494a6f2b82a1dcbca965a32df36510d469464073f8fc18ebf19f63a",
+    "installedKernelHashes": 6329,
+    "installedKernelMatchesCheckedPackage": true,
+    "windowsAcceptance": "NOT_RUN",
+    "commands": 26
+  },
+  "ubuntu": {
+    "run": "https://github.com/KarmenLoop/koder-cli/actions/runs/40532529228",
+    "status": "in_progress",
+    "conclusion": "",
+    "matrix": [
+      {
+        "name": "ubuntu (ubuntu-24.04-arm, x11)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40532529228/job/122288924496",
+        "currentStep": [],
+        "runtime": {
+          "passed": true,
+          "runtimeSha256": "c4d02260a97c29dabb492966135ec5e7b50bc916e656a5ccf98ac9d90513f4ad",
+          "artifact": "koder-cli-0.5.10-linux.tgz",
+          "version": "0.5.10",
+          "runs": [
+            {
+              "name": "install",
+              "exitCode": 0,
+              "seconds": 6.348
+            },
+            {
+              "name": "version",
+              "exitCode": 0,
+              "seconds": 0.042
+            },
+            {
+              "name": "help",
+              "exitCode": 0,
+              "seconds": 0.157
+            },
+            {
+              "name": "reinstall",
+              "exitCode": 0,
+              "seconds": 4.45
+            },
+            {
+              "name": "memory-status",
+              "exitCode": 0,
+              "seconds": 0.21
+            },
+            {
+              "name": "notification-status",
+              "exitCode": 0,
+              "seconds": 0.095
+            },
+            {
+              "name": "agentd-status",
+              "exitCode": 0,
+              "seconds": 0.096
+            }
+          ],
+          "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+          "machine": "aarch64",
+          "sameFullRuntime": true,
+          "physicalLoginReboot": "NOT_RUN",
+          "liveProviderAccounts": "NOT_RUN"
+        },
+        "desktop": {
+          "platform": "linux",
+          "architecture": "arm64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "x11",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 16
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        },
+        "runtimeReceiptSha256": "3eb7c7710355751827729aae6cef793eb16c97c883bf1f56d7e8209bfb8b2f71",
+        "desktopReceiptSha256": "dd60bc1462d90d2088085413744b6375c9139994542e6c0d2066ab24e8800b47"
+      },
+      {
+        "name": "ubuntu (ubuntu-24.04, wayland)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40532529228/job/122288925096",
+        "currentStep": [],
+        "runtime": {
+          "passed": true,
+          "runtimeSha256": "c4d02260a97c29dabb492966135ec5e7b50bc916e656a5ccf98ac9d90513f4ad",
+          "artifact": "koder-cli-0.5.10-linux.tgz",
+          "version": "0.5.10",
+          "runs": [
+            {
+              "name": "install",
+              "exitCode": 0,
+              "seconds": 6.701
+            },
+            {
+              "name": "version",
+              "exitCode": 0,
+              "seconds": 0.036
+            },
+            {
+              "name": "help",
+              "exitCode": 0,
+              "seconds": 0.164
+            },
+            {
+              "name": "reinstall",
+              "exitCode": 0,
+              "seconds": 5.173
+            },
+            {
+              "name": "memory-status",
+              "exitCode": 0,
+              "seconds": 0.11
+            },
+            {
+              "name": "notification-status",
+              "exitCode": 0,
+              "seconds": 0.072
+            },
+            {
+              "name": "agentd-status",
+              "exitCode": 0,
+              "seconds": 0.07
+            }
+          ],
+          "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+          "machine": "x86_64",
+          "sameFullRuntime": true,
+          "physicalLoginReboot": "NOT_RUN",
+          "liveProviderAccounts": "NOT_RUN"
+        },
+        "desktop": {
+          "platform": "linux",
+          "architecture": "x64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "wayland",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 16
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        },
+        "runtimeReceiptSha256": "0791b46b9098d42a8c6f029046f357d6259cd2b29837bc94e6c17fe228fcc3a6",
+        "desktopReceiptSha256": "d986629ce46e6ed43be76884bee1df2c56d98a7ee0e33e8bea90973b003447dc"
+      },
+      {
+        "name": "ubuntu (ubuntu-24.04-arm, wayland)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40532529228/job/122288925117",
+        "currentStep": [],
+        "runtime": {
+          "passed": true,
+          "runtimeSha256": "c4d02260a97c29dabb492966135ec5e7b50bc916e656a5ccf98ac9d90513f4ad",
+          "artifact": "koder-cli-0.5.10-linux.tgz",
+          "version": "0.5.10",
+          "runs": [
+            {
+              "name": "install",
+              "exitCode": 0,
+              "seconds": 6.265
+            },
+            {
+              "name": "version",
+              "exitCode": 0,
+              "seconds": 0.04
+            },
+            {
+              "name": "help",
+              "exitCode": 0,
+              "seconds": 0.153
+            },
+            {
+              "name": "reinstall",
+              "exitCode": 0,
+              "seconds": 4.719
+            },
+            {
+              "name": "memory-status",
+              "exitCode": 0,
+              "seconds": 0.146
+            },
+            {
+              "name": "notification-status",
+              "exitCode": 0,
+              "seconds": 0.089
+            },
+            {
+              "name": "agentd-status",
+              "exitCode": 0,
+              "seconds": 0.088
+            }
+          ],
+          "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+          "machine": "aarch64",
+          "sameFullRuntime": true,
+          "physicalLoginReboot": "NOT_RUN",
+          "liveProviderAccounts": "NOT_RUN"
+        },
+        "desktop": {
+          "platform": "linux",
+          "architecture": "arm64",
+          "inspection": {
+            "platform": "linux",
+            "kind": "desktop",
+            "backend": "at-spi",
+            "session": "wayland",
+            "captureKind": "accessibility",
+            "screenshotAvailable": false,
+            "available": true,
+            "actions": [
+              "click",
+              "type",
+              "focus",
+              "select",
+              "scroll"
+            ],
+            "scope": "AT-SPI controls on the current user desktop; application support varies.",
+            "setup": "koder permissions request --capability desktop"
+          },
+          "scope": "Real AT-SPI with a synthetic GTK application and an injected grant. No real account, physical desktop or OS login/reboot acceptance.",
+          "desktop": {
+            "state": "PASS",
+            "typed": true,
+            "clicked": true,
+            "observedResult": true,
+            "passwordHidden": true,
+            "revocationChecked": true,
+            "staleNotReplayed": true,
+            "authorizations": 16
+          },
+          "notification": {
+            "state": "submitted",
+            "reason": "NOTIFICATION_SUBMITTED",
+            "displayVerified": false,
+            "clickSupported": false,
+            "headless": {
+              "state": "unavailable",
+              "reason": "NO_NOTIFICATION_SESSION",
+              "displayVerified": false,
+              "clickSupported": false
+            },
+            "physicalDisplay": "NOT_RUN"
+          },
+          "passed": true
+        },
+        "runtimeReceiptSha256": "beb8e002a0765ff69d8de607b6672e9ab3274e2208081cdd2abb5fc7357d389d",
+        "desktopReceiptSha256": "9a70db2af8ab667299c9d13b50ea167b23afe4eb8be1ee654a75bcdc0c0c4222"
+      },
+      {
+        "name": "ubuntu (ubuntu-24.04, x11)",
+        "status": "in_progress",
+        "conclusion": "",
+        "url": "https://github.com/KarmenLoop/koder-cli/actions/runs/40532529228/job/122288925293",
+        "currentStep": [
+          "Install dependencies in the disposable runner"
+        ],
+        "runtimeAcceptance": "NOT_RUN_OR_NOT_COLLECTED"
+      }
+    ]
+  },
+  "scope": "Post-publication checks supplement the immutable build-time acceptance receipt. CI desktop tests use synthetic GTK fixtures and injected grants, not physical user login or provider accounts.",
+  "notRun": [
+    "Physical Windows beta acceptance",
+    "Physical Ubuntu GNOME login/reboot",
+    "Visible notification display and clicks",
+    "Real mail-provider account send/receive for this exact archive"
+  ],
+  "websiteChanged": false,
+  "releaseArchivesChanged": false
+}
