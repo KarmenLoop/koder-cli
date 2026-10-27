@@ -2,7 +2,7 @@ name: Ubuntu 26.04.1 Desktop amd64 compatibility
 on:
   push:
     branches: [acceptance/learning-startup-0513]
-    paths: [".github/workflows/ubuntu-26.yml"]
+    paths: [".github/workflows/ubuntu-26.yml", ".github/scripts/ubuntu-desktop-check*", ".github/scripts/ubuntu-desktop-fixture*"]
   workflow_dispatch:
     inputs:
       release:

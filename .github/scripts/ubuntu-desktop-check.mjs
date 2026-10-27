@@ -19,7 +19,14 @@ try{
   if(found)break;await new Promise(r=>setTimeout(r,250));
  }
  assert.ok(found,'Owned GTK process must appear on the accessibility bus');
- frame=await driver.capture({app:found.targetId});
+ // GTK4 can publish its application object before the mapped control tree.
+ // Wait for the owned empty input; this does not invoke or replay any action.
+ for(let i=0;i<20;i++){
+  frame=await driver.capture({app:found.targetId});
+  if(frame.elements.some(e=>e.label==='Koder fixture input'))break;
+  await new Promise(r=>setTimeout(r,250));
+ }
+ await fs.writeFile(path.join(out,'captured-fixture.json'),JSON.stringify(frame,null,2)+'\n');
  assert.ok(!JSON.stringify(frame).includes('fixture-only-hidden-value'),'Password text must not leave the worker');
  assert.ok(frame.elements.some(e=>e.label==='[protected input]'&&e.actions.length===0));
  await fs.writeFile(path.join(out,'captured-fixture.json'),JSON.stringify(frame,null,2)+'\n');
