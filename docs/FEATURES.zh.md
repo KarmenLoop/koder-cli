@@ -1,4 +1,4 @@
-# Koder CLI 0.5.19：功能与完整教程导航
+# Koder CLI 0.5.20：功能与完整教程导航
 
 从[安装教程](INSTALLATION.md)开始。安装完成不等于已经进入聊天：运行 `koder setup` 配置模型，再运行 `koder`，看到 `koder >` 才输入任务。第一次使用可照[中文完整指南](USER-GUIDE.zh.md)逐步操作。
 
@@ -32,7 +32,7 @@ macOS 用 `--os mac`，Ubuntu 用 `--os linux`，CMD 用 `--os cmd`。完整指�
 
 ## 平台与验证
 
-Windows、macOS、Ubuntu 使用同一核心；macOS/Linux 包省去其他平台二进制，保留适用功能和当前教程。原生 GUI、系统权限、通知可见性与真实账号验收分别记录。macOS 完整锁屏组件仍是未签名候选，不是正式可用功能。[本版说明](RELEASE-0.5.19.zh.md)和发行附件 `ACCEPTANCE-RESULTS.json` 列出实际执行与未执行项。
+Windows、macOS、Ubuntu 使用同一核心；macOS/Linux 包省去其他平台二进制，保留适用功能和当前教程。原生 GUI、系统权限、通知可见性与真实账号验收分别记录。macOS 完整锁屏组件仍是未签名候选，不是正式可用功能。[本版说明](RELEASE-0.5.20.zh.md)和发行附件 `ACCEPTANCE-RESULTS.json` 列出实际执行与未执行项。
 
 
 旧会话反复提示“前次操作结果仍待核实”时，按[会话恢复教程](SESSION-RECOVERY.zh.md)使用 `/reconcile`，保留历史并核对原目标，不反复重试。

@@ -1,3 +1,9 @@
+# Koder CLI 0.5.20
+
+Headless file contracts, bounded output capture, scoped execution and artifact recovery. See [release notes](docs/RELEASE-0.5.20.md) for evidence and platform limits. A saved SKIP is not a correct answer. Windows physical acceptance remains beta-owned. GitHub only; no website deployment.
+
+---
+
 # Koder CLI 0.5.19
 
 Inbox retry integrity, pending inquiry retention and accurate background-mail health. See [release notes](docs/RELEASE-0.5.19.md) and the exact release acceptance attachment. Windows physical and dedicated 163 account checks remain beta-owned. GitHub publication only for this patch.

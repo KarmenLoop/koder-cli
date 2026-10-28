@@ -2,8 +2,8 @@
 # Ubuntu 24.04 / 24.04.x installer. All supported runtime features included.
 # Generated from koder-cli.sh; the shared installer selects the Linux package.
 # Koder CLI installer (macOS / Linux / WSL):
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.19/koder-cli.sh | bash
-#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.19/koder-cli.sh | bash -s -- --with-hermes
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-cli.sh | bash
+#   curl -fsSL https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-cli.sh | bash -s -- --with-hermes
 # A controlling terminal asks for accept. Unattended use after reading the license:
 #   curl -fsSL .../koder-cli.sh | KODER_EULA_ACCEPT=1 bash
 # Versioned release path. Keep the installer and manifest pinned to the same release.
@@ -12,7 +12,7 @@
 # otherwise downloads the official Node.js build into ~/.koder-cli/runtime.
 set -euo pipefail
 
-BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.19}"
+BASE="${KODER_INSTALL_BASE:-https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20}"
 KODER_HOME="${KODER_CLI_HOME:-${HOME}/.koder-cli}"
 BIN_DIR="${KODER_BIN_DIR:-${HOME}/.local/bin}"
 NODE_DIST="${KODER_NODE_DIST:-https://nodejs.org/dist}"

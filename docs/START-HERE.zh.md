@@ -8,7 +8,7 @@
 
 保留 0.5.0 的 [Awesome LLM Apps 工作流](AWESOME-LLM-APPS.zh.md)，保留 [SolidCraft 参数化 CAD](SOLIDCRAFT.zh.md)；原有[排队、快捷切模型与思考强度](SESSION-CONTROLS.zh.md)及 [CLI-Anything 应用 CLI](CLI-ANYTHING.zh.md)继续保留。
 
-# 从这里开始：Koder CLI 0.5.19
+# 从这里开始：Koder CLI 0.5.20
 
 ## 安装完成后，怎么进入 Koder？
 
@@ -28,7 +28,7 @@ Koder 是在终端中执行编程和撰写任务的 Agent，使用你选择的�
 
 **Ubuntu 用户先看 [24.04 中文手把手教程](UBUNTU.zh.md)：从没有 curl 的新电脑开始，逐步完成下载、模型、权限、图形操作和故障排查。**
 
-从 [GitHub 正式发行](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.19)选择 Windows CMD、PowerShell、macOS 或 Ubuntu 24.04 安装入口。安装器按平台选择同版本运行包；CLI 与桌面应用分别下载安装。
+从 [GitHub 正式发行](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.20)选择 Windows CMD、PowerShell、macOS 或 Ubuntu 24.04 安装入口。安装器按平台选择同版本运行包；CLI 与桌面应用分别下载安装。
 
 已有托管安装可运行：
 
@@ -37,7 +37,7 @@ koder update
 koder --version
 ```
 
-应显示 `koder 0.5.19`。0.4.4 或更早的更新器若提示清单无效，用 GitHub 当前安装器覆盖升级，不必卸载或删除配置。各终端安装命令、许可确认和恢复步骤见[安装说明](INSTALLATION.md)。若更新后仍启动旧版，Windows 用 `where.exe koder`、macOS/Ubuntu 用 `type -a koder` 检查 PATH 中是否有多个入口。
+应显示 `koder 0.5.20`。0.4.4 或更早的更新器若提示清单无效，用 GitHub 当前安装器覆盖升级，不必卸载或删除配置。各终端安装命令、许可确认和恢复步骤见[安装说明](INSTALLATION.md)。若更新后仍启动旧版，Windows 用 `where.exe koder`、macOS/Ubuntu 用 `type -a koder` 检查 PATH 中是否有多个入口。
 
 ## 2. 配模型，完成第一个任务
 

@@ -1,3 +1,13 @@
+## 0.5.20 — 2026-10-29
+
+- Enforce literal file lists through the existing headless delivery checker.
+- Drain excess command output without stopping a healthy process solely for capture size.
+- Recover complete artifact calls after truncated tool output within the same budget and a shared two-attempt repair limit.
+- Confine file-contract tasks to their workspace; refuse shell execution when the required OS sandbox is unavailable.
+- Persist authorized SKIP/refusal evidence and record recovery attempts in local telemetry.
+
+[Release notes](docs/RELEASE-0.5.20.md) · [Headless delivery](docs/HEADLESS-DELIVERY.zh.md).
+
 ## 0.5.19 — 2026-10-29
 
 - Continue inbox polling after a server-confirmed stale message without skipping transient failures.
