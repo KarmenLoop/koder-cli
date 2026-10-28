@@ -1,5 +1,11 @@
 # Sending mail and receiving background alerts
 
+For a shareable diagnostic report, run `koder mail doctor --json`. It reads local binding and policy state and checks the local background process. It does not fetch or send mail, change permissions, or upload the report. Addresses, server names, credentials, message content and receipt identifiers are excluded. Full `mail status --json` output is intended for local use and can contain mail metadata.
+
+Check `monitor.active` and `monitor.blockedReasons`; a running service alone does not mean mailbox checks are enabled. `MAIL_BACKGROUND_DISABLED` means the background-check switch is off. Use `koder mail monitor on` to review and authorize monitoring. Nonzero `deliveries.unconfirmed` requires checking the provider and test recipient before sending again. A saved connected state is not a live authentication test, SMTP acceptance is not recipient delivery, and a submitted notification is not proof of display.
+
+On a Windows test machine, record the safe report, check incoming mail locally, send an explicitly approved test message to a dedicated recipient, and verify it there. Enable monitoring, close the foreground terminal, send a new test message, and record whether and when the notification appears. Report these three results separately: SMTP acceptance, recipient delivery and notification display. Do not include app passwords or private messages.
+
 Applies to Koder CLI 0.4.18. Native Windows and live 163 account acceptance are tracked separately.
 
 ## Recovering pending alerts

@@ -124,3 +124,4 @@ Windows 10/11 installation, ConPTY/IME and Windows-MCP graphical operation remai
 - Kimi: [reasoning effort](https://platform.kimi.ai/docs/guide/use-reasoning-effort).
 - xAI: [reasoning](https://docs.x.ai/developers/model-capabilities/text/reasoning).
 - Qwen: [thinking](https://docs.qwencloud.com/developer-guides/text-generation/thinking).
+

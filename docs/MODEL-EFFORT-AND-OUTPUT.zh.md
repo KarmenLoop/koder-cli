@@ -124,3 +124,4 @@ Windows 10/11 安装、ConPTY/输入法和 Windows-MCP 图形操作继续由 bet
 - Kimi：[思考强度](https://platform.kimi.ai/docs/guide/use-reasoning-effort)。
 - xAI：[推理能力](https://docs.x.ai/developers/model-capabilities/text/reasoning)。
 - Qwen：[思考能力](https://docs.qwencloud.com/developer-guides/text-generation/thinking)。
+

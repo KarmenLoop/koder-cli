@@ -1,6 +1,6 @@
 # 通用应用操作与“不会就学”
 
-适用版本：**0.4.3**。原有模型、工具、历史和授权保持；平台及真实账号限制见更新说明。
+基础编排自 **0.4.3** 提供。下文“本机应用启动与任务内授权”自 **0.5.16** 随包提供。具体平台与真实 GUI 验收边界见文末。
 
 ## 默认行为
 
@@ -29,9 +29,45 @@
 
 `maxLearnFetches` 为 0–20 的整数，默认 3；`maxRecoverAttempts` 为 0–10 的整数，默认 2。0 表示不自动读取教程或不在首次失败后重试。默认优先 MCP；显式 `preferMcpOverGui:false` 允许在发现连接后，对同样适用且独立获准的 GUI 优先。默认不提议持久技能；`allowSkillProposeOnSuccess:true` 仅允许经原 skill-maintenance/学习授权提出候选，不自动采用。
 
+## 本机应用启动与任务内授权
+
+在聊天中输入「打开计算器并计算 19 + 23」即可进入原通用应用流程。已有覆盖任务的 Apps/MCP 时优先使用；否则先发现已安装的应用，不靠猜测路径启动。
+
+1. `app_use_status` 使用 `target=local-app` 和应用名称查询，返回精确 ID、显示名称、登记位置，以及 owner 授权和系统检查的独立结果。同名应用先核对位置与用途，不能任意选第一个。
+2. `app_use_prepare` 只请求当前任务需要的 `desktop`、`browser`、`network` 子集。缺 Koder 授权时，当前终端显示实际范围与应用目标，真人输入 `GRANT`；既有授权自动复用。需要启动应用时显示 `OPEN` 确认；若新授权已明确包含该次启动，只确认一次。
+3. 获准后在同一任务继续。取消、拒绝、无头输入或渠道请求不会自动批准；`--yes` 不能代替真人。后台 agentd 把问题交回原前台终端，不开第二个会话。
+4. 原生启动器返回 `submitted` 仅代表启动请求已提交，不能说已经点按钮、登录或完成业务。随后通过原 `computer_capture` 观察目标，`computer_act` 走原操作审批；或使用已授权的 Apps/MCP。
+5. 应用登记在确认期间变化时停止并重新发现。启动结果 `unknown` 时保留回执，同一根任务内（含 steer 和会话恢复）不重放。先观察真实目标，再决定下一步。
+
+不调用模型的诊断命令：
+
+```bash
+koder apps local list
+koder apps local list Calculator
+koder apps local list --offset 25
+```
+
+启动时复制列表中的完整 `local-app:` ID，替换下面引号内的占位文字：
+
+```bash
+koder apps local open '上一步返回的完整应用 ID'
+koder permissions status
+koder permissions revoke
+```
+
+最后一条撤销后续 Koder 电脑工具授权。系统设置中的辅助功能、屏幕录制等权限需单独撤销。
+
+| 平台 | 本机应用发现与启动 | 继续操作界面 |
+| --- | --- | --- |
+| Windows | 系统 Start Apps 登记、AppsFolder 原生启动 | 原 Windows-MCP 或宿主驱动，仍需启用、授权与交互桌面 |
+| macOS | `/Applications`、`/System/Applications`、用户 Applications 中的 `.app`，原生 `open` | 必须有已连接的合规 GUI/MCP 驱动；本模块没有新增 macOS 输入驱动 |
+| Ubuntu / Linux | XDG、Snap、Flatpak 应用目录的 `.desktop`，`gio launch` | 原 AT-SPI 驱动或连接器；显示会话、D-Bus、依赖和可访问控件都必须实际可用 |
+
+目录扫描最多 2,048 条目录项、约 3 秒；Windows 系统查询有 10 秒期限。列表每页最多 25 项，Agent 可用 `offset`、CLI 用 `--offset` 翻页；查询失败显示原因并返回非零退出码。Ubuntu/Linux 可按登记里的中文或原始名称查询，支持 Flatpak 标准导出链接；任意越界链接不会读取。超限、不可读项报告覆盖不全，不冒充全盘应用清单。应用名称、登记内容和教程均是不可信数据。
+
 ## 权限与预算的实际边界
 
-本轮学习只是为当前任务读公开资料，不代开持久学习、记忆、同步或权限。`--yes` 不授予电脑、网络或登录权限。缺少权限或连接时引导用户使用原入口：
+本轮学习只是为当前任务读公开资料，不代开持久学习、记忆或同步。`--yes` 不授予电脑、网络或登录权限。任务内授权由真人确认；不支持交互或缺少连接时仍保留原入口：
 
 ```text
 koder permissions status
@@ -52,17 +88,19 @@ Agent 不能用这些命令自行授权。登录走已授权本机浏览器或�
 
 ## 平台限制
 
-复用现有驱动，没有新增浏览器引擎。独立 CLI 只有宿主实际注入合规 driver 时才有直接 `computer_inspect/capture/act`；Windows-MCP 等通过原连接器调用。缺驱动时如实提示当前环境不能操作 GUI；授权本身不安装驱动。`workspace_preview` 只做本地项目预览，不是任意站点浏览器。找不到应用给出路径/安装建议，不静默安装。
+复用现有驱动，没有新增浏览器引擎。Linux CLI 可挂载现有 AT-SPI 驱动；其他平台需实际注入的合规 driver 或连接器（如 Windows-MCP）。缺驱动时如实提示当前环境不能操作 GUI；启动器和 owner 授权都不等于 GUI 驱动可用，也不会代开 OS 权限或 UAC。`workspace_preview` 只做本地项目预览，不是任意站点浏览器。找不到应用给出路径/安装建议，不静默安装。
 
 ## 六项手测
 
 在独立工作区与专用测试账号执行，记录版本、平台、模型、实际调用、退出码、授权前后和截图/结果；真实模型可能收费。无显示环境的 GUI 项记 NOT_RUN。
 
 1. `koder chat`：授权 network/browser 并提供可用浏览器宿主或 MCP，请求“打开 https://example.com 读标题”。确认实际浏览器读取和返回标题，而非只给链接；有覆盖任务的连接时优先核实 schema 并调用。Windows/macOS 分开记录。
-2. **未授权**：新配置请求相同任务。确认提示 permissions/apps/mcp 原设置入口，不截图、不点击、不教程外搜、不称完成。驱动缺失时准确报告缺失。
+2. **未授权**：新配置请求相同任务。任务内授权显示实际目标与范围，拒绝/取消后不得写授权或启动。接受后复核系统能力；缺驱动仍如实报告。无头/渠道返回原因与 permissions/apps/mcp 原设置入口，不假称完成。
 3. **陌生流程**：在无适用 playbook 的测试站点做无副作用操作，或制造安全的按钮失配。确认先读帮助正文、输出来源 URL/短步骤，再继续操作并核对。核查 3 次教程与 2 次恢复的默认预算；模拟未知提交结果时只对账、不重放。
 4. **关闭主开关**：Setup 关闭，重开 chat/run。确认 system 无自动入口，catalog 不暴露该技能，canonical/旧别名都拒绝读取。直接编辑 enabled=false 同样生效；全部关闭菜单后再查。
 5. **关闭学习**：启用技能但 learnWhenUnknown=false，重开会话。已知工具可用；未知流程不自动搜索/读教程，app_guide 在联网前拒绝。保留来源和说明，不假称已学会。
 6. **--yes 不扩权**：新配置无电脑权限，加 --yes 运行步骤 1。确认仍拒绝，授权记录不变。另测普通安装缺失只建议，不自行 apt/brew/npx 或提权。
 
 本地脚本模型、合成 GUI 和自有 stdio MCP 检查验证 CLI 调用与边界，不证明真实模型在任意应用都选对通道。真实模型、真实账号、Windows/macOS/Linux 原生 GUI 和安装发布分别保留 NOT_RUN。此前候选的失败记录不因本次检查覆盖或消失。
+
+实现依据：[Windows Start Apps](https://learn.microsoft.com/en-us/powershell/module/startlayout/get-startapps?view=windowsserver2025-ps)、[桌面应用名称与语言匹配](https://specifications.freedesktop.org/desktop-entry/latest/localized-keys.html)、[GIO 应用启动](https://docs.gtk.org/gio/method.AppInfo.launch.html)。系统权限由用户单独控制，参见 [macOS 辅助功能授权](https://support.apple.com/en-ie/guide/mac-help/mh43185/27/mac/27)。

@@ -1,3 +1,23 @@
+# Koder CLI 0.5.16
+
+The release contains the Windows read-only shell recovery, output decoding and official GitHub update fallback fixes. It also includes managed backend previews, native computer care, installed-application access, local telemetry controls and task model selection from the unpublished candidate. See [release notes](docs/RELEASE-0.5.16.md) and [features and tutorials](docs/FEATURES.md).
+
+Exact source, package and publication results are recorded in the release attachment `ACCEPTANCE-RESULTS.json`. Windows physical checks and the dedicated 163 mailbox remain beta-owned; macOS locked-screen operation remains an unsigned candidate. No production website deployment is part of this GitHub release.
+
+## Frozen candidate history
+
+# Koder CLI 0.5.15 candidate
+
+This candidate adds managed website backend previews, safe mail diagnostics, automatic task model selection, local telemetry controls and package consolidation. It preserves existing features and permissions. Source and package evidence are recorded separately; a successful HTTP preview does not prove browser interaction or deployment.
+
+Publication is pending the first-party distribution owner’s public HTTPS acceptance. The compiled updater uses the new feed; private-origin checks are not sufficient to publish that dependency. Existing public 0.5.14 assets remain unchanged.
+
+The dedicated 163 test account is on the Windows beta machine. Real SMTP delivery, inbox monitoring and visible notifications remain NOT_RUN here. Windows physical acceptance remains beta-owned; signed macOS locked-screen operation remains an unsigned candidate.
+
+See [release notes](docs/RELEASE-0.5.15.md).
+
+## Earlier release records
+
 # Koder CLI 0.5.14
 
 This release adds private credential input and Ubuntu login routing. See [credentials](docs/CREDENTIALS.md) and the exact release acceptance attachment. Earlier platform acceptance remains historical evidence, not verification of this new credential path.

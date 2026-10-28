@@ -1,3 +1,9 @@
+## 0.5.16 candidate
+
+The universal package supports Windows and offline cross-platform transfer. macOS and Linux packages retain their supported features, current Skills and current tutorials; only other-platform binaries and duplicate historical tutorial exports are omitted. The manifest lists exact sizes and hashes. License and upstream resource inventories remain included.
+
+Release publication waits for public acceptance of the compiled first-party update feed. GitHub remains a backup channel. Never replace a published archive with different bytes under the same version.
+
 ## 0.5.14 learning startup update
 
 Full and platform archives retain every supported capability. Only learning transaction directory syncs are batched; individual file durability and recovery remain intact. See [release notes](docs/RELEASE-0.5.14.md).

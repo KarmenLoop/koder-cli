@@ -26,6 +26,24 @@ SMTP 接受后返回消息 ID，但不代表已核实对方收件。明确的发
 
 ## 5. 排查
 
+先运行下列命令。Windows PowerShell、CMD、macOS 和 Ubuntu 使用相同命令：
+
+```sh
+koder version
+koder mail doctor --json
+```
+
+`mail doctor` 读取本地绑定、策略和后台进程状态；不登录邮件服务器，不刷新收件箱，不发信，不更改授权。它只输出预设服务商、协议、开关、检查时间、错误码及发送状态数量，不包含邮箱地址、服务器地址、密码、邮件标题/正文或消息 ID。可将这个 JSON 交给测试专员；不要改用完整 `mail status --json` 回传，后者供用户在本机查看邮件列表。诊断报告不会自动上传。
+
+- `mail.connected`：此前保存的绑定验证状态，不能证明服务器现在仍能登录。`remoteChecksPerformed: false` 是预期结果。
+- `mail.sendingAvailable: false` 且已绑定：可能是仅收信绑定。运行 `koder mail setup` 重新配置并验证 SMTP；此操作需用户输入授权码和确认。
+- `monitor.active: false`：按 `blockedReasons` 定位。服务进程运行不代表后台邮箱已启用；可用 `koder mail monitor on` 查看并确认授权范围。
+- `MAIL_BACKGROUND_DISABLED`：后台主动检查总开关已关。邮箱监控的授权流程会重新开启；仅查看诊断不会改开关。
+- `deliveries.unconfirmed` 大于零：保留结果未知或提交中的邮件记录。先到服务商网页邮箱及测试收件箱核对，不能直接再次发送。
+- `inspectionFailed: true` / 退出码 3：本地状态未能完整读取，检查 `mail.errorCode`。不要删除存储锁来“修复”。
+
+Windows beta 的真实收发验收：先保存上述安全诊断；运行 `koder mail check` 在本机确认可收信；使用专用测试收件人和明确测试正文执行 `koder mail send` 并人工批准；在收件方核对是否收到。随后开启 `koder mail monitor on`，关闭前台终端，再从测试账号发送一封新信，记录接收和通知显示时间。最后回传安全诊断及“服务器接受 / 对方收到 / 通知显示”三个独立结论；不要回传授权码或私人邮件。
+
 - `MAIL_CHECK_IN_PROGRESS`：有邮箱操作占用锁，后台本次跳过；不是发送失败。
 - `STORAGE_BUSY`：检查后台状态及正在运行的邮箱操作；不要删除锁或凭据。持续出现时提供去除隐私的诊断。
 - `MAIL_BACKGROUND_OWNER_UNAVAILABLE`：无法核实记录中的后台所有者；先看 `koder status`，不要盲目开多个轮询进程。

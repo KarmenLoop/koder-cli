@@ -22,15 +22,17 @@ Ubuntu/macOS 安装后可立即用完整路径，不必等 PATH 更新：
 
 [从这里开始：安装、首个任务和功能导航](START-HERE.zh.md)
 
-当前版本：**0.5.14**。先看[本版更新](RELEASE-0.5.14.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+0.5.16 新增[电脑维护](COMPUTER-CARE.zh.md)、[本机应用调用](APP-USE-AND-LEARN.zh.md)，并修复 Windows 磁盘只读查询被拦。先看[功能总览与对应教程](FEATURES.zh.md)和[Windows 磁盘诊断及更新恢复](WINDOWS-DISK-RECOVERY.zh.md)。
+
+当前版本：**0.5.16**。先看[本版更新](RELEASE-0.5.16.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 > 旧版更新器可能因包超过 100 MB 报“清单无效”。请用 GitHub Release 下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
-当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南对应 0.5.14；下方八份 0.5.9 终端文字导出保留为历史资料，最新启动步骤以本指南与安装页为准。实际可下载版本以 GitHub Releases 为准。
+当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南对应 0.5.16；下方八份终端文字导出与本版一致，旧导出保留在源码历史中。实际可下载版本以 GitHub Releases 为准。
 
 # Koder CLI 完整使用教程
 
-版本：**0.5.14**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.5.16**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -233,14 +235,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.5.14-en-cmd.txt](tutorials/koder-cli-0.5.14-en-cmd.txt)
-- [koder-cli-0.5.14-en-linux.txt](tutorials/koder-cli-0.5.14-en-linux.txt)
-- [koder-cli-0.5.14-en-mac.txt](tutorials/koder-cli-0.5.14-en-mac.txt)
-- [koder-cli-0.5.14-en-powershell.txt](tutorials/koder-cli-0.5.14-en-powershell.txt)
-- [koder-cli-0.5.14-zh-cmd.txt](tutorials/koder-cli-0.5.14-zh-cmd.txt)
-- [koder-cli-0.5.14-zh-linux.txt](tutorials/koder-cli-0.5.14-zh-linux.txt)
-- [koder-cli-0.5.14-zh-mac.txt](tutorials/koder-cli-0.5.14-zh-mac.txt)
-- [koder-cli-0.5.14-zh-powershell.txt](tutorials/koder-cli-0.5.14-zh-powershell.txt)
+- [koder-cli-0.5.16-en-cmd.txt](tutorials/koder-cli-0.5.16-en-cmd.txt)
+- [koder-cli-0.5.16-en-linux.txt](tutorials/koder-cli-0.5.16-en-linux.txt)
+- [koder-cli-0.5.16-en-mac.txt](tutorials/koder-cli-0.5.16-en-mac.txt)
+- [koder-cli-0.5.16-en-powershell.txt](tutorials/koder-cli-0.5.16-en-powershell.txt)
+- [koder-cli-0.5.16-zh-cmd.txt](tutorials/koder-cli-0.5.16-zh-cmd.txt)
+- [koder-cli-0.5.16-zh-linux.txt](tutorials/koder-cli-0.5.16-zh-linux.txt)
+- [koder-cli-0.5.16-zh-mac.txt](tutorials/koder-cli-0.5.16-zh-mac.txt)
+- [koder-cli-0.5.16-zh-powershell.txt](tutorials/koder-cli-0.5.16-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 

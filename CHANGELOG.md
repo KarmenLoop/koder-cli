@@ -1,6 +1,38 @@
+## 0.5.16 — 2026-10-28
+
+- Fix false shell reconciliation after a restricted read-only Windows disk inspection with a calculated display column. Keep uncertain writes, timeouts and cancellation protected.
+- Preserve split UTF-8 output and decode supported Windows console encodings and BOM-marked UTF-16; explain missing commands and unknown encodings.
+- Prefer native computer-care tools for disk and memory inspection, with reversible cleanup plans and existing authorization.
+- Fall back to official GitHub releases when the primary update service is unavailable. Retain checksums, custom mirrors, cancellation and version checks.
+- Show the background updater's safe failure stage, HTTP status or installer exit code.
+- Include installed-application discovery and native launch from the unpublished candidate, plus updated feature guides, Windows recovery steps and current tutorial exports.
+
+[Release notes](docs/RELEASE-0.5.16.md) · [Features and tutorials](docs/FEATURES.md).
+
+## 0.5.15
+
+- Keep one canonical package plan and current tutorial export per platform. Preserve supported runtime features, resource hashes and third-party notices.
+- Enable local task telemetry with a persistent Setup off switch; no cloud log uploads or mandatory online activation.
+- Enforce exact headless file contracts, authentic self-checks and explicit incomplete/skip outcomes.
+- Route each task among configured models and their supported reasoning settings while retaining manual choices and budgets.
+- Recognize conventional self-test scripts, and guide final verification after preview and delivery changes.
+
+- Start existing website backends through the normal command approval and an owned preview supervisor. Retain working previews across model steps; clean up on stop, startup failure, cancellation or owner disconnect.
+- Detect Node backends before static HTML, retarget existing preview panels to the live server, and reject static-only delivery when a backend is required.
+
+- Add a read-only mail diagnostic report with safe metadata, background blockers and unconfirmed-delivery counts. Exclude credentials, addresses, subjects, message bodies and receipt identifiers.
+- Distinguish a running agent service from enabled background mail checks, keep monitor JSON machine-readable, and direct check failures to the safe diagnostic command.
+
+- Use the first-party update feed and fixed release paths for managed installations. Preserve explicit mirrors, runtime source overrides, checksum verification, cancellation and automatic-update opt-outs.
+- Recognize versioned first-party installation records without treating lookalike or unversioned URLs as managed sources. Publication requires verification of the public HTTPS endpoints.
+
 # 0.5.13
 
 ## 0.5.14
+
+- Select a configured model and supported reasoning effort at each task boundary, with local difficulty hints, manual overrides and Setup controls.
+- Keep the selected model stable through tools, steering and model-only recovery; retain cost limits and local telemetry controls.
+- Treat an earlier provider failure as historical after a successful recovery without replaying completed file operations.
 
 - Replace unconditional login cancellation with hidden input and task-scoped credential handles.
 - Route confirmed credentials to existing bindings and Ubuntu login controls; use native sudo for system authorization.

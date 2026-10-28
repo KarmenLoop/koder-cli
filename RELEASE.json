@@ -1,10 +1,22 @@
 {
-  "version": "0.5.14",
-  "file": "koder-cli-0.5.14.tgz",
-  "sha256": "a58b5a8707965faa0c7dc8eb9b7227fd354e2ff4ddd4aec294a4886b8850757d",
-  "size": 490146233,
+  "version": "0.5.16",
+  "packages": {
+    "darwin": {
+      "file": "koder-cli-0.5.16-darwin.tgz",
+      "sha256": "051621606ec9ea633bb1465feec4179b852f83164265940f8d7147f99d30f56b",
+      "size": 219737911
+    },
+    "linux": {
+      "file": "koder-cli-0.5.16-linux.tgz",
+      "sha256": "e1cc1857578b11a7f87a3d2922745200e22f6286e0a8c97c6db5befd357efb2d",
+      "size": 141912017
+    }
+  },
+  "file": "koder-cli-0.5.16.tgz",
+  "sha256": "9c4821aa57e9e387cf9a1da69ac8f33ff109e4ea9a8d2609e216994985c59a90",
+  "size": 314972792,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-27T21:00:17.819Z",
+  "builtAt": "2026-10-28T13:30:46.994Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -14,59 +26,44 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "e312d44591e3e0db0fe63f94f2a371fc9dc6192a765be39a20ef1d9733c41b0e"
+      "sha256": "10023004b3ab654a10ca8bcc1197d7f6e9b26134918f2950cf7662fb3d665e5b"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "47e7f42000fd1faea0051fbb0008d31070920c1ada1bba6f849739b203c1bbb2"
+      "sha256": "b7bef33049cf6fd7f6d43b8d09e8237069c4a2e00854247c4cfdde942496a94b"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "bd9ec1b13eb36ec8fa812faa15ec528ecadeaf9e70fc8199a7849fe8a6957023"
+      "sha256": "9aadaff1d75ef82a777c41d1632b9fa843337f96e8890ae2c80d2ac26e73e2fc"
     },
     "ubuntu": {
       "file": "koder-ubuntu-24.04.sh",
-      "sha256": "4561c13d497a18b67a72126ccefec1a8083ba93a35ac722a80c489ab07d8ef57"
+      "sha256": "5c08452523b7026b17e2be16d69f6acb75ff4f0814610c65a5b9d3dd50cbb942"
     },
     "ubuntu2604": {
       "file": "koder-ubuntu-26.04.sh",
-      "sha256": "412de571284342a5b9d005ef3fd16dda17438c457ac047478d2051724b1a8044"
+      "sha256": "a6d099749592a3148efeacebc1a1706a69af6d82a29c3ca33b24b6f3c3ee6e06"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.13 published",
-  "privateSourceCommit": "8b579f303f4a042d1849292f95142d3424dbb28b",
+  "sourceBaseline": "0.5.14 published; frozen 0.5.15 candidate retained",
   "changes": [
-    "Route interactive credential requests through hidden input",
-    "Use task-scoped encrypted handles with destination confirmation and cancellation",
-    "Reuse existing mail, GitHub and model key binding modules",
-    "Fill observed Ubuntu password fields through AT-SPI without exposing values to the model",
-    "Use native sudo for system authorization and add full credential tutorials"
+    "Fix false reconciliation after a restricted read-only Windows disk query",
+    "Preserve split UTF-8 and supported Windows console output",
+    "Add official GitHub update fallback and safe background-update diagnostics",
+    "Include native computer care and installed-application discovery and access",
+    "Update feature navigation, platform tutorials and recovery instructions"
   ],
   "retainedLimits": [
-    "Customer mail, GitHub or model credentials",
-    "Live website sign-in, CAPTCHA, OAuth, FIDO and custom inaccessible controls",
-    "Physical Ubuntu GNOME desktop login and reboot",
-    "Private GUI filling on Windows and macOS (returns unavailable)",
-    "Physical Windows 10/11 credential entry",
-    "macOS TCC and locked-screen operation"
+    "Physical Windows 10/11 checks are beta-owned",
+    "Dedicated 163 mailbox checks require the Windows test account",
+    "Ubuntu desktop and visible notifications require device checks",
+    "Signed macOS locked-screen operation remains unavailable"
   ],
-  "publicationAuthorization": "GitHub only; website excluded",
   "courseStatus": {
     "zh": 1800,
     "en": 30,
     "originalZhRetained": 180
   },
-  "packages": {
-    "darwin": {
-      "file": "koder-cli-0.5.14-darwin.tgz",
-      "sha256": "23f0d81ffa38a025bcef3e8c9b35acc1b0b9eb2e7d6ad3fda319b09df2c477d2",
-      "size": 226545263
-    },
-    "linux": {
-      "file": "koder-cli-0.5.14-linux.tgz",
-      "sha256": "4e5833023d6c0afb9c9c1c297a6375b940988f34d7518a2228b2f2704d6fe99f",
-      "size": 148741292
-    }
-  }
+  "publicationAuthorization": "GitHub now; website synchronization requested from 2026-10-29"
 }

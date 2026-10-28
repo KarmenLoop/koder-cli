@@ -1,6 +1,6 @@
 # Universal app use and tutorial learning
 
-Available in **0.4.3**. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.
+Installed-application discovery, native launch and task-local permission prompts ship in 0.5.16. Platform limits and real GUI acceptance remain explicit below.
 
 ## Use and configure
 
@@ -17,6 +17,16 @@ Merge this object into `$KODER_CLI_HOME/config.json` (normally `~/.koder-cli/con
 Missing fields use these defaults. Partial saves preserve existing fields. `enabled:false` disables the canonical Skill at runtime; Setup also persists its ID in `disabledSkills`. The old alias is respected. Re-enabling removes only these two off entries, not other Skill preferences or permission records.
 
 `maxLearnFetches` accepts integers 0–20; `maxRecoverAttempts` accepts 0–10. Zero disables automatic tutorial fetches or recovery after an initial failure. Connected Apps/MCP that cover the task come first by default, then browser, then desktop. Explicit `preferMcpOverGui:false` permits an equally suitable, independently authorized GUI after inspecting connections. `allowSkillProposeOnSuccess:true` only permits a candidate through the original maintenance/learning approval; it never activates a Skill automatically.
+
+## Installed apps and in-task access
+
+For an installed application, call `app_use_status` with `target: "local-app"` and a short name query. Its installed-app entries contain an exact ID, name and location. Clarify duplicate names instead of selecting the first match. A covering, connected Apps/MCP tool still takes priority.
+
+`app_use_prepare` accepts that ID and only the needed `desktop`, `browser` and `network` capabilities. Missing Koder grants produce a fresh foreground `GRANT` prompt with the exact scope and target. Existing grants are reused. Opening an app requires an `OPEN` confirmation; a grant that explicitly includes this launch needs only one confirmation. Agentd sends the request to the original foreground input owner. Headless and remote channels cannot supply consent, and `--yes` does not grant access. Revoke future Koder access with `koder permissions revoke`.
+
+Use `koder apps local list` or `koder apps local list Calculator` without a model to inspect registrations. Copy the entire returned `local-app:` ID into `koder apps local open <app ID>`. Windows uses Start Apps and AppsFolder; macOS uses installed `.app` bundles and `/usr/bin/open`; Linux uses registered `.desktop` entries and `gio launch`. Scans cover at most 2,048 entries with a roughly three-second traversal budget; the Windows query has a ten-second timeout. Partial coverage is reported. Agent discovery pages contain at most 25 matches; `offset` reads the next page.
+
+A `submitted` receipt confirms only that the native launcher returned. Continue with fresh `computer_capture` observations and approved `computer_act` actions, or a covering connected tool. This module does not add a macOS input driver. Linux retains its existing AT-SPI adapter; Windows retains Windows-MCP or an injected host driver. OS consent, a usable desktop, driver dependencies and application login remain separate. Registration changes during confirmation stop the launch. Unknown launch results survive steering and restored transcripts without an automatic replay.
 
 ## Operation contract
 
@@ -41,10 +51,14 @@ This adds no GUI driver or browser engine. Direct computer tools require an actu
 Manual checks in an isolated workspace with an authorized test account:
 
 1. In chat, with browser/network grants and a working browser channel, open https://example.com and read its title through actual tools. Prefer a covering connected tool when present. Record Windows and macOS separately.
-2. Without grants, confirm original setup guidance, no capture/click/tutorial request and no success claim. Verify missing-driver diagnosis.
+2. Without grants, confirm a fresh scope/target prompt. Decline it and verify no grant, launch, capture, click or tutorial request. Accept it in a separate case and inspect the actual OS/driver status before continuing. Headless and remote channels must return setup guidance, not manufacture consent.
 3. On an unfamiliar harmless workflow or safe locator mismatch, verify a real help read, URL, short plan, resumed operation and observed outcome. Check default learning/recovery limits and UNKNOWN reconciliation.
 4. Turn the method off in Setup, reopen chat/run and confirm no automatic hook/catalog entry or canonical/alias read. Repeat with manual config and disable-all.
 5. Keep the method on but learning off: known tools still work, unknown workflows do not automatically search, and app_guide rejects before networking.
 6. Repeat the ungranted case with `--yes`; grants must remain unchanged. Missing software must not trigger installation or elevation.
 
 Local scripted-model, synthetic-GUI and owned stdio MCP tests establish invocation and permission behavior, not real-model competence or native Windows/macOS/Linux GUI coverage. Those device/model/account checks remain NOT_RUN. Earlier failures and release gates remain recorded separately.
+
+CLI discovery also accepts `--offset` for paging. Catalog failures report a reason and return a nonzero exit code. Linux discovery matches registered localized and original names and accepts standard Flatpak deployment exports; other out-of-catalog links remain excluded.
+
+References: [Windows Start Apps](https://learn.microsoft.com/en-us/powershell/module/startlayout/get-startapps?view=windowsserver2025-ps), [desktop-entry locale matching](https://specifications.freedesktop.org/desktop-entry/latest/localized-keys.html), [GIO application launch](https://docs.gtk.org/gio/method.AppInfo.launch.html), and [macOS accessibility consent](https://support.apple.com/en-ie/guide/mac-help/mh43185/27/mac/27).

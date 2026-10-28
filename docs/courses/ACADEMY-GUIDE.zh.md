@@ -18,7 +18,7 @@
 
 ## 下载与离线使用
 
-可下载[手把手整册](HANDS-ON.zh.md)、[开发者整册](DEVELOPER.zh.md)或当前课 Markdown。四种 Shell 的中英文文本位于 editions/；中文为 1,800 课，英文为原 30 课。保留 docs/courses 与相邻 docs 参考文件的目录关系，链接才能继续工作。
+可下载[手把手整册](HANDS-ON.zh.md)、[开发者整册](DEVELOPER.zh.md)或当前课 Markdown。四种 Shell 的中英文文本统一位于相邻的 docs/tutorials/（从本目录访问 ../tutorials/）；安装包只携带当前版本，中文为 1,800 课，英文为原 30 课。保留 docs/courses 与相邻 docs 参考文件的目录关系，链接才能继续工作。
 
 ## 证据范围
 
