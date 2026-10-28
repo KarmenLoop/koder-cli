@@ -3,20 +3,20 @@
   "packages": {
     "darwin": {
       "file": "koder-cli-0.5.20-darwin.tgz",
-      "sha256": "db50f3624837b575bee1e250344b2d0f133d31555e7334321ff7d2455b63843a",
-      "size": 219743289
+      "sha256": "f6e7ba074553547d5ceb6f696875a34a06f5efc099211c9fc2f5b334a469e426",
+      "size": 219757461
     },
     "linux": {
       "file": "koder-cli-0.5.20-linux.tgz",
-      "sha256": "defdda9f3dec6cd159be2ff04e53242f776604fcb37d0d90cbe5e00f8fd9772e",
-      "size": 141948110
+      "sha256": "d904ac31c89ad8629fb9a3ae1e75e3161c3dfa1ed84b6091b3d1bb95530fdefd",
+      "size": 141947222
     }
   },
   "file": "koder-cli-0.5.20.tgz",
-  "sha256": "34b0f59a4a299c92e4ecbeb388ea85a05af9e0d6e2b834c690802617bb982fa3",
-  "size": 315002772,
+  "sha256": "ee1cb8b09c85fa68c7850f6cb0e4072263e7977257d8d47ca086ab34e21e6ff7",
+  "size": 314991617,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-28T19:14:55.429Z",
+  "builtAt": "2026-10-28T20:51:21.368Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",

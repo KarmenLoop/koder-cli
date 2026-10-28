@@ -26,3 +26,7 @@ A separate offline transaction summary task produced a JavaScript program, JSON 
 The original failed attempt, final NDJSON traces, artifact hashes, model-reported token totals, retries and unknown telemetry are retained locally. `ACCEPTANCE-RESULTS.json` contains the per-question summary. Interrupted tasks have no final telemetry record; their usage is unknown, not zero. Wasted tokens are not causally measurable and remain null.
 
 Distractor resistance is not complete: some model responses still create unnecessary files, and two tasks reach their original deadline. The checker does not mark those tasks successful. The existing 8K website/learning-context overflow also reproduces in published 0.5.19 and remains open.
+
+## Follow-up candidate validation
+
+The results above describe the earlier P0 build and remain unchanged. The later candidate fixes the reported 8K context overflow and adds evidence-linked failure learning and actionable self-check recovery. It passes 148 related source regressions and 45 checks against the extracted package. A genuine MiniMax-M3.1-Flash recovery control passed its file contract and nine independent checks; it is separate from the original ten. See [failure learning](FAILURE-LEARNING-0.5.20.md). The original ten-question release gate is still pending.

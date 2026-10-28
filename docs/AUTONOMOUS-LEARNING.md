@@ -18,7 +18,19 @@ Run status commands in the workspace you want to inspect. `growth status` report
 
 The native task lifecycle reads the current task pack, records tool observations and checkpoints, and runs local reviews. The model can use `learning_read` and `learning_write` for decisions, progress and candidate experience. Recovery checks the latest context and node against actual artifacts. Missing knowledge calls for bounded research within existing permissions, followed by task-specific verification. Tool failures make the regression-repair reference available in the next method projection.
 
-The model's completion proposal remains `pending_verification`; explicit owner completion requires evidence. Daily and weekly reviews summarize the current account/workspace library; model recall remains task-scoped. Revised Skills continue through the original proposal, test, comparison and adoption ports. Insufficient evidence remains `NO_ENTRY`, not an activated improvement.
+The model's completion proposal remains `pending_verification`; explicit owner completion requires evidence. Daily and weekly reviews summarize the current account/workspace library. Ordinary notes and answers remain task-scoped. Revised Skills continue through the original proposal, test, comparison and adoption ports. Insufficient evidence remains `NO_ENTRY`, not an activated improvement.
+
+## Learning from delivery failures
+
+The native executor now records recognized delivery failures as procedural experience in the existing local Markdown library. A later task in the same account and workspace, with the same task class, model, protocol, reasoning setting and platform, can receive up to three relevant checks automatically. No separate Skill package, service or database is created.
+
+An entry starts as `observed`. If it was actually included in a later model request and that task passes its file contract and genuine self-check, the entry becomes `retested`. A recurrence changes it to `reopened`. The same entry is revised instead of duplicated. Each change references an immutable task checkpoint; changed or missing source evidence prevents recall. `koder learning status --json` reports these states under `outcomes`.
+
+Only host-recognized failure codes select these built-in procedures. They cover missing files, code fences and invalid JSON, stale manifests, missing verification, output/context limits, uncertain effects, website handoff and writing evidence. Stored model prose is not promoted into cross-task instructions. Task answers, credentials, paths and prior private decisions are not copied into these checks. They cannot authorize tools or replay unknown effects.
+
+Task JSON includes `learning.loaded`, `recorded`, `retested` and `extraModelCalls`. A selected check counts as loaded only when its full text reaches the provider context. These procedures share the existing context budget and add no separate model requests; their prompt tokens still incur ordinary provider cost. Cancellation, missing validation, SKIP and a model's own success statement do not establish a passed retest. `learning off`, Setup, `--no-learning` and `--no-memory` retain their existing effect.
+
+This improves execution guidance without changing model weights or rewriting the installed runtime. A passed delivery check is not proof that every answer is correct or that the lesson caused an improvement. Missing question data still requires clarification or an allowed, evidence-based SKIP. Arbitrary new strategies remain candidates until tested and accepted through the existing adoption flow.
 
 ## Observable loading and costs
 

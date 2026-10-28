@@ -10,6 +10,9 @@ This patch connects explicit file requirements to the existing delivery checker 
 - Apply task scope to file tools, shell execution and plugin dispatch. Scope cannot be expanded by `--yes`, task materials or model-generated instructions.
 - Save a contracted failure or refusal record when authorized and safe. Preserve existing files. A host-recorded denial is distinguished from a model's unverified refusal statement; neither is a completed answer.
 - Record artifact recovery in local task telemetry. Cloud uploads remain disabled; Setup's telemetry off switch is unchanged.
+- Reuse host-checked failure experience in later matching tasks through the existing local learning library. Record observed, retested and reopened states without copying answers or creating duplicate Skills. Learning remains optional and adds no separate model requests.
+- Explain when a later tool call invalidates an earlier self-check and provide the exact recovery command. Read-only learning queries no longer invalidate a completed check.
+- Defer ancillary tool schemas under 8K context pressure. The existing tool inventory can restore them while preserving the current task's constraints and permissions.
 
 ## Use
 
@@ -35,4 +38,6 @@ Linked or sensitive input trees are refused by the scoped shell. Use a dedicated
 
 Physical Windows and the dedicated 163 mailbox remain beta-owned. This patch does not certify mail delivery or native notification display on those devices. It does not publish the private kernel source or deploy the website. Current Skills and platform features remain in the existing packages; no duplicate Skill framework is added.
 
-A separate 8K website/learning-context regression also fails on the published 0.5.19 runtime with `CONTEXT_BUDGET_EXCEEDED`. It remains an open issue; the targeted P0 checks must not be read as an all-suite pass.
+The 8K website/learning-context regression that failed on 0.5.19 now passes in this candidate: native model requests stay within the context budget and retain the current constraints. This is a protocol regression, not a completed real-model website evaluation.
+
+A separate complete-input control used MiniMax-M3.1-Flash with local learning enabled. The first real run saved files but failed final verification after an extra shell call. After the diagnostic fix, a new session in the same owned workspace loaded three procedural checks, passed the file contract and self-check, and updated their retest records. Nine independent checks then passed against the actual generated program; the three manifest rows matched the files. This recovery control does not replace the original ten questions, prove a causal quality gain or qualify the release by itself. The original ten-question release gate remains pending.

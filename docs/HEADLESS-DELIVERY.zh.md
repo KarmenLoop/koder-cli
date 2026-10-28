@@ -109,6 +109,8 @@ answer.mjs<TAB>实际字节数<TAB>64 位 SHA256
 
 自动化读取最后一条 `type: result`，同时核对真实进程退出码、`completionState` 和 `taskDeliveryEvidence`。成功要求退出 0、`completionState=succeeded`、交付检查 `checked`。答卷长度、日志里出现 PASS、目录非空，都不是收卷条件。
 
+若出现 `TASK_CHECK_INVALIDATED_BY_LATER_TOOL`，查看 `taskDeliveryEvidence.validation.invalidatedBy` 和 `repairHint`：自检之后又执行了可能修改文件的工具，旧验证不能覆盖后续操作。把文件修改及其它命令做完，在没有未知副作用或待批准操作时，再独立运行合约里的自检命令。它应成为最后一条 shell；随后使用 `read_file`、`list_dir` 或 `learning_read` 核对并交付。只读学习查询不再使自检失效。额外 shell 仍按可能修改处理，不能为了跳过核验将任意命令伪装为只读。取消、原费用预算和 UNKNOWN 保护不变。
+
 ## 5. 本地逐题遥测
 
 默认开启，可在 `koder setup` → **本地任务遥测** 关闭。也支持无头配置：
