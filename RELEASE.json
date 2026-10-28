@@ -1,22 +1,22 @@
 {
-  "version": "0.5.16",
+  "version": "0.5.17",
   "packages": {
     "darwin": {
-      "file": "koder-cli-0.5.16-darwin.tgz",
-      "sha256": "051621606ec9ea633bb1465feec4179b852f83164265940f8d7147f99d30f56b",
-      "size": 219737911
+      "file": "koder-cli-0.5.17-darwin.tgz",
+      "sha256": "c3e9f8c2d135b88e3c56a465a75904426917a1f1e633d6b3c662f3064cddd327",
+      "size": 219736367
     },
     "linux": {
-      "file": "koder-cli-0.5.16-linux.tgz",
-      "sha256": "e1cc1857578b11a7f87a3d2922745200e22f6286e0a8c97c6db5befd357efb2d",
-      "size": 141912017
+      "file": "koder-cli-0.5.17-linux.tgz",
+      "sha256": "513b966a6ac48a43aed9451a48a4fcdfc7c0a1b152937654d2c006ecf464afed",
+      "size": 141912899
     }
   },
-  "file": "koder-cli-0.5.16.tgz",
-  "sha256": "9c4821aa57e9e387cf9a1da69ac8f33ff109e4ea9a8d2609e216994985c59a90",
-  "size": 314972792,
+  "file": "koder-cli-0.5.17.tgz",
+  "sha256": "d5d52e9460df10e2fedcfc9e03e6b71756aa72e5ca27f1cd22640640a3724ea8",
+  "size": 314971816,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-28T13:30:46.994Z",
+  "builtAt": "2026-10-28T14:54:04.203Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -26,33 +26,33 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "10023004b3ab654a10ca8bcc1197d7f6e9b26134918f2950cf7662fb3d665e5b"
+      "sha256": "03b049c0900fdb00444089612ee81202b5f6ca74a688216e04c7ea04c73d8844"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "b7bef33049cf6fd7f6d43b8d09e8237069c4a2e00854247c4cfdde942496a94b"
+      "sha256": "8b0851584b9d6bb247e10802ff7429bf4a3196fe1cfbfc5b2676773f3c0a3e92"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "9aadaff1d75ef82a777c41d1632b9fa843337f96e8890ae2c80d2ac26e73e2fc"
+      "sha256": "71497f81533549b97c883c9eb7ccfdcfe2124392f470346f8c2e61f3271e2490"
     },
     "ubuntu": {
       "file": "koder-ubuntu-24.04.sh",
-      "sha256": "5c08452523b7026b17e2be16d69f6acb75ff4f0814610c65a5b9d3dd50cbb942"
+      "sha256": "d5a6b06d292044530d22774797a48eed751f04ba0f47c2a0e62aec63a8fb322e"
     },
     "ubuntu2604": {
       "file": "koder-ubuntu-26.04.sh",
-      "sha256": "a6d099749592a3148efeacebc1a1706a69af6d82a29c3ca33b24b6f3c3ee6e06"
+      "sha256": "859df5690c273526f3840cdf5060b302ec74d403624f61eb389b4624b4aef65b"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.14 published; frozen 0.5.15 candidate retained",
+  "sourceBaseline": "0.5.16 published",
   "changes": [
-    "Fix false reconciliation after a restricted read-only Windows disk query",
-    "Preserve split UTF-8 and supported Windows console output",
-    "Add official GitHub update fallback and safe background-update diagnostics",
-    "Include native computer care and installed-application discovery and access",
-    "Update feature navigation, platform tutorials and recovery instructions"
+    "Restore read-only diagnostics for legacy pending-operation records",
+    "Add explicit persistent human review without replay or approval bypass",
+    "Handle exact ESC input locally and stop dispatch after cancellation",
+    "Keep permitted native computer-care status tools visible during recovery",
+    "Update recovery tutorials and current platform installation links"
   ],
   "retainedLimits": [
     "Physical Windows 10/11 checks are beta-owned",

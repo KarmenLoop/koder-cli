@@ -63,3 +63,8 @@ Agent 思考、输出或运行工具时，输入行继续显示，可以编辑�
 请先运行 koder --version 和 koder doctor。旧 0.3.0 没有这些模块，不能通过改设置补出；升级后再验收。新包不能改写尚未升级的旧包开屏。运行 koder update 或使用当前官网安装器，升级后核对 0.4.10。磁盘上有旧候选包，不代表终端实际启动了该版本。
 
 无密钥回归覆盖真实 readline、CLI/harness 和本机 IPC；Windows Console、ConPTY、IME 及用户原生终端手测仍须分别记录。
+
+
+## 旧会话卡住与人工核对（0.5.17）
+
+在聊天输入 `/reconcile` 查看；实际核对后输入 `/reconcile checked <调用编号>`。该命令保留原 UNKNOWN，不重放，也不代替后续审批。整行 `ESC`/`Escape` 可取消，空闲时不会启动模型。详细步骤见[会话恢复教程](SESSION-RECOVERY.zh.md)。

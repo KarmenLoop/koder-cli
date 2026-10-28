@@ -1,3 +1,12 @@
+## 0.5.17 — 2026-10-28
+
+- Restore legacy pending operations into read-only recovery instead of blocking every diagnostic.
+- Add persistent human review via `/reconcile`, without changing unknown receipts or granting approval.
+- Handle typed ESC locally and stop tool dispatch when cancellation arrives before execution.
+- Keep permitted native computer-care status tools visible during recovery.
+
+[Release notes](docs/RELEASE-0.5.17.md) · [Recovery walkthrough](docs/SESSION-RECOVERY.en.md).
+
 ## 0.5.16 — 2026-10-28
 
 - Fix false shell reconciliation after a restricted read-only Windows disk inspection with a calculated display column. Keep uncertain writes, timeouts and cancellation protected.

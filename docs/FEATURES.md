@@ -1,4 +1,4 @@
-# Koder CLI 0.5.16: features and tutorials
+# Koder CLI 0.5.17: features and tutorials
 
 Install using the [platform guide](INSTALLATION.md), configure a model with `koder setup`, then run `koder`. Installation and background activation do not open chat automatically. Enter tasks only at the `koder >` prompt.
 
@@ -19,4 +19,7 @@ Install using the [platform guide](INSTALLATION.md), configure a model with `kod
 
 Use [Start here](START-HERE.en.md) for a first task. The [English course](courses/README.en.md) has 30 lessons; the [Chinese course](courses/README.zh.md) has 1,800 lessons. Both offer hands-on and developer material. Run `koder learn`, or print a lesson with `koder learn 3 --print --os linux --lang en`. Select `--track hands-on` or `--track developer`. The complete guides link the eight current-version terminal exports.
 
-The [release notes](RELEASE-0.5.16.md) and `ACCEPTANCE-RESULTS.json` distinguish source tests, archive checks and device/account verification. Windows physical testing remains beta-owned. Signed macOS locked-screen operation remains an unsigned candidate. Platform-specific archives retain applicable features while excluding other-platform binaries.
+The [release notes](RELEASE-0.5.17.md) and `ACCEPTANCE-RESULTS.json` distinguish source tests, archive checks and device/account verification. Windows physical testing remains beta-owned. Signed macOS locked-screen operation remains an unsigned candidate. Platform-specific archives retain applicable features while excluding other-platform binaries.
+
+
+For a restored session blocked by an old unconfirmed operation, follow [session recovery](SESSION-RECOVERY.en.md). `/reconcile` retains evidence and never replays the old action.

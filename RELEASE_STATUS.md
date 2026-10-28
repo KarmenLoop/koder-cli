@@ -1,3 +1,7 @@
+# Koder CLI 0.5.17
+
+Patch for legacy session recovery, persistent human review and cancellation before tool dispatch. See [release notes](docs/RELEASE-0.5.17.md) and the release acceptance attachment. Windows physical checks remain beta-owned; prior acceptance boundaries remain in effect.
+
 # Koder CLI 0.5.16
 
 The release contains the Windows read-only shell recovery, output decoding and official GitHub update fallback fixes. It also includes managed backend previews, native computer care, installed-application access, local telemetry controls and task model selection from the unpublished candidate. See [release notes](docs/RELEASE-0.5.16.md) and [features and tutorials](docs/FEATURES.md).

@@ -1,6 +1,6 @@
 # Windows 磁盘检查、命令未执行与更新恢复
 
-适用：Koder CLI 0.5.16。命令在 Windows 系统 PowerShell 中运行；出现 `koder >` 后再输入自然语言任务。
+适用：Koder CLI 0.5.17。命令在 Windows 系统 PowerShell 中运行；出现 `koder >` 后再输入自然语言任务。
 
 ## 1. 先升级，再确认启动入口
 
@@ -11,10 +11,10 @@ koder update
 koder --version
 ```
 
-应看到 `koder 0.5.16`。若旧更新器无法连接服务，使用固定版本的 GitHub 安装器覆盖升级：
+应看到 `koder 0.5.17`。若旧更新器无法连接服务，使用固定版本的 GitHub 安装器覆盖升级：
 
 ```powershell
-$u = 'https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.16/koder-cli.ps1'
+$u = 'https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.17/koder-cli.ps1'
 Invoke-RestMethod $u | Invoke-Expression
 ```
 
@@ -78,7 +78,7 @@ koder care scan 'C:\'
 | `SHELL_RECONCILIATION_REQUIRED` | 之前存在结果未知的操作。先核对回执与实际目标；不可盲目重复安装、发送或写文件。 |
 | `SHELL_OUTPUT_ENCODING_UNCERTAIN` | 输出含无法识别的字节。不要把乱码当事实，改用原生结构化查询或明确 UTF-8 的诊断输出。 |
 
-0.5.16 修复截图中 `Select-Object` 通过 `PSIsContainer` 显示“目录/文件”时的误判。仅放行受限的纯显示表达式；任意脚本块、删除、写入、超时或未确认退出的进程仍不能据退出码 0 判为成功。
+0.5.17 修复截图中 `Select-Object` 通过 `PSIsContainer` 显示“目录/文件”时的误判。仅放行受限的纯显示表达式；任意脚本块、删除、写入、超时或未确认退出的进程仍不能据退出码 0 判为成功。
 
 旧版本已经保存的 unknown 回执不会被新版改写。先核对旧操作；等当前回合结束后，发送新的只读检查指令即可。工作中的 steer 补充仍属于原回合，不会抹掉旧回执。无需删除会话历史。
 
@@ -98,3 +98,6 @@ koder update --check
 旧文件或大文件不等于可以删除。先阅读[电脑维护教程](COMPUTER-CARE.zh.md)，生成准确文件计划，再由用户确认。当前隔离整理可恢复，移动到同盘隔离目录本身不会释放磁盘空间。
 
 本次已验证截图命令的分类、后续命令可执行、拒绝危险表达式、编码夹具及更新失败回退。Windows 10/11 真实 CMD、PowerShell、应用启动与通知仍需 beta 专员在实际设备复核；测试回执不等于已经检查了你的 C 盘。
+
+
+旧会话反复提示“前次操作结果仍待核实”时，按[会话恢复教程](SESSION-RECOVERY.zh.md)使用 `/reconcile`，保留历史并核对原目标，不反复重试。

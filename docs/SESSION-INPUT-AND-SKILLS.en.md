@@ -63,3 +63,8 @@ Interrupt words must fill the whole line or precede a punctuation-delimited repl
 Check koder --version and koder doctor after upgrading. Version 0.3.0 lacks these modules; settings cannot add them. A new package cannot change an old binary's startup screen. Run koder update or use the current official installer, then confirm 0.4.10. An older candidate archive on disk does not tell you which executable your terminal runs.
 
 No-key checks cover real readline, CLI/harness execution and local IPC. Native Windows Console, ConPTY, IME and user-terminal checks remain separate.
+
+
+## Recover an interrupted session (0.5.17)
+
+In chat, use `/reconcile` to inspect pending calls. After checking the actual target, use `/reconcile checked <call-id>`. Original UNKNOWN receipts and normal approval requirements remain intact; nothing is replayed. Exact `ESC`/`Escape` input cancels without starting a model turn at idle. See [session recovery](SESSION-RECOVERY.en.md).
