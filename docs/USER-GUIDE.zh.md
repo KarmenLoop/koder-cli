@@ -22,17 +22,17 @@ Ubuntu/macOS 安装后可立即用完整路径，不必等 PATH 更新：
 
 [从这里开始：安装、首个任务和功能导航](START-HERE.zh.md)
 
-0.5.17 新增[电脑维护](COMPUTER-CARE.zh.md)、[本机应用调用](APP-USE-AND-LEARN.zh.md)，并修复 Windows 磁盘只读查询被拦。先看[功能总览与对应教程](FEATURES.zh.md)和[Windows 磁盘诊断及更新恢复](WINDOWS-DISK-RECOVERY.zh.md)。
+0.5.18 新增[电脑维护](COMPUTER-CARE.zh.md)、[本机应用调用](APP-USE-AND-LEARN.zh.md)，并修复 Windows 磁盘只读查询被拦。先看[功能总览与对应教程](FEATURES.zh.md)和[Windows 磁盘诊断及更新恢复](WINDOWS-DISK-RECOVERY.zh.md)。
 
-当前版本：**0.5.17**。先看[本版更新](RELEASE-0.5.17.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.5.18**。先看[本版更新](RELEASE-0.5.18.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 > 旧版更新器可能因包超过 100 MB 报“清单无效”。请用 GitHub Release 下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
-当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南对应 0.5.17；下方八份终端文字导出与本版一致，旧导出保留在源码历史中。实际可下载版本以 GitHub Releases 为准。
+当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南对应 0.5.18；下方八份终端文字导出与本版一致，旧导出保留在源码历史中。实际可下载版本以 GitHub Releases 为准。
 
 # Koder CLI 完整使用教程
 
-版本：**0.5.17**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.5.18**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -235,14 +235,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.5.17-en-cmd.txt](tutorials/koder-cli-0.5.17-en-cmd.txt)
-- [koder-cli-0.5.17-en-linux.txt](tutorials/koder-cli-0.5.17-en-linux.txt)
-- [koder-cli-0.5.17-en-mac.txt](tutorials/koder-cli-0.5.17-en-mac.txt)
-- [koder-cli-0.5.17-en-powershell.txt](tutorials/koder-cli-0.5.17-en-powershell.txt)
-- [koder-cli-0.5.17-zh-cmd.txt](tutorials/koder-cli-0.5.17-zh-cmd.txt)
-- [koder-cli-0.5.17-zh-linux.txt](tutorials/koder-cli-0.5.17-zh-linux.txt)
-- [koder-cli-0.5.17-zh-mac.txt](tutorials/koder-cli-0.5.17-zh-mac.txt)
-- [koder-cli-0.5.17-zh-powershell.txt](tutorials/koder-cli-0.5.17-zh-powershell.txt)
+- [koder-cli-0.5.18-en-cmd.txt](tutorials/koder-cli-0.5.18-en-cmd.txt)
+- [koder-cli-0.5.18-en-linux.txt](tutorials/koder-cli-0.5.18-en-linux.txt)
+- [koder-cli-0.5.18-en-mac.txt](tutorials/koder-cli-0.5.18-en-mac.txt)
+- [koder-cli-0.5.18-en-powershell.txt](tutorials/koder-cli-0.5.18-en-powershell.txt)
+- [koder-cli-0.5.18-zh-cmd.txt](tutorials/koder-cli-0.5.18-zh-cmd.txt)
+- [koder-cli-0.5.18-zh-linux.txt](tutorials/koder-cli-0.5.18-zh-linux.txt)
+- [koder-cli-0.5.18-zh-mac.txt](tutorials/koder-cli-0.5.18-zh-mac.txt)
+- [koder-cli-0.5.18-zh-powershell.txt](tutorials/koder-cli-0.5.18-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 
@@ -372,6 +372,6 @@ koder project check --kind website --json -w /path/to/site
 0.5.14 起支持对话内隐藏输入与私有使用。邮箱、GitHub、模型密钥、Ubuntu 登录控件与 sudo 分别有实际入口。参见[完整凭据教程](CREDENTIALS.zh.md)，包括输入提示、取消、绑定、填入与登录成功的区别，以及后台/CI 边界。
 
 
-## 旧会话卡住与人工核对（0.5.17）
+## 旧会话卡住与人工核对（0.5.18）
 
 在聊天输入 `/reconcile` 查看；实际核对后输入 `/reconcile checked <调用编号>`。该命令保留原 UNKNOWN，不重放，也不代替后续审批。整行 `ESC`/`Escape` 可取消，空闲时不会启动模型。详细步骤见[会话恢复教程](SESSION-RECOVERY.zh.md)。

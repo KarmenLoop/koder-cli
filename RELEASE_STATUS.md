@@ -1,3 +1,7 @@
+# Koder CLI 0.5.18
+
+Mailbox authentication recovery and protected chat input fixes. See [release notes](docs/RELEASE-0.5.18.md) and the exact release acceptance attachment. Windows physical and dedicated 163 account checks remain beta-owned. GitHub publication only for this patch.
+
 # Koder CLI 0.5.17
 
 Patch for legacy session recovery, persistent human review and cancellation before tool dispatch. See [release notes](docs/RELEASE-0.5.17.md) and the release acceptance attachment. Windows physical checks remain beta-owned; prior acceptance boundaries remain in effect.

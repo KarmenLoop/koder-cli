@@ -1,5 +1,18 @@
 # 邮箱绑定、发件、查信与后台提醒
 
+## 0.5.18：已绑定却提示未配置，或输入 use 后崩溃
+
+先在系统终端运行 `koder --version`，升级到 0.5.18 后退出旧 Koder，再打开新进程。自动更新下载失败时不代表邮箱失效；更新与邮箱认证分别排查。不要删除 `~/.koder-cli`、Windows 用户目录下的 `.koder-cli` 或邮箱存储来重新开始。
+
+1. 运行 `koder mail doctor --json`。`mail.configured: true` 表示仍有加密保存的绑定；`mail.smtpConfigured: true` 表示发件设置仍在；`mail.connected: false` 与 `AUTH_FAILED` 表示认证未通过。它们不等于授权码没有保存，也不等于 SMTP 没配置。
+2. 运行 `koder mail check`。这是明确的重新验证：尝试现有收信凭据，必要时核对 SMTP 登录，不发送邮件。临时拒绝恢复后可以继续使用原绑定；认证继续失败时，检查 163 网页邮箱的 IMAP/SMTP 服务开关及客户端授权码是否仍有效。
+3. 需要更新授权码时，运行 `koder mail setup 163`；完整邮箱地址和服务设置保持原账户，授权码只输入专用隐藏提示。也可在对话中要求修复绑定：第一次 `use` 同意收集 → 隐藏输入账号与授权码 → 第二次 `use` 核对实际收信/发信服务器后才绑定。`use` 不会发送邮件。按回车或取消可停止。
+4. 同一邮箱、同一连接设置只更新授权码时，保留提醒选择、模型阅读许可和发送账本；结果未知的旧邮件不会因为重新绑定而自动重发。改成不同邮箱或连接设置，不继承原邮箱的阅读与自动回复授权。
+5. 验证成功后重新提出明确的测试发件请求，核对收件人、主题、正文，再输入 `send`。`acceptedBySmtp: true` 只证明服务器接受，仍需收件方核对；更新前未完成的发件不会自动补发。
+6. 要关闭终端后继续提醒，另运行 `koder mail monitor on`，确认后用 `koder mail monitor status` 核对 **active: true**。仅 `koder activate` 或 `running: true` 不证明邮箱监控已经授权。收信认证被拒绝时自动检查暂停，不会持续冲击同一失效授权码；明确重新检查或更新绑定后再恢复。
+
+0.5.18 已验证真实 CLI 交互栈中的上述隐藏输入、重新绑定和发送确认路径；模型响应与账号为合成夹具。另有本地 TLS IMAP/SMTP 协议测试，不是向外部 163 服务发送测试信。真实 Windows、163 收件方与系统通知显示由 beta 专员分别验收；不要回传实际授权码。
+
 ## 1. 绑定 163 邮箱
 
 在交互终端运行 `koder mail setup 163`。输入邮箱地址，选择 IMAP，核对授权范围后输入 `connect-mail`，在隐藏输入框粘贴客户端授权码。不要把授权码发给 Agent 对话或写进命令。163 预设为 IMAP 993、SMTP 465，均使用 TLS；仅收信模式不能发件。
@@ -20,7 +33,7 @@ SMTP 接受后返回消息 ID，但不代表已核实对方收件。明确的发
 
 运行 `koder mail monitor on`，核对邮箱、轮询间隔、安静时段、每日提醒上限及用户级后台服务，输入 `watch-mail`。即使之前配置写着已激活但服务已停，也会尝试重新启动。它不代开模型读取或自主发送。
 
-执行 `koder mail monitor status`，确认 `running: true`。`lastMailSuccess` 是实际完成检查的时间，跳过的检查单列。默认每 30 秒轮询；网络、休眠、服务状态、安静时段与提醒预算都会影响时间，不保证瞬时推送。系统必须允许通知；提交到系统不代表用户已经看到。
+执行 `koder mail monitor status`，确认 `active: true`。`lastMailSuccess` 是实际完成检查的时间，跳过的检查单列。默认每 30 秒轮询；网络、休眠、服务状态、安静时段与提醒预算都会影响时间，不保证瞬时推送。系统必须允许通知；提交到系统不代表用户已经看到。
 
 只想终端开着时查信，可用 `koder mail watch`。希望收到邮件后先问你是否回复，再分别开启 `koder mail model on` 和 `koder mail inquire on`；两者均不自动发送。关闭后台查信使用 `koder mail monitor off`，不会停止其他后台任务。
 
@@ -36,7 +49,7 @@ koder mail doctor --json
 `mail doctor` 读取本地绑定、策略和后台进程状态；不登录邮件服务器，不刷新收件箱，不发信，不更改授权。它只输出预设服务商、协议、开关、检查时间、错误码及发送状态数量，不包含邮箱地址、服务器地址、密码、邮件标题/正文或消息 ID。可将这个 JSON 交给测试专员；不要改用完整 `mail status --json` 回传，后者供用户在本机查看邮件列表。诊断报告不会自动上传。
 
 - `mail.connected`：此前保存的绑定验证状态，不能证明服务器现在仍能登录。`remoteChecksPerformed: false` 是预期结果。
-- `mail.sendingAvailable: false` 且已绑定：可能是仅收信绑定。运行 `koder mail setup` 重新配置并验证 SMTP；此操作需用户输入授权码和确认。
+- `mail.smtpConfigured: false` 且已配置：仅收信或缺发件配置。`smtpConfigured: true` 但 `sendingAvailable: false` 是尚未通过认证，不要当作 SMTP 缺失。
 - `monitor.active: false`：按 `blockedReasons` 定位。服务进程运行不代表后台邮箱已启用；可用 `koder mail monitor on` 查看并确认授权范围。
 - `MAIL_BACKGROUND_DISABLED`：后台主动检查总开关已关。邮箱监控的授权流程会重新开启；仅查看诊断不会改开关。
 - `deliveries.unconfirmed` 大于零：保留结果未知或提交中的邮件记录。先到服务商网页邮箱及测试收件箱核对，不能直接再次发送。

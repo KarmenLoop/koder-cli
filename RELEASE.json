@@ -1,22 +1,22 @@
 {
-  "version": "0.5.17",
+  "version": "0.5.18",
   "packages": {
     "darwin": {
-      "file": "koder-cli-0.5.17-darwin.tgz",
-      "sha256": "c3e9f8c2d135b88e3c56a465a75904426917a1f1e633d6b3c662f3064cddd327",
-      "size": 219736367
+      "file": "koder-cli-0.5.18-darwin.tgz",
+      "sha256": "563866c743db87cf8f14d9829c1962a2e064620d9a33a8e1a8869159c2bd329c",
+      "size": 219730694
     },
     "linux": {
-      "file": "koder-cli-0.5.17-linux.tgz",
-      "sha256": "513b966a6ac48a43aed9451a48a4fcdfc7c0a1b152937654d2c006ecf464afed",
-      "size": 141912899
+      "file": "koder-cli-0.5.18-linux.tgz",
+      "sha256": "a7dcdafb53de49a2acb2421c37bec699a62ed91e5a1874d3e2783d7aef3f6f35",
+      "size": 141913850
     }
   },
-  "file": "koder-cli-0.5.17.tgz",
-  "sha256": "d5d52e9460df10e2fedcfc9e03e6b71756aa72e5ca27f1cd22640640a3724ea8",
-  "size": 314971816,
+  "file": "koder-cli-0.5.18.tgz",
+  "sha256": "b8372086d8c855a44ff0ffc64a71265fb7d576828103f9879f61796069c5b934",
+  "size": 314972228,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-28T14:54:04.203Z",
+  "builtAt": "2026-10-28T16:51:12.481Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -26,38 +26,37 @@
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "03b049c0900fdb00444089612ee81202b5f6ca74a688216e04c7ea04c73d8844"
+      "sha256": "9c952752c4d645dcf4d515b76917a6826f7e521d1236b2c9467ec4410362f25b"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "8b0851584b9d6bb247e10802ff7429bf4a3196fe1cfbfc5b2676773f3c0a3e92"
+      "sha256": "0d21c5ad9a40fb80e6f3eb977e143e198614300ff9ee42d560737631372b914e"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "71497f81533549b97c883c9eb7ccfdcfe2124392f470346f8c2e61f3271e2490"
+      "sha256": "ef9933bb30ba5c73031374486991bc21ca66245f2b1c4037fcfc84ef1662cf44"
     },
     "ubuntu": {
       "file": "koder-ubuntu-24.04.sh",
-      "sha256": "d5a6b06d292044530d22774797a48eed751f04ba0f47c2a0e62aec63a8fb322e"
+      "sha256": "f92ac45b5265bfa14d68f70b77cf0744c81afcd6a1c7e3a6f916575ada04f2cb"
     },
     "ubuntu2604": {
       "file": "koder-ubuntu-26.04.sh",
-      "sha256": "859df5690c273526f3840cdf5060b302ec74d403624f61eb389b4624b4aef65b"
+      "sha256": "1c57b2f0aae52b3dc00191976fe493908ab8470c2c2e78863366b387fdaeb162"
     }
   },
   "channel": "stable",
-  "sourceBaseline": "0.5.16 published",
+  "sourceBaseline": "0.5.17 published",
   "changes": [
-    "Restore read-only diagnostics for legacy pending-operation records",
-    "Add explicit persistent human review without replay or approval bypass",
-    "Handle exact ESC input locally and stop dispatch after cancellation",
-    "Keep permitted native computer-care status tools visible during recovery",
-    "Update recovery tutorials and current platform installation links"
+    "Repair hidden credential input in interactive chat",
+    "Distinguish saved mailbox/SMTP configuration from rejected authentication",
+    "Reverify stored credentials on explicit checks without sending",
+    "Preserve notification consent and uncertain sends during same-account renewal",
+    "Document authentication recovery and background monitoring"
   ],
   "retainedLimits": [
-    "Physical Windows 10/11 checks are beta-owned",
-    "Dedicated 163 mailbox checks require the Windows test account",
-    "Ubuntu desktop and visible notifications require device checks",
+    "Physical Windows and dedicated 163 mailbox checks remain beta-owned",
+    "Native visible notification checks require device acceptance",
     "Signed macOS locked-screen operation remains unavailable"
   ],
   "courseStatus": {
@@ -65,5 +64,5 @@
     "en": 30,
     "originalZhRetained": 180
   },
-  "publicationAuthorization": "GitHub now; website synchronization requested from 2026-10-29"
+  "publicationAuthorization": "GitHub patch release; no website deployment"
 }

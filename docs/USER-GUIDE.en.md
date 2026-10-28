@@ -10,17 +10,17 @@ This release checks for missing task output and website handoff evidence. Read [
 
 [Start here: installation, first task and feature navigation](START-HERE.en.md)
 
-0.5.17 includes [computer care](COMPUTER-CARE.zh.md), [installed-app access](APP-USE-AND-LEARN.en.md) and the Windows disk-inspection fix. Start with the [feature and tutorial map](FEATURES.md).
+0.5.18 includes [computer care](COMPUTER-CARE.zh.md), [installed-app access](APP-USE-AND-LEARN.en.md) and the Windows disk-inspection fix. Start with the [feature and tutorial map](FEATURES.md).
 
-Current version: **0.5.17**. Start with [release changes](RELEASE-0.5.17.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.5.18**. Start with [release changes](RELEASE-0.5.18.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide targets 0.5.17. The eight linked terminal text exports match this version; historical exports are excluded from the current package.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide targets 0.5.18. The eight linked terminal text exports match this version; historical exports are excluded from the current package.
 
 # Koder CLI complete user guide
 
-Version: **0.5.17**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.5.18**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -223,14 +223,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.5.17-en-cmd.txt](tutorials/koder-cli-0.5.17-en-cmd.txt)
-- [koder-cli-0.5.17-en-linux.txt](tutorials/koder-cli-0.5.17-en-linux.txt)
-- [koder-cli-0.5.17-en-mac.txt](tutorials/koder-cli-0.5.17-en-mac.txt)
-- [koder-cli-0.5.17-en-powershell.txt](tutorials/koder-cli-0.5.17-en-powershell.txt)
-- [koder-cli-0.5.17-zh-cmd.txt](tutorials/koder-cli-0.5.17-zh-cmd.txt)
-- [koder-cli-0.5.17-zh-linux.txt](tutorials/koder-cli-0.5.17-zh-linux.txt)
-- [koder-cli-0.5.17-zh-mac.txt](tutorials/koder-cli-0.5.17-zh-mac.txt)
-- [koder-cli-0.5.17-zh-powershell.txt](tutorials/koder-cli-0.5.17-zh-powershell.txt)
+- [koder-cli-0.5.18-en-cmd.txt](tutorials/koder-cli-0.5.18-en-cmd.txt)
+- [koder-cli-0.5.18-en-linux.txt](tutorials/koder-cli-0.5.18-en-linux.txt)
+- [koder-cli-0.5.18-en-mac.txt](tutorials/koder-cli-0.5.18-en-mac.txt)
+- [koder-cli-0.5.18-en-powershell.txt](tutorials/koder-cli-0.5.18-en-powershell.txt)
+- [koder-cli-0.5.18-zh-cmd.txt](tutorials/koder-cli-0.5.18-zh-cmd.txt)
+- [koder-cli-0.5.18-zh-linux.txt](tutorials/koder-cli-0.5.18-zh-linux.txt)
+- [koder-cli-0.5.18-zh-mac.txt](tutorials/koder-cli-0.5.18-zh-mac.txt)
+- [koder-cli-0.5.18-zh-powershell.txt](tutorials/koder-cli-0.5.18-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
@@ -360,6 +360,6 @@ Read the [complete execution guide](FRAMEWORK-0.5.en.md). It covers installation
 Version 0.5.14 supports hidden credential input, existing account bindings, Ubuntu private login filling and native sudo prompts. See [Credentials and private login input](CREDENTIALS.md) for the workflow and platform limits.
 
 
-## Recover an interrupted session (0.5.17)
+## Recover an interrupted session (0.5.18)
 
 In chat, use `/reconcile` to inspect pending calls. After checking the actual target, use `/reconcile checked <call-id>`. Original UNKNOWN receipts and normal approval requirements remain intact; nothing is replayed. Exact `ESC`/`Escape` input cancels without starting a model turn at idle. See [session recovery](SESSION-RECOVERY.en.md).

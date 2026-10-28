@@ -1312,6 +1312,6 @@ Global options: koder help.
 ```
 
 
-## Recover an interrupted session (0.5.17)
+## Recover an interrupted session (0.5.18)
 
 In chat, use `/reconcile` to inspect pending calls. After checking the actual target, use `/reconcile checked <call-id>`. Original UNKNOWN receipts and normal approval requirements remain intact; nothing is replayed. Exact `ESC`/`Escape` input cancels without starting a model turn at idle. See [session recovery](SESSION-RECOVERY.en.md).

@@ -1312,6 +1312,6 @@ koder about  按官网介绍 Koder 是谁做的，并给出更新页
 ```
 
 
-## 旧会话卡住与人工核对（0.5.17）
+## 旧会话卡住与人工核对（0.5.18）
 
 在聊天输入 `/reconcile` 查看；实际核对后输入 `/reconcile checked <调用编号>`。该命令保留原 UNKNOWN，不重放，也不代替后续审批。整行 `ESC`/`Escape` 可取消，空闲时不会启动模型。详细步骤见[会话恢复教程](SESSION-RECOVERY.zh.md)。

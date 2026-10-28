@@ -1,5 +1,7 @@
 # Sending mail and receiving background alerts
 
+[Saved-binding authentication recovery and private input](MAIL-RECOVERY.en.md) (0.5.18).
+
 For a shareable diagnostic report, run `koder mail doctor --json`. It reads local binding and policy state and checks the local background process. It does not fetch or send mail, change permissions, or upload the report. Addresses, server names, credentials, message content and receipt identifiers are excluded. Full `mail status --json` output is intended for local use and can contain mail metadata.
 
 Check `monitor.active` and `monitor.blockedReasons`; a running service alone does not mean mailbox checks are enabled. `MAIL_BACKGROUND_DISABLED` means the background-check switch is off. Use `koder mail monitor on` to review and authorize monitoring. Nonzero `deliveries.unconfirmed` requires checking the provider and test recipient before sending again. A saved connected state is not a live authentication test, SMTP acceptance is not recipient delivery, and a submitted notification is not proof of display.

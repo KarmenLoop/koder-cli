@@ -1,3 +1,13 @@
+## 0.5.18 — 2026-10-29
+
+- Fix hidden credential input in chat after the user confirms `use`.
+- Keep saved mailbox and SMTP configuration separate from authentication status. A rejected login no longer reports missing SMTP settings.
+- Let an explicit mail check reverify saved credentials over both receive and send channels without sending a message.
+- Preserve notification choices, reading consent and uncertain send records when renewing the same mailbox. A different mailbox starts with its own defaults.
+- Explain paused background checks after authentication rejection and clear stale errors after a successful check.
+
+[Release notes](docs/RELEASE-0.5.18.md) · [Mail recovery](docs/MAIL-RECOVERY.en.md).
+
 ## 0.5.17 — 2026-10-28
 
 - Restore legacy pending operations into read-only recovery instead of blocking every diagnostic.

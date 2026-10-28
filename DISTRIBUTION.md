@@ -1,4 +1,4 @@
-## 0.5.17 candidate
+## 0.5.18 candidate
 
 The universal package supports Windows and offline cross-platform transfer. macOS and Linux packages retain their supported features, current Skills and current tutorials; only other-platform binaries and duplicate historical tutorial exports are omitted. The manifest lists exact sizes and hashes. License and upstream resource inventories remain included.
 
