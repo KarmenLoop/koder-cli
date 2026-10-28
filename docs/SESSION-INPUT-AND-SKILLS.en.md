@@ -65,6 +65,6 @@ Check koder --version and koder doctor after upgrading. Version 0.3.0 lacks thes
 No-key checks cover real readline, CLI/harness execution and local IPC. Native Windows Console, ConPTY, IME and user-terminal checks remain separate.
 
 
-## Recover an interrupted session (0.5.18)
+## Recover an interrupted session (0.5.19)
 
 In chat, use `/reconcile` to inspect pending calls. After checking the actual target, use `/reconcile checked <call-id>`. Original UNKNOWN receipts and normal approval requirements remain intact; nothing is replayed. Exact `ESC`/`Escape` input cancels without starting a model turn at idle. See [session recovery](SESSION-RECOVERY.en.md).

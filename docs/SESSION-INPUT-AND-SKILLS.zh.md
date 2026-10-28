@@ -65,6 +65,6 @@ Agent 思考、输出或运行工具时，输入行继续显示，可以编辑�
 无密钥回归覆盖真实 readline、CLI/harness 和本机 IPC；Windows Console、ConPTY、IME 及用户原生终端手测仍须分别记录。
 
 
-## 旧会话卡住与人工核对（0.5.18）
+## 旧会话卡住与人工核对（0.5.19）
 
 在聊天输入 `/reconcile` 查看；实际核对后输入 `/reconcile checked <调用编号>`。该命令保留原 UNKNOWN，不重放，也不代替后续审批。整行 `ESC`/`Escape` 可取消，空闲时不会启动模型。详细步骤见[会话恢复教程](SESSION-RECOVERY.zh.md)。

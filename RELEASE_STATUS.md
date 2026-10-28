@@ -1,6 +1,6 @@
-# Koder CLI 0.5.18
+# Koder CLI 0.5.19
 
-Mailbox authentication recovery and protected chat input fixes. See [release notes](docs/RELEASE-0.5.18.md) and the exact release acceptance attachment. Windows physical and dedicated 163 account checks remain beta-owned. GitHub publication only for this patch.
+Inbox retry integrity, pending inquiry retention and accurate background-mail health. See [release notes](docs/RELEASE-0.5.19.md) and the exact release acceptance attachment. Windows physical and dedicated 163 account checks remain beta-owned. GitHub publication only for this patch.
 
 # Koder CLI 0.5.17
 

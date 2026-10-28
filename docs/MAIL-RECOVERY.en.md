@@ -1,5 +1,23 @@
 # Mail setup, sending and background checks
 
+## 0.5.19: verify the complete mail path
+
+Upgrade, reopen the process, and confirm `koder --version` is `0.5.19`. Run these commands in the system terminal; inside Koder chat, replace `koder mail` with `/mail`. Keep existing data and never paste authorization codes into ordinary chat.
+
+1. Run `koder mail doctor --json`. Saved configuration (`configured`, `smtpConfigured`) is distinct from successful authentication (`connected`, `sendingAvailable`).
+2. Run `koder mail check` to verify existing receive and SMTP credentials without sending. If authentication still fails, check the provider's IMAP/SMTP setting and renew the authorization code through hidden input in `koder mail setup 163`.
+3. Send a uniquely titled message from another test mailbox. Run `koder mail check`, then `koder mail read <returned-ID>`. Compare the actual subject and body. A newer arrival during a retry must not skip an older failed read.
+4. Run `koder mail send`, enter the designated beta recipient and a short test message, review the recipient/body preview, then confirm. SMTP acceptance is only one result: separately confirm arrival in the recipient inbox.
+5. Authorize `koder mail monitor on`. Inspect `koder mail monitor status --json`: `active`, `blockedReasons`, `lastMailSuccess` and `lastMailError`. A running daemon without valid authentication or reminder consent is not active monitoring.
+6. Outside quiet hours and below the daily cap, close the terminal, receive another unique test message and observe the actual system notification. Reopening the daemon must not repeat a settled notification. Submission to the OS is not proof of visible display.
+7. Run `koder mail monitor off` to revoke mail monitoring. It works even after removal or a storage failure and does not stop unrelated background tasks.
+
+`MAIL_STALE` means a listed message is no longer available from the server; later mail remains eligible. `NETWORK`, `CLOSED`, `TIMEOUT`, storage errors and authentication rejection do not silently mark the message read. Authentication rejection pauses automatic retries until an explicit check or renewal.
+
+Known headers used by pending inquiries now survive the recent-message display cache. Already-evicted old references or server-deleted mail cannot be reconstructed; begin again from an available message when necessary.
+
+For Windows beta acceptance, record version, terminal, timestamps, safe error codes, recipient receipt and visible notification results. Cover PowerShell 5.1, CMD and multiple windows. Attach safe `mail doctor --json` output, not credentials, private message bodies or a full inbox listing. Real Windows/163 acceptance remains separate from local synthetic TLS and scripted-tool tests.
+
 ## Recover a saved binding in 0.5.18
 
 Check `koder --version`, upgrade to 0.5.18, and reopen Koder. An update download failure and mailbox authentication are separate errors. Do not delete the Koder data directory or mailbox records.

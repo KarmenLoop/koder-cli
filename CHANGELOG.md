@@ -1,3 +1,14 @@
+## 0.5.19 — 2026-10-29
+
+- Continue inbox polling after a server-confirmed stale message without skipping transient failures.
+- Keep IMAP retry checkpoints behind failed reads when new messages arrive.
+- Retain bounded known headers for pending inquiries beyond the recent inbox display cache.
+- Include authentication and reminder consent in background-monitor health.
+- Allow structured monitor status and revocation without a usable mailbox.
+- Exercise TLS mail, daemon IPC, recovery and reminder deduplication together. Physical Windows and real 163 checks remain beta-owned.
+
+[Release notes](docs/RELEASE-0.5.19.md) · [Mail recovery](docs/MAIL-RECOVERY.en.md).
+
 ## 0.5.18 — 2026-10-29
 
 - Fix hidden credential input in chat after the user confirms `use`.
