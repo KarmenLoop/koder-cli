@@ -59,9 +59,9 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
-![Koder CLI 会话开始](docs/screenshots/cli-start-0.5.3-en-dark.png)
+![Koder CLI 0.5.21 中文启动界面](docs/screenshots/cli-start-0.5.21-zh-dark.jpg)
 
-*0.5.3 启动输出来自隔离的 macOS PTY，由 ANSI 记录转为图片；各终端字体显示可能不同。*
+*0.5.21 已发布 macOS 包的启动界面，来自隔离 PTY 的真实 ANSI 输出；此时尚未配置模型。各终端的字体和间距可能不同。*
 
 [下载 Koder CLI](https://kodermodule.com/cli-download.html) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.5.21.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
@@ -210,27 +210,17 @@ flowchart LR
 
 ---
 
-## 截图路线图
+## 界面截图 · 0.5.21
 
-`docs/screenshots/` 下六张实机截图，按「第一次成功」顺序排列。下文 [手把手上手](#手把手上手) 每一步配对应图——封面刻意保持精简。
+以下图片来自已发布的 macOS 版本，分别展示启动界面、设置菜单和第一课。中英文 README 各用对应语言的实测画面。
 
-```mermaid
-flowchart LR
-  A[1 安装与 EULA<br/>cli-install] --> B[2 会话启动<br/>cli-start]
-  B --> C[3 主页 / 项目<br/>tui-home]
-  C --> D[4 CLI Diff<br/>cli-diff]
-  D --> E[5 TUI Diff<br/>tui-diff]
-  E --> F[6 审查与落地<br/>cli-review]
-```
+| 界面 | 图中内容 | 图片 |
+| --- | --- | --- |
+| 启动 | 折光体、版本、工作目录与常用命令 | [启动界面](docs/screenshots/cli-start-0.5.21-zh-dark.jpg) |
+| 设置 | 尚未配置模型时的主菜单 | [设置菜单](docs/screenshots/cli-setup-0.5.21-zh-dark.jpg) |
+| 课堂 | 第一课的终端选择步骤 | [第一课](docs/screenshots/cli-learn-0.5.21-zh-dark.jpg) |
 
-| 步骤 | 你做什么 | 截图 |
-|---|---|---|
-| 1 | 跑安装器，在 EULA 提示处输入 `accept` | [`cli-install-en-dark.jpg`](docs/screenshots/cli-install-en-dark.jpg) |
-| 2 | 新开终端，核对版本，进入会话 | [`cli-start-0.5.3-en-dark.png`](docs/screenshots/cli-start-0.5.3-en-dark.png) |
-| 3 | 完成 `koder setup`，打开项目 / TUI 主页 | [`tui-home-en-dark.jpg`](docs/screenshots/tui-home-en-dark.jpg) |
-| 4 | 下达首个任务，审阅 CLI Diff | [`cli-diff-en-dark.jpg`](docs/screenshots/cli-diff-en-dark.jpg) |
-| 5 | 可选：在 TUI Diff 里再看同一处改动 | [`tui-diff-en-dark.jpg`](docs/screenshots/tui-diff-en-dark.jpg) |
-| 6 | 批准或拒绝；需要结构化审查时跑 `koder review` | [`cli-review-en-dark.jpg`](docs/screenshots/cli-review-en-dark.jpg) |
+图片采集于 2026 年 10 月 30 日，由程序的真实终端输出渲染而成。采集方式与校验值见[截图说明](docs/screenshots/README.zh-CN.md)；安装和首个任务见[手把手上手](#手把手上手)。
 
 ---
 
@@ -256,7 +246,7 @@ flowchart LR
 
 只选**一条**命令。等到 `accept / decline:`，输入 `accept` 并回车。`decline` 或 Ctrl+C 取消。Windows 上空回车会再问 — **不会**接受许可。接受许可**不会**开启电脑、邮件、画像学习、同步、生日、音乐或国家查询等可选项。
 
-对应截图见 [手把手第 1 步](#1-安装并接受-eula)。
+安装与许可提示的操作说明见[手把手第 1 步](#1-安装并接受-eula)。
 
 ### Windows PowerShell
 
@@ -328,10 +318,6 @@ koder
 3. 输入 `accept` 并回车。输入 `decline` 或按 Ctrl+C 取消。Windows 上空回车会**再问一次**——不会接受。
 4. 安装结束后**关掉终端再开**，让 `PATH` 生效。
 
-![安装与 EULA](docs/screenshots/cli-install-en-dark.jpg)
-
-*步骤 1 — 安装进度与 EULA 提示。接受许可不会打开电脑、邮件、同步或彩蛋等可选项。*
-
 ### 2. 核对版本并进入会话
 
 ```text
@@ -347,9 +333,9 @@ koder learn
 
 课中：`Enter` 继续，`b` 回退，`q` 离开。离线文本版：`koder learn --print --os mac --lang zh`（`--os` 也可为 `powershell` / `cmd` / `linux`；`--lang en` 为英文）。
 
-![会话开始](docs/screenshots/cli-start-0.5.3-en-dark.png)
+![Koder CLI 0.5.21 中文第一课](docs/screenshots/cli-learn-0.5.21-zh-dark.jpg)
 
-*步骤 2 — 干净安装后的会话启动界面。*
+*第一课先让你选择使用的终端。本图停在选择步骤，阅读课程不需要调用模型。*
 
 ### 3. 配置模型 API 并选定项目
 
@@ -377,9 +363,9 @@ koder chat -w /absolute/path/to/existing-project
 
 聊天内：`/project create "Another Site" --kind website` 创建并选中；`/project open "/absolute/path"` 回到已有目录。同名冲突会被拒绝——**不会**合并文件。
 
-![TUI 主页](docs/screenshots/tui-home-en-dark.jpg)
+![Koder CLI 0.5.21 中文设置菜单](docs/screenshots/cli-setup-0.5.21-zh-dark.jpg)
 
-*步骤 3 — setup 之后的 TUI 主页；首个真实任务前先确认工作区。*
+*尚未配置服务商时的设置主菜单。选择「模型」后填写服务商配置。*
 
 准备好后可做通烟测试（可能产生服务商费用）：
 
@@ -415,17 +401,9 @@ koder run "给 README 加一段本地启动说明" --lang zh
 3. 密钥 / 配置——是否靠近 Key、`.env`、凭据或发布配置？
 4. 范围——hunk 是否贴合请求，还是漂移到无关文件？
 
-![应用前的 CLI Diff](docs/screenshots/cli-diff-en-dark.jpg)
-
-*步骤 4 — 面向 Diff 的 CLI 审阅。这是审批策略，不是操作系统沙箱。*
-
 ### 5. 可选：在 TUI 里再看同一处改动
 
 若更习惯全屏视图，打开 TUI Diff。说明与 hunk 与 CLI 一致——同一工作区、同一套策略。批准或拒绝时与 CLI 同样谨慎。
-
-![TUI Diff 视图](docs/screenshots/tui-diff-en-dark.jpg)
-
-*步骤 5 — 提案改动的 TUI Diff。*
 
 ### 6. 批准或拒绝——然后可选用 review
 
@@ -448,10 +426,6 @@ koder review --format json
 ```
 
 适合在落地后需要结构化发现、大改动跟进前，或 CI 式门禁必须区分「解析干净」与失败时使用。若模型回答成功仍无法解析出完整审查结果，CLI 以退出码 **3** 返回 `REVIEW_UNPARSED`——**不要**把它当成干净通过。
-
-![审查工作流](docs/screenshots/cli-review-en-dark.jpg)
-
-*步骤 6 — 落地后的审查 / 修复闭环。*
 
 **第一次成功**的标志：版本显示 0.5.21、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
 
@@ -609,7 +583,7 @@ koder update auto on
 落地后需要结构化发现时、大改动跟进前，或门禁必须区分干净解析与 `REVIEW_UNPARSED`（退出码 3）时。它**不能**替代首次批准前阅读 Diff。
 
 **手把手教程在哪？**\
-就在本页：[手把手上手](#手把手上手)（配齐六张截图）。完整深度：[USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · `koder learn`。
+就在本页：[手把手上手](#手把手上手)（含当前版本的启动、设置和课堂图片）。完整深度：[USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · `koder learn`。
 
 ---
 

@@ -59,9 +59,9 @@ Current release: **[0.5.21](https://kodermodule.com/en/cli-download.html)** · A
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
-![Koder CLI session start](docs/screenshots/cli-start-0.5.3-en-dark.png)
+![Koder CLI 0.5.21 startup banner in English](docs/screenshots/cli-start-0.5.21-en-dark.jpg)
 
-*0.5.3 startup output captured from an isolated macOS PTY and rendered from ANSI. Font rendering varies by terminal.*
+*0.5.21 startup banner from the published macOS package, captured in an isolated PTY and rendered from ANSI. No model is configured. Fonts and spacing vary by terminal.*
 
 [Download Koder CLI](https://kodermodule.com/en/cli-download.html) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.5.21.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
@@ -212,27 +212,17 @@ flowchart LR
 
 ---
 
-## Screenshot roadmap
+## Screenshots · 0.5.21
 
-Six real captures from `docs/screenshots/`, ordered as a first-success path. The [Guided walkthrough](#guided-walkthrough) embeds each image under its step—hero stays lean on purpose.
+These images show the published macOS build: its startup banner, settings menu, and first lesson. The English and Chinese READMEs use matching captures in each language.
 
-```mermaid
-flowchart LR
-  A[1 Install & EULA<br/>cli-install] --> B[2 Session start<br/>cli-start]
-  B --> C[3 Home / project<br/>tui-home]
-  C --> D[4 CLI diff<br/>cli-diff]
-  D --> E[5 TUI diff<br/>tui-diff]
-  E --> F[6 Review & apply<br/>cli-review]
-```
+| Screen | What is shown | Image |
+| --- | --- | --- |
+| Startup | Refractor, version, workspace, and command shortcuts | [Startup banner](docs/screenshots/cli-start-0.5.21-en-dark.jpg) |
+| Settings | Main menu before configuring a model | [Setup menu](docs/screenshots/cli-setup-0.5.21-en-dark.jpg) |
+| Classroom | First lesson at the operating-system choice | [Lesson 1](docs/screenshots/cli-learn-0.5.21-en-dark.jpg) |
 
-| Step | What you do | Screenshot |
-|---|---|---|
-| 1 | Run the installer and type `accept` at the EULA prompt | [`cli-install-en-dark.jpg`](docs/screenshots/cli-install-en-dark.jpg) |
-| 2 | Reopen the terminal, verify version, enter a session | [`cli-start-en-dark.jpg`](docs/screenshots/cli-start-0.5.3-en-dark.png) |
-| 3 | Finish `koder setup`, open a project / TUI home | [`tui-home-en-dark.jpg`](docs/screenshots/tui-home-en-dark.jpg) |
-| 4 | Give a first task; inspect the proposed CLI diff | [`cli-diff-en-dark.jpg`](docs/screenshots/cli-diff-en-dark.jpg) |
-| 5 | Optionally review the same change in the TUI diff view | [`tui-diff-en-dark.jpg`](docs/screenshots/tui-diff-en-dark.jpg) |
-| 6 | Approve or decline; run `koder review` when you want a structured pass | [`cli-review-en-dark.jpg`](docs/screenshots/cli-review-en-dark.jpg) |
+The images were rendered from real terminal output captured on October 30, 2026. See [capture details and checksums](docs/screenshots/README.md). The [guided walkthrough](#guided-walkthrough) covers installation and a first task.
 
 ---
 
@@ -258,7 +248,7 @@ Use **Windows 10/11**, **macOS**, **Linux**, or **WSL** with the matching shell.
 
 Choose **one** command. Wait for `accept / decline:`, type `accept`, press Enter. `decline` or Ctrl+C cancels. Empty Windows input asks again — it does **not** accept. License acceptance enables **no** optional computer, mail, profile-learning, sync, birthday, music, or country-lookup permissions.
 
-The matching screenshot lives in [walkthrough step 1](#1-install-and-accept-the-eula).
+Follow [walkthrough step 1](#1-install-and-accept-the-eula) for the installation and license prompts.
 
 ### Windows PowerShell
 
@@ -330,10 +320,6 @@ A first-success path from zero to a conscious approve-or-decline. Deeper workflo
 3. Type `accept` and press Enter. Type `decline` or press Ctrl+C to cancel. On Windows, an empty Enter **asks again**—it does not accept.
 4. When the installer finishes, **close and reopen** the terminal so `PATH` refreshes.
 
-![Install and EULA](docs/screenshots/cli-install-en-dark.jpg)
-
-*Step 1 — installer progress and the EULA prompt. Acceptance enables no optional computer, mail, sync, or celebration extras.*
-
 ### 2. Confirm the binary and open a session
 
 ```text
@@ -349,9 +335,9 @@ koder learn
 
 `Enter` continues a lesson, `b` goes back, `q` leaves. Offline text editions: `koder learn --print --os mac --lang en` (also `powershell` / `cmd` / `linux`; `--lang zh` for Chinese).
 
-![Session start](docs/screenshots/cli-start-0.5.3-en-dark.png)
+![Koder CLI 0.5.21 first lesson in English](docs/screenshots/cli-learn-0.5.21-en-dark.jpg)
 
-*Step 2 — session start after a clean install.*
+*The first lesson asks which terminal you use. This capture stops at that choice; no model request is needed to read the lesson.*
 
 ### 3. Configure your model API and pick a project
 
@@ -379,9 +365,9 @@ koder chat -w /absolute/path/to/existing-project
 
 Inside chat: `/project create "Another Site" --kind website` creates and selects; `/project open "/absolute/path"` returns to an existing folder. Name collisions are rejected—files are not merged.
 
-![TUI home](docs/screenshots/tui-home-en-dark.jpg)
+![Koder CLI 0.5.21 setup menu in English](docs/screenshots/cli-setup-0.5.21-en-dark.jpg)
 
-*Step 3 — TUI home after setup; confirm the workspace before the first real task.*
+*The main Setup menu before a provider is configured. Choose Model to enter your provider settings.*
 
 Smoke-test the provider when ready (these calls may incur provider charges):
 
@@ -417,17 +403,9 @@ When the agent proposes project edits, **read the CLI diff before you approve**:
 3. Secrets / config — anything near keys, `.env`, credentials, or deploy config?
 4. Scope — does the hunk match the ask, or drift into unrelated files?
 
-![CLI diff before apply](docs/screenshots/cli-diff-en-dark.jpg)
-
-*Step 4 — CLI diff-oriented review. Approval policy, not an OS sandbox.*
-
 ### 5. Optional: review the same change in the TUI
 
 If you prefer a full-screen view, open the TUI diff for the pending change. Captions and hunks match the CLI story—same workspace, same policy. Approve or decline with equal care.
-
-![TUI diff view](docs/screenshots/tui-diff-en-dark.jpg)
-
-*Step 5 — TUI diff of a proposed change.*
 
 ### 6. Approve or decline — then optionally run review
 
@@ -450,10 +428,6 @@ koder review --format json
 ```
 
 Use `koder review` when you want findings after apply, before a larger follow-up, or when a CI-style gate should distinguish a clean parse from failure. If a successful model answer still cannot be parsed into complete findings, the CLI exits **3** with `REVIEW_UNPARSED`—do **not** treat that as a clean review.
-
-![Review workflow](docs/screenshots/cli-review-en-dark.jpg)
-
-*Step 6 — review / fix loop after apply.*
 
 **First success** means: version reports 0.5.21, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
 
@@ -641,7 +615,7 @@ New creation tasks default to **Koder Projects** under your home directory unles
 After apply when you want structured findings, before a larger follow-up, or when a gate must distinguish a clean parse from `REVIEW_UNPARSED` (exit 3). It is not a substitute for reading the diff before the first approve.
 
 **Where is the hand-holding tutorial?**  
-On this page: [Guided walkthrough](#guided-walkthrough) (with all six screenshots). Full depth: [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · [USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · `koder learn`.
+On this page: [Guided walkthrough](#guided-walkthrough) (with current startup, setup, and classroom images). Full depth: [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · [USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · `koder learn`.
 
 ---
 
