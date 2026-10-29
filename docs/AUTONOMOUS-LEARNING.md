@@ -90,3 +90,7 @@ The eight unchanged files retain AGPL-3.0-only, the full license and KARMENLOOP 
 `koder growth status` 查看版本与状态，`show` 阅读方法，`off/on` 关闭或启用下次会话的调用。任务记录像项目里的错题本：保留错在哪里、为什么改、复验怎样，不把你的全部聊天偷偷变成画像。画像学习、同步、后台调度与权限仍由原来的独立开关和授权控制。关闭终端后，不会凭空出现常驻学习进程。
 
 检查记录区分资源读取、工具链运行、真实模型选用和实际定时触发。合成模型的工具链测试可以验证读写、错误返回和接续机制，不能证明所有真实模型都会正确采用这套方法。
+
+## Opt-in code repair
+
+[Local code repair](SELF-REPAIR.md) adds an executable patch path for seven supported CLI feature modules. It has its own explicit owner grant, reproduction checks and recovery commands. Ordinary learning does not enable code repair or grant broader filesystem, credential, approval or budget access.

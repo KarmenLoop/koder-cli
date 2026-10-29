@@ -3,20 +3,20 @@
   "packages": {
     "darwin": {
       "file": "koder-cli-0.5.20-darwin.tgz",
-      "sha256": "f6e7ba074553547d5ceb6f696875a34a06f5efc099211c9fc2f5b334a469e426",
-      "size": 219757461
+      "sha256": "619afbd2a0ba5eb8c7be28fdd771aba2f373101fb1ba7c6b25c3d67530d75701",
+      "size": 219788854
     },
     "linux": {
       "file": "koder-cli-0.5.20-linux.tgz",
-      "sha256": "d904ac31c89ad8629fb9a3ae1e75e3161c3dfa1ed84b6091b3d1bb95530fdefd",
-      "size": 141947222
+      "sha256": "6a5ecedf708bd3681fd9962e85a88553902d4f52224edaf57a78056774c439f3",
+      "size": 141959947
     }
   },
   "file": "koder-cli-0.5.20.tgz",
-  "sha256": "ee1cb8b09c85fa68c7850f6cb0e4072263e7977257d8d47ca086ab34e21e6ff7",
-  "size": 314991617,
+  "sha256": "bdd24bb70b98f024ec378130ed4d523d7a2e6cf5c2910436f6272c901707c894",
+  "size": 315020353,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-28T20:51:21.368Z",
+  "builtAt": "2026-10-29T06:49:44.747Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
@@ -50,15 +50,17 @@
   "stableUpdateUnchanged": true,
   "sourceBaseline": "0.5.19 published",
   "changes": [
-    "Enforce scoped headless artifact delivery",
-    "Reuse host-checked procedural failure experience",
-    "Explain and repair invalidated self-check receipts",
-    "Fit 8K tool definitions through on-demand inventory"
+    "Scoped headless artifact delivery",
+    "Host-checked procedural failure learning",
+    "Opt-in code repair for seven feature modules",
+    "Typed JSON reproduction checks and next-start patch loading",
+    "Hash binding, startup quarantine and rollback"
   ],
   "retainedLimits": [
     "Original ten-question effective-delivery gate remains unmet",
-    "Missing question inputs cannot be inferred as answers",
-    "Native Windows and Linux sandbox acceptance remains separate",
-    "No model-weight training or automatic runtime rewriting"
+    "Self-repair does not change core controls or train model weights",
+    "Native Windows/Linux local-repair acceptance remains separate",
+    "Code repair is not a hostile-code sandbox",
+    "Existing EULA unchanged; public modification exception not yet added"
   ]
 }
