@@ -28,7 +28,7 @@ Koder is a terminal coding and writing agent that uses your selected model API o
 
 **On Ubuntu, start with the [24.04 walkthrough](UBUNTU.md) for downloads, model setup, permissions, desktop operations and troubleshooting. [中文教程](UBUNTU.zh.md).**
 
-Use the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.20). Choose Windows CMD/PowerShell, macOS Terminal or Ubuntu 24.04; the installers select the matching platform package for the same release. The CLI is a separate download from the desktop application.
+Use the [CLI website](https://kodermodule.com/en/cli-download.html). Choose Windows CMD/PowerShell, macOS Terminal or Ubuntu 24.04; the installers select the matching platform package for the same release. The CLI is a separate download from the desktop application.
 
 For an existing managed installation:
 

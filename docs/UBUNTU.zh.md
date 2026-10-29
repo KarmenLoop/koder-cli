@@ -1,8 +1,10 @@
 # Ubuntu 24.04：从安装到完成第一个任务
 
+当前下载命令使用官网已发布的 0.5.21 安装器；本文保留 0.5.20 的操作示例及验收证据。查看新版本说明请进入 [官网教程](https://kodermodule.com/cli-tutorials.html)，旧记录不代表 0.5.21 真机验收已完成。
+
 使用新系统？[Ubuntu 26.04.1 Desktop amd64 独立教程](UBUNTU-26.04.zh.md)。本页继续保留 24.04 说明。
 
-[返回 GitHub 首页](../README.zh-CN.md) · [English](UBUNTU.md) · [下载 0.5.20](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.20)
+[返回 GitHub 首页](../README.zh-CN.md) · [English](UBUNTU.md) · [下载 Koder CLI](https://kodermodule.com/cli-download.html)
 
 本教程对应 **Koder CLI 0.5.20**，适用于 Ubuntu **24.04 LTS / 24.04.x** 的 x64 和 ARM64。Linux 包保留当前平台支持的运行功能、Skills、自主学习及现行课堂。Windows-MCP、macOS 锁屏组件只用于各自系统；Ubuntu 使用 Linux AT-SPI 图形驱动。Ubuntu 24.10 不在当前适配范围。
 
@@ -80,13 +82,13 @@ command -v curl
 ### A. 已有 wget（Ubuntu 推荐入口）
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/install/cli-0.5.21/koder-cli.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 ### B. 已有 curl
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/install/cli-0.5.21/koder-cli.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 ### C. 两个工具都找不到
@@ -98,7 +100,7 @@ sudo apt update
 sudo apt install curl ca-certificates
 ```
 
-apt 正被系统更新占用时等它完成，不要删除锁文件。也可用浏览器下载[Ubuntu 安装脚本](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-ubuntu-24.04.sh)，但运行脚本时仍需要 curl 或 wget。
+apt 正被系统更新占用时等它完成，不要删除锁文件。也可用浏览器下载[Ubuntu 安装脚本](https://kodermodule.com/install/cli-0.5.21/koder-cli.sh)，但运行脚本时仍需要 curl 或 wget。
 
 ### 安装器询问时怎么选
 

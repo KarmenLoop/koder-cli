@@ -36,7 +36,7 @@ Ubuntu/macOS 安装后可立即用完整路径，不必等 PATH 更新：
 
 ## 1. 先选对命令窗口
 
-Windows PowerShell、CMD、macOS、Linux 和 WSL 的命令不能混用。完整安装命令见 [安装教程](INSTALLATION.md)，本版下载见 [GitHub Releases](https://github.com/KarmenLoop/koder-cli/releases)。先阅读许可与隐私全文。个人非商业使用免费；商业使用与组织部署须另行取得书面授权。
+Windows PowerShell、CMD、macOS、Linux 和 WSL 的命令不能混用。完整安装命令见 [安装教程](INSTALLATION.md)，本版下载见 [CLI website](https://kodermodule.com/cli-download.html)。先阅读许可与隐私全文。个人非商业使用免费；商业使用与组织部署须另行取得书面授权。
 
 正常安装不需要全局放开 PowerShell 执行策略，也不需要关闭安全软件。输入 `accept` 只接受许可，不会授予电脑、邮箱或同步权限；默认本地任务记忆与可选外部访问分别控制。网络等待、主动取消和系统策略拦截是三回事；排查时保留实际阶段与最后几行报错。
 

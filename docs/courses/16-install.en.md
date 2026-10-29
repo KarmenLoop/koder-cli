@@ -75,7 +75,7 @@ Coach › Want Koder on another machine? Read the license and consent guide, the
     koder setup
     koder learn
     koder update --check
-        Check GitHub without installing
+        Check the CLI website without installing
     koder update
         Verify and install a newer release; preview.6+ sessions restart and resume with config, memory and bindings retained
         To move to preview.7, run the normal install command above and type accept after reading. The preview.6 updater stops before downloading the installer when the license checksum changes, and KODER_EULA_ACCEPT does not bypass that check. Configuration, memory and bindings are kept
@@ -121,7 +121,7 @@ Coach › Want Koder on another machine? Read the license and consent guide, the
     koder setup
     koder learn
     koder update --check
-        Check GitHub without installing
+        Check the CLI website without installing
     koder update
         Verify and install a newer release; preview.6+ sessions restart and resume with config, memory and bindings retained
         To move to preview.7, run the normal install command above and type accept after reading. The preview.6 updater stops before downloading the installer when the license checksum changes, and KODER_EULA_ACCEPT does not bypass that check. Configuration, memory and bindings are kept
@@ -157,15 +157,15 @@ Coach › Want Koder on another machine? Read the license and consent guide, the
     https://github.com/KarmenLoop/koder-cli/blob/main/LEGAL-NOTICE.md
         Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
         A normal install asks you to type accept and press Enter. decline, an empty Enter, or Ctrl+C cancels before download.
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | bash
+    curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | bash
         Unattended deployment after you have read and agreed (do not prefill this for someone else; KODER_EULA_ACCEPT=1 accepts only the software license):
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
+    curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
         macOS 11+, Apple silicon or Intel; reopen your terminal.
     koder version
     koder setup
     koder learn
     koder update --check
-        Check GitHub without installing
+        Check the CLI website without installing
     koder update
         Verify and install a newer release; preview.6+ sessions restart and resume with config, memory and bindings retained
         To move to preview.7, run the normal install command above and type accept after reading. The preview.6 updater stops before downloading the installer when the license checksum changes, and KODER_EULA_ACCEPT does not bypass that check. Configuration, memory and bindings are kept
@@ -200,15 +200,15 @@ Coach › Want Koder on another machine? Read the license and consent guide, the
     https://github.com/KarmenLoop/koder-cli/blob/main/LEGAL-NOTICE.md
         Official team: KARMENLOOP Official Team, Shanghai, China. Website: https://karmenloop.com. Email: info@karmenloop.com.
         A normal install asks you to type accept and press Enter. decline, an empty Enter, or Ctrl+C cancels before download.
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | bash
+    curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | bash
         Unattended deployment after you have read and agreed (do not prefill this for someone else; KODER_EULA_ACCEPT=1 accepts only the software license):
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
+    curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
         Linux / WSL: follow runtime detection from the installer, then reopen your terminal.
     koder version
     koder setup
     koder learn
     koder update --check
-        Check GitHub without installing
+        Check the CLI website without installing
     koder update
         Verify and install a newer release; preview.6+ sessions restart and resume with config, memory and bindings retained
         To move to preview.7, run the normal install command above and type accept after reading. The preview.6 updater stops before downloading the installer when the license checksum changes, and KODER_EULA_ACCEPT does not bypass that check. Configuration, memory and bindings are kept

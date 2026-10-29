@@ -24,7 +24,7 @@ Version: **0.5.19**. Check `koder --version`; older installations may have diffe
 
 ## 1. Install in the right terminal
 
-Use the matching Windows PowerShell, CMD, macOS, Linux or WSL instructions in [Installation](INSTALLATION.md). Download this release from [KarmenLoop/koder-cli on GitHub](https://github.com/KarmenLoop/koder-cli/releases). Read the installed EULA and privacy documents before accepting. Personal noncommercial use is free; commercial use and organizational distribution need separate written authorization.
+Use the matching Windows PowerShell, CMD, macOS, Linux or WSL instructions in [Installation](INSTALLATION.md). Download this release from [the CLI website](https://kodermodule.com/en/cli-download.html). Read the installed EULA and privacy documents before accepting. Personal noncommercial use is free; commercial use and organizational distribution need separate written authorization.
 
 Normal installation does not require changing the machine-wide PowerShell execution policy or disabling security software. `accept` accepts the license; it grants no computer, mailbox or synchronization permissions. Default local task memory and external access have separate controls. A network delay, a canceled installation and an OS policy rejection are different conditions. The installer reports its stage and download progress; keep the exact error for diagnosis.
 

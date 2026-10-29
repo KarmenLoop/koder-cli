@@ -1,3 +1,13 @@
+# CLI downloads and publication
+
+Publish new Koder CLI packages, update metadata and bilingual guides through the official website release-intake process. Downloads: [English](https://kodermodule.com/en/cli-download.html) · [简体中文](https://kodermodule.com/cli-download.html). The stable update feed is `https://kodermodule.com/updates/koder-cli-latest.json`.
+
+GitHub retains project documentation, code history and existing compatibility assets. Do not create or upload new GitHub binary releases. Keep the original package names, hashes, licenses and consent checks; a new website release must pass verification before its stable feed changes.
+
+## Earlier publication records
+
+The entries below describe earlier releases and their original channels. They do not set the current publication policy.
+
 ## 0.5.19 candidate
 
 The universal package supports Windows and offline cross-platform transfer. macOS and Linux packages retain their supported features, current Skills and current tutorials; only other-platform binaries and duplicate historical tutorial exports are omitted. The manifest lists exact sizes and hashes. License and upstream resource inventories remain included.

@@ -28,7 +28,7 @@ Koder 是在终端中执行编程和撰写任务的 Agent，使用你选择的�
 
 **Ubuntu 用户先看 [24.04 中文手把手教程](UBUNTU.zh.md)：从没有 curl 的新电脑开始，逐步完成下载、模型、权限、图形操作和故障排查。**
 
-从 [GitHub 正式发行](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.20)选择 Windows CMD、PowerShell、macOS 或 Ubuntu 24.04 安装入口。安装器按平台选择同版本运行包；CLI 与桌面应用分别下载安装。
+从 [CLI 官网下载页](https://kodermodule.com/cli-download.html)选择 Windows CMD、PowerShell、macOS 或 Ubuntu 24.04 安装入口。安装器按平台选择同版本运行包；CLI 与桌面应用分别下载安装。
 
 已有托管安装可运行：
 

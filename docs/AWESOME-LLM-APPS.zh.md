@@ -4,7 +4,7 @@
 
 ## 1. 安装后先确认
 
-从 [GitHub 发行页](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.20)安装或更新，重新打开终端：
+从 [CLI 官网下载页](https://kodermodule.com/cli-download.html)安装或更新，重新打开终端：
 
 ```text
 koder --version

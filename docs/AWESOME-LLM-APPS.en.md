@@ -4,7 +4,7 @@ Available from 0.4.20, enabled by default. The integration brings a pinned refer
 
 ## Verify the installation
 
-Install from the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.20), reopen the terminal, then run:
+Install from the [CLI website](https://kodermodule.com/en/cli-download.html), reopen the terminal, then run:
 
 ```text
 koder --version
