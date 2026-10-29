@@ -23,3 +23,5 @@ The [release notes](RELEASE-0.5.20.md) and `ACCEPTANCE-RESULTS.json` distinguish
 
 
 For a restored session blocked by an old unconfirmed operation, follow [session recovery](SESSION-RECOVERY.en.md). `/reconcile` retains evidence and never replays the old action.
+
+For opt-in repairs to Koder itself, use `koder self-repair on` and describe a reproducible error in a local task. [Local repair](SELF-REPAIR.md) covers seven feature modules, typed reproduction tests, next-start activation and rollback. It does not replace core control modules or train model weights.

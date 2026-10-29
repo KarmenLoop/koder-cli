@@ -38,10 +38,16 @@ Linked or sensitive input trees are refused by the scoped shell. Use a dedicated
 
 Physical Windows and the dedicated 163 mailbox remain beta-owned. This patch does not certify mail delivery or native notification display on those devices. It does not publish the private kernel source or deploy the website. Current Skills and platform features remain in the existing packages; no duplicate Skill framework is added.
 
-The 8K website/learning-context regression that failed on 0.5.19 now passes in this candidate: native model requests stay within the context budget and retain the current constraints. This is a protocol regression, not a completed real-model website evaluation.
+The 8K website/learning-context regression that failed on 0.5.19 passes in this release: native model requests stay within the context budget and retain the current constraints. This is a protocol regression, not a completed real-model website evaluation.
 
 A separate complete-input control used MiniMax-M3.1-Flash with local learning enabled. The first real run saved files but failed final verification after an extra shell call. After the diagnostic fix, a new session in the same owned workspace loaded three procedural checks, passed the file contract and self-check, and updated their retest records. Nine independent checks then passed against the actual generated program; the three manifest rows matched the files. This recovery control does not replace the original ten questions, prove a causal quality gain or qualify the release by itself. The original ten-question release gate remains pending.
 
-## Candidate: local code repair
+## Opt-in local code repair
 
-The candidate also adds [opt-in local code repair](SELF-REPAIR.md) for seven supported feature modules. It reproduces the error, validates the patch, applies it at the next start and keeps original package bytes for recovery. The native tool cannot enable its own grant. See [source and actual-provider evidence](SELF-REPAIR-0.5.20.md). This control does not satisfy or replace the original ten-question release gate.
+This release also adds [opt-in local code repair](SELF-REPAIR.md) for seven supported feature modules. It reproduces the error, validates the patch, applies it at the next start and keeps original package bytes for recovery. The native tool cannot enable its own grant. See [source and actual-provider evidence](SELF-REPAIR-0.5.20.md). This control does not satisfy or replace the original ten-question release gate.
+
+## Publication and remaining acceptance
+
+The product owner requested this GitHub release after reviewing the candidate results. The original ten-question rerun still has zero verified complete deliveries, eight qualified SKIP records and two deadline cancellations. Its eight-delivery target remains unmet; neither recovery controls nor self-repair checks count toward that score. Windows/Linux native local-repair checks, the dedicated 163 mailbox and visible notifications remain separately unverified.
+
+The published runtime archives are byte-for-byte the tested candidate archives. The release provides [limited permission for built-in local repair](../LOCAL-REPAIR-PERMISSION.md), without publishing private runtime Git source or changing the shipped EULA hash. Packaged documents retain their build-time candidate context; the release notes and attached acceptance record describe the publication decision.

@@ -14,7 +14,11 @@ Ubuntu / macOS：在系统终端逐条执行。已配置模型可跳过第一条
 看到 `koder >` 后才输入任务。`activate` 只开启后台常驻，不会进入聊天；出现状态 JSON 后运行第二条即可。完整路径能用但 `koder` 找不到时，按 [PATH 排查](docs/UBUNTU.zh.md#progress) 操作，不必重新下载。自定义安装路径以安装器末尾为准。
 
 
-**Current release: 0.5.20. Enforce literal file requirements, keep large command output from blocking delivery, and preserve bounded recovery within task scope and cost limits.**
+**Current release: 0.5.20. Exact file delivery, evidence-linked local learning, bounded output recovery and opt-in local code repair.**
+
+[Local repair guide](docs/SELF-REPAIR.md) · [Chinese walkthrough](docs/SELF-REPAIR.zh.md) · [Repair permission](LOCAL-REPAIR-PERMISSION.md)
+
+Local code repair is off by default and supports seven feature modules. Windows/Linux native repair checks and the original ten-question acceptance target remain outstanding; see the release evidence.
 
 [邮箱绑定与恢复教程](docs/MAIL-RECOVERY.zh.md)
 

@@ -1,6 +1,6 @@
-# Local code repair validation — 0.5.20 candidate
+# Local code repair validation — 0.5.20
 
-The candidate adds a native read/propose/test/apply/rollback path and a persistent Setup opt-in. It supports seven feature modules. It does not expose the execution, mail, credential, cancellation, cost, permission, verifier or update controllers for automatic replacement.
+This release adds a native read/propose/test/apply/rollback path and a persistent Setup opt-in. It supports seven feature modules. It does not expose the execution, mail, credential, cancellation, cost, permission, verifier or update controllers for automatic replacement.
 
 ## Recorded results
 
@@ -16,10 +16,10 @@ The source checks verify refusal of protected paths, changed or damaged patches,
 
 The local tests and genuine provider control do not establish native Windows or Linux behavior. Those remain `NOT_RUN` here. Runtime hangs and errors caught outside the startup handler may require manual recovery. A passing reproduction cannot establish that arbitrary code is safe or that the whole CLI is correct.
 
-The original ten-question effective-delivery gate is still pending. The self-repair control does not replace missing formulas, datasets or task instructions, and is not counted toward the original score. The 0.5.20 package remains a candidate; stable-channel publication is a separate decision. No website changes or publication of private runtime Git source are included.
+The original ten-question effective-delivery gate is still pending. The self-repair control does not replace missing formulas, datasets or task instructions, and is not counted toward the original score. The product owner subsequently requested publication of 0.5.20 with these limits disclosed. This publication decision does not change the recorded scores or unrun checks. No website changes or publication of private runtime Git source are included.
 
-[Enable and recover](SELF-REPAIR.md) · [Chinese walkthrough](SELF-REPAIR.zh.md) · [Failure-learning evidence](https://github.com/KarmenLoop/koder-cli/blob/release-0.5.20-docs/docs/FAILURE-LEARNING-0.5.20.md)
+[Enable and recover](SELF-REPAIR.md) · [Chinese walkthrough](SELF-REPAIR.zh.md) · [Failure-learning evidence](https://github.com/KarmenLoop/koder-cli/blob/main/docs/FAILURE-LEARNING-0.5.20.md)
 
 ## Exact package checks
 
-All three package inventories were verified by SHA-256. The extracted macOS package passed 15 repair tests and a native entry check. A full-package patch was loaded in two new processes with the Node compile cache enabled; rollback restored the original implementation, with original package bytes unchanged. All 74 unique Skills remain. Existing EULA text is unchanged; a general end-user code-modification exception has not been added. The candidate repair tests were explicitly authorized by the product owner.
+All three package inventories were verified by SHA-256. The extracted macOS package passed 15 repair tests and a native entry check. A full-package patch was loaded in two new processes with the Node compile cache enabled; rollback restored the original implementation, with original package bytes unchanged. All 74 unique Skills remain. The shipped EULA text is unchanged. [Supplemental permission](../LOCAL-REPAIR-PERMISSION.md) covers the official built-in local repair workflow only. The repair tests were explicitly authorized by the product owner.

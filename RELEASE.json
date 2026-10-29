@@ -45,22 +45,22 @@
       "sha256": "e135fbf65da7345b1cc059a966efa62c3a2a89148083a2b2bc16d26a334a84eb"
     }
   },
-  "channel": "candidate",
-  "validationStatus": "pending",
-  "stableUpdateUnchanged": true,
+  "channel": "stable",
+  "validationStatus": "partial",
   "sourceBaseline": "0.5.19 published",
   "changes": [
-    "Scoped headless artifact delivery",
-    "Host-checked procedural failure learning",
-    "Opt-in code repair for seven feature modules",
-    "Typed JSON reproduction checks and next-start patch loading",
-    "Hash binding, startup quarantine and rollback"
+    "Scoped headless file delivery",
+    "Host-checked local failure learning",
+    "Bounded output and artifact recovery",
+    "Opt-in local code repair with regression checks and rollback"
   ],
   "retainedLimits": [
-    "Original ten-question effective-delivery gate remains unmet",
-    "Self-repair does not change core controls or train model weights",
-    "Native Windows/Linux local-repair acceptance remains separate",
-    "Code repair is not a hostile-code sandbox",
-    "Existing EULA unchanged; public modification exception not yet added"
-  ]
+    "Original ten-question target remains unmet",
+    "Windows/Linux native repair checks remain separate",
+    "Dedicated 163 mailbox acceptance remains beta-owned",
+    "Local repair is executable code, not a hostile-code sandbox"
+  ],
+  "publicationAuthorization": "Explicit owner publication request after candidate disclosure",
+  "privateRuntimeSourcePublished": false,
+  "websiteDeployment": false
 }

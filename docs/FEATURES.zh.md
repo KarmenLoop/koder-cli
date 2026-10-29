@@ -36,3 +36,5 @@ Windows、macOS、Ubuntu 使用同一核心；macOS/Linux 包省去其他平台�
 
 
 旧会话反复提示“前次操作结果仍待核实”时，按[会话恢复教程](SESSION-RECOVERY.zh.md)使用 `/reconcile`，保留历史并核对原目标，不反复重试。
+
+本机代码自修复：在 Setup 开启“本机代码自修复”或运行 `koder self-repair on`，然后在本地任务描述可重现的 Koder 错误。[手把手教程](SELF-REPAIR.zh.md) 说明 7 个支持模块、用例验证、下次启动生效及回退；执行、费用、权限和邮箱控制器仍通过正式更新修复。

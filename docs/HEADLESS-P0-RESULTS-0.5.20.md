@@ -30,3 +30,7 @@ Distractor resistance is not complete: some model responses still create unneces
 ## Follow-up candidate validation
 
 The results above describe the earlier P0 build and remain unchanged. The later candidate fixes the reported 8K context overflow and adds evidence-linked failure learning and actionable self-check recovery. It passes 148 related source regressions and 45 checks against the extracted package. A genuine MiniMax-M3.1-Flash recovery control passed its file contract and nine independent checks; it is separate from the original ten. See [failure learning](FAILURE-LEARNING-0.5.20.md). The original ten-question release gate is still pending.
+
+## Publication update — October 29, 2026
+
+The product owner subsequently requested publication of 0.5.20 with the recorded limitations. Earlier candidate results above remain historical evidence. The original ten-question target is still unmet; publication does not turn SKIP, cancellation or separate controls into correct answers. See [current release notes](RELEASE-0.5.20.md).

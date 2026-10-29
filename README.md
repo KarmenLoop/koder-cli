@@ -14,7 +14,11 @@ Ubuntu / macOS: run these in the system terminal. Skip setup if the model is alr
 Enter tasks only after `koder >` appears. `activate` enables a background service; it does not open chat. If the full path works but `koder` does not, follow the [PATH walkthrough](docs/UBUNTU.md) rather than downloading again. Use the actual installer path for custom installations.
 
 
-**Current release: 0.5.20. Enforce literal file requirements, keep large command output from blocking delivery, and preserve bounded recovery within task scope and cost limits.**
+**Current release: 0.5.20. Exact file delivery, evidence-linked local learning, bounded output recovery and opt-in local code repair.**
+
+[Local repair guide](docs/SELF-REPAIR.md) · [Chinese walkthrough](docs/SELF-REPAIR.zh.md) · [Repair permission](LOCAL-REPAIR-PERMISSION.md)
+
+Local code repair is off by default and supports seven feature modules. Windows/Linux native repair checks and the original ten-question acceptance target remain outstanding; see the release evidence.
 
 [Mail setup and recovery](docs/MAIL-RECOVERY.en.md)
 

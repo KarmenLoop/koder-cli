@@ -1,4 +1,4 @@
-# Local code repair (0.5.20 candidate)
+# Local code repair (0.5.20)
 
 Koder can generate, test and activate patches to its own supported feature modules. Local failure learning remains enabled by default; permission to execute new code is separate and off by default.
 
@@ -40,6 +40,8 @@ The private local state stores an active patch, a predecessor, a candidate and b
 
 Patches bind to the original source and file hashes. Changed source, an update or corrupted patch falls back to publisher code. An exception that reaches the CLI startup handler quarantines that patch for the next launch without retrying the task. Runtime hangs, crashes and errors caught elsewhere are not all detectable by this handler; use the recovery commands when necessary.
 
-Nothing is automatically uploaded to GitHub, the website or a cloud service. The feature ships in a candidate while the independent release gate remains pending. Physical Windows/Linux and real-account acceptance must be reported separately from local source, fixture and provider tests.
+Nothing is automatically uploaded to GitHub, the website or a cloud service. The feature ships in 0.5.20 with explicit opt-in. The original ten-question acceptance target remains unmet and is not represented as a passing score. Physical Windows/Linux and real-account acceptance must be reported separately from local source, fixture and provider tests.
 
 [Detailed Chinese walkthrough](SELF-REPAIR.zh.md) · [Failure learning](AUTONOMOUS-LEARNING.md)
+
+Use of the official built-in repair workflow is covered by [limited local-repair permission](../LOCAL-REPAIR-PERMISSION.md); general proprietary-code modification and redistribution rights are not granted.

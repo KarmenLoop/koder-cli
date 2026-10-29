@@ -19,3 +19,7 @@ Use `koder learning status --json` to inspect `outcomes.counts`. Task JSON expos
 The original ten-question rerun remains at zero verified complete deliveries, eight qualified SKIP records and two deadline cancellations. The supplied merged stems omit formulas, datasets and task details. Some model responses also pursued unnecessary work. This control does not replace those questions, establish full marks or show that all distractors are handled.
 
 The original release gate requires at least eight effective deliveries in that ten-question set. It is still pending. Stable update channels remain unchanged while 0.5.20 stays a draft candidate. Windows physical acceptance and the dedicated 163 mailbox remain beta-owned. Native Linux sandbox acceptance and visible platform notifications are not established here. The website is unchanged; private runtime Git source is not included in the public documentation branch.
+
+## Publication update — October 29, 2026
+
+The product owner subsequently requested publication of 0.5.20 with the recorded limitations. Earlier candidate results above remain historical evidence. The original ten-question target is still unmet; publication does not turn SKIP, cancellation or separate controls into correct answers. See [current release notes](RELEASE-0.5.20.md).
