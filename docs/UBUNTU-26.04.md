@@ -1,6 +1,8 @@
 # Ubuntu 26.04.1 Desktop amd64: installation and first tasks
 
-[Repository home](../README.md) · [中文手把手教程](UBUNTU-26.04.zh.md) · [Download 0.5.19](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.19)
+The download commands use the published 0.5.21 website installer. This walkthrough retains its 0.5.19 examples and acceptance evidence. See the [website tutorials](https://kodermodule.com/en/cli-tutorials.html) for current release guidance; earlier results do not establish 0.5.21 device acceptance.
+
+[Repository home](../README.md) · [中文手把手教程](UBUNTU-26.04.zh.md) · [Download Koder CLI](https://kodermodule.com/en/cli-download.html)
 
 This guide covers **Koder CLI 0.5.19** on **Ubuntu 26.04.1 LTS Desktop amd64**. AMD64 is x86_64, including Intel and AMD 64-bit PCs; it is not ARM64. The same Linux archive retains coding, writing, mail, GitHub, MCP, Skills, learning and the current classroom. Ubuntu uses the existing AT-SPI desktop adapter. Windows-MCP and macOS locked-use remain platform-specific. Keep using the [24.04 guide](UBUNTU.md) on that release.
 
@@ -51,13 +53,13 @@ command -v curl
 **With wget:**
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.19/koder-ubuntu-26.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/install/cli-0.5.21/koder-cli.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **With curl:**
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.19/koder-ubuntu-26.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/install/cli-0.5.21/koder-cli.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **If neither is installed:** run these separately, resolve any apt errors, then use the curl command above.

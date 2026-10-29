@@ -1,6 +1,8 @@
 # Ubuntu 26.04.1 Desktop amd64：完整安装与使用课堂
 
-[返回 GitHub 首页](../README.zh-CN.md) · [English](UBUNTU-26.04.md) · [下载 0.5.20](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.20)
+当前下载命令使用官网已发布的 0.5.21 安装器；本文保留 0.5.20 的操作示例及验收证据。查看新版本说明请进入 [官网教程](https://kodermodule.com/cli-tutorials.html)，旧记录不代表 0.5.21 真机验收已完成。
+
+[返回 GitHub 首页](../README.zh-CN.md) · [English](UBUNTU-26.04.md) · [下载 Koder CLI](https://kodermodule.com/cli-download.html)
 
 本教程对应 **Koder CLI 0.5.20**，目标系统是 **Ubuntu 26.04.1 LTS Desktop amd64**。amd64 也叫 x86_64，包含常见 Intel 和 AMD 64 位电脑，不是 ARM64。保留现有 Linux 编程、写作、邮箱、GitHub、MCP、Skills、自主学习和课堂功能，复用同一 Linux 运行包及 AT-SPI 桌面驱动。Windows-MCP 与 macOS 锁屏组件仍只在各自系统使用。旧系统用户继续使用 [Ubuntu 24.04 教程](UBUNTU.zh.md)。
 
@@ -82,13 +84,13 @@ command -v curl
 ### A. 已有 wget（Ubuntu 推荐入口）
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-ubuntu-26.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/install/cli-0.5.21/koder-cli.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 ### B. 已有 curl
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-ubuntu-26.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/install/cli-0.5.21/koder-cli.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 ### C. 两个工具都找不到
@@ -100,7 +102,7 @@ sudo apt update
 sudo apt install curl ca-certificates
 ```
 
-apt 正被系统更新占用时等它完成，不要删除锁文件。也可用浏览器下载[Ubuntu 安装脚本](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-ubuntu-26.04.sh)，但运行脚本时仍需要 curl 或 wget。
+apt 正被系统更新占用时等它完成，不要删除锁文件。也可用浏览器下载[Ubuntu 安装脚本](https://kodermodule.com/install/cli-0.5.21/koder-cli.sh)，但运行脚本时仍需要 curl 或 wget。
 
 ### 安装器询问时怎么选
 

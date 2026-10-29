@@ -4,7 +4,7 @@
 
 ## 开启、使用和撤回
 
-1. 从 [GitHub 正式发布页](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.20) 安装 0.5.20，运行 `koder --version` 核对版本。已有安装可运行 `koder update`，完成后重新打开终端。
+1. 从 [CLI 官网下载页](https://kodermodule.com/cli-download.html) 安装 0.5.21，运行 `koder --version` 核对版本。已有安装可运行 `koder update`，完成后重新打开终端。
 2. 运行 `koder setup`，选择“本机代码自修复”，阅读源码进入所选模型、执行代码和验证范围的说明，再选择“允许本机功能代码自修复”。也可以明确运行以下命令：
 
    ```sh

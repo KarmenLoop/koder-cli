@@ -17,7 +17,7 @@ koder design verify
 
 版本应为 0.4.22。status 应显示 enabled: true、entries: 84、offline: true；verify 的 verified: true 只表示随包文本哈希一致，不代表网站已经做好或所有参考适合你的品牌。读取这些命令不调用付费模型。
 
-Windows PowerShell、CMD、macOS Terminal 都可运行这些 koder 命令。安装入口在 [GitHub Release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.22)。若仍是旧版本，先查 Windows 的 where.exe koder 或 macOS 的 type -a koder，确认 PATH 指向哪个程序。
+Windows PowerShell、CMD、macOS Terminal 都可运行这些 koder 命令。安装入口在 [CLI website](https://kodermodule.com/cli-download.html)。若仍是旧版本，先查 Windows 的 where.exe koder 或 macOS 的 type -a koder，确认 PATH 指向哪个程序。
 
 ## 2. 从一个具体网站开始
 

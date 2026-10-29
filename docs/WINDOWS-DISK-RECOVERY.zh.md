@@ -14,7 +14,7 @@ koder --version
 应看到 `koder 0.5.17`。若旧更新器无法连接服务，使用固定版本的 GitHub 安装器覆盖升级：
 
 ```powershell
-$u = 'https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.17/koder-cli.ps1'
+$u = 'https://kodermodule.com/install/cli-0.5.21/koder-cli.ps1'
 Invoke-RestMethod $u | Invoke-Expression
 ```
 

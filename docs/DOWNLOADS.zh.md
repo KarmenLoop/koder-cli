@@ -15,13 +15,13 @@ Ubuntu 24.04 用户：[完整手把手教程](UBUNTU.zh.md)，包含首次安装
 macOS，或已装 curl 的 Linux：
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh -o /tmp/koder-install.sh && bash /tmp/koder-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/install/cli-0.5.21/koder-cli.sh -o /tmp/koder-install.sh && bash /tmp/koder-install.sh
 ```
 
 Ubuntu 有 wget、没有 curl 时：
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-install.sh https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh && bash /tmp/koder-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-install.sh https://kodermodule.com/install/cli-0.5.21/koder-cli.sh && bash /tmp/koder-install.sh
 ```
 
 开头的小脚本下载成功才执行。按现有许可提示确认后，安装器自动处理系统选择、Node、下载和校验。若两个下载工具都没有，先分别运行 `sudo apt update` 和 `sudo apt install curl ca-certificates`。Koder 本身用普通用户运行。电脑、邮箱等权限仍单独授权。已安装用户运行 `koder update`。
@@ -36,16 +36,16 @@ Ctrl+C 可取消，断点保存在 `~/.koder-cli/cache/downloads`。重新运行
 
 ## 完整离线包和历史记录
 
-GitHub Release 同时保留 `koder-cli-0.5.19.tgz` 全平台完整包，以及较小的 `koder-cli-0.5.19-darwin.tgz` / `koder-cli-0.5.19-linux.tgz`。清单列出各包大小和 SHA-256。确实需要全部平台与历史导出时，可运行 `KODER_INSTALL_FULL_PACKAGE=1 bash /tmp/koder-install.sh`。旧版本源码、文档和回退记录没有删除。
+CLI 官网提供 `koder-cli-0.5.21.tgz` 全平台完整包，以及较小的 `koder-cli-0.5.21-darwin.tgz` / `koder-cli-0.5.21-linux.tgz`。清单列出各包大小和 SHA-256。确实需要完整跨平台包时，可运行 `KODER_INSTALL_FULL_PACKAGE=1 bash /tmp/koder-install.sh`。旧版本源码、文档和回退记录没有删除。
 
 安装优化不代表所有真实网络或设备已经验收。故障注入、实际包安装、Ubuntu CI 与 Windows beta 实机结果分别记录在发布回执中。
 
 ## Ubuntu 24.04 独立入口
 
-[Ubuntu 24.04 安装器](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.19/koder-ubuntu-24.04.sh) · [Ubuntu / Linux 完整功能包](https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.19/koder-cli-0.5.19-linux.tgz)。Ubuntu 24.04.x、x64 与 ARM64 共用这个入口，Node 按处理器自动选择。
+[Ubuntu 24.04 安装器](https://kodermodule.com/install/cli-0.5.21/koder-cli.sh) · [Ubuntu / Linux 完整功能包](https://kodermodule.com/releases/cli-0.5.21/koder-cli-0.5.21-linux.tgz)。Ubuntu 24.04.x、x64 与 ARM64 共用这个入口，Node 按处理器自动选择。
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.19/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/install/cli-0.5.21/koder-cli.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 Ubuntu 入口从同一份安装器生成，恢复、校验、许可、权限规则保持一致，没有额外的精简版内核。

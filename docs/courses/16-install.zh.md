@@ -157,9 +157,9 @@
     https://github.com/KarmenLoop/koder-cli/blob/main/LEGAL-NOTICE.md
         官方团队 KARMENLOOP 官方团队，中国上海。官网 https://karmenloop.com 邮箱 info@karmenloop.com
         普通安装会在真实终端提示输入 accept 并回车；decline、空回车或 Ctrl+C 取消，取消前不下载。
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | bash
+    curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | bash
         已阅读并同意的自动部署（不要替未阅读的人预先填写；KODER_EULA_ACCEPT=1 只接受软件许可）：
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
+    curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
         macOS 11 以上，Apple 芯片或 Intel；装完重开终端。
     koder version
     koder setup
@@ -200,9 +200,9 @@
     https://github.com/KarmenLoop/koder-cli/blob/main/LEGAL-NOTICE.md
         官方团队 KARMENLOOP 官方团队，中国上海。官网 https://karmenloop.com 邮箱 info@karmenloop.com
         普通安装会在真实终端提示输入 accept 并回车；decline、空回车或 Ctrl+C 取消，取消前不下载。
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | bash
+    curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | bash
         已阅读并同意的自动部署（不要替未阅读的人预先填写；KODER_EULA_ACCEPT=1 只接受软件许可）：
-    curl -fsSL https://raw.githubusercontent.com/KarmenLoop/koder-cli/main/install/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
+    curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | KODER_EULA_ACCEPT=1 bash
         Linux / WSL：按安装器的运行时检测结果安装，装完重开终端。
     koder version
     koder setup

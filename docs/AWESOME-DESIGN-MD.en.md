@@ -15,7 +15,7 @@ koder design status
 koder design verify
 ```
 
-Expect version 0.4.22, enabled: true, entries: 84, and offline: true. The verify command checks bundled text integrity, not a completed website. These commands do not make model requests. Installers are available from the [GitHub release](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.4.22). If an older executable still starts, inspect where.exe koder on Windows or type -a koder on macOS.
+Expect version 0.4.22, enabled: true, entries: 84, and offline: true. The verify command checks bundled text integrity, not a completed website. These commands do not make model requests. Installers are available from the [CLI website](https://kodermodule.com/en/cli-download.html). If an older executable still starts, inspect where.exe koder on Windows or type -a koder on macOS.
 
 ## Start with your goal
 

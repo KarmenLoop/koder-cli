@@ -8,7 +8,7 @@
 
 - 官方网站：https://karmenloop.com
 - 一般咨询、许可、版权、安全及隐私联系邮箱：info@karmenloop.com
-- 官方 CLI 发布：https://github.com/KarmenLoop/koder-cli/releases
+- 官方 CLI 发布：https://kodermodule.com/cli-download.html
 
 ### 版权和软件许可
 
@@ -54,7 +54,7 @@ Koder 自有软件部分的相关版权方保留未明确授予的权利。官�
 
 - Official website: https://karmenloop.com
 - General, licensing, copyright, security and privacy contact: info@karmenloop.com
-- Official CLI releases: https://github.com/KarmenLoop/koder-cli/releases
+- Official CLI releases: https://kodermodule.com/en/cli-download.html
 
 ### Copyright and software license
 

@@ -1,8 +1,10 @@
 # Ubuntu 24.04: install Koder and complete your first task
 
+The download commands use the published 0.5.21 website installer. This walkthrough retains its 0.5.20 examples and acceptance evidence. See the [website tutorials](https://kodermodule.com/en/cli-tutorials.html) for current release guidance; earlier results do not establish 0.5.21 device acceptance.
+
 On the newer release? Use the [Ubuntu 26.04.1 Desktop amd64 guide](UBUNTU-26.04.md). This page retains the 24.04 instructions.
 
-[Repository home](../README.md) · [中文手把手教程](UBUNTU.zh.md) · [Download 0.5.20](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.20)
+[Repository home](../README.md) · [中文手把手教程](UBUNTU.zh.md) · [Download Koder CLI](https://kodermodule.com/en/cli-download.html)
 
 This guide covers **Koder CLI 0.5.20** on **Ubuntu 24.04 LTS and its 24.04.x point releases**, on x64 and ARM64. The Linux package includes the supported runtime features, Skills, learning resources and current classroom. Windows-MCP and the macOS locked-use component remain platform-specific. Ubuntu uses the Linux AT-SPI desktop adapter. Ubuntu 24.10 is outside the current scope.
 
@@ -51,13 +53,13 @@ command -v curl
 **With wget:**
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/install/cli-0.5.21/koder-cli.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **With curl:**
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://github.com/KarmenLoop/koder-cli/releases/download/cli-0.5.20/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/install/cli-0.5.21/koder-cli.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **If neither is installed:** run these separately, resolve any apt errors, then use the curl command above.
