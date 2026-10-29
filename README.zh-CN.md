@@ -43,6 +43,10 @@ Local code repair is off by default and supports seven feature modules. Windows/
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20WSL-blue)](docs/INSTALLATION.md)
 
+[复制官方下载链接](https://kodermodule.com/cli-download.html?from=github#copy-download-link) · [![CLI 下载链接复制次数](https://karmenloop-cli-copies.netlify.app/badge.svg?lang=zh-CN)](https://kodermodule.com/cli-download.html?from=github#copy-download-link)
+
+通过专用页面的复制按钮成功复制一次，累计增加一次；重复复制也会计入。
+
 **本地终端编程 Agent：用你自己的模型 API，在本机完成规划、提案与落地——敏感改动先审批，任务历史按工作区隔离。**
 
 Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。

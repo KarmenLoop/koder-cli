@@ -43,6 +43,10 @@ Local code repair is off by default and supports seven feature modules. Windows/
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20WSL-blue)](docs/INSTALLATION.md)
 
+[Copy the official download link](https://kodermodule.com/en/cli-download.html?from=github#copy-download-link) · [![CLI download-link copies](https://karmenloop-cli-copies.netlify.app/badge.svg?lang=en)](https://kodermodule.com/en/cli-download.html?from=github#copy-download-link)
+
+The badge shows successful uses of the download-link copy button. Repeat copies count too.
+
 **A terminal coding agent that plans, proposes, and applies work on your machine—with your own model API, workspace-isolated history, and local approval before sensitive changes.**
 
 Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
