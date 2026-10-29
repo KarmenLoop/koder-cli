@@ -1,3 +1,12 @@
+## 0.5.21 — 2026-10-29
+
+- Add local, redacted diagnostic cards and copyable reports for incomplete tasks and exceptions.
+- Keep specific mail errors and report background failures without repeated alerts.
+- Preserve design reading and preview tools in small-context website tasks.
+- Include the limited local-repair permission in packages.
+
+[Release notes](docs/RELEASE-0.5.21.md) · [Report guide](docs/ERROR-REPORTS.md).
+
 ## 0.5.20 — 2026-10-29
 
 - Enforce literal file lists through the existing headless delivery checker.

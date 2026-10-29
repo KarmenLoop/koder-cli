@@ -14,7 +14,9 @@ Ubuntu / macOS：在系统终端逐条执行。已配置模型可跳过第一条
 看到 `koder >` 后才输入任务。`activate` 只开启后台常驻，不会进入聊天；出现状态 JSON 后运行第二条即可。完整路径能用但 `koder` 找不到时，按 [PATH 排查](docs/UBUNTU.zh.md#progress) 操作，不必重新下载。自定义安装路径以安装器末尾为准。
 
 
-**Current release: 0.5.20. Exact file delivery, evidence-linked local learning, bounded output recovery and opt-in local code repair.**
+**Current release: 0.5.21. Copyable failure reports, clearer mail diagnostics and small-context website delivery fixes.**
+
+[Report an incomplete task](docs/ERROR-REPORTS.md) · [Step-by-step Chinese guide](docs/ERROR-REPORTS.zh.md) · [Release notes](docs/RELEASE-0.5.21.md)
 
 [Local repair guide](docs/SELF-REPAIR.md) · [Chinese walkthrough](docs/SELF-REPAIR.zh.md) · [Repair permission](LOCAL-REPAIR-PERMISSION.md)
 
@@ -51,7 +53,7 @@ Local code repair is off by default and supports seven feature modules. Windows/
 
 Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。
 
-当前版本：**[0.5.20](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.20)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
+当前版本：**[0.5.21](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.21)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 

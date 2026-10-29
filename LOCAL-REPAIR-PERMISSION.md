@@ -1,6 +1,6 @@
 # Permission for built-in local code repair
 
-Applies to the Koder-owned portions of the official Koder CLI 0.5.20 distribution, dated October 29, 2026.
+Applies to the Koder-owned portions of the official Koder CLI 0.5.21 distribution, dated October 29, 2026.
 
 KARMENLOOP grants users who are otherwise licensed to use this distribution additional permission to generate, retain and execute local patches through the official built-in `koder self-repair` / `cli_repair` workflow, within that version's supported feature-module list and verification controls. Users may retain a local predecessor for rollback. This permission covers personal local repair and repair within a separately authorized organizational deployment.
 

@@ -1,3 +1,9 @@
+# Koder CLI 0.5.21
+
+Copyable local failure reports and an 8K website tool-discovery fix. Source checks: 210 passed; packaged checks are recorded in the release attachment. Windows and the dedicated 163 mailbox remain beta-owned. Original exam limitations remain unchanged. GitHub publication only.
+
+---
+
 # Koder CLI 0.5.20
 
 Headless file contracts, bounded output capture, scoped execution, failure learning and opt-in local code repair. Published with the original ten-question target still unmet and platform/account checks separately recorded. See [release notes](docs/RELEASE-0.5.20.md) for evidence and platform limits. A saved SKIP is not a correct answer. Windows physical acceptance remains beta-owned. GitHub only; no website deployment.

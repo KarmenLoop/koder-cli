@@ -14,7 +14,9 @@ Ubuntu / macOS: run these in the system terminal. Skip setup if the model is alr
 Enter tasks only after `koder >` appears. `activate` enables a background service; it does not open chat. If the full path works but `koder` does not, follow the [PATH walkthrough](docs/UBUNTU.md) rather than downloading again. Use the actual installer path for custom installations.
 
 
-**Current release: 0.5.20. Exact file delivery, evidence-linked local learning, bounded output recovery and opt-in local code repair.**
+**Current release: 0.5.21. Copyable failure reports, clearer mail diagnostics and small-context website delivery fixes.**
+
+[Report an incomplete task](docs/ERROR-REPORTS.md) · [Step-by-step Chinese guide](docs/ERROR-REPORTS.zh.md) · [Release notes](docs/RELEASE-0.5.21.md)
 
 [Local repair guide](docs/SELF-REPAIR.md) · [Chinese walkthrough](docs/SELF-REPAIR.zh.md) · [Repair permission](LOCAL-REPAIR-PERMISSION.md)
 
@@ -51,7 +53,7 @@ The badge shows successful uses of the download-link copy button. Repeat copies 
 
 Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
 
-Current release: **[0.5.20](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.20)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
+Current release: **[0.5.21](https://github.com/KarmenLoop/koder-cli/releases/tag/cli-0.5.21)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 

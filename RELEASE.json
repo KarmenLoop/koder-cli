@@ -1,66 +1,63 @@
 {
-  "version": "0.5.20",
+  "version": "0.5.21",
   "packages": {
     "darwin": {
-      "file": "koder-cli-0.5.20-darwin.tgz",
-      "sha256": "619afbd2a0ba5eb8c7be28fdd771aba2f373101fb1ba7c6b25c3d67530d75701",
-      "size": 219788854
+      "file": "koder-cli-0.5.21-darwin.tgz",
+      "sha256": "633a1b76ad5c5932aeb980599142f1646d068eb15c5ffdbd2f1e7d46ede7d025",
+      "size": 219791401
     },
     "linux": {
-      "file": "koder-cli-0.5.20-linux.tgz",
-      "sha256": "6a5ecedf708bd3681fd9962e85a88553902d4f52224edaf57a78056774c439f3",
-      "size": 141959947
+      "file": "koder-cli-0.5.21-linux.tgz",
+      "sha256": "f3e42bf4cb047cdb8ccf9bef8187029b376a736d20cb14cb42c4c7d1438e6392",
+      "size": 141992511
     }
   },
-  "file": "koder-cli-0.5.20.tgz",
-  "sha256": "bdd24bb70b98f024ec378130ed4d523d7a2e6cf5c2910436f6272c901707c894",
-  "size": 315020353,
+  "file": "koder-cli-0.5.21.tgz",
+  "sha256": "814f79dfc7ec97660b7598c7678fca5e9d0fb6415516c22a4548c713aa9243e0",
+  "size": 315049572,
   "node": "^22.21.0 || >=24.0.0",
-  "builtAt": "2026-10-29T06:49:44.747Z",
+  "builtAt": "2026-10-29T10:05:07.900Z",
   "preview": false,
   "agreement": {
     "id": "Koder-EULA-1.1",
     "version": "1.1",
     "sha256": "fa93cf1ce4834f04b899529a8a676ebee18d99725afad9c8d614940ba3351092"
   },
+  "localRepairPermission": {
+    "file": "LOCAL-REPAIR-PERMISSION.md",
+    "sha256": "5acbef9f6a3e46b1996b718eedbf80e0fc7c7d19d2044eb3e53c5628e70b2aa8"
+  },
   "installers": {
     "sh": {
       "file": "koder-cli.sh",
-      "sha256": "efd15a88c8b13c09d01ae9abeeb849a868b500309501e6a2b698206a2f97fde3"
+      "sha256": "0de57e9137c941267b3c798484ba9bf7a2e349362de9c7fe80604705398f1963"
     },
     "ps1": {
       "file": "koder-cli.ps1",
-      "sha256": "f2e923756b00b76bd3a57eadf63a0fbc27bdca7c03564626a59382abbab0bb70"
+      "sha256": "dfbe549e7c8faa840047ca1fc65e933b4c4975d1f5927c789468baa6fc52bd05"
     },
     "cmd": {
       "file": "koder-cli.cmd",
-      "sha256": "7916772602cf70963ef1643600d570fc289401318bc113764477942a164935c3"
+      "sha256": "6a242962784d35c4a714e81da7818bd8703de08c6f8fb635b4c32c9e78a7c64a"
     },
     "ubuntu": {
       "file": "koder-ubuntu-24.04.sh",
-      "sha256": "09dd85dd01ca5834c78536970b60188d1b9ee426de057c8632608e9292a34c9c"
+      "sha256": "e929d91be38ee1f4b5c0e51279c1a6f6f43e8b59dbdc6379dea2c150caade183"
     },
     "ubuntu2604": {
       "file": "koder-ubuntu-26.04.sh",
-      "sha256": "e135fbf65da7345b1cc059a966efa62c3a2a89148083a2b2bc16d26a334a84eb"
+      "sha256": "ac21aaf27170cc2202d90ec9d8273ef90bca02cc5663aed26f464c5d0d6dc1d6"
     }
   },
   "channel": "stable",
   "validationStatus": "partial",
-  "sourceBaseline": "0.5.19 published",
+  "sourceBaseline": "0.5.20 published",
   "changes": [
-    "Scoped headless file delivery",
-    "Host-checked local failure learning",
-    "Bounded output and artifact recovery",
-    "Opt-in local code repair with regression checks and rollback"
+    "Local diagnostic cards and redacted support reports",
+    "Specific mailbox and provider error codes",
+    "Website tools preserved under compact context budgets"
   ],
-  "retainedLimits": [
-    "Original ten-question target remains unmet",
-    "Windows/Linux native repair checks remain separate",
-    "Dedicated 163 mailbox acceptance remains beta-owned",
-    "Local repair is executable code, not a hostile-code sandbox"
-  ],
-  "publicationAuthorization": "Explicit owner publication request after candidate disclosure",
   "privateRuntimeSourcePublished": false,
-  "websiteDeployment": false
+  "websiteDeployment": false,
+  "allEarlierPromisesComplete": false
 }
