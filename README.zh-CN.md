@@ -1,6 +1,8 @@
 # Koder CLI
 
-下载、安装包和更新说明统一在 [CLI 官网](https://kodermodule.com/cli-download.html) 提供。GitHub 保留项目文档和历史记录；后续版本通过官网发布。
+安装与下载统一在 [Koder CLI 官网](https://kodermodule.com/) 提供。本仓库保留功能介绍、教程、更新说明与历史记录。
+
+[Agent 验算与交付修复：候选状态及验收记录](docs/AGENT-VERIFICATION.zh.md)。当前正式版仍为 **0.5.21**，候选改动尚未发版。
 
 [Ubuntu 26.04.1 Desktop amd64 完整教程](docs/UBUNTU-26.04.zh.md)
 
@@ -28,7 +30,7 @@ Local code repair is off by default and supports seven feature modules. Windows/
 
 [完整功能与教程导航](docs/FEATURES.zh.md) · [本版更新](docs/RELEASE-0.5.21.md) · [会话解卡手把手教程](docs/SESSION-RECOVERY.zh.md) · [Windows 磁盘排查手把手教程](docs/WINDOWS-DISK-RECOVERY.zh.md)
 
-[Ubuntu 中文教程](docs/UBUNTU.zh.md) · [全部平台安装](docs/INSTALLATION.md) · [教程总入口](docs/START-HERE.zh.md) · [下载安装包](https://kodermodule.com/cli-download.html)
+[Ubuntu 中文教程](docs/UBUNTU.zh.md) · [全部平台安装](docs/INSTALLATION.md) · [教程总入口](docs/START-HERE.zh.md)
 
 | 你要做什么 | 直接入口 |
 | --- | --- |
@@ -41,21 +43,17 @@ Local code repair is off by default and supports seven feature modules. Windows/
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **v0.5.21**
 
-[![Downloads](https://img.shields.io/badge/download-kodermodule.com-7ca6ff)](https://kodermodule.com/cli-download.html)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20WSL-blue)](docs/INSTALLATION.md)
 
-[复制官方下载链接](https://kodermodule.com/cli-download.html?from=github#copy-download-link) · [![CLI 下载链接复制次数](https://karmenloop-cli-copies.netlify.app/badge.svg?lang=zh-CN)](https://kodermodule.com/cli-download.html?from=github#copy-download-link)
-
-通过专用页面的复制按钮成功复制一次，累计增加一次；重复复制也会计入。
 
 **本地终端编程 Agent：用你自己的模型 API，在本机完成规划、提案与落地——敏感改动先审批，任务历史按工作区隔离。**
 
 Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。
 
-当前版本：**[0.5.21](https://kodermodule.com/cli-download.html)** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
+当前版本：**0.5.21** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
@@ -63,7 +61,7 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 *0.5.21 已发布 macOS 包的启动界面，来自隔离 PTY 的真实 ANSI 输出；此时尚未配置模型。各终端的字体和间距可能不同。*
 
-[下载 Koder CLI](https://kodermodule.com/cli-download.html) · [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.5.21.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
+[安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.5.21.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 ---
 
@@ -248,44 +246,19 @@ flowchart LR
 
 安装与许可提示的操作说明见[手把手第 1 步](#1-安装并接受-eula)。
 
-### Windows PowerShell
+### 在 CLI 官网选择系统
 
-```powershell
-$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://kodermodule.com/install/cli-0.5.21/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
-```
+打开 [Koder CLI 官网](https://kodermodule.com/)，选择 Windows、macOS 或 Ubuntu/Linux，使用对应终端的安装命令，等待下载与摘要校验完成后按提示接受许可。安装命令和安装包下载统一在官网维护。
 
-### Windows Command Prompt (CMD)
-
-请在 **CMD** 提示符粘贴完整一行（不要贴进 PowerShell）：
-
-```bat
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://kodermodule.com/install/cli-0.5.21/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
-```
-
-### Ubuntu 24.04 LTS（独立入口）
-
-已有 wget 的 Ubuntu，复制完整一行到终端；下载成功后才运行安装器：
-
-```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/install/cli-0.5.21/koder-cli.sh && bash /tmp/koder-ubuntu-install.sh
-```
-
-没有 wget、只有 curl，或两个都没有：[按完整教程选择路线](docs/UBUNTU.zh.md#install)。安装显示 MB、百分比和耗时；断网后可重跑续传。安装完成新开终端运行 `koder --version`、`koder setup`。图形操作需另行配置依赖与授权。
-
-### macOS / Linux / WSL
-
-```sh
-curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | bash
-```
-
-下载过程显示进度并校验 SHA-256。成功后请**新开终端**，再执行：
+安装成功后，新开终端依次运行：
 
 ```text
 koder --version
 koder setup
+koder
 ```
 
-`koder --version` 应显示 **0.5.21**。平台细节见 [安装教程](docs/INSTALLATION.md)。
+当前正式版为 **0.5.21**。若提示找不到 `koder`，[Ubuntu PATH 教程](docs/UBUNTU.zh.md) 包含通过安装后的完整路径启动、刷新终端环境的步骤。图形操作还需要对应依赖与授权。平台细节见 [安装教程](docs/INSTALLATION.md)。
 
 ---
 
@@ -313,7 +286,7 @@ koder
 
 ### 1. 安装并接受 EULA
 
-1. 在上文 [安装](#安装) 中只选**一条**安装命令（PowerShell、CMD 或 macOS/Linux/WSL）。
+1. 打开 [Koder CLI 官网](https://kodermodule.com/)，选择对应系统与终端的安装入口。
 2. 等到进度结束，提示精确显示：`accept / decline:`。
 3. 输入 `accept` 并回车。输入 `decline` 或按 Ctrl+C 取消。Windows 上空回车会**再问一次**——不会接受。
 4. 安装结束后**关掉终端再开**，让 `PATH` 生效。

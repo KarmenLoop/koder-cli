@@ -1,6 +1,8 @@
 # Koder CLI
 
-Get installers, updates, and setup instructions from the [CLI website](https://kodermodule.com/en/cli-download.html). GitHub hosts project documentation and history; new releases are published on the website.
+Installation and downloads are managed on the [Koder CLI website](https://kodermodule.com/). This repository hosts feature documentation, tutorials, release notes, and history.
+
+[Agent verification and delivery repair: candidate status and test evidence](docs/AGENT-VERIFICATION.zh.md). The current release remains **0.5.21**; these candidate changes are not released.
 
 [Ubuntu 26.04.1 Desktop amd64 walkthrough](docs/UBUNTU-26.04.md)
 
@@ -28,7 +30,7 @@ Local code repair is off by default and supports seven feature modules. Windows/
 
 [Features and tutorials](docs/FEATURES.md) · [Latest changes](docs/RELEASE-0.5.21.md) · [Session recovery](docs/SESSION-RECOVERY.en.md) · [Windows recovery walkthrough](docs/WINDOWS-DISK-RECOVERY.zh.md)
 
-[Credential setup and login](docs/CREDENTIALS.md) · [Ubuntu tutorial](docs/UBUNTU.md) · [All-platform installation](docs/INSTALLATION.md) · [Start here](docs/START-HERE.en.md) · [Download packages](https://kodermodule.com/en/cli-download.html) · [中文 Ubuntu 教程](docs/UBUNTU.zh.md)
+[Credential setup and login](docs/CREDENTIALS.md) · [Ubuntu tutorial](docs/UBUNTU.md) · [All-platform installation](docs/INSTALLATION.md) · [Start here](docs/START-HERE.en.md) · [中文 Ubuntu 教程](docs/UBUNTU.zh.md)
 
 | Your next step | Guide |
 | --- | --- |
@@ -41,21 +43,17 @@ Local code repair is off by default and supports seven feature modules. Windows/
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **v0.5.21**
 
-[![Downloads](https://img.shields.io/badge/download-kodermodule.com-7ca6ff)](https://kodermodule.com/en/cli-download.html)
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
 [![License: Koder-EULA-1.1](https://img.shields.io/badge/license-Koder--EULA--1.1-orange)](EULA.md)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20WSL-blue)](docs/INSTALLATION.md)
 
-[Copy the official download link](https://kodermodule.com/en/cli-download.html?from=github#copy-download-link) · [![CLI download-link copies](https://karmenloop-cli-copies.netlify.app/badge.svg?lang=en)](https://kodermodule.com/en/cli-download.html?from=github#copy-download-link)
-
-The badge shows successful uses of the download-link copy button. Repeat copies count too.
 
 **A terminal coding agent that plans, proposes, and applies work on your machine—with your own model API, workspace-isolated history, and local approval before sensitive changes.**
 
 Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
 
-Current release: **[0.5.21](https://kodermodule.com/en/cli-download.html)** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
+Current release: **0.5.21** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
@@ -63,7 +61,7 @@ Current release: **[0.5.21](https://kodermodule.com/en/cli-download.html)** · A
 
 *0.5.21 startup banner from the published macOS package, captured in an isolated PTY and rendered from ANSI. No model is configured. Fonts and spacing vary by terminal.*
 
-[Download Koder CLI](https://kodermodule.com/en/cli-download.html) · [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.5.21.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
+[Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.5.21.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
 ---
 
@@ -250,44 +248,19 @@ Choose **one** command. Wait for `accept / decline:`, type `accept`, press Enter
 
 Follow [walkthrough step 1](#1-install-and-accept-the-eula) for the installation and license prompts.
 
-### Windows PowerShell
+### Choose a platform on the CLI website
 
-```powershell
-$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://kodermodule.com/install/cli-0.5.21/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
-```
+Open the [Koder CLI website](https://kodermodule.com/) and choose Windows, macOS, or Ubuntu/Linux. Use the command for your terminal, wait for the download and checksum check, then follow the license prompt. Installer commands and package downloads are maintained there.
 
-### Windows Command Prompt (CMD)
-
-Paste the complete line at a **CMD** prompt (not into PowerShell):
-
-```bat
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://kodermodule.com/install/cli-0.5.21/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
-```
-
-### Ubuntu 24.04 LTS (dedicated installer)
-
-With wget installed, paste this complete line. The installer runs only if its download succeeds:
-
-```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/install/cli-0.5.21/koder-cli.sh && bash /tmp/koder-ubuntu-install.sh
-```
-
-Use the [Ubuntu walkthrough](docs/UBUNTU.md#2-choose-one-installation-route) for curl or missing download tools. Installation reports MB, percentage and elapsed time, and supports resuming interrupted transfers. Open a new terminal afterward and run `koder --version` and `koder setup`. Desktop operations need separate dependencies and permission.
-
-### macOS / Linux / WSL
-
-```sh
-curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | bash
-```
-
-Downloads show progress and verify SHA-256. Reopen the terminal after success, then:
+After installation, open a new terminal and run:
 
 ```text
 koder --version
 koder setup
+koder
 ```
 
-`koder --version` should report **0.5.21**. Full platform notes: [Installation](docs/INSTALLATION.md).
+The current release is **0.5.21**. If `koder` is not found, the [Ubuntu PATH walkthrough](docs/UBUNTU.md) explains how to start the installed executable directly and refresh your shell. Graphical operations require their own dependencies and permission. Full platform notes: [Installation](docs/INSTALLATION.md).
 
 ---
 
@@ -315,7 +288,7 @@ A first-success path from zero to a conscious approve-or-decline. Deeper workflo
 
 ### 1. Install and accept the EULA
 
-1. Pick **one** installer command from [Install](#install) above (PowerShell, CMD, or macOS/Linux/WSL).
+1. Open the [Koder CLI website](https://kodermodule.com/) and choose the installer for your operating system and terminal.
 2. Wait until progress finishes and the prompt shows exactly: `accept / decline:`.
 3. Type `accept` and press Enter. Type `decline` or press Ctrl+C to cancel. On Windows, an empty Enter **asks again**—it does not accept.
 4. When the installer finishes, **close and reopen** the terminal so `PATH` refreshes.
