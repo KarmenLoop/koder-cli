@@ -1,5 +1,7 @@
 # Session input, Skills and startup updates
 
+The [command learning update](COMMAND-LEARNING.en.md) adds a topic chooser at `/learn` and detailed session help such as `/help queue`. While busy, `/learn` queues until the task ends and is never sent to the model as steering.
+
 For the 0.4.13 compact Todo/footer, see [Session dock](SESSION-DOCK.en.md). The 0.4.14 candidate adds [queue, model and effort controls](SESSION-CONTROLS.en.md). The contracts below remain in effect. In the candidate, `/queue`, `/input`, `/model`, `/effort`, `/help` and `/todo toggle` are immediate mid-run controls; other commands retain their existing dispatch behavior.
 
 Applies to **0.4.10**. This workflow was introduced in 0.4.3 and refined in 0.4.9. Existing models, tools, histories and permissions remain; platform and real-account limitations are listed in the release notes.

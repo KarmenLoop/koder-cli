@@ -1,4 +1,4 @@
-# Koder CLI 0.6.2: features and tutorials
+# Koder CLI 0.6.3: features and tutorials
 
 Install using the [platform guide](INSTALLATION.md), sign in with `koder login`, configure a model with `koder setup`, then run `koder`. Installation and background activation do not open chat automatically. Enter tasks only at the `koder >` prompt.
 
@@ -34,6 +34,12 @@ Failed or unverified tasks provide a report ID, specific codes and execution sta
 
 [Goals and continuous delivery](GOALS-AND-PLANS.zh.md), [long-task context controls](CONTEXT-CONTROLS.en.md), [30,000-second command waits](COMMAND-DURATION.md), [device, audio and security tools](DEVICES-AUDIO-SECURITY.zh.md), and [interface composition](INTERFACE-COMPOSITION.zh.md) use the existing runtime. Interface templates do not rewrite the kernel. Mail cleanup recovery and official-site updates are included. See [release evidence and known limits](RELEASE-0.6.2.md).
 
-## New in 0.6.2
+## Included since 0.6.2
 
 Sign in through the [KARMEN browser or QR flow](ACCOUNT-LOGIN.md) before your first task. [Local feature repair](SELF-REPAIR.md) runs synchronous functions in an isolated interpreter without kernel or host I/O access. Existing interface composition, cancellation, permissions and cost budgets remain in place.
+
+## New in 0.6.3: account state, sessions and learning
+
+Correct signed-in status, valid refresh grants and first-message `MEMORY_BUSY` caused by a default-session collision. Explicit session ownership is retained. [Sign-in and recovery](ACCOUNT-LOGIN.md).
+
+[Command and topic lessons](COMMAND-LEARNING.en.md) explain slash commands and provide unit selection and title search. [Local checks and diagnostics](DIAGNOSTICS.en.md) inspect configuration, Skills and local errors. The cloud service is still unconfigured; a local queue is not an upload receipt.

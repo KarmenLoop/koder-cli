@@ -1,6 +1,8 @@
+0.6.3 的登录与首句修复见[账号教程](ACCOUNT-LOGIN.zh.md)。已有有效刷新授权时无需重复登录；`MEMORY_BUSY` 是会话占用问题。命令教学见[课程选择](COMMAND-LEARNING.zh.md)，本机检查见[诊断教程](DIAGNOSTICS.zh.md)。云端日志服务尚未配置，`DIAGNOSTICS_SERVICE_NOT_READY` 不代表上传成功。
+
 > 上下文设置：[窗口、自动压缩与请求估算教程](CONTEXT-CONTROLS.zh.md)。
 
-**首次执行任务前：**运行 `koder login`，通过系统浏览器或二维码完成设备授权，详见 [KARMEN 登录教程](ACCOUNT-LOGIN.zh.md)。KARMEN 会话、模型 Key、邮箱和电脑权限分别配置；没有登录会话的无头任务返回 `LOGIN_REQUIRED`。
+**执行任务前：**先用 `koder account status` 核对 KARMEN 状态。仅在需要时运行 `koder login --open`；有效刷新授权在任务前自动续期。[账号教程](ACCOUNT-LOGIN.zh.md)区分登录、设备确认和会话占用，模型 Key 与电脑权限仍分别配置。
 
 [Ubuntu 26.04.1 Desktop amd64 完整教程](UBUNTU-26.04.zh.md)
 
@@ -17,7 +19,7 @@
 Ubuntu / macOS：在系统终端逐条执行。已有会话可跳过 login，模型已配置可跳过 setup。
 
 ```bash
-"$HOME/.local/bin/koder" login
+"$HOME/.local/bin/koder" account status
 "$HOME/.local/bin/koder" setup
 "$HOME/.local/bin/koder"
 ```
@@ -40,7 +42,7 @@ koder update
 koder --version
 ```
 
-应显示 `koder 0.6.2`。0.4.4 或更早的更新器若提示清单无效，用 CLI 官网当前安装器覆盖升级，不必卸载或删除配置。各终端安装命令、许可确认和恢复步骤见[安装说明](INSTALLATION.md)。若更新后仍启动旧版，Windows 用 `where.exe koder`、macOS/Ubuntu 用 `type -a koder` 检查 PATH 中是否有多个入口。
+应显示 `koder 0.6.3`。0.4.4 或更早的更新器若提示清单无效，用 CLI 官网当前安装器覆盖升级，不必卸载或删除配置。各终端安装命令、许可确认和恢复步骤见[安装说明](INSTALLATION.md)。若更新后仍启动旧版，Windows 用 `where.exe koder`、macOS/Ubuntu 用 `type -a koder` 检查 PATH 中是否有多个入口。
 
 ## 2. 配模型，完成第一个任务
 

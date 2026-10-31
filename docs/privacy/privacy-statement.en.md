@@ -1,5 +1,7 @@
 # Koder CLI privacy statement
 
+November 1, 2026 candidate supplement: Local self-checks read only this Koder profile. A separate allowlisted error projection is configured on by default, requiring first-use disclosure, sign-in and a dedicated upload service. CI does not automatically upload; there is no historical backfill. Disable reporting in Setup or with `koder setup diagnostics off`; local telemetry off also stops it. Raw chat, files, paths, mail and credentials are excluded. Feedback requires redaction preview and explicit confirmation; users must review prose for remaining personal information. The private local queue is bounded to 100 errors and 20 feedback entries for seven days during processing. No other-user or cloud log-reading API exists. The dedicated production authority and HTTPS entry are not ready, so production collection is disabled. See [Diagnostics](../DIAGNOSTICS.en.md) for all fields, account binding, storage, server retention proposals and acceptance limits. Ordinary network connection metadata can reach service infrastructure. Earlier raw-log and manual email notices do not describe this separate candidate projection.
+
 Updated October 20, 2026.
 
 KARMENLOOP Official Team, Shanghai, China. info@karmenloop.com. https://karmenloop.com.

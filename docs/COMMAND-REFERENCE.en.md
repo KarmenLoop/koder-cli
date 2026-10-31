@@ -1324,3 +1324,16 @@ koder login --reauth
 ```
 
 Approve the device on the official account website, then return to the terminal. Setup and chat `/login` / `/logout` share this flow. Headless tasks require an existing protected session; `--yes` does not sign in. The shared-memory login remains under `koder account memory ...` and does not satisfy KARMEN task sign-in. [Setup, cancellation and recovery](ACCOUNT-LOGIN.md).
+
+## New in 0.6.3: lessons and local checks
+
+```text
+koder login --open
+koder account status
+koder learn commands --print
+koder learn topics --print
+koder diagnostics check --json
+koder diagnostics status --json
+```
+
+[Command lessons](COMMAND-LEARNING.en.md) · [Local diagnostics and service readiness](DIAGNOSTICS.en.md). `pending` is local queue state; production upload is not configured.
