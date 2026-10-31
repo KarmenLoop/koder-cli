@@ -539,7 +539,7 @@ koder logout
 koder account memory login|status|logout [--server <地址>]
 ```
 
-前三项管理 KARMEN 任务登录。`account memory` 保留独立的共享记忆账号流程，需要兼容的已部署服务；它不代替 KARMEN 登录。退出共享记忆只停止此设备，不删除服务器副本。`koder memory forget` 删除当前共享空间，离线设备同步时应用。模型 Key 与电脑权限不属于记忆同步。详情见[账号登录教程](ACCOUNT-LOGIN.zh.md)。
+前三项管理 KARMEN 任务登录。`account memory` 保留独立的共享记忆账号流程，需要兼容的已部署服务；它不代替 KARMEN 登录。退出共享记忆只停止此设备，不删除服务器副本。`koder memory forget` 删除当前共享空间，离线设备同步时应用。模型 Key 与电脑权限不属于记忆同步。关联的渠道、设备、群与私聊使用账号默认空间；关联群成员可使用关联私聊的记忆，群回复对群成员可见。关联渠道前请先核对这一共享范围。详情见[账号登录教程](ACCOUNT-LOGIN.zh.md)。
 
 ## prompts
 
