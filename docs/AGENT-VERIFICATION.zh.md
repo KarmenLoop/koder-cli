@@ -1,5 +1,7 @@
 # Agent 验算与交付修复
 
+> **2026-10-31 · 0.6.1 发行补充**：以下记录中的实现已包含在 0.6.1 安装包；原考试质量门槛、真实模型失败和未验项仍保留，不因发版变为通过。下文“候选/尚未发版”描述原测试时点。当前说明见 [0.6.1 更新说明](RELEASE-0.6.1.zh.md)。
+
 更新：2026-10-30。本文描述私有内核中的源码候选，不是已发布版本的能力承诺。当前正式版仍为 **0.5.21**。安装与下载统一由 [Koder CLI 官网](https://kodermodule.com/) 提供；本仓库保留介绍、教程、版本说明和验收记录。
 
 ## 为什么有文件仍然没有完成
@@ -82,3 +84,4 @@ Windows、Ubuntu 实机和真实邮箱仍是 **NOT_RUN**；这次没有操作测
 参考 [SWE-agent 的执行与重询流程](https://github.com/SWE-agent/SWE-agent/blob/main/sweagent/agent/agents.py)、[reviewer](https://github.com/SWE-agent/SWE-agent/blob/main/sweagent/agent/reviewer.py) 和 [Reflexion 的测试反馈](https://github.com/noahshinn/reflexion/blob/main/programming_runs/executors/py_executor.py)。本轮为 Koder 原有内核接口上的原创实现，没有复制这些项目的执行器或引入任意 `exec` / `eval`。第三方权利与原许可保留。
 
 详见 [文件交付契约](HEADLESS-DELIVERY.zh.md)、[故障报告教程](ERROR-REPORTS.zh.md) 和 [功能目录](FEATURES.zh.md)。
+

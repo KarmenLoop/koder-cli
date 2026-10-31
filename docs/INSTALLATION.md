@@ -8,7 +8,7 @@
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide describes **0.5.21**. GitHub provides this release’s installers, package, checksums and tutorials. The complete [English guide](USER-GUIDE.en.md) and [Chinese guide](USER-GUIDE.zh.md) describe this release and its remaining acceptance limits. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide describes **0.6.1**. The CLI website provides installers, packages and checksums; GitHub keeps tutorials and release notes. The complete [English guide](USER-GUIDE.en.md) and [Chinese guide](USER-GUIDE.zh.md) describe this release and its remaining acceptance limits. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -30,23 +30,17 @@ Paste **one complete command** into your chosen terminal and press Enter. Wait f
 
 ### Windows PowerShell
 
-```powershell
-$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://kodermodule.com/install/cli-0.5.21/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script
-```
+Use the matching command on the [official installation page](https://kodermodule.com/en/cli-download.html).
 
 ### Windows Command Prompt (CMD)
 
-```bat
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; $u='https://kodermodule.com/install/cli-0.5.21/koder-cli.ps1'; Write-Host ('Koder: loading installer from '+([Uri]$u).Host+'...'); $limit=100000000; if($env:KODER_DOWNLOAD_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 100000000){$limit=$v}else{throw 'KODER_DOWNLOAD_TIMEOUT_SECONDS must be 1..100000000'}}; $connect=30; if($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS){$v=0; if([int]::TryParse($env:KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS,[ref]$v) -and $v -ge 1 -and $v -le 3600){$connect=$v}else{throw 'KODER_DOWNLOAD_CONNECT_TIMEOUT_SECONDS must be 1..3600'}}; $bootstrapLimit=[Math]::Min($limit,$connect); $client=New-Object Net.WebClient; $client.Encoding=[Text.Encoding]::UTF8; $clock=[Diagnostics.Stopwatch]::StartNew(); $next=5; try{$task=$client.DownloadStringTaskAsync([Uri]$u); $wait=([IAsyncResult]$task).AsyncWaitHandle; while(-not $wait.WaitOne(200)){if($clock.Elapsed.TotalSeconds -ge $bootstrapLimit){if($limit -le $connect){throw ('Installer download timed out after '+$limit+'s')}; throw ('Installer bootstrap stalled after '+$connect+'s')}; if($clock.Elapsed.TotalSeconds -ge $next){Write-Host ('Still loading installer: '+[int]$clock.Elapsed.TotalSeconds+'s elapsed. Ctrl+C cancels.'); $next+=5}}; $script=$task.GetAwaiter().GetResult()}finally{$client.CancelAsync(); $client.Dispose()}; Invoke-Expression $script"
-```
+Use the matching command on the [official installation page](https://kodermodule.com/en/cli-download.html).
 
 On Windows, an empty Enter or unrecognized answer now asks again. It does not accept the license or start downloading. Leading/trailing spaces around `accept` are ignored. Type `decline` or press Ctrl+C to cancel. Redirected input cannot silently accept the license.
 
 ### macOS, Linux, or WSL
 
-```bash
-curl -fsSL https://kodermodule.com/install/cli-0.5.21/koder-cli.sh | bash
-```
+Use the matching command on the [official installation page](https://kodermodule.com/en/cli-download.html).
 
 The shell installer reads the answer from the controlling terminal. Type `accept` and press Enter to continue. `decline`, empty Enter, Ctrl+C, or a closed terminal cancels. Without a terminal it stops with an explanation.
 
@@ -83,7 +77,7 @@ koder version
 koder setup
 ```
 
-`koder version` should show `0.5.20` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
+`koder version` should show `0.6.1` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
 
 If Windows says `koder` is not recognized, reopen the terminal first. You can inspect the installed launcher directly:
 
@@ -219,7 +213,7 @@ The installer uses private Node.js 22.23.3 when an existing runtime lacks the re
 
 An installed CLI checks its managed update feed at interactive chat startup, then uses a six-hour cache for periodic checks. The check runs without blocking input. Installation waits for an idle conversation with no running task, queued line or unfinished draft. The updater checks installer and package hashes, verifies the installed entry, and uses the existing conversation handoff and startup fallback. It does not replay completed work or grant permissions.
 
-The updater first checks `https://kodermodule.com/updates/koder-cli-latest.json`. If that service is unavailable, 0.5.20 checks the official GitHub latest-release manifest and uses that exact version’s installer. Installer SHA-256, package/manifest hashes, license consent and version verification still apply. A checksum or manifest validation failure does not switch sources. Explicit `KODER_INSTALL_BASE` and saved custom mirrors never fall back to another host. Older clients that cannot reach their update service should run the versioned GitHub installer above once.
+The updater reads the official CLI website manifest and verifies the original installer and package hashes. GitHub keeps historical releases through 0.5.21 for old-client compatibility; its old manifest cannot establish the current website version. Explicit mirrors are retained. License consent, cancellation and version checks remain in place. If an older client cannot reach its update service, use the current installer on the CLI website without deleting your configuration.
 
 Run `koder update auto off` (or `/update auto off` in chat) to disable it. Use `on` to enable it and `status` to inspect it. `KODER_AUTO_UPDATE=0` disables automatic checks in the current process. Scripts, one-shot questions, unmanaged copies, explicit private mirrors, and read-only chat modes do not automatically install. A changed license stops automatic installation and requires review. Manual `koder update --check` and `koder update` remain available.
 
@@ -238,7 +232,7 @@ Use `koder skills list` and `/skill` for portable methods. Add input while the a
 
 ## Retained residency and mail inquiries
 
-After installation, verify `koder --version` reports 0.5.21, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
+After installation, verify `koder --version` reports 0.6.1, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
 
 Bind mail in Setup using masked authorization-code input. Separately enable `/mail model on` and `/mail inquire on` with their consent phrases. Related incoming mail can offer choices; a choice creates a draft, and sending still requires final preview and confirmation. Background mail checks also require mail visibility in resident settings. Advertisements and verification codes are excluded from inquiries.
 
@@ -263,3 +257,8 @@ Run `koder --version`, `koder tools audit --json`, `koder ocr status --json` and
 ## If a task does not finish
 
 Koder 0.5.21 shows a local diagnostic card with the error code and a report ID. Use `/error copy` in chat, or `koder logs report --copy` in your system terminal, to copy a redacted report for support. Reports are local and follow the Setup telemetry switch. See the [English guide](ERROR-REPORTS.md) or [Chinese walkthrough](ERROR-REPORTS.zh.md).
+
+
+## 0.6.1 upgrade check
+
+Run `koder --version` and confirm `koder 0.6.1`, then run `koder`. Use `koder setup` for command duration, context and interface settings. `koder activate` is optional and does not open chat or grant computer permissions. See [release notes](RELEASE-0.6.1.md) for known verification limits.
