@@ -27,4 +27,6 @@ The same website exercise did **not** pass autonomous closeout: the model compar
 
 Windows physical tests, Ubuntu native GUI tests, real 163 send/receive/reminder acceptance and visible OS notifications remain separate beta checks. macOS locked-screen operation remains an unsigned candidate. EARSHOT model execution and every third-party device are not covered by the local tests. Source audits, notification submission and local HTTP previews do not establish visual quality, notification visibility or public deployment.
 
+Post-publication update check: the packaged CLI returned success against the official website feed. Its progress label still says “Checking GitHub”; that label is stale and does not indicate a GitHub fallback. This display issue remains open in 0.6.1.
+
 If a task fails, use `/error copy` or `koder logs report --json` and include the version and reproduction steps. Keep passwords, authorization codes and API keys out of reports. Local telemetry can be disabled in Setup; this release does not add cloud log upload.
