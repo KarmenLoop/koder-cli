@@ -1,5 +1,7 @@
 # 会话输入、技能设置与启动更新检查
 
+新增[命令教学与选课](COMMAND-LEARNING.zh.md)：`/learn` 选择学习内容，`/help queue` 查看具体用法。工作中输入 `/learn` 会明确排队，当前任务结束后打开教学；不会将教学命令作为引导发给模型。
+
 0.4.13 的紧凑 Todo/底栏见[会话界面指南](SESSION-DOCK.zh.md)；0.4.14 候选新增[排队管理、切模型与思考强度](SESSION-CONTROLS.zh.md)。当前源码的[任务编排](TASK-ORCHESTRATION.zh.md)还提供 `/subagents status [page]`、`/subagents cancel [id ...]` 和 Todo 分页。它们与 `/queue`、`/input`、`/model`、`/effort`、`/help`、`/todo toggle` 一样可在工作中处理；其他命令仍进入原分发流程。旧版本信息不表示旧安装包已经获得新增命令。
 
 适用版本：**0.4.10**。此功能从 0.4.3 提供，0.4.9 补充输入可靠性修复。原有模型、工具、历史和授权保持；平台及真实账号限制见更新说明。

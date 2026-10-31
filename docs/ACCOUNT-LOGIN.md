@@ -2,7 +2,7 @@
 
 [English](ACCOUNT-LOGIN.md) · [简体中文](ACCOUNT-LOGIN.zh.md)
 
-Koder CLI 0.6.2 requires a KARMEN account before running the first task. Existing installations without a CLI account session must sign in once after upgrading. Account login is separate from model API keys, mailbox credentials and computer permissions. It does not enable cloud log uploads.
+Koder CLI 0.6.3 requires a KARMEN account before running the first task. Existing installations without a CLI account session must sign in once after upgrading. Account login is separate from model API keys, mailbox credentials and computer permissions. It does not enable cloud log uploads.
 
 ## From installation to your first task
 
@@ -49,3 +49,13 @@ The separate shared-memory server login remains available through `koder account
 ## Verification limits
 
 Validation includes isolated HTTP registration, email verification, device consent, token claim/refresh, a CLI task and revocation using synthetic accounts and a credential adapter. Public discovery was checked with the actual CLI HTTPS transport. Human phone approval and native credential storage/browser combinations on each OS remain separate beta checks. See the [Chinese walkthrough](ACCOUNT-LOGIN.zh.md) and the release acceptance record.
+
+## Already signed in?
+
+Chat and Setup show the saved account. A valid refresh grant keeps the account visible after its short-lived access token expires; the next task renews and verifies it before execution. Use `koder account status` for a readable summary or add `--json` for scripts. Do not repeat login solely because the short-lived token expired.
+
+The browser option still opens the official device-authorization page. If the website already has a valid KARMEN session, confirm device access there; server locking or reauthentication may still require a password. `koder login --open` opens that page directly. The CLI does not read browser cookies or skip device consent.
+
+## First-message MEMORY_BUSY
+
+`MEMORY_BUSY` means another task owns the selected session. It is separate from account login and available RAM. Version 0.6.3 isolates implicit default sessions across foreground and resident processes, including an older host still running after an update. Explicitly named sessions retain their live ownership: wait for that task or choose another session name. Keep saved history and live locks intact.

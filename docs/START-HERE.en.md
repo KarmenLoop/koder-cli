@@ -1,6 +1,8 @@
+See [account sign-in](ACCOUNT-LOGIN.md) for the 0.6.3 first-message and saved-session fixes. A valid refresh grant does not require repeated login; `MEMORY_BUSY` is a session-ownership issue. See [command lessons](COMMAND-LEARNING.en.md) and [local diagnostics](DIAGNOSTICS.en.md). Cloud reporting is not configured; `DIAGNOSTICS_SERVICE_NOT_READY` is not an upload receipt.
+
 > Context controls: [window, compaction and request estimates](CONTEXT-CONTROLS.en.md).
 
-**Before your first task:** run `koder login` and approve the CLI in your system browser or by scanning its QR code. Follow the [KARMEN sign-in guide](ACCOUNT-LOGIN.md). A KARMEN session, model API credentials, mailbox access, and computer permissions are separate. Headless tasks without a session return `LOGIN_REQUIRED`.
+**Before a task:** check `koder account status`. Run `koder login --open` only when sign-in is required; a valid refresh grant is renewed before execution. The [account guide](ACCOUNT-LOGIN.md) separates login, device confirmation and session ownership. Model keys and computer permissions remain separate.
 
 [Ubuntu 26.04.1 Desktop amd64 walkthrough](UBUNTU-26.04.md)
 
@@ -10,14 +12,14 @@
 
 Retained since 0.5.0: [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
 
-# Start with Koder CLI 0.6.2
+# Start with Koder CLI 0.6.3
 
 ## Open Koder after installation
 
 Ubuntu / macOS: run these in the system terminal. Skip setup if the model is already configured.
 
 ```bash
-"$HOME/.local/bin/koder" login
+"$HOME/.local/bin/koder" account status
 "$HOME/.local/bin/koder" setup
 "$HOME/.local/bin/koder"
 ```
@@ -40,7 +42,7 @@ koder update
 koder --version
 ```
 
-Expect `koder 0.6.2`. If an updater from 0.4.4 or earlier rejects the manifest, run the current installer from the CLI website in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
+Expect `koder 0.6.3`. If an updater from 0.4.4 or earlier rejects the manifest, run the current installer from the CLI website in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
 
 ## 2. Configure a model and try a task
 

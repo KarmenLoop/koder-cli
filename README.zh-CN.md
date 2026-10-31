@@ -2,38 +2,38 @@
 
 安装与下载统一在 [Koder CLI 官网](https://kodermodule.com/) 提供。本仓库保留功能介绍、教程、更新说明与历史记录。
 
-[0.6.2 更新说明](docs/RELEASE-0.6.2.zh.md)。本版已包含[验算与交付记录](docs/AGENT-VERIFICATION.zh.md)中的实现改动；原有质量失败与未验项仍保留。
+[0.6.3 更新说明](docs/RELEASE-0.6.3.zh.md)。本版已包含[验算与交付记录](docs/AGENT-VERIFICATION.zh.md)中的实现改动；原有质量失败与未验项仍保留。
 
 [Ubuntu 26.04.1 Desktop amd64 完整教程](docs/UBUNTU-26.04.zh.md)
 
 ## 安装完成后，怎么进入 Koder？
 
-Ubuntu / macOS：在系统终端逐条执行。先登录 KARMEN；模型已配置时可跳过 setup。
+Ubuntu / macOS：在系统终端逐条执行。先查看 KARMEN 账号状态；已有有效登录时无需再登录，模型已配置时可跳过 setup。
 
 ```bash
-"$HOME/.local/bin/koder" login
+"$HOME/.local/bin/koder" account status
 "$HOME/.local/bin/koder" setup
 "$HOME/.local/bin/koder"
 ```
 
-看到 `koder >` 后才输入任务。`activate` 只开启后台常驻，不会进入聊天；出现状态 JSON 后运行最后一条即可。完整路径能用但 `koder` 找不到时，按 [PATH 排查](docs/UBUNTU.zh.md#progress) 操作，不必重新下载。自定义安装路径以安装器末尾为准。
+状态提示需要登录时，先运行 `koder login --open` 并确认设备授权。已有有效刷新授权会在任务前续期。看到 `koder >` 后才输入任务。`activate` 只开启后台常驻，不会进入聊天；出现状态 JSON 后运行最后一条即可。完整路径能用但 `koder` 找不到时，按 [PATH 排查](docs/UBUNTU.zh.md#progress) 操作，不必重新下载。自定义安装路径以安装器末尾为准。
 
 
-**当前版本：0.6.2。新增浏览器或二维码登录、本机功能修复沙箱，并修复账号检查期间的取消和引导。**
+**当前版本：0.6.3。修复首句会话冲突和登录状态展示，补入命令教学与本地自检。**
 
 [KARMEN 登录教程](docs/ACCOUNT-LOGIN.zh.md) · [English sign-in guide](docs/ACCOUNT-LOGIN.md) · [目标与计划](docs/GOALS-AND-PLANS.zh.md) · [命令等待](docs/COMMAND-DURATION.md) · [界面与网站设计](docs/INTERFACE-COMPOSITION.zh.md) · [上下文管理](docs/CONTEXT-CONTROLS.zh.md)
 
 通过 CLI 官网安装和更新；保留现有配置与历史。取消、费用预算、权限及未核实结果保护继续有效。
 
-[报告未完成任务](docs/ERROR-REPORTS.zh.md) · [English guide](docs/ERROR-REPORTS.md) · [本版更新](docs/RELEASE-0.6.2.zh.md)
+[报告未完成任务](docs/ERROR-REPORTS.zh.md) · [English guide](docs/ERROR-REPORTS.md) · [本版更新](docs/RELEASE-0.6.3.zh.md)
 
 [本机修复教程](docs/SELF-REPAIR.zh.md) · [English guide](docs/SELF-REPAIR.md) · [有限修复许可](LOCAL-REPAIR-PERMISSION.md)
 
-本机功能修复默认关闭，仍支持原有七个模块。候选检查与启用后的函数统一运行在 QuickJS-WASM 沙箱，保留测试和回滚；内核、账号、权限、预算和更新器不在补丁范围内。原有质量目标及平台实机未验项继续保留，见[本版记录](docs/RELEASE-0.6.2.zh.md)。
+本机功能修复默认关闭，仍支持原有七个模块。候选检查与启用后的函数统一运行在 QuickJS-WASM 沙箱，保留测试和回滚；内核、账号、权限、预算和更新器不在补丁范围内。原有质量目标及平台实机未验项继续保留，见[本版记录](docs/RELEASE-0.6.3.zh.md)。
 
 [邮箱绑定与恢复教程](docs/MAIL-RECOVERY.zh.md)
 
-[完整功能与教程导航](docs/FEATURES.zh.md) · [本版更新](docs/RELEASE-0.6.2.zh.md) · [会话解卡手把手教程](docs/SESSION-RECOVERY.zh.md) · [Windows 磁盘排查手把手教程](docs/WINDOWS-DISK-RECOVERY.zh.md)
+[完整功能与教程导航](docs/FEATURES.zh.md) · [本版更新](docs/RELEASE-0.6.3.zh.md) · [会话解卡手把手教程](docs/SESSION-RECOVERY.zh.md) · [Windows 磁盘排查手把手教程](docs/WINDOWS-DISK-RECOVERY.zh.md)
 
 [Ubuntu 中文教程](docs/UBUNTU.zh.md) · [全部平台安装](docs/INSTALLATION.md) · [教程总入口](docs/START-HERE.zh.md)
 
@@ -46,7 +46,7 @@ Ubuntu / macOS：在系统终端逐条执行。先登录 KARMEN；模型已配�
 | 继续完整课程 | [1800 课中文课堂说明](docs/courses/README.zh.md) |
 
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.6.2**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.6.3**
 
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
@@ -58,7 +58,7 @@ Ubuntu / macOS：在系统终端逐条执行。先登录 KARMEN；模型已配�
 
 Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 执行任务前需要登录 KARMEN 账号；模型 API 另行配置。 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。
 
-当前版本：**0.6.2** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
+当前版本：**0.6.3** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
@@ -66,7 +66,7 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 *历史参考：0.5.21 已发布 macOS 包的启动界面，来自隔离 PTY 的真实 ANSI 输出；此时尚未配置模型。各终端的字体和间距可能不同。*
 
-[安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.6.2.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
+[安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.6.3.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 ---
 
@@ -118,7 +118,7 @@ Koder 把四件事钉死：
 |---|---|
 | **安装什么** | 官方 Windows / macOS / Linux 安装器分发的版本化 CLI 运行时（Node **^22.21.0 或 ≥24**，复用或下载并校验） |
 | **你自备什么** | 自己的模型 API Key，或受支持的本地模型端点 |
-| **版本** | **0.6.2**（官网发行清单、stable 通道） |
+| **版本** | **0.6.3**（官网发行清单、stable 通道） |
 | **本版许可** | **Koder-EULA-1.1** — 当前应用运行时的专有终端用户许可 |
 | **个人使用** | 个人非商业本地使用免费 — **无会员、无邀请码** |
 | **商业 / 组织** | 须事先书面授权（`koder business` / [商业授权](docs/COMMERCIAL-LICENSING.md)） |
@@ -215,7 +215,7 @@ flowchart LR
 
 ## 界面截图 · 0.5.21 历史参考
 
-以下保留旧版本实拍，不冒充 0.6.2 新截图。当前行为和验收限制见 0.6.2 更新说明。
+以下保留旧版本实拍，保留原始版本标注。当前行为和验收限制见 0.6.3 更新说明。
 
 以下图片来自已发布的 macOS 版本，分别展示启动界面、设置菜单和第一课。中英文 README 各用对应语言的实测画面。
 
@@ -265,7 +265,7 @@ koder setup
 koder
 ```
 
-当前正式版为 **0.6.2**。若提示找不到 `koder`，[Ubuntu PATH 教程](docs/UBUNTU.zh.md) 包含通过安装后的完整路径启动、刷新终端环境的步骤。图形操作还需要对应依赖与授权。平台细节见 [安装教程](docs/INSTALLATION.md)。
+当前正式版为 **0.6.3**。若提示找不到 `koder`，[Ubuntu PATH 教程](docs/UBUNTU.zh.md) 包含通过安装后的完整路径启动、刷新终端环境的步骤。图形操作还需要对应依赖与授权。平台细节见 [安装教程](docs/INSTALLATION.md)。
 
 ---
 
@@ -305,7 +305,7 @@ koder --version
 koder
 ```
 
-应看到 **0.6.2**。首次任务前运行 `koder login`，在官方账号页面核对并批准设备。[登录教程](docs/ACCOUNT-LOGIN.zh.md)涵盖扫码、退出、Linux 凭据存储与无头任务。直接 `koder` 进入交互聊天。想先走短教程？
+应看到 **0.6.3**。首次任务前运行 `koder login`，在官方账号页面核对并批准设备。[登录教程](docs/ACCOUNT-LOGIN.zh.md)涵盖扫码、退出、Linux 凭据存储与无头任务。直接 `koder` 进入交互聊天。想先走短教程？
 
 ```text
 koder learn
@@ -407,7 +407,7 @@ koder review --format json
 
 适合在落地后需要结构化发现、大改动跟进前，或 CI 式门禁必须区分「解析干净」与失败时使用。若模型回答成功仍无法解析出完整审查结果，CLI 以退出码 **3** 返回 `REVIEW_UNPARSED`——**不要**把它当成干净通过。
 
-**第一次成功**的标志：版本显示 0.6.2、KARMEN 登录完成、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
+**第一次成功**的标志：版本显示 0.6.3、KARMEN 登录完成、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
 
 日常聊天：空提示符输入 `/` 打开可编辑选项（Tab 填入，Esc 关闭，填入后再 Enter 发送）。`/setup` 打开设置，`/model` 管理模型，`/new` 新话题，`/exit` 离开。`/menu` 也可打开设置。
 
@@ -527,7 +527,7 @@ koder update auto on
 | 分发与历史 GPL 树 | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | 专有运行时 vs 历史公开树 |
 | 中文 1800 课 / 英文 30 课文本 | [docs/tutorials/](docs/tutorials/) | 中英 × PowerShell/CMD/mac/linux 离线版 |
 | 本地任务记忆（默认开） | [MARKDOWN-LEARNING.zh.md](docs/MARKDOWN-LEARNING.zh.md) | 范围、实际开关、复盘与关闭方法 |
-| 本版发行 | [RELEASE-0.6.2.md](docs/RELEASE-0.6.2.zh.md) | 改了什么、哪些仍为 NOT_RUN |
+| 本版发行 | [RELEASE-0.6.2.md](docs/RELEASE-0.6.3.zh.md) | 改了什么、哪些仍为 NOT_RUN |
 
 ---
 
@@ -550,8 +550,8 @@ koder update auto on
 **会不会不经询问就改我的文件？**\
 可识别的低风险本地检查与普通工程改动可按智能审批执行。敏感或未知效果——含删除、密钥路径、Shell 副作用——会先询问。批准前请看清 Diff 与目标。
 
-**公开 GitHub 源码就是 0.6.2 运行时吗？**
-不是。公开树保留历史 GPL **0.3.1** 材料。**0.6.2** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
+**公开 GitHub 源码就是 0.6.3 运行时吗？**
+不是。公开树保留历史 GPL **0.3.1** 材料。**0.6.3** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
 
 **公司能否部署？**\
 联系 [info@karmenloop.com](mailto:info@karmenloop.com) 或运行 `koder business`。点星、下载与咨询邮件本身不构成商业授权。
@@ -637,3 +637,11 @@ KARMENLOOP 官方团队 · 中国上海 · [karmenloop.com](https://karmenloop.c
 本机功能修复继续由用户选择开启。七个受支持模块沿用测试、启用与回滚流程，生成的函数在 QuickJS-WASM 隔离解释器中执行。[修复教程](docs/SELF-REPAIR.zh.md)。
 
 实际包首次更新检查返回 `NETWORK_FAILED`；后续未改程序、未加载观察器、未覆盖网络的默认复核在 2.24 秒内通过，确认 0.6.2 已是最新版本。原失败保留，其初始根因尚未证实。真人登录、各系统原生凭据、Windows/Ubuntu GUI、真实 163 收发与可见通知，以及独立模型质量题组，本轮均未完成验收。[本版说明与边界](docs/RELEASE-0.6.2.zh.md)。
+
+## 已经登录，为什么第一句话还会失败？
+
+0.6.3 修正了已登录状态展示，并隔离旧常驻任务占用的隐式默认会话。有效刷新授权在任务前续期；显式同名会话仍由原任务持有，不能靠删除历史或锁文件绕过 `MEMORY_BUSY`。[账号状态与恢复](docs/ACCOUNT-LOGIN.zh.md)。
+
+需要登录时，通过系统浏览器确认设备授权。已有网页会话可以复用，但设备确认仍需单独完成。本版同时包含[命令教学](docs/COMMAND-LEARNING.zh.md)和[本地自检](docs/DIAGNOSTICS.zh.md)。云端上报服务尚未配置，仍返回 `DIAGNOSTICS_SERVICE_NOT_READY`。
+
+官网稳定清单，以及 0.6.3 和旧版 0.6.2 的默认更新检查均已核对。完整公网下载与网站检查汇总仍待发行负责人最终回执。[发布记录与边界](docs/RELEASE-0.6.3.zh.md#发布与核验)。

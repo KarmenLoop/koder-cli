@@ -18,4 +18,8 @@ Permission-denied and empty results receive an actionable summary and a nonzero 
 
 ## Verification scope
 
+`koder diagnostics check --json` (also `koder doctor --full --json`) adds bundled interface schemas, configuration conflicts, Skill resources and recent local errors. It invokes no tool handlers. The Agent's `diagnostics_runtime_log` also supports `action: recent` and `action: check`, with no path or cloud-read parameter.
+
+A separate allowlisted error projection can enter a private upload queue after disclosure and sign-in. Raw logs remain local. Setup can disable automatic reporting; telemetry off also stops it. Feedback requires a separate redacted preview and confirmation. See [Diagnostics](DIAGNOSTICS.en.md) / [自检与上报](DIAGNOSTICS.zh.md) for service readiness, retry limits, retention and durable server receipts. Production ingestion is not enabled in this candidate; the dedicated authority and HTTPS entry remain unavailable.
+
 No-key checks use disposable workspaces, injected models and loopback IPC. They do not prove native Windows GUI/IME, real account delivery or model quality. Original failures and NOT_RUN items remain in the release evidence.

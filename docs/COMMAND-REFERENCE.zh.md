@@ -1324,3 +1324,16 @@ koder login --reauth
 ```
 
 在官方账号网页核对并批准设备后，返回原终端继续。Setup 和聊天内的 `/login`、`/logout` 共用此流程。无头任务需要已有受保护会话，`--yes` 不能代替登录。共享记忆的独立登录保留在 `koder account memory ...`，不能代替 KARMEN 任务登录。[设置、取消与恢复教程](ACCOUNT-LOGIN.zh.md)。
+
+## 0.6.3：教学与本地检查
+
+```text
+koder login --open
+koder account status
+koder learn commands --print
+koder learn topics --print
+koder diagnostics check --json
+koder diagnostics status --json
+```
+
+[命令教学](COMMAND-LEARNING.zh.md) · [本机诊断与服务状态](DIAGNOSTICS.zh.md)。`pending` 仅表示本地排队，生产云上传尚未配置。

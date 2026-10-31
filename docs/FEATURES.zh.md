@@ -1,4 +1,4 @@
-# Koder CLI 0.6.2：功能与完整教程导航
+# Koder CLI 0.6.3：功能与完整教程导航
 
 从[安装教程](INSTALLATION.md)开始。安装完成不等于已经进入聊天：先运行 `koder login` 登录，再用 `koder setup` 配置模型，最后运行 `koder`，看到 `koder >` 才输入任务。第一次使用可照[中文完整指南](USER-GUIDE.zh.md)逐步操作。
 
@@ -50,3 +50,9 @@ Failed or unverified tasks provide a report ID, specific codes and execution sta
 ## 0.6.2 登录与受保护自修复
 
 首次任务通过 [KARMEN 浏览器/二维码登录](ACCOUNT-LOGIN.zh.md)。[本机自修复](SELF-REPAIR.zh.md)在隔离解释器运行同步功能函数，不能修改内核或访问宿主文件、凭据和网络。界面组装继续使用已有 cli_interface；取消、权限、费用预算保留。
+
+## 0.6.3：登录状态、会话与教学
+
+修正已登录状态展示、有效刷新授权及默认会话占用导致的首句 `MEMORY_BUSY`。显式会话所有权继续保留。[登录与恢复](ACCOUNT-LOGIN.zh.md)。
+
+[命令与主题教学](COMMAND-LEARNING.zh.md)提供斜杠命令解释、主题和标题搜索；[本机自检与诊断](DIAGNOSTICS.zh.md)覆盖配置、Skills 和本地错误。云端服务仍未配置，不把本地队列当作上传成功。

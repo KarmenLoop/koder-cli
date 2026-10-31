@@ -1,3 +1,12 @@
+## 0.6.3 — 2026-11-01
+
+- Isolate implicit default sessions across foreground and resident clients.
+- Show saved account status and recognize valid refresh grants.
+- Reuse an eligible browser session while retaining device confirmation.
+- Include command/topic teaching and local diagnostic checks; cloud collection remains unconfigured.
+
+[Release notes](docs/RELEASE-0.6.3.md). Website activation and both generations of default update checks are verified; the full public-download summary remains pending the release owner's final receipt.
+
 ## 0.6.2 — 2026-11-01
 
 - Sign in through the system browser or a terminal QR code before running tasks.
