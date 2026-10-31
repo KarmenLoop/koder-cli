@@ -1,5 +1,7 @@
 > 上下文设置：[窗口、自动压缩与请求估算教程](CONTEXT-CONTROLS.zh.md)。
 
+**首次执行任务前：**运行 `koder login`，通过系统浏览器或二维码完成设备授权，详见 [KARMEN 登录教程](ACCOUNT-LOGIN.zh.md)。KARMEN 会话、模型 Key、邮箱和电脑权限分别配置；没有登录会话的无头任务返回 `LOGIN_REQUIRED`。
+
 [Ubuntu 26.04.1 Desktop amd64 完整教程](UBUNTU-26.04.zh.md)
 
 [不限工具轮次、费用预算、子任务与按需获取技能](TASK-ORCHESTRATION.zh.md)
@@ -12,14 +14,15 @@
 
 ## 安装完成后，怎么进入 Koder？
 
-Ubuntu / macOS：在系统终端逐条执行。已配置模型可跳过第一条。
+Ubuntu / macOS：在系统终端逐条执行。已有会话可跳过 login，模型已配置可跳过 setup。
 
 ```bash
+"$HOME/.local/bin/koder" login
 "$HOME/.local/bin/koder" setup
 "$HOME/.local/bin/koder"
 ```
 
-看到 `koder >` 后才输入任务。`activate` 只开启后台常驻，不会进入聊天；出现状态 JSON 后运行第二条即可。完整路径能用但 `koder` 找不到时，按 [PATH 排查](UBUNTU.zh.md#progress) 操作，不必重新下载。自定义安装路径以安装器末尾为准。
+看到 `koder >` 后才输入任务。`activate` 只开启后台常驻，不会进入聊天；出现状态 JSON 后运行最后一条即可。完整路径能用但 `koder` 找不到时，按 [PATH 排查](UBUNTU.zh.md#progress) 操作，不必重新下载。自定义安装路径以安装器末尾为准。
 
 
 Koder 是在终端中执行编程和撰写任务的 Agent，使用你选择的模型 API 或兼容本地模型。它可以处理项目文件、运行获批命令，并按需调用已配置的 Skills、MCP 和应用。模型费用由服务商单独结算；目录中有一个选项，不代表该账号或设备已连接成功。
@@ -37,11 +40,12 @@ koder update
 koder --version
 ```
 
-应显示 `koder 0.5.20`。0.4.4 或更早的更新器若提示清单无效，用 GitHub 当前安装器覆盖升级，不必卸载或删除配置。各终端安装命令、许可确认和恢复步骤见[安装说明](INSTALLATION.md)。若更新后仍启动旧版，Windows 用 `where.exe koder`、macOS/Ubuntu 用 `type -a koder` 检查 PATH 中是否有多个入口。
+应显示 `koder 0.6.2`。0.4.4 或更早的更新器若提示清单无效，用 CLI 官网当前安装器覆盖升级，不必卸载或删除配置。各终端安装命令、许可确认和恢复步骤见[安装说明](INSTALLATION.md)。若更新后仍启动旧版，Windows 用 `where.exe koder`、macOS/Ubuntu 用 `type -a koder` 检查 PATH 中是否有多个入口。
 
 ## 2. 配模型，完成第一个任务
 
 ```text
+koder login
 koder setup
 koder model test
 koder model test --tools
@@ -56,7 +60,7 @@ koder
 
 交互聊天中按 `/` 打开建议、模板和命令，选中后只填入草稿，编辑确认后才发送。Setup 可选择运行中引导（默认）或先进先出排队。Esc/Ctrl+C 可取消；提前排队的文字不能批准后来出现的权限问题。具体行为、回退原因和终端限制见[实时输入与 Skills](SESSION-INPUT-AND-SKILLS.zh.md)。
 
-普通命令默认等待 5 分钟，识别到的直接安装命令默认 15 分钟，单次可明确申请最多 30 分钟。明确设置的短时限和 curl 自身时限仍有效。工具轮次默认不限；只有显式配置有限步数预算时才可能出现 `TASK_STEP_LIMIT`。取消、费用预算、会话和已有结果继续保留。见[命令时限与恢复](COMMAND-DURATION.md)。
+新批准的 shell 命令使用已配置的等待上限，默认 30,000 秒；命令提前退出就立即继续。显式任务时限、取消、费用预算和命令自身的超时仍生效，已有审批保留原期限。工具轮次默认不限，只有显式有限步数预算才会触发相应限制。见[命令时限与恢复](COMMAND-DURATION.md)。
 
 ## 4. 按任务找到完整教程
 

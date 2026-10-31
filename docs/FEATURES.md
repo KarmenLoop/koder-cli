@@ -1,6 +1,6 @@
-# Koder CLI 0.6.1: features and tutorials
+# Koder CLI 0.6.2: features and tutorials
 
-Install using the [platform guide](INSTALLATION.md), configure a model with `koder setup`, then run `koder`. Installation and background activation do not open chat automatically. Enter tasks only at the `koder >` prompt.
+Install using the [platform guide](INSTALLATION.md), sign in with `koder login`, configure a model with `koder setup`, then run `koder`. Installation and background activation do not open chat automatically. Enter tasks only at the `koder >` prompt.
 
 | Workflow | Entry point | Guide and limits |
 | --- | --- | --- |
@@ -15,24 +15,25 @@ Install using the [platform guide](INSTALLATION.md), configure a model with `kod
 | Background work and reminders | `koder activate`, `koder notifications status` | [Always-on guide](ALWAYS-ON.zh.md): quiet hours, limits and off controls; submitted notifications are not display verification. |
 | OCR, indexing and application resources | `koder ocr`, `koder pageindex`, `koder llm-apps` | [User guide](USER-GUIDE.en.md): resource availability and successful execution are separate evidence. |
 | Migration, headless work and telemetry | `koder migrate`, `koder run --json`, Setup | [User guide](USER-GUIDE.en.md): exact artifact contracts; local telemetry is on by default and can be disabled. Cloud log upload is not enabled. |
-| Installation and updates | `koder update`, `koder update auto status` | [Installation](INSTALLATION.md): official website distribution, checksums and specific failure reasons. |
+| Installation and updates | `koder update`, `koder update auto status` | [Installation](INSTALLATION.md): official website updates, checksums and specific failure reasons. The retained GitHub channel ends at 0.5.21 and cannot confirm the newest release. |
 
 Use [Start here](START-HERE.en.md) for a first task. The [English course](courses/README.en.md) has 30 lessons; the [Chinese course](courses/README.zh.md) has 1,800 lessons. Both offer hands-on and developer material. Run `koder learn`, or print a lesson with `koder learn 3 --print --os linux --lang en`. Select `--track hands-on` or `--track developer`. The complete guides link the eight current-version terminal exports.
 
-The [release notes](RELEASE-0.6.1.md) and `ACCEPTANCE-RESULTS.json` distinguish source tests, archive checks and device/account verification. Windows physical testing remains beta-owned. Signed macOS locked-screen operation remains an unsigned candidate. Platform-specific archives retain applicable features while excluding other-platform binaries.
+The [release notes](RELEASE-0.6.2.md) and `ACCEPTANCE-RESULTS.json` distinguish source tests, archive checks and device/account verification. Windows physical testing remains beta-owned. Signed macOS locked-screen operation remains an unsigned candidate. Platform-specific archives retain applicable features while excluding other-platform binaries.
 
 
 For a restored session blocked by an old unconfirmed operation, follow [session recovery](SESSION-RECOVERY.en.md). `/reconcile` retains evidence and never replays the old action.
 
 For opt-in repairs to Koder itself, use `koder self-repair on` and describe a reproducible error in a local task. [Local repair](SELF-REPAIR.md) covers seven feature modules, typed reproduction tests, next-start activation and rollback. It does not replace core control modules or train model weights.
 
-## Local failure reports (0.6.1)
+## Local failure reports (0.6.2)
 
 Failed or unverified tasks provide a report ID, specific codes and execution state. Use `/error copy` in chat or `koder logs report --json` in a terminal. Reports stay local, exclude content and credentials, and honor the Setup telemetry switch. [Guide](ERROR-REPORTS.md) · [中文教程](ERROR-REPORTS.zh.md).
 
+## Included since 0.6.1
 
-## 0.6.1 workflow updates
+[Goals and continuous delivery](GOALS-AND-PLANS.zh.md), [long-task context controls](CONTEXT-CONTROLS.en.md), [30,000-second command waits](COMMAND-DURATION.md), [device, audio and security tools](DEVICES-AUDIO-SECURITY.zh.md), and [interface composition](INTERFACE-COMPOSITION.zh.md) use the existing runtime. Interface templates do not rewrite the kernel. Mail cleanup recovery and official-site updates are included. See [release evidence and known limits](RELEASE-0.6.2.md).
 
-[Goals and plans / 目标与计划](GOALS-AND-PLANS.zh.md) · [Command duration / 命令等待](COMMAND-DURATION.md) · [Interface composition / 界面组装](INTERFACE-COMPOSITION.zh.md) · [Context controls / 上下文](CONTEXT-CONTROLS.zh.md) · [Devices, audio and security / 设备、音频与安全](DEVICES-AUDIO-SECURITY.zh.md)
+## New in 0.6.2
 
-The configured default for newly approved shell commands is 30,000 seconds. Existing approvals retain their original limits. Interface changes use supported settings and task templates; they do not rewrite the kernel. Native Windows/Ubuntu GUI, real mailbox delivery and notification visibility remain separately unverified. See the release notes for the retained website model-closeout failure.
+Sign in through the [KARMEN browser or QR flow](ACCOUNT-LOGIN.md) before your first task. [Local feature repair](SELF-REPAIR.md) runs synchronous functions in an isolated interpreter without kernel or host I/O access. Existing interface composition, cancellation, permissions and cost budgets remain in place.

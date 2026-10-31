@@ -1,10 +1,12 @@
 ## First use: identify the prompt before typing
 
-> **0.6.1 update:** Install and update through the [CLI website](https://kodermodule.com/en/cli-download.html). Follow the [current installation guide](INSTALLATION.md), confirm `koder 0.6.1` with `koder --version`, then run `koder`. This version adds persistent goals and plans, a configurable 30,000-second command wait, interface composition and context controls. Historical examples below are retained; see [release notes](RELEASE-0.6.1.md) for current behavior and verification limits.
+**Before your first task:** run `koder login` and approve the CLI in your system browser or by scanning its QR code. Follow the [KARMEN sign-in guide](ACCOUNT-LOGIN.md). A KARMEN session, model API credentials, mailbox access, and computer permissions are separate. Headless tasks without a session return `LOGIN_REQUIRED`.
 
-Follow the [Ubuntu walkthrough](UBUNTU.md) or [platform installation guide](INSTALLATION.md). The sequence is install, configure a model, launch chat, submit a task, then verify the artifact. A system prompt accepts commands; `accept / decline:` asks for license consent; `activate` offers an optional background service; only `koder >` accepts chat tasks. Skipping activation retains foreground chat. Enabling activation does not launch chat.
+> **0.6.2 update:** Install and update through the [CLI website](https://kodermodule.com/en/cli-download.html), confirm the version, then complete [KARMEN sign-in](ACCOUNT-LOGIN.md). This release adds browser/QR authorization and isolates opt-in local feature repairs. Existing goals, plans, interface and context controls remain available. [Release notes and limits](RELEASE-0.6.2.md).
 
-On Ubuntu/macOS, run `"$HOME/.local/bin/koder" setup` if needed, then `"$HOME/.local/bin/koder"`. These full paths work before PATH refreshes. On Windows, reopen PowerShell and use `koder setup`, then `koder`. See the [installation recovery steps](INSTALLATION.md#3-finish-setup-then-open-koder).
+Follow the [Ubuntu walkthrough](UBUNTU.md) or [platform installation guide](INSTALLATION.md). The sequence is install, sign in to KARMEN, configure a model, launch chat, submit a task, then verify the artifact. A system prompt accepts commands; `accept / decline:` asks for license consent; `activate` offers an optional background service; only `koder >` accepts chat tasks. Skipping activation retains foreground chat. Enabling activation does not launch chat.
+
+On Ubuntu/macOS, run `"$HOME/.local/bin/koder" login`, then `"$HOME/.local/bin/koder" setup` if needed, and `"$HOME/.local/bin/koder"`. These full paths work before PATH refreshes. On Windows, reopen PowerShell, run `koder login`, then `koder setup` and `koder`. See the [installation recovery steps](INSTALLATION.md#3-finish-setup-then-open-koder).
 
 This release checks for missing task output and website handoff evidence. Read [Task results and recovery](task-results.md) and [Website delivery](website-delivery.md). The website Skill follows its applicable requirements, planning, layout, implementation and verification stages; existing off choices remain effective.
 
@@ -14,15 +16,15 @@ This release checks for missing task output and website handoff evidence. Read [
 
 0.5.19 includes [computer care](COMPUTER-CARE.zh.md), [installed-app access](APP-USE-AND-LEARN.en.md) and the Windows disk-inspection fix. Start with the [feature and tutorial map](FEATURES.md).
 
-Current version: **0.5.19**. Start with [release changes](RELEASE-0.5.19.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.6.2**. Start with [release changes](RELEASE-0.6.2.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide targets 0.5.19. The eight linked terminal text exports match this version; historical exports are excluded from the current package.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide targets 0.6.2. The eight linked terminal text exports match this version; historical exports are excluded from the current package.
 
 # Koder CLI complete user guide
 
-Version: **0.5.19**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.6.2**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -225,14 +227,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.5.19-en-cmd.txt](tutorials/koder-cli-0.5.19-en-cmd.txt)
-- [koder-cli-0.5.19-en-linux.txt](tutorials/koder-cli-0.5.19-en-linux.txt)
-- [koder-cli-0.5.19-en-mac.txt](tutorials/koder-cli-0.5.19-en-mac.txt)
-- [koder-cli-0.5.19-en-powershell.txt](tutorials/koder-cli-0.5.19-en-powershell.txt)
-- [koder-cli-0.5.19-zh-cmd.txt](tutorials/koder-cli-0.5.19-zh-cmd.txt)
-- [koder-cli-0.5.19-zh-linux.txt](tutorials/koder-cli-0.5.19-zh-linux.txt)
-- [koder-cli-0.5.19-zh-mac.txt](tutorials/koder-cli-0.5.19-zh-mac.txt)
-- [koder-cli-0.5.19-zh-powershell.txt](tutorials/koder-cli-0.5.19-zh-powershell.txt)
+- [koder-cli-0.6.2-en-cmd.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-en-cmd.txt)
+- [koder-cli-0.6.2-en-linux.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-en-linux.txt)
+- [koder-cli-0.6.2-en-mac.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-en-mac.txt)
+- [koder-cli-0.6.2-en-powershell.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-en-powershell.txt)
+- [koder-cli-0.6.2-zh-cmd.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-zh-cmd.txt)
+- [koder-cli-0.6.2-zh-linux.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-zh-linux.txt)
+- [koder-cli-0.6.2-zh-mac.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-zh-mac.txt)
+- [koder-cli-0.6.2-zh-powershell.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 

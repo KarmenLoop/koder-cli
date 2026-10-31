@@ -1,5 +1,7 @@
 # 账号、密码和令牌：输入与使用教程
 
+**首次执行任务前：**运行 `koder login`，通过系统浏览器或二维码完成设备授权，详见 [KARMEN 登录教程](ACCOUNT-LOGIN.zh.md)。KARMEN 会话、模型 Key、邮箱和电脑权限分别配置；没有登录会话的无头任务返回 `LOGIN_REQUIRED`。
+
 适用版本：Koder CLI 0.5.14。Ubuntu 24.04 和 26.04.1 Desktop amd64 使用相同流程。
 
 ## 先确认进入了正确版本

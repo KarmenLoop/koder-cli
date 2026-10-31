@@ -1,3 +1,9 @@
+# Current website release: 0.6.2
+
+Browser/QR account sign-in and sandboxed local feature repairs are described in the [English release notes](docs/RELEASE-0.6.2.md) and [中文说明](docs/RELEASE-0.6.2.zh.md). New installers and updates are published on the [CLI website](https://kodermodule.com/cli-download.html). The first packaged update check failed with `NETWORK_FAILED`; a later default check passed without instrumentation or network overrides. The initial failure and remaining acceptance limits are recorded separately. No new GitHub binary Release is part of this documentation update.
+
+## Historical release records
+
 # Koder CLI 0.5.21
 
 Copyable local failure reports and an 8K website tool-discovery fix. Source checks: 210 passed; packaged checks are recorded in the release attachment. Windows and the dedicated 163 mailbox remain beta-owned. Original exam limitations remain unchanged. GitHub publication only.

@@ -533,16 +533,13 @@ Global options: koder help.
 ## account
 
 ```text
-koder account  Account, sign-in and sign-out for cross-device memory
-Aliases: 账号, 帳號
-
-Usage
-  koder account login|status|logout [--server <url>]
-
-Requires a deployed compatible Core service. Linked channels, devices, groups and private chats share the account default space; linked-group members can use linked private-chat memory and see group replies. Logout stops this device without erasing server copies. memory forget deletes the current shared space, applied to offline devices on sync. Model API keys and computer grants are not memory-sync data.
-
-Global options: koder help.
+koder account status [--json]
+koder login [--qr] [--no-open] [--reauth]
+koder logout
+koder account memory login|status|logout [--server <url>]
 ```
+
+The first three commands manage KARMEN task sign-in. `account memory` retains the separate shared-memory account flow and requires a compatible deployed service; it does not satisfy KARMEN sign-in. Leaving shared memory stops this device without deleting server copies. `koder memory forget` deletes the current shared space, including on offline devices when they sync. Model keys and computer grants are not memory-sync data. See [account sign-in](ACCOUNT-LOGIN.md).
 
 ## prompts
 
@@ -1315,3 +1312,15 @@ Global options: koder help.
 ## Recover an interrupted session (0.5.19)
 
 In chat, use `/reconcile` to inspect pending calls. After checking the actual target, use `/reconcile checked <call-id>`. Original UNKNOWN receipts and normal approval requirements remain intact; nothing is replayed. Exact `ESC`/`Escape` input cancels without starting a model turn at idle. See [session recovery](SESSION-RECOVERY.en.md).
+
+## KARMEN account sign-in · 0.6.2
+
+```text
+koder login
+koder login --qr --no-open
+koder account status --json
+koder logout
+koder login --reauth
+```
+
+Approve the device on the official account website, then return to the terminal. Setup and chat `/login` / `/logout` share this flow. Headless tasks require an existing protected session; `--yes` does not sign in. The shared-memory login remains under `koder account memory ...` and does not satisfy KARMEN task sign-in. [Setup, cancellation and recovery](ACCOUNT-LOGIN.md).

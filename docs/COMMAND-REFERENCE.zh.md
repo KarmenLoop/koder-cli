@@ -533,16 +533,13 @@ eula 可在接受前查看；accept 只接受当前使用许可，不代开学�
 ## account
 
 ```text
-koder account  跨设备记忆账号、登录与退出
-别名: 账号, 帳號
-
-用法
-  koder account login|status|logout [--server <地址>]
-
-需要兼容的已部署 Core 服务。登录后默认共享空间关联的渠道、设备、群与私聊可共享记忆；关联群全员可用关联私聊记忆，群回复全员可见。退出只停止此设备使用，不删除服务器副本。koder memory forget 删除当前共享空间记忆，离线设备下次同步时应用。API密钥与电脑执行授权不属于记忆同步。
-
-通用选项见 koder help。
+koder account status [--json]
+koder login [--qr] [--no-open] [--reauth]
+koder logout
+koder account memory login|status|logout [--server <地址>]
 ```
+
+前三项管理 KARMEN 任务登录。`account memory` 保留独立的共享记忆账号流程，需要兼容的已部署服务；它不代替 KARMEN 登录。退出共享记忆只停止此设备，不删除服务器副本。`koder memory forget` 删除当前共享空间，离线设备同步时应用。模型 Key 与电脑权限不属于记忆同步。详情见[账号登录教程](ACCOUNT-LOGIN.zh.md)。
 
 ## prompts
 
@@ -1315,3 +1312,15 @@ koder about  按官网介绍 Koder 是谁做的，并给出更新页
 ## 旧会话卡住与人工核对（0.5.19）
 
 在聊天输入 `/reconcile` 查看；实际核对后输入 `/reconcile checked <调用编号>`。该命令保留原 UNKNOWN，不重放，也不代替后续审批。整行 `ESC`/`Escape` 可取消，空闲时不会启动模型。详细步骤见[会话恢复教程](SESSION-RECOVERY.zh.md)。
+
+## KARMEN 账号登录 · 0.6.2
+
+```text
+koder login
+koder login --qr --no-open
+koder account status --json
+koder logout
+koder login --reauth
+```
+
+在官方账号网页核对并批准设备后，返回原终端继续。Setup 和聊天内的 `/login`、`/logout` 共用此流程。无头任务需要已有受保护会话，`--yes` 不能代替登录。共享记忆的独立登录保留在 `koder account memory ...`，不能代替 KARMEN 任务登录。[设置、取消与恢复教程](ACCOUNT-LOGIN.zh.md)。
