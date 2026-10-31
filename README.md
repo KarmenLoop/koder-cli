@@ -2,15 +2,16 @@
 
 Installation and downloads are managed on the [Koder CLI website](https://kodermodule.com/). This repository hosts feature documentation, tutorials, release notes, and history.
 
-[Koder CLI 0.6.1 release notes](docs/RELEASE-0.6.1.md). This release includes the implementation changes described in the [verification record](docs/AGENT-VERIFICATION.zh.md); the recorded quality failures remain open.
+[Koder CLI 0.6.2 release notes](docs/RELEASE-0.6.2.md). This release includes the implementation changes described in the [verification record](docs/AGENT-VERIFICATION.zh.md); the recorded quality failures remain open.
 
 [Ubuntu 26.04.1 Desktop amd64 walkthrough](docs/UBUNTU-26.04.md)
 
 ## Open Koder after installation
 
-Ubuntu / macOS: run these in the system terminal. Skip setup if the model is already configured.
+Ubuntu / macOS: run these in your system terminal. Sign in to KARMEN first; skip model setup if it is already configured.
 
 ```bash
+"$HOME/.local/bin/koder" login
 "$HOME/.local/bin/koder" setup
 "$HOME/.local/bin/koder"
 ```
@@ -18,21 +19,21 @@ Ubuntu / macOS: run these in the system terminal. Skip setup if the model is alr
 Enter tasks only after `koder >` appears. `activate` enables a background service; it does not open chat. If the full path works but `koder` does not, follow the [PATH walkthrough](docs/UBUNTU.md) rather than downloading again. Use the actual installer path for custom installations.
 
 
-**Current release: 0.6.1. Persistent goals, longer command waits, configurable interface layouts, and staged website design tools.**
+**Current release: 0.6.2. Browser or QR sign-in, sandboxed local feature repairs, and account-flow recovery fixes.**
 
-[Goals and plans](docs/GOALS-AND-PLANS.zh.md) · [Command duration](docs/COMMAND-DURATION.md) · [Interface and website design](docs/INTERFACE-COMPOSITION.zh.md) · [Context controls](docs/CONTEXT-CONTROLS.zh.md)
+[KARMEN sign-in](docs/ACCOUNT-LOGIN.md) · [中文登录教程](docs/ACCOUNT-LOGIN.zh.md) · [Goals and plans](docs/GOALS-AND-PLANS.zh.md) · [Command duration](docs/COMMAND-DURATION.md) · [Interface and website design](docs/INTERFACE-COMPOSITION.zh.md) · [Context controls](docs/CONTEXT-CONTROLS.zh.md)
 
 Install and update through the CLI website. Existing configuration and history are retained. Cancel, cost limits and permission checks still apply.
 
-[Report an incomplete task](docs/ERROR-REPORTS.md) · [Step-by-step Chinese guide](docs/ERROR-REPORTS.zh.md) · [Release notes](docs/RELEASE-0.6.1.md)
+[Report an incomplete task](docs/ERROR-REPORTS.md) · [Step-by-step Chinese guide](docs/ERROR-REPORTS.zh.md) · [Release notes](docs/RELEASE-0.6.2.md)
 
 [Local repair guide](docs/SELF-REPAIR.md) · [Chinese walkthrough](docs/SELF-REPAIR.zh.md) · [Repair permission](LOCAL-REPAIR-PERMISSION.md)
 
-Local code repair is off by default and supports seven feature modules. Windows/Linux native repair checks and the original ten-question acceptance target remain outstanding; see the release evidence.
+Local feature repair is off by default. Its seven supported modules now run candidate and active repair functions in QuickJS-WASM, with test and rollback controls. The kernel, account flow, permissions, budgets and updater remain outside the repair scope. Native platform checks and the original quality targets remain outstanding; see the [release evidence](docs/RELEASE-0.6.2.md).
 
 [Mail setup and recovery](docs/MAIL-RECOVERY.en.md)
 
-[Features and tutorials](docs/FEATURES.md) · [Latest changes](docs/RELEASE-0.6.1.md) · [Session recovery](docs/SESSION-RECOVERY.en.md) · [Windows recovery walkthrough](docs/WINDOWS-DISK-RECOVERY.zh.md)
+[Features and tutorials](docs/FEATURES.md) · [Latest changes](docs/RELEASE-0.6.2.md) · [Session recovery](docs/SESSION-RECOVERY.en.md) · [Windows recovery walkthrough](docs/WINDOWS-DISK-RECOVERY.zh.md)
 
 [Credential setup and login](docs/CREDENTIALS.md) · [Ubuntu tutorial](docs/UBUNTU.md) · [All-platform installation](docs/INSTALLATION.md) · [Start here](docs/START-HERE.en.md) · [中文 Ubuntu 教程](docs/UBUNTU.zh.md)
 
@@ -45,7 +46,7 @@ Local code repair is off by default and supports seven feature modules. Windows/
 | Follow the course | [English course](docs/courses/README.en.md) · [1,800 Chinese lessons](docs/courses/README.zh.md) |
 
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.6.1**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.6.2**
 
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
@@ -55,17 +56,17 @@ Local code repair is off by default and supports seven feature modules. Windows/
 
 **A terminal coding agent that plans, proposes, and applies work on your machine—with your own model API, workspace-isolated history, and local approval before sensitive changes.**
 
-Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
+Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** A KARMEN account sign-in is required before running tasks; model API access is configured separately. Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
 
-Current release: **0.6.1** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
+Current release: **0.6.2** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
 ![Koder CLI 0.5.21 startup banner in English](docs/screenshots/cli-start-0.5.21-en-dark.jpg)
 
-*0.5.21 startup banner from the published macOS package, captured in an isolated PTY and rendered from ANSI. No model is configured. Fonts and spacing vary by terminal.*
+*Historical 0.5.21 startup banner from the published macOS package, captured in an isolated PTY and rendered from ANSI. No model is configured. Fonts and spacing vary by terminal.*
 
-[Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.6.1.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
+[Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.6.2.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
 ---
 
@@ -118,8 +119,8 @@ It does **not** claim that local fixtures certify every PC, provider account, or
 | | |
 |---|---|
 | **What you install** | Versioned CLI runtime via official Windows / macOS / Linux installers (Node **^22.21.0 or ≥24**, reused or downloaded and checksum-verified) |
-| **What you bring** | Your own model API key or a supported local model endpoint |
-| **Version** | **0.6.1** (official website manifest, stable channel) |
+| **What you bring** | A KARMEN account session, plus your own model API key or a supported local model endpoint |
+| **Version** | **0.6.2** (official website manifest, stable channel) |
 | **License for this build** | **Koder-EULA-1.1** — proprietary end-user license for the current application runtime |
 | **Personal use** | Free for personal, noncommercial local use — **no membership, no invite code** |
 | **Commercial / org** | Separate prior written authorization (`koder business` / [commercial licensing](docs/COMMERCIAL-LICENSING.md)) |
@@ -216,7 +217,7 @@ flowchart LR
 
 ## Screenshots · 0.5.21 reference
 
-These retained captures show the prior release. Current 0.6.1 behavior and acceptance limits are described in the release notes.
+These retained captures show the prior release. Current 0.6.2 behavior and acceptance limits are described in the release notes.
 
 These images show the published macOS build: its startup banner, settings menu, and first lesson. The English and Chinese READMEs use matching captures in each language.
 
@@ -266,7 +267,7 @@ koder setup
 koder
 ```
 
-The current release is **0.6.1**. If `koder` is not found, the [Ubuntu PATH walkthrough](docs/UBUNTU.md) explains how to start the installed executable directly and refresh your shell. Graphical operations require their own dependencies and permission. Full platform notes: [Installation](docs/INSTALLATION.md).
+The current release is **0.6.2**. If `koder` is not found, the [Ubuntu PATH walkthrough](docs/UBUNTU.md) explains how to start the installed executable directly and refresh your shell. Graphical operations require their own dependencies and permission. Full platform notes: [Installation](docs/INSTALLATION.md).
 
 ---
 
@@ -306,7 +307,7 @@ koder --version
 koder
 ```
 
-Expect **0.6.1**. Bare `koder` opens interactive chat. Prefer a short coach first?
+Expect **0.6.2**. Run `koder login` before your first task and approve the device on the official account page. The [sign-in guide](docs/ACCOUNT-LOGIN.md) covers QR codes, logout, Linux credential storage and headless sessions. Bare `koder` opens interactive chat. Prefer a short coach first?
 
 ```text
 koder learn
@@ -408,7 +409,7 @@ koder review --format json
 
 Use `koder review` when you want findings after apply, before a larger follow-up, or when a CI-style gate should distinguish a clean parse from failure. If a successful model answer still cannot be parsed into complete findings, the CLI exits **3** with `REVIEW_UNPARSED`—do **not** treat that as a clean review.
 
-**First success** means: version reports 0.6.1, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
+**First success** means: version reports 0.6.2, KARMEN sign-in is complete, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
 
 Day-to-day chat: type `/` on an empty prompt for editable choices (Tab fills, Esc closes, Enter sends only after fill). `/setup` opens settings, `/model` manages models, `/new` starts a topic, `/exit` leaves. `/menu` opens settings; Escape leaves.
 
@@ -558,13 +559,13 @@ koder update auto on
 | Troubleshooting | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Stalled install, gray providers, common failures |
 | Distribution & legacy GPL tree | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | Proprietary runtime vs historical public tree |
 | Printable course texts | [docs/tutorials/](docs/tutorials/) | 1,800 Chinese / 30 English lessons across PowerShell, CMD, macOS and Linux editions |
-| This release | [RELEASE-0.6.1.md](docs/RELEASE-0.6.1.md) | What changed and what remains NOT_RUN |
+| This release | [RELEASE-0.6.2.md](docs/RELEASE-0.6.2.md) | What changed and what remains NOT_RUN |
 
 ---
 
 ## Validation honesty
 
-Release evidence distinguishes **source / fixture checks**, **installed protocol fixtures**, **hosted native Windows**, **real provider accounts**, and **user devices**. Local no-key regressions exercise CLI behavior with scripted providers; they do **not** certify PowerShell 5.1 cold install, ConPTY/IME, Windows-MCP GUI operation, mailbox delivery, or model quality. Those items remain **NOT_RUN** where the [0.6.1 notes](docs/RELEASE-0.6.1.md) and [Windows install checks](docs/WINDOWS-INSTALL-CHECKS.md) say so.
+Release evidence distinguishes **source / fixture checks**, **installed protocol fixtures**, **hosted native Windows**, **real provider accounts**, and **user devices**. Local no-key regressions exercise CLI behavior with scripted providers; they do **not** certify PowerShell 5.1 cold install, ConPTY/IME, Windows-MCP GUI operation, mailbox delivery, or model quality. Those items remain **NOT_RUN** where the [0.6.2 notes](docs/RELEASE-0.6.2.md) and [Windows install checks](docs/WINDOWS-INSTALL-CHECKS.md) say so.
 
 Ready-to-use packages, installers, and checksums are published on the **CLI website**. This repository keeps release notes and project documentation; proprietary runtime development source remains private.
 
@@ -581,8 +582,8 @@ Yours. Configure a provider in setup. Koder does not replace your provider’s b
 **Will it change my files without asking?**  
 Recognized low-risk local checks and ordinary project edits may run under smart approval. Sensitive or unknown effects—including deletion, secret paths, and shell side effects—ask first. Review diffs and targets before approving.
 
-**Is the public GitHub source the 0.6.1 runtime?**
-No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.6.1** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
+**Is the public GitHub source the 0.6.2 runtime?**
+No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.6.2** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
 
 **Can my company deploy it?**  
 Contact [info@karmenloop.com](mailto:info@karmenloop.com) or run `koder business`. Stars, downloads, and inquiry emails alone are not commercial authorization.
@@ -642,3 +643,11 @@ Navigate local Markdown, text and PDF trees with the existing Koder model. Read 
 
 Run `koder tools audit --json` to inspect mounted channels, permissions, Skill text and parser resources. Scan images and PDF pages with bundled Tesseract.js: `koder ocr read invoice.png --json`. The 90 professional child-task roles specify inputs, deliverables and checks; they reuse the existing Core and provider. Four children execute concurrently by default, with FIFO admission; 180 task slots are not a paid-provider quota. Headless tasks return explicit completion states, including preflight failures. [Execution guide](docs/FRAMEWORK-0.5.en.md) · [中文手把手教程](docs/FRAMEWORK-0.5.zh.md).
 
+
+## Account sign-in and local repair in 0.6.2
+
+Use `koder login` to approve this CLI through the system browser or terminal QR code. Account checks keep cancellation and steering available. Saved sessions use the native credential layer; missing protected storage returns an error rather than writing a plaintext token. [Sign-in and recovery](docs/ACCOUNT-LOGIN.md).
+
+Local feature repair remains opt-in. Use the existing test, activation and rollback workflow for the seven supported modules; generated functions run in the isolated QuickJS-WASM interpreter. [Repair guide](docs/SELF-REPAIR.md).
+
+The first packaged update check returned `NETWORK_FAILED`. A later default check of the unchanged program passed in 2.24 seconds without an observer or network overrides and reported 0.6.2 up to date. The first failure remains recorded; its root cause was not established. Human sign-in, native credential storage on each OS, Windows/Ubuntu GUI, real 163 mail and visible notifications, and the independent model-quality targets remain outside this round's acceptance. [Release notes and limits](docs/RELEASE-0.6.2.md).

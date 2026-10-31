@@ -1,6 +1,6 @@
-# Koder CLI 0.6.1：功能与完整教程导航
+# Koder CLI 0.6.2：功能与完整教程导航
 
-从[安装教程](INSTALLATION.md)开始。安装完成不等于已经进入聊天：运行 `koder setup` 配置模型，再运行 `koder`，看到 `koder >` 才输入任务。第一次使用可照[中文完整指南](USER-GUIDE.zh.md)逐步操作。
+从[安装教程](INSTALLATION.md)开始。安装完成不等于已经进入聊天：先运行 `koder login` 登录，再用 `koder setup` 配置模型，最后运行 `koder`，看到 `koder >` 才输入任务。第一次使用可照[中文完整指南](USER-GUIDE.zh.md)逐步操作。
 
 ## 功能、入口与实际边界
 
@@ -32,20 +32,21 @@ macOS 用 `--os mac`，Ubuntu 用 `--os linux`，CMD 用 `--os cmd`。完整指�
 
 ## 平台与验证
 
-Windows、macOS、Ubuntu 使用同一核心；macOS/Linux 包省去其他平台二进制，保留适用功能和当前教程。原生 GUI、系统权限、通知可见性与真实账号验收分别记录。macOS 完整锁屏组件仍是未签名候选，不是正式可用功能。[本版说明](RELEASE-0.6.1.md)和发行附件 `ACCEPTANCE-RESULTS.json` 列出实际执行与未执行项。
+Windows、macOS、Ubuntu 使用同一核心；macOS/Linux 包省去其他平台二进制，保留适用功能和当前教程。原生 GUI、系统权限、通知可见性与真实账号验收分别记录。macOS 完整锁屏组件仍是未签名候选，不是正式可用功能。[本版说明](RELEASE-0.6.2.md)和发行附件 `ACCEPTANCE-RESULTS.json` 列出实际执行与未执行项。
 
 
 旧会话反复提示“前次操作结果仍待核实”时，按[会话恢复教程](SESSION-RECOVERY.zh.md)使用 `/reconcile`，保留历史并核对原目标，不反复重试。
 
 本机代码自修复：在 Setup 开启“本机代码自修复”或运行 `koder self-repair on`，然后在本地任务描述可重现的 Koder 错误。[手把手教程](SELF-REPAIR.zh.md) 说明 7 个支持模块、用例验证、下次启动生效及回退；执行、费用、权限和邮箱控制器仍通过正式更新修复。
 
-## Local failure reports (0.6.1)
+## Local failure reports (0.6.2)
 
 Failed or unverified tasks provide a report ID, specific codes and execution state. Use `/error copy` in chat or `koder logs report --json` in a terminal. Reports stay local, exclude content and credentials, and honor the Setup telemetry switch. [Guide](ERROR-REPORTS.md) · [中文教程](ERROR-REPORTS.zh.md).
 
+## 0.6.1 已提供的功能
 
-## 0.6.1 新增工作流
+[目标与长任务接续](GOALS-AND-PLANS.zh.md)、[上下文与历史读取](CONTEXT-CONTROLS.zh.md)、[30,000 秒命令等待](COMMAND-DURATION.md)、[设备、音频与安全工具](DEVICES-AUDIO-SECURITY.zh.md)和[界面与任务模板组装](INTERFACE-COMPOSITION.zh.md)均复用现有内核。界面模板不改写内核。邮箱收尾超时恢复与官网更新入口同步纳入本版；[发行说明](RELEASE-0.6.2.zh.md)列明实际验证与尚未通过的项目。
 
-[Goals and plans / 目标与计划](GOALS-AND-PLANS.zh.md) · [Command duration / 命令等待](COMMAND-DURATION.md) · [Interface composition / 界面组装](INTERFACE-COMPOSITION.zh.md) · [Context controls / 上下文](CONTEXT-CONTROLS.zh.md) · [Devices, audio and security / 设备、音频与安全](DEVICES-AUDIO-SECURITY.zh.md)
+## 0.6.2 登录与受保护自修复
 
-新审批命令的默认等待为 30,000 秒，旧审批保留原限制。界面调整使用已有配置和任务模板，不改写内核。Windows/Ubuntu 原生 GUI、真实邮箱和通知可见性仍须分别验收；网站模型收尾的已知失败见更新说明。
+首次任务通过 [KARMEN 浏览器/二维码登录](ACCOUNT-LOGIN.zh.md)。[本机自修复](SELF-REPAIR.zh.md)在隔离解释器运行同步功能函数，不能修改内核或访问宿主文件、凭据和网络。界面组装继续使用已有 cli_interface；取消、权限、费用预算保留。

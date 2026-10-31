@@ -1,8 +1,10 @@
 ## 第一次使用：先认清自己在哪个输入框
 
-> **0.6.1 更新**：安装与更新统一在 [CLI 官网](https://kodermodule.com/cli-download.html)。本指南的历史命令继续保留；先按 [当前安装指南](INSTALLATION.md) 安装，运行 `koder --version` 确认 0.6.1，再运行 `koder`。新增 [目标与计划](GOALS-AND-PLANS.zh.md)、[30,000 秒命令等待](COMMAND-DURATION.md)、[界面组装](INTERFACE-COMPOSITION.zh.md) 和 [上下文管理](CONTEXT-CONTROLS.zh.md)。实际边界见 [本版更新](RELEASE-0.6.1.zh.md)。
+**首次执行任务前：**运行 `koder login`，通过系统浏览器或二维码完成设备授权，详见 [KARMEN 登录教程](ACCOUNT-LOGIN.zh.md)。KARMEN 会话、模型 Key、邮箱和电脑权限分别配置；没有登录会话的无头任务返回 `LOGIN_REQUIRED`。
 
-[Ubuntu 全过程手把手教程](UBUNTU.zh.md)覆盖从缺 curl 到完整任务交付。通用步骤是：**安装 → 模型配置 → 单独启动聊天 → 输入任务 → 核对成果**。
+> **0.6.2 更新**：从 [CLI 官网](https://kodermodule.com/cli-download.html)安装或更新，核对版本后完成 [KARMEN 登录](ACCOUNT-LOGIN.zh.md)。本版增加浏览器或扫码授权，并将可选本机功能修复放入隔离解释器；目标、计划、界面与上下文设置继续保留。[本版说明与验收边界](RELEASE-0.6.2.zh.md)。
+
+[Ubuntu 全过程手把手教程](UBUNTU.zh.md)覆盖从缺 curl 到完整任务交付。通用步骤是：**安装 → KARMEN 登录 → 模型配置 → 单独启动聊天 → 输入任务 → 核对成果**。
 
 - 系统提示符 `用户名@电脑名:~$`、`PS C:\...>`：运行安装、`koder setup`、`koder` 等命令。
 - `accept / decline:`：阅读软件许可后选择；不是任务输入框。
@@ -12,11 +14,12 @@
 Ubuntu/macOS 安装后可立即用完整路径，不必等 PATH 更新：
 
 ```bash
+"$HOME/.local/bin/koder" login
 "$HOME/.local/bin/koder" setup
 "$HOME/.local/bin/koder"
 ```
 
-第一条配置过即可跳过。第二条才是启动聊天。后台输出 JSON 后回到系统终端时也执行第二条。Windows 新开 PowerShell 后使用 `koder setup`、`koder`。[安装步骤与 command not found 排查](INSTALLATION.md#3-finish-setup-then-open-koder)。
+已有登录会话可跳过 login，模型已配置可跳过 setup。最后一条启动聊天；后台输出 JSON 后回到系统终端时，也执行最后一条。Windows 新开 PowerShell 后先 `koder login`，再使用 `koder setup`、`koder`。[安装步骤与 command not found 排查](INSTALLATION.md#3-finish-setup-then-open-koder)。
 
 本版补强任务结果与网站交付检查，见[任务结果与恢复](task-results.md)和[网站开发流程](website-delivery.md)。网站 Skill 默认按适用的需求、规划、布局、开发与验证阶段接入；已有关闭选择保持有效。
 
@@ -26,15 +29,15 @@ Ubuntu/macOS 安装后可立即用完整路径，不必等 PATH 更新：
 
 0.5.19 新增[电脑维护](COMPUTER-CARE.zh.md)、[本机应用调用](APP-USE-AND-LEARN.zh.md)，并修复 Windows 磁盘只读查询被拦。先看[功能总览与对应教程](FEATURES.zh.md)和[Windows 磁盘诊断及更新恢复](WINDOWS-DISK-RECOVERY.zh.md)。
 
-当前版本：**0.5.19**。先看[本版更新](RELEASE-0.5.19.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.6.2**。先看[本版更新](RELEASE-0.6.2.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
-> 旧版更新器可能因包超过 100 MB 报“清单无效”。请用 GitHub Release 下载的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
+> 旧版更新器可能因包超过 100 MB 报“清单无效”。请用 CLI 官网提供的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
-当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南对应 0.5.19；下方八份终端文字导出与本版一致，旧导出保留在源码历史中。实际可下载版本以 GitHub Releases 为准。
+当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南对应 0.6.2；下方八份终端文字导出与本版一致，旧导出保留在源码历史中。实际可下载版本以 CLI 官网发行清单为准。
 
 # Koder CLI 完整使用教程
 
-版本：**0.5.19**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.6.2**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -237,14 +240,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.5.19-en-cmd.txt](tutorials/koder-cli-0.5.19-en-cmd.txt)
-- [koder-cli-0.5.19-en-linux.txt](tutorials/koder-cli-0.5.19-en-linux.txt)
-- [koder-cli-0.5.19-en-mac.txt](tutorials/koder-cli-0.5.19-en-mac.txt)
-- [koder-cli-0.5.19-en-powershell.txt](tutorials/koder-cli-0.5.19-en-powershell.txt)
-- [koder-cli-0.5.19-zh-cmd.txt](tutorials/koder-cli-0.5.19-zh-cmd.txt)
-- [koder-cli-0.5.19-zh-linux.txt](tutorials/koder-cli-0.5.19-zh-linux.txt)
-- [koder-cli-0.5.19-zh-mac.txt](tutorials/koder-cli-0.5.19-zh-mac.txt)
-- [koder-cli-0.5.19-zh-powershell.txt](tutorials/koder-cli-0.5.19-zh-powershell.txt)
+- [koder-cli-0.6.2-en-cmd.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-en-cmd.txt)
+- [koder-cli-0.6.2-en-linux.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-en-linux.txt)
+- [koder-cli-0.6.2-en-mac.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-en-mac.txt)
+- [koder-cli-0.6.2-en-powershell.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-en-powershell.txt)
+- [koder-cli-0.6.2-zh-cmd.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-zh-cmd.txt)
+- [koder-cli-0.6.2-zh-linux.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-zh-linux.txt)
+- [koder-cli-0.6.2-zh-mac.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-zh-mac.txt)
+- [koder-cli-0.6.2-zh-powershell.txt](https://kodermodule.com/releases/cli-0.6.2/koder-cli-0.6.2-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 
@@ -287,7 +290,7 @@ koder project check --kind website --json -w /path/to/site
 
 ## 常驻与邮件问询
 
-安装后先 `koder --version` 核对 0.4.23，再 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
+安装后先用 `koder --version` 核对 0.6.2，完成 `koder login` 后再用 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
 
 邮箱在 Setup 绑定，授权码以星号显示。分别开启 `/mail model on` 与 `/mail inquire on` 并确认后，相关来信可以提出选项；选择只生成草稿，发送仍需最终预览和确认。后台查收还需在常驻页打开邮箱可见性。广告和验证码不参与问询。
 

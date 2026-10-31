@@ -1,5 +1,7 @@
 > Context controls: [window, compaction and request estimates](CONTEXT-CONTROLS.en.md).
 
+**Before your first task:** run `koder login` and approve the CLI in your system browser or by scanning its QR code. Follow the [KARMEN sign-in guide](ACCOUNT-LOGIN.md). A KARMEN session, model API credentials, mailbox access, and computer permissions are separate. Headless tasks without a session return `LOGIN_REQUIRED`.
+
 [Ubuntu 26.04.1 Desktop amd64 walkthrough](UBUNTU-26.04.md)
 
 [Unlimited task rounds, budgets, subagents and Skill retrieval](TASK-ORCHESTRATION.en.md)
@@ -8,13 +10,14 @@
 
 Retained since 0.5.0: [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
 
-# Start with Koder CLI 0.5.20
+# Start with Koder CLI 0.6.2
 
 ## Open Koder after installation
 
 Ubuntu / macOS: run these in the system terminal. Skip setup if the model is already configured.
 
 ```bash
+"$HOME/.local/bin/koder" login
 "$HOME/.local/bin/koder" setup
 "$HOME/.local/bin/koder"
 ```
@@ -37,11 +40,12 @@ koder update
 koder --version
 ```
 
-Expect `koder 0.5.20`. If an updater from 0.4.4 or earlier rejects the manifest, run the current GitHub installer in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
+Expect `koder 0.6.2`. If an updater from 0.4.4 or earlier rejects the manifest, run the current installer from the CLI website in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
 
 ## 2. Configure a model and try a task
 
 ```text
+koder login
 koder setup
 koder model test
 koder model test --tools
@@ -56,7 +60,7 @@ Start in a dedicated project directory. Ask Koder to inspect an existing project
 
 In interactive chat, `/` opens editable suggestions, templates and commands. A selected choice fills a draft; it does not send automatically. Setup lets you choose steering (the default) or FIFO queueing during a task. Esc/Ctrl+C cancel; queued text cannot approve a later permission prompt. See [Session input and Skills](SESSION-INPUT-AND-SKILLS.en.md) for fallback reasons and terminal limitations.
 
-Ordinary commands have five minutes by default and recognized direct installs have fifteen minutes. An explicit request may allow up to thirty minutes. A short explicit deadline or curl's own limit still applies. Tool rounds are unlimited by default; `TASK_STEP_LIMIT` applies when a finite step budget was explicitly configured. Cancellation, cost limits and earlier results remain. See [Command duration and recovery](COMMAND-DURATION.md).
+Newly approved shell commands use the configured wait limit, which defaults to 30,000 seconds. They continue as soon as the process exits. Explicit task deadlines, cancellation, cost limits and a command's own timeout still apply; existing approvals retain their recorded limits. Tool rounds are unlimited unless a finite step budget is configured. See [Command duration and recovery](COMMAND-DURATION.md).
 
 ## 4. Find a workflow
 

@@ -1,3 +1,12 @@
+## 0.6.2 — 2026-11-01
+
+- Sign in through the system browser or a terminal QR code before running tasks.
+- Share one account flow across the shell, Setup and chat; store sessions through the native credential layer.
+- Run opt-in local feature repairs in QuickJS-WASM, retaining tests, activation and rollback.
+- Keep cancellation and steering responsive during account checks, and allow slower account connections without replaying token claims.
+
+[Release notes and remaining checks](docs/RELEASE-0.6.2.md) · [登录教程](docs/ACCOUNT-LOGIN.zh.md). New downloads and updates are on the CLI website.
+
 ## 0.6.1 — 2026-10-31
 
 - Keep goals, acceptance criteria, plans and context checkpoints across long tasks.

@@ -1,5 +1,7 @@
 # Credentials and private login input
 
+**Before your first task:** run `koder login` and approve the CLI in your system browser or by scanning its QR code. Follow the [KARMEN sign-in guide](ACCOUNT-LOGIN.md). A KARMEN session, model API credentials, mailbox access, and computer permissions are separate. Headless tasks without a session return `LOGIN_REQUIRED`.
+
 Koder CLI 0.5.14 replaces the lightweight CLI's unconditional login cancellation with a working private-input route. [中文手把手教程](CREDENTIALS.zh.md).
 
 Start with `koder --version`, then `koder`. If the command is missing, run `export PATH="$HOME/.local/bin:$PATH"`. `koder activate` starts the background host; it does not open chat.
