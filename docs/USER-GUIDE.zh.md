@@ -1,5 +1,7 @@
 ## 第一次使用：先认清自己在哪个输入框
 
+> **0.6.1 更新**：安装与更新统一在 [CLI 官网](https://kodermodule.com/cli-download.html)。本指南的历史命令继续保留；先按 [当前安装指南](INSTALLATION.md) 安装，运行 `koder --version` 确认 0.6.1，再运行 `koder`。新增 [目标与计划](GOALS-AND-PLANS.zh.md)、[30,000 秒命令等待](COMMAND-DURATION.md)、[界面组装](INTERFACE-COMPOSITION.zh.md) 和 [上下文管理](CONTEXT-CONTROLS.zh.md)。实际边界见 [本版更新](RELEASE-0.6.1.zh.md)。
+
 [Ubuntu 全过程手把手教程](UBUNTU.zh.md)覆盖从缺 curl 到完整任务交付。通用步骤是：**安装 → 模型配置 → 单独启动聊天 → 输入任务 → 核对成果**。
 
 - 系统提示符 `用户名@电脑名:~$`、`PS C:\...>`：运行安装、`koder setup`、`koder` 等命令。
@@ -375,3 +377,4 @@ koder project check --kind website --json -w /path/to/site
 ## 旧会话卡住与人工核对（0.5.19）
 
 在聊天输入 `/reconcile` 查看；实际核对后输入 `/reconcile checked <调用编号>`。该命令保留原 UNKNOWN，不重放，也不代替后续审批。整行 `ESC`/`Escape` 可取消，空闲时不会启动模型。详细步骤见[会话恢复教程](SESSION-RECOVERY.zh.md)。
+

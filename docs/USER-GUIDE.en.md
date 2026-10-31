@@ -1,5 +1,7 @@
 ## First use: identify the prompt before typing
 
+> **0.6.1 update:** Install and update through the [CLI website](https://kodermodule.com/en/cli-download.html). Follow the [current installation guide](INSTALLATION.md), confirm `koder 0.6.1` with `koder --version`, then run `koder`. This version adds persistent goals and plans, a configurable 30,000-second command wait, interface composition and context controls. Historical examples below are retained; see [release notes](RELEASE-0.6.1.md) for current behavior and verification limits.
+
 Follow the [Ubuntu walkthrough](UBUNTU.md) or [platform installation guide](INSTALLATION.md). The sequence is install, configure a model, launch chat, submit a task, then verify the artifact. A system prompt accepts commands; `accept / decline:` asks for license consent; `activate` offers an optional background service; only `koder >` accepts chat tasks. Skipping activation retains foreground chat. Enabling activation does not launch chat.
 
 On Ubuntu/macOS, run `"$HOME/.local/bin/koder" setup` if needed, then `"$HOME/.local/bin/koder"`. These full paths work before PATH refreshes. On Windows, reopen PowerShell and use `koder setup`, then `koder`. See the [installation recovery steps](INSTALLATION.md#3-finish-setup-then-open-koder).
@@ -363,3 +365,4 @@ Version 0.5.14 supports hidden credential input, existing account bindings, Ubun
 ## Recover an interrupted session (0.5.19)
 
 In chat, use `/reconcile` to inspect pending calls. After checking the actual target, use `/reconcile checked <call-id>`. Original UNKNOWN receipts and normal approval requirements remain intact; nothing is replayed. Exact `ESC`/`Escape` input cancels without starting a model turn at idle. See [session recovery](SESSION-RECOVERY.en.md).
+

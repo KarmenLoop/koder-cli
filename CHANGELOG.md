@@ -1,3 +1,14 @@
+## 0.6.1 — 2026-10-31
+
+- Keep goals, acceptance criteria, plans and context checkpoints across long tasks.
+- Use the configured 30,000-second default for newly approved shell commands; retain cancellation, budgets and existing approvals.
+- Add declarative interface and workflow changes with preview, apply and rollback.
+- Stage website design tools and verify actual files before delivery.
+- Preserve mailbox results when connection cleanup stalls and retain precise failure diagnostics.
+- Use the CLI website for new installation and update artifacts.
+
+[Release notes and known limits](docs/RELEASE-0.6.1.md). Native platform/account checks and the recorded real-model website closeout failure remain separate from local regression checks.
+
 ## 0.5.21 — 2026-10-29
 
 - Add local, redacted diagnostic cards and copyable reports for incomplete tasks and exceptions.
@@ -396,3 +407,4 @@ Prepared from preview.26-candidate.8. The sections below describe the included r
 ## Test scope and known limits
 
 The source baseline records 63 final contract passes and 30 Windows-related portable passes on macOS, plus broader scoped regressions. This publication checks the packaged bytes and isolated installation separately. Native Windows, real provider accounts and original capability grading are not established by those fixtures. MiMo Token Plan, Kimi API/Code, DeepSeek, Alibaba Token Plan and Volcano integrations remain unavailable. No automatic provider or billing-route fallback was enabled.
+
