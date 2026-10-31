@@ -539,7 +539,7 @@ koder logout
 koder account memory login|status|logout [--server <url>]
 ```
 
-The first three commands manage KARMEN task sign-in. `account memory` retains the separate shared-memory account flow and requires a compatible deployed service; it does not satisfy KARMEN sign-in. Leaving shared memory stops this device without deleting server copies. `koder memory forget` deletes the current shared space, including on offline devices when they sync. Model keys and computer grants are not memory-sync data. See [account sign-in](ACCOUNT-LOGIN.md).
+The first three commands manage KARMEN task sign-in. `account memory` retains the separate shared-memory account flow and requires a compatible deployed service; it does not satisfy KARMEN sign-in. Leaving shared memory stops this device without deleting server copies. `koder memory forget` deletes the current shared space, including on offline devices when they sync. Model keys and computer grants are not memory-sync data. Linked channels, devices, groups and private chats use the account default space. Members of linked groups can access linked private-chat memory and see group replies; review that sharing scope before linking a channel. See [account sign-in](ACCOUNT-LOGIN.md).
 
 ## prompts
 
