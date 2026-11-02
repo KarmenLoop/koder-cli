@@ -6,7 +6,7 @@ The formal activation record confirms the new production release. Product record
 
 The exact 0.8.4 Windows Server 2022 VM run passed seven CurrentUser DPAPI/storage and synthetic-account cases, including Unicode paths, fresh-process readback, old ciphertext, refresh/logout, retry and doctor. This does not certify human production sign-in or Windows 10/11/Ubuntu GUI. The website owner's broader PUBLIC413 remains pending its separate final receipt.
 
-Build evidence stays separate: 198 account passes, two conditional local-key skips, and 23 packaged memory-kernel passes. An eight-operation isolated memory tutorial also verified fact readback/correction/forgetting and a retained source audit; it used structured output and no model or real account. No combined score is inferred. Native memory changed the private kernel; 79 Skills, licenses and attribution remain in place. Images remain genuine 0.7.2 references. No GitHub binary Release or private kernel development source is added.
+Build evidence stays separate: 198 account passes, two conditional local-key skips, and 23 packaged memory-kernel passes. An eight-operation isolated memory tutorial also verified fact readback/correction/forgetting and a retained source audit; it used structured output and no model or real account. No combined score is inferred. Native memory changed the private kernel; 79 Skills, licenses and attribution remain in place. The current README gallery shows [0.8.4 macOS captures](docs/screenshots/README.md) in English and Chinese. Earlier image records remain available with their original version labels. No GitHub binary Release or private kernel development source is added.
 
 ## Historical website release: 0.8.1
 
