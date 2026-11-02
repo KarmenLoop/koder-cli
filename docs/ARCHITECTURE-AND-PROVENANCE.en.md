@@ -8,6 +8,7 @@ Koder owns the task runtime that connects user intent, goals and plans, model re
 | --- | --- | --- |
 | Task coordination | Stable child requests, follow-up delivery, result wakeups and parent artifact checks in the existing runtime | Router–Worker research, including DeepSeek's dsh-superagent-prototype, informed the design; no upstream executor was substituted |
 | Context management | Budget projection, tool-result codecs, protected receipts and retrieval in the Koder execution path | Headroom is an attributed architecture reference; its upstream service is not a required proxy |
+| Native memory (0.8.4) | Sourced facts, scoped recall, duplicate consolidation, correction/forget fences and existing task checkpoints | DeerFlow informed the design; the native JavaScript implementation uses Koder stores rather than embedding DeerMem or replacing the executor. See [implementation boundaries](DEERFLOW-MEMORY.en.md) |
 | Web Data | Permission/origin checks, structural anchors, recovery thresholds, saved jobs and evidence | Python, Scrapling and Playwright provide parser and browser capabilities under their licenses |
 | Managed runtimes | Pinned assets, installation locations, diagnostics and tool routing | FFmpeg, ffprobe, Playwright, EARSHOT, CodeGraph and platform dependencies retain their own ownership |
 | Skills and resources | Catalog, adaptation, configuration and invocation through the same harness | Bundled or user-installed third-party Skills retain their authors and licenses |

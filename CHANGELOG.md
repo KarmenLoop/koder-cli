@@ -1,3 +1,11 @@
+## 0.8.4 — 2026-11-03
+
+- Combine Windows protected-storage recovery, browser return and explicit local-access support.
+- Retrieve project facts with sources in the native memory path, with scoped recall, exact deduplication, conflicts, correction and forgetting.
+- Preserve task constraints and evidence identifiers during context compression, with existing off controls and third-party attribution.
+
+[Release notes](docs/RELEASE-0.8.4.md). Production activation, 18 targeted HTTPS checks, all 32 public file hashes, Linux resume, both default updater entry points and seven Windows Server 2022 VM cases are verified. Account checks remain 198 passed plus two conditional skips; memory-kernel checks remain 23 passed. PUBLIC413, human registration and native desktop return retain separate acceptance.
+
 ## 0.8.1 — 2026-11-02
 
 - Consolidate the task runtime, browser/data workflows, managed components and context controls already shipped in 0.7.2.

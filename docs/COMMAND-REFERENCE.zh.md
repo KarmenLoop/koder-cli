@@ -1,6 +1,6 @@
 # 完整命令参考
 
-本命令表对应 **0.8.1**。下方 Web Data 与托管运行时命令延续 0.7.2 的实现；[架构与组件来源](ARCHITECTURE-AND-PROVENANCE.zh.md)说明原生任务引擎与第三方组件的边界。
+本命令表对应 **0.8.4**。下方 Web Data 与托管运行时命令延续 0.7.2 的实现；[架构与组件来源](ARCHITECTURE-AND-PROVENANCE.zh.md)说明原生任务引擎与第三方组件的边界。
 
 Koder CLI 0.5.1 · 1800 课中文课堂；原 30 课英文教程
 
@@ -1351,3 +1351,13 @@ koder skills runtime playwright browser
 ```
 
 安装与浏览器准备可能下载资源，需遵守原有网络及 Skill 更新审批；`--yes` 不会绕过权限。页面渲染另需浏览器授权。[Web Data](WEB-DATA.zh.md)说明采集与已保存任务恢复，[运行时准备](TOOL-RUNTIMES.zh.md)说明平台前置条件，[Worker 协作](SUPER-AGENT-ARCHITECTURE.zh.md)说明 `/subagents status` 与取消。沿用原能力，不新增重复 Skill。
+
+## 0.8.4：账号诊断与记忆
+
+```sh
+koder account doctor --json
+koder learning facts --json
+koder learning status --json
+```
+
+账号 doctor 无须先登录即可检查 Windows 受保护存储，存储可用不代表账号已登录。配置、更正/遗忘及验收边界见[账号教程](ACCOUNT-LOGIN.zh.md)和[记忆实操](DEERFLOW-MEMORY.zh.md)。这些命令适用于 0.8.4，存储检查成功不代表账号认证或任务完成。

@@ -1,6 +1,6 @@
 # Complete command reference
 
-This command reference applies to the **0.8.1**. The Web Data and managed-runtime commands below are carried forward from 0.7.2. [Architecture and provenance](ARCHITECTURE-AND-PROVENANCE.en.md) explains the native task engine and attributed components.
+This command reference targets the **0.8.4**. The Web Data and managed-runtime commands below are carried forward from 0.7.2. [Architecture and provenance](ARCHITECTURE-AND-PROVENANCE.en.md) explains the native task engine and attributed components.
 
 Koder CLI 0.5.1 · 1,800 Chinese lessons; original 30 English lessons
 
@@ -1351,3 +1351,13 @@ koder skills runtime playwright browser
 ```
 
 Installation and browser preparation can download assets and require the existing network and Skill-update approvals. `--yes` does not bypass permission checks. Browser rendering has a separate browser grant. Follow [Web Data](WEB-DATA.md) for collection and saved-job recovery, [runtime setup](TOOL-RUNTIMES.en.md) for platform prerequisites, and [worker coordination](SUPER-AGENT-ARCHITECTURE.en.md) for `/subagents status` and cancellation. These commands use the existing capabilities; they do not register duplicate Skills.
+
+## 0.8.4: account diagnostics and memory
+
+```sh
+koder account doctor --json
+koder learning facts --json
+koder learning status --json
+```
+
+The account doctor can inspect Windows protected storage without signing in. Storage readiness is not authentication. Use the [account guide](ACCOUNT-LOGIN.md) and [memory walkthrough](DEERFLOW-MEMORY.en.md) for setup, correction/forgetting and verification limits. These commands target 0.8.4. Successful storage checks do not establish account authentication or task completion.

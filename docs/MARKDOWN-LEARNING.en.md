@@ -1,5 +1,7 @@
 # Markdown project learning
 
+[English](MARKDOWN-LEARNING.en.md) · [简体中文](MARKDOWN-LEARNING.zh.md)
+
 Koder saves task checkpoints, decisions and reusable experience as local Markdown. Learning is enabled by default for the built-in KARMENLOOP engine. It uses the current model, tools and approvals; it does not train model weights or register another agent runtime.
 
 The first eligible task creates its library. `learning status`, help, Setup navigation, and read-only planning do not initialize a library. `--no-learning`, `--no-memory`, the growth master switch, disabled growth skills, and a saved learning opt-out all take precedence. Temporary sessions caused by unavailable memory storage do not create a learning library.
@@ -41,3 +43,29 @@ Reviews catch up at task start, task completion and a 60-second idle callback wh
 Use `--no-learning` for one invocation. `koder learning off` switches the feature off in CLI configuration and disables the selected existing library. It creates no library; it still stops the feature if that library is corrupt. `learning on` enables the feature and the selected existing library without overriding the growth master switch. A fresh library is created only by an eligible task or explicit `learning init`. The same commands work as `/learning off` and `/learning on` in chat, including with a custom root.
 
 Disabling or uninstalling Koder does not delete private learning files. Keep real task knowledge outside public repositories. Network filesystems, multi-host concurrency, real-model quality improvement and app-closed wakeup require separate acceptance.
+
+## Sourced facts and cross-session recall
+
+Koder CLI 0.8.4 adds native fact recall informed by [DeerFlow](https://github.com/bytedance/deer-flow/tree/12c304f12ce5c0bf66d8927386e5dd18ea84f685). It reuses the existing Markdown evidence log, protected profile and context pipeline. It adds no Python harness, Skill copy, database, cloud memory or background extraction request. Use 0.8.4 for these interfaces; an older installer does not gain this extension merely because this guide is available.
+
+In an eligible writable task, a short, single-line instruction such as `remember: database = PostgreSQL` is captured before the next model request. In Chinese use `记住：数据库 = PostgreSQL`. This explicitly shared fact is available to later conversations in the same account and workspace. Ordinary task facts stay within their task. Documents, websites and tool output do not become user preferences through this capture path.
+
+To inspect and manage facts from a terminal, use one workspace throughout:
+
+```sh
+cd /path/to/repo
+koder learning init
+koder learning remember database "PostgreSQL"
+koder learning facts --json
+koder learning correct database "SQLite"
+koder learning forget database
+koder learning status --json
+```
+
+`facts` lists workspace facts; add `--learning-project <id>` to include that task's facts. `status` includes `factMemory`. In chat, the corresponding explicit directives are `correct memory: database = SQLite` and `forget memory: database`. Keys identify a fact; use the key shown by `facts`. Forget stops future recall of that key. Original conversations, checkpoints and audit events remain, so it is not a physical data-erasure command.
+
+The Agent uses the existing `learning_read pack|facts` and `learning_write remember|correct|forget` tools. Writes require an exact quotation from current user evidence. Workspace promotion requires a direct request to remember; correction and forgetting require new user intent. Old evidence is fenced out after a correction or forget, including after restart. If `LEARNING_MEMORY_STALE_SOURCE` appears, use a new user turn rather than replaying an earlier tool call. Mid-run steering does not create a new memory evidence receipt.
+
+Exact duplicates retain their sources without increasing confidence. Differing values for the same scoped key remain conflicts and are omitted from automatic recall until resolved. Similar wording, negation, different numbers and case-sensitive paths are not merged by similarity. Recall ranks English terms and Chinese bigrams, then selects whole facts under both byte and estimated-token limits. Up to eight facts use at most 1,200 estimated tokens and 5,000 UTF-8 bytes, including provenance, within the existing 4,000-token task pack. At most 100 active facts are admitted to the current scope view; a full view requires review rather than silent eviction.
+
+The existing Setup learning switch, `learning off`, `--no-learning` and `--no-memory` still control capture and injection. Personalization retains its separate opt-in. Disabling removes the recalled pack at the next runtime boundary. Remembered text cannot grant tool permissions, authorize an unknown side effect or prove a task succeeded. The integration's design and acceptance boundaries are documented in [DeerFlow-inspired memory](DEERFLOW-MEMORY.en.md).

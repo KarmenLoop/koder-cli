@@ -1,6 +1,8 @@
-# Koder CLI 0.8.1: features and tutorials
+# Koder CLI 0.8.4: features and tutorials
 
-**Koder CLI 0.8.1.** This milestone carries forward the 0.7.2 runtime: 79 unique Skill registrations, native task coordination, browser/data tools and context handling. It adds a clearer [architecture and provenance guide](ARCHITECTURE-AND-PROVENANCE.en.md), with third-party components attributed separately. See [release checks and limits](RELEASE-0.8.1.md#release-checks-and-remaining-limits).
+Koder CLI 0.8.4 adds [project memory with sources](DEERFLOW-MEMORY.en.md) and integrates the [Windows login/storage and terminal-return changes](ACCOUNT-LOGIN.md). Its account suite has 198 passes and two conditional skips; memory-kernel checks are separate. [Release limits](RELEASE-0.8.4.md#release-checks-and-remaining-limits) retain human and native-device NOT_RUN items.
+
+**Included since 0.8.1.** This milestone carries forward the 0.7.2 runtime: 79 unique Skill registrations, native task coordination, browser/data tools and context handling. It adds a clearer [architecture and provenance guide](ARCHITECTURE-AND-PROVENANCE.en.md), with third-party components attributed separately. See [release checks and limits](RELEASE-0.8.1.md#release-checks-and-remaining-limits).
 
 ## Included in 0.7.2
 
