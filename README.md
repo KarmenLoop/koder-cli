@@ -1,8 +1,10 @@
 # Koder CLI
 
+> **0.8.1 release draft.** Website publication is still pending. The published main-branch snapshot remains 0.7.2. Use the [official download page](https://kodermodule.com/en/cli-download.html) for the available build.
+
 Installation and downloads are managed on the [Koder CLI website](https://kodermodule.com/en/cli-download.html). This repository hosts feature documentation, tutorials, release notes, and history.
 
-[Koder CLI 0.7.2 release notes](docs/RELEASE-0.7.2.md). XPath collection, managed browser rendering and worker coordination are included. The [verification record](docs/AGENT-VERIFICATION.zh.md) retains earlier quality failures.
+[Koder CLI 0.8.1 release draft](docs/RELEASE-0.8.1.md). This milestone consolidates the task runtime, browser/data tools and managed components shipped in 0.7.2. It is not a new model-quality score. The [verification record](docs/AGENT-VERIFICATION.zh.md) retains earlier failures.
 
 [Ubuntu 26.04.1 Desktop amd64 walkthrough](docs/UBUNTU-26.04.md)
 
@@ -19,21 +21,21 @@ Ubuntu / macOS: run these in your system terminal. Check KARMEN account status f
 If status says sign-in is required, run `koder login --open` and confirm device access. A valid refresh grant is renewed before the next task. Enter tasks only after `koder >` appears. `activate` enables a background service; it does not open chat. If the full path works but `koder` does not, follow the [PATH walkthrough](docs/UBUNTU.md) rather than downloading again. Use the actual installer path for custom installations.
 
 
-**Current release: 0.7.2. Collect pages with XPath and a managed browser, prepare tool runtimes, and coordinate workers in the existing task engine.**
+**Documentation target: 0.8.1, pending website publication. Koder’s private task kernel connects planning, permissions, tools, saved results and delivery checks.**
 
 [KARMEN sign-in](docs/ACCOUNT-LOGIN.md) · [中文登录教程](docs/ACCOUNT-LOGIN.zh.md) · [Goals and plans](docs/GOALS-AND-PLANS.zh.md) · [Command duration](docs/COMMAND-DURATION.md) · [Interface and website design](docs/INTERFACE-COMPOSITION.zh.md) · [Context controls](docs/CONTEXT-CONTROLS.zh.md)
 
 Install and update through the CLI website. Existing configuration and history are retained. Cancel, cost limits and permission checks still apply.
 
-[Report an incomplete task](docs/ERROR-REPORTS.md) · [Step-by-step Chinese guide](docs/ERROR-REPORTS.zh.md) · [Release notes](docs/RELEASE-0.7.2.md)
+[Report an incomplete task](docs/ERROR-REPORTS.md) · [Step-by-step Chinese guide](docs/ERROR-REPORTS.zh.md) · [Release notes](docs/RELEASE-0.8.1.md)
 
 [Local repair guide](docs/SELF-REPAIR.md) · [Chinese walkthrough](docs/SELF-REPAIR.zh.md) · [Repair permission](LOCAL-REPAIR-PERMISSION.md)
 
-Local feature repair is off by default. Its seven supported modules now run candidate and active repair functions in QuickJS-WASM, with test and rollback controls. The kernel, account flow, permissions, budgets and updater remain outside the repair scope. Native platform checks and the original quality targets remain outstanding; see the [release evidence](docs/RELEASE-0.7.2.md).
+Local feature repair is off by default. Its seven supported modules now run candidate and active repair functions in QuickJS-WASM, with test and rollback controls. The kernel, account flow, permissions, budgets and updater remain outside the repair scope. Native platform checks and the original quality targets remain outstanding; see the [release evidence](docs/RELEASE-0.8.1.md).
 
 [Mail setup and recovery](docs/MAIL-RECOVERY.en.md)
 
-[Features and tutorials](docs/FEATURES.md) · [Latest changes](docs/RELEASE-0.7.2.md) · [Session recovery](docs/SESSION-RECOVERY.en.md) · [Windows recovery walkthrough](docs/WINDOWS-DISK-RECOVERY.zh.md)
+[Features and tutorials](docs/FEATURES.md) · [Latest changes](docs/RELEASE-0.8.1.md) · [Session recovery](docs/SESSION-RECOVERY.en.md) · [Windows recovery walkthrough](docs/WINDOWS-DISK-RECOVERY.zh.md)
 
 [Credential setup and login](docs/CREDENTIALS.md) · [Ubuntu tutorial](docs/UBUNTU.md) · [All-platform installation](docs/INSTALLATION.md) · [Start here](docs/START-HERE.en.md) · [中文 Ubuntu 教程](docs/UBUNTU.zh.md)
 
@@ -46,7 +48,7 @@ Local feature repair is off by default. Its seven supported modules now run cand
 | Follow the course | [English course](docs/courses/README.en.md) · [1,800 Chinese lessons](docs/courses/README.zh.md) |
 
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.7.2**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.8.1 draft**
 
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
@@ -58,7 +60,9 @@ Local feature repair is off by default. Its seven supported modules now run cand
 
 Koder CLI is a **local task tool** from the [KARMEN LOOP](https://karmenloop.com) team. Bring your own provider key or supported local model, choose a project, and work through plans, tools, approvals, and recorded results. **Personal, noncommercial local use is free and does not require membership or an invite code.** A KARMEN account sign-in is required before running tasks; model API access is configured separately. Commercial use and organizational deployment need separate written authorization. Providers may charge for API requests.
 
-Current release: **0.7.2** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
+Koder develops the task kernel, native orchestration, permission checks and delivery verification. Python, Scrapling, Playwright, FFmpeg, EARSHOT, CodeGraph and third-party Skills retain their own authors and licenses. See [architecture and provenance](docs/ARCHITECTURE-AND-PROVENANCE.en.md) and [third-party notices](THIRD_PARTY_NOTICES.md).
+
+Prepared release: **0.8.1** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Installation: [GitHub guide](docs/INSTALLATION.md)
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
@@ -66,7 +70,7 @@ Current release: **0.7.2** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Instal
 
 *0.7.2 startup banner from the published macOS package, captured in an isolated PTY on November 2, 2026 and rendered from unchanged ANSI output. No model is configured. Fonts and spacing vary by terminal.*
 
-[Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.7.2.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
+[Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.8.1.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
 ---
 
@@ -120,7 +124,7 @@ It does **not** claim that local fixtures certify every PC, provider account, or
 |---|---|
 | **What you install** | Versioned CLI runtime via official Windows / macOS / Linux installers (Node **^22.21.0 or ≥24**, reused or downloaded and checksum-verified) |
 | **What you bring** | A KARMEN account session, plus your own model API key or a supported local model endpoint |
-| **Version** | **0.7.2** (official website manifest, stable channel) |
+| **Version** | **0.8.1 draft**; website publication pending |
 | **License for this build** | **Koder-EULA-1.1** — proprietary end-user license for the current application runtime |
 | **Personal use** | Free for personal, noncommercial local use — **no membership, no invite code** |
 | **Commercial / org** | Separate prior written authorization (`koder business` / [commercial licensing](docs/COMMERCIAL-LICENSING.md)) |
@@ -215,9 +219,9 @@ flowchart LR
 
 ---
 
-## Screenshots · 0.7.2
+## Screenshots · 0.7.2 reference
 
-Current macOS captures in both languages. These show the open screens, not a completed model task.
+These macOS captures are from the published **0.7.2** package. They remain reference images while the 0.8.1 consolidation is prepared; they are not 0.8.1 captures or proof of a completed model task.
 
 These images show the published macOS build: its startup banner, settings menu, and first lesson. The English and Chinese READMEs use matching captures in each language.
 
@@ -231,11 +235,11 @@ The images were rendered from real terminal output captured on November 2, 2026.
 
 ---
 
-## Workflows added in 0.7.2
+## Workflows carried into 0.8.1
 
-[XPath and browser collection](docs/WEB-DATA.md) · [Managed runtimes](docs/TOOL-RUNTIMES.en.md) · [Worker coordination](docs/SUPER-AGENT-ARCHITECTURE.en.md) · [Native Headroom](docs/HEADROOM.en.md)
+[XPath and browser collection](docs/WEB-DATA.md) · [Managed runtimes](docs/TOOL-RUNTIMES.en.md) · [Worker coordination](docs/SUPER-AGENT-ARCHITECTURE.en.md) · [Native Headroom](docs/HEADROOM.en.md) · [Architecture and provenance](docs/ARCHITECTURE-AND-PROVENANCE.en.md)
 
-Install and read the full tutorials on the [CLI website](https://kodermodule.com/en/cli-download.html) and [tutorial hub](https://kodermodule.com/en/cli-tutorials.html). GitHub carries documentation and history. [Release checks](docs/RELEASE-0.7.2.md#release-checks-and-remaining-limits) retain the original Mac download timeouts and separate recorded checks from native-device and human-account work that remains unverified.
+Install and read the full tutorials on the [CLI website](https://kodermodule.com/en/cli-download.html) and [tutorial hub](https://kodermodule.com/en/cli-tutorials.html). GitHub carries documentation and history. [Release checks](docs/RELEASE-0.8.1.md#release-checks-and-remaining-limits) retain the original Mac download timeouts and separate recorded checks from native-device and human-account work that remains unverified.
 
 ## Capabilities at a glance
 
@@ -273,7 +277,7 @@ koder setup
 koder
 ```
 
-The current release is **0.7.2**. If `koder` is not found, the [Ubuntu PATH walkthrough](docs/UBUNTU.md) explains how to start the installed executable directly and refresh your shell. Graphical operations require their own dependencies and permission. Full platform notes: [Installation](docs/INSTALLATION.md).
+These instructions target **0.8.1 after publication**. If `koder` is not found, the [Ubuntu PATH walkthrough](docs/UBUNTU.md) explains how to start the installed executable directly and refresh your shell. Graphical operations require their own dependencies and permission. Full platform notes: [Installation](docs/INSTALLATION.md).
 
 ---
 
@@ -313,7 +317,7 @@ koder --version
 koder
 ```
 
-Expect **0.7.2**. Run `koder login` before your first task and approve the device on the official account page. The [sign-in guide](docs/ACCOUNT-LOGIN.md) covers QR codes, logout, Linux credential storage and headless sessions. Bare `koder` opens interactive chat. Prefer a short coach first?
+After the 0.8.1 release is published and installed, expect **0.8.1**. Run `koder login` before your first task and approve the device on the official account page. The [sign-in guide](docs/ACCOUNT-LOGIN.md) covers QR codes, logout, Linux credential storage and headless sessions. Bare `koder` opens interactive chat. Prefer a short coach first?
 
 ```text
 koder learn
@@ -415,7 +419,7 @@ koder review --format json
 
 Use `koder review` when you want findings after apply, before a larger follow-up, or when a CI-style gate should distinguish a clean parse from failure. If a successful model answer still cannot be parsed into complete findings, the CLI exits **3** with `REVIEW_UNPARSED`—do **not** treat that as a clean review.
 
-**First success** means: version reports 0.7.2, KARMEN sign-in is complete, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
+**First success** means: version reports 0.8.1, KARMEN sign-in is complete, setup has a working (non-gray) provider, one task produced a readable diff, and you consciously approved or declined. For multi-window sessions, Skills/MCP, residency, and mail inquiry, continue in the [user guide](docs/USER-GUIDE.en.md).
 
 Day-to-day chat: type `/` on an empty prompt for editable choices (Tab fills, Esc closes, Enter sends only after fill). `/setup` opens settings, `/model` manages models, `/new` starts a topic, `/exit` leaves. `/menu` opens settings; Escape leaves.
 
@@ -565,7 +569,7 @@ koder update auto on
 | Troubleshooting | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Stalled install, gray providers, common failures |
 | Distribution & legacy GPL tree | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | Proprietary runtime vs historical public tree |
 | Printable course texts | [docs/tutorials/](docs/tutorials/) | 1,800 Chinese / 30 English lessons across PowerShell, CMD, macOS and Linux editions |
-| This release | [RELEASE-0.7.2.md](docs/RELEASE-0.7.2.md) | What changed and what remains NOT_RUN |
+| This release | [RELEASE-0.8.1.md](docs/RELEASE-0.8.1.md) | What changed and what remains NOT_RUN |
 
 ---
 
@@ -588,8 +592,8 @@ Yours. Configure a provider in setup. Koder does not replace your provider’s b
 **Will it change my files without asking?**  
 Recognized low-risk local checks and ordinary project edits may run under smart approval. Sensitive or unknown effects—including deletion, secret paths, and shell side effects—ask first. Review diffs and targets before approving.
 
-**Is the public GitHub source the 0.7.2 runtime?**
-No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.7.2** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
+**Is the public GitHub source the 0.8.1 runtime?**
+No. The public tree keeps historical GPL **0.3.1** material for continuity. The **0.8.1** application runtime is proprietary and distributed via the official installer and release feed ([SOURCE-STATUS.md](SOURCE-STATUS.md)).
 
 **Can my company deploy it?**  
 Contact [info@karmenloop.com](mailto:info@karmenloop.com) or run `koder business`. Stars, downloads, and inquiry emails alone are not commercial authorization.
@@ -664,4 +668,4 @@ Version 0.6.3 corrects saved-login display and isolates implicit default session
 
 Use the system browser to confirm device access when login is required. An existing website session can be reused, but device approval remains a separate step. [Command lessons](docs/COMMAND-LEARNING.en.md) and [local self-checks](docs/DIAGNOSTICS.en.md) are included in 0.6.3. Cloud reporting remains unconfigured and returns `DIAGNOSTICS_SERVICE_NOT_READY`.
 
-The current 0.7.2 release record verifies all 32 original public files and both generations of default update checks. The original Mac download timeouts and separate native/human checks remain explicit. [Publication evidence and limits](docs/RELEASE-0.7.2.md#release-checks-and-remaining-limits).
+The 0.8.1 build checks are recorded separately from pending website publication. Its model and browser evidence remains dated 0.7.2; original download failures and native/human limits are retained. [Build evidence and publication status](docs/RELEASE-0.8.1.md#release-checks-and-remaining-limits).

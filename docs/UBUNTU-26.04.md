@@ -2,13 +2,13 @@ See [account sign-in](ACCOUNT-LOGIN.md) for the 0.6.3 first-message and saved-se
 
 # Ubuntu 26.04.1 Desktop amd64: installation and first tasks
 
-These instructions target **Koder CLI 0.7.2 on Ubuntu 26.04.1 Desktop amd64**. Keep the 26.04-specific installer and desktop dependencies below. See [Web Data](WEB-DATA.md) for browser collection and [release limits](RELEASE-0.7.2.md#release-checks-and-remaining-limits) before treating a macOS result as Ubuntu validation.
+These instructions target **Koder CLI 0.8.1 on Ubuntu 26.04.1 Desktop amd64**. Keep the 26.04-specific installer and desktop dependencies below. See [Web Data](WEB-DATA.md) for browser collection and [release limits](RELEASE-0.8.1.md#release-checks-and-remaining-limits) before treating a macOS result as Ubuntu validation.
 
-**First task in 0.7.2:** sign in through the [KARMEN browser/QR login](ACCOUNT-LOGIN.md) before using model tasks. Headless sessions without protected login return `LOGIN_REQUIRED`; model keys and computer permissions remain separate.
+**First task in 0.8.1:** sign in through the [KARMEN browser/QR login](ACCOUNT-LOGIN.md) before using model tasks. Headless sessions without protected login return `LOGIN_REQUIRED`; model keys and computer permissions remain separate.
 
-[Repository home](../README.md) · [中文手把手教程](UBUNTU-26.04.zh.md) · [Download 0.7.2](https://kodermodule.com/en/cli-download.html)
+[Repository home](../README.md) · [中文手把手教程](UBUNTU-26.04.zh.md) · [Download 0.8.1](https://kodermodule.com/en/cli-download.html)
 
-This guide covers **Koder CLI 0.7.2** on **Ubuntu 26.04.1 LTS Desktop amd64**. AMD64 is x86_64, including Intel and AMD 64-bit PCs; it is not ARM64. The same Linux archive retains coding, writing, mail, GitHub, MCP, Skills, learning and the current classroom. Ubuntu uses the existing AT-SPI desktop adapter. Windows-MCP and macOS locked-use remain platform-specific. Keep using the [24.04 guide](UBUNTU.md) on that release.
+This guide covers **Koder CLI 0.8.1** on **Ubuntu 26.04.1 LTS Desktop amd64**. AMD64 is x86_64, including Intel and AMD 64-bit PCs; it is not ARM64. The same Linux archive retains coding, writing, mail, GitHub, MCP, Skills, learning and the current classroom. Ubuntu uses the existing AT-SPI desktop adapter. Windows-MCP and macOS locked-use remain platform-specific. Keep using the [24.04 guide](UBUNTU.md) on that release.
 
 Ubuntu 26.04 GNOME uses **Wayland**. Do not look for an “Ubuntu on Xorg” session or disable Wayland to follow this guide. The [Ubuntu ISO](https://releases.ubuntu.com/26.04/) installs the operating system; Koder’s shell installer installs the application. An existing Ubuntu installation does not need to be formatted or reinstalled.
 
@@ -57,13 +57,13 @@ command -v curl
 **With wget:**
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/releases/cli-0.7.2/koder-ubuntu-26.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/releases/cli-0.8.1/koder-ubuntu-26.04.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **With curl:**
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/releases/cli-0.7.2/koder-ubuntu-26.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/releases/cli-0.8.1/koder-ubuntu-26.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **If neither is installed:** run these separately, resolve any apt errors, then use the curl command above.
@@ -94,7 +94,7 @@ koder --version
 koder --help
 ```
 
-Expect `koder 0.7.2`. If the command is not found, adjust this terminal's PATH:
+Expect `koder 0.8.1`. If the command is not found, adjust this terminal's PATH:
 
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
@@ -282,7 +282,7 @@ Tool rounds remain unlimited by default; explicit cost budgets, cancellation, ap
 | Installer-script download failed | Rerun the full command with `&&`; do not execute a stale temporary file. |
 | Interrupted archive download | Rerun the same installer to resume. Keep TLS and SHA-256 verification enabled. |
 | Command missing / old version | Reopen the terminal, inspect PATH and `type -a koder`. |
-| Task keeps waiting | Verify 0.7.2, watch the ten-second wait feedback, then check the selected provider. |
+| Task keeps waiting | Verify 0.8.1, watch the ten-second wait feedback, then check the selected provider. |
 | `API_HEADERS_TIMEOUT` | The provider may still be generating; avoid submitting duplicate work. |
 | Keyring unavailable | Check secret-tool, the session bus and keyring unlock; do not use root. |
 | `COMPUTER_NO_DESKTOP_SESSION` | Use the signed-in desktop terminal or continue with CLI file tasks. |
@@ -318,15 +318,15 @@ Keep the connection open and visit `http://127.0.0.1:8080` locally. This does no
 To inspect a manual download, place `SHA256SUMS` and the Linux archive from the same release in one directory:
 
 ```bash
-sha256sum koder-cli-0.7.2-linux.tgz
-grep 'koder-cli-0.7.2-linux.tgz' SHA256SUMS
+sha256sum koder-cli-0.8.1-linux.tgz
+grep 'koder-cli-0.8.1-linux.tgz' SHA256SUMS
 ```
 
 The digests must match. The `.tgz` is not a `.deb` or double-click installer. Normal installations use the script above.
 
 ## 12. Evidence and further reading
 
-Use the release's [ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.7.2/ACCEPTANCE-RESULTS.json) for the exact package hash and platform results. Installation, PATH recovery, archive metadata, slow-response PTY, desktop controls and notifications are checked separately.
+Use the release's [ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.8.1/ACCEPTANCE-RESULTS.json) for the exact package hash and platform results. Installation, PATH recovery, archive metadata, slow-response PTY, desktop controls and notifications are checked separately.
 
 The [0.5.12 task run](https://github.com/KarmenLoop/koder-cli/actions/runs/40555216774) and [0.5.12 desktop matrix](https://github.com/KarmenLoop/koder-cli/actions/runs/40555225654) are historical baselines. All four desktop jobs passed after retrying an x64 Wayland dependency-download timeout; the initial failure is retained. These results do not certify the 0.6.3 package.
 
@@ -347,7 +347,7 @@ OS references: [Ubuntu Desktop documentation](https://documentation.ubuntu.com/d
 7. Enable desktop, mail or GitHub access only for the feature you want to test. Verify each result independently.
 8. Exit with `/exit`, reopen the same project and check that files and settings remain.
 
-Release-specific proof is in [ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.7.2/ACCEPTANCE-RESULTS.json), keyed by archive hash. The linked 0.5.12 runs are historical comparisons, not 0.7.2 verification. The initial 0.5.12 x64 Wayland dependency timeout was retained; its rerun passed. Physical desktop sessions, reboots and real accounts need their own evidence.
+Release-specific proof is in [ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.8.1/ACCEPTANCE-RESULTS.json), keyed by archive hash. The linked 0.5.12 runs are historical comparisons, not 0.8.1 verification. The initial 0.5.12 x64 Wayland dependency timeout was retained; its rerun passed. Physical desktop sessions, reboots and real accounts need their own evidence.
 
 ## Ubuntu 26.04.1 verification and upgrade checklist
 

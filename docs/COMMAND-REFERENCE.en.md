@@ -1,5 +1,7 @@
 # Complete command reference
 
+This command reference applies to the **0.8.1 draft**. The Web Data and managed-runtime commands below are carried forward from 0.7.2. [Architecture and provenance](ARCHITECTURE-AND-PROVENANCE.en.md) explains the native task engine and attributed components.
+
 Koder CLI 0.5.1 · 1,800 Chinese lessons; original 30 English lessons
 
 Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md) · [Task orchestration](TASK-ORCHESTRATION.en.md)

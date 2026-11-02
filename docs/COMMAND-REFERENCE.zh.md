@@ -1,5 +1,7 @@
 # 完整命令参考
 
+本命令表对应 **0.8.1 草稿**。下方 Web Data 与托管运行时命令延续 0.7.2 的实现；[架构与组件来源](ARCHITECTURE-AND-PROVENANCE.zh.md)说明原生任务引擎与第三方组件的边界。
+
 Koder CLI 0.5.1 · 1800 课中文课堂；原 30 课英文教程
 
 根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md) · [长任务与子任务操作](TASK-ORCHESTRATION.zh.md)

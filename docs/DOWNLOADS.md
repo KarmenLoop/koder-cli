@@ -2,7 +2,7 @@ See [account sign-in](ACCOUNT-LOGIN.md) for the 0.6.3 first-message and saved-se
 
 # Smaller downloads, complete runtime
 
-The current download set is **0.7.2**. Use the [official CLI download page](https://kodermodule.com/en/cli-download.html), preserve an interrupted installer's cache, and let its checksum check finish. Optional engines have their own [managed runtime setup](TOOL-RUNTIMES.en.md); downloading the CLI archive does not download every external model.
+The prepared 0.8.1 download set is described here; website publication is pending. Use the [official CLI download page](https://kodermodule.com/en/cli-download.html), preserve an interrupted installer's cache, and let its checksum check finish. Optional engines have their own [managed runtime setup](TOOL-RUNTIMES.en.md); downloading the CLI archive does not download every external model.
 
 **Before a task:** check `koder account status`. Run `koder login --open` only when sign-in is required; a valid refresh grant is renewed before execution. The [account guide](ACCOUNT-LOGIN.md) separates login, device confirmation and session ownership. Model keys and computer permissions remain separate.
 
@@ -21,13 +21,13 @@ The OCR runtime now keeps one pinned English model and one pinned Simplified Chi
 macOS, or Linux with curl:
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/install/cli-0.7.2/koder-cli.sh -o /tmp/koder-install.sh && bash /tmp/koder-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/install/cli-0.8.1/koder-cli.sh -o /tmp/koder-install.sh && bash /tmp/koder-install.sh
 ```
 
 Ubuntu with wget instead of curl:
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-install.sh https://kodermodule.com/install/cli-0.7.2/koder-cli.sh && bash /tmp/koder-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-install.sh https://kodermodule.com/install/cli-0.8.1/koder-cli.sh && bash /tmp/koder-install.sh
 ```
 
 The small bootstrap must download successfully before execution. The installer asks for the existing license consent, selects the correct archive, obtains a compatible managed Node runtime when needed, verifies checksums, and activates the finished installation. It does not install components manually one by one or grant computer/mail permissions. If neither downloader is installed on Ubuntu, run `sudo apt update` and `sudo apt install curl ca-certificates`, then use the curl command. Run Koder itself as your ordinary user.
@@ -44,16 +44,16 @@ Connection attempts default to 20 seconds and stalled transfers to 60 seconds. T
 
 ## Complete offline archive
 
-The CLI website provides `koder-cli-0.7.2.tgz`, with supported platform payloads, current tutorials and license notices. The smaller files are `koder-cli-0.7.2-darwin.tgz` and `koder-cli-0.7.2-linux.tgz`. macOS Intel and Apple Silicon use the same archive; Linux x64 and ARM64 use the same JavaScript/Wasm runtime and select their own Node build. SHA-256 and sizes are in `koder-cli-0.7.2.json`. For the full archive through the installer, use `KODER_INSTALL_FULL_PACKAGE=1 bash /tmp/koder-install.sh`. This is optional.
+The CLI website provides `koder-cli-0.8.1.tgz`, with supported platform payloads, current tutorials and license notices. The smaller files are `koder-cli-0.8.1-darwin.tgz` and `koder-cli-0.8.1-linux.tgz`. macOS Intel and Apple Silicon use the same archive; Linux x64 and ARM64 use the same JavaScript/Wasm runtime and select their own Node build. SHA-256 and sizes are in `koder-cli-0.8.1.json`. For the full archive through the installer, use `KODER_INSTALL_FULL_PACKAGE=1 bash /tmp/koder-install.sh`. This is optional.
 
 Download resilience tests use interrupted loopback transfers, Range refusal, corruption, cancellation and a later installer invocation. They do not promise a fixed speed on every Internet connection. Native Windows and physical Ubuntu GNOME checks remain separate beta acceptance.
 
 ## Dedicated Ubuntu 24.04 entry
 
-[Ubuntu 24.04 installer](https://kodermodule.com/install/cli-0.7.2/koder-cli.sh) · [Complete Ubuntu / Linux runtime](https://kodermodule.com/releases/cli-0.7.2/koder-cli-0.7.2-linux.tgz). Ubuntu 24.04.x on x64 and ARM64 uses the same entry; Node is selected for the processor.
+[Ubuntu 24.04 installer](https://kodermodule.com/install/cli-0.8.1/koder-cli.sh) · [Complete Ubuntu / Linux runtime](https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1-linux.tgz). Ubuntu 24.04.x on x64 and ARM64 uses the same entry; Node is selected for the processor.
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/install/cli-0.7.2/koder-cli.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/install/cli-0.8.1/koder-cli.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 This entry is generated from the shared installer. Download recovery, checksums, licensing and permissions use the same implementation. It does not install a reduced kernel.

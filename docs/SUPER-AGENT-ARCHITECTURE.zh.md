@@ -2,7 +2,7 @@
 
 [English](SUPER-AGENT-ARCHITECTURE.en.md) · [简体中文](SUPER-AGENT-ARCHITECTURE.zh.md)
 
-Koder CLI 0.7.2 已在现有任务引擎中包含 Worker 协作。主任务可以拆分独立工作、向原 Worker 补充要求，并在结果保存后继续。不需要另装 Agent 服务，也不要求更换模型服务商。
+Koder CLI 0.8.1 沿用现有任务引擎的 Worker 协作。主任务可以拆分独立工作、向原 Worker 补充要求，并在结果保存后继续。不需要另装 Agent 服务，也不要求更换模型服务商。
 
 ## 开始前
 

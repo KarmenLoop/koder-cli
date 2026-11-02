@@ -1,3 +1,11 @@
+# Prepared website release: 0.8.1 — publication pending
+
+This is a documentation draft. The frozen build contains 32 original files; it is not the final website delivery receipt. Keep the current main-branch release at 0.7.2 until the website owner verifies public delivery and the production updater. No new website requests or product QA were run for this documentation task.
+
+The [English draft notes](docs/RELEASE-0.8.1.md) and [中文草稿](docs/RELEASE-0.8.1.zh.md) cover the consolidation milestone and its evidence boundaries. The record lists 44 source release checks, 348 packaged checks, 14 macOS command checks and an isolated installation. The 20,760 compared runtime files, 79 unique Skills and eight license/attribution files match 0.7.2. Version metadata is separate. Earlier real-model and browser evidence stays labeled 0.7.2 and was not rerun on 0.8.1.
+
+Koder's own task kernel, orchestration and delivery logic remain private. External runtimes and Skills retain their authors and licenses. Native Windows/Ubuntu, production human sign-in, real mail, visible notifications, hour-scale autonomy and benchmark quality remain unverified. Screenshots below remain genuine 0.7.2 references; no image is relabeled 0.8.1.
+
 # Current website release: 0.7.2
 
 The [English release notes](docs/RELEASE-0.7.2.md) and [中文说明](docs/RELEASE-0.7.2.zh.md) describe XPath/adaptive collection, managed browser and tool runtimes, native context handling and worker coordination. The official website feed reports 0.7.2. The release record verifies 32 original public files and both generations of default update checks. The 348 runtime checks, 19 browser cases and one bounded model task are separate evidence categories.

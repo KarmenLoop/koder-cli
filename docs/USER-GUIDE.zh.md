@@ -31,17 +31,17 @@ Ubuntu/macOS 安装后可立即用完整路径，不必等 PATH 更新：
 
 0.5.19 新增[电脑维护](COMPUTER-CARE.zh.md)、[本机应用调用](APP-USE-AND-LEARN.zh.md)，并修复 Windows 磁盘只读查询被拦。先看[功能总览与对应教程](FEATURES.zh.md)和[Windows 磁盘诊断及更新恢复](WINDOWS-DISK-RECOVERY.zh.md)。
 
-当前版本：**0.7.2**。先看[本版更新](RELEASE-0.7.2.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
+当前版本：**0.8.1**。先看[本版更新](RELEASE-0.8.1.zh.md)、[输入菜单与接口诊断](PROVIDER-WRITING-INPUT.md)、[独立多窗口任务](MULTI-WINDOW.md)。下方保留完整原有功能教程；Windows 实机与真实账号未验项见更新说明。
 
 > 旧版更新器可能因包超过 100 MB 报“清单无效”。请用 CLI 官网提供的当前安装器覆盖升级一次，保留配置和历史；详见 [安装与升级说明](INSTALLATION.md)。
 
-当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南对应 0.7.2；下方八份终端文字导出与本版一致，旧导出保留在源码历史中。实际可下载版本以 CLI 官网发行清单为准。
+当前版本默认开启 [Headroom 上下文优化](HEADROOM.zh.md)，另可独立设置[历史自动压缩](CONTEXT-CONTROLS.zh.md)。本指南对应 0.8.1；下方八份终端文字导出与本版一致，旧导出保留在源码历史中。实际可下载版本以 CLI 官网发行清单为准。
 
 # Koder CLI 完整使用教程
 
-**0.7.2** 的补充教程包括 [XPath/浏览器采集](WEB-DATA.zh.md)、[托管运行时](TOOL-RUNTIMES.zh.md)和 [Worker 协作](SUPER-AGENT-ARCHITECTURE.zh.md)。已有用户保留账号、模型与工作区配置即可；[本版未验范围](RELEASE-0.7.2.zh.md#发行核对与未验范围)另行列明。
+**0.8.1** 的补充教程包括 [XPath/浏览器采集](WEB-DATA.zh.md)、[托管运行时](TOOL-RUNTIMES.zh.md)和 [Worker 协作](SUPER-AGENT-ARCHITECTURE.zh.md)。已有用户保留账号、模型与工作区配置即可；[本版未验范围](RELEASE-0.8.1.zh.md#发行核对与未验范围)另行列明。
 
-版本：**0.7.2**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
+版本：**0.8.1**。先运行 `koder --version`；旧安装版不一定具备本页功能。本机回归、Windows 原生测试和真实账号检查分别记录，不把本机通过当作所有电脑与账号都已验收。
 
 ## 1. 先选对命令窗口
 
@@ -244,14 +244,14 @@ Windows 安装和重启必须有实际平台证据，源码测试不能替代。
 
 ## 下载八份完整文字教程
 
-- [koder-cli-0.7.2-en-cmd.txt](https://kodermodule.com/releases/cli-0.7.2/koder-cli-0.7.2-en-cmd.txt)
-- [koder-cli-0.7.2-en-linux.txt](https://kodermodule.com/releases/cli-0.7.2/koder-cli-0.7.2-en-linux.txt)
-- [koder-cli-0.7.2-en-mac.txt](https://kodermodule.com/releases/cli-0.7.2/koder-cli-0.7.2-en-mac.txt)
-- [koder-cli-0.7.2-en-powershell.txt](https://kodermodule.com/releases/cli-0.7.2/koder-cli-0.7.2-en-powershell.txt)
-- [koder-cli-0.7.2-zh-cmd.txt](https://kodermodule.com/releases/cli-0.7.2/koder-cli-0.7.2-zh-cmd.txt)
-- [koder-cli-0.7.2-zh-linux.txt](https://kodermodule.com/releases/cli-0.7.2/koder-cli-0.7.2-zh-linux.txt)
-- [koder-cli-0.7.2-zh-mac.txt](https://kodermodule.com/releases/cli-0.7.2/koder-cli-0.7.2-zh-mac.txt)
-- [koder-cli-0.7.2-zh-powershell.txt](https://kodermodule.com/releases/cli-0.7.2/koder-cli-0.7.2-zh-powershell.txt)
+- [koder-cli-0.8.1-en-cmd.txt](https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1-en-cmd.txt)
+- [koder-cli-0.8.1-en-linux.txt](https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1-en-linux.txt)
+- [koder-cli-0.8.1-en-mac.txt](https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1-en-mac.txt)
+- [koder-cli-0.8.1-en-powershell.txt](https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1-en-powershell.txt)
+- [koder-cli-0.8.1-zh-cmd.txt](https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1-zh-cmd.txt)
+- [koder-cli-0.8.1-zh-linux.txt](https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1-zh-linux.txt)
+- [koder-cli-0.8.1-zh-mac.txt](https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1-zh-mac.txt)
+- [koder-cli-0.8.1-zh-powershell.txt](https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1-zh-powershell.txt)
 
 ## 结构化审查与无桌面的 Linux
 
@@ -294,7 +294,7 @@ koder project check --kind website --json -w /path/to/site
 
 ## 常驻与邮件问询
 
-安装后先用 `koder --version` 核对 0.7.2，完成 `koder login` 后再用 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
+安装后先用 `koder --version` 核对 0.8.1，完成 `koder login` 后再用 `koder setup` 配置模型。可选 `koder activate` 开启登录后常驻，`koder status` 查看状态，`koder deactivate` 停用。默认不读邮箱、日历或浏览历史；常驻不增加工具权限。Setup 中可设置安静时段、提醒次数和来源。
 
 邮箱在 Setup 绑定，授权码以星号显示。分别开启 `/mail model on` 与 `/mail inquire on` 并确认后，相关来信可以提出选项；选择只生成草稿，发送仍需最终预览和确认。后台查收还需在常驻页打开邮箱可见性。广告和验证码不参与问询。
 
