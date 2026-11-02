@@ -1,0 +1,45 @@
+name: Windows login storage acceptance
+on:
+  push:
+    branches: [acceptance/windows-login-storage]
+    paths: [.github/workflows/windows-login-storage.yml, test/acceptance/windows-login-storage.mjs]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  credentials:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: test/acceptance
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Download official package and verify exact bytes
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $url = 'https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1.tgz'
+          $archive = Join-Path $env:RUNNER_TEMP 'koder-acceptance.tgz'
+          curl.exe --fail --location --retry 3 --retry-delay 2 --connect-timeout 30 --max-time 600 --output $archive $url
+          if ($LASTEXITCODE -ne 0) { throw 'OFFICIAL_DOWNLOAD_FAILED' }
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne '42bb474ba7e5570786de588c97809af71d55bc774db37985e2eb049a9d54c573') { throw 'PACKAGE_HASH_MISMATCH' }
+          $dest = Join-Path $env:RUNNER_TEMP 'koder-package'
+          New-Item $dest -ItemType Directory -Force | Out-Null
+          tar -xzf $archive -C $dest
+          if ($LASTEXITCODE -ne 0) { throw 'PACKAGE_EXTRACT_FAILED' }
+          "KODER_ACCEPTANCE_PACKAGE=$dest\koder-cli" | Out-File $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Exercise real CurrentUser DPAPI with synthetic credentials
+        shell: pwsh
+        run: node test/acceptance/windows-login-storage.mjs
+      - name: Save sanitized receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-login-storage
+          path: evidence/windows-login-storage.json
+          if-no-files-found: ignore
+          retention-days: 14
+
