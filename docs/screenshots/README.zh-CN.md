@@ -1,23 +1,23 @@
-# Koder CLI 截图
+# Koder CLI 界面截图
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-当前这组图片来自已发布的 macOS **0.5.21** 包，采集日期为 2026 年 10 月 30 日。运行包的校验值与官网清单一致。[采集记录与图片校验值](capture-0.5.21.json)。
+这组 **0.7.2** 图片采集于 2026 年 11 月 2 日，来自已发布的 macOS 安装包。归档 SHA-256 与官网清单一致，采集时观察到的 200 个包内文件也逐一与归档匹配。[命令、退出状态及图片校验值](capture-0.7.2.json)。
 
 | 界面 | English | 简体中文 |
 | --- | --- | --- |
-| 启动界面 | [English image](cli-start-0.5.21-en-dark.jpg) | [中文图片](cli-start-0.5.21-zh-dark.jpg) |
-| 设置菜单 | [English image](cli-setup-0.5.21-en-dark.jpg) | [中文图片](cli-setup-0.5.21-zh-dark.jpg) |
-| 第一课 | [English image](cli-learn-0.5.21-en-dark.jpg) | [中文图片](cli-learn-0.5.21-zh-dark.jpg) |
+| 启动 | [英文](cli-start-0.7.2-en-dark.jpg) | [中文](cli-start-0.7.2-zh-dark.jpg) |
+| 设置 | [英文](cli-setup-0.7.2-en-dark.jpg) | [中文](cli-setup-0.7.2-zh-dark.jpg) |
+| 第一课 | [英文](cli-learn-0.7.2-en-dark.jpg) | [中文](cli-learn-0.7.2-zh-dark.jpg) |
 
 ## 采集方式
 
-程序在隔离的 macOS PTY 中运行，终端尺寸为 100 列、32 行，中英文各用独立配置，未填写服务商密钥。原始 ANSI 输出未经改写，交给 `@xterm/headless` 5.5.0 解析后，以 17 px Menlo 字体渲染为 JPEG。它们是终端输出的渲染图；你实际使用的终端可能有不同的字体间距和换行效果。
+未修改的 CLI 在 100 列、32 行的隔离 macOS PTY 中运行，中英文使用独立配置，没有模型密钥或账号会话。真实 ANSI 输出由 `@xterm/headless` 5.5.0 解析，以 17 px Menlo 渲染。这是终端输出渲染图，不同终端的字体、间距与换行可能不同。
 
-启动图通过 `koder banner --no-anim --lang zh`（英文为 `en`）采集静止后的开屏。设置图运行 `koder setup --lang zh`，在选择服务商前保存菜单画面，然后停止采集进程。课堂图运行 `koder learn 1 --os mac --lang zh`，在选择终端时取消。JSON 记录保留了各条命令及退出状态，也记明了设置菜单采集后强制结束进程的情况。
+启动图使用 `koder banner --no-anim --lang zh`（英文为 `en`），展示动画停止后的画面。设置图使用 `koder setup --lang zh`，停在主菜单；第一课使用 `koder learn 1 --os mac --lang zh`，停在操作系统选择。截图完成后设置进程需要强制结束，记录保留退出码 `-9`；课堂进程取消后退出。没有执行新的许可接受。
 
-这组图片只展示上述三个界面，不代表全新安装、模型配置、真实模型任务、审批流程或动画验收。采集没有使用 API Key、账号登录或新的许可接受操作。
+图片仅展示这三个界面，不代表安装完成、模型配置、账号登录、模型任务、审批或动画通过验收。本次未采集 Windows/Linux 原生界面。
 
-## 旧版图片
+## 历史图片
 
-目录内原有的七个图片文件继续保留，方便历史链接使用。它们不属于 0.5.21 图集。当前 README 只引用上面的版本化图片，教程里原来的安装、Diff、审查和 TUI 配图已移除。
+[0.5.21 采集记录](capture-0.5.21.json)及更早素材保留用于历史链接。仓库当前 README 展示以上带版本号的 0.7.2 图片。

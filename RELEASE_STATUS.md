@@ -1,4 +1,10 @@
-# Current website release: 0.6.3
+# Current website release: 0.7.2
+
+The [English release notes](docs/RELEASE-0.7.2.md) and [中文说明](docs/RELEASE-0.7.2.zh.md) describe XPath/adaptive collection, managed browser and tool runtimes, native context handling and worker coordination. The official website feed reports 0.7.2. The release record verifies 32 original public files and both generations of default update checks. The 348 runtime checks, 19 browser cases and one bounded model task are separate evidence categories.
+
+Three original Mac downloads timed out. Independent H3C full downloads passed, but recovery of the Mac network path has not been established. Native Windows/Ubuntu installation and GUI, production human sign-in, real mail/notifications and hour-scale task quality remain unverified. Earlier failures remain in their original records. GitHub carries documentation and screenshots; current packages and updates come from the CLI website, with no new GitHub binary release or private kernel source.
+
+## Historical website release: 0.6.3
 
 Release receipts record 131/131 source regressions and 145/145 packaged regressions, with overlap kept separate. Website activation and both generations of default update checks are verified. Full public-download and final website-case acceptance are pending the release owner's receipt. See [release notes](docs/RELEASE-0.6.3.md). The following 0.6.2 records remain historical evidence.
 

@@ -1,3 +1,22 @@
+## 0.7.2 — 2026-11-02
+
+- Extract XPath values with bundled Python/Scrapling; recover eligible same-origin selectors from verified structural fingerprints.
+- Render dynamic pages with the managed Playwright runtime while retaining collection limits and partial-result warnings.
+- Prepare managed FFmpeg/ffprobe, Playwright, EARSHOT and CodeGraph runtimes; use native Headroom context handling.
+- Reuse worker requests, send follow-ups to the existing worker and let saved results wake the parent for file verification.
+- Refresh English and Chinese GitHub screenshots from the published macOS package.
+
+[Release checks and remaining limits](docs/RELEASE-0.7.2.md#release-checks-and-remaining-limits). All 32 original public files were verified across the original Mac and an independent H3C machine; the original Mac's three download timeouts remain recorded. Current downloads and updates are hosted on the official CLI website.
+
+## 0.7.1 — 2026-11-02
+
+- Let account authorization use its transaction deadline after startup; stop treating terminal focus and navigation as cancellation.
+- Open account authorization directly for exact login requests in chat, with no model call.
+- Return to the original terminal where OS focus controls allow and report safe account-stage diagnostics on failure.
+- Include the packaged Skill/MCP fixes, Web Data preparation and current-user resource audit.
+
+[Release notes](docs/RELEASE-0.7.1.md). Native-device and production human-account acceptance remain separate.
+
 ## 0.6.3 — 2026-11-01
 
 - Isolate implicit default sessions across foreground and resident clients.

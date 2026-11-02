@@ -178,7 +178,7 @@ Setup → Skills → Task harness exposes “Optional model round cap,” “Too
 
 The isolated task `CK-20261026-cli-task-steps` recorded 27/27 passes in `evidence/subagent-regression-final-27.tap`. It covers the real runtime's 180/181 boundary, collection, cancellation, ownership, paging, root-task isolation, model selection, persistent UNKNOWN blocking, inherited tool scope, and the actual Core's shared monetary budget. The 180-child case uses controlled execution ports. Cost tests use synthetic providers; this is not a 180-provider load test or a test involving 180 people.
 
-`evidence/subagent-budget-integration.log` records 11/11 passes for CLI continuation, explicit round ceilings, and cost accounting. `evidence/todo-cli-regression.log` records 10/10, including a 100-item Todo. The [self-fetch tests](../test/self-fetch.test.mjs) use owned repository responses, original tools, and isolated directories; they do not establish live installation of arbitrary third-party packages. Earlier failure and cancellation logs remain part of the record.
+`evidence/subagent-budget-integration.log` records 11/11 passes for CLI continuation, explicit round ceilings, and cost accounting. `evidence/todo-cli-regression.log` records 10/10, including a 100-item Todo. The private self-fetch regression tests use owned repository responses, original tools, and isolated directories; they do not establish live installation of arbitrary third-party packages. Earlier failure and cancellation logs remain part of the record.
 
 The later combined run in `evidence/orchestration-regression-v1.log` records 144/144 passes, zero failures, and zero cancellations. That count describes one isolated source regression run. Additional boundary review and release acceptance have separate records.
 
@@ -206,3 +206,7 @@ Use `koder subagents status -w "/path/to/project" --session default --json` from
 ## 0.4.21 invocation follow-up
 
 The existing contracts remain. See the [step-by-step exercise](SELF-FETCH-AND-SUBAGENTS.en.md) and [layered evidence](ORCHESTRATION-ACCEPTANCE.md) for scoped discovery, 180 real child Core reads, two HTTP model/effort bindings and shared budgeting. Model decisions were fixtures; paid-model autonomy was not tested.
+
+## Worker coordination in 0.7.2
+
+Stable request IDs avoid duplicate workers. Follow-ups go to the existing worker, and saved result events let the parent continue without repeated model calls just to poll. The parent still needs to read the worker's files and check the result. Existing cost, concurrency, cancellation and permission limits apply. See the [worker walkthrough](SUPER-AGENT-ARCHITECTURE.en.md) for a small exercise, recovery limits and the research reference.
