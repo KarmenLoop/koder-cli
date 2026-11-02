@@ -83,6 +83,29 @@ try{
   now+=301000;demand((await client.authenticated()).state==='authenticated'&&rotations===2,'ACCOUNT_REFRESH_FAILED');
   demand((await client.logout()).state==='signed-out'&&(await client.status()).state==='signed-out','ACCOUNT_LOGOUT_FAILED');
  });
+ if(typeof openMemoryCredentials({dir:path.join(base,'capability-check'),requireProtected:true}).check==='function'){
+  await check('protected-retry-after-spawn-failure',async()=>{
+   let failOnce=true;
+   const vault=openMemoryCredentials({dir:path.join(base,'retry'),namespace:'retry',requireProtected:true,spawnImpl:(...args)=>{
+    if(failOnce){failOnce=false;throw Object.assign(Error('synthetic failure'),{code:'EACCES'});}return spawn(...args);
+   }});
+   let failure;try{await vault.write({marker:'SYNTHETIC'});}catch(error){failure=error;}
+   demand(failure?.storageFailure?.reason==='ACCESS_DENIED','STORAGE_REASON_LOST');
+   await vault.write({marker:'SYNTHETIC'});
+   demand(vault.availability().mode==='protected'&&(await vault.read())?.marker==='SYNTHETIC','RETRY_NOT_RECOVERED');
+   await vault.clear();
+  });
+  await check('signed-out-cli-storage-doctor',async()=>{
+   const env={...process.env,KODER_CLI_HOME:path.join(base,'doctor cli'),KODER_AUTO_UPDATE:'0',KODER_REMOTE_RESOURCES:'0',KODER_NO_ONBOARD:'1',NO_COLOR:'1'};
+   const cli=path.join(root,'bin/koder.mjs');
+   const accepted=spawnSync(process.execPath,[cli,'eula','accept'],{env,timeout:20000,windowsHide:true,maxBuffer:32768});
+   demand(!accepted.error&&accepted.status===0,'DOCTOR_EULA_SETUP_FAILED');
+   const result=spawnSync(process.execPath,[cli,'account','doctor','--json'],{env,timeout:30000,windowsHide:true,maxBuffer:32768});
+   demand(!result.error&&result.status===0,'DOCTOR_CLI_FAILED');
+   const data=JSON.parse(result.stdout.toString('utf8'));
+   demand(data.state==='ready'&&data.remoteChecksPerformed===false,'DOCTOR_CLI_NOT_READY');
+  });
+ }
 }finally{fs.rmSync(base,{recursive:true,force:true});}
 receipt.state=receipt.checks.every(x=>x.state==='PASS')?'PASS':'FAIL';
 fs.mkdirSync('evidence',{recursive:true});

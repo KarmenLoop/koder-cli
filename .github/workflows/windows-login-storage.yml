@@ -21,15 +21,15 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          $url = 'https://kodermodule.com/releases/cli-0.8.1/koder-cli-0.8.1.tgz'
+          $url = 'https://kodermodule.com/packages/cli/cli-0.8.4/f4eec29a09c41019/koder-cli-0.8.4.tgz'
           $archive = Join-Path $env:RUNNER_TEMP 'koder-acceptance.tgz'
           curl.exe --fail --location --retry 3 --retry-delay 2 --connect-timeout 30 --max-time 600 --output $archive $url
           if ($LASTEXITCODE -ne 0) { throw 'OFFICIAL_DOWNLOAD_FAILED' }
-          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne '42bb474ba7e5570786de588c97809af71d55bc774db37985e2eb049a9d54c573') { throw 'PACKAGE_HASH_MISMATCH' }
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne '97b5ec4ba6b81b8f2f361402cb355966132f3586be42ea5d181f2c31d1331c83') { throw 'PACKAGE_HASH_MISMATCH' }
           $installer = Join-Path $env:RUNNER_TEMP 'koder-cli.ps1'
-          curl.exe --fail --location --retry 3 --connect-timeout 30 --max-time 120 --output $installer 'https://kodermodule.com/releases/cli-0.8.1/koder-cli.ps1'
+          curl.exe --fail --location --retry 3 --connect-timeout 30 --max-time 120 --output $installer 'https://kodermodule.com/packages/cli/cli-0.8.4/f4eec29a09c41019/koder-cli.ps1'
           if ($LASTEXITCODE -ne 0) { throw 'INSTALLER_DOWNLOAD_FAILED' }
-          if ((Get-FileHash $installer -Algorithm SHA256).Hash.ToLowerInvariant() -ne '1014ed7fa47d00ba237f5beb71628acc7f49bcfbf8c3150d1975d4536b09581b') { throw 'INSTALLER_HASH_MISMATCH' }
+          if ((Get-FileHash $installer -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'd3fca32519b86d9488df8a46f1b2d2798576e75ac3b4fa6593c37b31a5ee9127') { throw 'INSTALLER_HASH_MISMATCH' }
           # Exercise the shipping installer's Unicode-safe extractor; Windows tar
           # does not accept every long filename in the full package.
           $installerText = [IO.File]::ReadAllText($installer)
@@ -46,7 +46,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'PACKAGE_EXTRACT_FAILED' }
           "KODER_ACCEPTANCE_PACKAGE=$dest" | Out-File $env:GITHUB_ENV -Append -Encoding utf8
       - name: Exercise real CurrentUser DPAPI with synthetic credentials
-        shell: pwsh
+        shell: powershell
         run: node test/acceptance/windows-login-storage.mjs
       - name: Save sanitized receipt
         if: always()
