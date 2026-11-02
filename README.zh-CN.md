@@ -64,9 +64,9 @@ Koder 自研任务内核、原生编排、权限检查与交付核验。Python�
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
-![Koder CLI 0.7.2 中文启动界面](docs/screenshots/cli-start-0.7.2-zh-dark.jpg)
+![Koder CLI 0.8.4 中文启动界面](docs/screenshots/cli-start-0.8.4-zh-dark.jpg)
 
-*0.7.2 已发布 macOS 包的启动界面，2026 年 11 月 2 日在隔离 PTY 中采集，由未修改的真实 ANSI 输出渲染；尚未配置模型。各终端的字体和间距可能不同。*
+*Koder CLI 0.8.4 的 macOS 启动界面，采集于 2026 年 11 月 3 日。图片由程序的真实终端输出渲染，尚未配置模型；各终端的字体和间距可能不同。*
 
 [安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.8.4.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
@@ -215,17 +215,17 @@ flowchart LR
 
 ---
 
-## 界面截图 · 0.7.2 参考
+## 界面截图 · 0.8.4
 
-以下图片来自已发布的 **0.7.2** macOS 包，供 0.8.4 整合版继续参考；不是 0.8.4 截图，也不代表已完成模型任务。
+以下图片来自已发布的 **0.8.4** macOS 包，分别展示启动、设置主菜单和第一课。切换 README 语言可查看对应的中英文界面。
 
 | 界面 | 图中内容 | 图片 |
 | --- | --- | --- |
-| 启动 | 折光体、版本、工作目录与常用命令 | [启动界面](docs/screenshots/cli-start-0.7.2-zh-dark.jpg) |
-| 设置 | 尚未配置模型时的主菜单 | [设置菜单](docs/screenshots/cli-setup-0.7.2-zh-dark.jpg) |
-| 课堂 | 第一课的终端选择步骤 | [第一课](docs/screenshots/cli-learn-0.7.2-zh-dark.jpg) |
+| 启动 | 折光体、版本、工作目录与常用命令 | [启动界面](docs/screenshots/cli-start-0.8.4-zh-dark.jpg) |
+| 设置 | 尚未配置模型时的主菜单 | [设置菜单](docs/screenshots/cli-setup-0.8.4-zh-dark.jpg) |
+| 课堂 | 第一课的终端选择步骤 | [第一课](docs/screenshots/cli-learn-0.8.4-zh-dark.jpg) |
 
-图片采集于 2026 年 11 月 2 日，由程序的真实终端输出渲染而成。采集方式与校验值见[截图说明](docs/screenshots/README.zh-CN.md)；安装和首个任务见[手把手上手](#手把手上手)。
+图片采集于 2026 年 11 月 3 日，由未修改的真实终端输出渲染而成。采集方式与校验值见[截图说明](docs/screenshots/README.zh-CN.md)；安装和首个任务见[手把手上手](#手把手上手)。
 
 ---
 
@@ -319,7 +319,7 @@ koder learn
 
 课中：`Enter` 继续，`b` 回退，`q` 离开。离线文本版：`koder learn --print --os mac --lang zh`（`--os` 也可为 `powershell` / `cmd` / `linux`；`--lang en` 为英文）。
 
-![Koder CLI 0.7.2 中文第一课](docs/screenshots/cli-learn-0.7.2-zh-dark.jpg)
+![Koder CLI 0.8.4 中文第一课](docs/screenshots/cli-learn-0.8.4-zh-dark.jpg)
 
 *第一课先让你选择使用的终端。本图停在选择步骤，阅读课程不需要调用模型。*
 
@@ -349,7 +349,7 @@ koder chat -w /absolute/path/to/existing-project
 
 聊天内：`/project create "Another Site" --kind website` 创建并选中；`/project open "/absolute/path"` 回到已有目录。同名冲突会被拒绝——**不会**合并文件。
 
-![Koder CLI 0.7.2 中文设置菜单](docs/screenshots/cli-setup-0.7.2-zh-dark.jpg)
+![Koder CLI 0.8.4 中文设置菜单](docs/screenshots/cli-setup-0.8.4-zh-dark.jpg)
 
 *尚未配置服务商时的设置主菜单。选择「模型」后填写服务商配置。*
 
@@ -569,7 +569,7 @@ koder update auto on
 落地后需要结构化发现时、大改动跟进前，或门禁必须区分干净解析与 `REVIEW_UNPARSED`（退出码 3）时。它**不能**替代首次批准前阅读 Diff。
 
 **手把手教程在哪？**\
-就在本页：[手把手上手](#手把手上手)（含 0.7.2 启动、设置和课堂参考图）。完整深度：[USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · `koder learn`。
+就在本页：[手把手上手](#手把手上手)（含 0.8.4 启动、设置和课堂图片）。完整深度：[USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · `koder learn`。
 
 ---
 

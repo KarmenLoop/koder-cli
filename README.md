@@ -64,9 +64,9 @@ Current release: **0.8.4** · Agreement: **[Koder-EULA-1.1](EULA.md)** · Instal
 
 > Upgrading from 0.4.4 or earlier: if an older updater rejects the larger package, run the current official installer once. Configuration and history are retained. [Installation and migration](docs/INSTALLATION.md).
 
-![Koder CLI 0.7.2 startup banner in English](docs/screenshots/cli-start-0.7.2-en-dark.jpg)
+![Koder CLI 0.8.4 startup banner in English](docs/screenshots/cli-start-0.8.4-en-dark.jpg)
 
-*0.7.2 startup banner from the published macOS package, captured in an isolated PTY on November 2, 2026 and rendered from unchanged ANSI output. No model is configured. Fonts and spacing vary by terminal.*
+*Koder CLI 0.8.4 on macOS, captured on November 3, 2026. Rendered from the program’s terminal output with no model configured; fonts and spacing vary by terminal.*
 
 [Installation](docs/INSTALLATION.md) · [English guide](docs/USER-GUIDE.en.md) · [Chinese guide](docs/USER-GUIDE.zh.md) · [Release notes](docs/RELEASE-0.8.4.md) · [Command reference](docs/COMMAND-REFERENCE.en.md)
 
@@ -217,19 +217,17 @@ flowchart LR
 
 ---
 
-## Screenshots · 0.7.2 reference
+## Screenshots · 0.8.4
 
-These macOS captures are from the published **0.7.2** package. They serve as references for the 0.8.4 consolidation; they are not 0.8.4 captures or proof of a completed model task.
-
-These images show the published macOS build: its startup banner, settings menu, and first lesson. The English and Chinese READMEs use matching captures in each language.
+The published **0.8.4** macOS build is shown below: startup, the Setup menu and the first lesson. Switch README languages to see the same screens in English or Chinese.
 
 | Screen | What is shown | Image |
 | --- | --- | --- |
-| Startup | Refractor, version, workspace, and command shortcuts | [Startup banner](docs/screenshots/cli-start-0.7.2-en-dark.jpg) |
-| Settings | Main menu before configuring a model | [Setup menu](docs/screenshots/cli-setup-0.7.2-en-dark.jpg) |
-| Classroom | First lesson at the operating-system choice | [Lesson 1](docs/screenshots/cli-learn-0.7.2-en-dark.jpg) |
+| Startup | Refractor, version, workspace, and command shortcuts | [Startup banner](docs/screenshots/cli-start-0.8.4-en-dark.jpg) |
+| Settings | Main menu before configuring a model | [Setup menu](docs/screenshots/cli-setup-0.8.4-en-dark.jpg) |
+| Classroom | First lesson at the operating-system choice | [Lesson 1](docs/screenshots/cli-learn-0.8.4-en-dark.jpg) |
 
-The images were rendered from real terminal output captured on November 2, 2026. See [capture details and checksums](docs/screenshots/README.md). The [guided walkthrough](#guided-walkthrough) covers installation and a first task.
+The images were rendered from unmodified terminal output captured on November 3, 2026. See [capture details and checksums](docs/screenshots/README.md). The [guided walkthrough](#guided-walkthrough) covers installation and a first task.
 
 ---
 
@@ -323,7 +321,7 @@ koder learn
 
 `Enter` continues a lesson, `b` goes back, `q` leaves. Offline text editions: `koder learn --print --os mac --lang en` (also `powershell` / `cmd` / `linux`; `--lang zh` for Chinese).
 
-![Koder CLI 0.7.2 first lesson in English](docs/screenshots/cli-learn-0.7.2-en-dark.jpg)
+![Koder CLI 0.8.4 first lesson in English](docs/screenshots/cli-learn-0.8.4-en-dark.jpg)
 
 *The first lesson asks which terminal you use. This capture stops at that choice; no model request is needed to read the lesson.*
 
@@ -353,7 +351,7 @@ koder chat -w /absolute/path/to/existing-project
 
 Inside chat: `/project create "Another Site" --kind website` creates and selects; `/project open "/absolute/path"` returns to an existing folder. Name collisions are rejected—files are not merged.
 
-![Koder CLI 0.7.2 setup menu in English](docs/screenshots/cli-setup-0.7.2-en-dark.jpg)
+![Koder CLI 0.8.4 setup menu in English](docs/screenshots/cli-setup-0.8.4-en-dark.jpg)
 
 *The main Setup menu before a provider is configured. Choose Model to enter your provider settings.*
 
@@ -603,7 +601,7 @@ New creation tasks default to **Koder Projects** under your home directory unles
 After apply when you want structured findings, before a larger follow-up, or when a gate must distinguish a clean parse from `REVIEW_UNPARSED` (exit 3). It is not a substitute for reading the diff before the first approve.
 
 **Where is the hand-holding tutorial?**  
-On this page: [Guided walkthrough](#guided-walkthrough) (with 0.7.2 reference images for startup, Setup and the classroom). Full depth: [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · [USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · `koder learn`.
+On this page: [Guided walkthrough](#guided-walkthrough) (with 0.8.4 images for startup, Setup and the classroom). Full depth: [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · [USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · `koder learn`.
 
 ---
 
