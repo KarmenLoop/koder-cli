@@ -12,9 +12,9 @@
 
 保留 0.5.0 的 [Awesome LLM Apps 工作流](AWESOME-LLM-APPS.zh.md)，保留 [SolidCraft 参数化 CAD](SOLIDCRAFT.zh.md)；原有[排队、快捷切模型与思考强度](SESSION-CONTROLS.zh.md)及 [CLI-Anything 应用 CLI](CLI-ANYTHING.zh.md)继续保留。
 
-# 从这里开始：Koder CLI 0.7.2
+# 从这里开始：Koder CLI 0.8.1
 
-本页带你使用 **0.7.2** 完成第一个任务。跑通后，可以继续做[网页采集](WEB-DATA.zh.md)或[两项独立 Worker 任务](SUPER-AGENT-ARCHITECTURE.zh.md)。先选一个文件数量少、方便亲自核对的小项目。
+本页带你使用 **0.8.1** 完成第一个任务。跑通后，可以继续做[网页采集](WEB-DATA.zh.md)或[两项独立 Worker 任务](SUPER-AGENT-ARCHITECTURE.zh.md)。先选一个文件数量少、方便亲自核对的小项目。
 
 ## 安装完成后，怎么进入 Koder？
 
@@ -44,7 +44,7 @@ koder update
 koder --version
 ```
 
-应显示 `koder 0.7.2`。0.4.4 或更早的更新器若提示清单无效，用 CLI 官网当前安装器覆盖升级，不必卸载或删除配置。各终端安装命令、许可确认和恢复步骤见[安装说明](INSTALLATION.md)。若更新后仍启动旧版，Windows 用 `where.exe koder`、macOS/Ubuntu 用 `type -a koder` 检查 PATH 中是否有多个入口。
+应显示 `koder 0.8.1`。0.4.4 或更早的更新器若提示清单无效，用 CLI 官网当前安装器覆盖升级，不必卸载或删除配置。各终端安装命令、许可确认和恢复步骤见[安装说明](INSTALLATION.md)。若更新后仍启动旧版，Windows 用 `where.exe koder`、macOS/Ubuntu 用 `type -a koder` 检查 PATH 中是否有多个入口。
 
 ## 2. 配模型，完成第一个任务
 

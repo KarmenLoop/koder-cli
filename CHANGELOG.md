@@ -1,3 +1,12 @@
+## 0.8.1 — 2026-11-02
+
+- Consolidate the task runtime, browser/data workflows, managed components and context controls already shipped in 0.7.2.
+- Align current installers, guides and classroom exports with the 0.8.1 version.
+- Document Koder's own private task kernel and the provenance of third-party runtimes, research references and Skills.
+- Preserve the 79 unique Skill registrations, existing permissions, cost controls, licenses and historical evidence.
+
+[Release notes](docs/RELEASE-0.8.1.md). The website delivery record confirms 403 public checks, full size/SHA-256 verification of all 32 originals, 290 current guides and both generations of default update checks. The model task and browser matrix remain 0.7.2 evidence; this version does not claim a new benchmark score. The 0.7.2 screenshots retain their original labels.
+
 ## 0.7.2 — 2026-11-02
 
 - Extract XPath values with bundled Python/Scrapling; recover eligible same-origin selectors from verified structural fingerprints.

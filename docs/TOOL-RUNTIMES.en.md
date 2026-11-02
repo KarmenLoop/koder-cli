@@ -1,5 +1,7 @@
 # Managed tool runtimes
 
+Koder CLI 0.8.1 keeps the existing managed engines and 0.7.2 platform limits. Runtime installation still needs the documented grants and prerequisites; it does not add a new Skill or replace a system package manager.
+
 [English](TOOL-RUNTIMES.en.md) · [简体中文](TOOL-RUNTIMES.zh.md)
 
 This guide applies to builds with `koder skills runtime media|playwright|earshot|codegraph`. Koder installs optional engines in its own user directory. It does not replace system Python, install global npm packages, duplicate Skills or enable MCP connections during installation.

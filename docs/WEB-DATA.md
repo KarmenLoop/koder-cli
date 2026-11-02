@@ -1,5 +1,7 @@
 # Web data collection
 
+This guide applies to the **0.8.1**. The collection implementation is carried forward from 0.7.2; the recorded model and browser checks retain that original version.
+
 [English](WEB-DATA.md) · [简体中文](WEB-DATA.zh.md)
 
 Koder 0.7.2 adds structural selector recovery and managed browser rendering to the existing collector. Native CSS/JSON extraction stays in Node. XPath and adaptive extraction use the bundled Python/Scrapling parser. Jobs, permissions and exports remain in Koder; there is one built-in Skill and one checkpoint store.

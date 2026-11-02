@@ -2,7 +2,7 @@
 
 [English](SUPER-AGENT-ARCHITECTURE.en.md) · [简体中文](SUPER-AGENT-ARCHITECTURE.zh.md)
 
-Koder CLI 0.7.2 includes worker coordination in its existing task engine. A parent task can split independent work, send a follow-up to the same worker, and continue when a worker saves its result. You do not need to install another agent server or change model providers.
+Koder CLI 0.8.1 retains worker coordination in its existing task engine. A parent task can split independent work, send a follow-up to the same worker, and continue when a worker saves its result. You do not need to install another agent server or change model providers.
 
 ## Before you start
 

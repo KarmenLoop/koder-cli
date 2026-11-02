@@ -1,5 +1,7 @@
 # 工具运行组件：安装、连接与实际验证
 
+Koder CLI 0.8.1 沿用已有托管引擎及 0.7.2 的平台限制。安装仍需文档列明的授权与前置条件，不新增重复 Skill，也不替换系统包管理器。
+
 [English](TOOL-RUNTIMES.en.md) · [简体中文](TOOL-RUNTIMES.zh.md)
 
 本指南对应含 `koder skills runtime media|playwright|earshot|codegraph` 的构建。它补充 FFmpeg、ffprobe、Playwright 启动器以及 EARSHOT、CodeGraphContext 的运行依赖。方法 Skill、运行组件、已启用连接和业务成功是四种不同状态。

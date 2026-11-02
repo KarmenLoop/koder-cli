@@ -12,9 +12,9 @@ See [account sign-in](ACCOUNT-LOGIN.md) for the 0.6.3 first-message and saved-se
 
 Retained since 0.5.0: [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
 
-# Start with Koder CLI 0.7.2
+# Start with Koder CLI 0.8.1
 
-This walkthrough targets **0.7.2**. Once your first task works, try [page collection](WEB-DATA.md) or [two independent worker tasks](SUPER-AGENT-ARCHITECTURE.en.md). Start with a small project whose files you can inspect yourself.
+This walkthrough targets **0.8.1**. Once your first task works, try [page collection](WEB-DATA.md) or [two independent worker tasks](SUPER-AGENT-ARCHITECTURE.en.md). Start with a small project whose files you can inspect yourself.
 
 ## Open Koder after installation
 
@@ -44,7 +44,7 @@ koder update
 koder --version
 ```
 
-Expect `koder 0.7.2`. If an updater from 0.4.4 or earlier rejects the manifest, run the current installer from the CLI website in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
+Expect `koder 0.8.1`. If an updater from 0.4.4 or earlier rejects the manifest, run the current installer from the CLI website in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
 
 ## 2. Configure a model and try a task
 
