@@ -32,7 +32,11 @@ jobs:
           if ((Get-FileHash $installer -Algorithm SHA256).Hash.ToLowerInvariant() -ne '1014ed7fa47d00ba237f5beb71628acc7f49bcfbf8c3150d1975d4536b09581b') { throw 'INSTALLER_HASH_MISMATCH' }
           # Exercise the shipping installer's Unicode-safe extractor; Windows tar
           # does not accept every long filename in the full package.
-          $match = [regex]::Match([IO.File]::ReadAllText($installer), '(?ms)^\$ExtractJs = @''\r?\n(.*?)\r?\n''@')
+          $installerText = [IO.File]::ReadAllText($installer)
+          $encoded = ([regex]::Matches($installerText, '(?m)^''([A-Za-z0-9+/=]+)''(?: \+)?\r?$') | ForEach-Object { $_.Groups[1].Value }) -join ''
+          if (-not $encoded) { throw 'INSTALLER_WRAPPER_INVALID' }
+          $installerText = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($encoded))
+          $match = [regex]::Match($installerText, '(?ms)^\$ExtractJs = @''\r?\n(.*?)\r?\n''@')
           if (-not $match.Success) { throw 'INSTALLER_EXTRACTOR_MISSING' }
           $extract = Join-Path $env:RUNNER_TEMP 'koder-extract.cjs'
           [IO.File]::WriteAllText($extract, $match.Groups[1].Value)
