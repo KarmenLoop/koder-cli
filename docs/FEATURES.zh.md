@@ -1,4 +1,14 @@
-# Koder CLI 0.6.3：功能与完整教程导航
+# Koder CLI 0.7.2：功能与完整教程导航
+
+## 0.7.2 包含的工作流程
+
+- [Web Data](WEB-DATA.zh.md)：内置 Python/Scrapling 完成 XPath 提取，同源选择器恢复与独立 Playwright 页面渲染；缺失或歧义结果保留为部分完成。
+- [托管运行时](TOOL-RUNTIMES.zh.md)：准备和检查 FFmpeg/ffprobe、Playwright、EARSHOT 与 CodeGraph；外部模型和平台依赖仍需各自配置。
+- [Worker 协作](SUPER-AGENT-ARCHITECTURE.zh.md)：复用请求、给原 Worker 补充要求，由主任务核对已保存的子任务结果。
+- [Headroom](HEADROOM.zh.md)：原生上下文表示，在同一会话按需读回原始工具结果。
+- [账号登录](ACCOUNT-LOGIN.zh.md)：包含 0.7.1 的等待与输入修复，以及聊天内直接登录。
+
+[发行核对与未验范围](RELEASE-0.7.2.zh.md#发行核对与未验范围) · [当前中英文截图](screenshots/README.zh-CN.md)
 
 从[安装教程](INSTALLATION.md)开始。安装完成不等于已经进入聊天：先运行 `koder login` 登录，再用 `koder setup` 配置模型，最后运行 `koder`，看到 `koder >` 才输入任务。第一次使用可照[中文完整指南](USER-GUIDE.zh.md)逐步操作。
 
@@ -39,7 +49,7 @@ Windows、macOS、Ubuntu 使用同一核心；macOS/Linux 包省去其他平台�
 
 本机代码自修复：在 Setup 开启“本机代码自修复”或运行 `koder self-repair on`，然后在本地任务描述可重现的 Koder 错误。[手把手教程](SELF-REPAIR.zh.md) 说明 7 个支持模块、用例验证、下次启动生效及回退；执行、费用、权限和邮箱控制器仍通过正式更新修复。
 
-## Local failure reports (0.6.2)
+## 本机错误报告（自 0.6.2 起）
 
 Failed or unverified tasks provide a report ID, specific codes and execution state. Use `/error copy` in chat or `koder logs report --json` in a terminal. Reports stay local, exclude content and credentials, and honor the Setup telemetry switch. [Guide](ERROR-REPORTS.md) · [中文教程](ERROR-REPORTS.zh.md).
 

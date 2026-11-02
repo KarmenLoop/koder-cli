@@ -2,6 +2,8 @@ See [account sign-in](ACCOUNT-LOGIN.md) for the 0.6.3 first-message and saved-se
 
 # Install Koder CLI, configure a model, and start working
 
+**Install Koder CLI 0.7.2** from the [official download page](https://kodermodule.com/en/cli-download.html). After a first task, use the [runtime guide](TOOL-RUNTIMES.en.md) to prepare optional browser, media and indexing engines. [Release checks](RELEASE-0.7.2.md#release-checks-and-remaining-limits) list the platform work still unverified.
+
 **Before a task:** check `koder account status`. Run `koder login --open` only when sign-in is required; a valid refresh grant is renewed before execution. The [account guide](ACCOUNT-LOGIN.md) separates login, device confirmation and session ownership. Model keys and computer permissions remain separate.
 
 [Ubuntu 26.04.1 Desktop amd64: 中文手把手教程](UBUNTU-26.04.zh.md) · [English](UBUNTU-26.04.md)
@@ -12,7 +14,7 @@ See [account sign-in](ACCOUNT-LOGIN.md) for the 0.6.3 first-message and saved-se
 
 Official team: **KARMENLOOP Official Team**, Shanghai, China. [Website](https://karmenloop.com) · [Email](mailto:info@karmenloop.com)
 
-This guide describes **0.6.3**. The CLI website provides installers, packages and checksums; GitHub keeps tutorials and release notes. The complete [English guide](USER-GUIDE.en.md) and [Chinese guide](USER-GUIDE.zh.md) describe this release and its remaining acceptance limits. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
+This guide describes **0.7.2**. The CLI website provides installers, packages and checksums; GitHub keeps tutorials and release notes. The complete [English guide](USER-GUIDE.en.md) and [Chinese guide](USER-GUIDE.zh.md) describe this release and its remaining acceptance limits. Personal, noncommercial local use is free. Commercial use and organizational deployment require separate written authorization. Bring your own provider API key or run a supported local model; providers may charge for requests. The new Koder-owned application source is proprietary. Third-party components retain their own licenses.
 
 ## 1. Choose the correct terminal
 
@@ -82,7 +84,7 @@ koder version
 koder setup
 ```
 
-`koder version` should show `0.6.3` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
+`koder version` should show `0.7.2` for this release. Windows installs the application under `%LOCALAPPDATA%\koder-cli` and keeps configuration separately under `%USERPROFILE%\.koder-cli`. macOS/Linux use `~/.koder-cli` and a launcher in `~/.local/bin`. A separately configured memory directory is retained.
 
 If Windows says `koder` is not recognized, reopen the terminal first. You can inspect the installed launcher directly:
 
@@ -237,7 +239,7 @@ Use `koder skills list` and `/skill` for portable methods. Add input while the a
 
 ## Retained residency and mail inquiries
 
-After installation, verify `koder --version` reports 0.6.3, complete `koder login`, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
+After installation, verify `koder --version` reports 0.7.2, complete `koder login`, then configure a model with `koder setup`. Optionally run `koder activate`; inspect with `koder status` and disable with `koder deactivate`. Residency does not grant tool permissions. Mail, calendar and browser history are off by default. Setup controls quiet hours, reminder limits and visible sources.
 
 Bind mail in Setup using masked authorization-code input. Separately enable `/mail model on` and `/mail inquire on` with their consent phrases. Related incoming mail can offer choices; a choice creates a draft, and sending still requires final preview and confirmation. Background mail checks also require mail visibility in resident settings. Advertisements and verification codes are excluded from inquiries.
 
@@ -255,7 +257,7 @@ After updating, use koder skills doctor builtin:fullstack-web-delivery. Follow t
 
 After updating, run koder pageindex status and koder skills doctor builtin:pageindex. Follow the [document guide](PAGEINDEX.en.md) for real local indexing, source readback and citation checks. No Python installation is required for text PDFs.
 
-## Verify 0.5.1
+## Verify context and compaction controls
 
 Run `koder --version`, `koder tools audit --json`, `koder ocr status --json` and `koder subagents roles --json`. The runtime includes local OCR data; no Python or cloud OCR account is required. Direct OCR stays local; Agent tool text uses the configured provider. [Execution guide](FRAMEWORK-0.5.en.md).
 
@@ -264,6 +266,6 @@ Run `koder --version`, `koder tools audit --json`, `koder ocr status --json` and
 Koder 0.6.3 shows a local diagnostic card with the error code and a report ID. Use `/error copy` in chat, or `koder logs report --copy` in your system terminal, to copy a redacted report for support. Reports are local and follow the Setup telemetry switch. See the [English guide](ERROR-REPORTS.md) or [Chinese walkthrough](ERROR-REPORTS.zh.md).
 
 
-## 0.6.3 upgrade check
+## Upgrade check
 
-Run `koder --version` and confirm `koder 0.6.3`, then run `koder`. Use `koder setup` for command duration, context and interface settings. `koder activate` is optional and does not open chat or grant computer permissions. See [release notes](RELEASE-0.6.3.md) for known verification limits.
+Run `koder --version` and confirm `koder 0.7.2`, then run `koder`. Use `koder setup` for command duration, context and interface settings. `koder activate` is optional and does not open chat or grant computer permissions. See [release notes](RELEASE-0.7.2.md) for known verification limits.

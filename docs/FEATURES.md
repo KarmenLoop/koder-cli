@@ -1,4 +1,14 @@
-# Koder CLI 0.6.3: features and tutorials
+# Koder CLI 0.7.2: features and tutorials
+
+## Included in 0.7.2
+
+- [Web Data](WEB-DATA.md): XPath extraction with bundled Python/Scrapling, same-origin selector recovery and isolated Playwright rendering. Missing or ambiguous matches remain partial.
+- [Managed runtimes](TOOL-RUNTIMES.en.md): prepare and inspect FFmpeg/ffprobe, Playwright, EARSHOT and CodeGraph. External models and platform dependencies still need their own setup.
+- [Worker coordination](SUPER-AGENT-ARCHITECTURE.en.md): reuse requests, supplement the existing worker and verify saved child results in the parent task.
+- [Headroom](HEADROOM.en.md): native context representations with same-thread readback of the original tool result.
+- [Account sign-in](ACCOUNT-LOGIN.md): includes the 0.7.1 deadline/input fixes and direct login requests in chat.
+
+[Release checks and remaining limits](RELEASE-0.7.2.md#release-checks-and-remaining-limits) · [Current English and Chinese screenshots](screenshots/README.md)
 
 Install using the [platform guide](INSTALLATION.md), sign in with `koder login`, configure a model with `koder setup`, then run `koder`. Installation and background activation do not open chat automatically. Enter tasks only at the `koder >` prompt.
 

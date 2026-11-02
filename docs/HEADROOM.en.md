@@ -1,53 +1,40 @@
 # Headroom context optimization
 
-Koder CLI 0.4.5 integrates the Headroom Skill with its existing task loop and enables
-it by default. Use koder, koder chat, koder ask or koder run normally. Resident-agent
-tasks use the same Core. There is no separate proxy, model, account or Python requirement.
+[English](HEADROOM.en.md) · [简体中文](HEADROOM.zh.md)
 
-## Behavior
-Homogeneous scalar JSON tables can use columns and values instead of repeating keys.
-All rows, ordering, numeric lexemes, duplicate keys and string contents are retained.
-Other valid JSON can remove formatting whitespace outside strings. Exact consecutive
-shell or search lines can use a repeat count with the original line endings.
+Koder enables `builtin:headroom` in its existing task loop. Chat, ask, run, and resident tasks use the same native integration. No proxy, extra model, Python process, or separate account is required.
 
-Each representation is checked for reversibility. Including its header, it must save
-at least 15% and 256 UTF-8 bytes. The whole request must also cover the estimated
-byte overhead of its guidance and retrieval-tool definition. Otherwise it passes
-through unchanged. Guidance and retrieval are exposed only when a projection is used. Defaults process tool results between 1,200 and
-262,144 characters, with a 2,097,152-character scan cap per request. Small, invalid,
-oversized or marginal inputs pass through unchanged.
+## Representations and acceptance
 
-When a projection is used, output guidance avoids unnecessary repetition. Explicit requests for complete code,
-full documents, detailed explanations or a word count take priority. Headroom does
-not increase the model's context window or guarantee lower bills or better answers.
+- Flat and nested homogeneous JSON tables share column names and retain every row, envelope, key order, duplicate key, numeric spelling, and string escape.
+- Other JSON removes whitespace outside strings without converting numbers through JavaScript serialization.
+- Consecutive repeated shell/search lines use run counts. Interleaved repeated lines use an exact-line dictionary and a complete order list. CRLF and partial final lines survive.
 
-## Evidence and scope
-Original results remain in the existing thread. The agent can use headroom_read with
-the original toolCallId, SHA-256, offset and limit to read exact text from that thread.
-It cannot read another thread, open files, contact a server or replay a command.
-Authorization-code results cannot be read through this tool.
+Each candidate is independently decoded and checked. JSON lexical values round-trip; original formatting remains available through retrieval. Logs round-trip exactly. A candidate must save at least 15% and 256 UTF-8 bytes, including its header, and lower the shared native token estimate. Request-level savings must cover guidance, the retrieval schema, and a margin. Otherwise, the original passes through.
 
-Source-file reads, user/assistant/system messages, signed provider data, failures
-and uncertain results are not transformed. Successful shell output can be projected;
-its exit status and completion receipt remain unchanged. Permissions, cancellation,
-UNKNOWN reconciliation and BYOK routing remain authoritative.
+Defaults cover 1,200–262,144 characters per result and at most 2,097,152 eligible characters per request, newest first. Oversized old results do not consume that allowance. Invalid, unsupported, protected, overly complex, and low-gain content stays unchanged. The message order and stored history do not change.
 
-Existing JIT and context-budget policies can still excerpt oversized history.
-Those excerpts are separate from Headroom's reversible stage. Retrieve the relevant
-original text before treating an excerpt as complete evidence. No second memory
-store or shared .headroom-cache is created.
+## Retrieval and safety
 
-## Relationship to history compaction
+A `HEADROOM_V1` header contains the original call ID, SHA-256, format, and character count. `headroom_read` retrieves original text from that same thread using `toolCallId`, `sha256`, `offset`, and `limit` (1–12000 characters). Optional `query` is a case-sensitive literal, 1–256 characters; it does not execute a regex. Search scans at most 2 Mi characters per call, overlaps boundaries, and returns a continuation offset when needed.
 
-Koder CLI 0.5.1 adds separate history-compaction settings in Setup → Context and output and `/context`. Defaults are on, an 80% trigger, a 60% target and four preferred recent turns, subject to the model window. History compaction may excerpt older content for a request while retaining the original history on disk. Headroom provides reversible tool-result representations. `/context off` leaves the Headroom setting unchanged; disabling Headroom leaves the history-compaction setting unchanged.
+This tool does not access files, another session, the network, or the original command. Missing originals produce `HEADROOM_RESULT_UNAVAILABLE`; the runtime does not replay an action to manufacture old evidence. Credential results and `request_login` are excluded.
 
-With history compaction off, necessary protocol restoration still handles missing private model state. Input that cannot fit the hard window produces an error and retains saved history. See [Context limits and automatic compaction](CONTEXT-CONTROLS.en.md) for setup steps, model limits, last-request estimates and recovery.
+User, assistant, and system text, file/Skill reads, writing sources, signed provider blocks, unfinished call groups, errors, and unknown receipts remain intact. Successful shell output may change representation while retaining its receipt. Ordinary MiniMax reasoning is preserved without incorrectly treating it as a signed block.
 
-## Settings
-Open Setup -> Skills -> Headroom context optimization. Toggle automatic optimization
-and redundant-output guidance separately. Disable-all includes Headroom and retains
-its files. Changes apply when the session is rebuilt; unrelated windows are not
-interrupted. Restart a session after changing its configuration from another terminal.
+Each session has a separate derived-result cache: at most 128 entries and 1 MiB of accounted bytes, not a process RSS limit. It adds no raw-result store or disk database. Content hashes invalidate changed results; disabling clears the cache. This is not the provider's prompt cache.
+
+## Context budgets and long tasks
+
+Headroom runs before the existing context-budget projection. Permissions, cancellation, fee budgets, JIT, and receipt reconciliation remain authoritative. History compaction is configured separately in Setup → Context and output or `/context`; its default trigger is 80%, target 60%, with four preferred recent turns, subject to the actual window. Neither setting silently disables the other. See [Context controls](CONTEXT-CONTROLS.en.md).
+
+When a representation or raw page cannot fit, the budget layer keeps a valid `not-loaded` reference and `readWith` address, rather than truncating the encoding. The agent must reread that same offset with a smaller limit. Unread pages do not advertise a next-page cursor. Skill pagination follows the same rule.
+
+This does not enlarge a model's physical window, guarantee unlimited tasks, or ensure that a model will retrieve every relevant detail.
+
+## Controls
+
+Setup → Skills → Headroom controls automatic projection and redundant-output guidance separately. Full code, documents, evidence, explanations, and requested word counts take priority over output shaping. Disable-all includes this Skill. Restart an existing session after changing settings in another terminal.
 
 ```sh
 koder skills show builtin:headroom
@@ -56,35 +43,34 @@ koder skills disable builtin:headroom
 koder skills enable builtin:headroom
 ```
 
-The same actions are available through /skills in chat. Merge these optional fields
-into the existing config.json; do not replace other settings:
+Use `/skills` for the same actions in chat. Merge this into the existing configuration without replacing unrelated settings:
+
 ```json
 {"headroom":{"enabled":true,"shapeOutput":true,"minChars":1200,"maxChars":262144}}
 ```
 
+`minChars` accepts 256–65536. `maxChars` must be at least minChars and at most 1048576.
+
 ## Diagnostics
-The final result from koder run --json includes headroom. enabled is the configured
-state; transformed counts changed results in this model request. beforeBytes and
-afterBytes measure those results in UTF-8, including the new representation header.
-overheadBytes estimates the additional guidance and tool-definition bytes; it is not a tokenizer.
-metrics contains call IDs, hashes, formats and byte counts, never raw tool text.
 
-These are per-request projection figures, not cumulative savings, billed tokens,
-whole-request differences or provider cache hits. transformed: 0 is normal when
-the current results do not benefit from compression.
+The final `koder run --json` result includes the last request's `headroom` statistics:
 
-## Source and limits
-The pinned [Headroom Skill](https://github.com/roman-ryzenadvanced/headroom-skill)
-revision is 118466d7737ebc42806c331e44bd251b5222d59b, under Apache-2.0.
-The package retains upstream reference files, optional Python scripts, LICENSE and
-NOTICE, alongside a separate Koder adapter. Upstream sampling, code skeletonization,
-history deletion and standalone caching are not Koder defaults. Reference scripts
-are never launched automatically.
+- `transformed`: accepted result count; zero is normal.
+- `beforeBytes`, `afterBytes`, `overheadBytes`: changed payload bytes, headers, and estimated added overhead.
+- `beforeTokens`, `afterTokens`, `overheadTokens`, `estimatedNetTokens`: native estimates, marked `tokenBasis: estimate-not-billed`.
+- `scannedChars`, `scanLimitChars`, `skipped`: bounded processing and skip reasons.
+- `cache`: local derived-cache hits, entries, and accounted byte limit.
+- `metrics`: call IDs, hashes, formats, and counts; no raw output.
 
-Local acceptance covers transformations, negative cases, settings, Setup input,
-CLI tool execution, retrieval, thread isolation and local IPC with synthetic data
-and scripted models. Real paid-model cost/quality, native Windows cold installation,
-GUI, login/reboot and MCP desktop acceptance retain their separate NOT_RUN status.
+These figures are not cumulative billed savings, a quality score, total request differences, or provider cache hits. Retrieval adds input cost. Provider usage and billing remain separate.
 
-This release is available from the website and GitHub. Two 8K-context regressions also reproduce on the unchanged
-0.4.3 baseline; their failures and assertions are retained in the acceptance record.
+## Sources
+
+The existing portable [Headroom Skill](https://github.com/roman-ryzenadvanced/headroom-skill/tree/118466d7737ebc42806c331e44bd251b5222d59b) remains pinned under Apache-2.0, with its reference scripts, LICENSE, and NOTICE unchanged. Scripts never run automatically.
+
+The broader [Headroom project](https://github.com/headroomlabs-ai/headroom/tree/fc1ba891bff2d1e0cb53c4ffd4037f5066988c8e) was reviewed at `fc1ba891bff2d1e0cb53c4ffd4037f5066988c8e`, also under Apache-2.0. Koder implements bounded lexical codecs, retrieval, cache, and budget integration in its existing Node kernel. It does not bundle the upstream proxy, Python/Rust engine, ML weights, or another Skill.
+
+Lossy selection, code skeletonization, ML compression, and proactive cross-call expansion are not Koder defaults. Current upstream architecture supersedes older descriptions of history deletion and cross-user TOIN. Upstream benchmark claims are not Koder results.
+
+Local tests cover transformations, settings, CLI/IPC, isolation, search boundaries, protected protocol groups, and 8K pagination. A synthetic real-model retrieval check is separate from whole-task quality, billing, and native Windows/Ubuntu acceptance. Local source and package checks do not establish a published release; use the CLI website's official manifest for installation.
+

@@ -1337,3 +1337,15 @@ koder diagnostics status --json
 ```
 
 [命令教学](COMMAND-LEARNING.zh.md) · [本机诊断与服务状态](DIAGNOSTICS.zh.md)。`pending` 仅表示本地排队，生产云上传尚未配置。
+
+## 0.7.2 Web Data 与托管运行时
+
+```sh
+koder web-data test --json
+koder skills runtime list
+koder skills runtime playwright status
+koder skills runtime playwright install
+koder skills runtime playwright browser
+```
+
+安装与浏览器准备可能下载资源，需遵守原有网络及 Skill 更新审批；`--yes` 不会绕过权限。页面渲染另需浏览器授权。[Web Data](WEB-DATA.zh.md)说明采集与已保存任务恢复，[运行时准备](TOOL-RUNTIMES.zh.md)说明平台前置条件，[Worker 协作](SUPER-AGENT-ARCHITECTURE.zh.md)说明 `/subagents status` 与取消。沿用原能力，不新增重复 Skill。

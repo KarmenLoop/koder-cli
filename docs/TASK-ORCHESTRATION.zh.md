@@ -201,7 +201,7 @@ Setup → 技能 → 任务 Harness 提供「可选模型轮次上限」、「�
 
 隔离任务 `CK-20261026-cli-task-steps` 的 `evidence/subagent-regression-final-27.tap` 记录 27/27 通过：实际 runtime 的 180/181 边界、收集、取消、归属、分页、根任务隔离、模型选择、UNKNOWN 保持阻断、父工具范围，以及真实 Core 的共享金额账。180 个子任务使用受控执行 port；费用测试使用合成 provider，没有 180 个付费服务商会话或真实多人测试。
 
-`evidence/subagent-budget-integration.log` 记录 11/11，覆盖 CLI 长任务、显式轮次上限和金额预算回归；`evidence/todo-cli-regression.log` 记录 10/10，包含 100 项 Todo。源码中的 [self-fetch 回归](../test/self-fetch.test.mjs)使用自有仓库响应、原工具与隔离目录，不代表联网安装任意第三方包已通过。早期失败及取消日志保留，不用后续局部通过覆盖整套验收状态。
+`evidence/subagent-budget-integration.log` 记录 11/11，覆盖 CLI 长任务、显式轮次上限和金额预算回归；`evidence/todo-cli-regression.log` 记录 10/10，包含 100 项 Todo。源码中的 self-fetch 私有回归使用自有仓库响应、原工具与隔离目录，不代表联网安装任意第三方包已通过。早期失败及取消日志保留，不用后续局部通过覆盖整套验收状态。
 
 后续 `evidence/orchestration-regression-v1.log` 记录一次综合回归 144/144 通过、0 失败、0 取消。这是该次隔离源码回归的结果；新增边界复查和发布验收分别记录，不由这个数字推断。
 
@@ -223,3 +223,7 @@ Windows 原生终端、macOS 原生交互、真实模型自主规划质量、生
 ## 0.4.21 真实调用复核
 
 保留本页既有契约。仓库限定搜索修复、180 个真实子 Core 文件读取、双模型/强度 HTTP 调用及共享预算记录，见[逐步练习](SELF-FETCH-AND-SUBAGENTS.zh.md)和[分层证据](ORCHESTRATION-ACCEPTANCE.md)。模型决策为测试夹具，真实付费模型自主性未验。
+
+## 0.7.2 主任务与 Worker 协作
+
+稳定请求 ID 避免重复创建 Worker；补充要求发给原 Worker，保存的结果事件让主任务继续，不为单纯轮询反复调用模型。主任务仍需读回 Worker 文件并核对结果，原有费用、并发、取消与权限限制继续有效。[协作教程](SUPER-AGENT-ARCHITECTURE.zh.md)包含小型练习、恢复限制和研究参考。

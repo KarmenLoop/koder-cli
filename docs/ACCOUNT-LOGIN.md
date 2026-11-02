@@ -2,7 +2,7 @@
 
 [English](ACCOUNT-LOGIN.md) · [简体中文](ACCOUNT-LOGIN.zh.md)
 
-Koder CLI 0.6.3 requires a KARMEN account before running the first task. Existing installations without a CLI account session must sign in once after upgrading. Account login is separate from model API keys, mailbox credentials and computer permissions. It does not enable cloud log uploads.
+Koder CLI 0.7.2 requires a KARMEN account before running the first task. Existing installations without a CLI account session must sign in once after upgrading. Account login is separate from model API keys, mailbox credentials and computer permissions. It does not enable cloud log uploads.
 
 ## From installation to your first task
 
@@ -59,3 +59,11 @@ The browser option still opens the official device-authorization page. If the we
 ## First-message MEMORY_BUSY
 
 `MEMORY_BUSY` means another task owns the selected session. It is separate from account login and available RAM. Version 0.6.3 isolates implicit default sessions across foreground and resident processes, including an older host still running after an update. Explicitly named sessions retain their live ownership: wait for that task or choose another session name. Keep saved history and live locks intact.
+
+## Login changes included in 0.7.2
+
+Version 0.7.1 fixed sign-in being cut short by the supervisor's 15-second startup check and focus/navigation input being mistaken for Escape. Update to 0.7.2, keep the original terminal open, and confirm a new device authorization. An old cancelled page cannot approve a new transaction. Escape and Ctrl+C still cancel.
+
+Exact chat requests such as `login` or `sign in` open account authorization without calling a model; `/login` retains the browser/QR picker. During a task, a login request queues until the task finishes. After authorization, Koder asks the OS to return to the original terminal. If focus is blocked, switch back manually; the completed login remains valid. No focus helper is installed and no additional OS permission is requested.
+
+Failures report a safe account stage, HTTP status and available gateway metadata. They exclude passwords, tokens, authorization state and login URLs. `LOGIN_BROWSER_OPEN_FAILED` leaves the displayed link usable while polling continues. A stored account status is not proof of live server access or successful human sign-in on every OS.

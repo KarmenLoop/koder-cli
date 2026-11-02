@@ -1337,3 +1337,15 @@ koder diagnostics status --json
 ```
 
 [Command lessons](COMMAND-LEARNING.en.md) · [Local diagnostics and service readiness](DIAGNOSTICS.en.md). `pending` is local queue state; production upload is not configured.
+
+## Web Data and managed runtimes in 0.7.2
+
+```sh
+koder web-data test --json
+koder skills runtime list
+koder skills runtime playwright status
+koder skills runtime playwright install
+koder skills runtime playwright browser
+```
+
+Installation and browser preparation can download assets and require the existing network and Skill-update approvals. `--yes` does not bypass permission checks. Browser rendering has a separate browser grant. Follow [Web Data](WEB-DATA.md) for collection and saved-job recovery, [runtime setup](TOOL-RUNTIMES.en.md) for platform prerequisites, and [worker coordination](SUPER-AGENT-ARCHITECTURE.en.md) for `/subagents status` and cancellation. These commands use the existing capabilities; they do not register duplicate Skills.
