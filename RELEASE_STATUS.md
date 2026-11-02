@@ -1,4 +1,14 @@
-# Current website release: 0.8.1
+# Current website release: 0.8.4
+
+Koder CLI 0.8.4 is published through the [official CLI website](https://kodermodule.com/en/cli-download.html). [English release notes](docs/RELEASE-0.8.4.md) · [中文说明](docs/RELEASE-0.8.4.zh.md).
+
+The formal activation record confirms the new production release. Product records verify 18 targeted HTTPS checks, the exact stable feed, all 32 original public file sizes/hashes (1,111,714,572 bytes), Linux resume from byte 1,048,576 and both default official update checks. The old 0.8.1 client finds 0.8.4; the new client reports current. No update installation was performed by those checks.
+
+The exact 0.8.4 Windows Server 2022 VM run passed seven CurrentUser DPAPI/storage and synthetic-account cases, including Unicode paths, fresh-process readback, old ciphertext, refresh/logout, retry and doctor. This does not certify human production sign-in or Windows 10/11/Ubuntu GUI. The website owner's broader PUBLIC413 remains pending its separate final receipt.
+
+Build evidence stays separate: 198 account passes, two conditional local-key skips, and 23 packaged memory-kernel passes. An eight-operation isolated memory tutorial also verified fact readback/correction/forgetting and a retained source audit; it used structured output and no model or real account. No combined score is inferred. Native memory changed the private kernel; 79 Skills, licenses and attribution remain in place. Images remain genuine 0.7.2 references. No GitHub binary Release or private kernel development source is added.
+
+## Historical website release: 0.8.1
 
 Koder CLI 0.8.1 is published on the [official CLI website](https://kodermodule.com/en/cli-download.html). The [English release notes](docs/RELEASE-0.8.1.md) and [中文说明](docs/RELEASE-0.8.1.zh.md) describe this consolidation milestone and distinguish Koder's own private task kernel from attributed third-party components.
 

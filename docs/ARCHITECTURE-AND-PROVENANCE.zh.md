@@ -8,6 +8,7 @@ Koder 自研任务内核把用户意图、目标计划、模型请求、权限�
 | --- | --- | --- |
 | 任务协作 | 稳定子任务请求、追加消息、结果唤醒和父任务工件核验 | 参考包括 DeepSeek dsh-superagent-prototype 在内的 Router–Worker 思路，未替换为上游执行器 |
 | 上下文 | 预算投影、工具结果编码、受保护回执和原链路检索 | Headroom 是已署名的架构参考，不要求部署其上游代理服务 |
+| 原生记忆 | 原话来源、范围召回、重复合并、更正/遗忘保护与既有任务检查点 | 参考 DeerFlow 机制，用原生 JavaScript 接入 Koder 存储；未内嵌 DeerMem，也未替换执行器，见[实现边界](DEERFLOW-MEMORY.zh.md) |
 | Web Data | 权限与来源检查、结构锚点、恢复阈值、采集任务和证据 | Python、Scrapling、Playwright 提供解析与浏览器能力，保留各自许可 |
 | 运行组件 | 固定摘要、安装位置、诊断与调用路由 | FFmpeg、ffprobe、Playwright、EARSHOT、CodeGraph 及平台依赖保留原作者归属 |
 | Skill 与资源 | 目录、适配、配置和同一 harness 调用 | 随包及用户安装的第三方 Skill 保留原作者、来源及许可 |

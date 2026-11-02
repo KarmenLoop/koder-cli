@@ -1,5 +1,7 @@
 # Koder CLI 的 Markdown 学习库
 
+[English](MARKDOWN-LEARNING.en.md) · [简体中文](MARKDOWN-LEARNING.zh.md)
+
 这项增量把项目记忆、停顿节点、经验条目、行为证据和日周复盘保存为可直接阅读的 Markdown。它接入现有 KARMENLOOP 会话：先读项目包，执行任务，记录决策和结果，保存下一步。没有训练模型权重，也没有新增 Agent 执行循环。
 
 本功能随 0.5.5 提供，默认用于内置 KARMENLOOP 的合资格任务。首次实际任务才建立学习库，帮助、状态查询、设置菜单浏览和只读规划不建库。安装、升级和平台验收以发行附件 ACCEPTANCE-RESULTS.json 为准。
@@ -211,3 +213,37 @@ flowchart TD
 资料不可写、损坏、写锁繁忙或账号/工作区不匹配时，暂停本轮学习并保留原文件，主任务继续。会话中途切换账号或撤销原账号范围后，学习工具、结束记录和空闲复盘均重新核对当前归属，不继续写入旧账号库。只读规划仅读取已有当前任务包，不初始化、写节点、执行复习或自动修复。
 
 工具观察只保存工具名、调用 ID、结果哈希与状态，不复制工具正文。邮件和通用 app 工具回合也不把助手结果正文写入节点；原回执留在原会话。已知模型密钥在写入前脱敏。学习时长可测；任一模型请求缺用量回执时，任务 token 总量保持 null，另保留已报告小计、请求数与覆盖状态。费用未知保持 null。这些记录不证明模型质量提高。
+
+## 带来源记忆：同工作区跨会话使用
+
+Koder CLI 0.8.4 包含参考 DeerFlow 记忆机制的原生实现，继续使用既有 Markdown 证据日志和内核召回，不增加第二个数据库、Python harness、重复 Skill 或后台模型抽取请求。本节接口随 0.8.4 提供，旧版不会因为教程新增而自动获得接口。
+
+在正常可写任务中输入一条短指令：
+
+```text
+记住：数据库 = PostgreSQL
+```
+
+它会在下一次模型请求前保存原话和来源。同一账号、同一工作区的新会话可以召回；另一个工作区或账号不能读到它。一般任务事实仍只属于当前任务，不因为出现多次就升级成全局记忆。
+
+终端管理示例，所有命令在同一项目目录运行：
+
+```sh
+cd /path/to/repo
+koder learning init
+koder learning remember database "PostgreSQL"
+koder learning facts --json
+koder learning correct database "SQLite"
+koder learning forget database
+koder learning status --json
+```
+
+上例的 `database` 是记忆键，聊天示例中的键则是 `数据库`；更正和遗忘时须使用 `facts` 中实际的键。`facts` 默认列出工作区事实，加 `--learning-project <id>` 可查看该任务的事实。`status` 的 `factMemory` 显示数量、冲突和修订状态。
+
+聊天中可使用 `更正记忆：数据库 = SQLite`、`忘记记忆：数据库`。遗忘让该键退出后续自动召回，保留原对话、检查点与审计日志，不等于物理删除所有历史文本。Setup 学习开关、`learning off`、`--no-learning` 和 `--no-memory` 都继续有效；个性化画像仍需自己的启用授权。
+
+Agent 通过既有 `learning_read pack|facts` 与 `learning_write remember|correct|forget` 调用。写入必须引用当前用户证据里的原话，网页、工具和助手自己的结论不能冒充用户偏好。跨会话保存要求用户明确表达记住；更正和遗忘要求新用户意图。更正或遗忘之后，旧来源的迟到写入会被 `LEARNING_MEMORY_STALE_SOURCE` 拒绝；需要新一轮用户输入，不能重复旧工具调用。运行中的 steer 暂不生成新的记忆来源回执。
+
+相同事实合并来源，不提高置信度；同范围、同键的不同原话保留为冲突，不自动猜一个版本。中文按二字词、英文按词检索，保留完整事实，不截断否定词、数字或来源。单次最多 8 条，最多 1,200 个估算 token 且不超过 5,000 UTF-8 字节，包含来源说明，并受整个学习包 4,000 token 上限约束。当前范围视图最多接纳 100 条有效事实，满额提示整理，不静默淘汰。
+
+架构、来源和验收边界见 [DeerFlow 记忆融合说明](DEERFLOW-MEMORY.zh.md)。历史事实不能扩大权限，也不能证明任务已经完成。

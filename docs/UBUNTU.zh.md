@@ -2,15 +2,15 @@
 
 # Ubuntu 24.04：从安装到完成第一个任务
 
-这份 Ubuntu 24.04 教程使用 **0.8.1 Linux 包**。[浏览器与媒体运行时](TOOL-RUNTIMES.zh.md)可能还需要 Ubuntu 系统依赖，Koder 不会自动 sudo 安装。Ubuntu 原生 GUI 与 macOS 检查的[验收范围分别记录](RELEASE-0.8.1.zh.md#发行核对与未验范围)。
+这份 Ubuntu 24.04 教程使用 **0.8.4 Linux 包**。[浏览器与媒体运行时](TOOL-RUNTIMES.zh.md)可能还需要 Ubuntu 系统依赖，Koder 不会自动 sudo 安装。Ubuntu 原生 GUI 与 macOS 检查的[验收范围分别记录](RELEASE-0.8.4.zh.md#发行核对与未验范围)。
 
-**0.8.1 首次任务：**先按 [KARMEN 浏览器/扫码登录教程](ACCOUNT-LOGIN.zh.md) 登录。模型 Key、邮箱与电脑权限独立配置；未登录的无头任务返回 `LOGIN_REQUIRED`。
+**0.8.4 首次任务：**先按 [KARMEN 浏览器/扫码登录教程](ACCOUNT-LOGIN.zh.md) 登录。模型 Key、邮箱与电脑权限独立配置；未登录的无头任务返回 `LOGIN_REQUIRED`。
 
 使用新系统？[Ubuntu 26.04.1 Desktop amd64 独立教程](UBUNTU-26.04.zh.md)。本页继续保留 24.04 说明。
 
-[返回 GitHub 首页](../README.zh-CN.md) · [English](UBUNTU.md) · [下载 0.8.1](https://kodermodule.com/cli-download.html)
+[返回 GitHub 首页](../README.zh-CN.md) · [English](UBUNTU.md) · [下载 0.8.4](https://kodermodule.com/cli-download.html)
 
-本教程对应 **Koder CLI 0.8.1**，适用于 Ubuntu **24.04 LTS / 24.04.x** 的 x64 和 ARM64。Linux 包保留当前平台支持的运行功能、Skills、自主学习及现行课堂。Windows-MCP、macOS 锁屏组件只用于各自系统；Ubuntu 使用 Linux AT-SPI 图形驱动。Ubuntu 24.10 不在当前适配范围。
+本教程对应 **Koder CLI 0.8.4**，适用于 Ubuntu **24.04 LTS / 24.04.x** 的 x64 和 ARM64。Linux 包保留当前平台支持的运行功能、Skills、自主学习及现行课堂。Windows-MCP、macOS 锁屏组件只用于各自系统；Ubuntu 使用 Linux AT-SPI 图形驱动。Ubuntu 24.10 不在当前适配范围。
 
 ## 先解决“安装好了，但进不去”
 
@@ -87,13 +87,13 @@ command -v curl
 ### A. 已有 wget（Ubuntu 推荐入口）
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/releases/cli-0.8.1/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/releases/cli-0.8.4/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 ### B. 已有 curl
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/releases/cli-0.8.1/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/releases/cli-0.8.4/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 ### C. 两个工具都找不到
@@ -105,7 +105,7 @@ sudo apt update
 sudo apt install curl ca-certificates
 ```
 
-apt 正被系统更新占用时等它完成，不要删除锁文件。也可用浏览器下载[Ubuntu 安装脚本](https://kodermodule.com/releases/cli-0.8.1/koder-ubuntu-24.04.sh)，但运行脚本时仍需要 curl 或 wget。
+apt 正被系统更新占用时等它完成，不要删除锁文件。也可用浏览器下载[Ubuntu 安装脚本](https://kodermodule.com/releases/cli-0.8.4/koder-ubuntu-24.04.sh)，但运行脚本时仍需要 curl 或 wget。
 
 ### 安装器询问时怎么选
 
@@ -142,7 +142,7 @@ apt 正被系统更新占用时等它完成，不要删除锁文件。也可用�
 "$HOME/.local/bin/koder"
 ```
 
-前两条分别显示版本和帮助；第三条进入对话。应显示 `koder 0.8.1`。旧版 0.5.12 已装好时完整路径也适用，先进入或升级即可，不必删除历史。
+前两条分别显示版本和帮助；第三条进入对话。应显示 `koder 0.8.4`。旧版 0.5.12 已装好时完整路径也适用，先进入或升级即可，不必删除历史。
 
 ### 3.2 让当前终端识别简短的 koder 命令
 
@@ -421,7 +421,7 @@ koder --version
 | 下载中断 / 长时间 0 MB/s | 检查网络，重跑安装器续传；不关闭 TLS 校验、不用 `curl -k`。 |
 | SHA-256 校验失败 | 坏包不会启用，重试官方源并保留原因码；不跳过校验。 |
 | 找不到 koder / 版本旧 | 新开终端，检查 `$HOME/.local/bin` 和 `type -a koder`。 |
-| 提交后一直等 | 核对 0.8.1 和每 10 秒等待提示；单独检测模型连接，见下方时限说明。 |
+| 提交后一直等 | 核对 0.8.4 和每 10 秒等待提示；单独检测模型连接，见下方时限说明。 |
 | `API_HEADERS_TIMEOUT` | 服务商可能仍在生成，不连发同一任务；确认模型/网络后决定是否调长等待。 |
 | 密钥环 / 凭据存储失败 | 检查 secret-tool、用户 D-Bus、密钥环解锁；不用 sudo 绕过。 |
 | `COMPUTER_NO_DESKTOP_SESSION` | 从已登录桌面终端运行；无桌面服务器使用 CLI 文件任务。 |
@@ -492,11 +492,11 @@ ssh -L 8080:127.0.0.1:实际预览端口 用户名@服务器地址
 
 保持 SSH 连接，在本机打开 `http://127.0.0.1:8080`。这不会把网站公开上线。
 
-开发者核对手动下载包：从同一官网版本目录 下载 `SHA256SUMS` 和 `koder-cli-0.8.1-linux.tgz` 至同一目录：
+开发者核对手动下载包：从同一官网版本目录 下载 `SHA256SUMS` 和 `koder-cli-0.8.4-linux.tgz` 至同一目录：
 
 ```bash
-sha256sum koder-cli-0.8.1-linux.tgz
-grep 'koder-cli-0.8.1-linux.tgz' SHA256SUMS
+sha256sum koder-cli-0.8.4-linux.tgz
+grep 'koder-cli-0.8.4-linux.tgz' SHA256SUMS
 ```
 
 两行摘要须完全相同。`.tgz` 是运行归档，不是 `.deb` 或双击安装程序；一般用户仍使用第 2 节安装器。
@@ -504,9 +504,9 @@ grep 'koder-cli-0.8.1-linux.tgz' SHA256SUMS
 <a id="evidence"></a>
 ## 12. 验证范围与进一步学习
 
-本版验收以 [0.8.1 发行附件 ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.8.1/ACCEPTANCE-RESULTS.json) 中的包 SHA-256、任务链接和平台结果为准。安装/重装、PATH、实际归档元数据、PTY 慢响应、AT-SPI 控件操作与通知分别记录，不用旧包测试替代新版验收。
+本版验收以 [0.8.4 发行附件 ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.8.4/ACCEPTANCE-RESULTS.json) 中的包 SHA-256、任务链接和平台结果为准。安装/重装、PATH、实际归档元数据、PTY 慢响应、AT-SPI 控件操作与通知分别记录，不用旧包测试替代新版验收。
 
-0.5.12 的 [x64/ARM64 任务测试](https://github.com/KarmenLoop/koder-cli/actions/runs/40555216774) 和 [安装/图形矩阵](https://github.com/KarmenLoop/koder-cli/actions/runs/40555225654) 是历史对照；后者首次 x64 Wayland 依赖下载超时，重跑该 job 后四组均通过，原失败保留。它们不是 0.8.1 的结果。
+0.5.12 的 [x64/ARM64 任务测试](https://github.com/KarmenLoop/koder-cli/actions/runs/40555216774) 和 [安装/图形矩阵](https://github.com/KarmenLoop/koder-cli/actions/runs/40555225654) 是历史对照；后者首次 x64 Wayland 依赖下载超时，重跑该 job 后四组均通过，原失败保留。它们不是 0.8.4 的结果。
 
 Xvfb/无头 Sway 不等于物理 GNOME、重启自启、全部显卡和每个应用均验收。0.5.8 草稿的 GI 文本接口冲突失败记录保留；修复后使用明确 Text 接口，保留空输入、文字及密码隐藏回归。对照结果须核对包 SHA-256，不能混用不同构建。
 
