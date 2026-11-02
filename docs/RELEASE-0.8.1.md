@@ -40,4 +40,4 @@ Two default updater checks completed successfully in 6.27 seconds: 0.7.2 discove
 
 The public downloads were verified on H3C. Recovery of the original Mac network path and download throughput in mainland China remain **NOT_ESTABLISHED**. The publication does not expand the native-device, human-account or model-quality acceptance scope.
 
-[Architecture and component provenance](ARCHITECTURE-AND-PROVENANCE.en.md) · [0.7.2 reference screenshots](screenshots/README.md)
+[Architecture and component provenance](ARCHITECTURE-AND-PROVENANCE.en.md) · [0.7.2 reference screenshots](screenshots/capture-0.7.2.json)

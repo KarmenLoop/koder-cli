@@ -40,4 +40,4 @@ Windows/Ubuntu 原生安装与 GUI、正式服务真人登录、真实邮件、�
 
 公网下载核对来自 H3C；原 Mac 网络恢复与中国大陆下载吞吐仍为 **NOT_ESTABLISHED**。本次发布不扩大原生设备、真人账号或模型质量的已验范围。
 
-[架构与组件来源](ARCHITECTURE-AND-PROVENANCE.zh.md) · [0.7.2 参考截图](screenshots/README.zh-CN.md)
+[架构与组件来源](ARCHITECTURE-AND-PROVENANCE.zh.md) · [0.7.2 参考截图](screenshots/capture-0.7.2.json)
