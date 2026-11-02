@@ -1,12 +1,14 @@
-# Prepared website release: 0.8.1 — publication pending
+# Current website release: 0.8.1
 
-This is a documentation draft. The frozen build contains 32 original files; it is not the final website delivery receipt. Keep the current main-branch release at 0.7.2 until the website owner verifies public delivery and the production updater. No new website requests or product QA were run for this documentation task.
+Koder CLI 0.8.1 is published on the [official CLI website](https://kodermodule.com/en/cli-download.html). The [English release notes](docs/RELEASE-0.8.1.md) and [中文说明](docs/RELEASE-0.8.1.zh.md) describe this consolidation milestone and distinguish Koder's own private task kernel from attributed third-party components.
 
-The [English draft notes](docs/RELEASE-0.8.1.md) and [中文草稿](docs/RELEASE-0.8.1.zh.md) cover the consolidation milestone and its evidence boundaries. The record lists 44 source release checks, 348 packaged checks, 14 macOS command checks and an isolated installation. The 20,760 compared runtime files, 79 unique Skills and eight license/attribution files match 0.7.2. Version metadata is separate. Earlier real-model and browser evidence stays labeled 0.7.2 and was not rerun on 0.8.1.
+The website owner's final delivery record confirms 403/403 public checks from H3C, full size/SHA-256 verification of all 32 original files (1,111,623,159 bytes), 290 current guides, 12 localized page bodies and the specified Range/resume checks. The default 0.7.2 and 0.8.1 updater checks both exited 0 in 6.27 seconds; no update was installed. This documentation task verified those existing records without repeating website requests or product QA.
 
-Koder's own task kernel, orchestration and delivery logic remain private. External runtimes and Skills retain their authors and licenses. Native Windows/Ubuntu, production human sign-in, real mail, visible notifications, hour-scale autonomy and benchmark quality remain unverified. Screenshots below remain genuine 0.7.2 references; no image is relabeled 0.8.1.
+The build record separately lists 44 source release checks, 348 packaged checks, 14 macOS command checks and an isolated installation. Excluding version metadata, 20,760 runtime files are unchanged from 0.7.2; the 79 unique Skills and eight license/attribution files also match. The model task and 19 browser cases remain labeled 0.7.2 and were not rerun on 0.8.1.
 
-# Current website release: 0.7.2
+The private kernel, licenses and third-party notices remain unchanged. Native Windows/Ubuntu installation and GUI, production human sign-in, live mail, visible notifications, hour-scale work and benchmark quality remain unverified. Original Mac download failures are retained; H3C acceptance does not establish recovery of the Mac path or mainland-China throughput. Images retain their genuine 0.7.2 labels. Current downloads and updates use the CLI website; no new GitHub binary release is included.
+
+## Historical website release: 0.7.2
 
 The [English release notes](docs/RELEASE-0.7.2.md) and [中文说明](docs/RELEASE-0.7.2.zh.md) describe XPath/adaptive collection, managed browser and tool runtimes, native context handling and worker coordination. The official website feed reports 0.7.2. The release record verifies 32 original public files and both generations of default update checks. The 348 runtime checks, 19 browser cases and one bounded model task are separate evidence categories.
 

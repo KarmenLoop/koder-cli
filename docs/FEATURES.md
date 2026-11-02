@@ -1,6 +1,6 @@
 # Koder CLI 0.8.1: features and tutorials
 
-**0.8.1 documentation draft.** This milestone carries forward the 0.7.2 runtime: 79 unique Skill registrations, native task coordination, browser/data tools and context handling. It adds a clearer [architecture and provenance guide](ARCHITECTURE-AND-PROVENANCE.en.md), with third-party components attributed separately. See [build checks and publication status](RELEASE-0.8.1.md#release-checks-and-remaining-limits).
+**Koder CLI 0.8.1.** This milestone carries forward the 0.7.2 runtime: 79 unique Skill registrations, native task coordination, browser/data tools and context handling. It adds a clearer [architecture and provenance guide](ARCHITECTURE-AND-PROVENANCE.en.md), with third-party components attributed separately. See [release checks and limits](RELEASE-0.8.1.md#release-checks-and-remaining-limits).
 
 ## Included in 0.7.2
 

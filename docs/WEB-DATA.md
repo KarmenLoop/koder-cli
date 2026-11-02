@@ -1,6 +1,6 @@
 # Web data collection
 
-This guide applies to the **0.8.1 draft**. The collection implementation is carried forward from 0.7.2; the recorded model and browser checks retain that original version.
+This guide applies to the **0.8.1**. The collection implementation is carried forward from 0.7.2; the recorded model and browser checks retain that original version.
 
 [English](WEB-DATA.md) · [简体中文](WEB-DATA.zh.md)
 

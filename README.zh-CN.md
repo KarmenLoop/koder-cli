@@ -1,10 +1,8 @@
 # Koder CLI
 
-> **0.8.1 发行草稿。** 官网尚待发布；主分支保留已发布的 0.7.2 内容。实际可用版本请以[官网下载页](https://kodermodule.com/cli-download.html)为准。
-
 安装与下载统一在 [Koder CLI 官网](https://kodermodule.com/cli-download.html) 提供。本仓库保留功能介绍、教程、更新说明与历史记录。
 
-[0.8.1 发行草稿](docs/RELEASE-0.8.1.zh.md)。本里程碑整合 0.7.2 已发布的任务运行时、浏览器/数据工具与托管组件，不代表新的模型质量分数；[验算记录](docs/AGENT-VERIFICATION.zh.md)保留早期失败。
+[0.8.1 更新说明](docs/RELEASE-0.8.1.zh.md)。本里程碑整合 0.7.2 已发布的任务运行时、浏览器/数据工具与托管组件，不代表新的模型质量分数；[验算记录](docs/AGENT-VERIFICATION.zh.md)保留早期失败。
 
 [Ubuntu 26.04.1 Desktop amd64 完整教程](docs/UBUNTU-26.04.zh.md)
 
@@ -21,7 +19,7 @@ Ubuntu / macOS：在系统终端逐条执行。先查看 KARMEN 账号状态；�
 状态提示需要登录时，先运行 `koder login --open` 并确认设备授权。已有有效刷新授权会在任务前续期。看到 `koder >` 后才输入任务。`activate` 只开启后台常驻，不会进入聊天；出现状态 JSON 后运行最后一条即可。完整路径能用但 `koder` 找不到时，按 [PATH 排查](docs/UBUNTU.zh.md#progress) 操作，不必重新下载。自定义安装路径以安装器末尾为准。
 
 
-**文档目标版本：0.8.1，官网尚待发布。Koder 私有自研任务内核连接计划、权限、工具、结果保存与交付检查。**
+**当前版本：0.8.1。Koder 私有自研任务内核连接计划、权限、工具、结果保存与交付检查。**
 
 [KARMEN 登录教程](docs/ACCOUNT-LOGIN.zh.md) · [English sign-in guide](docs/ACCOUNT-LOGIN.md) · [目标与计划](docs/GOALS-AND-PLANS.zh.md) · [命令等待](docs/COMMAND-DURATION.md) · [界面与网站设计](docs/INTERFACE-COMPOSITION.zh.md) · [上下文管理](docs/CONTEXT-CONTROLS.zh.md)
 
@@ -48,7 +46,7 @@ Ubuntu / macOS：在系统终端逐条执行。先查看 KARMEN 账号状态；�
 | 继续完整课程 | [1800 课中文课堂说明](docs/courses/README.zh.md) |
 
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.8.1 草稿**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.8.1**
 
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
@@ -62,7 +60,7 @@ Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工�
 
 Koder 自研任务内核、原生编排、权限检查与交付核验。Python、Scrapling、Playwright、FFmpeg、EARSHOT、CodeGraph 及第三方 Skills 保留各自作者和许可，不能把整包依赖称为 Koder 原创。详见[架构与组件来源](docs/ARCHITECTURE-AND-PROVENANCE.zh.md)及[第三方声明](THIRD_PARTY_NOTICES.md)。
 
-准备发布版本：**0.8.1** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
+当前版本：**0.8.1** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
@@ -122,7 +120,7 @@ Koder 把四件事钉死：
 |---|---|
 | **安装什么** | 官方 Windows / macOS / Linux 安装器分发的版本化 CLI 运行时（Node **^22.21.0 或 ≥24**，复用或下载并校验） |
 | **你自备什么** | 自己的模型 API Key，或受支持的本地模型端点 |
-| **版本** | **0.8.1 草稿**，官网发布待完成 |
+| **版本** | **0.8.1**（官网发行清单、stable 通道） |
 | **本版许可** | **Koder-EULA-1.1** — 当前应用运行时的专有终端用户许可 |
 | **个人使用** | 个人非商业本地使用免费 — **无会员、无邀请码** |
 | **商业 / 组织** | 须事先书面授权（`koder business` / [商业授权](docs/COMMERCIAL-LICENSING.md)） |
@@ -219,7 +217,7 @@ flowchart LR
 
 ## 界面截图 · 0.7.2 参考
 
-以下图片来自已发布的 **0.7.2** macOS 包，在准备 0.8.1 整合版时继续作为参考；不是 0.8.1 截图，也不代表已完成模型任务。
+以下图片来自已发布的 **0.7.2** macOS 包，供 0.8.1 整合版继续参考；不是 0.8.1 截图，也不代表已完成模型任务。
 
 | 界面 | 图中内容 | 图片 |
 | --- | --- | --- |
@@ -273,7 +271,7 @@ koder setup
 koder
 ```
 
-以下操作面向 **0.8.1 正式发布之后**。若提示找不到 `koder`，[Ubuntu PATH 教程](docs/UBUNTU.zh.md) 包含通过安装后的完整路径启动、刷新终端环境的步骤。图形操作还需要对应依赖与授权。平台细节见 [安装教程](docs/INSTALLATION.md)。
+以下操作面向 **0.8.1**。若提示找不到 `koder`，[Ubuntu PATH 教程](docs/UBUNTU.zh.md) 包含通过安装后的完整路径启动、刷新终端环境的步骤。图形操作还需要对应依赖与授权。平台细节见 [安装教程](docs/INSTALLATION.md)。
 
 ---
 
@@ -313,7 +311,7 @@ koder --version
 koder
 ```
 
-0.8.1 发布并安装后，应看到 **0.8.1**。首次任务前运行 `koder login`，在官方账号页面核对并批准设备。[登录教程](docs/ACCOUNT-LOGIN.zh.md)涵盖扫码、退出、Linux 凭据存储与无头任务。直接 `koder` 进入交互聊天。想先走短教程？
+安装后应看到 **0.8.1**。首次任务前运行 `koder login`，在官方账号页面核对并批准设备。[登录教程](docs/ACCOUNT-LOGIN.zh.md)涵盖扫码、退出、Linux 凭据存储与无头任务。直接 `koder` 进入交互聊天。想先走短教程？
 
 ```text
 koder learn
@@ -652,4 +650,4 @@ KARMENLOOP 官方团队 · 中国上海 · [karmenloop.com](https://karmenloop.c
 
 需要登录时，通过系统浏览器确认设备授权。已有网页会话可以复用，但设备确认仍需单独完成。本版同时包含[命令教学](docs/COMMAND-LEARNING.zh.md)和[本地自检](docs/DIAGNOSTICS.zh.md)。云端上报服务尚未配置，仍返回 `DIAGNOSTICS_SERVICE_NOT_READY`。
 
-0.8.1 构建核对与待完成的官网发布分别记录；模型和浏览器证据仍标为 0.7.2，原下载失败、原生设备和真人未验项继续保留。[构建记录与发布状态](docs/RELEASE-0.8.1.zh.md#发行核对与未验范围)。
+官网交付记录确认 403 项公网检查、32 个原件完整校验及新旧两代默认更新检查通过；模型和浏览器证据仍标为 0.7.2，原下载失败、原生设备和真人未验项继续保留。[发行记录与边界](docs/RELEASE-0.8.1.zh.md#发行核对与未验范围)。

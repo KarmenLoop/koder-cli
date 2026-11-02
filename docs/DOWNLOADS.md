@@ -2,7 +2,7 @@ See [account sign-in](ACCOUNT-LOGIN.md) for the 0.6.3 first-message and saved-se
 
 # Smaller downloads, complete runtime
 
-The prepared 0.8.1 download set is described here; website publication is pending. Use the [official CLI download page](https://kodermodule.com/en/cli-download.html), preserve an interrupted installer's cache, and let its checksum check finish. Optional engines have their own [managed runtime setup](TOOL-RUNTIMES.en.md); downloading the CLI archive does not download every external model.
+The current download set is **0.8.1**. Use the [official CLI download page](https://kodermodule.com/en/cli-download.html), preserve an interrupted installer's cache, and let its checksum check finish. Optional engines have their own [managed runtime setup](TOOL-RUNTIMES.en.md); downloading the CLI archive does not download every external model.
 
 **Before a task:** check `koder account status`. Run `koder login --open` only when sign-in is required; a valid refresh grant is renewed before execution. The [account guide](ACCOUNT-LOGIN.md) separates login, device confirmation and session ownership. Model keys and computer permissions remain separate.
 

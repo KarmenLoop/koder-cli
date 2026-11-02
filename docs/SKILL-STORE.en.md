@@ -2,7 +2,7 @@
 
 [English](SKILL-STORE.en.md) · [简体中文](SKILL-STORE.zh.md)
 
-The frozen 0.8.1 build includes the Skill store. Website publication is pending; the examples below describe that prepared build. Its existing package checks cover pinned installation and use in the original harness, not successful operation of every third-party Skill.
+Koder CLI 0.8.1 includes the Skill store. The examples below describe the published build. Its existing package checks cover pinned installation and use in the original harness, not successful operation of every third-party Skill.
 
 Open **Setup → Skills → Skill store**, run `koder skills store`, or enter `/skills store` in chat. Browse repository stars, recent updates or measured star growth; search for a topic or `repo:owner/repository`; review the source and license, then select **Download and adapt**.
 

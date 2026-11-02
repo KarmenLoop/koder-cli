@@ -1,6 +1,6 @@
 # 安装更简单，功能完整保留
 
-本页说明准备发布的 **0.8.1** 下载文件，官网尚待发布。从 [CLI 官网下载页](https://kodermodule.com/cli-download.html)开始，下载中断时保留安装器缓存，并等待校验完成。可选引擎另有[托管运行时配置](TOOL-RUNTIMES.zh.md)；下载 CLI 归档不代表外部模型都已下载。
+当前下载文件为 **0.8.1**。从 [CLI 官网下载页](https://kodermodule.com/cli-download.html)开始，下载中断时保留安装器缓存，并等待校验完成。可选引擎另有[托管运行时配置](TOOL-RUNTIMES.zh.md)；下载 CLI 归档不代表外部模型都已下载。
 
 [Ubuntu 26.04.1 Desktop amd64 完整教程和独立安装入口](UBUNTU-26.04.zh.md#install)
 

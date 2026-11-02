@@ -62,7 +62,7 @@ The browser option still opens the official device-authorization page. If the we
 
 ## Login fixes carried forward in 0.8.1
 
-Version 0.7.1 fixed sign-in being cut short by the supervisor's 15-second startup check and focus/navigation input being mistaken for Escape. After 0.8.1 is published, update, keep the original terminal open and confirm a new device authorization. An old cancelled page cannot approve a new transaction. Escape and Ctrl+C still cancel.
+Version 0.7.1 fixed sign-in being cut short by the supervisor's 15-second startup check and focus/navigation input being mistaken for Escape. Update to 0.8.1, keep the original terminal open and confirm a new device authorization. An old cancelled page cannot approve a new transaction. Escape and Ctrl+C still cancel.
 
 Exact chat requests such as `login` or `sign in` open account authorization without calling a model; `/login` retains the browser/QR picker. During a task, a login request queues until the task finishes. After authorization, Koder asks the OS to return to the original terminal. If focus is blocked, switch back manually; the completed login remains valid. No focus helper is installed and no additional OS permission is requested.
 

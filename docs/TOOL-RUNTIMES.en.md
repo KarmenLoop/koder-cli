@@ -1,6 +1,6 @@
 # Managed tool runtimes
 
-The 0.8.1 draft keeps the existing managed engines and 0.7.2 platform limits. Runtime installation still needs the documented grants and prerequisites; it does not add a new Skill or replace a system package manager.
+Koder CLI 0.8.1 keeps the existing managed engines and 0.7.2 platform limits. Runtime installation still needs the documented grants and prerequisites; it does not add a new Skill or replace a system package manager.
 
 [English](TOOL-RUNTIMES.en.md) · [简体中文](TOOL-RUNTIMES.zh.md)
 

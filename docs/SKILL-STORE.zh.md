@@ -2,7 +2,7 @@
 
 [English](SKILL-STORE.en.md) · [简体中文](SKILL-STORE.zh.md)
 
-0.8.1 冻结构建已包含 Skill 商店，官网尚待发布；下方说明面向这份准备发布的版本。已有实际包检查覆盖固定提交安装及原 Harness 内使用，不代表每个第三方 Skill 都已跑通。
+Koder CLI 0.8.1 已包含 Skill 商店，下方说明面向已发布版本。已有实际包检查覆盖固定提交安装及原 Harness 内使用，不代表每个第三方 Skill 都已跑通。
 
 ## 进入商店
 
