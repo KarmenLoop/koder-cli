@@ -16,20 +16,22 @@ jobs:
           sparse-checkout: test/acceptance
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22.23.4'
       - name: Download official package and verify exact bytes
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          $url = 'https://kodermodule.com/packages/cli/cli-0.8.4/f4eec29a09c41019/koder-cli-0.8.4.tgz'
+          $url = 'https://kodermodule.com/packages/cli/cli-0.8.5/a8f7b060ba397886/koder-cli-0.8.5.tgz'
           $archive = Join-Path $env:RUNNER_TEMP 'koder-acceptance.tgz'
           curl.exe --fail --location --retry 3 --retry-delay 2 --connect-timeout 30 --max-time 600 --output $archive $url
           if ($LASTEXITCODE -ne 0) { throw 'OFFICIAL_DOWNLOAD_FAILED' }
-          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne '97b5ec4ba6b81b8f2f361402cb355966132f3586be42ea5d181f2c31d1331c83') { throw 'PACKAGE_HASH_MISMATCH' }
+          if ((Get-Item $archive).Length -ne 483508725) { throw 'PACKAGE_SIZE_MISMATCH' }
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne '7cbfeb7c5813c8228ed8c5c2a64cb211a0826af8328a1141930de5c64e32a833') { throw 'PACKAGE_HASH_MISMATCH' }
           $installer = Join-Path $env:RUNNER_TEMP 'koder-cli.ps1'
-          curl.exe --fail --location --retry 3 --connect-timeout 30 --max-time 120 --output $installer 'https://kodermodule.com/packages/cli/cli-0.8.4/f4eec29a09c41019/koder-cli.ps1'
+          curl.exe --fail --location --retry 3 --connect-timeout 30 --max-time 120 --output $installer 'https://kodermodule.com/packages/cli/cli-0.8.5/a8f7b060ba397886/koder-cli.ps1'
           if ($LASTEXITCODE -ne 0) { throw 'INSTALLER_DOWNLOAD_FAILED' }
-          if ((Get-FileHash $installer -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'd3fca32519b86d9488df8a46f1b2d2798576e75ac3b4fa6593c37b31a5ee9127') { throw 'INSTALLER_HASH_MISMATCH' }
+          if ((Get-Item $installer).Length -ne 34450) { throw 'INSTALLER_SIZE_MISMATCH' }
+          if ((Get-FileHash $installer -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'e4ed9c887aba9384fa450780ac59e218e4021a2e864322698a3fc3437545e088') { throw 'INSTALLER_HASH_MISMATCH' }
           # Exercise the shipping installer's Unicode-safe extractor; Windows tar
           # does not accept every long filename in the full package.
           $installerText = [IO.File]::ReadAllText($installer)
@@ -48,6 +50,19 @@ jobs:
       - name: Exercise real CurrentUser DPAPI with synthetic credentials
         shell: powershell
         run: node test/acceptance/windows-login-storage.mjs
+      - name: Require this release and all seven Windows checks
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $receipt = Get-Content evidence/windows-login-storage.json -Raw -Encoding utf8 | ConvertFrom-Json
+          if ($receipt.version -ne '0.8.5') { throw 'ACCEPTANCE_VERSION_MISMATCH' }
+          if ($receipt.platform -ne 'win32' -or $receipt.arch -ne 'x64') { throw 'ACCEPTANCE_PLATFORM_MISMATCH' }
+          if ($receipt.node -ne 'v22.23.4') { throw 'ACCEPTANCE_NODE_MISMATCH' }
+          if ($receipt.state -ne 'PASS') { throw 'ACCEPTANCE_FAILED' }
+          $expected = @('direct-native-transform', 'vault-plain', 'vault-space and Unicode 资料', 'legacy-dpapi-cipher-compatibility', 'account-authorization-persist-refresh-logout', 'protected-retry-after-spawn-failure', 'signed-out-cli-storage-doctor')
+          if (@($receipt.checks).Count -ne 7) { throw 'ACCEPTANCE_CHECK_COUNT_MISMATCH' }
+          if (Compare-Object ($expected | Sort-Object) (@($receipt.checks.name) | Sort-Object)) { throw 'ACCEPTANCE_CHECK_NAMES_MISMATCH' }
+          if (@($receipt.checks | Where-Object { $_.state -ne 'PASS' }).Count -ne 0) { throw 'ACCEPTANCE_CHECK_FAILED' }
       - name: Save sanitized receipt
         if: always()
         uses: actions/upload-artifact@v4
