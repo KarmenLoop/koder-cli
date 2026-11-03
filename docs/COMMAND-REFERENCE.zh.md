@@ -1,13 +1,13 @@
 # 完整命令参考
 
-本命令表对应 **0.8.4**。下方 Web Data 与托管运行时命令延续 0.7.2 的实现；[架构与组件来源](ARCHITECTURE-AND-PROVENANCE.zh.md)说明原生任务引擎与第三方组件的边界。
+本命令表对应 **0.8.5**。下方 Web Data 与托管运行时命令延续 0.7.2 的实现；[架构与组件来源](ARCHITECTURE-AND-PROVENANCE.zh.md)说明原生任务引擎与第三方组件的边界。
 
-Koder CLI 0.5.1 · 1800 课中文课堂；原 30 课英文教程
+Koder CLI 0.8.5 · 1800 课中文课堂；原 30 课英文教程
 
 根据本版命令定义生成。 [GitHub](GITHUB-PROJECTS.zh.md) · [Setup](USER-GUIDE.zh.md) · [长任务与子任务操作](TASK-ORCHESTRATION.zh.md)
 
 ```text
-KODER CLI 0.5.1
+KODER CLI 0.8.5
 轻量即用的终端编程代理
 
 用法
@@ -26,13 +26,17 @@ KODER CLI 0.5.1
   test     为改动或指定文件生成测试  测试、补测试
 
 自动化与编排
+  goal     设置、执行和跟踪当前会话的目标  目标
+  plan     制定并保存步骤，查看计划后再执行  计划
   flow     按流程文件编排多个智能体与检查步骤  流程、编排
   ci       生成 GitHub Actions 工作流，处理 /koder 评论  流水线
   moa      Mixture of Agents：多个模型先给意见，当前模型汇总执行  混合
 
 接入工具链与本机工程
+  devices  识别 USB、串口与驱动状态
   github   绑定 GitHub 令牌、托管项目和编辑仓库
   netlify  绑定自己的 Netlify 站点并授权预览部署
+  web-data 网页数据采集、提取、续采与导出  scrape
   reverse  Koder 自研静态逆向引擎（预览）
   rea      内置 REA 逆向分析工具  逆向
   apps     应用连接与状态  应用
@@ -44,6 +48,9 @@ KODER CLI 0.5.1
   gateway  一键接入飞书、企业微信、微信、钉钉、Telegram、Slack、Discord、WhatsApp  网关、接入
 
 设置与帮助
+  interface调整自身界面与组装任务模板
+  self-repair本机功能代码自修复与回退
+  care     存储整理、内存保护、系统设置与杀毒
   ocr      离线识别图片与扫描 PDF
   design   网站需求问询与内置设计参考  awesome-design-md
   pageindex按文档目录回读原文与核对引用
@@ -55,6 +62,7 @@ KODER CLI 0.5.1
   cad      SolidCraft 参数化三维建模  solidcraft
   cli-anything发现、注册并审批调用本机应用 CLI
   migrate  加密迁移项目、配置与本地历史  migration、迁移
+  diagnostics本机自检、错误上报和队列状态
   logs     查看本机运行日志
   activate 显式开启用户级常驻
   deactivate关闭常驻并取消自启
@@ -64,17 +72,20 @@ KODER CLI 0.5.1
   visuals  三方向浏览器评审、图示抉择与项目 H5 结构图
   mail     绑定邮箱、收信分类与独立授权回复
   preview  在旁边浏览器实时预览当前网页或 Web APP
-  growth   内置自主学习 Skill：状态、方法与开关  自主学习
+  learning 默认本地任务学习：项目记忆、续接与日周复盘
+  growth   成长方法与任务学习总开关  自主学习
   resources资料库：远程按需检索，或导入自己的私有合集  资料、资源库
   business 公司商业授权与专用私有仓库洽询  商业授权、企业服务
   star     自愿为 Koder 点一颗 GitHub Star  点星
   privacy  离线查看完整消费者隐私条款与声明  隐私
-  feedback 官方反馈邮箱与空白模板  反馈、投诉
+  feedback 单独反馈，脱敏预览后提交  反馈、投诉
   celebrate可跳过的六秒彩蛋、节日与生日设置  彩蛋
   eula     查看使用许可、授权与数据说明，或明确接受许可
-  account  跨设备记忆账号、登录与退出  账号、帳號
+  login    网页登录，或输入密钥进入本机模式  登录、登入
+  logout   退出本机 KARMEN 登录  退出登录
+  account  KARMEN 浏览器登录、扫码与本机退出  账号、帳號
   prompts  根据对话预选下一句，也可使用常用模板  prefill、预填词、预填
-  skills   发现、导入并调用 Codex、Cursor 和 WorkBuddy 兼容技能  skill、技能
+  skills   Skill 商店、下载适配，以及 Codex、Cursor、WorkBuddy 本地技能  skill、技能
   permissions智能审批、始终允许、全面开放与电脑授权  权限
   setup    设置界面：方向键或鼠标就能配好全部选项  设置、配置、settings、config
   onboard  同 koder setup，安装脚本装完会自动打开  向导、初始化
@@ -87,7 +98,7 @@ KODER CLI 0.5.1
   lang     切换中文或英文  语言
   theme    切换官网深色或浅色配色  主题
   help     查看命令说明  帮助
-  learn    1800 课互动教程：在练习场里边学边动手  教程、教学
+  learn    选择命令教学、课程主题与 1800 课学习路线  教程、教学
   doctor   检查环境、模型和启动耗时  体检
   banner   显示折光体开屏  开屏
   version  显示版本，以及官网更新页  版本
@@ -98,6 +109,8 @@ KODER CLI 0.5.1
   --skill <id,name>         本轮指定本机 Skill；正文按需读取，脚本仍走原审批
   --stdin                   将标准输入附加到显式提示词；没有提示词时自动读取
   --stdin-timeout <秒>      完整输入的等待上限，默认 5 秒，范围 0.01–3600 秒
+  --task-timeout <秒>       可选整轮时限；剩余 20% 收束交付，默认不设时限
+  --delivery-contract <文件> run 的显式文件交付合约；核对路径、大小、清单和实际自检
   -w, --workspace <目录>    工作区，默认当前目录
   -y, --yes                 自动接受文件修改和命令；仍不回答提问、不收集密码、不代开学习或电脑权限
   --approval auto|ask|full|deny 本次审批模式；--yes 不会覆盖显式 deny
@@ -1352,7 +1365,7 @@ koder skills runtime playwright browser
 
 安装与浏览器准备可能下载资源，需遵守原有网络及 Skill 更新审批；`--yes` 不会绕过权限。页面渲染另需浏览器授权。[Web Data](WEB-DATA.zh.md)说明采集与已保存任务恢复，[运行时准备](TOOL-RUNTIMES.zh.md)说明平台前置条件，[Worker 协作](SUPER-AGENT-ARCHITECTURE.zh.md)说明 `/subagents status` 与取消。沿用原能力，不新增重复 Skill。
 
-## 0.8.4：账号诊断与记忆
+## 0.8.5：账号诊断与记忆
 
 ```sh
 koder account doctor --json
@@ -1360,4 +1373,8 @@ koder learning facts --json
 koder learning status --json
 ```
 
-账号 doctor 无须先登录即可检查 Windows 受保护存储，存储可用不代表账号已登录。配置、更正/遗忘及验收边界见[账号教程](ACCOUNT-LOGIN.zh.md)和[记忆实操](DEERFLOW-MEMORY.zh.md)。这些命令适用于 0.8.4，存储检查成功不代表账号认证或任务完成。
+账号 doctor 无须先登录即可检查 Windows 受保护存储，存储可用不代表账号已登录。配置、更正/遗忘及验收边界见[账号教程](ACCOUNT-LOGIN.zh.md)和[记忆实操](DEERFLOW-MEMORY.zh.md)。这些命令适用于 0.8.5，存储检查成功不代表账号认证或任务完成。
+
+## 0.8.5 的账号恢复
+
+重复打开授权页前先运行 `koder account doctor --json`。Linux 预检区分缺工具与 `not-probed`；Secret Service 解锁和受保护写入、读回仍需完成。多窗口续期最多等待 45 秒且可取消，`LOGIN_BUSY` 时稍后重试，不删除活锁。临时身份服务错误保留已存账号；授权到期或无法确认的令牌交换仍按各自错误恢复。[登录教程](ACCOUNT-LOGIN.zh.md) · [0.8.5 发行核对](RELEASE-0.8.5.zh.md)。

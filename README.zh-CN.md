@@ -2,7 +2,7 @@
 
 安装与下载统一在 [Koder CLI 官网](https://kodermodule.com/cli-download.html) 提供。本仓库保留功能介绍、教程、更新说明与历史记录。
 
-[0.8.4 更新说明](docs/RELEASE-0.8.4.zh.md)。本版整合受保护登录修复、终端返回与带来源的原生项目记忆；跳过项、真人和设备未验边界单列，不宣称新的模型质量分数。
+[0.8.5 更新说明](docs/RELEASE-0.8.5.zh.md)。本版修复登录恢复、Linux 凭据诊断与多窗口续期，保留原有任务和记忆工作流；跳过项、真人和设备未验边界单列，不宣称新的模型质量分数。
 
 [Ubuntu 26.04.1 Desktop amd64 完整教程](docs/UBUNTU-26.04.zh.md)
 
@@ -19,21 +19,21 @@ Ubuntu / macOS：在系统终端逐条执行。先查看 KARMEN 账号状态；�
 状态提示需要登录时，先运行 `koder login --open` 并确认设备授权。已有有效刷新授权会在任务前续期。看到 `koder >` 后才输入任务。`activate` 只开启后台常驻，不会进入聊天；出现状态 JSON 后运行最后一条即可。完整路径能用但 `koder` 找不到时，按 [PATH 排查](docs/UBUNTU.zh.md#progress) 操作，不必重新下载。自定义安装路径以安装器末尾为准。
 
 
-**当前版本：0.8.4。Koder 私有自研任务内核连接计划、权限、工具、结果保存与交付检查。**
+**当前版本：0.8.5。Koder 私有自研任务内核连接计划、权限、工具、结果保存与交付检查。**
 
 [KARMEN 登录教程](docs/ACCOUNT-LOGIN.zh.md) · [English sign-in guide](docs/ACCOUNT-LOGIN.md) · [目标与计划](docs/GOALS-AND-PLANS.zh.md) · [命令等待](docs/COMMAND-DURATION.md) · [界面与网站设计](docs/INTERFACE-COMPOSITION.zh.md) · [上下文管理](docs/CONTEXT-CONTROLS.zh.md)
 
 通过 CLI 官网安装和更新；保留现有配置与历史。取消、费用预算、权限及未核实结果保护继续有效。
 
-[报告未完成任务](docs/ERROR-REPORTS.zh.md) · [English guide](docs/ERROR-REPORTS.md) · [本版更新](docs/RELEASE-0.8.4.zh.md)
+[报告未完成任务](docs/ERROR-REPORTS.zh.md) · [English guide](docs/ERROR-REPORTS.md) · [本版更新](docs/RELEASE-0.8.5.zh.md)
 
 [本机修复教程](docs/SELF-REPAIR.zh.md) · [English guide](docs/SELF-REPAIR.md) · [有限修复许可](LOCAL-REPAIR-PERMISSION.md)
 
-本机功能修复默认关闭，仍支持原有七个模块。候选检查与启用后的函数统一运行在 QuickJS-WASM 沙箱，保留测试和回滚；内核、账号、权限、预算和更新器不在补丁范围内。原有质量目标及平台实机未验项继续保留，见[本版记录](docs/RELEASE-0.8.4.zh.md)。
+本机功能修复默认关闭，仍支持原有七个模块。候选检查与启用后的函数统一运行在 QuickJS-WASM 沙箱，保留测试和回滚；内核、账号、权限、预算和更新器不在补丁范围内。原有质量目标及平台实机未验项继续保留，见[本版记录](docs/RELEASE-0.8.5.zh.md)。
 
 [邮箱绑定与恢复教程](docs/MAIL-RECOVERY.zh.md)
 
-[完整功能与教程导航](docs/FEATURES.zh.md) · [本版更新](docs/RELEASE-0.8.4.zh.md) · [会话解卡手把手教程](docs/SESSION-RECOVERY.zh.md) · [Windows 磁盘排查手把手教程](docs/WINDOWS-DISK-RECOVERY.zh.md)
+[完整功能与教程导航](docs/FEATURES.zh.md) · [本版更新](docs/RELEASE-0.8.5.zh.md) · [会话解卡手把手教程](docs/SESSION-RECOVERY.zh.md) · [Windows 磁盘排查手把手教程](docs/WINDOWS-DISK-RECOVERY.zh.md)
 
 [Ubuntu 中文教程](docs/UBUNTU.zh.md) · [全部平台安装](docs/INSTALLATION.md) · [教程总入口](docs/START-HERE.zh.md)
 
@@ -46,7 +46,7 @@ Ubuntu / macOS：在系统终端逐条执行。先查看 KARMEN 账号状态；�
 | 继续完整课程 | [1800 课中文课堂说明](docs/courses/README.zh.md) |
 
 
-[English](README.md) · [简体中文](README.zh-CN.md) · **v0.8.4**
+[English](README.md) · [简体中文](README.zh-CN.md) · **v0.8.5**
 
 [![Windows installer](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/KarmenLoop/koder-cli/actions/workflows/windows-installer.yml)
 [![Node](https://img.shields.io/badge/node-%5E22.21%20%7C%7C%20%3E%3D24-brightgreen)](https://nodejs.org/)
@@ -56,19 +56,19 @@ Ubuntu / macOS：在系统终端逐条执行。先查看 KARMEN 账号状态；�
 
 **本地终端编程 Agent：用你自己的模型 API，在本机完成规划、提案与落地——敏感改动先审批，任务历史按工作区隔离。**
 
-Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 云端功能需要已验证的 KARMEN 会话；0.8.4 另支持明确开启的本机模式，不把本机标记当作云账号。模型 API 仍需单独配置。 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。
+Koder CLI 是 [KARMEN LOOP](https://karmenloop.com) 团队的**本地任务工具**。接入你自己的服务商密钥或受支持的本地模型，选定项目，按计划 → 工具 → 审批 → 结果留存推进工作。**个人非商业本地使用免费，不需要会员，也不需要邀请码。** 云端功能需要已验证的 KARMEN 会话；0.8.5 另支持明确开启的本机模式，不把本机标记当作云账号。模型 API 仍需单独配置。 商业使用与组织部署须另行取得书面授权。模型/API 费用由服务商另行计收。
 
 Koder 自研任务内核、原生编排、权限检查与交付核验。Python、Scrapling、Playwright、FFmpeg、EARSHOT、CodeGraph 及第三方 Skills 保留各自作者和许可，不能把整包依赖称为 Koder 原创。详见[架构与组件来源](docs/ARCHITECTURE-AND-PROVENANCE.zh.md)及[第三方声明](THIRD_PARTY_NOTICES.md)。
 
-当前版本：**0.8.4** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
+当前版本：**0.8.5** · 协议：**[Koder-EULA-1.1](EULA.md)** · 安装：[GitHub 安装指南](docs/INSTALLATION.md)
 
 > 从 0.4.4 或更早升级：若旧更新器因包体积拒绝清单，请用当前官方安装器覆盖升级一次，配置与历史会保留。[安装与升级说明](docs/INSTALLATION.md)。
 
-![Koder CLI 0.8.4 中文启动界面](docs/screenshots/cli-start-0.8.4-zh-dark.jpg)
+![Koder CLI 0.8.5 中文启动界面](docs/screenshots/cli-start-0.8.5-zh-dark.jpg)
 
-*Koder CLI 0.8.4 的 macOS 启动界面，采集于 2026 年 11 月 3 日。图片由程序的真实终端输出渲染，尚未配置模型；各终端的字体和间距可能不同。*
+*Koder CLI 0.8.5 的 macOS 启动界面，采集于 2026 年 11 月 3 日。图片由程序的真实终端输出渲染，尚未配置模型；各终端的字体和间距可能不同。*
 
-[安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.8.4.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
+[安装教程](docs/INSTALLATION.md) · [完整中文指南](docs/USER-GUIDE.zh.md) · [English guide](docs/USER-GUIDE.en.md) · [本版更新](docs/RELEASE-0.8.5.zh.md) · [命令参考](docs/COMMAND-REFERENCE.zh.md)
 
 ---
 
@@ -120,7 +120,7 @@ Koder 把四件事钉死：
 |---|---|
 | **安装什么** | 官方 Windows / macOS / Linux 安装器分发的版本化 CLI 运行时（Node **^22.21.0 或 ≥24**，复用或下载并校验） |
 | **你自备什么** | 自己的模型 API Key，或受支持的本地模型端点 |
-| **版本** | **0.8.4**（官网发行清单、stable 通道） |
+| **版本** | **0.8.5**（官网发行清单、stable 通道） |
 | **本版许可** | **Koder-EULA-1.1** — 当前应用运行时的专有终端用户许可 |
 | **个人使用** | 个人非商业本地使用免费 — **无会员、无邀请码** |
 | **商业 / 组织** | 须事先书面授权（`koder business` / [商业授权](docs/COMMERCIAL-LICENSING.md)） |
@@ -215,25 +215,25 @@ flowchart LR
 
 ---
 
-## 界面截图 · 0.8.4
+## 界面截图 · 0.8.5
 
-以下图片来自已发布的 **0.8.4** macOS 包，分别展示启动、设置主菜单和第一课。切换 README 语言可查看对应的中英文界面。
+以下图片来自已发布的 **0.8.5** macOS 包，分别展示启动、设置主菜单和第一课。切换 README 语言可查看对应的中英文界面。
 
 | 界面 | 图中内容 | 图片 |
 | --- | --- | --- |
-| 启动 | 折光体、版本、工作目录与常用命令 | [启动界面](docs/screenshots/cli-start-0.8.4-zh-dark.jpg) |
-| 设置 | 尚未配置模型时的主菜单 | [设置菜单](docs/screenshots/cli-setup-0.8.4-zh-dark.jpg) |
-| 课堂 | 第一课的终端选择步骤 | [第一课](docs/screenshots/cli-learn-0.8.4-zh-dark.jpg) |
+| 启动 | 折光体、版本、工作目录与常用命令 | [启动界面](docs/screenshots/cli-start-0.8.5-zh-dark.jpg) |
+| 设置 | 尚未配置模型时的主菜单 | [设置菜单](docs/screenshots/cli-setup-0.8.5-zh-dark.jpg) |
+| 课堂 | 第一课的终端选择步骤 | [第一课](docs/screenshots/cli-learn-0.8.5-zh-dark.jpg) |
 
 图片采集于 2026 年 11 月 3 日，由未修改的真实终端输出渲染而成。采集方式与校验值见[截图说明](docs/screenshots/README.zh-CN.md)；安装和首个任务见[手把手上手](#手把手上手)。
 
 ---
 
-## 0.8.4 使用入口
+## 0.8.5 使用入口
 
 [XPath 与浏览器采集](docs/WEB-DATA.zh.md) · [托管运行时](docs/TOOL-RUNTIMES.zh.md) · [Worker 协作](docs/SUPER-AGENT-ARCHITECTURE.zh.md) · [原生 Headroom](docs/HEADROOM.zh.md) · [架构与组件来源](docs/ARCHITECTURE-AND-PROVENANCE.zh.md) · [带来源的项目记忆](docs/DEERFLOW-MEMORY.zh.md)
 
-安装与完整教程分别在 [CLI 官网下载页](https://kodermodule.com/cli-download.html)和[教程中心](https://kodermodule.com/cli-tutorials.html)，GitHub 保留文档与历史。[发行核对](docs/RELEASE-0.8.4.zh.md#发行核对与未验范围)保留原 Mac 下载超时，并区分已有记录、原生设备和真人账号未验项。
+安装与完整教程分别在 [CLI 官网下载页](https://kodermodule.com/cli-download.html)和[教程中心](https://kodermodule.com/cli-tutorials.html)，GitHub 保留文档与历史。[发行核对](docs/RELEASE-0.8.5.zh.md#发行核对与未验范围)保留原 Mac 下载超时，并区分已有记录、原生设备和真人账号未验项。
 
 ## 能力一览
 
@@ -271,7 +271,7 @@ koder setup
 koder
 ```
 
-以下操作面向 **0.8.4**。若提示找不到 `koder`，[Ubuntu PATH 教程](docs/UBUNTU.zh.md) 包含通过安装后的完整路径启动、刷新终端环境的步骤。图形操作还需要对应依赖与授权。平台细节见 [安装教程](docs/INSTALLATION.md)。
+以下操作面向 **0.8.5**。若提示找不到 `koder`，[Ubuntu PATH 教程](docs/UBUNTU.zh.md) 包含通过安装后的完整路径启动、刷新终端环境的步骤。图形操作还需要对应依赖与授权。平台细节见 [安装教程](docs/INSTALLATION.md)。
 
 ---
 
@@ -311,7 +311,7 @@ koder --version
 koder
 ```
 
-安装后应看到 **0.8.4**。首次任务前运行 `koder login`，在官方账号页面核对并批准设备。[登录教程](docs/ACCOUNT-LOGIN.zh.md)涵盖扫码、退出、Linux 凭据存储与无头任务。直接 `koder` 进入交互聊天。想先走短教程？
+安装后应看到 **0.8.5**。首次任务前运行 `koder login`，在官方账号页面核对并批准设备。[登录教程](docs/ACCOUNT-LOGIN.zh.md)涵盖扫码、退出、Linux 凭据存储与无头任务。直接 `koder` 进入交互聊天。想先走短教程？
 
 ```text
 koder learn
@@ -319,7 +319,7 @@ koder learn
 
 课中：`Enter` 继续，`b` 回退，`q` 离开。离线文本版：`koder learn --print --os mac --lang zh`（`--os` 也可为 `powershell` / `cmd` / `linux`；`--lang en` 为英文）。
 
-![Koder CLI 0.8.4 中文第一课](docs/screenshots/cli-learn-0.8.4-zh-dark.jpg)
+![Koder CLI 0.8.5 中文第一课](docs/screenshots/cli-learn-0.8.5-zh-dark.jpg)
 
 *第一课先让你选择使用的终端。本图停在选择步骤，阅读课程不需要调用模型。*
 
@@ -349,7 +349,7 @@ koder chat -w /absolute/path/to/existing-project
 
 聊天内：`/project create "Another Site" --kind website` 创建并选中；`/project open "/absolute/path"` 回到已有目录。同名冲突会被拒绝——**不会**合并文件。
 
-![Koder CLI 0.8.4 中文设置菜单](docs/screenshots/cli-setup-0.8.4-zh-dark.jpg)
+![Koder CLI 0.8.5 中文设置菜单](docs/screenshots/cli-setup-0.8.5-zh-dark.jpg)
 
 *尚未配置服务商时的设置主菜单。选择「模型」后填写服务商配置。*
 
@@ -413,7 +413,7 @@ koder review --format json
 
 适合在落地后需要结构化发现、大改动跟进前，或 CI 式门禁必须区分「解析干净」与失败时使用。若模型回答成功仍无法解析出完整审查结果，CLI 以退出码 **3** 返回 `REVIEW_UNPARSED`——**不要**把它当成干净通过。
 
-**第一次成功**的标志：版本显示 0.8.4、所选云账号或明确的本机模式已启用、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
+**第一次成功**的标志：版本显示 0.8.5、所选云账号或明确的本机模式已启用、setup 里有可用（非灰）服务商、至少一题产生可读 Diff、你主动批准或拒绝。多窗口、Skills/MCP、常驻、邮件问询等继续看 [完整中文指南](docs/USER-GUIDE.zh.md)。
 
 日常聊天：空提示符输入 `/` 打开可编辑选项（Tab 填入，Esc 关闭，填入后再 Enter 发送）。`/setup` 打开设置，`/model` 管理模型，`/new` 新话题，`/exit` 离开。`/menu` 也可打开设置。
 
@@ -533,7 +533,7 @@ koder update auto on
 | 分发与历史 GPL 树 | [DISTRIBUTION.md](DISTRIBUTION.md) · [SOURCE-STATUS.md](SOURCE-STATUS.md) | 专有运行时 vs 历史公开树 |
 | 中文 1800 课 / 英文 30 课文本 | [docs/tutorials/](docs/tutorials/) | 中英 × PowerShell/CMD/mac/linux 离线版 |
 | 本地任务记忆（默认开） | [MARKDOWN-LEARNING.zh.md](docs/MARKDOWN-LEARNING.zh.md) | 范围、实际开关、复盘与关闭方法 |
-| 本版发行 | [RELEASE-0.8.4.zh.md](docs/RELEASE-0.8.4.zh.md) | 改了什么、哪些仍为 NOT_RUN |
+| 本版发行 | [RELEASE-0.8.5.zh.md](docs/RELEASE-0.8.5.zh.md) | 改了什么、哪些仍为 NOT_RUN |
 
 ---
 
@@ -556,8 +556,8 @@ koder update auto on
 **会不会不经询问就改我的文件？**\
 可识别的低风险本地检查与普通工程改动可按智能审批执行。敏感或未知效果——含删除、密钥路径、Shell 副作用——会先询问。批准前请看清 Diff 与目标。
 
-**公开 GitHub 源码就是 0.8.4 运行时吗？**
-不是。公开树保留历史 GPL **0.3.1** 材料。**0.8.4** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
+**公开 GitHub 源码就是 0.8.5 运行时吗？**
+不是。公开树保留历史 GPL **0.3.1** 材料。**0.8.5** 应用运行时为专有，经官方安装器与发行清单分发（[SOURCE-STATUS.md](SOURCE-STATUS.md)）。
 
 **公司能否部署？**\
 联系 [info@karmenloop.com](mailto:info@karmenloop.com) 或运行 `koder business`。点星、下载与咨询邮件本身不构成商业授权。
@@ -569,7 +569,7 @@ koder update auto on
 落地后需要结构化发现时、大改动跟进前，或门禁必须区分干净解析与 `REVIEW_UNPARSED`（退出码 3）时。它**不能**替代首次批准前阅读 Diff。
 
 **手把手教程在哪？**\
-就在本页：[手把手上手](#手把手上手)（含 0.8.4 启动、设置和课堂图片）。完整深度：[USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · `koder learn`。
+就在本页：[手把手上手](#手把手上手)（含 0.8.5 启动、设置和课堂图片）。完整深度：[USER-GUIDE.zh.md](docs/USER-GUIDE.zh.md) · [USER-GUIDE.en.md](docs/USER-GUIDE.en.md) · `koder learn`。
 
 ---
 
@@ -650,4 +650,4 @@ KARMENLOOP 官方团队 · 中国上海 · [karmenloop.com](https://karmenloop.c
 
 需要登录时，通过系统浏览器确认设备授权。已有网页会话可以复用，但设备确认仍需单独完成。本版同时包含[命令教学](docs/COMMAND-LEARNING.zh.md)和[本地自检](docs/DIAGNOSTICS.zh.md)。云端上报服务尚未配置，仍返回 `DIAGNOSTICS_SERVICE_NOT_READY`。
 
-0.8.4 网站提升及 18 项定向 HTTPS 检查已核对；产品方另完成 32 个原件完整校验、Linux 续传、新旧默认更新入口和 Windows Server 2022 七项存储/账号检查。官网负责人的 PUBLIC413 仍待最终回执；真人与原生桌面验收另行记录。[发行记录与边界](docs/RELEASE-0.8.4.zh.md#发行核对与未验范围)。
+Koder CLI 0.8.5 已在官网发布，正式切换与 18 项定向 HTTPS 检查已核对。精确的 [Windows Server 2022 / Node 22.23.4 实测](https://github.com/KarmenLoop/koder-cli/actions/runs/41622933939)七项存储/账号检查全部通过。完整下载、续传、更新链路及公网 macOS 安装由产品负责人分别验收；独立官网 PUBLIC414、真人与原生桌面结果另列。

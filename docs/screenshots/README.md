@@ -2,13 +2,13 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-These **0.8.4** images were captured on November 3, 2026 from the published macOS package. The archive matches the frozen release record and the producer’s verified public download. All 202 package files observed during capture match that archive. [Commands, exit statuses and image checksums](capture-0.8.4.json).
+These **0.8.5** images were captured on November 3, 2026 from the published macOS package. The archive matches the frozen release record and the activated official release map. All 202 package files observed during capture match that archive. [Commands, exit statuses and image checksums](capture-0.8.5.json).
 
 | Screen | English | 简体中文 |
 | --- | --- | --- |
-| Startup | [English image](cli-start-0.8.4-en-dark.jpg) | [中文图片](cli-start-0.8.4-zh-dark.jpg) |
-| Setup | [English image](cli-setup-0.8.4-en-dark.jpg) | [中文图片](cli-setup-0.8.4-zh-dark.jpg) |
-| First lesson | [English image](cli-learn-0.8.4-en-dark.jpg) | [中文图片](cli-learn-0.8.4-zh-dark.jpg) |
+| Startup | [English image](cli-start-0.8.5-en-dark.jpg) | [中文图片](cli-start-0.8.5-zh-dark.jpg) |
+| Setup | [English image](cli-setup-0.8.5-en-dark.jpg) | [中文图片](cli-setup-0.8.5-zh-dark.jpg) |
+| First lesson | [English image](cli-learn-0.8.5-en-dark.jpg) | [中文图片](cli-learn-0.8.5-zh-dark.jpg) |
 
 ## How these were captured
 
@@ -20,4 +20,4 @@ These pictures show the three screens above. They do not verify installation, pr
 
 ## Earlier versions
 
-The [0.7.2 capture record](capture-0.7.2.json), [0.5.21 capture record](capture-0.5.21.json) and their images remain available for historical links. The current README gallery uses 0.8.4.
+The [0.8.4 capture record](capture-0.8.4.json), [0.7.2 capture record](capture-0.7.2.json), [0.5.21 capture record](capture-0.5.21.json) and their images remain available for historical links. The current README gallery uses 0.8.5.

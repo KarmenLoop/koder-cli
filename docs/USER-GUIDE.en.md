@@ -18,17 +18,17 @@ This release checks for missing task output and website handoff evidence. Read [
 
 0.5.19 includes [computer care](COMPUTER-CARE.zh.md), [installed-app access](APP-USE-AND-LEARN.en.md) and the Windows disk-inspection fix. Start with the [feature and tutorial map](FEATURES.md).
 
-Current version: **0.8.4**. Start with [release changes](RELEASE-0.8.4.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
+Current version: **0.8.5**. Start with [release changes](RELEASE-0.8.5.md), [input and provider diagnosis](PROVIDER-WRITING-INPUT.md) and [independent terminal tasks](MULTI-WINDOW.md). The complete guide below retains existing workflows. Native Windows and authenticated-account limits are explicit in the release notes.
 
 > Older updaters can reject this package above their 100 MB limit. Run the current official installer once to upgrade in place while retaining configuration and history; see the [migration guide](INSTALLATION.md#6-update-without-clearing-your-data).
 
-This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide targets 0.8.4. The eight linked terminal text exports match this version; historical exports are excluded from the current package.
+This version includes default-on [Headroom context optimization](HEADROOM.en.md) and separate [history-compaction controls](CONTEXT-CONTROLS.en.md). This guide targets 0.8.5. The eight linked terminal text exports match this version; historical exports are excluded from the current package.
 
 # Koder CLI complete user guide
 
-For **0.8.4**, the additional workflows are [XPath/browser collection](WEB-DATA.md), [managed runtimes](TOOL-RUNTIMES.en.md) and [worker coordination](SUPER-AGENT-ARCHITECTURE.en.md). Existing users can keep their account, model and workspace settings. [Release limits](RELEASE-0.8.4.md#release-checks-and-remaining-limits) remain explicit.
+For **0.8.5**, the additional workflows are [XPath/browser collection](WEB-DATA.md), [managed runtimes](TOOL-RUNTIMES.en.md) and [worker coordination](SUPER-AGENT-ARCHITECTURE.en.md). Existing users can keep their account, model and workspace settings. [Release limits](RELEASE-0.8.5.md#release-checks-and-remaining-limits) remain explicit.
 
-Version: **0.8.4**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
+Version: **0.8.5**. Check `koder --version`; older installations may have different behavior. Native Windows and real-account checks are recorded separately from local regressions.
 
 ## 1. Install in the right terminal
 
@@ -231,14 +231,14 @@ For a bug or licensing inquiry, `koder feedback` or `koder business` provides **
 
 ## Download the eight text editions
 
-- [koder-cli-0.8.4-en-cmd.txt](https://kodermodule.com/releases/cli-0.8.4/koder-cli-0.8.4-en-cmd.txt)
-- [koder-cli-0.8.4-en-linux.txt](https://kodermodule.com/releases/cli-0.8.4/koder-cli-0.8.4-en-linux.txt)
-- [koder-cli-0.8.4-en-mac.txt](https://kodermodule.com/releases/cli-0.8.4/koder-cli-0.8.4-en-mac.txt)
-- [koder-cli-0.8.4-en-powershell.txt](https://kodermodule.com/releases/cli-0.8.4/koder-cli-0.8.4-en-powershell.txt)
-- [koder-cli-0.8.4-zh-cmd.txt](https://kodermodule.com/releases/cli-0.8.4/koder-cli-0.8.4-zh-cmd.txt)
-- [koder-cli-0.8.4-zh-linux.txt](https://kodermodule.com/releases/cli-0.8.4/koder-cli-0.8.4-zh-linux.txt)
-- [koder-cli-0.8.4-zh-mac.txt](https://kodermodule.com/releases/cli-0.8.4/koder-cli-0.8.4-zh-mac.txt)
-- [koder-cli-0.8.4-zh-powershell.txt](https://kodermodule.com/releases/cli-0.8.4/koder-cli-0.8.4-zh-powershell.txt)
+- [koder-cli-0.8.5-en-cmd.txt](https://kodermodule.com/releases/cli-0.8.5/koder-cli-0.8.5-en-cmd.txt)
+- [koder-cli-0.8.5-en-linux.txt](https://kodermodule.com/releases/cli-0.8.5/koder-cli-0.8.5-en-linux.txt)
+- [koder-cli-0.8.5-en-mac.txt](https://kodermodule.com/releases/cli-0.8.5/koder-cli-0.8.5-en-mac.txt)
+- [koder-cli-0.8.5-en-powershell.txt](https://kodermodule.com/releases/cli-0.8.5/koder-cli-0.8.5-en-powershell.txt)
+- [koder-cli-0.8.5-zh-cmd.txt](https://kodermodule.com/releases/cli-0.8.5/koder-cli-0.8.5-zh-cmd.txt)
+- [koder-cli-0.8.5-zh-linux.txt](https://kodermodule.com/releases/cli-0.8.5/koder-cli-0.8.5-zh-linux.txt)
+- [koder-cli-0.8.5-zh-mac.txt](https://kodermodule.com/releases/cli-0.8.5/koder-cli-0.8.5-zh-mac.txt)
+- [koder-cli-0.8.5-zh-powershell.txt](https://kodermodule.com/releases/cli-0.8.5/koder-cli-0.8.5-zh-powershell.txt)
 
 ## Structured reviews and headless Linux
 
@@ -373,6 +373,10 @@ Version 0.5.14 supports hidden credential input, existing account bindings, Ubun
 In chat, use `/reconcile` to inspect pending calls. After checking the actual target, use `/reconcile checked <call-id>`. Original UNKNOWN receipts and normal approval requirements remain intact; nothing is replayed. Exact `ESC`/`Escape` input cancels without starting a model turn at idle. See [session recovery](SESSION-RECOVERY.en.md).
 
 
-## 0.8.4: project memory with sources
+## 0.8.5: project memory with sources
 
 [The memory walkthrough](DEERFLOW-MEMORY.en.md) covers remembering, readback, correction, forgetting and off controls. The [account guide](ACCOUNT-LOGIN.md) distinguishes cloud sign-in from local access. Remembered text is neither a permission grant nor delivery evidence. Release checks and remaining limits are recorded separately.
+
+## Account recovery in 0.8.5
+
+Check `koder account doctor --json` before repeating browser sign-in. Linux preflight distinguishes a missing helper from `not-probed`; an unlocked Secret Service and protected read/write are still required. Concurrent refreshes wait up to 45 seconds with cancellation; `LOGIN_BUSY` means retry later without deleting a live lock. Temporary identity-service errors preserve a saved account, while expired grants and unconfirmed token exchanges still require recovery. [Sign-in guide](ACCOUNT-LOGIN.md) · [0.8.5 release checks](RELEASE-0.8.5.md).

@@ -2,13 +2,13 @@
 
 [English](ACCOUNT-LOGIN.md) · [简体中文](ACCOUNT-LOGIN.zh.md)
 
-适用于 Koder CLI 0.8.4。首次任务可选择 KARMEN 网页/二维码登录，或在交互终端运行 `koder login --key` 输入团队私下提供的访问密钥，开启本机模式。本机模式不是云端账号身份，详见[本机密钥与返回 CLI](LOCAL-ACCESS-AND-RETURN.zh.md)。账号登录与模型 API Key、邮箱授权码、电脑权限是四件独立的事。登录不会自动绑定邮箱、授予电脑权限或上传对话日志。
+适用于 Koder CLI 0.8.5。首次任务可选择 KARMEN 网页/二维码登录，或在交互终端运行 `koder login --key` 输入团队私下提供的访问密钥，开启本机模式。本机模式不是云端账号身份，详见[本机密钥与返回 CLI](LOCAL-ACCESS-AND-RETURN.zh.md)。账号登录与模型 API Key、邮箱授权码、电脑权限是四件独立的事。登录不会自动绑定邮箱、授予电脑权限或上传对话日志。
 
 ## 从安装完成到第一个任务
 
 以下按网页或二维码授权说明；选择本机密钥时，使用[本机模式教程](LOCAL-ACCESS-AND-RETURN.zh.md)。
 
-1. 安装完成后新开终端，输入 `koder --version`，确认显示 `0.8.4`。如果找不到命令，macOS/Linux 输入 `"$HOME/.local/bin/koder" --version`，再按安装教程修复 PATH；Windows 按安装器给出的完整启动路径执行。
+1. 安装完成后新开终端，输入 `koder --version`，确认显示 `0.8.5`。如果找不到命令，macOS/Linux 输入 `"$HOME/.local/bin/koder" --version`，再按安装教程修复 PATH；Windows 按安装器给出的完整启动路径执行。
 2. 输入 `koder login`。终端提供“一键打开系统浏览器登录”、“显示二维码，用手机扫码登录”和“输入密钥，进入本机模式”。用方向键选择，Enter 确认，Esc 取消。直接运行 `koder` 并提交任务也会触发登录。
 3. 浏览器打开 **https://karmensecurity.com/account**。仅在这个官方网页输入账号、密码、验证码或完成 MFA，不要把这些内容粘到聊天里。
 4. 网页显示设备授权时，核对设备名称和终端显示的确认码，再批准这台 CLI。二维码与链接是同一次短期授权，通常十分钟有效；不要把它分享给其他人。
@@ -68,7 +68,7 @@ koder account doctor --json
 
 报告会区分 `HELPER_UNVERIFIED`（组件缺失或校验失败）、`PROCESS_TIMEOUT`（组件未在限时内返回）、`DPAPI_FAILED`（系统保护操作失败）、`ACCESS_DENIED`（访问被拒绝）和 `DISK_FULL`（磁盘已满）。把原因码、操作阶段、版本和 KR 编号交给支持人员；不要发送令牌、授权链接或确认码。组件被安全软件拦截时，请核对系统拦截记录，不要关闭防护或换管理员账号绕过。只有明确的组件损坏才按官方下载入口重新安装。
 
-本版保留 0.8.2 的 Windows 存储修复：在打开网页登录前执行存储检查。一次失败不会使当前进程永久停留在临时存储；解决原因后可以直接重试。失败的原子写入不会主动删除已有凭据。所有平台仍禁止明文令牌回退。macOS/Linux 的 doctor 返回 `not-probed`，不表示已测试其交互凭据服务。
+本版保留 0.8.2 的 Windows 存储修复：在打开网页登录前执行存储检查。一次失败不会使当前进程永久停留在临时存储；解决原因后可以直接重试。失败的原子写入不会主动删除已有凭据。所有平台仍禁止明文令牌回退。Linux 的 doctor 先检查 secret-tool 能否启动；缺组件时报告原因，可启动仍返回 `not-probed`，不代表 Secret Service 已解锁或受保护写入与读回已完成。macOS Keychain 的交互就绪状态也需独立核实。
 
 ## CI 与无头任务
 
@@ -113,8 +113,23 @@ koder account doctor --json
 
 [本机访问密钥与网页返回入口](LOCAL-ACCESS-AND-RETURN.zh.md)
 
-0.8.4 账号测试记录为 198 项通过、2 项本机密钥条件用例跳过，跳过项不能当成本轮已跑通本机密钥任务。真人注册及浏览器到桌面返回仍为 **NOT_RUN**。
+0.8.5 账号/会话与 agentd 套件合计 208 项通过、2 项本机密钥条件跳过；凭据套件另有 24 项通过、2 项 Windows 条件跳过。跳过项不能当成本轮已跑通本机密钥任务。真人注册及浏览器到桌面返回仍为 **NOT_RUN**。
 
-## 已记录的 Windows VM 检查
+## 历史 Windows VM 检查：0.8.4
 
 [Windows Server 2022 x64 Actions 实测](https://github.com/KarmenLoop/koder-cli/actions/runs/41535590608)核对了已发布 0.8.4 全平台包和 PowerShell 安装器的完整哈希，七项检查通过：CurrentUser DPAPI、普通及含空格/Unicode 路径的新进程读回、旧密文互通、合成账号授权/持久化/刷新/退出、组件启动失败后的重试、退出登录状态下的存储诊断。这不是生产真人登录或 Windows 10/11 原生 GUI 验收。
+
+## 0.8.5 的登录稳定性修复
+
+- Ubuntu/Linux 在打开浏览器前检查 `secret-tool` 是否可执行。缺少时会给出 `PROGRAM_MISSING`；可先运行 `koder account doctor --json`。工具存在仍显示 `not-probed`，不代表 Secret Service 已解锁或已验证，真正登录需完成受保护写入和读回。
+- 账号身份检查遇到 HTTP 503 等临时服务故障或 429 限流时，报告服务错误，不把 HTML 网关页面误判为账号损坏，不删除原会话。等待服务恢复后重试即可。
+- 正在读凭据时取消不会开始刷新或清除原账号。更换账号的凭据已经写入但读回失败时，尝试在原锁内恢复旧受保护凭据；无法验证恢复时明确失败，不宣称仍可用。
+- 多窗口刷新按同一账号锁串行执行，等待最多 45 秒，始终可取消。不按锁年龄抢锁，不重复轮换同一个 refresh token。
+- Linux 凭据输出按完整 UTF-8 解码，中文和 emoji 不再因管道分块而损坏；非法字节会显示 `INVALID_UTF8`，不会悄悄替换用户名。
+- 已保存的授权到期后，即使是跳过远程检查的本地状态路径也不能启动任务；交互入口会引导重新登录。
+
+令牌领取或刷新响应中断，仍可能无法确认令牌是否已被消费；这种情况必须重新登录，不会为减少错误提示而盲目重放。网页登录与返回按钮由独立账号服务部署；包版本不能代替生产网页验收。测试结果与真人 Windows、Ubuntu、扫码/浏览器验收分别记录。
+
+## 0.8.5 Windows 存储实测
+
+[本版精确 Actions 实测](https://github.com/KarmenLoop/koder-cli/actions/runs/41622933939)使用 Windows Server 2022 x64 与 Node 22.23.4，官网通用包和 PowerShell 安装器的大小、SHA-256 均与冻结原件一致。七项全部通过：原生 DPAPI、普通及空格/Unicode 路径的新进程读回、旧密文互通、合成账号授权/持久化/刷新/退出、组件启动失败后的重试，以及退出状态下的存储诊断。这不代表生产真人登录或 Windows 10/11 图形界面已验收。

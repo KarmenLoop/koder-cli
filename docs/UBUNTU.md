@@ -2,15 +2,15 @@ See [account sign-in](ACCOUNT-LOGIN.md) for the 0.6.3 first-message and saved-se
 
 # Ubuntu 24.04: install Koder and complete your first task
 
-Use the **0.8.4 Linux package** for this Ubuntu 24.04 walkthrough. [Browser and media runtimes](TOOL-RUNTIMES.en.md) may need Ubuntu system dependencies; Koder does not install them with automatic sudo. Native Ubuntu GUI acceptance is [recorded separately](RELEASE-0.8.4.md#release-checks-and-remaining-limits) from macOS checks.
+Use the **0.8.5 Linux package** for this Ubuntu 24.04 walkthrough. [Browser and media runtimes](TOOL-RUNTIMES.en.md) may need Ubuntu system dependencies; Koder does not install them with automatic sudo. Native Ubuntu GUI acceptance is [recorded separately](RELEASE-0.8.5.md#release-checks-and-remaining-limits) from macOS checks.
 
-**First task in 0.8.4:** sign in through the [KARMEN browser/QR login](ACCOUNT-LOGIN.md) before using model tasks. Headless sessions without protected login return `LOGIN_REQUIRED`; model keys and computer permissions remain separate.
+**First task in 0.8.5:** sign in through the [KARMEN browser/QR login](ACCOUNT-LOGIN.md) before using model tasks. Headless sessions without protected login return `LOGIN_REQUIRED`; model keys and computer permissions remain separate.
 
 On the newer release? Use the [Ubuntu 26.04.1 Desktop amd64 guide](UBUNTU-26.04.md). This page retains the 24.04 instructions.
 
-[Repository home](../README.md) · [中文手把手教程](UBUNTU.zh.md) · [Download 0.8.4](https://kodermodule.com/en/cli-download.html)
+[Repository home](../README.md) · [中文手把手教程](UBUNTU.zh.md) · [Download 0.8.5](https://kodermodule.com/en/cli-download.html)
 
-This guide covers **Koder CLI 0.8.4** on **Ubuntu 24.04 LTS and its 24.04.x point releases**, on x64 and ARM64. The Linux package includes the supported runtime features, Skills, learning resources and current classroom. Windows-MCP and the macOS locked-use component remain platform-specific. Ubuntu uses the Linux AT-SPI desktop adapter. Ubuntu 24.10 is outside the current scope.
+This guide covers **Koder CLI 0.8.5** on **Ubuntu 24.04 LTS and its 24.04.x point releases**, on x64 and ARM64. The Linux package includes the supported runtime features, Skills, learning resources and current classroom. Windows-MCP and the macOS locked-use component remain platform-specific. Ubuntu uses the Linux AT-SPI desktop adapter. Ubuntu 24.10 is outside the current scope.
 
 ## Already installed but unable to open Koder?
 
@@ -57,13 +57,13 @@ command -v curl
 **With wget:**
 
 ```bash
-wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/releases/cli-0.8.4/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
+wget --tries=3 --timeout=30 -O /tmp/koder-ubuntu-install.sh https://kodermodule.com/releases/cli-0.8.5/koder-ubuntu-24.04.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **With curl:**
 
 ```bash
-curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/releases/cli-0.8.4/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
+curl -fL --retry 3 --connect-timeout 20 https://kodermodule.com/releases/cli-0.8.5/koder-ubuntu-24.04.sh -o /tmp/koder-ubuntu-install.sh && bash /tmp/koder-ubuntu-install.sh
 ```
 
 **If neither is installed:** run these separately, resolve any apt errors, then use the curl command above.
@@ -94,7 +94,7 @@ koder --version
 koder --help
 ```
 
-Expect `koder 0.8.4`. If the command is not found, adjust this terminal's PATH:
+Expect `koder 0.8.5`. If the command is not found, adjust this terminal's PATH:
 
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
@@ -280,7 +280,7 @@ Tool rounds remain unlimited by default; explicit cost budgets, cancellation, ap
 | Installer-script download failed | Rerun the full command with `&&`; do not execute a stale temporary file. |
 | Interrupted archive download | Rerun the same installer to resume. Keep TLS and SHA-256 verification enabled. |
 | Command missing / old version | Reopen the terminal, inspect PATH and `type -a koder`. |
-| Task keeps waiting | Verify 0.8.4, watch the ten-second wait feedback, then check the selected provider. |
+| Task keeps waiting | Verify 0.8.5, watch the ten-second wait feedback, then check the selected provider. |
 | `API_HEADERS_TIMEOUT` | The provider may still be generating; avoid submitting duplicate work. |
 | Keyring unavailable | Check secret-tool, the session bus and keyring unlock; do not use root. |
 | `COMPUTER_NO_DESKTOP_SESSION` | Use the signed-in desktop terminal or continue with CLI file tasks. |
@@ -316,17 +316,17 @@ Keep the connection open and visit `http://127.0.0.1:8080` locally. This does no
 To inspect a manual download, place `SHA256SUMS` and the Linux archive from the same release in one directory:
 
 ```bash
-sha256sum koder-cli-0.8.4-linux.tgz
-grep 'koder-cli-0.8.4-linux.tgz' SHA256SUMS
+sha256sum koder-cli-0.8.5-linux.tgz
+grep 'koder-cli-0.8.5-linux.tgz' SHA256SUMS
 ```
 
 The digests must match. The `.tgz` is not a `.deb` or double-click installer. Normal installations use the script above.
 
 ## 12. Evidence and further reading
 
-Use the release's [ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.8.4/ACCEPTANCE-RESULTS.json) for the exact package hash and platform results. Installation, PATH recovery, archive metadata, slow-response PTY, desktop controls and notifications are checked separately.
+Use the release's [ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.8.5/ACCEPTANCE-RESULTS.json) for the exact package hash and platform results. Installation, PATH recovery, archive metadata, slow-response PTY, desktop controls and notifications are checked separately.
 
-The [0.5.12 task run](https://github.com/KarmenLoop/koder-cli/actions/runs/40555216774) and [0.5.12 desktop matrix](https://github.com/KarmenLoop/koder-cli/actions/runs/40555225654) are historical baselines. All four desktop jobs passed after retrying an x64 Wayland dependency-download timeout; the initial failure is retained. These results do not certify the 0.6.3 package.
+The [0.5.12 task run](https://github.com/KarmenLoop/koder-cli/actions/runs/40555216774) and [0.5.12 desktop matrix](https://github.com/KarmenLoop/koder-cli/actions/runs/40555225654) are historical baselines. All four desktop jobs passed after retrying an x64 Wayland dependency-download timeout; the initial failure is retained. These results do not certify the 0.8.5 package.
 
 Xvfb/headless Sway do not certify physical GNOME, reboot behavior, every GPU or every app. Earlier 0.5.8 GI text-interface failures remain recorded; the fix uses interface-qualified calls with empty-input, label and password regressions. Compare package hashes when reviewing runs.
 
@@ -345,8 +345,12 @@ OS references: [Ubuntu Desktop documentation](https://documentation.ubuntu.com/d
 7. Enable desktop, mail or GitHub access only for the feature you want to test. Verify each result independently.
 8. Exit with `/exit`, reopen the same project and check that files and settings remain.
 
-Release-specific proof is in [ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.8.4/ACCEPTANCE-RESULTS.json), keyed by archive hash. The linked 0.5.12 runs are historical comparisons, not 0.8.4 verification. The initial 0.5.12 x64 Wayland dependency timeout was retained; its rerun passed. Physical desktop sessions, reboots and real accounts need their own evidence.
+Release-specific proof is in [ACCEPTANCE-RESULTS.json](https://kodermodule.com/releases/cli-0.8.5/ACCEPTANCE-RESULTS.json), keyed by archive hash. The linked 0.5.12 runs are historical comparisons, not 0.8.5 verification. The initial 0.5.12 x64 Wayland dependency timeout was retained; its rerun passed. Physical desktop sessions, reboots and real accounts need their own evidence.
 
 ## Private credential input
 
 Version 0.5.14 supports hidden credential input, existing account bindings, Ubuntu private login filling and native sudo prompts. See [Credentials and private login input](CREDENTIALS.md) for the workflow and platform limits.
+
+## Account recovery in 0.8.5
+
+Check `koder account doctor --json` before repeating browser sign-in. Linux preflight distinguishes a missing helper from `not-probed`; an unlocked Secret Service and protected read/write are still required. Concurrent refreshes wait up to 45 seconds with cancellation; `LOGIN_BUSY` means retry later without deleting a live lock. Temporary identity-service errors preserve a saved account, while expired grants and unconfirmed token exchanges still require recovery. [Sign-in guide](ACCOUNT-LOGIN.md) · [0.8.5 release checks](RELEASE-0.8.5.md).

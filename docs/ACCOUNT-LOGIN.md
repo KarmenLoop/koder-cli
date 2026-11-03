@@ -2,13 +2,13 @@
 
 [English](ACCOUNT-LOGIN.md) · [简体中文](ACCOUNT-LOGIN.zh.md)
 
-Koder CLI 0.8.4 offers KARMEN browser/QR sign-in and explicit local access with an access key provided privately by your team. For local use, run `koder login --key` in an interactive terminal; this does not create a cloud account session. See [local access and browser return](LOCAL-ACCESS-AND-RETURN.md). Account login is separate from model API keys, mailbox credentials and computer permissions. It does not enable cloud log uploads.
+Koder CLI 0.8.5 offers KARMEN browser/QR sign-in and explicit local access with an access key provided privately by your team. For local use, run `koder login --key` in an interactive terminal; this does not create a cloud account session. See [local access and browser return](LOCAL-ACCESS-AND-RETURN.md). Account login is separate from model API keys, mailbox credentials and computer permissions. It does not enable cloud log uploads.
 
 ## Cloud sign-in
 
 These steps follow browser or QR authorization. For the local-access option, follow the [local guide](LOCAL-ACCESS-AND-RETURN.md).
 
-1. Open a new terminal and check `koder --version` reports `koder 0.8.4`.
+1. Open a new terminal and check `koder --version` reports `koder 0.8.5`.
 2. Run `koder login`. Choose the system browser, QR code or local access with the arrow keys and Enter. Esc cancels. Starting an interactive task also offers sign-in.
 3. Enter your credentials only on **https://karmensecurity.com/account**. Check the device and confirmation code against the terminal, then approve the CLI.
 4. Keep the original terminal open while the CLI polls the server, verifies identity and saves the protected session. The CLI publication record does not establish account website return-button deployment or real browser-return acceptance. Once available, it only requests focus for the original terminal; it does not complete sign-in. Switch back manually if navigation or OS focus is unavailable. No localhost listener, embedded browser or pasted authorization code is used.
@@ -56,7 +56,7 @@ For `LOGIN_STORAGE_UNAVAILABLE` on Windows, run `koder account doctor --json` be
 
 Storage reports distinguish `HELPER_UNVERIFIED`, `PROCESS_TIMEOUT`, `DPAPI_FAILED`, `ACCESS_DENIED` and `DISK_FULL`. Share the fixed reason, operation, CLI version and report ID, never a token, authorization URL or confirmation code. Windows does not require Linux Secret Service. Inspect system protection records if a helper is blocked; do not disable protection or switch OS accounts to bypass the failure. Reinstall from the official source only when component damage is confirmed.
 
-Windows now checks protected storage before opening browser authorization. A failed attempt no longer permanently switches the process to temporary storage. An atomic write failure does not proactively delete a previously saved credential. Plaintext token fallback remains disabled. On macOS and Linux, `doctor` reports `not-probed`; it does not claim to have tested their interactive credential services.
+Windows now checks protected storage before opening browser authorization. A failed attempt no longer permanently switches the process to temporary storage. An atomic write failure does not proactively delete a previously saved credential. Plaintext token fallback remains disabled. On Linux, `doctor` checks whether `secret-tool` can start before authorization. A missing helper is unavailable; a runnable helper still returns `not-probed`, which does not prove an unlocked Secret Service or successful protected read/write. macOS interactive Keychain readiness is not inferred.
 
 ## Authorization recovery
 
@@ -81,8 +81,20 @@ Terminal return uses known macOS Terminal/iTerm applications, a captured Windows
 
 Existing account-flow records include isolated HTTP registration, email verification, device consent, token claim/refresh, a CLI task and revocation using synthetic accounts and a credential adapter. Earlier discovery checks are separate from the current CLI website activation and do not certify production human sign-in. Human phone approval and native credential storage/browser combinations on each OS remain separate beta checks. See the [Chinese walkthrough](ACCOUNT-LOGIN.zh.md) and the release acceptance record.
 
-The 0.8.4 account suite records 198 passed checks and two conditional local-key checks skipped. Those skipped cases are not fresh proof of local-key task completion. Human registration and browser-to-desktop return remain **NOT_RUN**.
+The 0.8.5 packaged account/session and agentd suites record 208 passed checks and two conditional local-key skips. The credential suite is separate: 24 passed and two Windows-only skips in the Mac run. Those skipped cases are not fresh proof of local-key task completion. Human registration and browser-to-desktop return remain **NOT_RUN**.
 
-## Recorded Windows VM checks
+## Historical Windows VM checks: 0.8.4
 
 The exact published 0.8.4 universal package and PowerShell installer passed hash verification in a [Windows Server 2022 x64 Actions run](https://github.com/KarmenLoop/koder-cli/actions/runs/41535590608). Seven cases passed: CurrentUser DPAPI, plain and Unicode/space paths with fresh-process readback, legacy ciphertext compatibility, synthetic-account authorization/persistence/refresh/logout, recovery after a helper-spawn failure, and signed-out storage diagnostics. This is not a human production sign-in or a native Windows 10/11 GUI check.
+
+## Sign-in stability in 0.8.5
+
+Temporary HTTP service errors and rate limits retain a saved account during identity verification. Canceling while reading credentials does not rotate or clear them. If replacement credentials fail readback, the client attempts to restore and verify the prior protected record under the same lease. An unsuccessful restoration remains an error.
+
+Concurrent account operations wait up to 45 seconds for the current owner, with cancellation preserved. `LOGIN_BUSY` asks you to retry later; do not delete live locks or account files. Linux credential output is decoded as complete UTF-8, preserving names split across pipe chunks. Invalid bytes fail with `INVALID_UTF8`. Expired saved grants cannot start a task even when remote identity verification is disabled.
+
+A lost token-claim or refresh response remains non-replayable and may require a new login. No plaintext fallback or permission expansion was added. Browser-return deployment and human acceptance are tracked separately from CLI protocol tests.
+
+## Verified 0.8.5 Windows storage checks
+
+The [exact 0.8.5 Actions run](https://github.com/KarmenLoop/koder-cli/actions/runs/41622933939) used Windows Server 2022 x64 and Node 22.23.4. The official universal archive and PowerShell installer matched their frozen sizes and SHA-256 values. All seven cases passed: native DPAPI, plain and Unicode/space paths with fresh-process readback, old-ciphertext compatibility, synthetic account authorization/persistence/refresh/logout, retry after a helper-spawn failure and the signed-out storage doctor. This does not establish human production sign-in or Windows 10/11 GUI acceptance.

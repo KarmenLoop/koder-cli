@@ -2,13 +2,13 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-这组 **0.8.4** 图片采集于 2026 年 11 月 3 日，来自已发布的 macOS 安装包。归档与冻结发行记录及产品负责人完成校验的公网下载一致；采集时观察到的 202 个包内文件也逐一与归档匹配。[命令、退出状态及图片校验值](capture-0.8.4.json)。
+这组 **0.8.5** 图片采集于 2026 年 11 月 3 日，来自已发布的 macOS 安装包。归档与冻结发行记录及已提升的官网版本映射一致；采集时观察到的 202 个包内文件也逐一与归档匹配。[命令、退出状态及图片校验值](capture-0.8.5.json)。
 
 | 界面 | English | 简体中文 |
 | --- | --- | --- |
-| 启动 | [英文](cli-start-0.8.4-en-dark.jpg) | [中文](cli-start-0.8.4-zh-dark.jpg) |
-| 设置 | [英文](cli-setup-0.8.4-en-dark.jpg) | [中文](cli-setup-0.8.4-zh-dark.jpg) |
-| 第一课 | [英文](cli-learn-0.8.4-en-dark.jpg) | [中文](cli-learn-0.8.4-zh-dark.jpg) |
+| 启动 | [英文](cli-start-0.8.5-en-dark.jpg) | [中文](cli-start-0.8.5-zh-dark.jpg) |
+| 设置 | [英文](cli-setup-0.8.5-en-dark.jpg) | [中文](cli-setup-0.8.5-zh-dark.jpg) |
+| 第一课 | [英文](cli-learn-0.8.5-en-dark.jpg) | [中文](cli-learn-0.8.5-zh-dark.jpg) |
 
 ## 采集方式
 
@@ -20,4 +20,4 @@
 
 ## 历史图片
 
-[0.7.2 采集记录](capture-0.7.2.json)、[0.5.21 采集记录](capture-0.5.21.json)和对应图片保留供历史链接使用。当前 README 展示 0.8.4 图片。
+[0.8.4 采集记录](capture-0.8.4.json)、[0.7.2 采集记录](capture-0.7.2.json)、[0.5.21 采集记录](capture-0.5.21.json)和对应图片保留供历史链接使用。当前 README 展示 0.8.5 图片。

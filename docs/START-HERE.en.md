@@ -12,9 +12,9 @@ See [account sign-in](ACCOUNT-LOGIN.md) for the 0.6.3 first-message and saved-se
 
 Retained since 0.5.0: [Awesome LLM Apps workflows](AWESOME-LLM-APPS.en.md); [SolidCraft CAD](SOLIDCRAFT.en.md) remains available. Existing [queue, model and effort controls](SESSION-CONTROLS.en.md) and [local application CLIs](cli-anything.md) remain available. The [Chinese classroom](courses/index.zh.html) contains 1,800 lessons.
 
-# Start with Koder CLI 0.8.4
+# Start with Koder CLI 0.8.5
 
-This walkthrough targets **0.8.4**. Once your first task works, try [page collection](WEB-DATA.md) or [two independent worker tasks](SUPER-AGENT-ARCHITECTURE.en.md). Start with a small project whose files you can inspect yourself.
+This walkthrough targets **0.8.5**. Once your first task works, try [page collection](WEB-DATA.md) or [two independent worker tasks](SUPER-AGENT-ARCHITECTURE.en.md). Start with a small project whose files you can inspect yourself.
 
 ## Open Koder after installation
 
@@ -44,7 +44,7 @@ koder update
 koder --version
 ```
 
-Expect `koder 0.8.4`. If an updater from 0.4.4 or earlier rejects the manifest, run the current installer from the CLI website in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
+Expect `koder 0.8.5`. If an updater from 0.4.4 or earlier rejects the manifest, run the current installer from the CLI website in place without uninstalling or deleting settings. Follow [Installation](INSTALLATION.md) for shell-specific commands, license review and troubleshooting. An old executable earlier on PATH can still launch an older version: inspect `where.exe koder` on Windows or `type -a koder` on macOS/Ubuntu.
 
 ## 2. Configure a model and try a task
 
@@ -134,6 +134,10 @@ Use the default PageIndex Skill to navigate local documents, read selected secti
 
 Read the [complete execution guide](FRAMEWORK-0.5.en.md). It covers installation checks, local OCR, role selection, FIFO concurrency, headless completion and platform limits.
 
-## 0.8.4: project memory with sources
+## 0.8.5: project memory with sources
 
 [The memory walkthrough](DEERFLOW-MEMORY.en.md) covers remembering, readback, correction, forgetting and off controls. The [account guide](ACCOUNT-LOGIN.md) distinguishes cloud sign-in from local access. Remembered text is neither a permission grant nor delivery evidence. Release checks and remaining limits are recorded separately.
+
+## Account recovery in 0.8.5
+
+Check `koder account doctor --json` before repeating browser sign-in. Linux preflight distinguishes a missing helper from `not-probed`; an unlocked Secret Service and protected read/write are still required. Concurrent refreshes wait up to 45 seconds with cancellation; `LOGIN_BUSY` means retry later without deleting a live lock. Temporary identity-service errors preserve a saved account, while expired grants and unconfirmed token exchanges still require recovery. [Sign-in guide](ACCOUNT-LOGIN.md) · [0.8.5 release checks](RELEASE-0.8.5.md).
