@@ -1,3 +1,14 @@
+## 0.8.5 — 2026-11-03
+
+- Diagnose Linux credential helpers before browser authorization and decode complete UTF-8.
+- Preserve saved identity on temporary service errors, wait safely for concurrent refreshes, and verify recovery after a failed replacement login.
+- Reject expired grants before task execution; retain non-replayable token-exchange recovery.
+- Refresh English and Chinese terminal images from the published 0.8.5 macOS package.
+
+Koder CLI 0.8.5 is published on the official website. Formal activation and 18 targeted HTTPS checks are verified. The exact [Windows Server 2022 / Node 22.23.4 run](https://github.com/KarmenLoop/koder-cli/actions/runs/41622933939) passed all seven storage/account cases. Full-file downloads, resume, update paths and public macOS installation are being verified separately by the product owner; the independent website PUBLIC414 and human/native desktop checks remain separate.
+
+[Release notes](docs/RELEASE-0.8.5.md) · [中文](docs/RELEASE-0.8.5.zh.md).
+
 ## 0.8.4 — 2026-11-03
 
 - Combine Windows protected-storage recovery, browser return and explicit local-access support.

@@ -1,10 +1,16 @@
-# Current website release: 0.8.4
+# Current website release: 0.8.5
+
+Koder CLI 0.8.5 is published on the official website. Formal activation and 18 targeted HTTPS checks are verified. The exact [Windows Server 2022 / Node 22.23.4 run](https://github.com/KarmenLoop/koder-cli/actions/runs/41622933939) passed all seven storage/account cases. Full-file downloads, resume, update paths and public macOS installation are being verified separately by the product owner; the independent website PUBLIC414 and human/native desktop checks remain separate.
+
+[English release notes](docs/RELEASE-0.8.5.md) · [中文说明](docs/RELEASE-0.8.5.zh.md). The packaged account/session and agentd suites record 208 passes and two conditional skips; credentials record 24 passes and two Windows-only skips in the separate Mac suite; memory records 23 passes. These are separate suites.
+
+## Previous website release: 0.8.4
 
 Koder CLI 0.8.4 is published through the [official CLI website](https://kodermodule.com/en/cli-download.html). [English release notes](docs/RELEASE-0.8.4.md) · [中文说明](docs/RELEASE-0.8.4.zh.md).
 
 The formal activation record confirms the new production release. Product records verify 18 targeted HTTPS checks, the exact stable feed, all 32 original public file sizes/hashes (1,111,714,572 bytes), Linux resume from byte 1,048,576 and both default official update checks. The old 0.8.1 client finds 0.8.4; the new client reports current. No update installation was performed by those checks.
 
-The exact 0.8.4 Windows Server 2022 VM run passed seven CurrentUser DPAPI/storage and synthetic-account cases, including Unicode paths, fresh-process readback, old ciphertext, refresh/logout, retry and doctor. This does not certify human production sign-in or Windows 10/11/Ubuntu GUI. The website owner's broader PUBLIC413 remains pending its separate final receipt.
+The exact 0.8.4 Windows Server 2022 VM run passed seven CurrentUser DPAPI/storage and synthetic-account cases, including Unicode paths, fresh-process readback, old ciphertext, refresh/logout, retry and doctor. This does not certify human production sign-in or Windows 10/11/Ubuntu GUI. At PR #13 the website-owner PUBLIC413 was pending; its later original H3C receipt passed all 413 checks. Human/native desktop acceptance remains separate.
 
 Build evidence stays separate: 198 account passes, two conditional local-key skips, and 23 packaged memory-kernel passes. An eight-operation isolated memory tutorial also verified fact readback/correction/forgetting and a retained source audit; it used structured output and no model or real account. No combined score is inferred. Native memory changed the private kernel; 79 Skills, licenses and attribution remain in place. The current README gallery shows [0.8.4 macOS captures](docs/screenshots/README.md) in English and Chinese. Earlier image records remain available with their original version labels. No GitHub binary Release or private kernel development source is added.
 

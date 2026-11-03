@@ -1,13 +1,13 @@
 # Complete command reference
 
-This command reference targets the **0.8.4**. The Web Data and managed-runtime commands below are carried forward from 0.7.2. [Architecture and provenance](ARCHITECTURE-AND-PROVENANCE.en.md) explains the native task engine and attributed components.
+This command reference targets the **0.8.5**. The Web Data and managed-runtime commands below are carried forward from 0.7.2. [Architecture and provenance](ARCHITECTURE-AND-PROVENANCE.en.md) explains the native task engine and attributed components.
 
-Koder CLI 0.5.1 · 1,800 Chinese lessons; original 30 English lessons
+Koder CLI 0.8.5 · 1,800 Chinese lessons; original 30 English lessons
 
 Generated from this release’s command definitions. [GitHub](GITHUB-PROJECTS.en.md) · [Setup](USER-GUIDE.en.md) · [Task orchestration](TASK-ORCHESTRATION.en.md)
 
 ```text
-KODER CLI 0.5.1
+KODER CLI 0.8.5
 A lightweight terminal coding agent
 
 Usage
@@ -26,13 +26,17 @@ Review, fix, test
   test     Generate tests for changed or given files
 
 Automation and orchestration
+  goal     Set, run, and track a session goal
+  plan     Create and save a plan before execution
   flow     Orchestrate agent and check steps from a flow file
   ci       GitHub Actions workflow and /koder comment triggers
   moa      Mixture of Agents: several models advise, the current one acts
 
 Toolchain and local projects
+  devices  Inspect USB, serial interfaces and driver state
   github   Connect GitHub, host projects and edit repositories
   netlify  Connect your Netlify site and authorize draft deployments
+  web-data Collect, extract, resume and export website data
   reverse  First-party Koder static reverse engineering (preview)
   rea      Use bundled REA reverse-engineering tools
   apps     Application connections and status
@@ -44,6 +48,9 @@ Toolchain and local projects
   gateway  Connect Feishu, WeCom, WeChat, DingTalk, Telegram, Slack, Discord, WhatsApp
 
 Setup and help
+  interfaceCustomize the interface and compose task templates
+  self-repairLocal feature code repairs and rollback
+  care     Storage care, memory guard, settings and antivirus
   ocr      Read images and scanned PDFs locally
   design   Website briefs and bundled design references
   pageindexNavigate document trees and verify source citations
@@ -55,6 +62,7 @@ Setup and help
   cad      Parametric 3D CAD with SolidCraft
   cli-anythingDiscover, register and approve local app CLIs
   migrate  Move projects, preferences and local history between devices
+  diagnosticsLocal self-checks, error reporting and queue status
   logs     Inspect local runtime diagnostics
   activate Enable the local user agent
   deactivateStop the agent and remove login startup
@@ -64,17 +72,20 @@ Setup and help
   visuals  Review three directions, compare visual choices and export the project H5 map
   mail     Bind mail, classify messages and authorize replies
   preview  Open a live companion browser for a website or Web app
-  growth   Built-in autonomous learning Skill: status, method and controls
+  learning Local task learning: memory, recovery and reviews
+  growth   Growth method and task learning controls
   resourcesReferences: official remote workflows or your optional private collections
   business Company licensing and dedicated private repository inquiries
   star     An optional GitHub star for Koder
   privacy  Read full consumer privacy terms and notices offline
-  feedback Official feedback address and blank template
+  feedback Review and submit a separate redacted report
   celebrateSkippable six-second effects, holidays, and birthday settings
   eula     Read the license and consent guide, or explicitly accept the license
-  account  Account, sign-in and sign-out for cross-device memory
+  login    Web sign-in or access key for local use
+  logout   Sign out of KARMEN on this device
+  account  KARMEN browser sign-in, QR sign-in and local sign-out
   prompts  Choose a contextual next message or a saved template
-  skills   Discover and import Codex, Cursor and WorkBuddy-compatible skills
+  skills   Skill store, download adapters and local Codex, Cursor and WorkBuddy skills
   permissionsSmart approval, saved permissions, full access and computer grants
   setup    Settings screen: configure everything with arrow keys or the mouse
   onboard  Same as koder setup; the installers open it after installing
@@ -87,7 +98,7 @@ Setup and help
   lang     Switch between Chinese and English
   theme    Switch the website's dark or light palette
   help     Show help
-  learn    1800-lesson interactive tutorial in a practice project
+  learn    Choose command lessons, course topics and 1800 lessons
   doctor   Check environment, model and startup time
   banner   Show the prism banner
   version  Show the version and the official updates page
@@ -98,6 +109,8 @@ Global options
   --skill <id,name>         Select local skills for this turn; read on demand, scripts retain approvals
   --stdin                   Attach stdin to an explicit prompt; read it automatically when there is no prompt
   --stdin-timeout <sec>     Complete-input deadline, default 5 seconds, range 0.01–3600 seconds
+  --task-timeout <sec>      Optional task deadline; close out in the final 20%; no default time limit
+  --delivery-contract <file> Explicit run delivery contract: paths, sizes, manifest and actual verification
   -w, --workspace <dir>     Workspace folder, default: current directory
   -y, --yes                 Auto-accept edits and commands; never answers questions, collects passwords or enables learning or computer grants
   --approval auto|ask|full|deny Approval mode for this run; --yes never overrides explicit deny
@@ -1352,7 +1365,7 @@ koder skills runtime playwright browser
 
 Installation and browser preparation can download assets and require the existing network and Skill-update approvals. `--yes` does not bypass permission checks. Browser rendering has a separate browser grant. Follow [Web Data](WEB-DATA.md) for collection and saved-job recovery, [runtime setup](TOOL-RUNTIMES.en.md) for platform prerequisites, and [worker coordination](SUPER-AGENT-ARCHITECTURE.en.md) for `/subagents status` and cancellation. These commands use the existing capabilities; they do not register duplicate Skills.
 
-## 0.8.4: account diagnostics and memory
+## 0.8.5: account diagnostics and memory
 
 ```sh
 koder account doctor --json
@@ -1360,4 +1373,8 @@ koder learning facts --json
 koder learning status --json
 ```
 
-The account doctor can inspect Windows protected storage without signing in. Storage readiness is not authentication. Use the [account guide](ACCOUNT-LOGIN.md) and [memory walkthrough](DEERFLOW-MEMORY.en.md) for setup, correction/forgetting and verification limits. These commands target 0.8.4. Successful storage checks do not establish account authentication or task completion.
+The account doctor can inspect Windows protected storage without signing in. Storage readiness is not authentication. Use the [account guide](ACCOUNT-LOGIN.md) and [memory walkthrough](DEERFLOW-MEMORY.en.md) for setup, correction/forgetting and verification limits. These commands target 0.8.5. Successful storage checks do not establish account authentication or task completion.
+
+## Account recovery in 0.8.5
+
+Check `koder account doctor --json` before repeating browser sign-in. Linux preflight distinguishes a missing helper from `not-probed`; an unlocked Secret Service and protected read/write are still required. Concurrent refreshes wait up to 45 seconds with cancellation; `LOGIN_BUSY` means retry later without deleting a live lock. Temporary identity-service errors preserve a saved account, while expired grants and unconfirmed token exchanges still require recovery. [Sign-in guide](ACCOUNT-LOGIN.md) · [0.8.5 release checks](RELEASE-0.8.5.md).
